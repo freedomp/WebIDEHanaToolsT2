@@ -1,9 +1,0 @@
-
-/* ============================================= */
-/* CSS for control sap.ui.comp/VariantItem.control */
-/* ============================================= */
-
-.sapUiCompVariantItem{
-  color: @sapUiTextColor;
-  border: 1px solid blue;
-}

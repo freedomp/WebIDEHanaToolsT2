@@ -1,7 +1,0 @@
-/*!
- * SAP APF Analysis Path Framework
- * 
- * (c) Copyright 2012-2015 SAP AG. All rights reserved
- */
-jQuery.sap.declare('sap.apf.utils.externalContext');jQuery.sap.require('sap.apf.core.utils.filter');
-sap.apf.utils.ExternalContext=function(i){'use strict';var d=jQuery.Deferred();var s=i.instance.startParameter.getEvaluationId();var x=i.instance.startParameter.getXappStateId();var m=i.instance.messageHandler;var r;var c;var a;this.getCombinedContext=function(){if(s){c=i.functions.getConfigurationProperties();a=c&&c.smartBusiness&&c.smartBusiness.runtime;if(a&&a.service){r=a.service+"/EVALUATIONS('"+s+"')/FILTERS?$format=json";jQuery.ajax({url:r,success:function(b){var p;var m=i.instance.messageHandler;var o;var e=new sap.apf.core.utils.Filter(m);var f=[];var t={};b.d.results.forEach(g);for(p in t){if(t.hasOwnProperty(p)){o=new sap.apf.core.utils.Filter(m);t[p].forEach(h);f.push(o);}}f.forEach(j);d.resolve(e);function g(k){if(!t[k.NAME]){t[k.NAME]=[];}t[k.NAME].push(new sap.apf.core.utils.Filter(m,k.NAME,k.OPERATOR,k.VALUE_1,k.VALUE_2));}function h(k){o.addOr(k);}function j(k){e.addAnd(k);}},error:function(j,t,e){}});}}else if(x){sap.ushell.Container.getService("CrossApplicationNavigation").getAppState(i.instance.component,x).done(function(b){var e=b.getData();if(e&&e.sapApfCumulativeFilter){d.resolve(sap.apf.core.utils.Filter.transformUI5FilterToInternal(m,e.sapApfCumulativeFilter));}else{d.resolve(new sap.apf.core.utils.Filter(m));}});}else{d.resolve(new sap.apf.core.utils.Filter(m));}return d.promise();};};

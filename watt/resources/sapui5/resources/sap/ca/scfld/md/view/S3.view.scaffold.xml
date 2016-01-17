@@ -1,8 +1,0 @@
-<!--
-
-    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
-
--->
-<core:View xmlns:core="sap.ui.core"
-           xmlns="sap.m">
-</core:View>

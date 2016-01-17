@@ -1,5 +1,0 @@
-{
-	"name": "sap.xs.nodejs.project.service.runner.NodejsTestRunnerPart",
-	"description": "The Node.js test runner part service",
-	"extends": "sap.watt.common.service.ui.Part"
-}

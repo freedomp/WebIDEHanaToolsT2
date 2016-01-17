@@ -1,7 +1,0 @@
-{
-	"name": "sap.watt.hana.editor.xsodata.service.XSODataValidator",
-	"description": "The XSOData Validator interface",
-	"extends" : ["sap.watt.common.service.editor.Validator"],
-	"methods": {},
-	"events" : {}
-}

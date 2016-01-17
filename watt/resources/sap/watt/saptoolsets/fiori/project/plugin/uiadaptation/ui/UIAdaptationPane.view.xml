@@ -1,4 +1,0 @@
-<mvc:View controllerName="sap.watt.saptoolsets.fiori.project.plugin.uiadaptation.ui.UIAdaptationPane"
-          xmlns:mvc="sap.ui.core.mvc" xmlns="http://www.w3.org/1999/xhtml" class="adaptationPane">
-    <iframe style="border : none;" id="adaptUiPreview" height="100%" width="100%"/>
-</mvc:View>

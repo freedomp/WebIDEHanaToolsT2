@@ -1,8 +1,0 @@
-/* initialize font family XSJT-icons from file */
-@font-face {
-    font-family: 'nodejs-base-icons';
-    font-weight: normal;
-    font-style: normal;
-
-    src: url('../font/nodejs-base-icons.ttf') format('truetype');
-}

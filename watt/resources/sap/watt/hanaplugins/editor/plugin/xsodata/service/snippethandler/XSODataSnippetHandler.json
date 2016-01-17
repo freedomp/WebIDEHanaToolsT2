@@ -1,8 +1,0 @@
-{
-	"name" : "sap.watt.hana.editor.xsodata.service.snippet.XSODataSnippetHandler",
-	"description" : "The XSOData snippet handler interface",
-	"extends" : [
-		"sap.watt.common.plugin.snippet.PreSnippetInsertionHandler"
-	]	
-
-}

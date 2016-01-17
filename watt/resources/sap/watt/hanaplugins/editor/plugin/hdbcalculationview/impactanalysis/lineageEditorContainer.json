@@ -1,8 +1,0 @@
-{
-    "name": "sap.watt.hanaplugins.editor.plugin.hdbcalculationview.interface.lineageEditorContainer",
-    "description": "data linegae editor interface",
-    "extends": [
-        "sap.watt.common.service.editor.Editor",
-        "sap.watt.common.service.editor.UndoRedo"
-    ]
-}

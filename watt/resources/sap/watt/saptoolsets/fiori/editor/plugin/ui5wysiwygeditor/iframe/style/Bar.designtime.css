@@ -1,8 +1,0 @@
-.widget-droparea-sortable-contentLeft > .sapMBarLeft,
-.widget-droparea-sortable-contentMiddle > .sapMBarMiddle > .sapMBarPH,
-.widget-droparea-sortable-contentRight > .sapMBarRight {
-	width: 33% !important;
-}
-.widget-droparea-sortable-contentMiddle > .sapMBarMiddle > .sapMBarPH {
-	position: static !important;
-}

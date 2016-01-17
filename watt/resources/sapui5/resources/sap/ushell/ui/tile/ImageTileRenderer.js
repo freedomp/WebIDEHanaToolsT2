@@ -1,2 +1,0 @@
-// Copyright (c) 2009-2014 SAP SE, All Rights Reserved
-(function(){"use strict";jQuery.sap.declare("sap.ushell.ui.tile.ImageTileRenderer");jQuery.sap.require("sap.ushell.ui.tile.TileBaseRenderer");sap.ushell.ui.tile.ImageTileRenderer=sap.ui.core.Renderer.extend(sap.ushell.ui.tile.TileBaseRenderer);sap.ushell.ui.tile.ImageTileRenderer.renderPart=function(r,c){r.write("<img");r.addClass("sapUshellImageTile");r.writeClasses();r.writeAttributeEscaped("src",c.getImageSource());r.write("/>");};}());

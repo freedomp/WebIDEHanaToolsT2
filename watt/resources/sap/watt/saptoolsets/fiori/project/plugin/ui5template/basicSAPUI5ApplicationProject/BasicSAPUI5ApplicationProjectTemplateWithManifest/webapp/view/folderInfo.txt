@@ -1,1 +1,0 @@
-Place your all view files under this folder

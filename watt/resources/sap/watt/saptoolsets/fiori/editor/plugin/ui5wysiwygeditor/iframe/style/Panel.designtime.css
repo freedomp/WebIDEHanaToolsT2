@@ -1,7 +1,0 @@
-.sapMPanelContent {
-	min-height : 48px;
-}
-.widget-droparea-sortable-headerToolbar > .sapUiDtEmptyHeader ,
-.widget-droparea-sortable-infoToolbar > .sapUiDtEmptyInfoToolbar {
-	height : 48px !important;
-}

@@ -1,8 +1,0 @@
-
-
-define(function() { 
-
-	var XML_METADATAS = {$XMLMETADATAS};
-
-	return XML_METADATAS;
-});

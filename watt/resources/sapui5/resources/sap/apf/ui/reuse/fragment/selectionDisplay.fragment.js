@@ -1,6 +1,0 @@
-/*!
- * SAP APF Analysis Path Framework
- *
- * (c) Copyright 2012-2014 SAP SE. All rights reserved
- */
-sap.ui.jsfragment("sap.apf.ui.reuse.fragment.selectionDisplay",{createContent:function(c){this.oController=c;this.contentWidth=jQuery(window).height()*0.6+"px";this.contentHeight=jQuery(window).height()*0.6+"px";var s=this;this.oCoreApi=c.oCoreApi;this.oUiApi=c.oUiApi;var a=new sap.m.Button({text:s.oCoreApi.getTextNotHtmlEncoded("close"),press:function(){s.selectionDisplayDialog.close();s.selectionDisplayDialog.destroy();}});var A=this.oCoreApi.getActiveStep();var b=A.getSelectedRepresentation();var d=typeof b.getSelections==="function"?b.getSelections():undefined;var e=b.getMetaData().getPropertyMetadata(b.getParameter().requiredFilters[0]).label;var m=new sap.ui.model.json.JSONModel();if(d!==undefined){var D={selectionData:d};var f=new sap.m.List({items:{path:"/selectionData",template:new sap.m.StandardListItem({title:"{text}"})}});m.setData(D);f.setModel(m);this.selectionDisplayDialog=new sap.m.Dialog({title:this.oCoreApi.getTextNotHtmlEncoded("selected-required-filter",[e])+" ("+d.length+")",contentWidth:s.contentWidth,contentHeight:s.contentHeight,buttons:[a],content:[f]});return this.selectionDisplayDialog;}}});

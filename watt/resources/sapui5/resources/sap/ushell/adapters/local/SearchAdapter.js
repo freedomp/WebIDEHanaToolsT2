@@ -1,2 +1,0 @@
-// Copyright (c) 2009-2014 SAP SE, All Rights Reserved
-(function(){"use strict";jQuery.sap.declare("sap.ushell.adapters.local.SearchAdapter");window.sap.bc=window.sap.bc||{};window.sap.bc={ina:{api:{sina:{properties:{systemType:"ABAP",startWithSearch:"false",noSapClientFromUrl:true}}}}};jQuery.sap.require("sap.ushell.renderers.fiori2.search.esh.api.release.sina");sap.ushell.adapters.local.SearchAdapter=function(s,p,a){this.isSearchAvailable=function(){var d=jQuery.Deferred();d.resolve(true);return d.promise();};this.getSina=function(){return sap.bc.ina.api.sina;};};}());

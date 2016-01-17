@@ -1,7 +1,0 @@
-{
-	"name" : "sap.watt.common.service.ide.CommandGroupItemProvider",
-	"description" : "The command group item provider interface",
-	"methods" : {
-		"getItems" : {}
-	}
-}

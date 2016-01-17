@@ -1,7 +1,0 @@
-<core:View height="100%"
-	controllerName="sap.watt.platform.plugin.toprightpane.view.TopRightPaneContainer"
-	xmlns="sap.ui.commons" xmlns:layout="sap.ui.commons.layout" xmlns:core="sap.ui.core"
-	xmlns:ide="sap.watt.platform.plugin.toprightpane.view" xmlns:html="http://www.w3.org/1999/xhtml">
-	<layout:HorizontalLayout id="topRightPaneContainerLayout">
-	</layout:HorizontalLayout>
-</core:View>

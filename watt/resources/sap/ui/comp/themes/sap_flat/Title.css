@@ -1,9 +1,0 @@
-
-/* ============================================= */
-/* CSS for control sap.ui.comp/Title.control */
-/* ============================================= */
-
-.sapUiCompTitle{
-  color: @sapUiTextColor;
-  border: 1px solid blue;
-}

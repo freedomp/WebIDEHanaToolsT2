@@ -1,1 +1,0 @@
-jQuery.sap.declare('sap.portal.ui5.externals.es5shims.arrayprototypeindexof');if(!Array.prototype.indexOf){Array.prototype.indexOf=function indexOf(f,s){if(typeof(s)==='undefined'){s=0;}var l=this.length;if(s<0){s+=l;}if(s<0){s=0;}var i;for(i=s;i<l;i++){if(typeof(this[i])!=='undefined'&&this[i]===f){return i;}}return-1;};}

@@ -1,8 +1,0 @@
-{
-	"name" : "sap.watt.hana.editor.hdbdd.service.snippet.CdsSnippetHandler",
-	"description" : "The CDS snippet handler interface",
-	"extends" : [
-		"sap.watt.common.plugin.snippet.PreSnippetInsertionHandler"
-	]
-
-}

@@ -1,9 +1,0 @@
-
-/* ============================================= */
-/* CSS for control sap.ui.comp/SmartFieldControl.control */
-/* ============================================= */
-
-.sapUiCompSmartFieldControl{
-  color: @sapUiTextColor;
-  border: 1px solid blue;
-}
