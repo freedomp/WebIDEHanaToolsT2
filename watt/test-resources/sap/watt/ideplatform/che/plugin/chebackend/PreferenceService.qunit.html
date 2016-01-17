@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<script src="../../../util/qunitHelper.js" ></script>
+<script>setBase("sap/watt/uitools/")</script>
+
+
+<script type="text/javascript"
+	src="../../../../qunit/ideplatform/orion/plugin/orionbackend/utils/BasicUtil.js"></script>
+<script type="text/javascript"
+	src="../../../../qunit/ideplatform/orion/plugin/orionbackend/utils/fileFolderTree/Util.js"></script>
+<script type="text/javascript"
+	src="../../../../qunit/ideplatform/orion/plugin/orionbackend/utils/fileFolderTree/TestData.js"></script>
+
+<script src="../lib/requirejs/require.js" data-main="../core/Global"
+	data-sap-ide-main="runTests"
+	data-sap-ide-environment-path="../../../../env.json" data-sap-ide-basedir="../../../"></script>
+
+<title>Preference Service qUnit Test</title>
+
+
+<script>
+	defineTest([ "sap/watt/ideplatform/orion/plugin/orionbackend/service/Preferences", 
+	             "sap/watt/ideplatform/orion/plugin/orionbackend/service/System"],
+	             function(oPrefService, oSystemService) {
+		// login
+		var oParameters = jQuery.sap.getUriParameters();
+		var sUsername = oParameters.get("username");
+		var sPassword = oParameters.get("password");
+		oSystemService.context = {
+			"event" : {
+				fireLoggedIn : function() {return Q();}
+			}
+		};
+		var oLoginPromise = oSystemService.login(sUsername, sPassword);
+		
+		var sTestPreferenceNode = "testprefs"
+
+		// Timestamp for the whole test
+		// Names for projects are built later on in BasiUtil._buildProjectName( ):
+		// "TestProject_" + this._dTestModuleTimeStamp + "_" + this._sTestId;
+		// sTestId is passed by each ansych test: "1a", "1b", ...
+		var dTestModuleTimeStamp = Number(new Date());
+
+		module("Preference Service", {
+			setup : function() {
+			},
+			teardown : function() {
+			}
+		});
+
+		asyncTest("Write then read", 1, function() {
+			
+			var oPref = {
+				color : "red",
+				isAutoSaveEnable : true
+			};
+						
+			oPrefService.set(oPref, sTestPreferenceNode).then(function() {				
+				oPrefService.get(sTestPreferenceNode).then(function(oResult) {					
+					for (attr in oResult) {
+						if (oPref[attr] && oPref[attr] != oResult[attr]){
+							ok(false, "Preferences read differs from that written before");
+							break;
+						}			
+					}
+					ok(true, "Preference read identical to what has previously been written");
+					start();
+				});
+				
+			});
+			
+		});
+		
+		
+		
+		test("Write then delete, then read", 1, withPromise(function() {
+
+			var oPref = {
+				color : "red",
+				isAutoSaveEnable : true
+			};
+
+			return oPrefService.set(oPref, sTestPreferenceNode).then(function() {
+				return oPrefService.remove(sTestPreferenceNode).then(function() {
+					return oPrefService.get(sTestPreferenceNode).then(function(oResult) {
+						// unexpected success
+						ok(true, "Non existing nodes does not throw errors anymore.");
+						start();
+					}).fail(function(oError){
+						//expected failure
+						ok(oError.status != 404, "Recieved error.");
+						start();
+					});
+				});
+
+			});
+
+		}));
+
+		return oLoginPromise;
+	});
+</script>
+
+</head>
+<body>
+	<div id="qunit"></div>
+	<div id="content" style="display: none"></div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+namespace CDS;
+Context MyContext7 {
+
+  type MyStruct1 {
+    elem1: String(40);
+    elem2: LocalDate;
+  };
+
+  entity MyEntity {
+    key elem1 : Integer;
+        elem2 : String(22);
+        elem3 : LocalTime;
+  };
+
+  type t2 {
+    elem1: MyEntity.elem3;
+    elem2: String(40);
+  };
+
+};
+
+/* @classification: basic */
+/* @description: Using structured type element as type */
+/* @resource-name: CDS::MyContext7 */

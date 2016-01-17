@@ -1,0 +1,56 @@
+{
+    "plugins": [
+
+		"../../../../../../../resources/sap/watt/common/plugin/platform",
+		"../../../../../../../resources/sap/watt/platform/plugin/usernotification",
+		"../../../../../../../resources/sap/watt/platform/plugin/usernotificationbar",
+		"../../../../../../../resources/sap/watt/platform/plugin/layout",
+		"../../../../../../../resources/sap/watt/common/plugin/perspective",
+		"../../../../../../../resources/sap/watt/platform/plugin/command",
+		"../../../../../../../resources/sap/watt/platform/plugin/clipboard",
+		"../../../../../../../resources/sap/watt/platform/plugin/commandgroup",
+		"../../../../../../../resources/sap/watt/platform/plugin/menu",
+		"../../../../../../../resources/sap/watt/platform/plugin/filefilter",
+		"../../../../../../../resources/sap/watt/platform/plugin/contextmenu",
+		"../../../../../../../resources/sap/watt/platform/plugin/repositorybrowser",
+		"../../../../../../../resources/sap/watt/platform/plugin/decoration",
+		"../../../../../../../resources/sap/watt/platform/plugin/tipsandtricks",
+		"../../../../../../../resources/sap/watt/ideplatform/plugin/editor",
+		"../../../../../../../resources/sap/watt/ideplatform/plugin/aceeditor",
+		
+		"../../../../../../../resources/sap/watt/platform/plugin/qrcode",
+		"../../../../../../../resources/sap/watt/platform/plugin/content",
+		"../../../../../../../resources/sap/watt/common/plugin/document",
+		
+		"../../../../../../../resources/sap/watt/common/plugin/filesystem",
+		"../../../../../../../resources/sap/watt/platform/plugin/setting",
+		"../../../../../../../resources/sap/watt/platform/hcp/plugin/destination",
+		
+		"../../../../../../../resources/sap/watt/platform/plugin/log",
+		"../../../../../../../resources/sap/watt/platform/plugin/progress",
+		"../../../../../../../resources/sap/watt/platform/plugin/console",
+		
+		"../../../../../../../resources/sap/watt/platform/plugin/toprightpane",
+		"../../../../../../../resources/sap/watt/platform/plugin/focus",
+		"../../../../../../../resources/sap/watt/platform/plugin/selection",
+		"../../../../../../../resources/sap/watt/platform/plugin/resource",
+		"../../../../../../../resources/sap/watt/platform/plugin/pluginmanager",
+		"../../../../../../../resources/sap/watt/ideplatform/plugin/gitclient",
+		"../../../../../../../resources/sap/watt/ideplatform/plugin/outlinepane",
+		
+		"../../../../../../../resources/sap/watt/platform/plugin/filesearch",
+		"../../../../../../../resources/sap/watt/ideplatform/plugin/compare",
+		"../../../../../../../resources/sap/watt/ideplatform/plugin/projectsetting",
+		"../../../../../../../resources/sap/watt/ideplatform/plugin/userpreference",
+		
+		"../../../../../../../resources/sap/watt/saptoolsets/fiori/project/plugin/rdlastlibrary",
+	    "../../../../../../../resources/sap/watt/ideplatform/che/plugin/chebackend",
+	    "../../../../../../../resources/sap/watt/ideplatform/che/plugin/report",
+	    "../../../../../../../resources/sap/watt/common/plugin/buildregistry",
+	    "../../../../../../../resources/sap/watt/ideplatform/plugin/runregistry",
+	    "../../../../../../../resources/sap/watt/platform/plugin/usagemonitoring",
+	    "../../../../../../../resources/sap/watt/platform/plugin/importExport",
+	    "../../../../../../../resources/sap/watt/ideplatform/plugin/projectType",
+	    "../../../../../../../resources/sap/watt/ideplatform/che/plugin/mtafoldertoprojectconvertor"
+    ]
+}

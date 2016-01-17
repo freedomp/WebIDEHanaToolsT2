@@ -1,0 +1,5025 @@
+namespace d031119;
+
+@Schema: 'SYSTEM'
+context huge {
+
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+	annotation MyAnn_Str2 {
+		x2222222222222222222222222222 : Integer    default 42;
+		y : String(20) default 'defaultValue';
+		z : Boolean    default false;
+	};
+  	entity en {
+		test1 : Integer;
+		sdvsdv : Integer;
+		scsd :Boolean;
+		sdsdv : Integer;
+		test2 : Binary(3);
+	};
+
+	define view view_with_assoc as select from e1
+		mixin { element assoc1 : association [1 ..* ] to e2 on k1 <= assoc1.k2 ;} into
+		{
+        	f1 as meier,
+            case e1.f1 when 'a' then 2 else 3 end as uli,
+            assoc1.f2,
+            f2
+  		}
+		union select from e2 as datasource2
+			mixin { element assoc2 : association [1 ..* ] to e1 on k2 <= assoc2.k1 ;} into
+			{
+                assoc2.f1  ,
+                assoc2.f1 as feins
+			}
+		order by meier, f2, meier * f2;
+
+
+};

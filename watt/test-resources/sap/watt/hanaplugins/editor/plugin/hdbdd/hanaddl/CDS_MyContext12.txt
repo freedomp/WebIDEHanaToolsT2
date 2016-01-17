@@ -1,0 +1,18 @@
+namespace CDS;
+Context MyContext12 {
+
+  type T : String(20);
+
+  type MyStruct1 {
+    elem1: T;
+  };
+
+  type MyStruct2 {
+    elem1: MyStruct1;
+  };
+
+};
+
+/* @classification: basic */
+/* @description: Type using structured type using type */
+/* @resource-name: CDS::MyContext12 */

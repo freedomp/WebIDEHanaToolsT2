@@ -1,0 +1,4988 @@
+namespace d031119;
+
+@Schema: 'SYSTEM'
+context huge {
+
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+	
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY RANGE ( path ) ( PARTITION 3 <= VALUES < 4, PARTITION VALUES = 5, PARTITION OTHERS ); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		PARTITION BY HASH ( mypath,YEAR(a.b.c),MONTH(d) ) PARTITIONS GET_NUM_SERVERS(); 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FUZZY SEARCH INDEX ON ( mycol ) FUZZY SEARCH MODE ;  
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		unique INDEX hugo ON ( mypath, mypath2 ) 
+			ASC; 
+		group name X group name Y group type Z; 
+		UNLOAD PRIORITY 3; 
+	};
+	ENTITY a { 
+		el : Integer; 
+	} TECHNICAL CONFIGURATION { 
+		FULLTEXT INDEX myidx ON ( mycol ) 
+			async flush queue every 3 minutes or after 5 documents 
+			synchronous 
+			phrase index ratio 0.3 
+			LANGUAGE COLUMN mylang 
+			LANGUAGE DETECTION ( 'u', 'v', 'w' ) ; 
+	};
+  
+};

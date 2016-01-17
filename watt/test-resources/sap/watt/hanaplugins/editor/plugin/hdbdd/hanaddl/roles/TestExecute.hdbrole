@@ -1,0 +1,5 @@
+role tests.hanaddl.roles::TestExecute
+{
+	package sap.hana.ide.editor.plugin.editors.hdbdd: REPO.READ;
+	package tests.hanaddl: REPO.READ;
+}

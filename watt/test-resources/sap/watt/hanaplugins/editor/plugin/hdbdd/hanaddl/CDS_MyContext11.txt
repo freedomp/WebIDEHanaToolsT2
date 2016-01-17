@@ -1,0 +1,13 @@
+namespace CDS;
+Context MyContext11 {
+
+  type T: Integer;
+  type MyStruct1 {
+    elem1: T;
+  };
+
+};
+
+/* @classification: basic */
+/* @description: Type using type */
+/* @resource-name: CDS::MyContext11 */

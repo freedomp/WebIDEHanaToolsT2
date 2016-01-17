@@ -1,0 +1,14 @@
+service {
+   "sample.odata::table"   as "Table"    
+   
+    
+   create  using "sample.odata:jsexit.xsjslib::create_instead" 
+   events ( after "sample.odata:jsexit.xsjslib::create_after"  ,
+    before  "sample.odata:jsexit.xsjslib::create_before" )
+   update   
+   events ( after "sample.odata:jsexit.xsjslib::update_after"  ,
+    before  "sample.odata:jsexit.xsjslib::update_before"  ) 
+    delete forbidden
+    ;
+   
+    } 

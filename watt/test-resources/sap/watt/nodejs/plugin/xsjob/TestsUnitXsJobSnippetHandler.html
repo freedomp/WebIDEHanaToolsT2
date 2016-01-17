@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TestsUnitDurationFormat.html</title>
+
+<meta charset="UTF-8" />
+<meta http-equiv='cache-control' content='no-cache' />
+<meta http-equiv='expires' content='0' />
+<meta http-equiv='pragma' content='no-cache' />
+
+<link rel="stylesheet"
+	href="/resources/sap/ui/thirdparty/qunit.css" />
+
+<!-- load before all others -->
+<script id="sap-ui-bootstrap"
+	src="/resources/sap-ui-core.js"
+	data-sap-ui-theme="sap_bluecrystal" data-sap-ui-libs="sap.ui.commons"
+	data-sap-ui-resourceroots='{ "sap.hana.ide.editor.editors.xsjob": "../../../../../../resources/sap/watt/nodejs/plugin/xsjob/" }'>
+</script>
+
+<!-- keep sequence! -->
+<script src="/watt/resources/sap/watt/lib/q/q.js"></script>
+<script src="/watt/resources/sap/watt/lib/requirejs/require.js"></script>
+
+<script src="/resources/sap/ui/thirdparty/qunit.js"></script>
+<script src="../../test-support/qunitHelper.js"></script>
+
+</head>
+
+
+<body>
+	<div id="qunit"></div>
+	<div id="qunit-fixture"></div>
+
+	<script>
+
+		// otherwise QUnit will start immediately and not wait for promises
+		QUnit.config.autostart = false;
+
+		require(["../../../../../../resources/sap/watt/nodejs/plugin/xsjob/service/snippethandler/XsJobSnippetHandler"], function(snippetHandler) {
+
+			window.console.log("after require");
+
+			// load required productive libs
+
+			module("Unit Tests for Xs Job Snippet Handler", {
+				setup : function() {
+				},
+
+				teardown : function() {
+				}
+			});
+
+			test("Insert namespace", function(assert) {
+
+				var snippetContent = "\"action\": \"{{namespace}}:myJobExecutionFile.xsjs::execute\"";
+
+				var document = {
+					getEntity : function() {
+						return {
+							getFullPath : function() {
+								return "/a/b/c/job.xsjob";
+							}
+						}
+					}
+				};
+
+				window.console.log("before start");
+
+				var result = snippetHandler.updateSnippetBeforeInsertion(snippetContent, document);
+
+				window.console.log("after start");
+
+				assert.equal(result, "\"action\": \"a.b.c:myJobExecutionFile.xsjs::execute\"");
+			});
+
+			// now its safe to start the test execution
+			QUnit.start();
+		});
+
+
+	</script>
+
+</body>
+
+</html>

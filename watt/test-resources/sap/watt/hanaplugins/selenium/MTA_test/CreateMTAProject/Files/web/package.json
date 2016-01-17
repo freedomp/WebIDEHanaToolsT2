@@ -1,0 +1,1 @@
+{"name":"node-hello-world-approuter","dependencies":{"approuter":"1.1.5"},"scripts":{"start":"node node_modules/approuter/approuter.js"}}

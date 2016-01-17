@@ -1,0 +1,1 @@
+service namespace  "my.namespace" {} annotations { enable OData4SAP ; enable OData4SAP ; } 

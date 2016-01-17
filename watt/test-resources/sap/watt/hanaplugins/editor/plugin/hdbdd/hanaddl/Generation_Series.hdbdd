@@ -1,0 +1,53 @@
+namespace Partitions;
+context Generation_Series
+{
+    entity Equidistant
+    {
+        ticker: String(4);
+        date: UTCDateTime;
+        max_price: Decimal(4,2);
+                  
+        series (
+                series key(ticker)
+                period for series(date)
+                equidistant increment by interval 1 day)
+    }
+    technical configuration
+    {
+        partition by roundrobin partitions get_num_servers(),
+                     range(ticker) (partition value = '4711', partition others);
+       group name foo group type bar group subtype hugo;
+    };
+
+    @nokey
+    entity Not_Equidistant {
+       k: Integer64;
+       series (
+               period for series (k)
+               minvalue 3)
+    }
+    technical configuration
+    {
+        group name foo group type bar group subtype hugo;
+        partition by roundrobin partitions get_num_servers(),
+        range(k) (partition value = 4711, partition others);
+    }; 
+
+    entity Equidistant_piecewise {
+       ticker: String(4);
+       date: UTCDateTime;
+       max_price: Decimal(4,2);
+       series (
+               series key(ticker)
+               period for series(date)
+               equidistant piecewise)
+       }
+       technical configuration
+       {
+           group name foo group type bar group subtype hugo;
+           partition by roundrobin partitions get_num_servers(),
+           range(ticker) (partition value = 4711, partition others);
+       };
+
+};
+

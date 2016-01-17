@@ -1,0 +1,31 @@
+service {
+	"sample.odata::customer" as "Customers"; 
+	"sample.odata::order" as "Orders";
+    association "Customer_Orders" 
+        principal "Customers"("ID") multiplicity "*" 
+        dependent "Customers"("ID") multiplicity "*"
+        
+        over "sample.odata::knows" principal
+         ("KnowingCustomerID") dependent ("KnownCustomerID");
+         
+   association "Customer_Orders_storage" 
+        principal "Customers"("ID") multiplicity "*" 
+        dependent "Customers"("ID") multiplicity "*"
+        no storage ;
+        
+ association "Customer_Orders_storage_p" 
+        principal "Customers"("ID") multiplicity "*" 
+        dependent "Customers"("ID") multiplicity "*"
+        storage on principal;     
+              
+  association "Customer_Orders_storage_d" 
+        principal "Customers"("ID") multiplicity "*" 
+        dependent "Customers"("ID") multiplicity "*"
+        storage on dependent;     
+ 
+  association "Customer_Orders_modification" 
+        principal "Customers"("ID") multiplicity "*" 
+        dependent "Customers"("ID") multiplicity "*"
+        
+        create forbidden;                  
+} 

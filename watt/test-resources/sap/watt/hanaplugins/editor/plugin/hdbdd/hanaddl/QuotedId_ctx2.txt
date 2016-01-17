@@ -1,0 +1,12 @@
+namespace QuotedId;
+context ctx2 {
+ 
+  entity E1 {
+    key "elem.comp" : Integer;
+  };
+
+};
+
+/* @classification: basic */
+/* @description: Quoted identifier for key field */
+/* @resource-name: QuotedId::ctx2 */

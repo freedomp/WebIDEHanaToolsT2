@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="UTF-8">
+
+<title>SAP HANA Web IDE Unit Tests - UI(CD2)</title>
+
+<!-- <script src="/idetests/utils/polyfillsForPhantomJS.js"></script>-->
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script id="sap-ui-bootstrap" src="/resources/sap-ui-core.js"
+	data-sap-ui-theme="sap_bluecrystal"
+	data-sap-ui-xx-bindingSyntax="complex"
+	data-sap-ui-libs="sap.ui.commons, sap.ui.table,sap.ui.ux3">
+	
+</script>
+<link rel="stylesheet" href="../lib/qunit/qunit.css" type="text/css"
+	media="screen" />
+<script src="../lib/qunit/qunit.js"></script>
+<script src="../lib/qunit/QUnitUtils.js"></script>
+<script src="../lib/thirdparty/sinon.js"></script>
+<script src="../lib/thirdparty/sinon-qunit.js"></script>
+
+<script src="../lib/qunit/qunit-reporter-junit.js"></script>
+<!-- <script src="/watt/resources/sap/watt/hanaplugins/editor/common/expressioneditor/rndexpressioneditor/rndfiles/lib/require.js"></script> -->
+<script src="../lib/requirejs/require.js"></script>
+<!--  <script src="../editor/common/expressioneditor/rndexpressioneditor/rndfiles/lib/require.js"></script> -->
+<link rel="stylesheet"
+	href="/watt/resources/sap/watt/hanaplugins/editor/plugin/hdbcalculationview/css/calcvieweditor.css"
+	type="text/css" />
+
+<!-- ***********Add your script here************ -->
+<script type="text/javascript">
+	var testModules = [ "/watt/resources/sap/watt/hanaplugins/test-resources/editor/plugin/hdbcalculationview/testjs/SCTest.js" ];
+	require.config({
+		paths : {
+			"watt" : "/watt",
+			"sap" : "/sap",
+			"idetests" : "/idetests"
+		}
+	});
+	require.config({
+        paths: {
+            //Using the OPT version of rnd
+            'rndrt': '/watt/resources//sap/watt/hanaplugins/editor/common/expressioneditor/rndexpressioneditor/rndfiles/lib',
+            'commonddl': '/watt/resources/sap/watt/hanaplugins/editor/plugin/hdbdd/commonddl'
+        }
+    });
+	require([ "../lib/q/q" ], function(Q) {
+		window.Q = Q;
+		Q.onerror = function(oError) {
+			if (console) {
+				console.error("Unhandled Error", oError);
+				console.error(oError.stack);
+			}
+			var sError = "Unhandled Error: " + oError.message;
+			var messageBox = sap.ui.commons.MessageBox;
+			messageBox.show(sError, "ERROR", "Error", [], null, null,
+					"MSG_UNHANDLEDERROR");
+		};
+	});
+	/* QUnit.start(); */
+	QUnit.config.autostart= false;
+	require(testModules, function() {
+		/* QUnit.stop(); */
+		QUnit.config.autostart= false;
+	    QUnit.start();
+	}); 
+	
+</script>
+ <script src="../html/blanket.min.js"></script> 
+</head>
+
+<body>
+	<h1 id="qunit-header">SAP HANA Web IDE Unit Tests - UI(CD2)</h1>
+	<h2 id="qunit-banner"></h2>
+	<h2 id="qunit-userAgent"></h2>
+
+	<div id="qunit-testrunner-toolbar"></div>
+	<div id="qunit-fixture">test markup, will be hidden</div>
+	<ol id="qunit-tests"></ol>
+	<!-- <div id="MyControlTest"></div> -->
+	<div id="SCTest"></div>
+	 <div id="InputParameterTest"></div>
+	<div id="InputVariableTest"></div>
+	<div id="CalculatedColumnTest"></div>
+	<div id="CalculatedCounterTest"></div>
+	<div id="levelHierarchiesTest"></div>
+	<div id="ParentHierarchiesTest" hidden="true"></div>
+	<div id="RCTest" hidden="true"></div>
+	<div id="ViewPropertiesTest"></div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <script src="../../../../util/qunitHelper.js"></script>
+    <script>setBase("sap/watt/uitools/")</script>
+
+    <script src="../lib/requirejs/require.js"
+            data-main="../core/Global"
+            data-sap-ide-main="runTests"
+            data-sap-ide-environment-path="../../../../env.json"
+            data-sap-ide-basedir="../../../"
+            data-sap-ide-config="checonfig.json">
+    </script>
+
+    <title>Hana DB Build in MTA project</title>
+
+
+    <script>
+        var SOME_WINDOW_TARGET = "someID";
+
+        var mConsumer = {
+            "name": "testConsumer",
+            "requires": {
+                "services": [
+                    "system",
+                    "document",
+                    "filesystem.documentProvider",
+                    "builder",
+                    "chebackend.build"
+                ]
+            }
+        };
+
+
+        defineServiceTest(mConsumer, ["sap/watt/ideplatform/che/plugin/chebackend/dao/Build"], function (oContext, Builder) {
+
+            var oParameters = jQuery.sap.getUriParameters();
+            var sUsername = oParameters.get("username");
+            var sPassword = oParameters.get("password");
+            var oLoginPromise = oContext.service.system.login(sUsername, sPassword);
+            var oCheBuild = oContext.service.chebackend.build;
+            var oBuilder = oContext.service.builder;
+            var oDocumentProvider = oContext.service.filesystem.documentProvider;
+            var dTimeStamp = Number(new Date());
+            var sMtaProjectName = "takt11demo";
+
+
+            module("Hana DB Build in MTA project", {
+                setup: withPromise(function () {
+                    return _cleanProject(sMtaProjectName);
+                }),
+                teardown: withPromise(function () {
+                    return _cleanProject(sMtaProjectName);
+                })
+            });
+
+
+            //**************Tests***********************************************************//
+            test("Import MTA project with Hana DB Module and execute Build ", 9, withPromise(function () {
+                var that = this;
+                var aPromises = [];
+                aPromises.push(oDocumentProvider.getRoot());
+                aPromises.push(_getBlob(require.toUrl("qunit/hanaplugins/build/plugin/buildcommon/resources/takt11demo.zip")));
+
+                return Q.all(aPromises).spread(function (oRootDocument, oBlob) {
+                    ok(oRootDocument != null, "Repository root folder not null");
+                    ok(oBlob != null, "Project blob from zip resource not null");
+
+                    // 3. import project
+                    return oRootDocument.createFolder(sMtaProjectName).then(function (oNewFolder) {
+                        that.oProjectFolder = oNewFolder;
+                        return oNewFolder.importZip(oBlob, true).then(function (oFileDocument) {
+                            ok(oFileDocument != null, "import zip passsed ok");
+                            return that.oProjectFolder.getChild("db").then(function (oModule) {
+                                ok(oModule != null, "hdb module exist in mta project");
+                                return Q.spread([oBuilder.isBuildSupported(oModule),
+                                    oBuilder.isBuildRequired(oModule), oCheBuild.getBuilders(),
+                                    oBuilder.build(oModule)], function (bIsBuildSupported, bIsBuildRequired, aRegisteredBuilders) {
+
+                                    ok(bIsBuildSupported === true, "Hana DB build is supported");
+                                    ok(bIsBuildRequired === true, "Hana DB build is required");
+                                    ok(aRegisteredBuilders.indexOf("hdi-builder") !== -1, 'hdi builder is registered');
+
+                                    var sProjectName = "/" + sMtaProjectName + "/db";
+
+                                    return _getBuildStatus(oModule, sProjectName).then(function (buildStatus) {
+                                        ok(buildStatus !== null, "build status found");
+                                        return ok(buildStatus === "SUCCESSFUL", "build should passed successfully");
+                                    });
+                                });
+                            })
+                        });
+                    })
+
+                });
+            }));
+
+
+            //************End of tests******************************************************//
+
+
+            function _getBlob(sUri) {
+                var oRequest = new XMLHttpRequest();
+                oRequest.open("GET", sUri, true);
+                oRequest.responseType = "blob";
+                var oDeferred = Q.defer();
+                oRequest.onload = function (oEvent) {
+                    if (this.readyState === 4 && this.status < 300) {
+                        oDeferred.resolve(this.response);
+                    } else {
+                        oDeferred.reject(new Error(this.response));
+                    }
+                };
+                oRequest.send();
+                return oDeferred.promise;
+            }
+
+            function _getBuildStatus(oHTML5SubProjectDocument, sProjectName) {
+                var oProjectMetadata = oHTML5SubProjectDocument.getProjectMetadata();
+                var sWorkspaceId = oProjectMetadata.workspaceId;
+                return Builder.getBuilds(sWorkspaceId).then(function (builds) {
+                    var buildStatus = null;
+                    for (var i = 0; i < builds.length; i++) {
+                        var projectName = sProjectName;
+                        if (builds[i].project === sProjectName) {
+                            buildStatus = builds[i].status;
+                        }
+                    }
+                    return buildStatus;
+                });
+            }
+
+
+            function _cleanProject(sProjectName) {
+                return oDocumentProvider.getRoot().then(function (oRootDocument) {
+                    return oRootDocument.getCurrentMetadata(false).then(function (aRawData) {
+                        var oRawNode = _.find(aRawData, function (oRawData) {
+                            return oRawData.name === sProjectName;
+                        });
+                        if (oRawNode) {
+                            return oDocumentProvider.getDocument(oRawNode.path).then(function (oDocument) {
+                                return oDocument.delete();
+                            })
+                        }
+                    });
+                });
+            }
+
+            return oLoginPromise;
+
+        });
+
+    </script>
+
+</head>
+<body>
+<div id="qunit"></div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+qunit/
+node_modules/
+
+Gruntfile.js
+hdbdd-to-hdbcds*.tgz
+
+
+#scratch files
+nodesPoc.js
+nodesPoc2.js

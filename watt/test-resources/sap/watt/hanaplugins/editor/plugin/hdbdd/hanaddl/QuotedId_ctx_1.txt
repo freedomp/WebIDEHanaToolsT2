@@ -1,0 +1,12 @@
+namespace QuotedId;
+context "ctx&1" {
+ 
+  entity E1 {
+    key elem : Integer;
+  };
+
+};
+
+/* @classification: basic */
+/* @description: Quoted identifier for context */
+/* @resource-name: QuotedId::ctx&1 */

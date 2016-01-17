@@ -1,0 +1,17 @@
+namespace CDS;
+Context Nullable1 {
+
+  entity e {
+     key id : Integer;
+     key id2 : Integer not null;
+     key id3 : Integer not null;
+     foo : Integer;
+     bar : Integer null;
+     wiz : Integer not null;
+  };
+
+};
+
+/* @classification: basic */
+/* @description: Various legal forms of nullability */
+/* @resource-name: CDS::Nullable1 */

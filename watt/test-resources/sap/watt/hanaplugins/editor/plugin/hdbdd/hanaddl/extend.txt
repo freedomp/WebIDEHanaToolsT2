@@ -1,0 +1,26 @@
+
+
+
+
+annotation x {
+ b : Boolean default true;
+ i: Integer default 42;
+}
+@Annotation: 'SYSTEM'
+extend context c with {
+		extend entity e with {
+			name : String(20);
+		}
+		extend type t with {
+			element : x.y;
+		}
+		extend context c2 with {
+			@Blub: 2
+			annotation a {
+				time : UTCTimestamp;
+			}
+			extend entity ee with {
+				key = add_days(2);
+			}
+		}
+}

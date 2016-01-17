@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AllTestsCdsHanaDdl V3</title>
+
+    <meta charset="UTF-8"/>
+    <meta http-equiv='cache-control' content='no-cache'/>
+    <meta http-equiv='expires' content='0'/>
+    <meta http-equiv='pragma' content='no-cache'/>
+	
+<!-- necessary style sheets -->	
+	<link rel="stylesheet" href="./lib/qunit/qunit.css" />
+    <link rel="stylesheet" href="./lib/qunit-composite/qunit-composite.css"/>
+
+<!-- use absolute links to avoid .. cascades -->
+    <script src="./lib/qunit/qunit.js"></script>	
+    <script src="./lib/qunit-composite/qunit-composite.js"></script>
+
+</head>
+
+<body>
+ 	<div id="qunit"></div>
+	<div id="qunit-fixture"></div>
+	<script>
+	    
+	    // list all suites here
+	    QUnit.testSuites( "Hdbdd suite", [
+	        "hanaddl/TestsUnitHanaDdlParserV3.html",
+	        "hanaddl/TestsUnitHanaDdlParserV3AdHocAssociations.html",
+	        "hanaddl/TestsUnitHanaDdlParserV3AnonymousTypes.html",
+	        "hanaddl/TestsUnitHanaDdlParserV3ArrayOf.html",
+	        "hanaddl/TestsUnitHanaDdlParserV3CaseExpressions.html",
+	        "hanaddl/TestsUnitHanaDdlParserV3FuncWithNamedParameters.html",
+	        "hanaddl/TestsUnitHanaDdlParserV3SetOperators.html",
+	        "hanaddl/TestsUnitHanaDdlParserV3Union.html",
+	        "hanaddl/TestsUnitHanaDdlParserV3AnnotationCompletion.html",
+	        "hanaddl/TestsUnitNavigateToActionV3.html",
+	        "hanaddl/TestsPdeNavigateToActionV3.html",
+	        "hanaddl/TestsUnitHanaDdlParserV3Dcl.html",
+	        "hanaddl/TestsPdeHanaDdlParserV3SemanticCodeCompletionForDclStatements.html",
+	        "hanaddl/TestsPdeHanaDdlParserV3SemanticCodeCompletionAcrossMultipleFiles.html",
+        ]);
+	</script>
+    
+</body>
+    
+</html>

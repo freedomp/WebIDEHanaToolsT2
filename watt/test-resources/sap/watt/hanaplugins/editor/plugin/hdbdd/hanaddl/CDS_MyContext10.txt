@@ -1,0 +1,25 @@
+namespace CDS;
+Context MyContext10 {
+
+  type MyStruct1 {
+    elem1: String(40);
+    elem2: LocalDate;
+  };
+
+  entity MyEntity {
+    key elem1 : Integer;
+        elem2 : String(22);
+        elem3 : LocalTime;
+  };
+
+  type t2 {
+    e1: {
+      e1: String(40);
+    }
+  };
+
+};
+
+/* @classification: basic */
+/* @description: Nested type */
+/* @resource-name: CDS::MyContext10 */

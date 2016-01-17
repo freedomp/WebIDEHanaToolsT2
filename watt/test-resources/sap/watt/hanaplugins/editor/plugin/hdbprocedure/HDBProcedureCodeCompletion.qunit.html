@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<script src="../../../../util/qunitHelper.js" ></script>
+<script>setBase("sap/watt/uitools/")</script>
+
+<script src="../lib/requirejs/require.js"
+	        data-main="../core/Global"
+	        data-sap-ide-main="runTests"
+	        data-sap-ide-environment-path="../../../../env.json"
+	        data-sap-ide-basedir="../../../"></script>
+
+<title>HDB Procedure CoCo Service qUnit Test</title>
+
+<script>
+
+
+	var mConsumer = {
+		"name" : "HDBProcedureCocoServiceConsumer",
+
+		"requires" : {
+			"services" : [ "sqlcodecompletion" ]
+	
+		},
+		"configures" : {
+		    "services": {
+    		}
+		}
+	};
+	
+ 	defineServiceTest(mConsumer, [], function(oContext) {
+ 		var sqlCoCoService = oContext.service.sqlcodecompletion;
+ 		
+		module("HDB Procedure CoCo", {
+            setup : function() {	
+           	require.config({ paths: { "rndrt" : "sap/watt/hanaplugins/lib/rndrt" }});            
+			},
+			
+			teardown : function() {
+			}
+		});
+
+		test("HDB Procedure CoCo - empty file", withPromise(function() {
+			var oContentStatus = {
+					buffer: "",
+					offset: 0,
+					prefix: ""
+				};
+			return sqlCoCoService.getWordSuggestions(oContentStatus).then(function(oProp){
+				ok(oProp.proposals.length > 1, "  proposal found");  
+			})
+		})); 
+		test("HDB Procedure CoCo - create statement", withPromise(function() {
+			var oContentStatus = {
+					buffer: "create",
+					offset: 2,
+					prefix: "create"
+				};
+			return sqlCoCoService.getWordSuggestions(oContentStatus).then(function(oProp){
+				ok(oProp.proposals.length > 1, "Create proposal found");  
+				ok(oProp.proposals[0].description.substring(0,6).toUpperCase() === "CREATE", "create keywords");  
+			})
+		}));
+		test("HDB Procedure CoCo - select statement", withPromise(function() {
+			var oContentStatus = {
+					buffer: "select",
+					offset: 2,
+					prefix: "select"
+				};
+			return sqlCoCoService.getWordSuggestions(oContentStatus).then(function(oProp){
+				ok(oProp.proposals.length > 1, "Select proposal found");  
+				ok(oProp.proposals[0].description.substring(0,6).toUpperCase() === "SELECT", "select keywords");  
+			})
+		}));
+		test("HDB Procedure CoCo - while statement", withPromise(function() {
+			var oContentStatus = {
+					buffer: "while",
+					offset: 5,
+					prefix: "while"
+				};
+			return sqlCoCoService.getWordSuggestions(oContentStatus).then(function(oProp){
+				ok(oProp.proposals.length> 0, "while proposal found");  
+				ok(oProp.proposals[0].description.substring(0,5).toUpperCase() === "WHILE", "while keywords");  
+			})
+		}));
+		test("HDB Procedure CoCo - function statement", withPromise(function() {
+			var oContentStatus = {
+					buffer: "function",
+					offset: 2,
+					prefix: "function"
+				};
+			return sqlCoCoService.getWordSuggestions(oContentStatus).then(function(oProp){
+				ok(oProp.proposals.length >0 , "function proposal found");  
+				// ok(oProp.proposals[0].description.substring(0,8).toUpperCase() === "FUNCTION", "function keywords");  
+			})
+		}));
+		
+ 	});
+	
+	
+</script>
+
+</head>
+<body>
+	<div id="qunit"></div>
+</body>
+</html>

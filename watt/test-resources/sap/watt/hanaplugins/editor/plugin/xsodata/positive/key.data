@@ -1,0 +1,16 @@
+// create a schema "ODATASAMPLES" and view "view" in folder sample.odata with key
+
+ service {
+
+ "sample.odata::view" key ("ID","Text") ; 
+
+ // "sample.odata::view" without ("Time") key ("ID","Text") ;
+
+ "sample.odata::view" as "MyViewKey" key ("ID","Text");
+
+ "sample.odata::view" as "MyViewKey1" without ("Time") key ("ID","Text") ; 
+
+ "sample.odata::view" as "MyViewLocalKey" with ("Time") key generate local "GenID";
+	 
+	 
+} 

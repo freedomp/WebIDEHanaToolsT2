@@ -1,0 +1,5 @@
+// create a schema "ODATASAMPLES" and table "table" in folder sample.odata  
+service { 
+	"sample.odata::table" as "MyTableWithout" without ("Text","Time"); 
+	 "sample.odata::table" as "MyTableWith" with ("ID","Text");
+}  

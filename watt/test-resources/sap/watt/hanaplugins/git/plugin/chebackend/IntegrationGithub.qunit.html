@@ -1,0 +1,228 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <script src="../../../../util/qunitHelper.js"></script>
+    <script>setBase("sap/watt/uitools/")</script>
+    <script src="../lib/requirejs/require.js"
+            data-main="../core/Global"
+            data-sap-ide-main="runTests"
+            data-sap-ide-environment-path="../../../../env.json"
+            data-sap-ide-basedir="../../../"
+            data-sap-blanket-cover="/sap/watt/hanaplugins/git/plugin/chebackend/"
+            data-sap-ide-config="config.json">
+
+
+    </script>
+
+    <title>Git qUnit Test</title>
+
+    <script>
+
+        var mConsumer = {
+            "name": "testConsumer",
+            "requires": {
+                "services": [
+                    "document",
+                    "filesystem.documentProvider",
+                    "repositorybrowser",
+                    "git",
+                    "gitclient",
+                    "clone"
+                ]
+            }
+        };
+
+        defineServiceTest(mConsumer, ["qunit/ideplatform/plugin/git/utils/BasicUtil"], function (oContext, BasicUtil) {
+
+            var that = this;
+            var oGitService = oContext.service.git;
+            var oCloneService = oContext.service.clone;
+            var oFileSystem = oContext.service.filesystem;
+            var oDocumentProviderService = oContext.service.filesystem.documentProvider;
+            var oRepoBrowser = oContext.service.repositorybrowser;
+            var oGitClientService = oContext.service.gitclient;
+            var oDocumentProviderServiceImpl;
+            var oProjectDocument_1;
+            var oProjectDocument_2;
+            var oProjectDocument_3;
+            var oBasicUtil;
+            var oRoot;
+            var fileName = "unit.test." + Math.random().toString() + ".file";
+
+            var oDefinePromise = oDocumentProviderService._getImpl().then(function (o1) {
+                return o1._getImpl({}).then(function (oImpl1) {
+                    oDocumentProviderServiceImpl = oImpl1;
+                    oDocumentProviderServiceImpl.workspaceCached = function () {
+                    };
+                });
+            });
+
+            QUnit.config.testTimeout = 180000;
+            QUnit.module("Git Integration");
+
+            QUnit.test("`--- moduleStart ---", withPromise(function () {
+
+                return oDocumentProviderService.getRoot().then(function (oRootDocument) {
+                    oRoot = oRootDocument;
+                    that.oOptions = {
+                        sGitUserName: "gitclienttester",
+                        sGitPassword: "SAPWebIDE1",
+                        sGitSshPrivateKey: "",
+                        gitUrl: "https://github.com/gitclienttester/githanaclienttest.git",
+                        bGerrit: false
+                    }
+
+                    that.oOptions.sLocation = oRootDocument.getEntity().getBackendData().location;
+
+                    _initTestGit.call(that, "", that.oOptions);
+
+                    return oGitService.clone(that.oOptions.gitUrl, that.oOptions.sGitUserName, that.oOptions.sGitPassword, undefined, undefined, that.oOptions.sLocation).then(function (oResponse) {
+                        var sProjectName = oResponse.projectDescriptor.name;
+                        return oRootDocument.refresh().then(function () {
+                            return oRootDocument.getChild(sProjectName).then(function (oProjectDoc) {
+                                ok(oProjectDoc.getTitle(), sProjectName);
+                                oProjectDocument_1 = oProjectDoc;
+                                return that.oBasicUtil._cloneRepository().then(function (oResponse) {
+                                    var sProjectName = oResponse.projectDescriptor.name;
+                                    return oRootDocument.refresh().then(function () {
+                                        return oRootDocument.getChild(sProjectName).then(function (oProjectDoc) {
+                                            ok(oProjectDoc.getTitle(), sProjectName);
+                                            oProjectDocument_2 = oProjectDoc;
+                                        });
+                                    });
+                                });
+
+                            });
+                        });
+
+                    }).fail(function(oError){
+                        QUnit.assert.ok(false, oError.name);
+                    });
+                });
+            }));
+
+
+            QUnit.test("1. Push  (new file)", function () {
+
+                var oUserInfo = undefined;
+                var bAmend = false;
+                var bChangeId = false;
+                var fileContent = Math.random().toString();
+                var sMessage = "Commit Message " + fileContent;
+                var oGit = oProjectDocument_1.getEntity().getBackendData().git;
+
+
+                return that.oBasicUtil._cloneRepository().then(function (oResponse) {
+                    var sProjectName = oResponse.projectDescriptor.name;
+                    return oRoot.refresh().then(function () {
+                        return oRoot.getChild(sProjectName).then(function (oProjectDoc) {
+                            ok(oProjectDoc.getTitle(), sProjectName);
+                            oProjectDocument_3 = oProjectDoc;
+                            return oRoot.refresh().then(function () {//inorder to update the project document with the backend data (git object)
+                                return that.oBasicUtil.createEditAndStageFile(oProjectDocument_1, fileName, fileContent).then(function () {
+                                    return that.oBasicUtil.getStatus(oGit);
+                                }).then(function (oStatus) {
+                                    equal(oStatus.length, 3, "2 untracked file + one new file");
+                                    var oStatusBeforeCommit = oStatus.splice(2, 1);
+                                    equal(oStatusBeforeCommit.length, 1, "After commit get status should be 1");
+                                    equal(oStatusBeforeCommit[0].FullStatus, "NEW", "Status should be NEW");
+                                    equal(oStatusBeforeCommit[0].Name, fileName, "File should be = " + fileName);
+                                    return that.oBasicUtil.doCommit(oGit, sMessage, oUserInfo, bAmend, bChangeId);
+                                }).then(function (oCommit) {
+                                    return that.oBasicUtil.getStatus(oGit);
+                                }).then(function (oStatus) {
+                                    var oStatusAftereCommit = oStatus.splice(2, 1); // need to remove it after untracked for codenvy will removed
+                                    equal(oStatusAftereCommit.length, 0, "After commit get status should be empty");
+                                    return that.oBasicUtil.getLocalBranches(oGit);
+                                }).then(function(oBranch){
+                                    return that.oBasicUtil.doPullAndPush(oGit,oBranch[0]);
+                                }).then(function () {
+                                    QUnit.assert.ok(true, "push succeeds");
+                                }).fail(function (error) {
+                                    QUnit.assert.ok(false, error.name);
+                                });
+                            });
+                        });
+                    });
+                });
+
+
+            });
+
+            QUnit.test("2. Fetch & Rebase", withPromise(function () {
+                var fileContentBefore;
+                var fileContentAfter;
+                var oGit = oProjectDocument_2.getEntity().getBackendData().git;
+
+                return oRoot.refresh().then(function () {
+                    return that.oBasicUtil.getFileContent(oProjectDocument_2, fileName).then(function (oContent) {
+                        fileContentBefore = oContent;
+                        equal(oContent, undefined, " file is not exist in this repository ")
+                        return that.oBasicUtil.fetch(oGit).then(function (oResponse) {
+                            return that.oBasicUtil.rebase(oGit, "origin/master").then(function (oResponse) {
+                                return that.oBasicUtil.getFileContent(oProjectDocument_2, fileName).then(function (oContent) {
+                                    fileContentAfter = oContent;
+                                    notEqual(fileContentAfter, undefined, "File content should be diffrent" + " before: " + fileContentBefore + " after: " + fileContentAfter);
+                                });
+                            });
+                        });
+                    });
+                });
+
+            }));
+
+
+            QUnit.test("3. Pull", withPromise(function () {
+                var fileContentBefore;
+                var fileContentAfter;
+                var oGit = oProjectDocument_3.getEntity().getBackendData().git;
+
+                return oRoot.refresh().then(function () {
+                    return that.oBasicUtil.getFileContent(oProjectDocument_3, fileName).then(function (oContent) {
+                        fileContentBefore = oContent;
+                        equal(oContent, undefined, " file is not exist in this repository ")
+                        return that.oBasicUtil.pull(oGit).then(function (oResponse) {
+                            QUnit.assert.ok(true, "pull succeeds");
+                            return that.oBasicUtil.getFileContent(oProjectDocument_3, fileName).then(function (oContent) {
+                                fileContentAfter = oContent;
+                                notEqual(fileContentAfter, undefined, "File content should be diffrent" + " before: " + fileContentBefore + " after: " + fileContentAfter);
+                            });
+                        });
+                    });
+                });
+
+            }));
+
+            QUnit.test("--- moduleDone ---", withPromise(function () {
+                expect(0);
+                var aPromises = [];
+                aPromises.push(that.oBasicUtil.deleteProject(oProjectDocument_1));
+                aPromises.push(that.oBasicUtil.deleteProject(oProjectDocument_2));
+                aPromises.push(that.oBasicUtil.deleteProject(oProjectDocument_3));
+                return Q.all(aPromises);
+            }));
+
+
+            function _initTestGit(sTestId, oOptions) {
+                var oServices = {
+                    oGitService: oGitService,
+                    oFileSystem: oFileSystem,
+                    oCloneService: oCloneService,
+                    oRepoBrowser: oRepoBrowser
+                };
+                this.oBasicUtil = new BasicUtil(oServices, oOptions);
+            }
+
+
+        });
+
+
+    </script>
+
+</head>
+<body>
+<div id="qunit"></div>
+</body>
+</html>

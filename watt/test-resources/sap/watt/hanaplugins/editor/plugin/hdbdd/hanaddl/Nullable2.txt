@@ -1,0 +1,14 @@
+namespace CDS;
+Context Nullable2 {
+
+  entity e {
+     id : Integer;
+     key id2 : Integer null;
+     key id3 : Integer null;
+  };
+
+};
+
+/* @classification: basic */
+/* @description: Nullability not allowed for keys */
+/* @resource-name: CDS::Nullable2 */

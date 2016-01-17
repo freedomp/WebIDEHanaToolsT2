@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="com.sap::CalculationViewDemo" applyPrivilegeType="SQL_ANALYTIC_PRIVILEGE" dataCategory="CUBE" dimensionType="STANDARD" schemaVersion="2.3" defaultClient="$$client$$" visibility="reportingEnabled" outputViewType="Aggregation" calculationScenarioType="TREE_BASED" enforceSqlExecution="false">
+<descriptions defaultDescription="CalculationViewDemo"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="com.sap::MINI.TF1" type="DATA_BASE_TABLE">
+    <resourceUri>com.sap::MINI.TF1</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews/>
+<logicalModel id="com.sap::MINI.TF1">
+  <attributes>
+    <attribute id="K4" order="4" displayAttribute="false" attributeHierarchyActive="false" descriptionColumnName="K5">
+      <descriptions defaultDescription="K4"/>
+      <keyMapping schemaName="E75EE226585F4BA6B7C70AD365D3A2D9" columnObjectName="com.sap::MINI.TF1" columnName="K4"/>
+    </attribute>
+    <attribute id="K5" order="5" displayAttribute="false" attributeHierarchyActive="false" descriptionColumnName="K4">
+      <descriptions defaultDescription="K5"/>
+      <keyMapping schemaName="E75EE226585F4BA6B7C70AD365D3A2D9" columnObjectName="com.sap::MINI.TF1" columnName="K5"/>
+    </attribute>
+    <attribute id="U2" order="9" displayAttribute="false" attributeHierarchyActive="false" hidden="true" descriptionColumnName="K4">
+      <descriptions defaultDescription="U2"/>
+      <keyMapping schemaName="E75EE226585F4BA6B7C70AD365D3A2D9" columnObjectName="com.sap::MINI.TF1" columnName="U2"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="K1" order="1" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="K1"/>
+      <measureMapping schemaName="E75EE226585F4BA6B7C70AD365D3A2D9" columnObjectName="com.sap::MINI.TF1" columnName="K1"/>
+    </measure>
+    <measure id="K2" order="2" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="K2"/>
+      <measureMapping schemaName="E75EE226585F4BA6B7C70AD365D3A2D9" columnObjectName="com.sap::MINI.TF1" columnName="K2"/>
+    </measure>
+    <measure id="K3" order="3" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="K3"/>
+      <measureMapping schemaName="E75EE226585F4BA6B7C70AD365D3A2D9" columnObjectName="com.sap::MINI.TF1" columnName="K3"/>
+    </measure>
+    <measure id="M1" order="6" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="M1"/>
+      <measureMapping schemaName="E75EE226585F4BA6B7C70AD365D3A2D9" columnObjectName="com.sap::MINI.TF1" columnName="M1"/>
+    </measure>
+    <measure id="M2" order="7" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="M2"/>
+      <measureMapping schemaName="E75EE226585F4BA6B7C70AD365D3A2D9" columnObjectName="com.sap::MINI.TF1" columnName="M2"/>
+    </measure>
+    <measure id="M3" order="8" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="M3"/>
+      <measureMapping schemaName="E75EE226585F4BA6B7C70AD365D3A2D9" columnObjectName="com.sap::MINI.TF1" columnName="M3"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

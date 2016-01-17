@@ -1,0 +1,596 @@
+Signature-Version: 1.0
+SHA1-Digest-Manifest-Main-Attributes: fDxCrFwOlZSK2Ps0jq8knthRZXo=
+Created-By: 1.6.0_45 (Sun Microsystems Inc.)
+SHA1-Digest-Manifest: 5EXkCAbcbyFzOGyLTnFzD/PDh2k=
+
+Name: META-INF/resources/sap/ovp/manifest.json
+SHA1-Digest: ejIHE4XxDKCd+opagYVWMpV37JM=
+
+Name: META-INF/resources/sap/ovp/cards/list/CondensedBarList.fragment.
+ xml
+SHA1-Digest: v0hjpz9g4uRGwk8ucTLsqRFiQ+E=
+
+Name: META-INF/resources/sap/ovp/cards/quickview/Component.js
+SHA1-Digest: uP36EeOs8y6TYbjHuylNQOtnYXw=
+
+Name: META-INF/resources/sap/ovp/app/Component.js
+SHA1-Digest: JDvSA70vgmA9sgjJiEygkJOic7E=
+
+Name: META-INF/resources/sap/ovp/messagebundle_fi.properties
+SHA1-Digest: q0jqtpjZGT4NzYBYWVMa5rx9Y/g=
+
+Name: META-INF/resources/sap/ovp/cards/charts/donut/resources.json
+SHA1-Digest: c0XD/DhVO8PmVXy5hSxVqfcg5YY=
+
+Name: META-INF/resources/sap/ovp/library-all-dbg.js
+SHA1-Digest: mEUQ4Wf9PZWiyzTJzKvQRgDDBsI=
+
+Name: META-INF/resources/sap/ovp/cards/stack/Stack.controller.js
+SHA1-Digest: xm0TDjYd4CZQI5agJkELuL3mRFI=
+
+Name: META-INF/resources/sap/ovp/cards/quickview/Quickview-dbg.control
+ ler.js
+SHA1-Digest: VI053L6ndzXAubwxxIFMkPF4+2E=
+
+Name: META-INF/resources/sap/ovp/messagebundle_sh.properties
+SHA1-Digest: qhU770Na5q9WjRssy7uox37mQ3Q=
+
+Name: META-INF/resources/sap/ovp/cards/charts/AnalyticalHeader.fragmen
+ t.xml
+SHA1-Digest: KnZclq57jLwYmY5wFXanzoF4diI=
+
+Name: META-INF/resources/sap/ovp/cards/quickview/resources.json
+SHA1-Digest: R+tijNHzjAjR1i6LNIud/RWWTFw=
+
+Name: META-INF/resources/sap/ovp/app/resources.json
+SHA1-Digest: +JLA4HniUp0rV6jJK8KzC0DvhLI=
+
+Name: META-INF/resources/sap/ovp/ui/CardContentContainer.js
+SHA1-Digest: bKAvYV66zUgogrRy4tmpxs9Wxvk=
+
+Name: META-INF/resources/sap/ovp/library.dependencies.xml
+SHA1-Digest: ZeSNhgTAVQqqUIyfS5TunFWUMD8=
+
+Name: libraries/sap.ovp.js
+SHA1-Digest: y+1XMtj0T4wUgPivBpix0mQS0Ms=
+
+Name: META-INF/resources/sap/ovp/themes/base/library.source.less
+SHA1-Digest: F8TFBBf1gdLEb9uO5CADdidMINg=
+
+Name: META-INF/resources/sap/ovp/cards/generic/Component-dbg.js
+SHA1-Digest: 2N0OaGB5uAo1toOPd9H8dKSpZT4=
+
+Name: META-INF/resources/sap/ovp/app/Main-dbg.controller.js
+SHA1-Digest: 4st8IsuFVsddsSPCeU35pGrOkGM=
+
+Name: META-INF/resources/sap/ovp/messagebundle_it.properties
+SHA1-Digest: 9iLresy0IeDzu66+pLw6HEjIX2g=
+
+Name: META-INF/resources/sap/ovp/cards/list/List-dbg.controller.js
+SHA1-Digest: RC90sXYwZCPu6jOJOlSml71moUE=
+
+Name: META-INF/resources/sap/ovp/themes/base/ObjectStream.css
+SHA1-Digest: fb6K9sN4L7PJ54JwcJ3yciXQKAU=
+
+Name: META-INF/resources/sap/ovp/cards/loading/resources.json
+SHA1-Digest: 9yX01lkX9rTp/bkZo4G1OV9jzE8=
+
+Name: META-INF/resources/sap/ovp/cards/generic/Component.js
+SHA1-Digest: 9t/yqOx21mpvMVfwNjA4ohv8T9k=
+
+Name: META-INF/resources/sap/ovp/cards/charts/bubble/BubbleChart-dbg.c
+ ontroller.js
+SHA1-Digest: uP7Vj7k4V59mBUUfADgN8bPJ3m0=
+
+Name: META-INF/resources/sap/ovp/cards/charts/line/resources.json
+SHA1-Digest: bKzyrSd2sCFT9M5azbFbGqp42/0=
+
+Name: META-INF/resources/sap/ovp/cards/table/resources.json
+SHA1-Digest: 5m5E9pfwFbc3ZSgYMbGNWW88Zxw=
+
+Name: META-INF/resources/sap/ovp/cards/stack/Component-dbg.js
+SHA1-Digest: vb0EiaYOTHih89b0Eqz+tRBlpkA=
+
+Name: META-INF/resources/sap/ovp/themes/base/OVPApp.css
+SHA1-Digest: Xd/7RxT/5BcSwKwtmRzI1gPwO3Y=
+
+Name: META-INF/resources/sap/ovp/themes/sap_hcb/.theming
+SHA1-Digest: z5Hz8FVxhgjsB+uGSksEzDXTCGQ=
+
+Name: META-INF/resources/sap/ovp/cards/quickview/Component-dbg.js
+SHA1-Digest: S2syFlI0Qou9zrSzWpuDh7AvJR4=
+
+Name: META-INF/resources/sap/ovp/cards/charts/donut/DonutChart-dbg.con
+ troller.js
+SHA1-Digest: GmTPP2IcmZ4y+6K64O6FH54eknE=
+
+Name: META-INF/resources/sap/ovp/themes/base/library-dbg.css
+SHA1-Digest: CsCtoQHqxJFpwGIVlpZk4/t778w=
+
+Name: META-INF/resources/sap/ovp/cards/charts/line/LineChart.controlle
+ r.js
+SHA1-Digest: /DTH5yGs3oyTPXvkMm5q2wKUKLo=
+
+Name: META-INF/resources/sap/ovp/ui/ObjectStreamRenderer.js
+SHA1-Digest: laqPcSbJ/4RlgNuHLrnXHz38+lc=
+
+Name: META-INF/resources/sap/ovp/cards/charts/donut/DonutChart.control
+ ler.js
+SHA1-Digest: opbVqdtgyfq+lQ7wgZU2YPaM/pY=
+
+Name: META-INF/resources/sap/ovp/themes/sap_bluecrystal/.theming
+SHA1-Digest: oWmaqlYGsmp2qVnYaiMS17Um+/o=
+
+Name: META-INF/resources/sap/ovp/ui/EasyScanLayout-dbg.js
+SHA1-Digest: sMON91soeHu4eYGKVFIYSwPeUnA=
+
+Name: META-INF/resources/sap/ovp/themes/sap_bluecrystal/library-parame
+ ters.json
+SHA1-Digest: bTe19JhJStaSNCHMLxfvmfbf9P8=
+
+Name: META-INF/resources/sap/ovp/cards/loading/Loading.controller.js
+SHA1-Digest: 7+F2ophjpLOKuroKnffmbz36BJo=
+
+Name: META-INF/resources/sap/ovp/messagebundle_pl.properties
+SHA1-Digest: crYF8BhZg8AwRpNLAM04Nv2aP7Q=
+
+Name: META-INF/resources/sap/ovp/cards/charts/line/Component-dbg.js
+SHA1-Digest: SSnYprOOwoefE7SJdDHLFtiRAV8=
+
+Name: META-INF/resources/sap/ovp/cards/ActionUtils-dbg.js
+SHA1-Digest: pkKJSJQtyrGHeKCq+b4WzGqTZv4=
+
+Name: META-INF/resources/sap/ovp/ui/ObjectStreamRenderer-dbg.js
+SHA1-Digest: UvkY0sruQ/V4F3aFhAOIDZ+iE54=
+
+Name: META-INF/resources/sap/ovp/cards/image/Image-dbg.controller.js
+SHA1-Digest: Cw4yePrA9vAwVERc8lnAUznmERA=
+
+Name: META-INF/resources/sap/ovp/messagebundle_ca.properties
+SHA1-Digest: eJRl+gVTU9V5z0+IfsFab/e/kpA=
+
+Name: META-INF/resources/sap/ovp/cards/table/Component-dbg.js
+SHA1-Digest: 2ZqTPlhWSVsva+nZimLf+UttLAk=
+
+Name: META-INF/resources/sap/ovp/cards/list/ObjectList.fragment.xml
+SHA1-Digest: gkGMFOWx7G7QXTuGYuSrV23rWXU=
+
+Name: META-INF/resources/sap/ovp/messagebundle_nl.properties
+SHA1-Digest: Ba/qOyKI5R8m+MSPJS7WttPXEW0=
+
+Name: META-INF/resources/sap/ovp/ui/SmartphoneHeaderToggle.js
+SHA1-Digest: 97b5RJ3KMpTjGMYKGv9zuKrglBI=
+
+Name: META-INF/resources/sap/ovp/ui/SmartphoneHeaderToggle-dbg.js
+SHA1-Digest: mngCfvdL8i4nFmcBuRzefzOFeS0=
+
+Name: META-INF/resources/sap/ovp/messagebundle_lv.properties
+SHA1-Digest: P33EJJliHA21nqfcZyYIZmiGKWU=
+
+Name: META-INF/resources/sap/ovp/cards/charts/bubble/Component-dbg.js
+SHA1-Digest: PyqAYreihG0kJicf4j40dOiCtl4=
+
+Name: META-INF/resources/sap/ovp/.theming
+SHA1-Digest: 5dK2+dStUeMsmKOO7W7F8Y4Ddlk=
+
+Name: META-INF/resources/sap/ovp/cards/charts/generic/resources.json
+SHA1-Digest: VJLHsBUP3dLU8Pjzl6W5L69y2oQ=
+
+Name: META-INF/resources/sap/ovp/cards/table/Table-dbg.controller.js
+SHA1-Digest: OyjjtN6rEeN9dgMw/ncJm1RD0+s=
+
+Name: libraries/sap.ovp.templates.xml
+SHA1-Digest: f/fIqd3fbaw4g2+FCq4Fmhg6ANg=
+
+Name: META-INF/resources/sap/ovp/cards/charts/AggregateNumber-dbg.js
+SHA1-Digest: 5NqGQcR9g20rSkSRfDh5/Bqsgy0=
+
+Name: META-INF/resources/sap/ovp/cards/list/ExtendedBarList.fragment.x
+ ml
+SHA1-Digest: 2tBnPREST7Go6kvQrflUKnONeXg=
+
+Name: META-INF/resources/sap/ovp/library-all.js
+SHA1-Digest: oFJK57Js06r/W8S7hN3VG/Tje90=
+
+Name: META-INF/resources/sap/ovp/cards/loading/Component-dbg.js
+SHA1-Digest: 5a6VBjkdE65QNBQm9lprLEjVcnA=
+
+Name: META-INF/resources/sap/ovp/messagebundle_hr.properties
+SHA1-Digest: z20bxJUYW1hYmlXWhLVjj3yc95M=
+
+Name: META-INF/resources/sap/ovp/app/Main.controller.js
+SHA1-Digest: rJOKyuV7eq82eFCCIKKX6NRB44g=
+
+Name: META-INF/resources/sap/ovp/messagebundle.properties
+SHA1-Digest: xVU6sIuSiNcyoWN+Ll0aL6XCtvU=
+
+Name: META-INF/resources/sap/ovp/ui/ObjectStream-dbg.js
+SHA1-Digest: egfGW7ODzYRgfrcoL92ZmksufH8=
+
+Name: libraries/sap.ovp.xsd
+SHA1-Digest: vipq/Gbd6LncmyEk57MmzdW9kac=
+
+Name: META-INF/resources/sap/ovp/messagebundle_no.properties
+SHA1-Digest: EGKDaS1VTOXNkGqukHs3HBR0V+Q=
+
+Name: META-INF/resources/sap/ovp/messagebundle_ar.properties
+SHA1-Digest: cFzEpPJ/ZcnsddELGzZKnbzsYGg=
+
+Name: META-INF/resources/sap/ovp/cards/generic/ContentMiddle.fragment.
+ xml
+SHA1-Digest: wfWVP7aauaeVlQl+qMP5yx80nIQ=
+
+Name: META-INF/resources/sap/ovp/app/Main.view.xml
+SHA1-Digest: pvftjX+fEjkmslCD5IODj2gAu9s=
+
+Name: META-INF/resources/sap/ovp/cards/charts/generic/Component.js
+SHA1-Digest: a5UiSwi7iIOyVD28Mc7nTKba+cM=
+
+Name: META-INF/resources/sap/ovp/library.dependencies.json
+SHA1-Digest: lRV27xBRBb/pwuCkg4TueyJk0/g=
+
+Name: META-INF/resources/sap/ovp/messagebundle_ja.properties
+SHA1-Digest: hHzcQQMsGgMDR+ZOMbl2A2p8ayM=
+
+Name: META-INF/resources/sap/ovp/messagebundle_zh_TW.properties
+SHA1-Digest: NIhssmB/IUxxqt5n2VuKHtuzeYk=
+
+Name: META-INF/resources/sap/ovp/messagebundle_ro.properties
+SHA1-Digest: EzIRUUoMU/dq3IYTA/kzbFeli9o=
+
+Name: META-INF/resources/sap/ovp/cards/charts/line/Component.js
+SHA1-Digest: v11Jx7HYbf27KUfxdncjXRn54Yc=
+
+Name: META-INF/resources/sap/ovp/messagebundle_th.properties
+SHA1-Digest: KqW8taqmspRqSbGTg0z9F9iAJEg=
+
+Name: META-INF/resources/sap/ovp/cards/image/resources.json
+SHA1-Digest: SQbSF5DMTC4ziXkaQuR8qem/DJo=
+
+Name: META-INF/resources/sap/ovp/library.js
+SHA1-Digest: 3iB4iIZP/EsY1DwO1S/uIpgjNY0=
+
+Name: META-INF/resources/sap/ovp/themes/sap_hcb/library.css
+SHA1-Digest: Bz6rqGQD2qEXE9wfDRqN+6Su4wA=
+
+Name: META-INF/resources/sap/ovp/messagebundle_hi.properties
+SHA1-Digest: qSmoIe+EfWo49brREI+RAmQOt0k=
+
+Name: META-INF/resources/sap/ovp/cards/ActionUtils.js
+SHA1-Digest: NFJywPCEfWOnItT7ePrmuynIWOY=
+
+Name: META-INF/resources/sap/ovp/cards/table/Component.js
+SHA1-Digest: zfNOGAd72mRn30pEBlfL1iUofRM=
+
+Name: META-INF/resources/sap/ovp/cards/image/Component.js
+SHA1-Digest: CMoRxUH4Of22zUQOfmn1NJDvUrs=
+
+Name: META-INF/resources/sap/ovp/messagebundle_es.properties
+SHA1-Digest: rzh1PUlVxwI0EvNA4gy2toBm9UY=
+
+Name: META-INF/resources/sap/ovp/messagebundle_pt.properties
+SHA1-Digest: 0/G/kVNlh1WcKWjlkXtJ0yVoRqI=
+
+Name: META-INF/resources/sap/ovp/cards/charts/AggregateNumber.js
+SHA1-Digest: jvdNWiTcihEEeckfNC6owJC62LA=
+
+Name: META-INF/resources/sap/ovp/themes/sap_hcb/library.source.less
+SHA1-Digest: vouJ2vAta6a91iwVkME+waA6k10=
+
+Name: META-INF/resources/sap/ovp/themes/base/BarListCard.less
+SHA1-Digest: SDPmXmMLYVlCBieSJM50Ztp+f+k=
+
+Name: META-INF/resources/sap/ovp/cards/charts/donut/DonutChart.fragmen
+ t.xml
+SHA1-Digest: ZrO4V8d45BjCB4O7BLdgQ8KG/xA=
+
+Name: META-INF/resources/sap/ovp/cards/charts/Utils-dbg.js
+SHA1-Digest: L4e2k17FDGHRxFi9jVGIsJTYvnE=
+
+Name: META-INF/resources/sap/ovp/cards/quickview/Quickview.fragment.xm
+ l
+SHA1-Digest: M9HiahqC1ynC7kvtapcACbhz7VU=
+
+Name: META-INF/resources/sap/ovp/resources.json
+SHA1-Digest: fsa3exVsTbE2L1mcglZDp/q/sIw=
+
+Name: META-INF/resources/sap/ovp/cards/generic/Header.fragment.xml
+SHA1-Digest: LetKd9xLcDxSaTJEUhtLf11t3do=
+
+Name: META-INF/resources/sap/ovp/cards/AnnotationHelper.js
+SHA1-Digest: Ockwo0AphwWNhLnsg6lhtqCd3fM=
+
+Name: META-INF/resources/sap/ovp/library.templates.xml
+SHA1-Digest: cKl3nvKehp5hQw4DvYpBXHsoBW0=
+
+Name: META-INF/resources/sap/ovp/cards/table/Table.controller.js
+SHA1-Digest: 4FGO9DAW+mX6MBvBrhp7BweoK8U=
+
+Name: META-INF/resources/sap/ovp/cards/table/Table.fragment.xml
+SHA1-Digest: 2eSgUlSZwlwPPns/G6fjLAUcwfQ=
+
+Name: META-INF/resources/sap/ovp/.library
+SHA1-Digest: EQZMtVXjSzc+0G93vFy01x9s+1E=
+
+Name: META-INF/resources/sap/ovp/themes/sap_hcb/library.less
+SHA1-Digest: ZRHuNc+mfYemmKZym9U+JAT5sfc=
+
+Name: META-INF/resources/sap/ovp/cards/generic/Action.fragment.xml
+SHA1-Digest: K4GKIvuQxGR39SzlfPFmTzCuBP8=
+
+Name: META-INF/resources/sap/ovp/themes/sap_bluecrystal/library.css
+SHA1-Digest: mW1ir2vH9tU7aw/S7nGh1NSmk3g=
+
+Name: META-INF/resources/sap/ovp/messagebundle_en.properties
+SHA1-Digest: 0yFmEbWD0IWemXKGLUhZRqZO+78=
+
+Name: META-INF/resources/sap/ovp/cards/generic/Card.controller.js
+SHA1-Digest: bST5qoZJ2PapuJww06mf1FIfcWo=
+
+Name: META-INF/resources/sap/ovp/cards/generic/Card-dbg.controller.js
+SHA1-Digest: IajWcOvV0BwXbHU1gH9lz1hMVz8=
+
+Name: META-INF/resources/sap/ovp/cards/generic/resources.json
+SHA1-Digest: 2UQx6CZ925iPUiPvCAb5dOpG+2Y=
+
+Name: META-INF/resources/sap/ovp/cards/list/List.controller.js
+SHA1-Digest: q4SkKZ2LJYXxCjGxs6QiiAR4Pj4=
+
+Name: META-INF/resources/sap/ovp/messagebundle_sk.properties
+SHA1-Digest: 1P6JlsqPhFpZMbTPjgMGTQDXWCw=
+
+Name: META-INF/resources/sap/ovp/themes/base/library-RTL-dbg.css
+SHA1-Digest: hZKjdv6HuPHqlPXQsxS+IzlnwLc=
+
+Name: META-INF/resources/sap/ovp/library-dbg.js
+SHA1-Digest: /Uql8WPbL94Vm3oaGR2k7414oR4=
+
+Name: META-INF/resources/sap/ovp/cards/image/Component-dbg.js
+SHA1-Digest: ihRfSrNGcCgJ4TR7g/9aQqYDPhA=
+
+Name: META-INF/resources/sap/ovp/cards/generic/Card.view.xml
+SHA1-Digest: BzaT9dctizvGp1saVAH6TWdJeEg=
+
+Name: META-INF/resources/sap/ovp/messagebundle_ko.properties
+SHA1-Digest: k47c/7sW+kH2HrGfFGq3y1sdTmo=
+
+Name: META-INF/resources/sap/ovp/messagebundle_da.properties
+SHA1-Digest: tvx4pWp3HshsMPemAkHuq4pqJtU=
+
+Name: META-INF/resources/sap/ovp/messagebundle_ru.properties
+SHA1-Digest: X/QNlhLtTjXTG791lb9hMdvKSBQ=
+
+Name: META-INF/resources/sap/ovp/messagebundle_sl.properties
+SHA1-Digest: F9Fsc9pVPADTAZCymP/oMiahNHQ=
+
+Name: META-INF/resources/sap/ovp/messagebundle_uk.properties
+SHA1-Digest: L+Jo8WaR2VzXrz4awbOBgEyL9Tc=
+
+Name: META-INF/resources/sap/ovp/cards/loading/Component.js
+SHA1-Digest: 3Y0UUe5MA7TpssT40dRhh0e/YbM=
+
+Name: META-INF/resources/sap/ovp/cards/stack/Component.js
+SHA1-Digest: gclunb9JY2nGEHaRMsmEkmanJ5w=
+
+Name: META-INF/resources/sap/ovp/cards/charts/donut/Component-dbg.js
+SHA1-Digest: yg69trgnhiCZEiP3XxIfoWF90Uw=
+
+Name: META-INF/resources/sap/ovp/themes/base/Card.less
+SHA1-Digest: 4zbRgYOEEzWWcPlzjpQ0p/CfmJA=
+
+Name: META-INF/resources/sap/ovp/themes/sap_bluecrystal/library-dbg.cs
+ s
+SHA1-Digest: qiU3envQCJ0gKz57hMMsY5hCToc=
+
+Name: META-INF/resources/sap/ovp/cards/image/Image.controller.js
+SHA1-Digest: s8ngk8IgeEdg8pX65dUP/7UrA+M=
+
+Name: META-INF/resources/sap/ovp/themes/sap_hcb/library-RTL-dbg.css
+SHA1-Digest: TPmnX0geeUJJSuxf6vdbgsemEz0=
+
+Name: META-INF/resources/sap/ovp/cards/list/Component-dbg.js
+SHA1-Digest: p/iib5fcmxa4qSwqlvnm3Bfg7+g=
+
+Name: META-INF/resources/sap/ovp/themes/base/chartStyle.css
+SHA1-Digest: GUQntUhYw6RCxm9fJ5bjufcCPUQ=
+
+Name: META-INF/resources/sap/ovp/cards/list/List.fragment.xml
+SHA1-Digest: DrstFxgpM6ttoDt/aiwkHGKe+PE=
+
+Name: META-INF/resources/sap/ovp/cards/quickview/Quickview.controller.
+ js
+SHA1-Digest: Tt++XopHoyinOfqYGHlfhvyKoD4=
+
+Name: META-INF/resources/sap/ovp/cards/charts/donut/Component.js
+SHA1-Digest: MgIUjsBzOZsQHeNiXeryJZbiRKk=
+
+Name: META-INF/resources/sap/ovp/cards/charts/line/LineChart.fragment.
+ xml
+SHA1-Digest: vm4X4cvfH4wPQ0YzspKkN+Fb8wU=
+
+Name: META-INF/resources/sap/ovp/cards/stack/resources.json
+SHA1-Digest: sUrDsmh4gU2jj4j5eYMV6+2b7Ok=
+
+Name: META-INF/resources/sap/ovp/app/CardContainer.fragment.xml
+SHA1-Digest: IHrMcf2pd6l3rgpEibhVQxxGwug=
+
+Name: META-INF/resources/sap/ovp/cards/image/Image.fragment.xml
+SHA1-Digest: /HrRag0Bv7IP8opWHythH+ZDOgs=
+
+Name: META-INF/resources/sap/ovp/ui/EasyScanLayout.js
+SHA1-Digest: JhCdJPxUwRHuhvbBhjRORhlTNjQ=
+
+Name: META-INF/resources/sap/ovp/themes/sap_bluecrystal/img/ovpDarkBg.
+ png
+SHA1-Digest: NUuoBH81dROjPDn1NfykuCAjO2o=
+
+Name: META-INF/resources/sap/ovp/cards/list/StandardList.fragment.xml
+SHA1-Digest: A6qN95Nw2MHCIRjsKDLI6hezYOQ=
+
+Name: META-INF/resources/sap/ovp/cards/charts/line/LineChart-dbg.contr
+ oller.js
+SHA1-Digest: paJeFG4A/miuJ3O9Os6oQP3RWoQ=
+
+Name: META-INF/resources/sap/ovp/messagebundle_de.properties
+SHA1-Digest: GG+VdXBWE7dEw3BKM/Ki6XUFrRw=
+
+Name: META-INF/resources/sap/ovp/themes/base/library-parameters.json
+SHA1-Digest: 0cs2oICE+zdca4OI5oluJ63F1uY=
+
+Name: META-INF/resources/sap/ovp/themes/sap_bluecrystal/BarListCard.le
+ ss
+SHA1-Digest: SlaShv+XpPu5TjnzJps+EcnBAS8=
+
+Name: META-INF/resources/sap/ovp/themes/base/EasyScanLayout.css
+SHA1-Digest: qHmbb9fBbIyj1Y/BxXx3DgYjndg=
+
+Name: META-INF/resources/sap/ovp/themes/sap_bluecrystal/img-RTL/ovpDar
+ kBg.png
+SHA1-Digest: 4jIg3Qf7AkZC866op3EExBFATCs=
+
+Name: META-INF/resources/sap/ovp/themes/sap_bluecrystal/library-RTL.cs
+ s
+SHA1-Digest: cfltlrkaO7fLbJHjLxGxdPXI7Yg=
+
+Name: META-INF/resources/sap/ovp/library-preload.json
+SHA1-Digest: KlBBCyjyCaLc70c2sJf2juB8DWs=
+
+Name: META-INF/resources/sap/ovp/cards/AnnotationHelper-dbg.js
+SHA1-Digest: YY/inH7Q9RuqfmsnJI7csVj0/y8=
+
+Name: META-INF/resources/sap/ovp/library.properties
+SHA1-Digest: aA/GsF4mpO140psbGbpCFINkN7o=
+
+Name: META-INF/resources/sap/ovp/messagebundle_lt.properties
+SHA1-Digest: BmmRwhImH2Syj+T/qSYUE78aURk=
+
+Name: META-INF/resources/sap/ovp/themes/sap_hcb/library-RTL.css
+SHA1-Digest: NiIU18HMSx81WSyBilkmbyCtCOI=
+
+Name: META-INF/resources/sap/ovp/cards/charts/bubble/BubbleChart.fragm
+ ent.xml
+SHA1-Digest: C0wI+P0KrUOZcqPvky62NdG1EMI=
+
+Name: META-INF/resources/sap/ovp/themes/base/library.less
+SHA1-Digest: pXC2AtPYwBRiIrzP7Jis94fWawk=
+
+Name: META-INF/resources/sap/ovp/cards/stack/Stack-dbg.controller.js
+SHA1-Digest: 2jUhWq/TzGez4Kd95e+PdmFpqRE=
+
+Name: META-INF/resources/sap/ovp/cards/stack/Stack.fragment.xml
+SHA1-Digest: 0ZFPG5Dpav6R5O/UOEKWdfEJ4E8=
+
+Name: META-INF/resources/sap/ovp/cards/loading/LoadingFooter.fragment.
+ xml
+SHA1-Digest: gfvTOQYO4arZKANZgElo7FE2SxY=
+
+Name: META-INF/resources/sap/ovp/cards/charts/Utils.js
+SHA1-Digest: 1QrXiPDRy5rXu735cq3AHLxHkho=
+
+Name: META-INF/resources/sap/ovp/cards/charts/generic/Component-dbg.js
+SHA1-Digest: Pd/Rao00gAg5n+udLFVNp9kvoY8=
+
+Name: META-INF/resources/sap/ovp/themes/base/StackPlaceHolder.less
+SHA1-Digest: NigV4ywIfdmfC3u7q0al0Qi/5NE=
+
+Name: META-INF/resources/sap/ovp/themes/sap_bluecrystal/library.source
+ .less
+SHA1-Digest: BP1ECNHWEkZaNdgNGc0Pko/D9ao=
+
+Name: META-INF/resources/sap/ovp/messagebundle_cs.properties
+SHA1-Digest: S+qOIJkyVuQ7KuqcP6xiC52OgsA=
+
+Name: META-INF/resources/sap/ovp/messagebundle_zh_CN.properties
+SHA1-Digest: Ol1nrr/S/EcpCqcMvaK5p3vziVU=
+
+Name: META-INF/resources/sap/ovp/themes/sap_hcb/library-parameters.jso
+ n
+SHA1-Digest: Ooq7z6oXTh7/37bH296vJ6quLKA=
+
+Name: META-INF/resources/sap/ovp/cards/generic/CountFooter.fragment.xm
+ l
+SHA1-Digest: MnLgNvulEf/pwd+CvWhmbTF4frI=
+
+Name: META-INF/resources/sap/ovp/cards/list/Component.js
+SHA1-Digest: vTsbsEjIw2T9rspkJyjyHRy9/G8=
+
+Name: META-INF/resources/sap/ovp/app/Component-dbg.js
+SHA1-Digest: ylwxQ96SMm4diyD+mmerP2EjGRM=
+
+Name: META-INF/resources/sap/ovp/messagebundle_el.properties
+SHA1-Digest: sbdunXcB8dsCUPBlnHCuMUxZRMY=
+
+Name: META-INF/resources/sap/ovp/messagebundle_bg.properties
+SHA1-Digest: WKZwmAg8wfKIDcP1QJ1BbZ0QdLU=
+
+Name: META-INF/resources/sap/ovp/themes/base/.theming
+SHA1-Digest: 7P19ye34c6NYv4WUqD0l8yWdbQ4=
+
+Name: META-INF/resources/sap/ovp/cards/charts/bubble/Component.js
+SHA1-Digest: kaX07pSfJMhquEWsqznyJ9Y1DYQ=
+
+Name: META-INF/resources/sap/ovp/messagebundle_et.properties
+SHA1-Digest: OpViM3K0opWTMOqRZ9/KFQOqV38=
+
+Name: META-INF/resources/sap/ovp/cards/generic/ContentRight.fragment.x
+ ml
+SHA1-Digest: hwSq+Hd+RN0cGN0CPG3AfpHSp0M=
+
+Name: META-INF/resources/sap/ovp/messagebundle_vi.properties
+SHA1-Digest: 2xMGKKgh9CMydidaHw+6YFt9+hU=
+
+Name: META-INF/resources/sap/ovp/messagebundle_sv.properties
+SHA1-Digest: nJ6YQIpMVbw5P7bOu0wcS1v1qd0=
+
+Name: META-INF/resources/sap/ovp/cards/generic/ActionsFooter.fragment.
+ xml
+SHA1-Digest: o095pInDrGZ3FwEs3Qh/bX+T++c=
+
+Name: META-INF/resources/sap/ovp/cards/list/resources.json
+SHA1-Digest: sCcHctGEZO9PSmxYQCmlVQgaEl4=
+
+Name: META-INF/resources/sap/ovp/messagebundle_fr.properties
+SHA1-Digest: 40ktrh2D7kBHPiVM/L/EEuJxaw8=
+
+Name: META-INF/resources/sap/ovp/messagebundle_iw.properties
+SHA1-Digest: zW/c5R3WuIBPcToaEptzpLQ5euM=
+
+Name: META-INF/resources/sap/ovp/cards/loading/Loading-dbg.controller.
+ js
+SHA1-Digest: S/t/GfcI8HfhMd28E1Y60TadaaI=
+
+Name: META-INF/resources/sap/ovp/themes/base/library-RTL.css
+SHA1-Digest: UscVmFpacCUFYta5IUIXl6gW3tg=
+
+Name: META-INF/resources/sap/ovp/themes/base/library.css
+SHA1-Digest: MLCGIrCeVFxpcHqlcSAUUICLivE=
+
+Name: META-INF/resources/sap/ovp/ui/ObjectStream.js
+SHA1-Digest: rOzh6KqLI9h7vVp3KxjKqZilt8c=
+
+Name: META-INF/resources/sap/ovp/themes/sap_bluecrystal/library-RTL-db
+ g.css
+SHA1-Digest: sJrCIPDcFCvUZLrac0pWBnTMp6Q=
+
+Name: META-INF/resources/sap/ovp/cards/charts/bubble/BubbleChart.contr
+ oller.js
+SHA1-Digest: PVDcFhobRQ0BcBr3PS1R4KCxW/w=
+
+Name: META-INF/resources/sap/ovp/ui/CardContentContainer-dbg.js
+SHA1-Digest: XriTMYRD5/fmH5OYjxPe052v3n8=
+
+Name: META-INF/resources/sap/ovp/themes/sap_bluecrystal/library.less
+SHA1-Digest: Vlr397q3QbXDtjoaLAtPcTPowB8=
+
+Name: META-INF/resources/sap/ovp/cards/charts/bubble/resources.json
+SHA1-Digest: Wv5q9leKJpVKe6yrD5BAh1qyQWI=
+
+Name: META-INF/resources/sap/ovp/messagebundle_tr.properties
+SHA1-Digest: sFQuVtWz69VUTtI/vZW+HOWDvSI=
+
+Name: META-INF/resources/sap/ovp/messagebundle_hu.properties
+SHA1-Digest: 7JtphvldfvJC4oEmggc2hfKHPRc=
+
+Name: META-INF/resources/sap/ovp/themes/sap_hcb/library-dbg.css
+SHA1-Digest: fjH0kBDEgZpHhep23DlSkV4oUIc=
+

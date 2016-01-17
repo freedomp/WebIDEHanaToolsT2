@@ -1,0 +1,4 @@
+//missing ) 
+service { 
+	"sample.odata::table" as "MyTableWithout" with ("Text","Time"; 
+}  

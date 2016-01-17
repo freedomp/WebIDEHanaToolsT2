@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>CDS graphical Editor</title>
+
+<!-- <script src="/idetests/utils/polyfillsForPhantomJS.js"></script>-->
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script id="sap-ui-bootstrap" src="/resources/sap-ui-core.js"
+ data-sap-ui-theme="sap_bluecrystal"
+ data-sap-ui-xx-bindingSyntax="complex"
+ data-sap-ui-libs="sap.ui.commons, sap.ui.table,sap.ui.ux3">                                                        
+</script>
+<link rel="stylesheet" href="../lib/qunit/qunit.css" type="text/css" media="screen" />
+<script src="../lib/q/q.js"></script>
+<script src="../lib/qunit/qunit.js"></script>
+<script src="../lib/qunit/QUnitUtils.js"></script>
+<script src="../lib/thirdparty/sinon.js"></script>
+<script src="../lib/thirdparty/sinon-qunit.js"></script>
+
+
+<script src="../lib/qunit/qunit-reporter-junit.js"></script>
+<script src="../lib/requirejs/require.js"></script>
+<link rel="stylesheet" href="/watt/resources/sap/watt/hanaplugins/editor/plugin/cds/css/cdseditor.css" type="text/css" />
+
+</head>
+
+<script type="text/javascript">
+var hdbddRootPath = "/watt/resources/sap/watt/hanaplugins/editor/plugin/hdbdd";
+var libRootPath = "/watt/resources/sap/watt/hanaplugins/lib";
+
+var commonddlPath = hdbddRootPath + "/commonddl";
+var cssPath = hdbddRootPath + "/css";
+var hdbddPath = hdbddRootPath;
+var hanaddlPath = hdbddRootPath + "/hanaddl";
+var modePath = hdbddRootPath + "/mode";
+var rndrtPath = libRootPath + "/rndrt";
+
+require.config({
+    waitSeconds: 0,
+    paths: {
+        "commonddl": commonddlPath,
+        "hanaddl": hanaddlPath,
+        "hdbdd": hdbddPath,
+        "mode": modePath,
+        "rndrt": rndrtPath
+    }
+});
+require.config({
+	paths : {
+		"watt" : "/watt",
+		"sap" : "/watt/resources/sap",
+		"idetests" : "/idetests"
+	}
+});
+        var testModules = [
+       //  "../testJs/IPTest.js",
+       "./all.qunit.js",
+       
+          
+        ];
+       
+
+       
+       
+QUnit.config.autostart= false;
+	require(testModules, function() {
+		/* QUnit.stop(); */
+		QUnit.config.autostart= false;
+	    QUnit.start();
+	});  
+    </script>
+<body>
+ 	<h1 id="qunit-header">CDS Graphical UNIT TESTS - UI</h1>
+	<h2 id="qunit-banner"></h2>
+	<h2 id="qunit-userAgent"></h2>
+
+	<div id="qunit-testrunner-toolbar"></div>
+	<div id="qunit-fixture">test markup, will be hidden</div>
+	<ol id="qunit-tests"></ol> 
+	
+ 
+ <div id="columnsPaneTest"></div>
+</body>
+</html>

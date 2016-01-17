@@ -1,0 +1,28 @@
+namespace CDS;
+context MyContext
+{
+  context Inner
+  {
+    type MyStruct
+    {
+        structelt1 : Integer;
+        structelt2 : Integer;
+    };
+    entity MyEntity
+    {
+        key elt1 : Integer;
+        elt2 : Integer;
+        elt3 : MyStruct;
+    };
+  };
+  view MyView as select from Inner.MyEntity as foo
+  {
+      elt1 as keyElt,
+      elt2,
+      elt3.structelt2
+  } where elt1 = 10;
+};
+
+/* @classification: basic */
+/* @description: cds view with ql statement with alias in from-clause */
+/* @resource-name: CDS::MyContext */

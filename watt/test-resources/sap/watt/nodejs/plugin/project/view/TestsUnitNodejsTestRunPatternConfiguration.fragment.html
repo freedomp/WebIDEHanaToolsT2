@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TestsUnitNodejsTestRunPatternConfiguration.fragment.html</title>
+
+<meta charset="UTF-8" />
+<meta http-equiv='cache-control' content='no-cache' />
+<meta http-equiv='expires' content='0' />
+<meta http-equiv='pragma' content='no-cache' />
+
+<link rel="stylesheet"
+	href="/resources/sap/ui/thirdparty/qunit.css" />
+
+<!-- load before all others -->
+<script id="sap-ui-bootstrap"
+	src="/resources/sap-ui-core.js"
+	data-sap-ui-theme="sap_bluecrystal"
+	data-sap-ui-libs="sap.ui.commons, sap.ui.ux3, sap.ui.table"
+	data-sap-ui-resourceroots='{
+		"sap.xs.nodejs.project": "../../../../../../../resources/sap/watt/nodejs/plugin/project/",
+		"sap.watt": "../../../../../../../resources/sap/watt/"
+	}'>
+
+
+</script>
+
+<!-- keep sequence! -->
+<script src="/watt/resources/sap/watt/lib/q/q.js"></script>
+<script src="/watt/resources/sap/watt/lib/requirejs/require.js"></script>
+
+<script src="/resources/sap/ui/thirdparty/qunit.js"></script>
+<script src="../../../test-support/qunitHelper.js"></script>
+
+</head>
+
+<body>
+	<div id="qunit"></div>
+	<div id="qunit-fixture"></div>
+
+	<script>
+
+	//"sap.xs.nodejs.project": "../resources/sap/watt/nodejs/plugin/project/",
+
+		// otherwise QUnit will start immediately and not wait for promises
+		QUnit.config.autostart = false;
+
+		var oFragment;
+		var oControlData;
+
+		module("Unit Tests for Nodejs Test Runner Test Configuration", {
+			setup : function() {
+				oControlData = null;
+				oFragment = sap.ui.jsfragment("sap.xs.nodejs.project.view.NodejsTestRunPatternConfiguration", {
+					context : {
+						service : {
+							baseerrorhandler : {
+								update : function(oData) { oControlData = oData; }
+							}
+						},
+
+						i18n : {
+							getText : function(sKey) { return sKey; }
+						}
+					}
+				});
+			},
+
+			teardown : function() {
+				oFragment = null;
+			}
+		});
+
+		test("Test valid patterns", function(assert) {
+
+			oFragment[1].fireEvent("liveChange", {
+				id : oFragment[1].getId(),
+				liveValue : "somefilename"
+			});
+			assert.ok(oControlData.isControlValid, "somefilename");
+
+			oFragment[1].fireEvent("liveChange", {
+				id : oFragment[1].getId(),
+				liveValue : " "
+			});
+			assert.ok(oControlData.isControlValid, "blank");
+		});
+
+		test("Test invalid patterns", function(assert) {
+
+			oFragment[1].fireEvent("liveChange", {
+				id : oFragment[1].getId(),
+				liveValue : ""
+			});
+			assert.equal(oControlData.isControlValid, false, "empty");
+
+			oFragment[1].fireEvent("liveChange", {
+				id : oFragment[1].getId(),
+				liveValue : "$%&/"
+			});
+			assert.equal(oControlData.isControlValid, false, "invalid chars $%&/");
+
+		});
+
+		// now its safe to start the test execution
+		QUnit.start();
+
+	</script>
+
+</body>
+
+</html>

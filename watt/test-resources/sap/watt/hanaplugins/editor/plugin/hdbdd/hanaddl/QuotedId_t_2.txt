@@ -1,0 +1,8 @@
+namespace QuotedId;
+type "t 2" {
+  elem : Integer;
+};
+
+/* @classification: basic */
+/* @description: Quoted identifier for type */
+/* @resource-name: QuotedId::t 2 */

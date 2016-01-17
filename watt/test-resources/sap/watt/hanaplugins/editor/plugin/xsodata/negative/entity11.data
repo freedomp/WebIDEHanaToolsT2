@@ -1,0 +1,4 @@
+//empty () 
+service { 
+	"sample.odata::table" as "MyTableWithout" with (); 
+} 

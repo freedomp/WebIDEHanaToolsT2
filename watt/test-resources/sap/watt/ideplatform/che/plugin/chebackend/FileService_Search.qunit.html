@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<script src="../../../../util/qunitHelper.js" ></script>
+<script>setBase("sap/watt/uitools/")</script>
+
+<script src="../lib/requirejs/require.js"
+	        data-main="../core/Global"
+	        data-sap-ide-main="runTests"
+	        data-sap-ide-environment-path="../../../../env.json"
+	        data-sap-ide-basedir="../../../"></script>
+
+<title>File Service Search qUnit Tests</title>
+
+
+<script>
+
+	var mConsumer =	{
+		"name" : "testConsumer",
+		
+		"i18n" : "sap.watt.ideplatform.che.chebackend/i18n/i18n",
+		
+		"requires": {
+			"services": [
+				"system",
+				"chebackend.fileDAO"
+			]
+		}
+	};
+	
+	defineServiceTest(mConsumer, [], function(oContext, FileFolderUtil, FileFolderTestData) {
+		
+		var oParameters = jQuery.sap.getUriParameters();
+		var sUsername = oParameters.get("username");
+		var sPassword = oParameters.get("password");
+		var oLoginPromise = oContext.service.system.login(sUsername, sPassword);
+		
+		var oFileService = oContext.service.chebackend.fileDAO;
+		var oi18n = oContext.i18n;
+		
+		module("File Service Search", {
+			
+			setup : withPromise(function() {
+				var d = new Date();
+				var n = d.getTime();
+				this.oTestProjectData = {};
+				this.oTestProjectData.name = "TestProject_" + n;
+				this.oTestProjectData.url = null;
+				return Q();
+			}),
+			
+			teardown : withPromise(function() {
+				if (this.oTestProjectData.url === null) {
+					return Q(); 
+				}
+				var sTestProjectName = this.oTestProjectData.name;
+				return oFileService.getDocument(this.oTestProjectData.url).then(function(aDocument) {
+					return oFileService.deleteFolder(aDocument).then(function() {
+						ok(true, "Teardown: " + sTestProjectName + " successfully deleted.");
+					}).fail(function() {
+						ok(true, "Teardown: " + sTestProjectName + " found but failed to delete.");
+					});
+				});
+			})
+		});
+
+
+        test("1. Import big project and search", 6, withPromise(function() {
+            var that = this;
+            return oFileService.getRoot().then(function(oRootDocument) {
+            	return _getBlob(require.toUrl("qunit/ideplatform/che/plugin/chebackend/utils/gen-1446043766_after.zip")).then(function(oZipContent) {
+            		ok(oZipContent != null, "Zip content is not null.");
+            		return oFileService.createFolder(oRootDocument,that.oTestProjectData.name).then(function (oTestFolder) {
+            			ok(oTestFolder != null, "Test folder was successfully created.");
+            			that.oTestProjectData.url = oTestFolder.getEntity().getFullPath();
+	            		return oFileService.importZip(oTestFolder, oZipContent, true).then(function (oImportedDocument) {
+	            			ok(oImportedDocument != null, "Project was successfully imported.");
+	                    	return oImportedDocument.refresh().then(function() {            
+	                    		var oSearchParams = {
+	    	                            "bContentSearch" : true,
+	    	                            "nRows" : 10,
+	    	                            "nStart" : 0,
+	    	                            "sFileType" : "*",
+	    	                            "sFolderName" : oTestFolder.getEntity().getFullPath(),
+	    	                            "sSearchTerm" : "tal"
+	    	                        };
+		                        return oFileService.search(oSearchParams).then(function(oResult) {
+		                        	ok(oResult.numFound <= 300, "Search result: maximum number of links <= 300.");
+		                        	ok(oResult.aFileEntries.length <= 10, "Search result: page length <= 10.");
+		                        });
+	                    	});
+	            		});
+            		});
+            	 });
+            });
+        }));
+
+        function _getBlob(sUri){
+            var oRequest = new XMLHttpRequest();
+            oRequest.open("GET", sUri, true);
+            oRequest.responseType = "blob";
+            var oDeferred = Q.defer();
+            oRequest.onload = function(oEvent) {
+                if (this.readyState === 4 && this.status < 300) {
+                    oDeferred.resolve(this.response);
+                } else {
+                    oDeferred.reject(new Error(this.response));
+                }
+            };
+            oRequest.send();
+           return oDeferred.promise;
+        }
+
+        return oLoginPromise;
+	});
+
+
+</script>
+
+</head>
+<body >
+	<div id="qunit"></div>
+	<div id="content" style="display: none"></div>
+</body>
+</html>

@@ -1,0 +1,977 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<script src="../../../util/qunitHelper.js" ></script>
+<script>setBase("sap/watt/uitools/")</script>
+
+<script src="../lib/requirejs/require.js"
+	        data-main="../core/Global"
+	        data-sap-ide-main="runTests"
+	        data-sap-ide-environment-path="../../../../env.json"
+	        data-sap-ide-basedir="../../../"></script>
+
+<title>Che File Service qUnit Test</title>
+
+
+<script>
+
+	// TODO: Use service tests for this qunit test!
+	require.config({
+		paths : {
+			"sap.watt.common.document" : "sap/watt/common/plugin/document",
+			"sap.watt.common.filesystem" : "sap/watt/common/plugin/filesystem",
+			"sap.watt.uitools.chebackend" : "sap/watt/uitools/plugin/chebackend",
+			"sap.watt.platform.heliumpreview" : "sap/watt/platform/plugin/heliumpreview",
+			"sap.watt.common.projectsetting" : "sap/watt/ideplatform/plugin/projectsetting"
+		}
+	});
+	
+	defineTest([ "sap.watt.uitools.chebackend/service/File",
+	             "sap.watt.platform.heliumpreview/service/HeliumPreviewAdapter",
+	             "sap.watt.common.filesystem/service/FilesystemDocumentProvider",
+	             "sap.watt.uitools.chebackend/service/System",
+	             "sap.watt.common.document/Document",
+	             "sap.watt.common.filesystem/document/FolderDocument", 
+	             "sap.watt.common.filesystem/document/FileDocument",
+	             "qunit/uitools/plugin/chebackend/utils/BasicUtil",
+	             "qunit/uitools/plugin/chebackend/utils/fileFolderTree/Util",
+	             "qunit/uitools/plugin/chebackend/utils/fileFolderTree/TestData"],
+	             function(oCheFileDAO, oPreviewAdapter, oFileService, oSystemService,Document,FolderDocument,FileDocument,BasicUtil,FileFolderUtil,FileFolderTestData) {
+
+		// login
+		var oParameters = jQuery.sap.getUriParameters();
+		var sUsername = oParameters.get("username");
+		var sPassword = oParameters.get("password");
+		oSystemService.context = {
+			"event" : {
+				fireLoggedIn : function() {return Q();}
+			}
+		};
+		var oLoginPromise = oSystemService.login(sUsername, sPassword);
+
+		oFileService._oDAO = {"workspace" : oCheFileDAO};
+		// Timestamp for the whole test
+		// Names for projects are built later on in BasiUtil._buildProjectName( ):
+		// "TestProject_" + this._dTestModuleTimeStamp + "_" + this._sTestId;
+		// sTestId is passed by each ansych test: "1a", "1b", ...
+		var dTestModuleTimeStamp = Number(new Date());
+
+		QUnit.testStart(function( details ) {
+			console.log( "Now running: " + details.module + " " + details.name );
+		});
+
+		QUnit.testDone(function( details ) {
+			console.log( "Finished running: "+ details.module +  " " + details.name + "\n Failed/total: " + details.failed + " " + details.total);
+		});
+
+		module("Che File Service", {
+			setup : function() {
+				var documentEventEmitterMock = {
+						fireCreated : function(oDocument){
+							return Q();
+						},
+						fireChanged : function(oDocument) {
+							return Q();
+						},
+						fireDeleted : function(oDocument) {
+							return Q();
+						},
+						fireLoaded : function(oDocument) {
+							return Q();
+						},
+						fireSaved : function(oDocument) {
+							return Q();
+						},
+						fireStateChanged : function(oDocument) {
+							return Q();
+						}
+				};
+				var context = {service:{document : {
+						getDocument : function(oEntity, bNoCreate){
+							if (bNoCreate){
+								return Q(null);
+							}
+							switch (oEntity.getType()) {
+							case "file":
+								return Q(new FileDocument(oFileService, oCheFileDAO, oEntity, documentEventEmitterMock, {}));
+								break;
+							case "folder":
+								return Q(new FolderDocument(oFileService, oCheFileDAO, oEntity, documentEventEmitterMock, {}));
+								break;
+							}
+						},
+						changed : function(oDocument, sChangeType) {
+						}
+					},
+					setting :{ project:{
+					    getProjectSettings: function(sSettingName, oDocument){
+					        return Q(null);
+					    }
+					 }
+					}
+				},
+				event : {
+					fireBeforeExportZip : function(oZip, oDocument) {
+						return Q();
+					}
+				}};
+				
+				oFileService.context = context;
+				oCheFileDAO.context = context;
+				oPreviewAdapter.context = context;
+				
+			},
+			teardown : withPromise(function() {
+				var sTestProjectName = this.oBasicUtil.getTestProjectName();
+
+				return this.oBasicUtil.deleteTestProjectFolder().then(function(){
+
+					//check if Test Project Folder is removed
+					return oFileService.getDocument("/" + sTestProjectName).then(function(oResult){
+						ok(!oResult,"Teardown/Cleanup of TestProject done");
+					}).fail(function(oError) {
+						ok(false, oError.message);
+					});
+				});
+			})
+		});
+
+		test("1a. createFolder() (as Project, i.e. as root folder)", 3, withPromise(function() {
+
+			var that = this;
+
+			return _initTestProject.call(this, "1a").then(function(oProjectFolderDocument) {
+				return oFileService.getRoot().then(function(oRootDocument) {
+					return oRootDocument.getFolderContent();
+				}).then(function(aDocuments) {
+					ok(aDocuments.length > 0);
+					var oActualDocument = that.oBasicUtil.findDocumentInArray(aDocuments, oProjectFolderDocument.getEntity().getName());
+					ok(oActualDocument != null, "Folder deleted");
+					
+				});
+			});
+		}));
+
+		test("1b. createFolder() fail - name already exists", 2, withPromise(function() {
+
+			return _initTestProject.call(this, "1b").then(function(oProjectFolderDocument) {
+
+				return oProjectFolderDocument.createFolder("AFolderName").then(function() {
+						return oProjectFolderDocument.createFolder("AFolderName").then(function(oFileDocument) {
+
+							ok(false, "Folder creation not rejected as expected");
+
+						}).fail(function(oError) {
+
+							ok(oError instanceof Error && oError.message == oFileService._oDAO["workspace"].ERROR_FOLDER_ALREADY_EXISTS,
+									"Folder creation rejected as expected: ERROR_FOLDER_ALREADY_EXISTS");
+						});
+					})
+			});
+		}));
+
+		test("1c. createFolder() fail - Invalid Name", 2, withPromise(function() {
+
+			return _initTestProject.call(this, "1c").then(function(oProjectFolderDocument) {
+
+				var sInvalidFoldername = "Invalid Folder Näme ä";
+				return oProjectFolderDocument.createFolder( sInvalidFoldername).then(function() {
+
+					ok(false, "Invalid folder name \"" + sInvalidFoldername + "\" was not rejected as expected");
+
+				}).fail(function(oError) {
+
+					ok(oError instanceof Error && oError.message == oFileService._oDAO["workspace"].ERROR_INVALID_FOLDER_NAME, "invalid foldername \""
+							+ sInvalidFoldername + "\" rejected as expected with:  ERROR_INVALID_FILE_OR_FOLDER_NAME");
+				});
+			});
+		}));
+
+		test("1d. createFolder() on root (project) level fail - folder (project) already exists", 2, withPromise(function() {
+			var that = this;
+			return _initTestProject.call(that, "1d").then(function(oProjectFolderDocument) {
+                return oFileService.createProject({"name":that.oBasicUtil.getProjectName()}).fail(function(oError) {
+                    ok(oError instanceof Error && oError.message == oFileService._oDAO["workspace"].ERROR_PROJECT_ALREADY_EXISTS,
+                        "Project (Folder on root level) creation rejected as expected: ERROR_PROJECT_ALREADY_EXISTS");
+                });
+			});
+		}));
+
+ 		test("2a. createFile() and  create file with name already existing",4,withPromise(function() {
+			return _initTestProject.call(this, "2a").then(function(oProjectFolderDocument) {
+				var sFileName = ".Valid-File_Name@With00AllallowedCharacters.0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.-_@";
+				return oProjectFolderDocument.createFile(sFileName).fail(function() {
+					ok(false, "File creation failed");
+				}).then(function(oFileDocument) {
+					equal(oFileDocument.getEntity().getName(), sFileName, "File created");
+
+					//try to create a file with the same name
+					return oProjectFolderDocument.createFile(sFileName).then(function() {
+						ok(false,
+								"Create file with existing name: error from file service not raised as expected");
+
+					}).fail(function(oError) {
+						ok(true,"Create file with existing name: error from file service raised as expected");
+						ok(oError instanceof Error && oError.message == oFileService._oDAO["workspace"].ERROR_FILE_ALREADY_EXISTS, "Error raised as expected with message: ERROR_FILE_ALREADY_EXISTS");
+
+					});
+				});
+			});
+		}));
+
+		test("2b. createFile() with not allowed characters", 2, withPromise(function() {
+			return _initTestProject.call(this, "2b").then(function(oProjectFolderDocument) {
+
+				var sInvalidFileName = "Invälüd Fölnämeß";
+				return oProjectFolderDocument.createFile(sInvalidFileName).then(function() {
+
+					ok(false, "invalid file name \"" + sInvalidFileName + "\" not rejected");
+
+				}).fail(function(oError) {
+
+					ok(oError instanceof Error && oError.message == oFileService._oDAO["workspace"].ERROR_INVALID_FILE_NAME, "invalid file name \""
+							+ sInvalidFileName + "\" rejected as expected with error ERROR_INVALID_FILE_OR_FOLDER_NAME");
+
+				});
+			});
+		}));
+
+		test("3.deleteFolder", 2, withPromise(function() {
+			var that = this;
+
+			return _initTestProject.call(this, "3").then(function(oProjectFolderDocument) {
+
+				//create a folder
+				var sFolderName = "aFolderName";
+				return oProjectFolderDocument.createFolder(sFolderName).then(function(oFolderDocument) {
+
+					//get folder from parent path
+					//TODO: check why oFolderDocument does not have a parent?
+					return oProjectFolderDocument.getFolderContent().then(function(aResult) {
+
+						var oFolderDocument = that.oBasicUtil.findDocumentInArray(aResult, sFolderName);
+						if (oFolderDocument) {
+							return oFolderDocument.delete().fail(function() {
+
+								ok(false, "Folder deletion failed");
+
+							}).then(function() {
+
+								ok(true, "Folder deletion ok");
+
+							});
+						} else {
+							ok(false, "Folder not found");
+
+						}
+					});
+				});
+			});
+		}));
+
+		test("4. deleteFile()", 2, withPromise(function() {
+			return _initTestProject.call(this, "4").then(function(oProjectFolderDocument) {
+
+				var sFileName = "AFileName.js";
+				return oProjectFolderDocument.createFile(sFileName).then(function() {
+
+					var sFilePath = "/" + oProjectFolderDocument.getEntity().getName() + "/" + sFileName;
+
+					return oFileService.getDocument(sFilePath).then(function(oFileDocument) {
+						return oFileDocument.delete().then(function(){
+							return oFileService.getDocument(sFilePath).then(function(oFileDocument) {
+								ok(oFileDocument == null, "File was deleted");
+
+							});
+						});
+					});
+				});
+			});
+		}));
+
+		test("5a. rename() for file", 3, withPromise(function() {
+			return _initTestProject.call(this, "5a").then(function(oProjectFolderDocument) {
+
+				var sFileName = "AFileName.js";
+				return oProjectFolderDocument.createFile(sFileName).then(function() {
+
+					var sFilePath = "/" + oProjectFolderDocument.getEntity().getName() + "/" + sFileName;
+					return oFileService.getDocument(sFilePath).then(function(oFileDocument) {
+						
+						return oFileDocument.move(oProjectFolderDocument,"RenamedFile.js").then(function(oRenamedDocument){
+							var sFilePathRenamed_FromRenamedDocument = oRenamedDocument.getEntity().getFullPath();
+							var sFilePathRenamed_Expected = "/" + oProjectFolderDocument.getEntity().getName() + "/RenamedFile.js";
+
+							ok(sFilePathRenamed_FromRenamedDocument == sFilePathRenamed_Expected, "Expected path equals path of renamed document"); 
+
+							return oFileService.getDocument(sFilePathRenamed_Expected).then(function(oFileDocument) {
+								ok(oFileDocument != null, "File was renamed");
+
+							});
+						});
+					});
+				});
+			});
+		}));
+
+//		test("5b. rename() for folder", 2, withPromise(function() {
+//			return _initTestProject.call(this, "5b").then(function(oProjectFolderDocument) {
+//
+//				var sFolderName = "AFolderName";
+//				return oProjectFolderDocument.createFolder(sFolderName).then(function(oFolder) {
+//
+//					return oFolder.move(oProjectFolderDocument,"RenamedAFolderName").then(function(oRenamedFolder){
+// 						var sFolderPathRenamed_FromRenamedDocument = oRenamedFolder.getEntity().getFullPath();
+//						var sFolderPathRenamed_Expected = "/" + oProjectFolderDocument.getEntity().getName() + "/RenamedAFolderName"; 
+//
+//						ok(sFolderPathRenamed_FromRenamedDocument == sFolderPathRenamed_Expected, "Expected path equals path of renamed document provided by document.move()");
+//
+//						return oFileService.getDocument(sFolderPathRenamed_Expected).then(function(oFolderDocument) {
+//							ok(sFolderPathRenamed_Expected == oFolderDocument.getEntity().getFullPath(), "Folder was renamed");
+//
+//						});
+//					});
+//				});
+//			});
+//		}));
+
+		test("6a. getDocument() for folder", 3, withPromise(function() {
+			return _initTestProject.call(this, "6a").then(function(oProjectFolderDocument) {
+
+				var sFolderName = "AFolderName";
+				return oProjectFolderDocument.createFolder(sFolderName).then(function() {
+
+					var sFolderPath = "/" + oProjectFolderDocument.getEntity().getName() + "/" + sFolderName;
+
+					return oFileService.getDocument(sFolderPath).then(function(oResult) {
+						ok(oResult, "Folder was found");
+						equal(oResult.getEntity().getFullPath(),sFolderPath, "full path as expected");
+					});
+				});
+			});
+		}));
+
+		test("6ar. getDocument() for workspace root folder", 4, withPromise(function() {
+			return _initTestProject.call(this, "6ar").then(function(oProjectFolderDocument) {
+
+				return oFileService.getRoot().then(function(oWorkspaceRoot) {
+					var sFolderPath = oWorkspaceRoot.getEntity().getFullPath();
+					var oRoot = oWorkspaceRoot;
+					return oFileService.getDocument(sFolderPath).then(function(oResult) {
+						ok(oResult.getEntity().getFullPath() == sFolderPath, "Folder was found");
+						deepEqual(oResult.getEntity(),oRoot.getEntity(), "Folder is the Workspace root folder");
+						equal(oResult.getEntity().getFullPath(),sFolderPath, "full path as expected");
+					});
+				});
+			});
+		}));
+
+		test("6af. getDocument() for folder failure", 3, withPromise(function() {
+			return _initTestProject.call(this, "6af").then(function(oProjectFolderDocument) {
+
+				var sFolderName = "AFolderName";
+				return oProjectFolderDocument.createFolder(sFolderName).then(function() {
+
+					var sFolderPath = "/" + oProjectFolderDocument.getEntity().getName() + "/" + sFolderName + "notexisting";
+
+					return oFileService.getDocument(sFolderPath).then(function(oResult) {
+						ok(!oResult, "Folder was not found");
+
+						// folder does not exist under workspace root
+						return oFileService.getRoot().then(function(oWorkspaceRoot) {
+		
+							var sFolderPath = oWorkspaceRoot.getEntity().getName() + "/" + sFolderName + "notexisting";
+		
+							return oFileService.getDocument(sFolderPath).then(function(oResult) {
+								ok(!oResult, "Folder was not found");
+
+							});
+						});
+					});
+				});
+			});
+		}));
+
+		test("6afi. getDocument() for folder failure with invalid path name", 2, withPromise(function() {
+			return _initTestProject.call(this, "6afi").then(function(oProjectFolderDocument) {
+
+				var sFolderName = "AFolderName";
+				return oProjectFolderDocument.createFolder(sFolderName).then(function() {
+
+					var sFolderPath = "/" + oProjectFolderDocument.getEntity().getName() + "/" + sFolderName + "%";
+
+					return oFileService.getDocument(sFolderPath).fail(function(oResult) {
+						equal(oResult.message, oFileService._oDAO["workspace"].ERROR_INVALID_PATH_NAME +": >" + sFolderPath + "<", "Invalid path name");				
+					});
+				});
+			});
+		}));
+		
+		test("6b. getDocument() for file", 3, withPromise(function() {
+			return _initTestProject.call(this, "6b").then(function(oProjectFolderDocument) {
+
+				var sFileName = "AFileName.txt";
+				return oProjectFolderDocument.createFile(sFileName).then(function() {
+
+					var sFilePath = "/" + oProjectFolderDocument.getEntity().getName() + "/" + sFileName;
+
+					return oFileService.getDocument(sFilePath).then(function(oResult) {
+						ok(oResult, "File was found");
+						equal(oResult.getEntity().getFullPath(),sFilePath, "full path as expected");
+						
+					});
+				});
+			});
+		}));
+		
+		test("6bs. getDocument() for file in sub folder", 3, withPromise(function() {
+			return _initTestProject.call(this, "6bs").then(function(oProjectFolderDocument) {
+				var oFileFolderUtils = new FileFolderUtil();
+				var oPromise_TestData = oFileFolderUtils.create(FileFolderTestData, oFileService, oProjectFolderDocument);
+		
+				return oPromise_TestData.then( function(oTestDataRootFolderDocument) {
+		
+					//Check against a file setup as Test Data
+					var sFilePath = "/" + oProjectFolderDocument._mEntity._sName + "/testDataRoot/folder00_01/folder00_01_00/file00_00_01_00_01.html";
+		
+					return oFileService.getDocument(sFilePath).then(function(oFileDocument) {
+						ok(oFileDocument, "File was found");
+						equal(oFileDocument.getEntity().getFullPath(),sFilePath, "full path as expected");
+					});
+				});
+			});
+		}));
+
+		test("6bf. getDocument() for file failure", 2, withPromise(function() {
+			return _initTestProject.call(this, "6bf").then(function(oProjectFolderDocument) {
+
+				var sFileName = "AFileName.txt";
+				return oProjectFolderDocument.createFile(sFileName).then(function() {
+
+					var sFilePath = "/" + oProjectFolderDocument.getEntity().getName() + "/" + sFileName + "notexisting";
+
+					return oFileService.getDocument(sFilePath).then(function(oResult) {
+						ok(!oResult, "File was not found");
+						
+					});
+				});
+			});
+		}));
+
+		test("7a. objectExists", 2, withPromise(function() {
+			return _initTestProject.call(this, "7a").then(function(oProjectFolderDocument) {
+
+				return oProjectFolderDocument.createFile( "AFilename").then(function() {
+					return oProjectFolderDocument.objectExists("AFilename").then(function(oResult) {
+						ok(oResult, "File was found");
+					})
+				});
+			});
+			
+		}));
+		
+		test("7b. objectExists failure", 3, withPromise(function() {
+			return _initTestProject.call(this, "7b").then(function(oProjectFolderDocument) {
+				// file does not exist under created project document
+				return oProjectFolderDocument.objectExists("AFilename").then(function(oResult) {
+					ok(!oResult, "File was not found");
+
+					// folder does not exist under workspace root
+					return oFileService.getRoot().then(function(oWorkspaceRoot) {
+						return oWorkspaceRoot.objectExists("AFoldername").then(function(oResult) {
+							ok(!oResult, "Folder was not found");
+						})
+					});
+				});
+			});
+		}));
+		
+		test("7c. objectExists failure with invalid name", 2, withPromise(function() {
+			return _initTestProject.call(this, "7c").then(function(oProjectFolderDocument) {
+				return oProjectFolderDocument.createFile( "AFilename").then(function() {
+					// file with invalid name does not exist under created project document
+					return oProjectFolderDocument.objectExists("AFilename§§").fail(function(oResult) {
+						equal(oResult.message, oFileService._oDAO["workspace"].ERROR_INVALID_FILE_OR_FOLDER_NAME, "Invalid file or folder name");
+					});
+				});
+			});
+		}));
+		
+		test("7d. objectExists with Path", 2, withPromise(function() {
+			return _initTestProject.call(this, "7d").then(function(oProjectFolderDocument) {
+				return oProjectFolderDocument.createFolder( "AFolder").then(function(oNewFolder) {
+					return oNewFolder.createFile( "AFilename").then(function() {
+						return oProjectFolderDocument.objectExists("AFolder/AFilename").then(function(oResult) {
+							ok(oResult, "File was found");
+						});
+					});	
+				});
+			});
+		}));
+		
+		test("7e. objectExists with Path failure with invalid path", 2, withPromise(function() {
+			return _initTestProject.call(this, "7e").then(function(oProjectFolderDocument) {
+				return oProjectFolderDocument.createFolder( "AFolder").then(function(oNewFolder) {
+					return oNewFolder.createFile( "AFilename").then(function() {
+						return oProjectFolderDocument.objectExists("/../AFolder/AFilename").fail(function(oResult) {
+							equal(oResult.message, "ERROR_INVALID_PATH_NAME: >/../AFolder/AFilename<", "Invalid file or folder name");
+						});
+					});	
+				});
+			});
+		}));
+
+		test("8. writeFileContent(), readFileContent(), readFileMetadata()", 3, withPromise(function() {
+			return _initTestProject.call(this, "8").then(function(oProjectFolderDocument) {
+
+				var sContent = "Some File Content...";
+				var newETag = null;
+				var oFileDocument;
+				
+				return oProjectFolderDocument.createFile( "AFileName").then(function(oResult) {
+					oFileDocument = oResult;
+					return oCheFileDAO.readFileMetadata(oFileDocument);
+				}).then(function(oResult) {
+					return oFileDocument.setContent(sContent);
+				}).then(function() {
+					return oCheFileDAO.writeFileContent(oFileDocument);
+				}).then(function(oResult) {
+					newETag = oResult.sETag;
+					return oCheFileDAO.readFileContent(oFileDocument);
+				}).then(function(oResult) {
+					ok(oResult === sContent);
+				}).then(function(oResult) {
+					return oFileDocument.setContent(sContent + "changed");
+				}).then(function() {
+					oFileDocument._mState.sETag = newETag;
+					return oCheFileDAO.writeFileContent(oFileDocument);
+				}).then(function(oResult) {
+					return oCheFileDAO.readFileContent(oFileDocument);
+				}).then(function(oResult) {
+					ok(oResult === sContent + "changed");
+
+				});
+			});
+		}));
+
+		test("9. getFolderContent", 3, withPromise(function() {
+			var that = this;
+			return _initTestProject.call(this, "9").then(function(oProjectFolderDocument) {
+				var oFileFolderUtils = new FileFolderUtil();
+
+				var oPromise_TestData = oFileFolderUtils.create(FileFolderTestData, oFileService, oProjectFolderDocument);
+
+				return oPromise_TestData.then(function(oRootFolderDocument) {
+					return oRootFolderDocument.getFolderContent().then(function(aResult) {
+
+						equal(aResult.length, 2, "Number of read files as expected");
+						var sFilePath = "/" + oProjectFolderDocument._mEntity._sName + "/testDataRoot/folder00_00";
+						var oActualDocument = that.oBasicUtil.findDocumentInArray(aResult, "folder00_00");
+						equal(oActualDocument.getEntity().getFullPath(),sFilePath, "full path as expected");
+						
+					})
+				});
+			});
+		}));
+
+		test("10. search()", 2, withPromise(function() {
+			// just call the API, the real function cannot be tested, the respective search index is only updated in
+			// relatively large timeintervals in the ORION backend
+			var sContent = "text changed";
+
+			return _initTestProject.call(this, "10").then(function(oProjectFolderDocument) {
+
+				var mInputObject = {
+						"sSearchTerm" : "*.js",
+						"oFolderDocument" : oProjectFolderDocument
+				}
+
+				return oFileService.search(mInputObject).then(function(){
+					ok(true, "search() called");
+
+				});
+			});
+		}));
+
+		test("11a. getExecuteUrl() for server_type = java", 3, withPromise(function() {
+			
+			var oldServerType = window["sap-ide-env"]["server_type"];
+			window["sap-ide-env"]["server_type"] = "java";
+			return _initTestProject.call(this, "11a").then(function(oProjectFolderDocument) {
+
+				var oFileFolderUtils = new FileFolderUtil();
+				var oPromise_TestData = oFileFolderUtils.create(FileFolderTestData, oFileService, oProjectFolderDocument);
+
+				return oPromise_TestData.then( function(oTestDataRootFolderDocument) {
+
+					//Check against a file setup as Test Data
+					var sPath = "/testDataRoot/folder00_01/folder00_01_00";
+					var sFilePath = "/" + oProjectFolderDocument._mEntity._sName + sPath;
+
+					return oFileService.getDocument(sFilePath).then(function(oFileDocument) {
+						return oPreviewAdapter.getPreviewUrl(oFileDocument).then(function(oURI) {
+							var sURL = oURI.toString();
+							ok(sURL != null, "Execute-URL: " + sURL);
+							ok(sURL.indexOf(sFilePath) > -1, "Execute-URL: " + sURL + " contains " + sFilePath);
+						});
+					});
+				});
+			}).finally(function(){
+				window["sap-ide-env"]["server_type"] = oldServerType;
+			});
+		})); 
+		
+		test("11b. getExecuteUrl() for server_type = hcproxy", withPromise(function() {
+
+			var oldServerType = window["sap-ide-env"]["server_type"];
+			window["sap-ide-env"]["server_type"] = "hcproxy";
+			return _initTestProject.call(this, "11b").then(function(oProjectFolderDocument) {
+
+				var oFileFolderUtils = new FileFolderUtil();
+				var oPromise_TestData = oFileFolderUtils.create(FileFolderTestData, oFileService, oProjectFolderDocument);
+
+				return oPromise_TestData.then( function(oTestDataRootFolderDocument) {
+
+					//Check against a file setup as Test Data
+					var sPath = "/testDataRoot/folder00_01/folder00_01_00";
+					var sFilePath = "/" + oProjectFolderDocument._mEntity._sName + sPath;
+					var sOrionPath = window.encodeURIComponent(sFilePath);
+
+					return oFileService.getDocument(sFilePath).then(function(oFileDocument) {
+						return oPreviewAdapter.getPreviewUrl(oFileDocument).then(function(oURI) {
+							var sURL = oURI.toString();
+							ok(sURL != null, "Execute-URL: " + sURL);
+							ok(sURL.indexOf(sFilePath) == -1, "Execute-URL: " + sURL + " does not contain " + sFilePath);
+							var iParamOffset = sURL.indexOf("?hc_orionpath=");
+							ok(iParamOffset > -1, "Execute-URL: " + sURL + " contains ?hc_orionpath=");
+							ok(sURL.indexOf(sOrionPath) > iParamOffset, "Execute-URL: " + sURL + " contains " + sOrionPath + " behind ?hc_orionpath=");
+						});
+					});
+				});
+			}).finally(function(){
+				window["sap-ide-env"]["server_type"] = oldServerType;
+			});
+		}));  
+
+		test("13a. importFile ", 3, withPromise(function() {
+			return _initTestProject.call(this, "13a").then(function(oProjectFolderDocument) {
+				var sSomeContent = "Some Content";
+				var oBlob = new Blob([sSomeContent]);
+				var sFileName = "aFileName.ext";
+				
+				return oProjectFolderDocument.importFile(oBlob,false,false,sFileName).then(function(oDocument){
+
+					var sFilePath = "/" + oProjectFolderDocument._mEntity._sName + "/" + sFileName;
+					equal(oDocument.getEntity().getFullPath(),sFilePath);
+					
+					return oDocument.getContent().then(function(sResult){
+						ok(sResult === sSomeContent, "Imported file context retrieved successfully" );
+					});
+
+				});
+			});
+		}));
+		
+		test("13b. importFile failure", 2, withPromise(function() {
+			return _initTestProject.call(this, "13b").then(function(oProjectFolderDocument) {
+				var sSomeContent = "Some Content";
+				var oBlob = new Blob([sSomeContent]);
+				var sFileName = "aFileName.ext";
+				//oProjectFolderDocument.getEntity().getBackendData().importLocation = oProjectFolderDocument.getEntity().getBackendData().importLocation.replace("import","import1");
+                oProjectFolderDocument.getEntity().getBackendData().setUploadUrl(oProjectFolderDocument.getEntity().getBackendData().getUploadUrl().replace("uploadfile","uploadfile1"));
+				return oProjectFolderDocument.importFile(oBlob,false,false,sFileName).then(null, function(oError){
+
+					ok(oError.message);
+				
+				});
+			});
+		}));
+
+		test("14a. exportZip(); importZip() ", withPromise(function() {
+			return _initTestProject.call(this, "14a").then(function(oProjectFolderDocument) {
+
+				var oFileFolderUtils = new FileFolderUtil();
+
+				//create a test file folder structure
+				var oPromise_TestData = oFileFolderUtils.create(FileFolderTestData, oFileService, oProjectFolderDocument);
+				var sTestProjectFolderPath = "/" + oProjectFolderDocument.getEntity().getName();
+
+				return oPromise_TestData.then(function(oTestDataRootFolderDocument) {
+					var sFolderPath = sTestProjectFolderPath + "/" + oTestDataRootFolderDocument.getEntity().getName();
+
+					return oFileService.getDocument(sFolderPath).then(function(oFolderDocument){
+						// empty exportLocation to also test that export works then
+						if (oFolderDocument._mEntity._mBackenData) {
+							oFolderDocument._mEntity._mBackenData.exportLocation = null;
+						}
+						//export ZIP
+						return oFolderDocument.exportZip().then(function(oZipContent) {
+							ok(true,"ZIP exported from test data folder");
+							//create a target folder
+							return oProjectFolderDocument.createFolder("TargetFolder").then(function(oTargetFolderDocument) {
+
+								sFolderPath = sTestProjectFolderPath + "/" + oTargetFolderDocument.getEntity().getName()
+
+								return oFileService.getDocument(sFolderPath).then(function(oTargetFolderDocument){
+
+									//import the ZIP into the target folder
+									return oTargetFolderDocument.importZip(oZipContent).then(function() {
+
+										ok(true,"ZIP imported into target folder");
+										return oTargetFolderDocument.currentMetadata(true).then(function(aResult) {
+											// Simple check for expected number of files
+											// on local orion currently empty folder are ignored. In cloud orion this was fixed.
+											// currently on cloud 13 but locally 10 expected
+											if (sap.watt.getEnv("server_type") === "hcproxy") {
+												equal(aResult.length, 13, "Number of read files as expected");
+                                        // not relevant in case we ran orion8 local the result will be also 13 and not 10
+										//	} else {
+										//		equal(aResult.length, 10, "Number of read files as expected");
+											}
+
+										});
+									});
+								});
+							});
+						});
+					});
+				});
+			});
+		}));
+		
+		test("14b. importZip() failure", 3, withPromise(function() {
+			return _initTestProject.call(this, "14b").then(function(oProjectFolderDocument) {
+
+				var oFileFolderUtils = new FileFolderUtil();
+
+				//create a test file folder structure
+				var oPromise_TestData = oFileFolderUtils.create(FileFolderTestData, oFileService, oProjectFolderDocument);
+				var sTestProjectFolderPath = "/" + oProjectFolderDocument.getEntity().getName();
+
+				return oPromise_TestData.then(function(oTestDataRootFolderDocument) {
+					var sFolderPath = sTestProjectFolderPath + "/" + oTestDataRootFolderDocument.getEntity().getName();
+
+					return oFileService.getDocument(sFolderPath).then(function(oFolderDocument){
+						// empty exportLocation to also test that export works then
+						if (oFolderDocument._mEntity._mBackenData) {
+							oFolderDocument._mEntity._mBackenData.exportLocation = null;
+						}
+						//export ZIP
+						return oFolderDocument.exportZip().then(function(oZipContent) {
+							ok(true,"ZIP exported from test data folder");
+							//create a target folder
+							return oProjectFolderDocument.createFolder("TargetFolder").then(function(oTargetFolderDocument) {
+
+								sFolderPath = sTestProjectFolderPath + "/" + oTargetFolderDocument.getEntity().getName();
+								return oFileService.getDocument(sFolderPath).then(function(oTargetFolderDocument){
+									//oTargetFolderDocument.getEntity().getBackendData().importLocation = oTargetFolderDocument.getEntity().getBackendData().importLocation.replace("import","import1");
+                                    oTargetFolderDocument.getEntity().getBackendData().setImportUrl(oTargetFolderDocument.getEntity().getBackendData().getImportUrl().replace("import","import1"));
+                                    //import the ZIP into the target folder
+									return oTargetFolderDocument.importZip(oZipContent).then(null, function(oError) {
+										ok(oError.message);
+									});
+								});
+							});
+						});
+					});
+				});
+			});
+		}));
+
+		test("15. getRoot() ", 2, withPromise(function() {
+			return _initTestProject.call(this, "15").then(function(oProjectFolderDocument) {
+				return oFileService.getRoot().then(function(oWorkspaceRootDocument){
+					ok(oWorkspaceRootDocument);
+				});
+			});
+		}));
+
+//TODO commented out until copy with rename contribution will be in DI
+//		test("16. copyFile ", 3, withPromise(function() {
+//			return _initTestProject.call(this, "16").then(function(oProjectFolderDocument) {
+//				var sFileNameSource = "SourceFile.js";
+//				var sFileNameTarget = "TargetFile.js";
+//				return oProjectFolderDocument.createFile( sFileNameSource).then(function() {
+//
+//					var sFilePath = "/" + oProjectFolderDocument.getEntity().getName() + "/" + sFileNameSource;
+//					return oFileService.getDocument(sFilePath).then(function(oFileDocument) {
+//
+//						return oFileDocument.copy(oProjectFolderDocument,sFileNameTarget).then(function(){
+//
+//							var sFileCopied = "/" + oProjectFolderDocument.getEntity().getName() + "/" + sFileNameTarget;
+//							return oFileService.getDocument(sFileCopied).then(function(oFileDocument) {
+//								ok(oFileDocument != null, "File was copied");
+//								ok(oFileDocument.getEntity().getName() == sFileNameTarget, "File Name correct");
+//							});
+//						});
+//					});
+//				});
+//			});
+//		}));
+
+		test("17. copyFile to an existing file with same name and expecting an error", 2, withPromise(function() {
+			return _initTestProject.call(this, "17").then(function(oProjectFolderDocument) {
+				var sFileNameSource = "SourceFile.js";
+				var sFileNameTarget = "TargetFile.js";
+				return oProjectFolderDocument.createFile( sFileNameSource).then(function(oSourceFileDocument) {
+					return oProjectFolderDocument.createFile(sFileNameTarget).then(function(oTargetFileDocument) {
+						var sFilePath = "/" + oProjectFolderDocument.getEntity().getName() + "/" + sFileNameSource;
+						return oFileService.getDocument(sFilePath).then(function(oFileDocument) {
+
+							return oFileDocument.copy(oProjectFolderDocument,sFileNameTarget,false).then(function(){
+								ok(false, "Copy did not fail as expected ...");
+							}).fail(function(oError) {
+								ok(oError instanceof Error && oError.message == oFileService._oDAO["workspace"].ERROR_FOLDER_ALREADY_EXISTS);
+							});
+						});
+					});
+				});
+			});
+		}));
+
+//TODO commented out until copy with rename contribution will be in DI
+//		test("18. copyFile to an existing file with same name and expecting the existing file get overwritten", 2, withPromise(function() {
+//			return _initTestProject.call(this, "18").then(function(oProjectFolderDocument) {
+//				var sFileNameSource = "SourceFile.js";
+//				var sFileNameTarget = "TargetFile.js";
+//				return oProjectFolderDocument.createFile( sFileNameSource).then(function(oSourceFileDocument) {
+//					return oProjectFolderDocument.createFile(sFileNameTarget).then(function(oTargetFileDocument) {
+//						var sFilePath = "/" + oProjectFolderDocument.getEntity().getName() + "/" + sFileNameSource;
+//						return oFileService.getDocument(sFilePath).then(function(oFileDocument) {
+//
+//							return oFileDocument.copy(oProjectFolderDocument,sFileNameTarget,true).then(function(){
+//								ok(oFileDocument != null, "File was copied");
+//							});
+//						});
+//					});
+//				});
+//			});
+//		}));
+
+		//TODO consider to put the document test in a separate qunit test (but this is a document + chebackend integration test)
+		test("19. document setContent, save, getContent", withPromise(function() {
+			return _initTestProject.call(this, "19").then(function(oProjectFolderDocument) {
+
+				var sContent = "Some File Content...";
+				var oFileDocument;
+				var sChangedOn;
+
+				return oProjectFolderDocument.createFile( "AFileName").then(function(oResult) {
+					oFileDocument = oResult;
+					sChangedOn = oFileDocument.getDocumentMetadata().changedOn;
+					ok(sChangedOn,"changedOn is set");
+                    //Timestamps in cloud only track seconds. So we need a short delay to enforce a change in the timestamp
+					return Q.all([oFileDocument.setContent(sContent), Q.delay(1000)]);
+				}).then(function() {
+					return oFileDocument.save();
+				}).then(function(oResult) {
+					var sChangeOnNew = oFileDocument.getDocumentMetadata().changedOn;
+					ok(sChangeOnNew && sChangedOn != sChangeOnNew, "changedOn is updated");
+                    return oCheFileDAO.readFileContent(oFileDocument);
+				}).then(function(oResult) {
+					equal(oResult,sContent,"file service content is as expected");
+				}).then(function(oResult) {
+					return oFileDocument.getContent();
+				}).then(function(oResult) {
+					equal(oResult, sContent, "document content is as expected");
+				}).then(function(oResult) {
+					return oFileDocument.setContent(sContent + "changed");
+				}).then(function() {
+					return oFileDocument.save();
+				}).then(function(oResult) {
+					return oCheFileDAO.readFileContent(oFileDocument);
+				}).then(function(oResult) {
+					equal(oResult,sContent + "changed", "changed file service content is as expected");
+				}).then(function(oResult) {
+					return oFileDocument.getContent();
+				}).then(function(oResult) {
+					equal(oResult, sContent + "changed", "changed document content is as expected");
+				});
+			});
+		}));
+		
+		test("20. Binary document import, getContent, setContent, save, getContent", withPromise(function() {
+			return _initTestProject.call(this, "19").then(function(oProjectFolderDocument) {
+				
+				var oBlob;
+				var oBlob2;
+				var sFileName = "red.png";
+				var oFileDocument;
+				
+				return Q.all([_getBlob(require.toUrl("qunit/uitools/plugin/chebackend/utils/red.png")),
+						_getBlob(require.toUrl("qunit/uitools/plugin/chebackend/utils/blue.png"))]).
+						spread(function(_oBlob, _oBlob2){
+					oBlob = _oBlob;
+					oBlob2 = _oBlob2;
+					return oProjectFolderDocument.importFile(oBlob,false,false,sFileName)
+				}).then(function(oResult){
+					oFileDocument = oResult;
+					return oCheFileDAO.readFileContent(oFileDocument);
+				}).then(function(oResult) {
+					ok(oResult instanceof Blob, "Binary file is read as blob");
+					equal(oResult.size, oBlob.size, "Loaded blob has correct size");
+					return oFileDocument.getContent();
+				}).then(function(oResult) {
+					ok(oResult instanceof Blob, "Binary file document content is read as blob");
+					equal(oResult.size, oBlob.size, "Binary file document content has correct size");
+				});
+				/** TODO Does not work yet as Orion has no proper API for transfering binary content with eTag check
+				.then(function(oResult) {
+					return oFileDocument.setContent(oBlob2);
+				}).then(function() {
+					return oFileDocument.save();
+				}).then(function(oResult) {
+					return oCheFileDAO.readFileContent(oFileDocument);
+				}).then(function(oResult) {
+					ok(oResult instanceof Blob, "Changed Binary file document content is read as blob");
+					equal(oResult.size, oBlob2.size, "Changed Binary file document content has correct size");
+				}).then(function(oResult) {
+					return oFileDocument.getContent();
+				}).then(function(oResult) {
+					ok(oResult instanceof Blob, "Changed Binary file document content is read as blob");
+					equal(oResult.size, oBlob2.size, "Changed Binary file document content has correct size");
+				});
+				**/
+			});
+		}));
+
+		/* ----------------------------------------  helper functions ----------------------------------------  */
+		function _initTestProject(sTestId) {
+
+			// this context refers to the "environment" of the qUnit test
+			// which is the object that also holds the setup() and teardown() functions 
+			this.oBasicUtil = new BasicUtil(sTestId, dTestModuleTimeStamp, oFileService);
+
+			return this.oBasicUtil.initializeTestProject();
+		}
+		
+		function _getBlob(sUri){
+			var oRequest = new XMLHttpRequest();
+			oRequest.open("GET", sUri, true);
+			oRequest.responseType = "blob";
+			var oDeferred = Q.defer();
+			oRequest.onload = function(oEvent) {
+				if (this.readyState === 4 && this.status < 300) {
+					oDeferred.resolve(this.response);
+				} else {
+					oDeferred.reject(new Error(this.response));
+				}
+			};
+			oRequest.send();
+			return oDeferred.promise;
+		}
+
+		return oLoginPromise;
+	});
+
+
+</script>
+
+</head>
+<body >
+	<div id="qunit"></div>
+	<div id="content" style="display: none"></div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+namespace CDS;
+context MyContext
+{
+  context Inner
+  {
+    type MyStruct
+    {
+        structelt1 : Integer;
+        structelt2 : Integer;
+        structelt3 : String(30);
+    };
+    @Catalog.index:[ { name:'Index1', unique:false, order:#DESC, elementNames:['elt1', 'elt2' ] } ]
+    entity MyEntity
+    {
+        key elt1 : Integer;
+        elt2 : Integer;
+        elt3 : MyStruct;
+        order : Integer;
+    };
+  };
+  view MyView as select from Inner.MyEntity
+  {
+      elt1 as keyElt,
+      elt2,
+      elt3.structelt2
+  } WHERE elt1 = 1
+    GROUP BY elt1, elt2, elt3.structelt2
+    HAVING elt2 = 10 AND NOT elt2 < 20 OR elt2 >= 20 AND elt3.structelt3 = 'foobar'
+    ORDER by elt1 ASC NULLS FIRST, elt2 NULLS LAST, elt3.structelt2 DESC;
+};
+
+/* @classification: basic */
+/* @description: CDS view with QL statement containing GROUP BY, HAVING, ORDER BY */
+/* @except-configuration: config_sqlgen */
+/* @resource-name: CDS::MyContext */

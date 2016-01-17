@@ -1,0 +1,24 @@
+namespace Defaults;
+entity evil {
+    key id : Integer;
+
+    // String defaults
+
+    // Binary defaults
+
+    // Integer defaults
+    i3 : Integer default +1; // '+' yet to be clarified
+
+    // Fix- and Floating point defaults
+    bf1: BinaryFloat default +123.456; // '+' yet to be clarified
+    bf2: BinaryFloat default +123.456e1; // '+' yet to be clarified
+    bf3: BinaryFloat default +123.456e-1; // '+' yet to be clarified
+    bf4: BinaryFloat default +123.456e+1; // '+' yet to be clarified
+
+    // Date and Time defaults
+    lt1: LocalTime default time'17:04:03.12345'; // microseconds
+};
+
+/* @classification: basic no_regression */
+/* @description: Evil default constructs */
+/* @resource-name: Defaults::evil */

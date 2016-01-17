@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <script src="./qunitHelper.js" ></script>
+    <script>setBase("sap/watt/uitools/")</script>
+
+    <script src="../lib/requirejs/require.js"
+            data-main="../core/Global"
+            data-sap-ide-main="runTests"
+            data-sap-ide-environment-path="../../../../env.json"
+            data-sap-ide-basedir="../../../"></script>
+
+    <title>Clean Orion workspace QUnit Test</title>
+
+    <script>
+
+        require.config({
+            paths : {
+                "sap.watt.common.document" : "sap/watt/common/plugin/document",
+                "sap.watt.common.filesystem" : "sap/watt/common/plugin/filesystem",
+                "sap.watt.ideplatform.orion.orionbackend" : "sap/watt/ideplatform/orion/plugin/orionbackend",
+                "sap.watt.platform.heliumpreview" : "sap/watt/platform/plugin/heliumpreview",
+                "sap.watt.common.projectsetting" : "sap/watt/ideplatform/plugin/projectsetting"
+            }
+        });
+
+        defineTest([ "sap.watt.ideplatform.orion.orionbackend/service/OrionFileDAO",
+                    "sap.watt.platform.heliumpreview/service/HeliumPreviewAdapter",
+                    "sap.watt.common.filesystem/service/FilesystemDocumentProvider",
+                    "sap.watt.ideplatform.orion.orionbackend/service/System",
+                    "sap.watt.common.document/Document",
+                    "sap.watt.common.filesystem/document/FolderDocument",
+                    "sap.watt.common.filesystem/document/FileDocument"],
+                function(oOrionFileDAO, oPreviewAdapter, oFileService, oSystemService, Document, FolderDocument, FileDocument) {
+
+                    // login
+                    var oParameters = jQuery.sap.getUriParameters();
+                    var sUsername = oParameters.get("username");
+                    var sPassword = oParameters.get("password");
+                    oSystemService.context = {
+                        "event" : {
+                            fireLoggedIn : function() {return Q();}
+                        }
+                    };
+                    var oLoginPromise = oSystemService.login(sUsername, sPassword);
+
+                    oFileService._oDAO = {"workspace" : oOrionFileDAO};
+
+                    QUnit.testStart(function( details ) {
+                        console.log( "Now running: " + details.module + " " + details.name );
+                    });
+
+                    QUnit.testDone(function( details ) {
+                        console.log( "Finished running: "+ details.module +  " " + details.name + "\n Failed/total: " + details.failed + " " + details.total);
+                    });
+
+                    module("File Service", {
+                        setup : function() {
+                            var hash = {};
+                            var documentEventEmitterMock = {
+                                fireCreated : function(oDocument){
+                                    return Q();
+                                },
+                                fireChanged : function(oDocument) {
+                                    return Q();
+                                },
+                                fireDeleted : function(oDocument) {
+                                    return Q();
+                                },
+                                fireLoaded : function(oDocument) {
+                                    return Q();
+                                },
+                                fireSaved : function(oDocument) {
+                                    return Q();
+                                },
+                                fireStateChanged : function(oDocument) {
+                                    return Q();
+                                }
+                            };
+                            var context = {service:{document : {
+                                getDocument : function(oEntity, bNoCreate){
+                                    if (bNoCreate){
+                                        return Q(null);
+                                    }
+                                    switch (oEntity.getType()) {
+                                        case "file":
+                                            return Q(new FileDocument(oFileService, oOrionFileDAO, oEntity, documentEventEmitterMock, hash));
+                                            break;
+                                        case "folder":
+                                            return Q(new FolderDocument(oFileService, oOrionFileDAO, oEntity, documentEventEmitterMock, hash));
+                                            break;
+                                    }
+                                },
+                                changed : function(oDocument, sChangeType) {
+                                }
+                            },
+                                setting :{ project:{
+                                    getProjectSettings: function(sSettingName, oDocument){
+                                        return Q(null);
+                                    }
+                                }
+                                }
+                            },
+                                event : {
+                                    fireBeforeExportZip : function(oZip, oDocument) {
+                                        return Q();
+                                    }
+                                }};
+
+                            oFileService.context = context;
+                            oOrionFileDAO.context = context;
+                            oPreviewAdapter.context = context;
+
+                        }
+                    });
+
+                    test("Delete Orion workspace", withPromise(function() {
+                        return oFileService.getRoot().then(function(oWorkspaceRoot) {
+                            var sFolderPath = oWorkspaceRoot.getEntity().getFullPath();
+                            return oFileService.getDocument(sFolderPath).then(function(oResult) {
+                                return oResult._oDAO.getFolderContent(oResult).then(function(ProjectsArr) {
+                                    var promise = Q();
+                                    if (ProjectsArr.length === 0) {
+                                        //Workspace is already empty
+                                        equal(ProjectsArr.length, 0);
+                                    }
+                                    else {
+                                        var promises = _.map(ProjectsArr, function(currProject) {
+                                            promise = promise.then(function() {
+                                                return currProject.delete().fail(function() {
+                                                    ok(false, "Folder deletion failed");
+                                                }).then(function() {
+                                                    ok(true, "Folder deletion ok");
+                                                });
+                                            });
+                                            return promise;
+                                        });
+                                        return Q.all(promises);
+                                    }
+                                });
+                            });
+                        });
+
+                    }));
+                    return oLoginPromise;
+                });
+
+    </script>
+
+</head>
+<body >
+<div id="qunit"></div>
+<div id="content" style="display: none"></div>
+</body>
+</html>

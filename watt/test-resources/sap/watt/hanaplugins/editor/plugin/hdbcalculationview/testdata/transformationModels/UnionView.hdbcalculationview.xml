@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" 
+xmlns:Dimension="http://www.sap.com/ndb/BiModelDimension.ecore" schemaVersion="2.3" id="mini::CvProduct" applyPrivilegeType="NONE"
+defaultClient="crossClient" defaultLanguage="$$language$$" visibility="internal" calculationScenarioType="TREE_BASED" dataCategory="DIMENSION" 
+enforceSqlExecution="false" outputViewType="Projection">
+  <origin/>
+  <descriptions defaultDescription="Product Dimension"/>
+  <metadata activatedAt="2014-11-26 19:05:38.0" changedAt="2014-11-26 18:03:20.798"/>
+  <localVariables/>
+  <variableMappings/>
+  <dataSources>
+    <DataSource id="PRODUCT_1" type="DATA_BASE_TABLE">
+      <resourceUri>mini::Tables.Product</resourceUri>
+    </DataSource>
+    <DataSource id="PRODUCT_GROUP_HIERARCHY" type="DATA_BASE_TABLE">
+      <resourceUri>mini::Tables.ProductGroupHierarchy</resourceUri>
+    </DataSource>
+  </dataSources>
+  <calculationViews>
+    <calculationView xsi:type="Calculation:UnionView" id="Union_1">
+      <viewAttributes>
+        <viewAttribute id="ProductOrGroup"/>
+        <viewAttribute id="PRODUCT"/>
+        <viewAttribute id="PRICE"/>
+        <viewAttribute id="PRODUCT_CURRENCY"/>
+        <viewAttribute id="PRODUCT_CATEGORY"/>
+        <viewAttribute id="PRODUCT_GROUP"/>
+        <viewAttribute id="PARENT_PRODUCT_GROUP"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input emptyUnionBehavior="NO_ROW" node="#PRODUCT_1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="ProductOrGroup" source="PRODUCT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT" source="PRODUCT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRICE" source="PRICE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_CURRENCY" source="PRODUCT_CURRENCY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_CATEGORY" source="PRODUCT_CATEGORY"/>
+        <mapping xsi:type="Calculation:ConstantAttributeMapping" target="PRODUCT_GROUP" null="true" value=""/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PARENT_PRODUCT_GROUP" source="PRODUCT_GROUP"/>
+      </input>
+      <input emptyUnionBehavior="NO_ROW" node="#PRODUCT_GROUP_HIERARCHY">
+        <mapping xsi:type="Calculation:AttributeMapping" target="ProductOrGroup" source="PRODUCT_GROUP"/>
+        <mapping xsi:type="Calculation:ConstantAttributeMapping" target="PRODUCT" null="true" value=""/>
+        <mapping xsi:type="Calculation:ConstantAttributeMapping" target="PRICE" null="true" value=""/>
+        <mapping xsi:type="Calculation:ConstantAttributeMapping" target="PRODUCT_CURRENCY" null="true" value=""/>
+        <mapping xsi:type="Calculation:ConstantAttributeMapping" target="PRODUCT_CATEGORY" null="true" value=""/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_GROUP" source="PRODUCT_GROUP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PARENT_PRODUCT_GROUP" source="PARENT_PRODUCT_GROUP"/>
+      </input>
+    </calculationView>
+  </calculationViews>
+  <!--
+  <inlineHierarchy xsi:type="Dimension:ParentChildHierarchy" id="ProductGroupHierarchy" aggregateAllNodes="true" rootNodeVisibility="ADD_ROOT_NODE_IF_DEFINED">
+    <descriptions defaultDescription="ProductGroupHierarchy"/>
+    <attributeParentPair attribute="#ProductOrGroup" parentAttribute="#ParentProductGroup"/>
+  </inlineHierarchy> -->
+  <logicalModel id="Union_1">
+    <attributes>
+      <attribute id="ProductOrGroup" hidden="false" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="ProductOrGroup"/>
+        <externalLikeElementName>ProductOrGroup</externalLikeElementName>
+        <keyMapping columnObjectName="Union_1" columnName="ProductOrGroup"/>
+      </attribute>
+      <attribute id="Product" order="2" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Product"/>
+        <externalLikeElementName>Product</externalLikeElementName>
+        <keyMapping columnObjectName="Union_1" columnName="PRODUCT"/>
+      </attribute>
+      <attribute id="Price" order="3" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Price"/>
+        <keyMapping columnObjectName="Union_1" columnName="PRICE"/>
+      </attribute>
+      <attribute id="ProductCurrency" order="4" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="ProductCurrency"/>
+        <keyMapping columnObjectName="Union_1" columnName="PRODUCT_CURRENCY"/>
+      </attribute>
+      <attribute id="ProductCategory" order="5" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="ProductCategory"/>
+        <!-- <externalLikeStructureName>&quot;MINI&quot;.PRODUCT</externalLikeStructureName>
+        <externalLikeElementName>PRODUCT_CATEGORY</externalLikeElementName> -->
+        <keyMapping columnObjectName="Union_1" columnName="PRODUCT_CATEGORY"/>
+      </attribute>
+      <attribute id="ProductGroup" order="6" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="ProductGroup"/>
+        <!-- <externalLikeStructureName>mini::CvProductGroupValueHelp</externalLikeStructureName>
+        <externalLikeStructureType>CALCULATION_VIEW</externalLikeStructureType>
+        <externalLikeElementName>PRODUCT_GROUP</externalLikeElementName> -->
+        <keyMapping columnObjectName="Union_1" columnName="PRODUCT_GROUP"/>
+      </attribute>
+      <attribute id="ParentProductGroup" order="7" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="ParentProductGroup"/>
+        <keyMapping columnObjectName="Union_1" columnName="PARENT_PRODUCT_GROUP"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures/>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+  <layout>
+    <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="40" y="110"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Union_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="20" y="230"/>
+        <rectangleSize height="102" width="231"/>
+      </shape>
+    </shapes>
+  </layout>
+</Calculation:scenario>

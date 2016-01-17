@@ -1,0 +1,9 @@
+{
+    "name": "cdsddltests",
+    "version": "0.0.0",
+    "description": "CDS DDL Node.js Tests",
+    "repository": "SAP Nexus",
+    "dependencies": {
+        "requirejs": ">=2.1.19"
+    }
+}

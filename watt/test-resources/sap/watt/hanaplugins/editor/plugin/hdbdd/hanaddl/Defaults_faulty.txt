@@ -1,0 +1,55 @@
+namespace Defaults;
+entity faulty {
+    key id : Integer;
+
+    // String defaults
+    s1 : String(4) default -'foo'; // unary minus with non-numeric type
+    s2 : String(2) default 1; // type mismatch
+    s3 : String(2) default 'foo'; // too long
+    ls1 : LargeString default 'bar'; // no default for LOBs
+
+    // Binary defaults
+    bin1 : Binary(1) default -X'0102'; // unary minus with non-numeric type
+    bin2 : LargeBinary default x'0102'; // no default for LOBs
+    bin3 : Binary(1) default X'0102'; // too long
+
+    // Fix- and Floating point defaults
+    d1: Decimal(6, 3) default 123.456;
+    d2: Decimal(5, 2) default 123.456; // exceeds precision and scale
+    d3: Decimal(2, 1) default 1.0;
+    d4: Decimal(1, 1) default 1.0; // exceeds precision
+    d5: Decimal(2, 1) default 1.0;
+    d6: Decimal(2, 0) default 1.0; // exceeds scale
+
+    // Integer defaults
+    i1 : Integer default -2147483648;
+    i2 : Integer default -2147483649; // min_int - 1
+    i3 : Integer default 2147483647;
+    i4 : Integer default 2147483648; // max_int + 1
+    i64_1 : Integer64 default -9223372036854775808;
+    i64_2 : Integer64 default -9223372036854775809; // min_int64 - 1
+    i64_3 : Integer64 default 9223372036854775807;
+    i64_4 : Integer64 default 9223372036854775808; // max_int64 + 1
+
+    // Date and Time defaults
+    ld1: LocalDate default -date'2013-02-28'; // unary minus with non-numeric type
+    ld2: LocalDate default date'2013-01-32'; // syntactically invalid
+    ld3: LocalDate default date'2012-02-29';
+    ld4: LocalDate default date'2013-02-29'; // not a leap year
+    lt1: LocalTime default -time'17:51:01'; // unary minus with non-numeric type
+    lt2: LocalTime default time'17:61:01'; // syntactically invalid
+    udt1 : UTCDateTime default -timestamp'2013-02-28 17:51:01'; // unary minus with non-numeric type
+    udt2 : UTCDateTime default timestamp'2013-02-32 17:51:01'; // syntactically invalid
+    udt3 : UTCDateTime default timestamp'2013-02-28 17:61:01'; // syntactically invalid
+    udt4 : UTCDateTime default timestamp'2012-02-29 17:51:01';
+    udt5 : UTCDateTime default timestamp'2013-02-29 17:51:01'; // not a leap year
+    uts1 : UTCTimestamp default -timestamp'2013-02-28 17:51:01'; // unary minus with non-numeric type
+    uts2 : UTCTimestamp default timestamp'2013-02-32 17:51:01'; // syntactically invalid
+    uts3 : UTCTimestamp default timestamp'2013-02-28 17:61:01'; // syntactically invalid
+    uts4 : UTCTimestamp default timestamp'2012-02-29 17:51:01';
+    uts5 : UTCTimestamp default timestamp'2013-02-29 17:51:01'; // not a leap year
+};
+
+/* @classification: basic */
+/* @description: Default constructs with semantic errors */
+/* @resource-name: Defaults::faulty */

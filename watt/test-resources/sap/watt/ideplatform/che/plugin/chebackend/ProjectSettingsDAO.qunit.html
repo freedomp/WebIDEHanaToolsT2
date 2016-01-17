@@ -1,0 +1,214 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<script src="../../../util/qunitHelper.js" ></script>
+<script>setBase("sap/watt/uitools/")</script>
+
+<script src="../lib/requirejs/require.js"
+    data-main="../core/Global"
+    data-sap-ide-main="runTests"
+    data-sap-ide-environment-path="../../../../env.json"
+    data-sap-ide-basedir="../../../" 
+    data-sap-blanket-cover="/sap/watt/ideplatform/che/plugin/chebackend/service/ProjectSettingsDAO"></script>
+
+<title>ProjectSettingsDAO qUnit Test</title>
+
+<script>
+defineTest(["sap/watt/ideplatform/che/plugin/chebackend/service/ProjectSettingsDAO", "sap/watt/ideplatform/che/plugin/chebackend/dao/Project"], 
+    function(oProjectSettingsDao, oProjectDao) {
+        
+	test("_getProjectTypes", 2, function() {
+	    var oProjectMetadata = {};
+	    oProjectMetadata.type = "testType";
+	    
+	    oProjectMetadata.mixins = [];
+	    var oResult1 = oProjectSettingsDao._getProjectTypes(oProjectMetadata);
+	    equal(1, oResult1.length);
+	    
+	    oProjectMetadata.mixins = ["testType1", "testType2"];
+	    var oResult2 = oProjectSettingsDao._getProjectTypes(oProjectMetadata);
+	    equal(3, oResult2.length);
+	});
+	
+	test("_getProjectMetadata", 2, withPromise(function() {
+	    var aResultPromises = [];
+	    
+	    var oDocument1 = {};
+	    oDocument1.getProject = function() {
+	        var oProjectDocument = {};
+	        oProjectDocument.getProjectMetadata = function() {
+	            return {};
+	        };
+	        return Q(oProjectDocument);
+	    }
+	    aResultPromises.push(oProjectSettingsDao._getProjectMetadata(oDocument1));
+	    
+	    var oDocument2 = {};
+	    oDocument2.getProject = function() {
+	        return Q({});
+	    }
+	    aResultPromises.push(oProjectSettingsDao._getProjectMetadata(oDocument2));
+	     
+	    return Q.spread(aResultPromises, function(oResult1, oResult2) {
+	        ok(oResult1 !== undefined);
+	        ok(oResult2 === undefined);
+	    });
+	}));
+	
+	test("_getAttributeValue", 6, function() {
+	    var oProjectMetadata = {};
+	    oProjectMetadata.attributes = {};
+	    var oResult1 = oProjectSettingsDao._getAttributeValue(oProjectMetadata, "sKey");
+	    ok (oResult1 === undefined);
+	    
+	    oProjectMetadata.attributes["sKey"] = "sValue";
+	    var oResult2 = oProjectSettingsDao._getAttributeValue(oProjectMetadata, "sKey");
+	    equal("sValue", oResult2);
+	    
+	    var oResult3 = oProjectSettingsDao._getAttributeValue(oProjectMetadata, "projectType");
+	    ok(oResult3 === undefined);
+	    
+	    oProjectMetadata.attributes[oProjectDao.GENERIC_ATTRIBUTE_NAME] = ["{}"];
+	    var oResult4 = oProjectSettingsDao._getAttributeValue(oProjectMetadata, "generation");
+	    ok(oResult4 === undefined);
+	    
+	    oProjectMetadata.attributes[oProjectDao.GENERIC_ATTRIBUTE_NAME] = ["{\"generation\":[\"ui5\"], \"kuku\":{}}"];
+	    var oResult5 = oProjectSettingsDao._getAttributeValue(oProjectMetadata, "generation");
+	    ok(oResult5 !== undefined);
+	    deepEqual(["ui5"], oResult5);
+	});
+	
+	test("get", 2, withPromise(function() {
+	    var aResultPromises = [];
+	    
+	    var oDocument1 = {};
+	    oDocument1.getProject = function() {
+	        var oDefer = Q.defer();
+	        var oProjectDocument = {};
+	        oProjectDocument.getProjectMetadata = function() {
+	            var oMetadata = {
+	                "attributes" : {
+	                    "projectTypeAttribute" : ["projectTypeValue"] 
+	                },
+	                "mixins" : ["projectType1", "projectType2"],
+	                "type" : "projectType"
+	            };
+	            oMetadata.attributes[oProjectDao.GENERIC_ATTRIBUTE_NAME] = ["{\"generation\":[\"ui5\"], \"kuku\":{}}"];
+	            return oMetadata;
+	        };
+	        oDefer.resolve(oProjectDocument);
+	        return oDefer.promise;
+	    };
+	    
+	    aResultPromises.push(oProjectSettingsDao.get("generation", oDocument1));
+	    
+	    var oDocument2 = {};
+	    oDocument2.getProject = function() {
+	        var oDefer = Q.defer();
+	        var oProjectDocument = {};
+	        oDefer.resolve(oProjectDocument);
+	        return oDefer.promise;
+	    };
+	    
+	    aResultPromises.push(oProjectSettingsDao.get("sKey", oDocument2));
+	     
+	    return Q.spread(aResultPromises, function(oResult1, oResult2) {
+	        deepEqual(["ui5"], oResult1);
+	        ok(oResult2 === undefined);
+	    });
+	}));
+	
+	test("_setAttributeArrayValue", 2, withPromise(function() {
+    	var oProjectMetadata = {
+		    "type": "projectType",
+            "attributes": {
+                "sKey" : []
+            }
+        };
+        oProjectMetadata.attributes[oProjectDao.GENERIC_ATTRIBUTE_NAME] = [];
+        
+        var fImplementation = oProjectDao.updateProject;
+        oProjectDao.updateProject = function() {return Q();};
+        
+        var aPromises = [];
+        aPromises.push(oProjectSettingsDao._setAttributeArrayValue(oProjectMetadata, "sKey", ["sValue"], true));
+        aPromises.push(oProjectSettingsDao._setAttributeArrayValue(oProjectMetadata, oProjectDao.GENERIC_ATTRIBUTE_NAME, {"config" : {"id": 2, "runner": "ui5"}}, false));
+        
+        return Q.all(aPromises).then(function() {
+            deepEqual(["sValue"], oProjectMetadata.attributes.sKey);
+            deepEqual(["{\"config\":{\"id\":2,\"runner\":\"ui5\"}}"], oProjectMetadata.attributes[oProjectDao.GENERIC_ATTRIBUTE_NAME]);
+        }).fin(function() {
+            oProjectDao.updateProject = fImplementation;
+        });
+	}));
+	
+ 	test("set", 2, withPromise(function() {
+ 	    var fUpdateProject = oProjectDao.updateProject;
+        oProjectDao.updateProject = function() {return Q();};
+        
+	     var fGetProjectTypes = oProjectDao.getProjectTypes;
+	     oProjectDao.getProjectTypes = function() {
+	         return Q([
+	                    {
+	                        "id":"pType1", 
+	                        "attributeDescriptors":[
+	                            {
+	                                "name":"sKey11"
+	                            }, 
+	                            {
+	                                "name":"sKey12"
+	                            }
+	                       ]
+	                    }, 
+	                    {
+	                       "id":"pType2", 
+	                        "attributeDescriptors":[
+	                            {
+	                                "name":"sKey21"
+	                            }, 
+	                            {
+	                                "name":"sKey22"
+	                            }
+                            ]
+	                    }]);
+	    };
+	     
+	    var oProjectDocument = {};
+	    var oMetadata = {
+            "type" : "pType2",
+            "attributes": {
+                "sKey12" : ["sValue12"],
+                "sKey21" : [],
+                "sap.watt.common.setting": ["{\"generation\":{}}"]
+            }
+        };
+	    oProjectDocument.getProjectMetadata = function() {
+            return oMetadata;
+	    };
+	        
+	    var oDocument = {};
+	    oDocument.getProject = function() {
+	        return Q(oProjectDocument);
+	    };
+	    
+	    var aPromises = [];
+	    return oProjectSettingsDao.set("sKey21", ["bug"], oDocument).then(function() {
+	        deepEqual(oMetadata.attributes["sKey21"], ["bug"]);
+	        return oProjectSettingsDao.set("generation", {"id":"app1"}, oDocument).then(function() {
+	            deepEqual(oMetadata.attributes["sap.watt.common.setting"], ["{\"generation\":{\"id\":\"app1\"}}"]);
+	        });
+	    }).fin(function() {
+	        oProjectDao.getProjectTypes = fGetProjectTypes;
+	        oProjectDao.updateProject = fUpdateProject;
+	    });
+ 	}));
+});
+</script>
+
+</head>
+<body >
+	<div id="qunit"></div>
+</body>
+</html>

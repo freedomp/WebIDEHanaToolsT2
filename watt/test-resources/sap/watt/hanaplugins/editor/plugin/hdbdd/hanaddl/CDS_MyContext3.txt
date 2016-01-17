@@ -1,0 +1,15 @@
+namespace CDS;
+Context MyContext3 {
+
+  entity MyEntity {
+    key elem1: String(40);
+        elem2: LocalDate;
+  };
+
+  type MyType1 : type of MyEntity.elem1;
+
+};
+
+/* @classification: basic */
+/* @description: Type of structured type element */
+/* @resource-name: CDS::MyContext3 */

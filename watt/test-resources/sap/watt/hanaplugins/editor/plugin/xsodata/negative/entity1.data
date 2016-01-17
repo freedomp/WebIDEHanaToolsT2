@@ -1,0 +1,6 @@
+// missing projection 
+service { 
+	"sample.odata::table" as "MyTableWithout" without ; 
+	 
+}  
+

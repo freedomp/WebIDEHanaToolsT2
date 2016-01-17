@@ -1,0 +1,14 @@
+service {  
+
+//capital Navigate
+	"sample.odata::customer" as "Customers" with ("ID","RecruitID" ) 
+		Navigates ("Customer_Orders" as "HisOrders",
+
+		"Customer_Recruit" as "Recruit" from dependent); 
+		
+"sample.odata::order" as "Orders";
+    
+    association "Customer_Orders" principal "Customers"("ID") multiplicity "1" dependent "Orders"("CustomerID") multiplicity "*";
+	
+	association "Customer_Recruit" principal "Customers"("RecruitID") multiplicity "1" dependent "Customers"("ID") multiplicity "*"; 
+}		

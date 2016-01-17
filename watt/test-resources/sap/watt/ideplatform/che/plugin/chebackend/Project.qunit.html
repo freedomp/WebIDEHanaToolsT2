@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<script src="../../../util/qunitHelper.js" ></script>
+<script>setBase("sap/watt/uitools/")</script>
+
+<script src="../lib/requirejs/require.js"
+    data-main="../core/Global"
+    data-sap-ide-main="runTests"
+    data-sap-ide-environment-path="../../../../env.json"
+    data-sap-ide-basedir="../../../" 
+    data-sap-blanket-cover="/sap/watt/ideplatform/che/plugin/chebackend/dao/Project"></script>
+
+<title>Project qUnit Test</title>
+
+<script>
+defineTest(["sap/watt/ideplatform/che/plugin/chebackend/dao/Project"], function(oProjectDao) {
+        
+	test("isProjectTypeAttribute", 3, function() {
+	    var oCheProjectType = {};
+	    oCheProjectType.attributeDescriptors = [];
+	    var bResult1 = oProjectDao.isProjectTypeAttribute("sKey", oCheProjectType);
+	    ok(bResult1 === false);
+	   
+	    oCheProjectType.attributeDescriptors = [{"name":"sKey1"}, {"name":"sKey2"}];
+	    var bResult2 = oProjectDao.isProjectTypeAttribute("sKey1", oCheProjectType);
+	    ok(bResult2 === true);
+	    
+	    var bResult2 = oProjectDao.isProjectTypeAttribute("sKey3", oCheProjectType);
+	    ok(bResult2 === false);
+	});
+	
+	test("_transformAttributes", 3, function() {
+	    var oCheProjectType = {};
+	    oCheProjectType.attributeDescriptors = [];
+	    var oProjectAttributes = {};
+	    
+	    var bResult1 = oProjectDao._transformAttributes(oProjectAttributes, oCheProjectType);
+	    deepEqual({}, bResult1);
+	    
+	    oCheProjectType.attributeDescriptors = [{"name":"sKey1"}, {"name":"sKey2"}];
+	    var bResult2 = oProjectDao._transformAttributes(oProjectAttributes, oCheProjectType);
+	    deepEqual({}, bResult2);
+	    
+	    var oProjectAttributes = {
+	        "sKey1" : ["sValue11", "sValue12"],
+	        "generation" : {
+	            "id" : 1,
+	            "checked" : true,
+	            "app" : "Fiori1"
+	        }
+	    };
+	    
+	   var bResult3 = oProjectDao._transformAttributes(oProjectAttributes, oCheProjectType);
+	   deepEqual({"sKey1":["sValue11", "sValue12"], "sap.watt.common.setting":["{\"id\":1,\"checked\":true,\"app\":\"Fiori1\"}"]}, bResult3);
+	});
+});
+</script>
+
+</head>
+<body >
+	<div id="qunit"></div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+	"webSecurityEnabled": false,
+	"proxyType": "none",
+	"localToRemoteUrlAccessEnabled": true,
+	"ignoreSslErrors": true,
+	"sslProtocol": "any"
+}

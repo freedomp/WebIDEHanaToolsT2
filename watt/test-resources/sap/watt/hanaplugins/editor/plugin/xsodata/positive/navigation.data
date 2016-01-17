@@ -1,0 +1,18 @@
+service { 
+     entity "sample.odata::customer_view"
+	 as "Customers" with ("ID","RecruitID")  
+	 keys ("ID") 
+		navigates ("Customer_Orders" as "HisOrders",
+		"Customer_Orders" as "HisOrders1" from principal,
+		"Customer_Recruit" as "Recruit" from dependent ); 
+ 
+		
+	
+	"sample.odata::order" as "Orders";
+    
+    association "Customer_Orders" principal "Customers"("ID") multiplicity "1" dependent "Orders"("CustomerID") multiplicity "*";
+    
+    association "Customer_Orders1" principal "Customers"("ID") multiplicity "1" dependent "Orders"("CustomerID") multiplicity "*";
+	
+	association "Customer_Recruit" principal "Customers"("RecruitID") multiplicity "1" dependent "Customers"("ID") multiplicity "*"; 
+}

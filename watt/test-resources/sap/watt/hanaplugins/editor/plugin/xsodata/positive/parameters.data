@@ -1,0 +1,6 @@
+service {
+
+	"sample.odata::CALC_SCRIPT" as "Script" keys generate local "ID" aggregates always parameters via entity "ScriptParams";
+    
+    "sample.odata::CALC_SCRIPT" as "ScriptPIK" key ("nvarcharOut") parameters via key and entity results property "result" ;
+}    

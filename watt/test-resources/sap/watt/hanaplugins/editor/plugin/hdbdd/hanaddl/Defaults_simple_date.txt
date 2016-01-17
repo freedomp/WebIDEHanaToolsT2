@@ -1,0 +1,9 @@
+namespace Defaults;
+entity simple_date {
+   key id : Integer;
+   dateWithDefault : LocalDate default date'2013-06-05';
+};
+
+/* @classification: basic */
+/* @description: Simple Date default value */
+/* @resource-name: Defaults::simple_date */

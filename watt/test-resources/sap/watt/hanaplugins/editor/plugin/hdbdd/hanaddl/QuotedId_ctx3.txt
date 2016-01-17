@@ -1,0 +1,12 @@
+namespace QuotedId;
+context ctx3 {
+ 
+  type T1 {
+    "elem.comp" : Integer;
+  };
+
+};
+
+/* @classification: basic */
+/* @description: Quoted identifier for field */
+/* @resource-name: QuotedId::ctx3 */

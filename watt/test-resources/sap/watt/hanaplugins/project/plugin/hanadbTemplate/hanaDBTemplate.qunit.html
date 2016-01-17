@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <script src="../../../../util/qunitHelper.js"></script>
+    <script>setBase("sap/watt/uitools/")</script>
+
+    <script src="../lib/requirejs/require.js"
+            data-main="../core/Global"
+            data-sap-ide-main="runTests"
+            data-sap-ide-environment-path="../../../../env.json"
+            data-sap-ide-basedir="../../../"
+            data-sap-blanket-cover="/sap/watt/hanaplugins/project/plugin/hanadbTemplate/"
+            data-sap-ide-config="checonfig.json">
+    </script>
+
+    <title>HANA DB Template</title>
+
+
+    <script>
+        var SOME_WINDOW_TARGET = "someID";
+
+        var mConsumer = {
+            "name": "testConsumer",
+            "requires": {
+                "services": [
+                    "document",
+                    "filesystem.documentProvider",
+                    "repositorybrowser",
+                    "template",
+                    "generation",
+                    "projectType",
+                    "setting.project",
+                    "builder",
+                    "xs2ServiceStep",
+                    "mtaStep",
+                    "log"
+                ]
+            }
+        };
+
+        defineServiceTest(mConsumer, ["qunit/common/plugin/builder/utils/BasicUtil", "sap/watt/lib/lodash/lodash"],
+                function (oContext, BasicUtil, _) {
+                    var oLog = oContext.service.log;
+
+
+                    //**************Tests***********************************************************//
+                    test("Generate HanaDB project and check files", 4, withPromise(function () {
+                        var that = this;
+
+                        var oOptions = {
+                            templateId: "hanatemplates.hanadbproject",
+                            model: {
+                                "projectName": "test",
+                                "namespace" : "namespaceTest"
+                            }
+                        };
+
+                        //Setup
+                        return _initTestProject.call(this, "hdb", oOptions).then(function (oProject) {
+
+                            //Check Project created
+                            ok(oProject != null, "Hana DB - Project created");
+
+                                var aAssertPromises = [];
+
+                                //Check .hdinamespace;
+                                aAssertPromises.push(that.oBasicUtil.getFileFolder("src").then(function(oFolderDocument) {
+                                    return oFolderDocument.getFolderContent().then(function(aFolderContent){
+
+                                        //Check .hdiconfig;
+                                        var oHDIconfigFileDocument = _.filter(aFolderContent, function(o){
+                                            if ( o.getEntity().getName() === ".hdiconfig" &&  o.getEntity().getType() === "file") return o;
+                                        });
+
+                                        equal(oHDIconfigFileDocument.length, 1 , ".hdiconfig created");
+
+
+                                        var oFileDocument = _.filter(aFolderContent, function(o){
+                                            if ( o.getEntity().getName() === ".hdinamespace" &&  o.getEntity().getType() === "file") return o;
+                                        });
+
+                                        equal(oFileDocument.length, 1 , ".hdinamespace created");
+
+                                        return oFileDocument[0].getContent().then(function(sContent){
+                                            var oFileContent = JSON.parse(sContent);
+                                            return ok(oFileContent.name, "namespaceTest");
+                                        });
+                                    });
+
+                                }));
+
+                                return Q.all(aAssertPromises).fin(function () {
+                                    that.oBasicUtil.deleteTestProject();
+                                });
+                        });
+
+                    })) ;
+
+
+                    //************End of tests******************************************************//
+
+                    function _initTestProject(sTestId, oOptions) {
+                        // this context refers to the "environment" of the qUnit test
+                        // which is the object that also holds the setup() and teardown() functions
+                        var dTestModuleTimeStamp = Number(new Date());
+                        this.oBasicUtil = new BasicUtil(sTestId, dTestModuleTimeStamp, oContext.service, oOptions);
+                        return this.oBasicUtil.initializeTestProject();
+                    }
+
+                });
+
+    </script>
+
+</head>
+<body>
+<div id="qunit"></div>
+</body>
+</html>

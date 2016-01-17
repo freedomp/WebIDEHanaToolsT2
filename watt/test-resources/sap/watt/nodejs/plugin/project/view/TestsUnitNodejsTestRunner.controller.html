@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>TestsUnitNodejsTestRunner.controller.html</title>
+
+	<meta charset="UTF-8" />
+	<meta http-equiv='cache-control' content='no-cache' />
+	<meta http-equiv='expires' content='0' />
+	<meta http-equiv='pragma' content='no-cache' />
+
+	<link rel="stylesheet" href="/resources/sap/ui/thirdparty/qunit.css" />
+
+	<!-- load before all others -->
+	<script id="sap-ui-bootstrap" src="/resources/sap-ui-core.js"
+		data-sap-ui-theme="sap_bluecrystal"
+		data-sap-ui-libs="sap.ui.commons, sap.ui.ux3, sap.ui.table"
+		data-sap-ui-resourceroots='{
+			"sap.xs.nodejs.project": "../../../../../../../resources/sap/watt/nodejs/plugin/project/"
+		}' type="text/javascript">
+	</script>
+
+	<!-- keep sequence! -->
+	<script src="/watt/resources/sap/watt/lib/q/q.js"></script>
+	<script src="/watt/resources/sap/watt/lib/requirejs/require.js"></script>
+
+	<script src="/resources/sap/ui/thirdparty/qunit.js"></script>
+	<script src="../../../test-support/qunitHelper.js"></script>
+
+</head>
+
+<body>
+	<div id="qunit"></div>
+	<div id="qunit-fixture"></div>
+
+	<script type="text/javascript">
+		// otherwise QUnit will start immediately and not wait for promises
+		QUnit.config.autostart = false;
+
+		var oView;
+		var fnOldGetJSON;
+		var bAjaxCalled = false;
+		var deferred;
+
+		var oController;
+
+		var oAjaxResult = {
+			status: "running"
+		};
+
+		module("Unit Tests for Nodejs Test Runner Controller", {
+			setup: function() {
+
+				fnOldGetJSON = jQuery.getJSON;
+
+				oView = sap.ui.view({
+					viewName: "sap.xs.nodejs.project.view.NodejsTestRunner",
+					type: sap.ui.core.mvc.ViewType.JS,
+					viewData: {
+						context: {
+							i18n: {
+								getText: function(sKey) {
+									return sKey;
+								}
+							},
+							service: {
+								preferences: {
+									get: function() {
+										return Q();
+									},
+									set: function() {
+										return Q();
+									},
+									remove: function() {
+										return Q();
+									},
+								},
+								filesystem: {
+									jsonProvider: {
+										readJson: function() {
+											return Q();
+										},
+										writeJson: function() {
+											return Q();
+										}
+									},
+									documentProvider: {
+										search: function() {
+											return Q();
+										},
+										getDocument: function() {
+											return Q();
+										}
+									}
+								},
+								log: {
+									error: function(oError) {
+										return Q(console.log(oError.message));
+									}
+								}
+							}
+						},
+					}
+				});
+
+				oController = oView.getController();
+				oController._setCoverageManager({
+					_setDataModel : function(oModel) {},
+					setCoverage: function() {},
+					setCoverageVisible: function(bVisible) {}
+				});
+				//Mock getJSON function
+				jQuery.getJSON = function(url) {
+
+					bAjaxCalled = true;
+
+					return Q(oAjaxResult);
+				};
+			},
+
+			teardown: function() {
+				jQuery.getJSON = fnOldGetJSON;
+				bAjaxCalled = false;
+
+				oView.destroy();
+			}
+		});
+
+		test("Not starting if not visible", function(assert) {
+
+			var oController = oView.getController();
+
+			oController.onPartVisible(false);
+			assert.equal(oController._isVisible, false, "If part is invisible so must view be");
+
+			oController.initTest("project_test_1", 123456789, "path");
+
+			var sId = oController.getTestRunIndexId("project_test_1", 123456789);
+			oController.runTest(sId, "abc");
+
+			assert.equal(oController._getTestRun(sId).status, oController._runStateRunning, "controller state must be running");
+			assert.equal(bAjaxCalled, false, "invalid ajax call");
+		});
+
+		test("_getTestRunFileName", function(assert) {
+
+			var oController = oView.getController();
+
+			var oTestRun = {
+				projectPath: "project_test_2",
+				timestamp: 123
+			}
+			var sResult = oController._getTestRunFileName(oTestRun);
+
+			// must recognize timestamp in UTC
+			var sExpected = "project_test_2/.testresults/testresult_19700101_000000.123.json";
+
+			assert.equal(sResult, sExpected, "_getTestRunFileName returns correct file name");
+		});
+
+		test("initTest", withPromise(function(assert) {
+
+			var oController = oView.getController();
+
+			return oController.initTest("project_test_3", 123456).then(function() {
+				var sId = oController.getTestRunIndexId("project_test_3", 123456);
+				assert.ok(oController._oTestRuns[sId]);
+			});
+		}));
+
+		test("_getTestRunsFolder get existing", withPromise(function(assert) {
+
+			var oController = oView.getController();
+			var oContext = oController._oContext;
+			oContext.service.filesystem.documentProvider.getDocument = function() {
+				return Q({
+					getChild: function(sFolder) {
+						if (oController._TEST_RESULTS_FOLDER === sFolder) {
+							return Q({
+								existingFolder: true
+							});
+						}
+						assert.ok(false, "Called with parameter : " + sFolder);
+					}
+				});
+			};
+
+			return oController._getTestRunsFolder("project_test_4").then(function(oFolder) {
+				assert.deepEqual(oFolder, {
+					existingFolder: true
+				});
+			});
+		}));
+
+		test("_getTestRunsFolder create new", withPromise(function(assert) {
+
+			var oController = oView.getController();
+			var oContext = oController._oContext;
+			oContext.service.filesystem.documentProvider.getDocument = function() {
+				return Q({
+					getChild: function(sFolder) {
+						return Q();
+					},
+					createFolder: function(sFolder) {
+						if (oController._TEST_RESULTS_FOLDER === sFolder) {
+							return Q({
+								created: true
+							});
+						}
+						assert.ok(false, "Called with parameter : " + sFolder);
+					}
+				});
+			};
+
+			return oController._getTestRunsFolder("project_test_5").then(function(oFolder) {
+				assert.deepEqual(oFolder, {
+					created: true
+				});
+			});
+		}));
+
+		test("_getTestRunFiles files found", withPromise(function(assert) {
+
+			var oController = oView.getController();
+			var oContext = oController._oContext;
+			oContext.service.filesystem.documentProvider.search = function() {
+				return Q({
+					aFileEntries: ["some file"]
+				});
+			};
+
+			return oController._getTestRunsFiles().then(function(aFiles) {
+				assert.deepEqual(aFiles, ["some file"])
+			});
+		}));
+
+		test("_getTestRunsFiles with start project files found", withPromise(function(assert) {
+
+			var oController = oView.getController();
+			oController._getTestRunsFolder = function() {
+				return Q({});
+			};
+
+			var oContext = oController._oContext;
+			oContext.service.filesystem.documentProvider.search = function() {
+				return Q({
+					aFileEntries: ["some file"]
+				});
+			};
+
+			return oController._getTestRunsFiles("projectpath").then(function(aFiles) {
+				assert.deepEqual(aFiles, ["some file"])
+			});
+		}));
+
+		test("_getTestRunsFiles no files found", withPromise(function(assert) {
+
+			var oController = oView.getController();
+
+			return oController._getTestRunsFiles().then(function(aFiles) {
+				assert.deepEqual(aFiles, [])
+			});
+		}));
+
+		test("_getTestRunsFiles with start project no files found", withPromise(function(assert) {
+
+			var oController = oView.getController();
+
+			return oController._getTestRunsFiles("abc").then(function(aFiles) {
+				assert.deepEqual(aFiles, [])
+			});
+		}));
+
+		test("clearHistory", withPromise(function(assert) {
+
+			var oController = oView.getController();
+
+			function File(sName, sType) {
+				this.getEntity = function() {
+					return {
+						getType: function() {
+							return sType;
+						},
+						getName: function() {
+							return sName;
+						}
+					};
+				};
+
+				this.delete = function() {};
+			}
+
+			// should be deleted
+			var oFile1 = new File("testresult_abcd", "file");
+			oFile1.delete = function() {
+					oFile1.called = true;
+			};
+
+			// must not be deleted
+			var oFile2 = new File("abcd", "file");
+			oFile2.delete = function() {
+					oFile2.called = true;
+			};
+
+			// must not be deleted
+			var oFile3 = new File("testresult_abcd", "folder");
+			oFile3.delete = function() {
+					oFile3.called = true;
+			};
+
+			oController._getTestRunsFiles = function() {
+				return Q([oFile1, oFile2, oFile3]);
+			};
+
+			return oController.clearHistory().then(function() {
+				assert.equal(oFile1.called, true);
+				assert.equal(oFile2.called, undefined);
+				assert.equal(oFile3.called, undefined);
+			});
+		}));
+
+		test("_getTestRunFromEntity invalid name", function(assert) {
+
+			var oController = oView.getController();
+
+			function Entity(sParentPath, sName) {
+				this.getParentPath = function() {
+					return sParentPath;
+				};
+				this.getName = function() {
+					return sName;
+				};
+			};
+
+			var oEntity = new Entity("/a/b", "some name");
+			var oTestRun = oController._getTestRunFromEntity(oEntity);
+			assert.equal(oTestRun, null, oEntity.getName());
+
+			oEntity = new Entity("/a/b", "testresult_some name");
+			oTestRun = oController._getTestRunFromEntity(oEntity);
+			assert.equal(oTestRun, null, oEntity.getName());
+
+			oEntity = new Entity("/a/b", "testresult_1970_010000.123");
+			oTestRun = oController._getTestRunFromEntity(oEntity);
+			assert.equal(oTestRun, null, oEntity.getName());
+
+			oEntity = new Entity("/a/b", "testresult_1970010_00");
+			oTestRun = oController._getTestRunFromEntity(oEntity);
+			assert.equal(oTestRun, null, oEntity.getName());
+		});
+
+		conditionalTest("_getTestRunFromEntity valid name", !isPhantomJS(), function(assert) {
+
+			var oController = oView.getController();
+
+			function Entity(sParentPath, sName) {
+				this.getParentPath = function() {
+					return sParentPath;
+				};
+				this.getName = function() {
+					return sName;
+				};
+			};
+
+			var oEntity = new Entity("/a/b", "testresult_19700101_000000.123");
+			var oTestRun = oController._getTestRunFromEntity(oEntity);
+			assert.ok(oTestRun, oEntity.getName());
+
+			oEntity = new Entity("/a/b", "testresult_19700101_000000.123_3.json");
+			oTestRun = oController._getTestRunFromEntity(oEntity);
+			assert.ok(oTestRun, oEntity.getName());
+		});
+
+		conditionalTest("test dateformat phantomjs bug", !isPhantomJS(), function(assert) {
+
+			var oController = oView.getController();
+			var oDate = oController._oDateFormat.parse("19700101_000000.123");
+			assert.ok(oDate, "phantomjs bug returned udefined");
+		});
+
+		// now its safe to start the test execution
+		QUnit.start();
+	</script>
+
+</body>
+
+</html>

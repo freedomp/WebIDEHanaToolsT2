@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<script src="../../../../util/qunitHelper.js" ></script>
+<script>setBase("sap/watt/uitools/")</script>
+
+<script src="../lib/requirejs/require.js"
+	        data-main="../core/Global"
+	        data-sap-ide-main="runTests"
+	        data-sap-ide-environment-path="../../../../env.json"
+	        data-sap-ide-basedir="../../../" data-sap-blanket-cover="/sap/watt/ideplatform/che/plugin/chebackend/service/XS2ServicesDAO"></script>
+
+<title>XS2ServicesDAO qUnit Test</title>
+
+
+<script>
+	defineTest(["sap/watt/ideplatform/che/plugin/chebackend/service/XS2ServicesDAO",
+	             "sap/watt/ideplatform/che/plugin/chebackend/service/System"], 
+	             function(XS2ServicesDAO, oSystemService) {
+	    
+		var oParameters = jQuery.sap.getUriParameters();
+		var sUsername = oParameters.get("username");
+		var sPassword = oParameters.get("password");
+		var oLoginPromise = oSystemService.login(sUsername, sPassword);
+		oSystemService.context = {
+			"event" : {
+				fireLoggedIn : function() {return Q();}
+			}
+		};
+		     
+        module("XS2ServicesDAO", {
+	    	setup : function() {
+              
+			},
+			teardown : function() {
+				// TODO Clear user preferences
+			}
+		});
+			
+		test("Create a service and attach to a project", 3, withPromise(function() {
+			var oMockProjectDocument = {
+				oEntity:  {
+					getName : function() {
+						return "testProject2";
+					}
+				},
+				
+				getEntity: function() {
+					return this.oEntity;
+				}	
+			};
+			
+			var oMockDocument = {
+				getProject: function() {
+					return Q(oMockProjectDocument);
+				}	
+			};
+				
+			var sServiceName = "testHanaService";
+			var sServiceProvider = "hana";
+			var sServicePlan = "hdi-shared";
+			
+			return XS2ServicesDAO.createService(sServiceName, sServiceProvider, sServicePlan).then(function() {
+			    return XS2ServicesDAO.getAvailableServices(sServiceProvider, sServicePlan);
+			}).then(function(aServices) {
+				var result = aServices.filter(function(service) {
+				  return service.name === sServiceName;
+				});
+				ok(result.length, "Service was created successfully");
+			    return XS2ServicesDAO.attachServiceToProject(sServiceName, sServiceProvider, oMockDocument);
+			}).then(function() {
+				return XS2ServicesDAO.getProjectActiveServiceName(oMockDocument, sServiceProvider);
+			}).then(function(sName) {
+				strictEqual(sName, sServiceName, "Service is attached to project")
+				return XS2ServicesDAO.deleteService(sServiceName);
+			}).then(function() {
+				ok(true, "Service was deleted successfully");
+			}).fail(function(oError) {
+				ok(false, oError.message);
+			});
+		}));
+						
+		test("Create a service with illegal name", 1, withPromise(function() {
+			return XS2ServicesDAO.createService("testHanaService?", "hana", "hdi-hana").fail(function(oError) {
+		        strictEqual(oError.message, "ILLEGAL_SERVICE_INSTANCE_NAME", "Illegal service name");
+			});
+		}))
+
+		return oLoginPromise;
+		
+	});
+</script>
+
+</head>
+<body >
+	<div id="qunit"></div>
+</body>
+</html>

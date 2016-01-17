@@ -1,0 +1,9 @@
+namespace Defaults;
+entity simple_int {
+   key id : Integer;
+   intWithDefault : Integer default 42;
+};
+
+/* @classification: basic */
+/* @description: Simple Integer default value */
+/* @resource-name: Defaults::simple_int */

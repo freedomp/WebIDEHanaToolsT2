@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<script src="../../../../util/qunitHelper.js" ></script>
+<script>setBase("sap/watt/uitools/")</script>
+
+<script src="../lib/requirejs/require.js"
+	        data-main="../core/Global"
+	        data-sap-ide-main="runTests"
+	        data-sap-ide-environment-path="../../../../env.json"
+	        data-sap-ide-basedir="../../../"></script>
+
+<title>XSOdata CoCo Service qUnit Test</title>
+
+<script>
+
+
+	var mConsumer = {
+		"name" : "XSODataCocoServiceConsumer",
+
+		"requires" : {
+			"services" : [ "xsodatacodecompletion" ]
+	
+		},
+		"configures" : {
+		    "services": {
+    		}
+		}
+	};
+	
+ 	defineServiceTest(mConsumer, [], function(oContext) {
+ 		var oXSODataCoCoService = oContext.service.xsodatacodecompletion;
+ 		
+		module("XSOData CoCo", {
+            setup : function() {	
+            	require.config({ paths: { "rndrt" : "sap/watt/hanaplugins/lib/rndrt" }});            
+			},
+			
+			teardown : function() {
+			}
+		});
+
+		test("XSOData CoCo - empty file", withPromise(function() {
+			var oContentStatus = {
+					buffer: "",
+					offset: 0,
+					prefix: ""
+				};
+			return oXSODataCoCoService.getWordSuggestions(oContentStatus).then(function(oProp){
+				ok(oProp.proposals.length === 1, "one proposal found"); 
+				ok(oProp.proposals[0].proposal === "service ","service proposal found - success");
+			})
+		}));
+
+		test("XSOData CoCo - service", withPromise(function() {
+			var oContentStatus = {
+					buffer: "se",
+					offset: 2,
+					prefix: "se"
+				};
+			return oXSODataCoCoService.getWordSuggestions(oContentStatus).then(function(oProp){
+				ok(oProp.proposals.length === 1, "one proposal found"); 
+				ok(oProp.proposals[0].proposal === "service ","service proposal found - success");
+			})
+		}));
+		
+		test("XSOData CoCo - service details", withPromise(function() {
+			var oContentStatus = {
+					buffer: "service {     }",
+					offset: 10,
+					prefix: ""
+				};
+			return oXSODataCoCoService.getWordSuggestions(oContentStatus).then(function(oProp){
+				equal(oProp.proposals.length, 5, "5 proposal found"); 
+				equal(oProp.proposals[0].proposal, "association ","association");
+				equal(oProp.proposals[1].proposal, "entity ","entity");
+			})
+		}));
+		
+		test("XSOData CoCo - service create using", withPromise(function() {
+			var oContentStatus = {
+					buffer: "service { \n\"t1.data::model.comment\" as \"Comment\" \ncreate using  \"t1.procedures::create_comment\"; }",
+					offset: 58,
+					prefix: "u"
+				};
+			return oXSODataCoCoService.getWordSuggestions(oContentStatus).then(function(oProp){
+				equal(oProp.proposals.length, 1, "1 proposal found"); 
+				equal(oProp.proposals[0].proposal, "using ","using");
+			})
+		}));		
+		
+		test("XSOData CoCo - service details inside a string - no proposals", withPromise(function() {
+			var oContentStatus = {
+					buffer: "service { \"abc::abc\" }",
+					offset: 12,
+					prefix: "a"
+				};
+			return oXSODataCoCoService.getWordSuggestions(oContentStatus).then(function(oProp){
+				equal(oProp.proposals.length, 0, "0 proposal found") ;
+			})
+		}));	
+		
+		test("XSOData CoCo - service details after string with '::' - keywords", withPromise(function() {
+			var oContentStatus = {
+					buffer: 'service { \"abc::abc\"  }',
+					offset: 21,
+					prefix: ""
+				};
+			return oXSODataCoCoService.getWordSuggestions(oContentStatus).then(function(oProp){
+				equal(oProp.proposals.length, 11, "11 proposal found"); 
+				equal(oProp.proposals[0].proposal, "as ","as");
+			})
+		}));			
+		
+		test("XSOData CoCo - annotation", withPromise(function() {
+			var oContentStatus = {
+					buffer: "service { \n } ", 
+					offset: 14,
+					prefix: ""
+				};
+			return oXSODataCoCoService.getWordSuggestions(oContentStatus).then(function(oProp){
+				equal(oProp.proposals.length, 1, "1 proposal found") ;
+				equal(oProp.proposals[0].proposal, "annotations { enable OData4SAP ","annotation");
+			})
+		}));				
+				
+		
+ 	});
+	
+	
+</script>
+
+</head>
+<body>
+	<div id="qunit"></div>
+</body>
+</html>

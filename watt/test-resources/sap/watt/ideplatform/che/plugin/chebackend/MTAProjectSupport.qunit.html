@@ -1,0 +1,201 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<script src="../../../../util/qunitHelper.js" ></script>
+<script>setBase("sap/watt/uitools/")</script>
+
+<script src="../lib/requirejs/require.js"
+	        data-main="../core/Global"
+	        data-sap-ide-main="runTests"
+	        data-sap-ide-environment-path="../../../../env.json"
+	        data-sap-ide-basedir="../../../"></script>
+
+<title>MTA support qUnit Test</title>
+
+
+<script>
+
+	var mConsumer =	{
+		"name" : "testConsumer",
+		
+		"requires": {
+			"services": [
+				"document",
+				"system",
+				"filesystem.documentProvider",
+				"mtafoldertoprojectconvertor.validation"
+			]
+		}
+	};
+	
+	defineServiceTest(mConsumer, ["sap/watt/lib/lodash/lodash"], function(oContext, _) {
+		
+		var oParameters = jQuery.sap.getUriParameters();
+		var sUsername = oParameters.get("username");
+		var sPassword = oParameters.get("password");
+		var oLoginPromise = oContext.service.system.login(sUsername, sPassword);
+		
+		var oDocumentService = oContext.service.document;
+		var oDocumentProviderService = oContext.service.filesystem.documentProvider;
+		var oMtaValidationService = oContext.service.mtafoldertoprojectconvertor.validation;
+		
+		var oRootMTAProjectData = {};
+		oRootMTAProjectData.type = "mta";
+		
+		module("MTA support", {
+			setup : withPromise(function() {
+				var d = new Date();
+				var n = d.getTime();
+				oRootMTAProjectData.name = "RootTestMTA_" + n;
+				return Q();
+			}),
+			
+			teardown : withPromise(function() {
+				return oDocumentProviderService.getDocument("/" + oRootMTAProjectData.name).then(function(oTestProject) {
+					return oTestProject.delete();
+				});
+			})
+		});
+		
+		test("Create MTA root project", withPromise(function() {
+			return oDocumentProviderService.getRoot().then(function(oRootDocument) {
+				return oRootDocument.createProject(oRootMTAProjectData).then(function(oProjectDocument) {
+					equal(oRootMTAProjectData.name, oProjectDocument.getEntity().getName());
+					equal(oRootMTAProjectData.type, oProjectDocument.getProjectMetadata().type);
+					ok(oProjectDocument.getEntity().isProject());
+					ok(oProjectDocument.getEntity()._bProject); 
+				});
+			});
+		}));
+		
+		test("Create HTML5 sub project under root MTA project", withPromise(function() {
+			return oDocumentProviderService.getRoot().then(function(oRootDocument) {
+				return oRootDocument.createProject(oRootMTAProjectData).then(function(oProjectDocument) {
+					var oHtml5SubProjectData = {};
+					oHtml5SubProjectData.name = "testHtml5SubProject";
+					oHtml5SubProjectData.type = "sap.html5";
+					return oProjectDocument.createProject(oHtml5SubProjectData).then(function(oHtml5SubProjectDocument) {
+						equal(oHtml5SubProjectData.name, oHtml5SubProjectDocument.getEntity().getName());
+						equal(oHtml5SubProjectData.type, oHtml5SubProjectDocument.getProjectMetadata().type);
+						ok(oHtml5SubProjectDocument.getEntity().isProject());
+						ok(oHtml5SubProjectDocument.getEntity()._bProject);
+					});
+				});
+			});
+		}));
+		
+		test("Create HDB sub project in a folder under root MTA project", withPromise(function() {
+			return oDocumentProviderService.getRoot().then(function(oRootDocument) {
+				return oRootDocument.createProject(oRootMTAProjectData).then(function(oProjectDocument) {
+					var oHdbSubProjectData = {};
+					oHdbSubProjectData.name = "testHdbSubProject";
+					oHdbSubProjectData.type = "sap.hdb";
+					return oProjectDocument.createFolder("folder456").then(function(oFolderDocument) {
+						return oFolderDocument.createProject(oHdbSubProjectData).then(function(oHdbSubProjectDocument) {
+							equal(oHdbSubProjectData.name, oHdbSubProjectDocument.getEntity().getName());
+							equal(oHdbSubProjectData.type, oHdbSubProjectDocument.getProjectMetadata().type);
+							ok(oHdbSubProjectDocument.getEntity().isProject());
+							ok(oHdbSubProjectDocument.getEntity()._bProject);
+						});
+					});
+				});
+			});
+		}));
+		
+		test("Convert folder to NODEJS project under root MTA project", withPromise(function() {
+			return oDocumentProviderService.getRoot().then(function(oRootDocument) {
+				return oRootDocument.createProject(oRootMTAProjectData).then(function(oProjectDocument) {
+					var oNodeJsSubProjectData = {};
+					oNodeJsSubProjectData.type = "sap.nodejs";
+					return oProjectDocument.createFolder("folder123").then(function(oFolderDocument) {
+						return oFolderDocument.convertToProject(oNodeJsSubProjectData).then(function(oNodeJsSubProjectDocument) {
+							equal("folder123", oNodeJsSubProjectDocument.getEntity().getName());
+							equal(oNodeJsSubProjectData.type, oNodeJsSubProjectDocument.getProjectMetadata().type);
+							ok(oNodeJsSubProjectDocument.getEntity().isProject());
+							ok(oNodeJsSubProjectDocument.getEntity()._bProject);
+						});
+					});
+				});
+			});
+		}));
+		
+		test("Get nested and root projects of a file and folder", withPromise(function() {
+			return oDocumentProviderService.getRoot().then(function(oRootDocument) {
+				return oRootDocument.createProject(oRootMTAProjectData).then(function(oRootProjectDocument) {
+					var oNodeJsSubProjectData = {};
+					oNodeJsSubProjectData.type = "sap.nodejs";
+					return oRootProjectDocument.createFolder("folder123").then(function(oFolderDocument) {
+						return oFolderDocument.convertToProject(oNodeJsSubProjectData).then(function(oNodeJsSubProjectDocument) {
+							
+							var aPromises = [oRootProjectDocument.getProject(), oNodeJsSubProjectDocument.getProject()];
+							return Q.spread(aPromises, function(oRootProject, oNestedProject) {
+								equal("folder123", oNestedProject.getEntity().getName());
+								ok(oNestedProject.getEntity().isProject());
+								equal(oRootMTAProjectData.name, oRootProject.getEntity().getName());
+								ok(oNestedProject.getEntity().isProject());
+							
+								aPromises = [oNodeJsSubProjectDocument.createFolder("testFolder"), oNodeJsSubProjectDocument.createFile("testFile")];
+								return Q.spread(aPromises, function(oTestFolderDocument, oTestFileDocument) {
+									
+									aPromises = [oTestFolderDocument.getProject(), oTestFileDocument.getProject(), oTestFolderDocument.getProject(true), oTestFileDocument.getProject(true)];
+									return Q.spread(aPromises, function(oTestFolderProject, oTestFileProject, oTestFolderRootMtaProject, oTestFileRootMtaProject) { 
+										ok(oTestFolderProject.getEntity().isProject());
+										equal("folder123", oTestFolderProject.getEntity().getName());
+										ok(oTestFileProject.getEntity().isProject());
+										equal("folder123", oTestFileProject.getEntity().getName());
+										ok(oTestFolderRootMtaProject.getEntity().isProject());
+										equal(oRootMTAProjectData.name, oTestFolderRootMtaProject.getEntity().getName());
+										ok(oTestFileRootMtaProject.getEntity().isProject());
+										equal(oRootMTAProjectData.name, oTestFileRootMtaProject.getEntity().getName());
+									});
+								});
+							});
+						});
+					});
+				});
+			});
+		}));
+		
+		test("isConvertable", withPromise(function() {
+			return oDocumentProviderService.getRoot().then(function(oRootDocument) {
+				return oMtaValidationService.isConvertable(oRootDocument).then(function(bConvertable1) {
+					ok(!bConvertable1);
+					
+					return oRootDocument.createProject(oRootMTAProjectData).then(function(oRootProjectDocument) {
+						return oMtaValidationService.isConvertable(oRootProjectDocument).then(function(bConvertable2) {
+							ok(!bConvertable2);
+							
+							var oNodeJsSubProjectData = {};
+							oNodeJsSubProjectData.type = "sap.nodejs";
+							return oRootProjectDocument.createFolder("folder123").then(function(oFolderDocument) {
+								return oMtaValidationService.isConvertable(oFolderDocument).then(function(bConvertable3) {
+									ok(bConvertable3);
+									
+									return oFolderDocument.convertToProject({"type" : "sap.html5"}).then(function(oConvertedFolder) {
+										return oMtaValidationService.isConvertable(oConvertedFolder).then(function(bConvertable4) {
+											ok(!bConvertable4);
+										});
+									});
+								});
+							});
+						});
+					});
+				});
+
+			});
+		}));
+		
+		return oLoginPromise;
+	});
+
+
+</script>
+
+</head>
+<body >
+	<div id="qunit"></div>
+	<div id="content" style="display: none"></div>
+</body>
+</html>

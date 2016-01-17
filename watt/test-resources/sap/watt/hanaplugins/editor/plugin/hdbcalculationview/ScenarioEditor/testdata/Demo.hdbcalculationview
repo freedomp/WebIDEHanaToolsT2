@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="com.sap::CV_003" applyPrivilegeType="SQL_ANALYTIC_PRIVILEGE" dataCategory="CUBE" dimensionType="STANDARD" schemaVersion="2.3" defaultClient="$$client$$" visibility="reportingEnabled" outputViewType="Aggregation" calculationScenarioType="TREE_BASED" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_003"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="com.sap::MINI.TD1" type="DATA_BASE_TABLE">
+    <resourceUri>com.sap::MINI.TD1</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:UnionView" id="Union_1">
+    <viewAttributes>
+      <viewAttribute id="A1"><descriptions/>
+        <descriptions defaultDescription="A1"/>
+      </viewAttribute>
+      <viewAttribute id="K1"><descriptions/>
+        <descriptions defaultDescription="K1"/>
+      </viewAttribute>
+      <viewAttribute id="U1"><descriptions/>
+        <descriptions defaultDescription="U1"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="#com.sap::MINI.TD1" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="A1" source="A1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="K1" source="K1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="U1" source="U1"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Union_1">
+  <attributes>
+    <attribute id="A1" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="A1"/>
+      <keyMapping columnObjectName="Union_1" columnName="A1"/>
+    </attribute>
+    <attribute id="U1" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="U1"/>
+      <keyMapping columnObjectName="Union_1" columnName="U1"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>    
+  <baseMeasures>
+    <measure id="K1" order="2" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="K1"/>
+      <measureMapping columnObjectName="Union_1" columnName="K1"/>
+    </measure>
+  </baseMeasures>
+   <calculatedMeasures>
+    <measure id="COUNT_1" hidden="false" order="5" aggregationType="sum" measureType="simple" calculatedMeasureType="counter" aggregatable="true" datatype="INTEGER">
+      <exceptionAggregation/>
+      <formula>1</formula>
+      </measure>
+    <measure id="COUNT_2" hidden="false" order="6" aggregationType="sum" measureType="simple" calculatedMeasureType="counter" aggregatable="true" datatype="INTEGER">
+      <exceptionAggregation/>
+      <formula>1</formula>
+      </measure>
+  </calculatedMeasures>     
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Union_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="87" y="230"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

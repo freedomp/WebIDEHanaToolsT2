@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>RNDjs</title>
+    <script type="text/javascript">
+        function load() { // calculate optimum width of left frame to gain space on right frame
+            var frames = window.parent.document.getElementsByTagName("frame");
+            var leftWidth = frames.left.contentDocument.body.clientWidth;
+            var fs = window.parent.document.getElementsByTagName("frameset");
+            fs[0].cols = (leftWidth)+"px,*";
+            var queryParam = window.location.search;
+            if (queryParam!=null && queryParam.length>0) {
+                fs[0].childNodes[1].src+=queryParam;
+            }
+        }
+    </script>
+</head>
+
+<frameset onload="load()" cols="*,*">
+    <frame src="index.html" name="left">
+    <frame src="" name="right">
+    <noframes>
+    </noframes>
+</frameset>
+
+</html>

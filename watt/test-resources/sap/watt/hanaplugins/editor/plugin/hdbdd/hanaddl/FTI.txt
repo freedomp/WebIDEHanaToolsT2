@@ -1,0 +1,28 @@
+namespace FTI;
+context Generation
+{
+   @nokey
+   entity E1
+   {
+      id : Integer;
+      e1 : String(100);
+      e2 : String(200);
+   }
+   technical configuration
+   {
+     fulltext index hugo on (e1) language column e2 language detection ( 'DE', 'EN', 'FR')
+                                mime type column e2
+                                fuzzy search index off
+                                phrase index ratio 0.55
+                                configuration 'foo'
+                                search only on
+                                fast preprocess on
+                                text analysis on
+                                mime type 'application/xml'
+                                token separators '/,;@<>'
+                                text mining on
+                                text mining configuration 'something'
+                                async flush queue every 5 minutes or after 10000 documents;
+
+   };
+};

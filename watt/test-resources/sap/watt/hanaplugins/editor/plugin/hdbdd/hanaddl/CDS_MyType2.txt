@@ -1,0 +1,8 @@
+namespace CDS;
+type MyType2 {
+    element i : Integer;
+};
+
+/* @classification: basic */
+/* @description: Type with 'element' keyword */
+/* @resource-name: CDS::MyType2 */

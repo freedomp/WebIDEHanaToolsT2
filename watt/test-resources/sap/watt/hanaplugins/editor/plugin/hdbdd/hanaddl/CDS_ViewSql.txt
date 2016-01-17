@@ -1,0 +1,29 @@
+namespace CDS;
+context MyContext
+{
+  context Inner
+  {
+    type MyStruct
+    {
+        structelt1 : Integer;
+        structelt2 : Integer;
+        structelt3 : String(30);
+    };
+    entity MyEntity
+    {
+        key elt1 : Integer;
+        elt2 : Integer;
+        elt3 : MyStruct;
+    };
+  };
+  view MyView as select from Inner.MyEntity
+  {
+      elt1 as keyElt,
+      elt2,
+      elt3.structelt2
+  } where elt1 = 10 and not elt2 < 20 or elt2 >= 20 and elt3.structelt3 = 'foobar';
+};
+
+/* @classification: basic */
+/* @description: cds view with ql statement */
+/* @resource-name: CDS::MyContext */

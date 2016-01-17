@@ -1,0 +1,9 @@
+namespace Defaults;
+entity simple_string {
+   key id : Integer;
+   stringWithDefault : String(10) default 'foo';
+};
+
+/* @classification: basic */
+/* @description: Simple String default value */
+/* @resource-name: Defaults::simple_string */

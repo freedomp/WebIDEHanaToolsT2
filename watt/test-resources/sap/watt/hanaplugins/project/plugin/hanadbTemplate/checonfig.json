@@ -1,0 +1,17 @@
+{
+	
+  "includes": [
+    "../../../../../../../resources/sap/watt/ideplatform/che/config.json",
+    "../../../../../../../resources/sap/watt/toolsets/config.json"
+  ],
+  
+  "plugins": [
+    "../../../../../../../resources/sap/watt/hanaplugins/project/plugin/hanatemplates",
+    "../../../../../../../resources/sap/watt/hanaplugins/project/plugin/hanawizardsteps",
+    "../../../../../../../resources/sap/watt/hanaplugins/build/plugin/buildcommon",
+    "../../../../../../../resources/sap/watt/saptoolsets/fiori/project/plugin/ui5projecthandler",
+    "../../../../../../../resources/sap/watt/saptoolsets/fiori/common/plugin/metadatahandler",
+    "../../../../../../../resources/sap/watt/common/plugin/buildregistry"
+  ],
+  "required": true
+}

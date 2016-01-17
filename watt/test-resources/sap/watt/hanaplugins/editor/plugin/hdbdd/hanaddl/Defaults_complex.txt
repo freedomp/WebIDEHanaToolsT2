@@ -1,0 +1,55 @@
+namespace Defaults;
+entity complex {
+    key id : Integer;
+
+    // String defaults
+    s1 : String(10) default 'foo';
+
+    // Binary defaults
+    // bin1 : Binary(32) default binary'0102030405060708090a0b0c0d0e0ff1f2f3f4f5f6f7f8f9fafbfcfdfeff';
+    bin2 : Binary(32) default x'0102030405060708090a0b0c0d0e0ff1f2f3f4f5f6f7f8f9fafbfcfdfeff';
+    bin3 : Binary(32) default X'0102030405060708090a0b0c0d0e0ff1f2f3f4f5f6f7f8f9fafbfcfdfeff';
+
+    // Integer defaults
+    i1 : Integer default 1;
+    i2 : Integer default -1;
+    i3 : Integer default -2147483648; // min_int
+    i4 : Integer default 2147483647; // max_int
+    i64_1 : Integer64 default 1;
+    i64_2 : Integer64 default -1;
+    i64_3 : Integer64 default -9223372036854775808; // min_int64
+    i64_4 : Integer64 default 9223372036854775807; // max_int64
+
+    // Fix- and Floating point defaults
+    d1: Decimal(5, 3) default 12.345;
+    d2: Decimal(5, 3) default 12.345;
+    d3: Decimal(1, 1) default 0.1;
+    d4 : Decimal(34, 1) default 123456789012345678901234567890123.0;
+    d5 : Decimal(34, 34) default 0.123456789012345678901234567890123;
+    bf1: BinaryFloat default 123.456;
+    bf2: BinaryFloat default 123.456e1;
+    bf3: BinaryFloat default 123.456e-1;
+    bf4: BinaryFloat default 123.456e+1;
+    bf5: BinaryFloat default -123.456;
+    bf6: BinaryFloat default -123.456e1;
+    bf7: BinaryFloat default -123.456e-1;
+    bf8: BinaryFloat default -123.456e+1;
+
+    // Date and Time defaults
+    ld1: LocalDate default date'2013-04-29';
+    ld2: LocalDate default date'2013-4-9';
+    ld3: LocalDate default date'13-04-29';
+    lt1: LocalTime default time'05:04:03';
+    lt2: LocalTime default time'05:04';
+    lt3: LocalTime default time'5:4:3';
+    lt4: LocalTime default time'5:4';
+    lt5: LocalTime default time'17:04:03';
+    lt6: LocalTime default time'17:04';
+    udt1 : UTCDateTime default timestamp'2013-05-01 01:02:03';
+    uts1 : UTCTimestamp default timestamp'2013-05-01 01:02:03';
+    // uts2 : UTCTimestamp default timestamp'2013-05-01 01:02:03.12345';
+};
+
+/* @classification: basic */
+/* @description: More complex default constructs */
+/* @resource-name: Defaults::complex */

@@ -1,0 +1,145 @@
+namespace Partitions;
+context SyntaxErr_overlap
+{
+   entity Partition
+   {
+          key e1 : Integer;
+   }
+   technical configuration
+   {
+      partition by range(e1) (partition value=11,
+                              partition 10 <= values < 15,
+                              partition value=0,
+                              partition 16 <= values < 18,
+                              partition 14 <= values < 17,
+                              partition 0 <= values < 30);
+   };
+
+   entity OverlapInteger
+   {
+    key id : Integer;
+   }
+   technical configuration
+   {
+    partition by range(id) (partition 5 <= values < 10,
+                            partition 3 <= values < 6,
+                            partition 9 <= values < 15,
+                            partition 0 <= values < 20,
+                            partition value = 8);
+   };
+
+   entity OverlapString
+   {
+    key id : String(100);
+   }
+   technical configuration
+   {
+    partition by range(id) (partition 'ccc' <= values < 'ddd',
+                            partition 'bbb' <= values < 'cce',
+                            partition 'dda' <= values < 'eee',
+                            partition 'aaa' <= values < 'fff',
+                            partition value = 'cdd');
+   };
+
+   entity Partition_date
+   {
+    key e1 : LocalDate;
+   }
+   technical configuration
+   {
+    partition by range(e1) (partition value = '1970-01-01',
+                            partition 19740707 <= values < 19900708,
+                            partition '1990-07-08' <= values < '2014-07-13',
+                            partition '1900-01-01' <= values < 99990101,
+                            partition '1990-07-08' <= values < 19740707);
+   };
+
+
+    entity StringAsIntOverlap
+    {
+        key e1 : String(100);
+    }
+    technical configuration
+    {
+        partition by range(e1) (partition value = 100, partition 1010 <= values < 200);
+    };
+    
+    entity StringAndNumericRange
+    {
+        key e : String(100);
+    }
+    technical configuration
+    {
+        partition by range(e) (partition '2020' <= values < 3000);
+    };
+    
+    entity WrongRangeType
+    {
+        key e : String(100);
+    }
+    technical configuration
+    {
+        partition by range(e) (partition '2020' <= values < '3000', partition value = 2100);
+    };
+
+    @nokey
+    entity BoolRange
+    {
+        b:Boolean;
+    }
+    technical configuration
+    {
+        partition by range(b)(partition false <= values < true, partition false <= values < true, partition value = true, partition value = true);
+    };
+
+    @nokey
+    entity BoolRange1
+    {
+        b:Boolean;
+    }
+    technical configuration
+    {
+        partition by range(b)(partition value = true, partition value = true);
+    };
+
+    @nokey
+    entity BoolRange2
+    {
+        b:Boolean;
+    }
+    technical configuration
+    {
+        partition by range(b)(partition false <= values < true, partition 0 <= values < 15);
+    };
+
+
+    @nokey
+    entity BoolRange21
+    {
+        b:Boolean;
+    }
+    technical configuration
+    {
+        partition by range(b)(partition false <= values < true, partition 0 <= values < 'blabla');
+    };
+    @nokey
+    entity BoolRange3
+    {
+        b:Boolean;
+    }
+    technical configuration
+    {
+        partition by range(b)(partition value = true, partition value = 1);
+    };
+
+    @nokey
+    entity SingleValueOverlap
+    {
+        b:Integer;
+    }
+    technical configuration
+    {
+        partition by range(b)(partition value = 0, partition value = 0);
+    };
+};
+

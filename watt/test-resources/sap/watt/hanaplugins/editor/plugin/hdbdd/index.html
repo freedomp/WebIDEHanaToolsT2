@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>RNDjs</title>
+    <link rel="stylesheet" type="text/css" href="./lib/qunit/qunit.css"/>
+    <script>
+        function pageLoaded() {
+            var json = get("./testList.json");
+            var tests = JSON.parse(json);
+            for (var i in tests) {
+                removeDuplicatesAndOptFromUrl(tests[i]);
+                addTestsToUi(i,tests[i]);
+            }
+            var queryParam = window.location.search;
+            if (queryParam!=null && queryParam.length>0) {
+                runParallelTestNow(queryParam);
+            }
+        }
+
+        function getTestName(url) {
+            var ind = url.lastIndexOf("/");
+            if (ind>0) {
+                url = url.substring(ind + 1);
+            }
+            ind = url.lastIndexOf(".");
+            if (ind>0) {
+                url = url.substring(0, ind);
+            }
+            return url;
+        }
+
+        function addTestsToUi(group,testList) {
+            var bod = document.getElementById("mbody");
+            var h1 = document.createElement("h1");
+            h1.setAttribute("id","qunit-header");
+            bod.appendChild(h1);
+            h1.innerHTML = group;
+            var html = '<ol id="qunit-tests">';
+            for (var i=0;i<testList.length;i++) {
+                if (testList[i]===undefined)continue;
+                var src =
+                        '<li class="pass">'+//
+                        '<strong class="test-name">'+//
+                        '<a class="test-name" href="$$testurl$$" target="right">$$name$$</a>'+//
+                        "</strong>"+//
+                        "</li>";
+                src = stringReplaceAll(src,"$$testurl$$",testList[i],true);
+                src = stringReplaceAll(src,"$$name$$",getTestName(testList[i]),true);
+                html+= src;
+            }
+            html+="</ol><br>";
+            bod.innerHTML+=html;
+        }
+
+        function removeDuplicatesAndOptFromUrl(testList) {
+            var copy = [];
+            for (var i=testList.length-1;i>=0; i--) {
+                var ind = testList[i].indexOf("?build=opt");
+                if (ind>0){
+                    testList[i]=testList[i].substring(0,ind);
+                }
+                if (copy.indexOf(testList[i]) !== -1) {
+                    delete testList[i];
+                }else {
+                    copy.push(testList[i]);
+                }
+            }
+        }
+
+        function get(url) {
+            /* global document:false, ActiveXObject:false, XMLHttpRequest:false */
+            var http;
+
+            if ((typeof document !== "undefined") && document.defaultView.navigator.appName == "Microsoft Internet Explorer") {
+                http = new ActiveXObject("Microsoft.XMLHTTP");
+            } else if ((typeof document !== "undefined") && document.defaultView.navigator.appName == "Node.js jsDom") {
+                return require('fs').readFileSync(url, {encoding: 'utf8'});
+            } else {
+                http = new XMLHttpRequest();
+            }
+            http.open("GET", url, false);
+            http.send(null);
+            return http.responseText;
+        }
+
+        function stringReplaceAll(str, token, newToken, ignoreCase) {
+            var _token;
+            var resultString = str + "";
+            var i = -1;
+            if (typeof token === "string") {
+                if (ignoreCase) {
+                    _token = token.toLowerCase();
+                    while ((
+                            i = resultString.toLowerCase().indexOf(
+                                    token, i >= 0 ? i + newToken.length : 0
+                            ) ) !== -1
+                            ) {
+                        resultString = resultString.substring(0, i) +
+                                newToken +
+                                resultString.substring(i + token.length);
+                    }
+                } else {
+                    return str.split(token).join(newToken);
+                }
+            }
+            return resultString;
+        }
+    </script>
+</head>
+<body id="mbody" onload="javascript:pageLoaded()">
+<h1 id="qunit-header">Test Programs</h1>
+<ol id="qunit-tests">
+    <li class="pass"><a href="./acehanaddleditor.html" target="right"><strong class="test-name">HANA DDL editor</strong></a>
+    </li>
+</ol>
+<br>
+
+<h1 id="qunit-header">All Tests</h1>
+<ol id="qunit-tests">
+    <li class="pass">
+        <strong class="test-name">
+            <a style="cursor:pointer" class="test-name" onclick="runAllTests('Test')">Run all Test*</a>
+        </strong>
+    </li>
+</ol>
+<br>
+
+
+
+<script>
+
+    var parallelTestQueryParamRegex = /\?executionNumber=(\d)*&numberOfParallelExecutions=(\d)*/i;
+
+    function runParallelTestNow(queryParam) {
+        var match = queryParam.match(parallelTestQueryParamRegex);
+        var executionNumber = parseInt(match[1]);
+        var numberOfParallelExecutions = parseInt(match[2]);
+        var allTests = getAllTests("DBG",true);
+        var numberOfTestsToBeExecuted = Math.round(allTests.length/numberOfParallelExecutions);
+
+        var fromIndex = (executionNumber-1)*numberOfTestsToBeExecuted;
+        var toIndex = fromIndex+numberOfTestsToBeExecuted;
+        if (executionNumber===numberOfParallelExecutions) {
+            toIndex = allTests.length;
+        }
+        var testList = allTests.slice(fromIndex,toIndex);
+        runTestList(testList);
+    }
+
+    function getAllTests(dbgOrOptStr,withIntegrationTests) {
+        var allLinks = document.links;
+        var allTestLinks = [];
+        for (var i = 0; i < allLinks.length; i++) {
+            var link = allLinks[i];
+            if (withIntegrationTests || false === stringContains(link.href, "Integration")) {
+                var l = link.innerText;
+                if (l===undefined)l=link.text;
+                if (stringContains(l, dbgOrOptStr)) {
+                    allTestLinks.push(link);
+                }
+            }
+        }
+        return allTestLinks;
+    }
+
+    function stringContains(str, another) {
+        var idx = str.indexOf(another);
+        return (idx >= 0);
+    }
+
+    function runAllTests(dbgOrOptStr) {
+        var allTestLinks = getAllTests(dbgOrOptStr);
+        runTestList(allTestLinks);
+    }
+
+    function runTestList(testList) {
+        var index = 0;
+        var lastWindow = null;
+        var retryAttempts = 0;
+
+        function runTest() {
+            if (lastWindow == null) {
+                var link = testList[index];
+                lastWindow = window.open(link.href, link.target);
+                index++;
+            } else {
+                var testResultElem = lastWindow.document.getElementById("qunit-testresult");
+                if (testResultElem!=null) {
+                    var testResult = testResultElem.innerText;
+                    if (testResult===undefined) {
+                        testResult = testResultElem.textContent;
+                    }
+                    if (stringContains(testResult, "0 failed")) {
+                        if (index >= testList.length) {
+                            return;
+                        }
+                        retryAttempts = 0;
+                        var link = testList[index];
+                        lastWindow = window.open(link.href, link.target);
+                        index++;
+                        if (window.parent != null) {
+                            window.parent.document.title = index + "/" + testList.length;
+                        }
+                    } else {
+                        retryAttempts++;
+                        if (retryAttempts > 500)
+                            return;
+                    }
+                }
+            }
+            setTimeout(runTest, 1 * 1000);
+        }
+        setTimeout(runTest, 1);
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+namespace CDS;
+Context MyContext1 {
+
+  type MyType1 : Integer;
+
+};
+
+/* @classification: basic */
+/* @description: Context with type */
+/* @resource-name: CDS::MyContext1 */

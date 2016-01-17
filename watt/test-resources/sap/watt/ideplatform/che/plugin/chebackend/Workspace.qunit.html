@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<script src="../../../util/qunitHelper.js" ></script>
+<script>setBase("sap/watt/uitools/")</script>
+
+<script src="../lib/requirejs/require.js"
+	        data-main="../core/Global"
+	        data-sap-ide-main="runTests"
+	        data-sap-ide-environment-path="../../../../env.json"
+	        data-sap-ide-basedir="../../../"  data-sap-blanket-cover="/sap/watt/ideplatform/che/plugin/chebackend/dao/Workspace"></script>
+
+<title>Workspace DAO qUnit Test</title>
+
+
+<script>
+
+	
+	defineTest([ "sap/watt/ideplatform/che/plugin/chebackend/dao/Workspace",
+	             "sap/watt/ideplatform/che/plugin/chebackend/service/System",
+	             "sap/watt/ideplatform/che/plugin/chebackend/util/PathMapping"],
+	             function(oWorkspaceDao, oSystemService, mPathMapping) {
+
+		// login
+		var oParameters = jQuery.sap.getUriParameters();
+		var sUsername = oParameters.get("username");
+		var sPassword = oParameters.get("password");
+		var oLoginPromise = oSystemService.login(sUsername, sPassword);
+		oSystemService.context = {
+			"event" : {
+				fireLoggedIn : function() {return Q();}
+			}
+		};
+
+		var mWorkspace = mPathMapping.workspace;
+		
+		module("Workspace DAO", {
+			setup : function() {
+			
+				
+			},
+			teardown : function() {
+				
+			}
+		});
+
+		test("Get workspace by id", 1, withPromise(function() {
+			return oWorkspaceDao.getWorkspaceById(mWorkspace.id).then(function(oWorkspace) {
+				ok(oWorkspace, "Workspace was found");	
+			})			
+		}));
+		
+		test("Get workspace by id - non-existing workspace", 1, withPromise(function() {
+			return oWorkspaceDao.getWorkspaceById("nonexistid").fail(function(oError) {
+				equal(oError.status, 404, "Workspace doesn't exist");
+			})	
+		}));
+				
+		test("Update and delete workspace attributes", 3, withPromise(function() {
+			var mAttributes = {
+				key1: "value1",
+				key2: "value2",
+				key3: "value3"
+			};
+			return oWorkspaceDao.clearWorkspaceAttributes(mWorkspace.id).then(function() {
+				return oWorkspaceDao.getWorkspaceById(mWorkspace.id);
+			}).then(function(oWorkspace) {
+				deepEqual(oWorkspace.attributes, {}, "All attributes were cleared");
+				return Q.all([oWorkspaceDao.updateWorkspaceAttribute(mWorkspace.id, "key1", mAttributes["key1"]), 
+				              oWorkspaceDao.updateWorkspaceAttribute(mWorkspace.id, "key2",  mAttributes["key2"]), 
+				              oWorkspaceDao.updateWorkspaceAttribute(mWorkspace.id, "key3",  mAttributes["key3"])])
+			}).then(function() {
+           	  		return oWorkspaceDao.getWorkspaceById(mWorkspace.id);
+            }).then(function(oWorkspace) {
+            	deepEqual(oWorkspace.attributes, mAttributes, "All attributes were updated");
+				return oWorkspaceDao.clearWorkspaceAttributes(mWorkspace.id);				
+			}).then(function() {
+				return oWorkspaceDao.getWorkspaceById(mWorkspace.id);
+			}).then(function(oWorkspace) {
+				deepEqual(oWorkspace.attributes, {}, "All attributes were cleared");
+			});
+			
+		}));
+			
+		return oLoginPromise;
+	});
+
+
+</script>
+
+</head>
+<body >
+	<div id="qunit"></div>
+</body>
+</html>

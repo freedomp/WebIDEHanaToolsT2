@@ -1,0 +1,2851 @@
+// This is a generated file. DO NOT EDIT!
+// Generation date: 12.10.2015 15:55:08
+// Model version: PLC_DataModel_Version_v1_0
+
+namespace sap.plc.db;
+
+@Schema: 'SAP_PLC'
+context basis {
+
+   // corresponds to ERP table CSKA and CSKB
+   @Catalog.tableType : #COLUMN 
+   entity t_account {
+      key ACCOUNT_ID: String(10) not null;
+      key CONTROLLING_AREA_ID: String(4) not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to table CSKU
+   @Catalog.tableType : #COLUMN 
+   entity t_account__text {
+      key ACCOUNT_ID: String(10) not null;
+      key CONTROLLING_AREA_ID: String(4) not null;
+      key LANGUAGE: String(11) not null;
+      ACCOUNT_DESCRIPTION: String(250);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_account_account_group {
+      key FROM_ACCOUNT_ID: String(10) not null;
+      TO_ACCOUNT_ID: String(10);
+      key ACCOUNT_GROUP_ID: Integer not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_account_group {
+      key ACCOUNT_GROUP_ID: Integer not null;
+      CONTROLLING_AREA_ID: String(4) not null;
+      COST_PORTION: Integer not null; // 1=Fixed cost only, 2=Variable cost only, 3=Overall cost
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_account_group__text {
+      key ACCOUNT_GROUP_ID: Integer not null;
+      key LANGUAGE: String(11) not null;
+      ACCOUNT_GROUP_DESCRIPTION: String(250);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // In Version 1.0 cost element groups cannot contain further cost element groups, however, this might change later
+   @Catalog.tableType : #COLUMN 
+   entity t_account_group_account_group {
+      key PARENT_ACCOUNT_GROUP_ID: Integer not null;
+      key CHILD_ACCOUNT_GROUP_ID: Integer not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_account_group_cost_component {
+      key ACCOUNT_GROUP_ID: Integer not null;
+      key COMPONENT_SPLIT_ID: String(35) not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_activity_rate {
+      key PRICE_SOURCE_ID: Integer not null; // 1=PLC Standard Pr
+      key CONTROLLING_AREA_ID: String(4) not null;
+      key COST_CENTER_ID: String(10) not null;
+      key ACTIVITY_TYPE_ID: String(6) not null;
+      key CONTROLLING_VERSION_ID: String(3) not null;
+      key VALID_FROM: LocalDate not null;
+      VALID_TO: LocalDate;
+      PRICE_FIXED_PORTION: Decimal(20, 5) not null;
+      PRICE_VARIABLE_PORTION: Decimal(20, 5) not null;
+      PRICE_TRANSACTION_CURRENCY_ID: String(3) not null;
+      PRICE_UNIT: Decimal(20, 5) not null;
+      PRICE_UNIT_UOM_ID: String(3) not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to ERP table CSLA
+   @Catalog.tableType : #COLUMN 
+   entity t_activity_type {
+      key ACTIVITY_TYPE_ID: String(6) not null;
+      key CONTROLLING_AREA_ID: String(4) not null;
+      ACCOUNT_ID: String(10);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // Corresponds to CSLT
+   @Catalog.tableType : #COLUMN 
+   entity t_activity_type__text {
+      key ACTIVITY_TYPE_ID: String(6) not null;
+      key CONTROLLING_AREA_ID: String(4) not null;
+      key LANGUAGE: String(11) not null;
+      ACTIVITY_TYPE_DESCRIPTION: String(250);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_add_in_configuration {
+      key ADD_IN_ID: String(127) not null;
+      key PROPERTY_NAME: String(127) not null;
+      PROPERTY_VALUE: LargeString not null;
+   };
+
+   // corresponds to tgsb
+   @Catalog.tableType : #COLUMN 
+   entity t_business_area {
+      key BUSINESS_AREA_ID: String(4) not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to tgsbt
+   @Catalog.tableType : #COLUMN 
+   entity t_business_area__text {
+      key BUSINESS_AREA_ID: String(4) not null;
+      key LANGUAGE: String(11) not null;
+      BUSINESS_AREA_DESCRIPTION: String(250);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to ERP table CBPR
+   @Catalog.tableType : #COLUMN 
+   entity t_business_process {
+      key BUSINESS_PROCESS_ID: String(12) not null;
+      key CONTROLLING_AREA_ID: String(4) not null;
+      ACCOUNT_ID: String(10);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to ERP table CBPT
+   @Catalog.tableType : #COLUMN 
+   entity t_business_process__text {
+      key BUSINESS_PROCESS_ID: String(12) not null;
+      key CONTROLLING_AREA_ID: String(4) not null;
+      key LANGUAGE: String(11) not null;
+      BUSINESS_PROCESS_DESCRIPTION: String(250);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_calculation {
+      key CALCULATION_ID: Integer not null;
+      PROJECT_ID: Integer;
+      CALCULATION_NAME: String(100) not null; // CalculationName is unique within one project; if no project exists: within one folder; if no folder exists: globally
+      CURRENT_CALCULATION_VERSION_ID: Integer;
+      CONTROLLING_AREA_ID: String(4) not null;
+      CALCULATION_QUANTITY: Decimal(20, 5) default 1.0; // to be able to define a lot size on calculation level (not set as long as there is no specific UI to define a quantity on calculation level)
+      CALCULATION_QUANTITY_IS_MANUAL: hana.TINYINT; // Indicates whether the current value has been entered manually. If true, this value must not be overriden by roll up or formula
+      CALCULATION_QUANTITY_UOM_ID: String(3) default 'PC'; // to be able to define a lot size on calculation level (not set as long as there is no specific UI to define a quantity on calculation level)
+      REPORT_CURRENCY_ID: String(3);
+      TARGET_COST: Decimal(20, 5); // to be able to define target cost on calculation level
+      TARGET_COST_IS_MANUAL: hana.TINYINT; // Indicates whether the current value has been entered manually. If true, this value must not be overriden by roll up or formula
+      CREATED_AT: UTCTimestamp not null; // Data & Time
+      CREATED_BY_USER_ID: String(256) not null;
+      LAST_MODIFIED_AT: UTCTimestamp not null; // Data & Time
+      LAST_MODIFIED_BY_USER_ID: String(256) not null;
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_calculation__text {
+      key CALCULATION_ID: Integer not null;
+      key LANGUAGE: String(11) not null;
+      COMMENT: String(500);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_calculation_version {
+      key CALCULATION_VERSION_ID: Integer not null;
+      CALCULATION_ID: Integer not null;
+      CALCULATION_VERSION_NAME: String(100) not null;
+      ROOT_ITEM_ID: Integer not null;
+      CUSTOMER_ID: String(10);
+      CONTROLLING_VERSION_ID: String(3); // CO Version is mandatory as we will need it for the rates which we have in 1.1.
+      SALES_DOCUMENT: String(10);
+      SALES_ORGANIZATION_ID: String(4);
+      SALES_PRICE: Decimal(20, 5); /* Sales Price should be used as info field for anybody who wants to compare the final calculated costs with the sales price or do this in external analytic tools
+       * Sales Price is stated in reporting currency */
+      IS_QUANTITY_PASSED_ON: hana.TINYINT not null default 1; /* necessary to know what lot size should be used for price determination
+       * 1=Lot size is passed on
+       * 0=Lost size is not passed on */
+      REPORT_CURRENCY_ID: String(3) not null default 'EUR';
+      PRICE_DETERMINATION_STRATEGY: String(30) default 'Standard';
+      COSTING_SHEET_ID: String(6);
+      COMPONENT_SPLIT_ID: String(35);
+      ADDITIONAL_COMPONENT_SPLIT_ID: String(35); // Additional component split can even be a parallel one if both are displayed in parallel or a second level
+      START_OF_INVESTMENT: LocalDate;
+      END_OF_INVESTMENT: LocalDate;
+      START_OF_PRODUCTION: LocalDate;
+      END_OF_PRODUCTION: LocalDate;
+      VALUATION_DATE: LocalDate not null;
+      EXPLOSION_DATE: LocalDate not null;
+      LAST_SAVED_AT: UTCTimestamp not null; // Data & Time
+      LAST_SAVED_BY_USER_ID: String(256) not null;
+      MASTER_DATA_TIMESTAMP: UTCTimestamp not null;
+      PREDECESSOR_VERSION_ID: Integer; // Predecessor_Version is used for status management to know what version is copied from what version. It should be filled automatically if a new version is "saved as a new version" with the previous version number or if a version is copied with the version number it is copied from
+      IS_FROZEN: hana.TINYINT;
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_calculation_version_temporary {
+      key SESSION_ID: String(50) not null;
+      key CALCULATION_VERSION_ID: Integer not null;
+      CALCULATION_ID: Integer not null;
+      CALCULATION_VERSION_NAME: String(100) not null;
+      ROOT_ITEM_ID: Integer not null;
+      CUSTOMER_ID: String(10);
+      CONTROLLING_VERSION_ID: String(3);
+      SALES_DOCUMENT: String(10);
+      SALES_ORGANIZATION_ID: String(4);
+      SALES_PRICE: Decimal(20, 5); /* Sales Price should be used as info field for anybody who wants to compare the final calculated costs with the sales price or do this in external analytic tools
+       * Sales Price is stated in reporting currency */
+      IS_QUANTITY_PASSED_ON: hana.TINYINT not null default 1; /* necessary to know what lot size should be used for price determination
+       * 1=Lot size is passed on
+       * 0=Lot size is not passed on
+       *  */
+      REPORT_CURRENCY_ID: String(3) not null;
+      PRICE_DETERMINATION_STRATEGY: String(30) default 'Standard';
+      COSTING_SHEET_ID: String(6);
+      COMPONENT_SPLIT_ID: String(35);
+      ADDITIONAL_COMPONENT_SPLIT_ID: String(35);
+      START_OF_INVESTMENT: LocalDate;
+      END_OF_INVESTMENT: LocalDate;
+      START_OF_PRODUCTION: LocalDate;
+      END_OF_PRODUCTION: LocalDate;
+      VALUATION_DATE: LocalDate not null default date'2014-06-02';
+      EXPLOSION_DATE: LocalDate not null;
+      LAST_SAVED_AT: UTCTimestamp; // Data & Time
+      LAST_SAVED_BY_USER_ID: String(256);
+      MASTER_DATA_TIMESTAMP: UTCTimestamp;
+      PREDECESSOR_VERSION_ID: Integer; // Predecessor_Version is used for status management to know what version is copied from what version. It should be filled automatically if a new version is "saved as a new version" with the previous version number or if a version is copied with the version number it is copied from
+      IS_FROZEN: hana.TINYINT;
+   };
+
+   // correspond to ERP table T004
+   @Catalog.tableType : #COLUMN 
+   entity t_chart_of_accounts {
+      key CHART_OF_ACCOUNTS_ID: String(4) not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to ERP table T004T
+   @Catalog.tableType : #COLUMN 
+   entity t_chart_of_accounts__text {
+      key CHART_OF_ACCOUNTS_ID: String(4) not null;
+      key LANGUAGE: String(11) not null;
+      CHART_OF_ACCOUNTS_DESCRIPTION: String(250) not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to ERP table T001
+   @Catalog.tableType : #COLUMN 
+   entity t_company_code {
+      key COMPANY_CODE_ID: String(4) not null;
+      CONTROLLING_AREA_ID: String(4) not null;
+      COMPANY_CODE_CURRENCY_ID: String(3);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_company_code__text {
+      key COMPANY_CODE_ID: String(4) not null;
+      key LANGUAGE: String(11) not null;
+      COMPANY_CODE_DESCRIPTION: String(250);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   /* TCKH4 + TCKH5
+    * Split is a generic concept. You can split your costs based on the field referenced here (e.g. cost elements, plants,) */
+   @Catalog.tableType : #COLUMN 
+   entity t_component_split {
+      key COMPONENT_SPLIT_ID: String(35) not null;
+      CONTROLLING_AREA_ID: String(4) not null;
+      TABLE_REFERENCE_ID: String(127); // Must contain the name of an existing standard table in the current PLC datamodel or an extension table in the customer schema
+      FIELD_REFERENCE_ID: String(127); // Must contain the name of an existing column in the table identified by TABLE_ID
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_component_split__text {
+      key COMPONENT_SPLIT_ID: String(35) not null;
+      key LANGUAGE: String(11) not null;
+      COMPONENT_SPLIT_DESCRIPTION: String(250);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_confidence_level {
+      key CONFIDENCE_LEVEL_ID: Integer not null;
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_confidence_level__text {
+      key CONFIDENCE_LEVEL_ID: Integer not null;
+      key LANGUAGE: String(11) not null;
+      CONFIDENCE_LEVEL_DESCRIPTION: String(50);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_controlling_area {
+      key CONTROLLING_AREA_ID: String(4) not null;
+      CONTROLLING_AREA_CURRENCY_ID: String(3);
+      FISCAL_YEAR_VARIANT_ID: String(2);
+      CHART_OF_ACCOUNTS_ID: String(4);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_controlling_area__text {
+      key CONTROLLING_AREA_ID: String(4) not null;
+      key LANGUAGE: String(11) not null;
+      CONTROLLING_AREA_DESCRIPTION: String(250);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to TKA09
+   @Catalog.tableType : #COLUMN 
+   entity t_controlling_version {
+      key CONTROLLING_VERSION_ID: String(3) not null;
+      key CONTROLLING_AREA_ID: String(4) not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to ERP table TKT09
+   @Catalog.tableType : #COLUMN 
+   entity t_controlling_version__text {
+      key CONTROLLING_VERSION_ID: String(3) not null;
+      key CONTROLLING_AREA_ID: String(4) not null;
+      key LANGUAGE: String(11) not null;
+      CONTROLLING_VERSION_DESCRIPTION: String(250);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to ERP table CSKS
+   @Catalog.tableType : #COLUMN 
+   entity t_cost_center {
+      key COST_CENTER_ID: String(10) not null;
+      key CONTROLLING_AREA_ID: String(4) not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to CSKT
+   @Catalog.tableType : #COLUMN 
+   entity t_cost_center__text {
+      key COST_CENTER_ID: String(10) not null;
+      key CONTROLLING_AREA_ID: String(4) not null;
+      key LANGUAGE: String(11) not null;
+      COST_CENTER_DESCRIPTION: String(250);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_cost_component {
+      key COST_COMPONENT_ID: Integer not null;
+      key COMPONENT_SPLIT_ID: String(35) not null;
+      COST_PORTION: Integer not null; // 1=Fixed cost only, 2=Variable cost only, 3=Overall cost
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_cost_component__text {
+      key COST_COMPONENT_ID: Integer not null;
+      key COMPONENT_SPLIT_ID: String(35) not null;
+      key LANGUAGE: String(11) not null;
+      COST_COMPONENT_DESCRIPTION: String(250);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // Allows severall intervalls of values assigned to the cost component
+   @Catalog.tableType : #COLUMN 
+   entity t_cost_component_values {
+      key COST_COMPONENT_ID: Integer not null;
+      key COMPONENT_SPLIT_ID: String(35) not null;
+      key FROM_VALUE: String(35) not null;
+      TO_VALUE: String(35);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_costing_sheet {
+      key COSTING_SHEET_ID: String(6) not null;
+      CONTROLLING_AREA_ID: String(4) not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_costing_sheet__text {
+      key COSTING_SHEET_ID: String(6) not null;
+      key LANGUAGE: String(11) not null;
+      COSTING_SHEET_DESCRIPTION: String(250) not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_costing_sheet_base {
+      key COSTING_SHEET_BASE_ID: Integer not null;
+      COST_PORTION: Integer not null; // 1=Fixed cost only, 2=Variable cost only, 3=Overall cost (fixed+variable)
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_costing_sheet_base__text {
+      key COSTING_SHEET_BASE_ID: Integer not null;
+      key LANGUAGE: String(11) not null;
+      COSTING_SHEET_BASE_DESCRIPTION: String(250);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // used to define an intervall of values which defines the costing sheet basis. Values are of the field reference
+   @Catalog.tableType : #COLUMN 
+   entity t_costing_sheet_base_row {
+      key COSTING_SHEET_BASE_ID: Integer not null;
+      key ITEM_CATEGORY_ID: Integer not null; /* 0 Calculation Version (Kalkulationsversion)
+       * 1 Component (Document) (Komponente (Dokument))
+       * 2 Component (Material) (Komponente (Material))
+       * 3 Internal Activity (Eigenleistung) 
+       * 4 External Activity (Fremdleistung) 
+       * 5 Process (Prozess) 
+       * 6 Subcontracting (Lohnbearbeitung) 
+       * 7 Resources and Tools (Fertigungshilfsmittel) 
+       * 8 Variable Item (Variable Position) 
+       * 9 Text Item (Textposition) */
+      IF_AN_AGGREGATE: hana.SMALLINT not null; /* 1: costs are only considered for the basis if it is an aggregate (item has children)
+       * 0: costs are only considered for the basis if it is no aggregate (item has no children)
+       * -1: costs are always considered for the basis and it doesn't matter if it is an aggregate or not
+       * default: -1 */
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_costing_sheet_overhead {
+      key COSTING_SHEET_OVERHEAD_ID: Integer not null;
+      CREDIT_ACCOUNT_ID: String(10); // account for credit
+      CREDIT_FIXED_COST_PORTION: Integer; // percentage of fixed cost portion in percentage 
+      IS_ROLLED_UP: hana.TINYINT not null; // if set = rollUp; in ERP: CHAR(1)
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_costing_sheet_overhead__text {
+      key COSTING_SHEET_OVERHEAD_ID: Integer not null;
+      key LANGUAGE: String(11) not null;
+      COSTING_SHEET_OVERHEAD_DESCRIPTION: String(250);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_costing_sheet_overhead_row {
+      key COSTING_SHEET_OVERHEAD_ROW_ID: Integer not null;
+      key COSTING_SHEET_OVERHEAD_ID: Integer not null;
+      key VALID_FROM: LocalDate not null;
+      key VALID_TO: LocalDate not null;
+      CONTROLLING_AREA_ID: String(4);
+      COMPANY_CODE_ID: String(4);
+      BUSINESS_AREA_ID: String(4);
+      PROFIT_CENTER_ID: String(10);
+      PLANT_ID: String(4);
+      OVERHEAD_GROUP_ID: String(10);
+      OVERHEAD_PERCENTAGE: Decimal(20, 5); // names the overhead value in percentage - a separate UoM field does not exist
+      PROJECT_ID: Integer;
+      CALCULATION_ID: Integer;
+      OVERHEAD_QUANTITY_BASED: Decimal(20, 5);
+      OVERHEAD_CURRENCY_ID: String(3);
+      OVERHEAD_PRICE_UNIT: Decimal(20, 5);
+      OVERHEAD_PRICE_UOM_ID: String(3);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_costing_sheet_row {
+      key COSTING_SHEET_ROW_ID: String(5) not null;
+      key COSTING_SHEET_ID: String(6) not null;
+      COSTING_SHEET_BASE_ID: Integer;
+      ACCOUNT_GROUP_AS_BASE_ID: Integer;
+      COSTING_SHEET_OVERHEAD_ID: Integer;
+      CALCULATION_ORDER: Integer not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_costing_sheet_row__text {
+      key COSTING_SHEET_ID: String(6) not null;
+      key COSTING_SHEET_ROW_ID: String(5) not null;
+      key LANGUAGE: String(11) not null;
+      COSTING_SHEET_ROW_DESCRIPTION: String(250);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // used to define references between rows in the costing sheet, e.g. a MK (Sum) = MEK (Basis) + MGK (Overhead). Then MK would be the Source Row and MEK and MGK would be the target rows
+   @Catalog.tableType : #COLUMN 
+   entity t_costing_sheet_row_dependencies {
+      key SOURCE_ROW_ID: String(5) not null;
+      key TARGET_ROW_ID: String(5) not null;
+      key COSTING_SHEET_ID: String(6) not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_currency {
+      key CURRENCY_ID: String(3) not null;
+      DECIMALS_DISPLAYED: hana.SMALLINT;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_currency__text {
+      key CURRENCY_ID: String(3) not null;
+      key LANGUAGE: String(11) not null;
+      CURRENCY_CODE: String(5) not null;
+      CURRENCY_DESCRIPTION: String(40) not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_currency_conversion {
+      key FROM_CURRENCY_ID: String(3) not null;
+      key TO_CURRENCY_ID: String(3) not null;
+      FROM_FACTOR: Integer not null;
+      TO_FACTOR: Integer not null;
+      RATE: Decimal(20, 5) not null;
+      key VALID_FROM: LocalDate not null; // used to define the validity of master data
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to ERP table KNA1
+   @Catalog.tableType : #COLUMN 
+   entity t_customer {
+      key CUSTOMER_ID: String(10) not null;
+      CUSTOMER_NAME: String(100);
+      COUNTRY: String(100);
+      POSTAL_CODE: String(35);
+      REGION: String(100);
+      CITY: String(100);
+      STREET_NUMBER_OR_PO_BOX: String(100);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // see DR: Global & User Default Settings
+   @Catalog.tableType : #COLUMN 
+   entity t_default_settings {
+      key USER_ID: String(256) not null; // emptyString "" for global settings
+      CONTROLLING_AREA_ID: String(4);
+      CONTROLLING_VERSION_ID: String(3);
+      COMPANY_CODE_ID: String(4);
+      PLANT_ID: String(4);
+      REPORT_CURRENCY_ID: String(3);
+      COMPONENT_SPLIT_ID: String(35);
+      COSTING_SHEET_ID: String(6);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_dimension {
+      key DIMENSION_ID: String(10) not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_dimension__text {
+      key DIMENSION_ID: String(10) not null;
+      key LANGUAGE: String(11) not null;
+      DIMENSION_DESCRIPTION: String(50) not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to ERP table DRAW
+   @Catalog.tableType : #COLUMN 
+   entity t_document {
+      key DOCUMENT_TYPE_ID: String(3) not null;
+      key DOCUMENT_ID: String(40) not null;
+      key DOCUMENT_VERSION: String(2) not null;
+      key DOCUMENT_PART: String(3) not null;
+      IS_CREATED_VIA_CAD_INTEGRATION: hana.TINYINT;
+      DOCUMENT_STATUS_ID: String(2);
+      LABORATORY_DESIGN_OFFICE_ID: String(3);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to ERP table DRAT
+   @Catalog.tableType : #COLUMN 
+   entity t_document__text {
+      key DOCUMENT_TYPE_ID: String(3) not null;
+      key DOCUMENT_ID: String(40) not null;
+      key DOCUMENT_VERSION: String(2) not null;
+      key DOCUMENT_PART: String(3) not null;
+      key LANGUAGE: String(11) not null;
+      DOCUMENT_DESCRIPTION: String(250) not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to ERP table DRAD
+   @Catalog.tableType : #COLUMN 
+   entity t_document_material {
+      key DOCUMENT_TYPE_ID: String(3) not null;
+      key DOCUMENT_ID: String(40) not null;
+      key DOCUMENT_VERSION: String(2) not null;
+      key DOCUMENT_PART: String(3) not null;
+      key MATERIAL_ID: String(40) not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to ERP table TDWS
+   @Catalog.tableType : #COLUMN 
+   entity t_document_status {
+      key DOCUMENT_TYPE_ID: String(3) not null;
+      key DOCUMENT_STATUS_ID: String(2) not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to table TDWST
+   @Catalog.tableType : #COLUMN 
+   entity t_document_status__text {
+      key DOCUMENT_STATUS_ID: String(2) not null;
+      key LANGUAGE: String(11) not null;
+      DOCUMENT_STATUS_DESCRIPTION: String(250) not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to ERP table TDWA
+   @Catalog.tableType : #COLUMN 
+   entity t_document_type {
+      key DOCUMENT_TYPE_ID: String(3) not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to table TDWAT
+   @Catalog.tableType : #COLUMN 
+   entity t_document_type__text {
+      key DOCUMENT_TYPE_ID: String(3) not null;
+      key LANGUAGE: String(11) not null;
+      DOCUMENT_TYPE_DESCRIPTION: String(250) not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_folder {
+      key FOLDER_ID: Integer not null;
+      PARENT_FOLDER_ID: Integer;
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_folder__text {
+      key FOLDER_ID: Integer not null;
+      key LANGUAGE: String(11) not null;
+      FOLDER_DESCRIPTION: String(250);
+   };
+
+   /* Following attributes are not stored in release 0.5 as they will be stored in temporary tables. It need to be investigated if these columns should be saved, if we need them for cross-project reporting
+    * 
+    * PriceForQuantity	
+    * PriceForQuantityFixedPortion
+    * PriceForQuantityVariablePortion	
+    * 
+    * OtherItemCost		(cost not included in any row of the costing sheet in ReportCurrency after calculation of overhead)	
+    * OtherItemCostFixedPortion		
+    * OtherItemCostVariablePortion
+    * 
+    * TotalItemCost		(cost in ReportCurrency after calculation of overhead)	
+    * TotalItemCostFixedPortion	
+    * TotalItemCostVariablePortion	
+    * 
+    *  */
+   @Catalog.tableType : #COLUMN 
+   entity t_item {
+      key ITEM_ID: Integer not null;
+      key CALCULATION_VERSION_ID: Integer not null;
+      PARENT_ITEM_ID: Integer;
+      PREDECESSOR_ITEM_ID: Integer;
+      IS_ACTIVE: hana.TINYINT not null;
+      STATUS: Integer; /* 1 OK
+       * 2 Manual price
+       * 3 Incomplete/inconsistent 
+       * 4 Incomplete/inconsistent but confirmed
+       * 5 Calculation impossible
+       *  */
+      ITEM_CATEGORY_ID: Integer not null; /* 0 Calculation Version (Kalkulationsversion)
+       * 1 Document (Dokument)
+       * 2 Material (Material)
+       * 3 Internal Activity (Eigenleistung) 
+       * 4 External Activity (Fremdleistung) 
+       * 5 Process (Prozess) 
+       * 6 Subcontracting (Lohnbearbeitung) 
+       * 7 Resources and Tools (Fertigungshilfsmittel) 
+       * 8 Variable Item (Variable Position) 
+       * 9 Text Item (Textposition) */
+      ACCOUNT_ID: String(10);
+      DOCUMENT_TYPE_ID: String(3);
+      DOCUMENT_ID: String(40);
+      DOCUMENT_VERSION: String(2);
+      DOCUMENT_PART: String(3);
+      MATERIAL_ID: String(40);
+      IS_PHANTOM_MATERIAL: hana.TINYINT; // used to define if material is only a phantom material (dummy material)
+      ACTIVITY_TYPE_ID: String(6);
+      BUSINESS_PROCESS_ID: String(12);
+      COSTING_LOT_SIZE: Decimal(20, 5);
+      COSTING_LOT_SIZE_IS_MANUAL: hana.TINYINT; // Indicates whether the current value has been entered manually. If true, this value must not be overriden by roll up or formula
+      COSTING_LOT_SIZE_UOM_ID: String(3);
+      ENGINEERING_CHANGE_NUMBER_ID: String(12);
+      NET_WEIGHT: Decimal(20, 5);
+      NET_WEIGHT_IS_MANUAL: hana.TINYINT; // Indicates whether the current value has been entered manually. If true, this value must not be overriden by roll up or formula
+      GROSS_WEIGHT: Decimal(20, 5);
+      GROSS_WEIGHT_IS_MANUAL: hana.TINYINT; // Indicates whether the current value has been entered manually. If true, this value must not be overriden by roll up or formula
+      WEIGHT_UOM_ID: String(3);
+      VOLUME: Decimal(20, 5);
+      VOLUME_IS_MANUAL: hana.TINYINT; // Indicates whether the current value has been entered manually. If true, this value must not be overriden by roll up or formula
+      VOLUME_UOM_ID: String(3);
+      COMPANY_CODE_ID: String(4);
+      COST_CENTER_ID: String(10);
+      PLANT_ID: String(4);
+      WORK_CENTER_ID: String(8);
+      BUSINESS_AREA_ID: String(4);
+      PROFIT_CENTER_ID: String(10);
+      QUANTITY_FOR_ONE_ASSEMBLY: Decimal(20, 5); // costing lot size from Material Master Data CO-View, will be get via FK in 0.7, used for price determination if pass-on flag is not set
+      QUANTITY_FOR_ONE_ASSEMBLY_IS_MANUAL: hana.TINYINT; // Indicates whether the current value has been entered manually. If true, this value must not be overriden by roll up or formula
+      QUANTITY_FOR_ONE_ASSEMBLY_UOM_ID: String(3);
+      TOTAL_QUANTITY: Decimal(20, 5);
+      TOTAL_QUANTITY_UOM_ID: String(3);
+      IS_QUANTITY_VARIABLE: hana.TINYINT;
+      IS_RELEVANT_TO_COSTING_IN_ERP: hana.TINYINT; // set for all items imported from ERP
+      PRICE_FIXED_PORTION: Decimal(20, 5);
+      PRICE_FIXED_PORTION_IS_MANUAL: hana.TINYINT; // Indicates whether the current value has been entered manually. If true, this value must not be overriden by roll up or formula
+      PRICE_VARIABLE_PORTION: Decimal(20, 5);
+      PRICE_VARIABLE_PORTION_IS_MANUAL: hana.TINYINT; // Indicates whether the current value has been entered manually. If true, this value must not be overriden by roll up or formula
+      PRICE: Decimal(20, 5);
+      PRICE_TRANSACTION_CURRENCY_ID: String(3);
+      PRICE_UNIT: Decimal(20, 5);
+      PRICE_UNIT_IS_MANUAL: hana.TINYINT; // Indicates whether the current value has been entered manually. If true, this value must not be overriden by roll up or formula
+      PRICE_UNIT_UOM_ID: String(3);
+      CONFIDENCE_LEVEL_ID: Integer;
+      PRICE_SOURCE_ID: Integer;
+      PURCHASING_INFO_RECORD_ID: String(10);
+      VENDOR_ID: String(10);
+      TARGET_COST: Decimal(20, 5);
+      TARGET_COST_IS_MANUAL: hana.TINYINT; // Indicates whether the current value has been entered manually. If true, this value must not be overriden by roll up or formula
+      CREATED_AT: UTCTimestamp not null; // Data & Time
+      CREATED_BY_USER_ID: String(256) not null;
+      LAST_MODIFIED_AT: UTCTimestamp not null; // Data & Time
+      LAST_MODIFIED_BY_USER_ID: String(256) not null;
+      PRICE_FOR_TOTAL_QUANTITY: Decimal(20, 5);
+      PRICE_FOR_TOTAL_QUANTITY_FIXED_PORTION: Decimal(20, 5);
+      PRICE_FOR_TOTAL_QUANTITY_VARIABLE_PORTION: Decimal(20, 5);
+      OTHER_COST: Decimal(20, 5);
+      OTHER_COST_FIXED_PORTION: Decimal(20, 5);
+      OTHER_COST_VARIABLE_PORTION: Decimal(20, 5);
+      TOTAL_COST: Decimal(20, 5);
+      TOTAL_COST_FIXED_PORTION: Decimal(20, 5);
+      TOTAL_COST_VARIABLE_PORTION: Decimal(20, 5);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_item__text {
+      key ITEM_ID: Integer not null;
+      key CALCULATION_VERSION_ID: Integer not null;
+      key LANGUAGE: String(11) not null;
+      ITEM_DESCRIPTION: String(250);
+      COMMENT: String(500);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_item_calculated_values_component_split {
+      key ITEM_ID: Integer not null;
+      key CALCULATION_VERSION_ID: Integer not null;
+      key COMPONENT_SPLIT_ID: String(35) not null;
+      key COST_COMPONENT_ID: Integer not null;
+      key ACCOUNT_ID: String(10) not null; /* - PK to be able to save more than one calculated value per cost component to have the possibility to build an line item view later on
+       * - will be set to -1 if no account is saved (e.g. for sums) */
+      COST: Decimal(20, 5) not null;
+      COST_FIXED_PORTION: Decimal(20, 5) not null;
+      COST_VARIABLE_PORTION: Decimal(20, 5) not null;
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_item_calculated_values_costing_sheet {
+      key ITEM_ID: Integer not null;
+      key CALCULATION_VERSION_ID: Integer not null;
+      key COSTING_SHEET_ROW_ID: String(5) not null; // PK to save calculated values per costing sheet row. As only one costing sheet is assigned to a calculation version the costing sheet id does not have to be a pk.
+      key COSTING_SHEET_OVERHEAD_ROW_ID: Integer not null; /* PK to be able to save the fact that different dependencies for the overhead are valid (e.g. 10% beause it is in plant 1000, 5% because it is in company code=2000)
+       * - 1: if calculated values is not an overhead
+       *  */
+      key ACCOUNT_ID: String(10) not null; /* - mainly used to identify credits, should be saved for every calculated value; optional if you have a split not dependent of account
+       * - PK to be able to save more than one calculated value per costing sheet row, e.g. if you have different reasons why costs are assigned to the basis (item account is in the basis and overhead credit accout is in a basis in a lower costing sheet row as this overhead)
+       * - will be set to -1 if no account is saved (e.g. for sums) */
+      key IS_ROLLED_UP: hana.TINYINT not null; /* relevant on assembly level: used to flag if the calculated value is comming from a roll-up (=1) or if it is a calculated value on this item row (=0)
+       * on leaf item level it is alway set to 0
+       * PK because on assembly level two values might exist */
+      IS_AN_AGGREGATION: hana.TINYINT not null; /* 1=calcuated value belongs to an item on assembly level
+       * 0=calculated value belongs to an item on leaf level */
+      COST: Decimal(20, 5) not null;
+      COST_FIXED_PORTION: Decimal(20, 5) not null;
+      COST_VARIABLE_PORTION: Decimal(20, 5) not null;
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_item_category {
+      key ITEM_CATEGORY_ID: Integer not null; /* will become an NVARCHAR field in 1.1
+       * 
+       * 0 Calculation Version (Kalkulationsversion)
+       * 1 Document (Dokument)
+       * 2 Material (Material)
+       * 3 Internal Activity (Eigenleistung) 
+       * 4 External Activity (Fremdleistung) 
+       * 5 Process (Prozess) 
+       * 6 Subcontracting (Lohnbearbeitung) 
+       * 7 Resources and Tools (Fertigungshilfsmittel) 
+       * 8 Variable Item (Variable Position) 
+       * 9 Text Item (Textposition) */
+      DISPLAY_ORDER: Integer not null; // Display order of item categories in any UI drop down
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_item_category__text {
+      key ITEM_CATEGORY_ID: Integer not null; /* 0 Calculation Version (Kalkulationsversion)
+       * 1 Document (Dokument)
+       * 2 Material (Material)
+       * 3 Internal Activity (Eigenleistung) 
+       * 4 External Activity (Fremdleistung) 
+       * 5 Process (Prozess) 
+       * 6 Subcontracting (Lohnbearbeitung) 
+       * 7 Resources and Tools (Fertigungshilfsmittel) 
+       * 8 Variable Item (Variable Position) 
+       * 9 Text Item (Textposition) */
+      key LANGUAGE: String(11) not null;
+      ITEM_CATEGORY_DESCRIPTION: String(50) not null;
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_item_temporary {
+      key SESSION_ID: String(50) not null;
+      key ITEM_ID: Integer not null;
+      key CALCULATION_VERSION_ID: Integer not null;
+      PARENT_ITEM_ID: Integer;
+      PREDECESSOR_ITEM_ID: Integer;
+      IS_ACTIVE: hana.TINYINT not null;
+      STATUS: Integer; /* 1 OK
+       * 2 Manual price
+       * 3 Incomplete/inconsistent 
+       * 4 Incomplete/inconsistent but confirmed
+       * 5 Calculation impossible
+       *  */
+      ITEM_CATEGORY_ID: Integer not null; /* 0 Calculation Version (Kalkulationsversion)
+       * 1 Component (Document) (Komponente (Dokument))
+       * 2 Component (Material) (Komponente (Material))
+       * 3 Internal Activity (Eigenleistung) 
+       * 4 External Activity (Fremdleistung) 
+       * 5 Process (Prozess) 
+       * 6 Subcontracting (Lohnbearbeitung) 
+       * 7 Resources and Tools (Fertigungshilfsmittel) 
+       * 8 Variable Item (Variable Position) 
+       * 9 Text Item (Textposition) */
+      ACCOUNT_ID: String(10);
+      DOCUMENT_TYPE_ID: String(3);
+      DOCUMENT_ID: String(40);
+      DOCUMENT_VERSION: String(2);
+      DOCUMENT_PART: String(3);
+      MATERIAL_ID: String(40);
+      IS_PHANTOM_MATERIAL: hana.TINYINT; // used to define if material is only a phantom material (dummy material)
+      ACTIVITY_TYPE_ID: String(6);
+      BUSINESS_PROCESS_ID: String(12);
+      COSTING_LOT_SIZE: Decimal(20, 5); // costing lot size from Material Master Data CO-View, will be get via FK in 0.7, used for price determination if pass-on flag is not set
+      COSTING_LOT_SIZE_IS_MANUAL: hana.TINYINT; // Indicates whether the current value has been entered manually. If true, this value must not be overriden by roll up or formula
+      COSTING_LOT_SIZE_UOM_ID: String(3);
+      ENGINEERING_CHANGE_NUMBER_ID: String(12);
+      NET_WEIGHT: Decimal(20, 5);
+      NET_WEIGHT_IS_MANUAL: hana.TINYINT; // Indicates whether the current value has been entered manually. If true, this value must not be overriden by roll up or formula
+      GROSS_WEIGHT: Decimal(20, 5);
+      GROSS_WEIGHT_IS_MANUAL: hana.TINYINT; // Indicates whether the current value has been entered manually. If true, this value must not be overriden by roll up or formula
+      WEIGHT_UOM_ID: String(3);
+      VOLUME: Decimal(20, 5);
+      VOLUME_IS_MANUAL: hana.TINYINT; // Indicates whether the current value has been entered manually. If true, this value must not be overriden by roll up or formula
+      VOLUME_UOM_ID: String(3);
+      COMPANY_CODE_ID: String(4);
+      COST_CENTER_ID: String(10);
+      PLANT_ID: String(4);
+      WORK_CENTER_ID: String(8);
+      BUSINESS_AREA_ID: String(4);
+      PROFIT_CENTER_ID: String(10);
+      QUANTITY_FOR_ONE_ASSEMBLY: Decimal(20, 5); // quantity necessary for lot size 1 on calculation version level
+      QUANTITY_FOR_ONE_ASSEMBLY_IS_MANUAL: hana.TINYINT; // Indicates whether the current value has been entered manually. If true, this value must not be overriden by roll up or formula
+      QUANTITY_FOR_ONE_ASSEMBLY_UOM_ID: String(3);
+      TOTAL_QUANTITY: Decimal(20, 5); //  quantity necessary for calculation version lot size),(used for calculation engine, used for price determination if pass on flag is set)
+      TOTAL_QUANTITY_UOM_ID: String(3);
+      IS_QUANTITY_VARIABLE: hana.TINYINT;
+      IS_RELEVANT_TO_COSTING_IN_ERP: hana.TINYINT; // set for all items imported from ERP
+      PRICE_FIXED_PORTION: Decimal(20, 5);
+      PRICE_FIXED_PORTION_IS_MANUAL: hana.TINYINT; // Indicates whether the current value has been entered manually. If true, this value must not be overriden by roll up or formula
+      PRICE_VARIABLE_PORTION: Decimal(20, 5);
+      PRICE_VARIABLE_PORTION_IS_MANUAL: hana.TINYINT; // Indicates whether the current value has been entered manually. If true, this value must not be overriden by roll up or formula
+      PRICE: Decimal(20, 5);
+      PRICE_TRANSACTION_CURRENCY_ID: String(3);
+      PRICE_UNIT: Decimal(20, 5);
+      PRICE_UNIT_IS_MANUAL: hana.TINYINT; // Indicates whether the current value has been entered manually. If true, this value must not be overriden by roll up or formula
+      PRICE_UNIT_UOM_ID: String(3);
+      CONFIDENCE_LEVEL_ID: Integer;
+      PRICE_SOURCE_ID: Integer;
+      PURCHASING_INFO_RECORD_ID: String(10);
+      VENDOR_ID: String(10);
+      TARGET_COST: Decimal(20, 5);
+      TARGET_COST_IS_MANUAL: hana.TINYINT; // Indicates whether the current value has been entered manually. If true, this value must not be overriden by roll up or formula
+      CREATED_AT: UTCTimestamp; // Data & Time
+      CREATED_BY_USER_ID: String(256);
+      LAST_MODIFIED_AT: UTCTimestamp; // Data & Time
+      LAST_MODIFIED_BY_USER_ID: String(256);
+      PRICE_FOR_TOTAL_QUANTITY: Decimal(20, 5);
+      PRICE_FOR_TOTAL_QUANTITY_FIXED_PORTION: Decimal(20, 5);
+      PRICE_FOR_TOTAL_QUANTITY_VARIABLE_PORTION: Decimal(20, 5);
+      OTHER_COST: Decimal(20, 5);
+      OTHER_COST_FIXED_PORTION: Decimal(20, 5);
+      OTHER_COST_VARIABLE_PORTION: Decimal(20, 5);
+      TOTAL_COST: Decimal(20, 5);
+      TOTAL_COST_FIXED_PORTION: Decimal(20, 5);
+      TOTAL_COST_VARIABLE_PORTION: Decimal(20, 5);
+      ITEM_DESCRIPTION: String(250);
+      COMMENT: String(500);
+      IS_DIRTY: hana.TINYINT not null default 0;
+      IS_DELETED: hana.TINYINT not null default 0;
+   };
+
+   // corresponds to table T024L
+   @Catalog.tableType : #COLUMN 
+   entity t_laboratory_design_office {
+      key LABORATORY_DESIGN_OFFICE_ID: String(3) not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   /* corresponds to table T024X
+    *  */
+   @Catalog.tableType : #COLUMN 
+   entity t_laboratory_design_office__text {
+      key LABORATORY_DESIGN_OFFICE_ID: String(3) not null;
+      key LANGUAGE: String(11) not null;
+      LABORATORY_DESIGN_OFFICE_DESCRIPTION: String(250) not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_language {
+      key LANGUAGE: String(11) not null;
+      TEXTS_MAINTAINABLE: hana.TINYINT not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // table storing all layouts (corporate ones and user-defined ones)
+   @Catalog.tableType : #COLUMN 
+   entity t_layout {
+      key LAYOUT_NAME: String(35) not null;
+      key USER_ID: String(256) not null;
+   };
+
+   // table used to save the display order of columns within a group in the side pane
+   @Catalog.tableType : #COLUMN 
+   entity t_layout_side_panel {
+      key LAYOUT_NAME: String(35) not null;
+      key USER_ID: String(256) not null;
+      key TABLE_ID: String(127) not null; // Must contain the name of an existing standard table in the current PLC datamodel or an extension table in the customer schema
+      key COLUMN_ID: String(127) not null; // Must contain the name of an existing column in the table identified by TABLE_ID
+      SIDE_PANEL_GROUP_ID: Integer not null;
+      SIDE_PANEL_DISPLAY_ORDER: Integer not null; // Display order of fields within the group (necessary to save the assignment to the group "Hidden fields" for all fields, which should not be seen anymore in a specific layout, then the business logic needs to evaluate to what group the column is assigned to - either the one in t_metadata or the one specified here, the assignement in the layout wins)
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_layout_treetable {
+      key LAYOUT_NAME: String(35) not null;
+      key USER_ID: String(256) not null;
+      key TABLE_ID: String(127) not null; // Must contain the name of an existing standard table in the current PLC datamodel or an extension table in the customer schema
+      key COLUMN_ID: String(127) not null; // Must contain the name of an existing column in the table identified by TABLE_ID
+      TREETABLE_DISPLAY_ORDER: Integer not null; // Display order of fields in the treetable
+      COLUMN_WIDTH: Integer;
+   };
+
+   // t_lock is used to define that the first user accessing this object locks it. It is used for the pessimistic locking approach.
+   @Catalog.tableType : #COLUMN 
+   entity t_lock {
+      key LOCK_OBJECT: String(35) not null;
+      key USER_ID: String(256) not null;
+   };
+
+   // MARA + MAKT
+   @Catalog.tableType : #COLUMN 
+   entity t_material {
+      key MATERIAL_ID: String(40) not null;
+      BASE_UOM_ID: String(3);
+      MATERIAL_GROUP_ID: String(9); // Material Group is used for Purchasing Info Records
+      MATERIAL_TYPE_ID: String(4); // Type is used in Material Acount Determination (Materialkontenfindung)
+      IS_CREATED_VIA_CAD_INTEGRATION: hana.TINYINT;
+      IS_PHANTOM_MATERIAL: hana.TINYINT; // is used to flag the material as phantom material (dummy material) - in ERP this corresponds to SoBschl=50
+      IS_CONFIGURABLE_MATERIAL: hana.TINYINT; // corresponds to KZKFG in MARA table
+      NET_WEIGHT: Decimal(20, 5);
+      GROSS_WEIGHT: Decimal(20, 5);
+      WEIGHT_UOM_ID: String(3);
+      VOLUME: Decimal(20, 5);
+      VOLUME_UOM_ID: String(3);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_material__text {
+      key MATERIAL_ID: String(40) not null;
+      key LANGUAGE: String(11) not null;
+      MATERIAL_DESCRIPTION: String(250);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_material_account {
+      key CONTROLLING_AREA_ID: String(4) not null;
+      key MATERIAL_TYPE_ID: String(4) not null; // Type is used in Material Acount Determination (Materialkontenfindung)
+      key PLANT_ID: String(4) not null;
+      key VALUATION_CLASS_ID: String(4) not null;
+      ACCOUNT_ID: String(10) not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to T023 in ERP
+   @Catalog.tableType : #COLUMN 
+   entity t_material_group {
+      key MATERIAL_GROUP_ID: String(9) not null; // Material Group is used for Purchasing Info Records
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to T023T
+   @Catalog.tableType : #COLUMN 
+   entity t_material_group__text {
+      key MATERIAL_GROUP_ID: String(9) not null; // Material Group is used for Purchasing Info Records
+      key LANGUAGE: String(11) not null;
+      MATERIAL_GROUP_DESCRIPTION: String(250);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to MBEW on ERP side
+   @Catalog.tableType : #COLUMN 
+   entity t_material_plant {
+      key MATERIAL_ID: String(40) not null;
+      key PLANT_ID: String(4) not null;
+      OVERHEAD_GROUP_ID: String(10);
+      VALUATION_CLASS_ID: String(4);
+      MATERIAL_COSTING_LOT_SIZE: Decimal(20, 5);
+      MATERIAL_COSTING_LOT_SIZE_UOM_ID: String(3);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to T134 in ERP
+   @Catalog.tableType : #COLUMN 
+   entity t_material_type {
+      key MATERIAL_TYPE_ID: String(4) not null; // Type is used in Material Acount Determination (Materialkontenfindung)
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to T134T in ERP
+   @Catalog.tableType : #COLUMN 
+   entity t_material_type__text {
+      key MATERIAL_TYPE_ID: String(4) not null; // Type is used in Material Acount Determination (Materialkontenfindung)
+      key LANGUAGE: String(11) not null;
+      MATERIAL_TYPE_DESCRIPTION: String(250);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // t_metadata contains all required metadata about standard and custom PLC fields. As such it also features the fields of the item_metadata.xlsx .
+   @Catalog.tableType : #COLUMN 
+   entity t_metadata {
+      key PATH: String(127) not null; /* Path is used to describe what path is used to navigate through the client side models (business objects). Two examples should show this:
+       * - In the side pane you want to show the material type id and the material type description. To come to the material type description you need to navigate the following way through the models: item -> material -> material_type. Thus, the path is shown as item.material.material_type
+       * - In the admin UI you want  to maintain the cost center and the cost center is assigned to the controlling area, which is displayed with controlling area id and controlling area description. To navigate to the controlling area the following path is used. cost_center -> controlling_area. The path is shown as cost_center.controlling_area. */
+      key BUSINESS_OBJECT: String(127) not null; // Must contain the name of an existing standard table in the current PLC datamodel or an extension table in the customer schema
+      key COLUMN_ID: String(127) not null; // Must contain the name of an existing column in the table identified by TABLE_ID
+      IS_CUSTOM: hana.TINYINT not null default 0; /* If 0 (default), TABLE_ID and COLUMN_ID refer to an existing field in the PLC schema. Otherwise they point to a field in the customer schema.
+       *  */
+      ROLLUP_TYPE_ID: Integer default 0; /* Specifies whether this field is going to be rolled up, and, if yes, which aggregation function is to be used.
+       * 0 = no rollup
+       * 1 = SUM
+       * 2 = MIN
+       * 3 = MAX
+       * 4 = AVG
+       * 5 = COUNT
+       * 6 = DISTINCT
+       *  */
+      SIDE_PANEL_GROUP_ID: Integer;
+      DISPLAY_ORDER: Integer; // Display order of columns within the group
+      TABLE_DISPLAY_ORDER: Integer; // Display order of columns within the admin grid, this is especially used for the uom when multiple value fields have the same uom in order to have the column one one time in the table.
+      REF_UOM_CURRENCY_PATH: String(127); /* Path is used to describe what path is used to navigate through the client side models (business objects). Two examples should show this:
+       * - In the side pane you want to show the material type id and the material type description. To come to the material type description you need to navigate the following way through the models: item -> material -> material_type. Thus, the path is shown as item.material.material_type
+       * - In the admin UI you want  to maintain the cost center and the cost center is assigned to the controlling area, which is displayed with controlling area id and controlling area description. To navigate to the controlling area the following path is used. cost_center -> controlling_area. The path is shown as cost_center.controlling_area.
+       * 
+       *  */
+      REF_UOM_CURRENCY_BUSINESS_OBJECT: String(127); // only valid for numeric fields; references the table where the column with the UoM or the currency can be find, which belongs to this value
+      REF_UOM_CURRENCY_COLUMN_ID: String(127); // only valid for numeric fields; references the column where the UoM or the currency can be found, which belongs to this value
+      UOM_CURRENCY_FLAG: hana.TINYINT; /* 1: for all columns which store a UoM or currency
+       * 0: for all columns which does not store a UoM or currency
+       * necessary for UI to know which column should be displayed independentyl and which column should be displayed as UoM/currency field */
+      SEMANTIC_DATA_TYPE: String(35) not null; /* from Item_Metadata.xlsx
+       * 
+       * Mapping from HANA datatypes to C# datatypes. For example, HANA does not know BOOLEAN and uses TINYINT instead. However,  BOOLEAN exists as a datatype in C# and the customer would also rather choose BOOLEAN.  Therefore, we need to store that TINYINT actually means BOOLEAN for a particular field. 
+       * 
+       * Possible values are:
+       * 0 : Date
+       * 1 : Time
+       * 2 : TimeStamp
+       * 3 : Currency
+       * 4 : Unit of Measure
+       * 5 : String
+       * 6 : Number  (Decimal (20,5))
+       * 7 : Boolean
+       * ---
+       * 8 : BooleanInt
+       * 9 : Integer
+       * 10 : PositiveInteger
+       * 11 : NegativeInteger
+       * 
+       * 0-7 are the semantic datatypes the enduser can choose from when creating a custom field.
+       * 
+       * 8-11 are additional semantic  data types that are used for semantic validation between frontend and backend. For example, new item IDs are always PostiveIntegers, client-side handles for newly created entities are always NegativeIntegers. BooleanInt expresses that the value is represented by 0 and 1, whereas Boolean applies TRUE and FALSE. This distinction is also required for validity checks.
+       * 
+       * Decimals are always 20,5. 
+       * The length of a string is specified in SEMANTIC_DATA_TYPE_LENGTH
+       *  */
+      SEMANTIC_DATA_TYPE_ATTRIBUTES: String(35); /* Used to define the SEMANTIC_DATA_TYPE in more detail. It is maintained in the following way: 
+       * 	- For String fields it describes the length with the syntax: "length=20"
+       * 	- For Decimal fields it specifies precision and scale with the syntax:  "precision=20; scale=5"
+       * 	- For integer and decimal field values, this syntax is used: 
+       * "lowerBound=0; upperBound = 100"
+       * 
+       *  */
+      PROPERTY_TYPE: Integer; /*         CostingSheetRow = 0,
+       *         Price = 1,
+       *         Number = 2,        
+       *         Text = 3,
+       *         TextArea = 4,
+       *         Boolean = 5,
+       *         UoM = 6,
+       *         Currency = 7,
+       *         MasterData = 8, 
+       *         ItemCategory = 9,
+       *         CustomField = 10 */
+      IS_IMMUTABLE_AFTER_SAVE: hana.TINYINT;
+      IS_FILTER_CRITERIA: hana.TINYINT;
+      IS_REQUIRED_IN_MASTERDATA: hana.TINYINT; // from Item_Metadata.xlsx
+      IS_WILDCARD_ALLOWED: hana.TINYINT; // from Item_Metadata.xlsx
+      TRIGGERS_CALC_ENGINE: hana.TINYINT; // from Item_Metadata.xlsx
+      RESOURCE_KEY_DISPLAY_NAME: String(256); /* This field contains the string that is shown on the UI as the field's label. This is mandatory for new custom fields and shall later also be used for standard fields.
+       *  */
+      RESOURCE_KEY_DISPLAY_DESCRIPTION: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_metadata__text {
+      key PATH: String(127) not null; /* Path is used to describe what path is used to navigate through the client side models (business objects). Two examples should show this:
+       * - In the side pane you want to show the material type id and the material type description. To come to the material type description you need to navigate the following way through the models: item -> material -> material_type. Thus, the path is shown as item.material.material_type
+       * - In the admin UI you want  to maintain the cost center and the cost center is assigned to the controlling area, which is displayed with controlling area id and controlling area description. To navigate to the controlling area the following path is used. cost_center -> controlling_area. The path is shown as cost_center.controlling_area.
+       * 
+       *  */
+      key COLUMN_ID: String(127) not null;
+      key LANGUAGE: String(11) not null;
+      DISPLAY_NAME: String(250); /* This field contains the string that is shown on the UI as the field's label. This is mandatory for new custom fields and shall later also be used for standard fields.
+       *  */
+      DISPLAY_DESCRIPTION: String(250);
+   };
+
+   /* As of Dec 2014, there exists an Excel file  item_metadata.xlsx  which specifies the different metadata properties of an item  field (isMandatory, ..., Comments). Four of the metadata properties depend on the item category and whether the item has children (isMandatory, isRequiredForCompleteness, isReadOnly, isTransferable). For example, if we have a "preliminary material", the MATERIAL_ID is not required for completing an item entry. The opposite  is true when we have an item category "material". In addition some of the fields also differ if the current item has children.
+    * 	
+    * This kind of metadata is maintained  in the Excel file and imported from Excel into XS for validity checks.  
+    * 
+    * Handling and persisting such metadata for custom fields requires corresponding storage in the database. Accordingly, it is expected that the metadata contained in Excel will eventually also be replicated into the PLC database.
+    * 	
+    * Note, that eventually such metadata is also envisioned for the fields on higher levels and potentially also master data. On such levels we do not have to distinguish between different item categories at all.
+    * However, for the metadata properties depending on item category, there is a 1:N relation between the description of the field itself, e.g., MATERIAL_ID, and its different properties depending on the item category (as outlined in the example above). 
+    * 	
+    * The four metadata properties for item fields which depend on the item category are captured in this table. Accordingly, we find foreign keys to t_metadata and two additional keys, namely, ITEM_CATEGORY_ID and HAS_CHILDREN. 
+    * If we maintain metadata properties for a field that does not depend on item category and/or has children, the two additional keys are amended by default values.
+    * 
+    * 
+    * 
+    *  */
+   @Catalog.tableType : #COLUMN 
+   entity t_metadata_item_attributes {
+      key PATH: String(127) not null; /* Path is used to describe what path is used to navigate through the client side models (business objects). Two examples should show this:
+       * - In the side pane you want to show the material type id and the material type description. To come to the material type description you need to navigate the following way through the models: item -> material -> material_type. Thus, the path is shown as item.material.material_type
+       * - In the admin UI you want  to maintain the cost center and the cost center is assigned to the controlling area, which is displayed with controlling area id and controlling area description. To navigate to the controlling area the following path is used. cost_center -> controlling_area. The path is shown as cost_center.controlling_area.
+       * 
+       * 
+       *  */
+      key BUSINESS_OBJECT: String(127) not null; // Refers to t_metadata.TABLE_ID
+      key COLUMN_ID: String(127) not null; // Refers to t_metadata.COLUMN_ID
+      key ITEM_CATEGORY_ID: Integer not null; /* Same enumeration as  t_item.ITEM_CATEGORY_ID
+       * However, -1 means "default" or "for all categories" */
+      key HAS_CHILDREN: hana.SMALLINT not null; /* If true, the current entry in this table refers to the meaning of the metadata properties below when the corresponding item has child items
+       * However, -1 means "default" or "do not care"
+       *  */
+      key IS_ACTIVE: hana.SMALLINT not null; /* If true, the current entry in this table refers to the meaning of the metadata properties below when the corresponding item is active
+       * However, -1 means "default" or "do not care" */
+      IS_MANDATORY: hana.TINYINT; /* Stems from Item_Metadata.xlsx
+       * Field has to be entered such that calculation version can be saved
+       * 
+       * Field depends on item type and if item has children
+       * Field is potentially relevant for higher levels and master data tables
+       *  */
+      IS_REQUIRED_FOR_COMPLETENESS: hana.TINYINT; /* Stems from Item_Metadata.xlsx 
+       * Relates to t_item.STATUS. In order to reach STATUS=OK, all fields with isRequiredForCompleteness have to be there. Since this field depends on t_item.STATUS, it does not make sense for tables other than t_item.
+       * Field depends on item type and if item has children
+       * Field is not relevant for higher levels and master data tables
+       *  */
+      IS_READ_ONLY: hana.TINYINT; /* Stems from Item_Metadata.xlsx
+       * Some fields might contain calculated values, e.g., the price of an assembly item whose value has been rolled up and cannot be changed accordingly. 
+       * Field depends on item type and if item has children
+       * Field is potentially relevant for higher levels and master data tables
+       *  */
+      IS_TRANSFERABLE: hana.TINYINT; /* Stems from Item_Metadata.xlsx 
+       * Field depends on item type and if item has children
+       * Field is potentially relevant for higher levels and master data tables
+       *  */
+      DEFAULT_VALUE: String(250);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_metadata_selection_displayed {
+      key PATH: String(127) not null; /* Path is used to describe what path is used to navigate through the client side models (business objects). Two examples should show this:
+       * - In the side pane you want to show the material type id and the material type description. To come to the material type description you need to navigate the following way through the models: item -> material -> material_type. Thus, the path is shown as item.material.material_type
+       * - In the admin UI you want  to maintain the cost center and the cost center is assigned to the controlling area, which is displayed with controlling area id and controlling area description. To navigate to the controlling area the following path is used. cost_center -> controlling_area. The path is shown as cost_center.controlling_area.
+       * 
+       *  */
+      key BUSINESS_OBJECT: String(127) not null; // Must contain the name of an existing standard table in the current PLC datamodel or an extension table in the customer schema
+      key COLUMN_ID: String(127) not null; // Must contain the name of an existing column in the table identified by TABLE_ID
+      key DISPLAY_ORDER: Integer not null; // Display order of groups
+      DISPLAYED_PATH: String(127) not null;
+      DISPLAYED_BUSINESS_OBJECT: String(127) not null;
+      DISPLAYED_COLUMN_ID: String(127) not null;
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_metadata_selection_filter {
+      key PATH: String(127) not null; /* Path is used to describe what path is used to navigate through the client side models (business objects). Two examples should show this:
+       * - In the side pane you want to show the material type id and the material type description. To come to the material type description you need to navigate the following way through the models: item -> material -> material_type. Thus, the path is shown as item.material.material_type
+       * - In the admin UI you want  to maintain the cost center and the cost center is assigned to the controlling area, which is displayed with controlling area id and controlling area description. To navigate to the controlling area the following path is used. cost_center -> controlling_area. The path is shown as cost_center.controlling_area.
+       * 
+       *  */
+      key BUSINESS_OBJECT: String(127) not null; // Must contain the name of an existing standard table in the current PLC datamodel or an extension table in the customer schema
+      key COLUMN_ID: String(127) not null; // Must contain the name of an existing column in the table identified by TABLE_ID
+      key FILTER_PATH: String(127) not null;
+      key FILTER_BUSINESS_OBJECT: String(127) not null;
+      key FILTER_COLUMN_ID: String(127) not null;
+   };
+
+   // Contains a list of all currently open user sessions including links to open calculation versions and RW/RO locks.
+   @Catalog.tableType : #COLUMN 
+   entity t_open_calculation_versions {
+      key SESSION_ID: String(50) not null;
+      key CALCULATION_VERSION_ID: Integer not null;
+      IS_WRITEABLE: hana.TINYINT not null;
+   };
+
+   // corresponds to ERP table TCK14
+   @Catalog.tableType : #COLUMN 
+   entity t_overhead_group {
+      key OVERHEAD_GROUP_ID: String(10) not null;
+      key PLANT_ID: String(4) not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to ERP table TCK15
+   @Catalog.tableType : #COLUMN 
+   entity t_overhead_group__text {
+      key OVERHEAD_GROUP_ID: String(10) not null;
+      key PLANT_ID: String(4) not null;
+      key LANGUAGE: String(11) not null;
+      OVERHEAD_GROUP_DESCRIPTION: String(250);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to ERP table T001W
+   @Catalog.tableType : #COLUMN 
+   entity t_plant {
+      key PLANT_ID: String(4) not null;
+      COMPANY_CODE_ID: String(4) not null;
+      COUNTRY: String(100);
+      POSTAL_CODE: String(35);
+      REGION: String(100);
+      CITY: String(100);
+      STREET_NUMBER_OR_PO_BOX: String(100);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_plant__text {
+      key PLANT_ID: String(4) not null;
+      key LANGUAGE: String(11) not null;
+      PLANT_DESCRIPTION: String(250);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to price parts of MBEW in 1.0 - later it will be enriched by additional prices
+   @Catalog.tableType : #COLUMN 
+   entity t_price {
+      key PRICE_SOURCE_ID: Integer not null; // 1=PLC Standard Pr
+      key MATERIAL_ID: String(40) not null;
+      key PLANT_ID: String(4) not null;
+      key VALID_FROM: LocalDate not null;
+      VALID_TO: LocalDate;
+      PRICE_FIXED_PORTION: Decimal(20, 5) not null;
+      PRICE_VARIABLE_PORTION: Decimal(20, 5) not null;
+      PRICE_TRANSACTION_CURRENCY_ID: String(3) not null;
+      PRICE_UNIT: Decimal(20, 5) not null;
+      PRICE_UNIT_UOM_ID: String(3) not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_price_source {
+      key PRICE_SOURCE_ID: Integer not null; // 1=PLC Standard Pr
+      CONFIDENCE_LEVEL_ID: Integer;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_price_source__text {
+      key PRICE_SOURCE_ID: Integer not null; // 1=PLC Standard Pr
+      key LANGUAGE: String(11) not null;
+      PRICE_SOURCE_DESCRIPTION: String(250);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to ERP table CEPC
+   @Catalog.tableType : #COLUMN 
+   entity t_profit_center {
+      key PROFIT_CENTER_ID: String(10) not null;
+      key CONTROLLING_AREA_ID: String(4) not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to table CEPCT
+   @Catalog.tableType : #COLUMN 
+   entity t_profit_center__text {
+      key PROFIT_CENTER_ID: String(10) not null;
+      key CONTROLLING_AREA_ID: String(4) not null;
+      key LANGUAGE: String(11) not null;
+      PROFIT_CENTER_DESCRIPTION: String(250);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_project {
+      key PROJECT_ID: Integer not null;
+      PARENT_PROJECT_ID: Integer;
+      PARENT_FOLDER_ID: Integer;
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_project__text {
+      key PROJECT_ID: Integer not null;
+      key LANGUAGE: String(11) not null;
+      PROJECT_DESCRIPTION: String(250);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_project_temporary {
+      key SESSION_ID: String(50) not null;
+      key PROJECT_ID: Integer not null;
+      PARENT_PROJECT_ID: Integer;
+      PARENT_FOLDER_ID: Integer;
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_replication_mapping {
+      key PLC_TABLE_ID: String(127) not null;
+      key PLC_COLUMN_ID: String(127) not null;
+      ERP_TABLE_ID: String(127) not null;
+      ERP_COLUMN_ID: String(127) not null;
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_session {
+      key SESSION_ID: String(50) not null;
+      USER_ID: String(256) not null;
+      LANGUAGE: String(11) not null;
+   };
+
+   // table used to define a group in the side pane
+   @Catalog.tableType : #COLUMN 
+   entity t_side_panel_group {
+      key SIDE_PANEL_GROUP_ID: Integer not null;
+      SIDE_PANEL_GROUP_DISPLAY_ORDER: Integer not null; // Display order of groups
+      RESOURCE_KEY_GROUP_DESCRIPTION: String(256); /* This field contains the string that is shown on the UI as the field's label. This is mandatory for new custom fields and shall later also be used for standard fields.
+       *  */
+   };
+
+   // corresponds to ERP table CSKA and CSKB
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_account {
+      key ACCOUNT_ID: String(10) not null;
+      key CONTROLLING_AREA_ID: String(4) not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to table CSKU
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_account__text {
+      key ACCOUNT_ID: String(10) not null;
+      key CONTROLLING_AREA_ID: String(4) not null;
+      key LANGUAGE: String(11) not null;
+      ACCOUNT_DESCRIPTION: String(250);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_account_account_group {
+      key FROM_ACCOUNT_ID: String(10) not null;
+      TO_ACCOUNT_ID: String(10);
+      key ACCOUNT_GROUP_ID: Integer not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_account_group {
+      key ACCOUNT_GROUP_ID: Integer not null;
+      CONTROLLING_AREA_ID: String(4) not null;
+      COST_PORTION: Integer not null; // 1=Fixed cost only, 2=Variable cost only, 3=Overall cost
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_account_group__text {
+      key ACCOUNT_GROUP_ID: Integer not null;
+      key LANGUAGE: String(11) not null;
+      ACCOUNT_GROUP_DESCRIPTION: String(250);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // In Version 1.0 cost element groups cannot contain further cost element groups, however, this might change later
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_account_group_account_group {
+      key PARENT_ACCOUNT_GROUP_ID: Integer not null;
+      key CHILD_ACCOUNT_GROUP_ID: Integer not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_account_group_cost_component {
+      key ACCOUNT_GROUP_ID: Integer not null;
+      key COMPONENT_SPLIT_ID: String(35) not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_activity_rate {
+      key PRICE_SOURCE_ID: Integer not null; // 1=PLC Standard Pr
+      key CONTROLLING_AREA_ID: String(4) not null;
+      key COST_CENTER_ID: String(10) not null;
+      key ACTIVITY_TYPE_ID: String(6) not null;
+      key CONTROLLING_VERSION_ID: String(3) not null;
+      key VALID_FROM: LocalDate not null;
+      VALID_TO: LocalDate;
+      PRICE_FIXED_PORTION: Decimal(20, 5) not null;
+      PRICE_VARIABLE_PORTION: Decimal(20, 5) not null;
+      PRICE_TRANSACTION_CURRENCY_ID: String(3) not null;
+      PRICE_UNIT: Decimal(20, 5) not null;
+      PRICE_UNIT_UOM_ID: String(3) not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to ERP table CSLA
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_activity_type {
+      key ACTIVITY_TYPE_ID: String(6) not null;
+      key CONTROLLING_AREA_ID: String(4) not null;
+      ACCOUNT_ID: String(10);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // Corresponds to CSLT
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_activity_type__text {
+      key ACTIVITY_TYPE_ID: String(6) not null;
+      key CONTROLLING_AREA_ID: String(4) not null;
+      key LANGUAGE: String(11) not null;
+      ACTIVITY_TYPE_DESCRIPTION: String(250);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_add_in_configuration {
+      key ADD_IN_ID: String(127) not null;
+      key PROPERTY_NAME: String(127) not null;
+      PROPERTY_VALUE: LargeString not null;
+   };
+
+   // corresponds to tgsb
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_business_area {
+      key BUSINESS_AREA_ID: String(4) not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to tgsbt
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_business_area__text {
+      key BUSINESS_AREA_ID: String(4) not null;
+      key LANGUAGE: String(11) not null;
+      BUSINESS_AREA_DESCRIPTION: String(250);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to ERP table CBPR
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_business_process {
+      key BUSINESS_PROCESS_ID: String(12) not null;
+      key CONTROLLING_AREA_ID: String(4) not null;
+      ACCOUNT_ID: String(10);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to ERP table CBPT
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_business_process__text {
+      key BUSINESS_PROCESS_ID: String(12) not null;
+      key CONTROLLING_AREA_ID: String(4) not null;
+      key LANGUAGE: String(11) not null;
+      BUSINESS_PROCESS_DESCRIPTION: String(250);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // correspond to ERP table T004
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_chart_of_accounts {
+      key CHART_OF_ACCOUNTS_ID: String(4) not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to ERP table T004T
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_chart_of_accounts__text {
+      key CHART_OF_ACCOUNTS_ID: String(4) not null;
+      key LANGUAGE: String(11) not null;
+      CHART_OF_ACCOUNTS_DESCRIPTION: String(250) not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to ERP table T001
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_company_code {
+      key COMPANY_CODE_ID: String(4) not null;
+      CONTROLLING_AREA_ID: String(4) not null;
+      COMPANY_CODE_CURRENCY_ID: String(3);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_company_code__text {
+      key COMPANY_CODE_ID: String(4) not null;
+      key LANGUAGE: String(11) not null;
+      COMPANY_CODE_DESCRIPTION: String(250);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   /* TCKH4 + TCKH5
+    * Split is a generic concept. You can split your costs based on the field referenced here (e.g. cost elements, plants,) */
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_component_split {
+      key COMPONENT_SPLIT_ID: String(35) not null;
+      CONTROLLING_AREA_ID: String(4) not null;
+      TABLE_REFERENCE_ID: String(127); // Must contain the name of an existing standard table in the current PLC datamodel or an extension table in the customer schema
+      FIELD_REFERENCE_ID: String(127); // Must contain the name of an existing column in the table identified by TABLE_ID
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_component_split__text {
+      key COMPONENT_SPLIT_ID: String(35) not null;
+      key LANGUAGE: String(11) not null;
+      COMPONENT_SPLIT_DESCRIPTION: String(250);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_controlling_area {
+      key CONTROLLING_AREA_ID: String(4) not null;
+      CONTROLLING_AREA_CURRENCY_ID: String(3);
+      FISCAL_YEAR_VARIANT_ID: String(2);
+      CHART_OF_ACCOUNTS_ID: String(4);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_controlling_area__text {
+      key CONTROLLING_AREA_ID: String(4) not null;
+      key LANGUAGE: String(11) not null;
+      CONTROLLING_AREA_DESCRIPTION: String(250);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to TKA09
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_controlling_version {
+      key CONTROLLING_VERSION_ID: String(3) not null;
+      key CONTROLLING_AREA_ID: String(4) not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to ERP table TKT09
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_controlling_version__text {
+      key CONTROLLING_VERSION_ID: String(3) not null;
+      key CONTROLLING_AREA_ID: String(4) not null;
+      key LANGUAGE: String(11) not null;
+      CONTROLLING_VERSION_DESCRIPTION: String(250);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to ERP table CSKS
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_cost_center {
+      key COST_CENTER_ID: String(10) not null;
+      key CONTROLLING_AREA_ID: String(4) not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to CSKT
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_cost_center__text {
+      key COST_CENTER_ID: String(10) not null;
+      key CONTROLLING_AREA_ID: String(4) not null;
+      key LANGUAGE: String(11) not null;
+      COST_CENTER_DESCRIPTION: String(250);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_cost_component {
+      key COST_COMPONENT_ID: Integer not null;
+      key COMPONENT_SPLIT_ID: String(35) not null;
+      COST_PORTION: Integer not null; // 1=Fixed cost only, 2=Variable cost only, 3=Overall cost
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_cost_component__text {
+      key COST_COMPONENT_ID: Integer not null;
+      key COMPONENT_SPLIT_ID: String(35) not null;
+      key LANGUAGE: String(11) not null;
+      COST_COMPONENT_DESCRIPTION: String(250);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // Allows severall intervalls of values assigned to the cost component
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_cost_component_values {
+      key COST_COMPONENT_ID: Integer not null;
+      key COMPONENT_SPLIT_ID: String(35) not null;
+      key FROM_VALUE: String(35) not null;
+      TO_VALUE: String(35);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_costing_sheet {
+      key COSTING_SHEET_ID: String(6) not null;
+      CONTROLLING_AREA_ID: String(4) not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_costing_sheet__text {
+      key COSTING_SHEET_ID: String(6) not null;
+      key LANGUAGE: String(11) not null;
+      COSTING_SHEET_DESCRIPTION: String(250) not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_costing_sheet_base {
+      key COSTING_SHEET_BASE_ID: Integer not null;
+      NEW_COSTING_SHEET_BASE_ID:Integer not null;
+      COST_PORTION: Integer not null; // 1=Fixed cost only, 2=Variable cost only, 3=Overall cost (fixed+variable)
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_costing_sheet_base__text {
+      key COSTING_SHEET_BASE_ID: Integer not null;
+      key LANGUAGE: String(11) not null;
+      COSTING_SHEET_BASE_DESCRIPTION: String(250);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // used to define an intervall of values which defines the costing sheet basis. Values are of the field reference
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_costing_sheet_base_row {
+      key COSTING_SHEET_BASE_ID: Integer not null;
+      key ITEM_CATEGORY_ID: Integer not null; /* 0 Calculation Version (Kalkulationsversion)
+       * 1 Component (Document) (Komponente (Dokument))
+       * 2 Component (Material) (Komponente (Material))
+       * 3 Internal Activity (Eigenleistung) 
+       * 4 External Activity (Fremdleistung) 
+       * 5 Process (Prozess) 
+       * 6 Subcontracting (Lohnbearbeitung) 
+       * 7 Resources and Tools (Fertigungshilfsmittel) 
+       * 8 Variable Item (Variable Position) 
+       * 9 Text Item (Textposition) */
+      IF_AN_AGGREGATE: hana.SMALLINT not null; /* 1: costs are only considered for the basis if it is an aggregate (item has children)
+       * 0: costs are only considered for the basis if it is no aggregate (item has no children)
+       * -1: costs are always considered for the basis and it doesn't matter if it is an aggregate or not
+       * default: -1 */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_costing_sheet_overhead {
+      key COSTING_SHEET_OVERHEAD_ID: Integer not null;
+      NEW_COSTING_SHEET_OVERHEAD_ID: Integer not null;
+      CREDIT_ACCOUNT_ID: String(10); // account for credit
+      CREDIT_FIXED_COST_PORTION: Integer; // percentage of fixed cost portion in percentage 
+      IS_ROLLED_UP: hana.TINYINT not null; // if set = rollUp; in ERP: CHAR(1)
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_costing_sheet_overhead__text {
+      key COSTING_SHEET_OVERHEAD_ID: Integer not null;
+      key LANGUAGE: String(11) not null;
+      COSTING_SHEET_OVERHEAD_DESCRIPTION: String(250);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_costing_sheet_overhead_row {
+      key COSTING_SHEET_OVERHEAD_ROW_ID: Integer not null;
+      NEW_COSTING_SHEET_OVERHEAD_ROW_ID: Integer not null;
+      key COSTING_SHEET_OVERHEAD_ID: Integer not null;
+      key VALID_FROM: LocalDate not null;
+      key VALID_TO: LocalDate not null;
+      CONTROLLING_AREA_ID: String(4);
+      COMPANY_CODE_ID: String(4);
+      BUSINESS_AREA_ID: String(4);
+      PROFIT_CENTER_ID: String(10);
+      PLANT_ID: String(4);
+      OVERHEAD_GROUP_ID: String(10);
+      OVERHEAD_PERCENTAGE: Decimal(20, 5); // names the overhead value in percentage - a separate UoM field does not exist
+      PROJECT_ID: Integer;
+      CALCULATION_ID: Integer;
+      OVERHEAD_QUANTITY_BASED: Decimal(20, 5);
+      OVERHEAD_CURRENCY_ID: String(3);
+      OVERHEAD_PRICE_UNIT: Decimal(20, 5);
+      OVERHEAD_PRICE_UOM_ID: String(3);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_costing_sheet_row {
+      key COSTING_SHEET_ROW_ID: String(5) not null;
+      key COSTING_SHEET_ID: String(6) not null;
+      COSTING_SHEET_BASE_ID: Integer;
+      ACCOUNT_GROUP_AS_BASE_ID: Integer;
+      COSTING_SHEET_OVERHEAD_ID: Integer;
+      CALCULATION_ORDER: Integer not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_costing_sheet_row__text {
+      key COSTING_SHEET_ID: String(6) not null;
+      key COSTING_SHEET_ROW_ID: String(5) not null;
+      key LANGUAGE: String(11) not null;
+      COSTING_SHEET_ROW_DESCRIPTION: String(250);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // used to define references between rows in the costing sheet, e.g. a MK (Sum) = MEK (Basis) + MGK (Overhead). Then MK would be the Source Row and MEK and MGK would be the target rows
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_costing_sheet_row_dependencies {
+      key SOURCE_ROW_ID: String(5) not null;
+      key TARGET_ROW_ID: String(5) not null;
+      key COSTING_SHEET_ID: String(6) not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_currency {
+      key CURRENCY_ID: String(3) not null;
+      DECIMALS_DISPLAYED: hana.SMALLINT;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_currency__text {
+      key CURRENCY_ID: String(3) not null;
+      key LANGUAGE: String(11) not null;
+      CURRENCY_CODE: String(5) not null;
+      CURRENCY_DESCRIPTION: String(40) not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_currency_conversion {
+      key FROM_CURRENCY_ID: String(3) not null;
+      key TO_CURRENCY_ID: String(3) not null;
+      FROM_FACTOR: Integer not null;
+      TO_FACTOR: Integer not null;
+      RATE: Decimal(20, 5) not null;
+      key VALID_FROM: LocalDate not null; // used to define the validity of master data
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to ERP table KNA1
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_customer {
+      key CUSTOMER_ID: String(10) not null;
+      CUSTOMER_NAME: String(100);
+      COUNTRY: String(100);
+      POSTAL_CODE: String(35);
+      REGION: String(100);
+      CITY: String(100);
+      STREET_NUMBER_OR_PO_BOX: String(100);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // see DR: Global & User Default Settings
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_default_settings {
+      key USER_ID: String(256) not null; // emptyString "" for global settings
+      CONTROLLING_AREA_ID: String(4);
+      CONTROLLING_VERSION_ID: String(3);
+      COMPANY_CODE_ID: String(4);
+      PLANT_ID: String(4);
+      REPORT_CURRENCY_ID: String(3);
+      COMPONENT_SPLIT_ID: String(35);
+      COSTING_SHEET_ID: String(6);
+   };
+
+   // corresponds to ERP table DRAW
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_document {
+      key DOCUMENT_TYPE_ID: String(3) not null;
+      key DOCUMENT_ID: String(40) not null;
+      key DOCUMENT_VERSION: String(2) not null;
+      key DOCUMENT_PART: String(3) not null;
+      IS_CREATED_VIA_CAD_INTEGRATION: hana.TINYINT;
+      DOCUMENT_STATUS_ID: String(2);
+      LABORATORY_DESIGN_OFFICE_ID: String(3);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to ERP table DRAT
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_document__text {
+      key DOCUMENT_TYPE_ID: String(3) not null;
+      key DOCUMENT_ID: String(40) not null;
+      key DOCUMENT_VERSION: String(2) not null;
+      key DOCUMENT_PART: String(3) not null;
+      key LANGUAGE: String(11) not null;
+      DOCUMENT_DESCRIPTION: String(250) not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to ERP table DRAD
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_document_material {
+      key DOCUMENT_TYPE_ID: String(3) not null;
+      key DOCUMENT_ID: String(40) not null;
+      key DOCUMENT_VERSION: String(2) not null;
+      key DOCUMENT_PART: String(3) not null;
+      key MATERIAL_ID: String(40) not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to ERP table TDWS
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_document_status {
+      key DOCUMENT_TYPE_ID: String(3) not null;
+      key DOCUMENT_STATUS_ID: String(2) not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to table TDWST
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_document_status__text {
+      key DOCUMENT_STATUS_ID: String(2) not null;
+      key LANGUAGE: String(11) not null;
+      DOCUMENT_STATUS_DESCRIPTION: String(250) not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to ERP table TDWA
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_document_type {
+      key DOCUMENT_TYPE_ID: String(3) not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to table TDWAT
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_document_type__text {
+      key DOCUMENT_TYPE_ID: String(3) not null;
+      key LANGUAGE: String(11) not null;
+      DOCUMENT_TYPE_DESCRIPTION: String(250) not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to table T024L
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_laboratory_design_office {
+      key LABORATORY_DESIGN_OFFICE_ID: String(3) not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   /* corresponds to table T024X
+    *  */
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_laboratory_design_office__text {
+      key LABORATORY_DESIGN_OFFICE_ID: String(3) not null;
+      key LANGUAGE: String(11) not null;
+      LABORATORY_DESIGN_OFFICE_DESCRIPTION: String(250) not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_language {
+      key LANGUAGE: String(11) not null;
+      TEXTS_MAINTAINABLE: hana.TINYINT not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // MARA + MAKT
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_material {
+      key MATERIAL_ID: String(40) not null;
+      BASE_UOM_ID: String(3);
+      MATERIAL_GROUP_ID: String(9); // Material Group is used for Purchasing Info Records
+      MATERIAL_TYPE_ID: String(4); // Type is used in Material Acount Determination (Materialkontenfindung)
+      IS_CREATED_VIA_CAD_INTEGRATION: hana.TINYINT;
+      IS_PHANTOM_MATERIAL: hana.TINYINT; // is used to flag the material as phantom material (dummy material) - in ERP this corresponds to SoBschl=50
+      IS_CONFIGURABLE_MATERIAL: hana.TINYINT; // corresponds to KZKFG in MARA table
+      NET_WEIGHT: Decimal(20, 5);
+      GROSS_WEIGHT: Decimal(20, 5);
+      WEIGHT_UOM_ID: String(3);
+      VOLUME: Decimal(20, 5);
+      VOLUME_UOM_ID: String(3);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_material__text {
+      key MATERIAL_ID: String(40) not null;
+      key LANGUAGE: String(11) not null;
+      MATERIAL_DESCRIPTION: String(250);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_material_account {
+      key CONTROLLING_AREA_ID: String(4) not null;
+      key MATERIAL_TYPE_ID: String(4) not null; // Type is used in Material Acount Determination (Materialkontenfindung)
+      key PLANT_ID: String(4) not null;
+      key VALUATION_CLASS_ID: String(4) not null;
+      ACCOUNT_ID: String(10) not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to T023 in ERP
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_material_group {
+      key MATERIAL_GROUP_ID: String(9) not null; // Material Group is used for Purchasing Info Records
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to T023T
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_material_group__text {
+      key MATERIAL_GROUP_ID: String(9) not null; // Material Group is used for Purchasing Info Records
+      key LANGUAGE: String(11) not null;
+      MATERIAL_GROUP_DESCRIPTION: String(250);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to MBEW on ERP side
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_material_plant {
+      key MATERIAL_ID: String(40) not null;
+      key PLANT_ID: String(4) not null;
+      OVERHEAD_GROUP_ID: String(10);
+      VALUATION_CLASS_ID: String(4);
+      MATERIAL_COSTING_LOT_SIZE: Decimal(20, 5);
+      MATERIAL_COSTING_LOT_SIZE_UOM_ID: String(3);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to T134 in ERP
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_material_type {
+      key MATERIAL_TYPE_ID: String(4) not null; // Type is used in Material Acount Determination (Materialkontenfindung)
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to T134T in ERP
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_material_type__text {
+      key MATERIAL_TYPE_ID: String(4) not null; // Type is used in Material Acount Determination (Materialkontenfindung)
+      key LANGUAGE: String(11) not null;
+      MATERIAL_TYPE_DESCRIPTION: String(250);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to ERP table TCK14
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_overhead_group {
+      key OVERHEAD_GROUP_ID: String(10) not null;
+      key PLANT_ID: String(4) not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to ERP table TCK15
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_overhead_group__text {
+      key OVERHEAD_GROUP_ID: String(10) not null;
+      key PLANT_ID: String(4) not null;
+      key LANGUAGE: String(11) not null;
+      OVERHEAD_GROUP_DESCRIPTION: String(250);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to ERP table T001W
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_plant {
+      key PLANT_ID: String(4) not null;
+      COMPANY_CODE_ID: String(4) not null;
+      COUNTRY: String(100);
+      POSTAL_CODE: String(35);
+      REGION: String(100);
+      CITY: String(100);
+      STREET_NUMBER_OR_PO_BOX: String(100);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_plant__text {
+      key PLANT_ID: String(4) not null;
+      key LANGUAGE: String(11) not null;
+      PLANT_DESCRIPTION: String(250);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to price parts of MBEW in 1.0 - later it will be enriched by additional prices
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_price {
+      key PRICE_SOURCE_ID: Integer not null; // 1=PLC Standard Pr
+      key MATERIAL_ID: String(40) not null;
+      key PLANT_ID: String(4) not null;
+      key VALID_FROM: LocalDate not null;
+      VALID_TO: LocalDate;
+      PRICE_FIXED_PORTION: Decimal(20, 5) not null;
+      PRICE_VARIABLE_PORTION: Decimal(20, 5) not null;
+      PRICE_TRANSACTION_CURRENCY_ID: String(3) not null;
+      PRICE_UNIT: Decimal(20, 5) not null;
+      PRICE_UNIT_UOM_ID: String(3) not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to ERP table CEPC
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_profit_center {
+      key PROFIT_CENTER_ID: String(10) not null;
+      key CONTROLLING_AREA_ID: String(4) not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to table CEPCT
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_profit_center__text {
+      key PROFIT_CENTER_ID: String(10) not null;
+      key CONTROLLING_AREA_ID: String(4) not null;
+      key LANGUAGE: String(11) not null;
+      PROFIT_CENTER_DESCRIPTION: String(250);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_uom {
+      key UOM_ID: String(3) not null;
+      DECIMALS_DISPLAYED: hana.SMALLINT;
+      DIMENSION_ID: String(10) not null;
+      NUMERATOR: Integer not null;
+      DENOMINATOR: Integer not null;
+      EXPONENT_BASE10: hana.SMALLINT not null;
+      SI_CONSTANT: Decimal(9, 6) not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_uom__text {
+      key UOM_ID: String(3) not null;
+      key LANGUAGE: String(11) not null;
+      UOM_CODE: String(5) not null;
+      UOM_DESCRIPTION: String(40) not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_user {
+      key USER_ID: String(256) not null;
+      DEFAULT_LANGUAGE: String(11) default 'de';
+   };
+
+   // corresponds to T025 in ERP
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_valuation_class {
+      key VALUATION_CLASS_ID: String(4) not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to T025T in ERP
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_valuation_class__text {
+      key VALUATION_CLASS_ID: String(4) not null;
+      key LANGUAGE: String(11) not null;
+      VALUATION_CLASS_DESCRIPTION: String(250);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to table LFA1
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_vendor {
+      key VENDOR_ID: String(10) not null;
+      VENDOR_NAME: String(100); // not localized
+      COUNTRY: String(100);
+      POSTAL_CODE: String(35);
+      REGION: String(100);
+      CITY: String(100);
+      STREET_NUMBER_OR_PO_BOX: String(100);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // CRHD, CRCO
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_work_center {
+      key WORK_CENTER_ID: String(8) not null;
+      key PLANT_ID: String(4) not null;
+      WORK_CENTER_CATEGORY: String(4);
+      COST_CENTER_ID: String(10) not null;
+      CONTROLLING_AREA_ID: String(4) not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_work_center__text {
+      key WORK_CENTER_ID: String(8) not null;
+      key PLANT_ID: String(4) not null;
+      key LANGUAGE: String(11) not null;
+      WORK_CENTER_DESCRIPTION: String(250);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_work_center_activity_type {
+      key WORK_CENTER_ID: String(8) not null;
+      key CONTROLLING_AREA_ID: String(4) not null;
+      key PLANT_ID: String(4) not null;
+      key ACTIVITY_TYPE_ID: String(6) not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_work_center_category {
+      key WORK_CENTER_CATEGORY: String(4) not null;
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_work_center_category__text {
+      key WORK_CENTER_CATEGORY: String(4) not null;
+      key LANGUAGE: String(11) not null;
+      WORK_CENTER_CATEGORY_DESCRIPTION: String(250);
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // Table used to display a system message to all users in the login-language
+   @Catalog.tableType : #COLUMN 
+   entity t_system_message {
+      key LANGUAGE: String(11) not null;
+      MESSAGE: String(500) not null;
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_uom {
+      key UOM_ID: String(3) not null;
+      DECIMALS_DISPLAYED: hana.SMALLINT;
+      DIMENSION_ID: String(10) not null;
+      NUMERATOR: Integer not null;
+      DENOMINATOR: Integer not null;
+      EXPONENT_BASE10: hana.SMALLINT not null;
+      SI_CONSTANT: Decimal(9, 6) not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_uom__text {
+      key UOM_ID: String(3) not null;
+      key LANGUAGE: String(11) not null;
+      UOM_CODE: String(5) not null;
+      UOM_DESCRIPTION: String(40);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_user {
+      key USER_ID: String(256) not null;
+      DEFAULT_LANGUAGE: String(11) default 'de';
+   };
+
+   // Table used to track user actions
+   @Catalog.tableType : #COLUMN 
+   entity t_user_event_log {
+      key EVENT_ID: Integer not null;
+      DATE: LocalDate not null;
+      TIME: LocalTime not null;
+      USER_ID: String(256) not null;
+      ACTION: String(50) not null;
+      CALCULATION_VERSION_ID: Integer;
+   };
+
+   // corresponds to T025 in ERP
+   @Catalog.tableType : #COLUMN 
+   entity t_valuation_class {
+      key VALUATION_CLASS_ID: String(4) not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to T025T in ERP
+   @Catalog.tableType : #COLUMN 
+   entity t_valuation_class__text {
+      key VALUATION_CLASS_ID: String(4) not null;
+      key LANGUAGE: String(11) not null;
+      VALUATION_CLASS_DESCRIPTION: String(250);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // corresponds to table LFA1
+   @Catalog.tableType : #COLUMN 
+   entity t_vendor {
+      key VENDOR_ID: String(10) not null;
+      VENDOR_NAME: String(100); // not localized
+      COUNTRY: String(100);
+      POSTAL_CODE: String(35);
+      REGION: String(100);
+      CITY: String(100);
+      STREET_NUMBER_OR_PO_BOX: String(100);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   // CRHD, CRCO
+   @Catalog.tableType : #COLUMN 
+   entity t_work_center {
+      key WORK_CENTER_ID: String(8) not null;
+      key PLANT_ID: String(4) not null;
+      WORK_CENTER_CATEGORY: String(4);
+      COST_CENTER_ID: String(10) not null;
+      CONTROLLING_AREA_ID: String(4) not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_work_center__text {
+      key WORK_CENTER_ID: String(8) not null;
+      key PLANT_ID: String(4) not null;
+      key LANGUAGE: String(11) not null;
+      WORK_CENTER_DESCRIPTION: String(250);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_work_center_activity_type {
+      key WORK_CENTER_ID: String(8) not null;
+      key CONTROLLING_AREA_ID: String(4) not null;
+      key PLANT_ID: String(4) not null;
+      key ACTIVITY_TYPE_ID: String(6) not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_work_center_category {
+      key WORK_CENTER_CATEGORY: String(4) not null;
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_work_center_category__text {
+      key WORK_CENTER_CATEGORY: String(4) not null;
+      key LANGUAGE: String(11) not null;
+      WORK_CENTER_CATEGORY_DESCRIPTION: String(250);
+      key _VALID_FROM: UTCTimestamp not null; // used to define the validity of master data
+      _VALID_TO: UTCTimestamp; // used to define the validity of master data
+      _SOURCE: hana.TINYINT; /* used to define the source of master data
+       * 1=PLC
+       * 2=ERP */
+      _CREATED_BY_USER_ID: String(256);
+   };
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_calculation {
+      key CALCULATION_ID: Integer not null;
+      NEW_CALCULATION_ID: Integer;
+      PROJECT_ID: Integer;
+      CALCULATION_NAME: String(100) not null; // CalculationName is unique within one project; if no project exists: within one folder; if no folder exists: globally
+      CURRENT_CALCULATION_VERSION_ID: Integer;
+      CONTROLLING_AREA_ID: String(4) not null;
+      CALCULATION_QUANTITY: Decimal(20, 5) default 1.0; // to be able to define a lot size on calculation level (not set as long as there is no specific UI to define a quantity on calculation level)
+      CALCULATION_QUANTITY_IS_MANUAL: hana.TINYINT; // Indicates whether the current value has been entered manually. If true, this value must not be overriden by roll up or formula
+      CALCULATION_QUANTITY_UOM_ID: String(3) default 'PC'; // to be able to define a lot size on calculation level (not set as long as there is no specific UI to define a quantity on calculation level)
+      REPORT_CURRENCY_ID: String(3);
+      TARGET_COST: Decimal(20, 5); // to be able to define target cost on calculation level
+      TARGET_COST_IS_MANUAL: hana.TINYINT; // Indicates whether the current value has been entered manually. If true, this value must not be overriden by roll up or formula
+      CREATED_AT: UTCTimestamp  null; // Data & Time
+      CREATED_BY_USER_ID: String(256)  null;
+      LAST_MODIFIED_AT: UTCTimestamp  null; // Data & Time
+      LAST_MODIFIED_BY_USER_ID: String(256)  null;
+   };
+
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_calculation_version {
+      key CALCULATION_VERSION_ID: Integer not null;
+      NEW_CALCULATION_VERSION_ID: Integer;
+      CALCULATION_ID:Integer not null;
+      CALCULATION_VERSION_NAME: String(100) not null;
+      ROOT_ITEM_ID: Integer not null;
+      CUSTOMER_ID: String(10);
+      CONTROLLING_VERSION_ID: String(3); // CO Version is mandatory as we will need it for the rates which we have in 1.1.
+      SALES_DOCUMENT: String(10);
+      SALES_ORGANIZATION_ID: String(4);
+      SALES_PRICE: Decimal(20, 5); /* Sales Price should be used as info field for anybody who wants to compare the final calculated costs with the sales price or do this in external analytic tools
+       * Sales Price is stated in reporting currency */
+      IS_QUANTITY_PASSED_ON: hana.TINYINT not null default 1; /* necessary to know what lot size should be used for price determination
+       * 1=Lot size is passed on
+       * 0=Lost size is not passed on */
+      REPORT_CURRENCY_ID: String(3) not null default 'EUR';
+      PRICE_DETERMINATION_STRATEGY: String(30) default 'Standard';
+      COSTING_SHEET_ID: String(6);
+      COMPONENT_SPLIT_ID: String(35);
+      ADDITIONAL_COMPONENT_SPLIT_ID: String(35); // Additional component split can even be a parallel one if both are displayed in parallel or a second level
+      START_OF_INVESTMENT: LocalDate;
+      END_OF_INVESTMENT: LocalDate;
+      START_OF_PRODUCTION: LocalDate;
+      END_OF_PRODUCTION: LocalDate;
+      VALUATION_DATE: LocalDate not null;
+      EXPLOSION_DATE: LocalDate not null;
+      LAST_SAVED_AT: UTCTimestamp  null; // Data & Time
+      LAST_SAVED_BY_USER_ID: String(256)  null;
+      MASTER_DATA_TIMESTAMP: UTCTimestamp  null;
+      PREDECESSOR_VERSION_ID: Integer; // Predecessor_Version is used for status management to know what version is copied from what version. It should be filled automatically if a new version is "saved as a new version" with the previous version number or if a version is copied with the version number it is copied from
+      IS_FROZEN: hana.TINYINT;
+   };
+   
+   @Catalog.tableType : #COLUMN 
+   entity t_staging_item {
+      key ITEM_ID: Integer not null;
+      NEW_ITEM_ID: Integer;
+      key CALCULATION_VERSION_ID: Integer not null;
+      PARENT_ITEM_ID: Integer;
+      PREDECESSOR_ITEM_ID: Integer;
+      IS_ACTIVE: hana.TINYINT not null;
+      STATUS: Integer; /* 1 OK
+       * 2 Manual price
+       * 3 Incomplete/inconsistent 
+       * 4 Incomplete/inconsistent but confirmed
+       * 5 Calculation impossible
+       *  */
+      ITEM_CATEGORY_ID: Integer not null; /* 0 Calculation Version (Kalkulationsversion)
+       * 1 Document (Dokument)
+       * 2 Material (Material)
+       * 3 Internal Activity (Eigenleistung) 
+       * 4 External Activity (Fremdleistung) 
+       * 5 Process (Prozess) 
+       * 6 Subcontracting (Lohnbearbeitung) 
+       * 7 Resources and Tools (Fertigungshilfsmittel) 
+       * 8 Variable Item (Variable Position) 
+       * 9 Text Item (Textposition) */
+      ACCOUNT_ID: String(10);
+      DOCUMENT_TYPE_ID: String(3);
+      DOCUMENT_ID: String(40);
+      DOCUMENT_VERSION: String(2);
+      DOCUMENT_PART: String(3);
+      MATERIAL_ID: String(40);
+      IS_PHANTOM_MATERIAL: hana.TINYINT; // used to define if material is only a phantom material (dummy material)
+      ACTIVITY_TYPE_ID: String(6);
+      BUSINESS_PROCESS_ID: String(12);
+      COSTING_LOT_SIZE: Decimal(20, 5);
+      COSTING_LOT_SIZE_IS_MANUAL: hana.TINYINT; // Indicates whether the current value has been entered manually. If true, this value must not be overriden by roll up or formula
+      COSTING_LOT_SIZE_UOM_ID: String(3);
+      ENGINEERING_CHANGE_NUMBER_ID: String(12);
+      NET_WEIGHT: Decimal(20, 5);
+      NET_WEIGHT_IS_MANUAL: hana.TINYINT; // Indicates whether the current value has been entered manually. If true, this value must not be overriden by roll up or formula
+      GROSS_WEIGHT: Decimal(20, 5);
+      GROSS_WEIGHT_IS_MANUAL: hana.TINYINT; // Indicates whether the current value has been entered manually. If true, this value must not be overriden by roll up or formula
+      WEIGHT_UOM_ID: String(3);
+      VOLUME: Decimal(20, 5);
+      VOLUME_IS_MANUAL: hana.TINYINT; // Indicates whether the current value has been entered manually. If true, this value must not be overriden by roll up or formula
+      VOLUME_UOM_ID: String(3);
+      COMPANY_CODE_ID: String(4);
+      COST_CENTER_ID: String(10);
+      PLANT_ID: String(4);
+      WORK_CENTER_ID: String(8);
+      BUSINESS_AREA_ID: String(4);
+      PROFIT_CENTER_ID: String(10);
+      QUANTITY_FOR_ONE_ASSEMBLY: Decimal(20, 5); // costing lot size from Material Master Data CO-View, will be get via FK in 0.7, used for price determination if pass-on flag is not set
+      QUANTITY_FOR_ONE_ASSEMBLY_IS_MANUAL: hana.TINYINT; // Indicates whether the current value has been entered manually. If true, this value must not be overriden by roll up or formula
+      QUANTITY_FOR_ONE_ASSEMBLY_UOM_ID: String(3);
+      TOTAL_QUANTITY: Decimal(20, 5);
+      TOTAL_QUANTITY_UOM_ID: String(3);
+      IS_QUANTITY_VARIABLE: hana.TINYINT;
+      IS_RELEVANT_TO_COSTING_IN_ERP: hana.TINYINT; // set for all items imported from ERP
+      PRICE_FIXED_PORTION: Decimal(20, 5);
+      PRICE_FIXED_PORTION_IS_MANUAL: hana.TINYINT; // Indicates whether the current value has been entered manually. If true, this value must not be overriden by roll up or formula
+      PRICE_VARIABLE_PORTION: Decimal(20, 5);
+      PRICE_VARIABLE_PORTION_IS_MANUAL: hana.TINYINT; // Indicates whether the current value has been entered manually. If true, this value must not be overriden by roll up or formula
+      PRICE: Decimal(20, 5);
+      PRICE_TRANSACTION_CURRENCY_ID: String(3);
+      PRICE_UNIT: Decimal(20, 5);
+      PRICE_UNIT_IS_MANUAL: hana.TINYINT; // Indicates whether the current value has been entered manually. If true, this value must not be overriden by roll up or formula
+      PRICE_UNIT_UOM_ID: String(3);
+      CONFIDENCE_LEVEL_ID: Integer;
+      PRICE_SOURCE_ID: Integer;
+      PURCHASING_INFO_RECORD_ID: String(10);
+      VENDOR_ID: String(10);
+      TARGET_COST: Decimal(20, 5);
+      TARGET_COST_IS_MANUAL: hana.TINYINT; // Indicates whether the current value has been entered manually. If true, this value must not be overriden by roll up or formula
+      CREATED_AT: UTCTimestamp  null; // Data & Time
+      CREATED_BY_USER_ID: String(256)  null;
+      LAST_MODIFIED_AT: UTCTimestamp  null; // Data & Time
+      LAST_MODIFIED_BY_USER_ID: String(256) null;
+      PRICE_FOR_TOTAL_QUANTITY: Decimal(20, 5);
+      PRICE_FOR_TOTAL_QUANTITY_FIXED_PORTION: Decimal(20, 5);
+      PRICE_FOR_TOTAL_QUANTITY_VARIABLE_PORTION: Decimal(20, 5);
+      OTHER_COST: Decimal(20, 5);
+      OTHER_COST_FIXED_PORTION: Decimal(20, 5);
+      OTHER_COST_VARIABLE_PORTION: Decimal(20, 5);
+      TOTAL_COST: Decimal(20, 5);
+      TOTAL_COST_FIXED_PORTION: Decimal(20, 5);
+      TOTAL_COST_VARIABLE_PORTION: Decimal(20, 5);
+   };
+   entity t_staging_calculation__text {
+      key CALCULATION_ID: Integer not null;
+      key LANGUAGE: String(11) not null;
+      COMMENT: String(500);
+   };
+};
+

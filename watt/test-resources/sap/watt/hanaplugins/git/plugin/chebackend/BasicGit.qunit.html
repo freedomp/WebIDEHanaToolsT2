@@ -1,0 +1,498 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <script src="../../../../util/qunitHelper.js"></script>
+    <script>setBase("sap/watt/uitools/")</script>
+
+    <script src="../lib/requirejs/require.js"
+            data-main="../core/Global"
+            data-sap-ide-main="runTests"
+            data-sap-ide-environment-path="../../../../env.json"
+            data-sap-ide-basedir="../../../"
+            data-sap-blanket-cover="/sap/watt/hanaplugins/git/plugin/chebackend/"
+            data-sap-ide-config="config.json">
+
+
+    </script>
+
+    <title>Git qUnit Test</title>
+
+    <script>
+
+
+        var mConsumer = {
+            "name": "testConsumer",
+            "requires": {
+                "services": [
+                    "document",
+                    "filesystem.documentProvider",
+                    "repositorybrowser",
+                    "git",
+                    "gitclient",
+                    "clone"
+                ]
+            }
+        };
+
+        defineServiceTest(mConsumer, ["qunit/ideplatform/plugin/git/utils/BasicUtil"], function (oContext, BasicUtil) {
+
+            var that = this;
+            var oGitService = oContext.service.git;
+            var oCloneService = oContext.service.clone;
+            var oFileSystem = oContext.service.filesystem;
+            var oDocumentProviderService = oContext.service.filesystem.documentProvider;
+            var oRepoBrowser = oContext.service.repositorybrowser;
+            var oGitClientService = oContext.service.gitclient;
+            var oDocumentProviderServiceImpl;
+            var oProjectDocument;
+            var oBasicUtil;
+            var sProjectName;
+            var oRoot;
+            var fileName = "unit.test." + Math.random().toString() + ".file";
+
+
+            QUnit.config.testTimeout = 180000;
+            QUnit.module("Test git - integration with Git", {
+                setup : withPromise(function() {
+                    return oDocumentProviderService.getRoot().then(function(oRootDocument){
+                        oRoot = oRootDocument;
+
+                        that.oOptions = {
+                            sGitUserName        : "gitclienttester",
+                            sGitPassword        : "SAPWebIDE1",
+                            sGitSshPrivateKey   : "",
+                            gitUrl              : "https://github.com/gitclienttester/githanaclienttest.git",
+                            bGerrit             : false
+                        }
+
+                        that.oOptions.sLocation = oRootDocument.getEntity().getBackendData().location;
+
+                        _initTestGit.call(that, "", that.oOptions);
+
+                        return that.oBasicUtil._cloneRepository().then(function(oResponse){
+                            return oRootDocument.refresh().then(function() {
+                               // sProjectName = oResponse.Location.split("/").splice(-1)[0];
+                                sProjectName = oResponse.projectDescriptor.name;
+                                return oRootDocument.getChild(sProjectName).then(function(oProjectDoc){
+                                    ok(oProjectDoc.getTitle(),sProjectName);
+                                    oProjectDocument = oProjectDoc;
+                                });
+                            });
+                        });
+                    });
+                }),
+                teardown : withPromise( function() {
+                    return oProjectDocument.delete();
+                })
+            });
+
+
+
+            QUnit.test("commit test ", withPromise(function() {
+                var that = this;
+                var newFileName = "newFile.js";
+                var oUserInfo = undefined;
+                var bAmend = false;
+                var bChangeId = false;
+                var sMessage = "commit message 1";
+                var newFileContent = "var newFile = /\"This is new file/\"";
+                var oOptions = {};
+                var oGit = oProjectDocument.getEntity().getBackendData().git;
+                _initTestGit.call(this, oOptions);
+
+                return that.oBasicUtil.createEditAndStageFile(oProjectDocument, newFileName , newFileContent)
+                        .then(function(){
+                            return that.oBasicUtil.getStatus(oGit);
+                        })
+                        .then(function(oStatusBeforeCommit){
+                            equal(oStatusBeforeCommit.length,3,"After commit get status should be 2");
+
+                            var status = that.oBasicUtil.findFileStatus(oStatusBeforeCommit,newFileName);
+                            notEqual(status,null,"File " + newFileName + " should be available");
+                            equal(status.Name,newFileName,"File should be = " + newFileName);
+                            equal(status.FullStatus,"NEW","Status should be new");
+                            return that.oBasicUtil.doCommit(oGit, sMessage, oUserInfo, bAmend, bChangeId)
+                        })
+                        .then(function(oCommit){
+                            return that.oBasicUtil.getStatus(oGit)
+                        })
+                        .then(function(oStatusAftereCommit){
+                            equal(oStatusAftereCommit.length,2,"After commit get status should be two files from codeny)");
+                        })
+            }));
+
+
+            QUnit.test(" stage Multiple Files + commit test ", withPromise(function() {
+                var that = this;
+                var newFileName = "newFile.js";
+                var newFileName2 = "newFile2.js";
+                var oUserInfo = undefined;
+                var bAmend = false;
+                var bChangeId = false;
+                var sMessage = "commit message 1";
+                var newFileContent = "var newFile = /\"This is new file/\"";
+                var newFileContent2 = "var newFile = /\"This is new file2/\"";
+                var oOptions = {};
+                var oGit = oProjectDocument.getEntity().getBackendData().git;
+                var aPaths = [];
+                var aModifyFile = [];
+                _initTestGit.call(this, oOptions);
+                return oProjectDocument.refresh().then(function() {
+                    return oProjectDocument.getCurrentMetadata(true).then(function (aMetaData) {
+                        for (var i = aMetaData.length - 1 ; i > 0 ; i--) {
+                            if (aMetaData[i].folder === false) {
+                                var oModifyFile = {};
+                                oModifyFile.name = aMetaData[i].name;
+                           //     oModifyFile.parentPath = aMetaData[i].parentPath
+                           //     oModifyFile.path = parentPath[i].path;
+                                aModifyFile.push(oModifyFile);
+                                if (aModifyFile.length === 2) {
+                                    break;
+                                }
+                            }
+
+                        }
+                        return that.oBasicUtil.editFile(oProjectDocument, aModifyFile[0].name, "updateContent").then(function () {
+                            aPaths.push(aModifyFile[0].name);
+                            return that.oBasicUtil.deleteFile(oProjectDocument, aModifyFile[1].name).then(function () {
+                                aPaths.push(aModifyFile[1].name);
+                                return that.oBasicUtil.createFile(oProjectDocument, newFileName)
+                                        .then(function (oFileDocument) {
+                                            aPaths.push(oFileDocument.getEntity().getName());
+                                            return that.oBasicUtil.addContentToFile(oFileDocument, newFileContent);
+                                        })
+                                        .then(function () {
+                                            return that.oBasicUtil.createFile(oProjectDocument, newFileName2);
+                                        })
+                                        .then(function (oFileDoc) {
+                                            aPaths.push(oFileDoc.getEntity().getName());
+                                            return that.oBasicUtil.addContentToFile(oFileDoc, newFileContent2);
+                                        })
+                                        .then(function () {
+                                            return that.oBasicUtil.stageMultipleFiles(oGit, aPaths);
+                                        })
+                                        .then(function () {
+                                            return that.oBasicUtil.getStatus(oGit);
+                                        })
+                                        .then(function (oStatusBeforeCommit) {
+                                            for(var i = 0 ; i < oStatusBeforeCommit.length ; i++ ) {
+                                                if ( oStatusBeforeCommit[i].Name === aModifyFile[0].name ){
+                                                    oStatusBeforeCommit[i].Stage = true;
+                                                    oStatusBeforeCommit[i].Status = "M";
+                                                }
+                                                if ( oStatusBeforeCommit[i].Name === aModifyFile[1].name ){
+                                                    oStatusBeforeCommit[i].Stage = true;
+                                                    oStatusBeforeCommit[i].Status = "D";
+                                                }
+                                                if ( oStatusBeforeCommit[i].Name === newFileName ){
+                                                    oStatusBeforeCommit[i].Stage = true;
+                                                    oStatusBeforeCommit[i].Status = "N";
+                                                }
+                                                if ( oStatusBeforeCommit[i].Name === newFileName2 ){
+                                                    oStatusBeforeCommit[i].Stage = true;
+                                                    oStatusBeforeCommit[i].Status = "N";
+                                                }
+                                            }
+                                            return that.oBasicUtil.doCommit(oGit, sMessage, oUserInfo, bAmend, bChangeId);
+                                        })
+                                        .then(function () {
+                                            return that.oBasicUtil.getStatus(oGit);
+                                        })
+                                        .then(function (oStatusAftereCommit) {
+                                            equal(oStatusAftereCommit.length, 2, "After commit get status should be one two files from codeny");
+                                        });
+                            });
+                        });
+                    });
+                });
+            }));
+
+            QUnit.test(" commit reset HARD test ", withPromise(function() {
+                var that = this;
+                var newFileName = "newFile.js";
+                var newFileName2 = "newFile2.js";
+                var newFileName3 = "newFile3.js";
+                var oUserInfo = undefined;
+                var bAmend = false;
+                var bChangeId = false;
+                var sMessage = "commit message testBranch";
+                var sMessageMasterBranch = "commit message master branch";
+                var newFileContent = "var newFile = /\"This is new file/\"";
+                var newFileContent2 = "var newFile = /\"This is new file2/\"";
+                var newFileContent3 = "var newFile = /\"This is new file3/\"";
+                var oOptions = {};// repositoryName  : "gitIntegration"};
+                var oGit = oProjectDocument.getEntity().getBackendData().git;
+                var aPaths = [];
+                var sNewBranchName = "testBranch";
+                _initTestGit.call(this, oOptions)
+
+                return that.oBasicUtil.createEditAndStageFile(oProjectDocument, newFileName3 , newFileContent3)
+                        .then(function(){
+                            return that.oBasicUtil.doCommit(oGit, sMessageMasterBranch, oUserInfo, bAmend, bChangeId);
+                        })
+                        .then(function(){
+                            return that.oBasicUtil.createAndCheckoutLocalBranch(oGit, sNewBranchName);
+                        })
+                        .then(function(){
+                          //  oGit.CommitLocation = oGit.CommitLocation.replace("master",sNewBranchName);
+                            return that.oBasicUtil.createFile(oProjectDocument, newFileName);
+                        })
+                        .then(function(oFileDocument){
+                            aPaths.push(oFileDocument.getEntity().getName());
+                            return that.oBasicUtil.addContentToFile(oFileDocument,newFileContent);
+                        })
+                        .then(function(){
+                            return that.oBasicUtil.createFile(oProjectDocument, newFileName2);
+                        })
+                        .then(function(oFileDoc){
+                            aPaths.push(oFileDoc.getEntity().getName());
+                            return that.oBasicUtil.addContentToFile(oFileDoc,newFileContent2);
+                        })
+                        .then(function(){
+                            return that.oBasicUtil.stageMultipleFiles(oGit, aPaths);
+                        })
+                        .then(function(){
+                            return that.oBasicUtil.getStatus(oGit);
+                        })
+                        .then(function(oStatusBeforeCommit){
+                            var status = that.oBasicUtil.findFileStatus(oStatusBeforeCommit,newFileName);
+                            notEqual(status,null,"File should be = " + newFileName);
+                            equal(status.FullStatus,"NEW","Status should be new");
+
+                            status = that.oBasicUtil.findFileStatus(oStatusBeforeCommit,newFileName2);
+                            notEqual(status,null,"File should be = " + newFileName2);
+                            equal(status.FullStatus,"NEW","Status should be new");
+
+                            return that.oBasicUtil.doCommit(oGit, sMessage, oUserInfo, bAmend, bChangeId);
+                        })
+                        .then(function(){
+                            return that.oBasicUtil.getStatus(oGit)
+                        })
+                        .then(function(oStatusAftereCommit){
+                            equal(oStatusAftereCommit.length,2,"After commit get status should be two files  from codeny");
+                            return that.oBasicUtil.doReset(oGit,"HARD","master");
+                        })
+                        .then(function(){
+                            return that.oBasicUtil.getStatus(oGit);
+                        })
+                        .then(function(oStatusAfterResert){
+                            equal(oStatusAfterResert.length,2,"After reset hard should be two files");
+                        });
+            }));
+
+            QUnit.test(" commit reset MIX test ", withPromise(function() {
+                var that = this;
+                var newFileName = "newFile.js";
+                var newFileName2 = "newFile2.js";
+                var oUserInfo = undefined;
+                var bAmend = false;
+                var bChangeId = false;
+                var sMessage = "commit message 1";
+                var newFileContent = "var newFile = /\"This is new file/\"";
+                var newFileContent2 = "var newFile = /\"This is new file2/\"";
+                var oOptions = {};// repositoryName  : "gitIntegration"};
+                var oGit = oProjectDocument.getEntity().getBackendData().git;
+                var aPaths = [];
+                var sNewBranchName = "testBranch";
+                _initTestGit.call(this, oOptions);
+                return that.oBasicUtil.createAndCheckoutLocalBranch(oGit, sNewBranchName)
+                        .then(function(){
+                          //  oGit.CommitLocation = oGit.CommitLocation.replace("master",sNewBranchName);
+                            return that.oBasicUtil.createFile(oProjectDocument, newFileName);
+                        })
+                        .then(function(oFileDocument){
+                            aPaths.push(oFileDocument.getEntity().getName());
+                            return that.oBasicUtil.addContentToFile(oFileDocument,newFileContent);
+                        })
+                        .then(function(){
+                            return that.oBasicUtil.createFile(oProjectDocument, newFileName2);
+                        })
+                        .then(function(oFileDoc){
+                            aPaths.push(oFileDoc.getEntity().getName());
+                            return that.oBasicUtil.addContentToFile(oFileDoc,newFileContent2);
+                        })
+                        .then(function(){
+                            return that.oBasicUtil.stageMultipleFiles(oGit, aPaths);
+                        })
+                        .then(function(){
+                            return that.oBasicUtil.getStatus(oGit);
+                        })
+                        .then(function(oStatusBeforeCommit){
+                            var status = that.oBasicUtil.findFileStatus(oStatusBeforeCommit,newFileName);
+                            notEqual(status,null,"File should be = " + newFileName);
+                            equal(status.FullStatus,"NEW","Status should be new");
+                            return that.oBasicUtil.doCommit(oGit, sMessage, oUserInfo, bAmend, bChangeId);
+                        })
+                        .then(function(){
+                            return that.oBasicUtil.getStatus(oGit);
+                        })
+                        .then(function(oStatusAftereCommit){
+                            equal(oStatusAftereCommit.length,2,"After commit get status should be two files from codeny)");
+                            return that.oBasicUtil.doReset(oGit,"MIXED","master");
+                        })
+                        .then(function(){
+                            return that.oBasicUtil.getStatus(oGit);
+                        })
+                        .then(function(oStatusAfterRebase){
+                            var status = that.oBasicUtil.findFileStatus(oStatusAfterRebase,newFileName);
+                            notEqual(status,null,"File should be = " + newFileName);
+                            equal(status.FullStatus,"UNTRACKED","Status should ne untracked");
+
+                            status = that.oBasicUtil.findFileStatus(oStatusAfterRebase,newFileName2);
+                            notEqual(status,null,"File should be = " + newFileName2);
+                            equal(status.FullStatus,"UNTRACKED","Status should ne untracked");
+
+                        });
+
+            }));
+
+
+            QUnit.test("unStageFile", withPromise(function() {
+                var that = this;
+                var newFileName = "newFile.js";
+                var newFileName2 = "newFile2.js";
+                var oUserInfo = undefined;
+                var bAmend = false;
+                var bChangeId = false;
+                var sMessage = "commit message 1";
+                var newFileContent = "var newFile = /\"This is new file/\"";
+                var newFileContent2 = "var newFile = /\"This is new file2/\"";
+                var oOptions = {};// repositoryName  : "gitIntegration"};
+                var oGit = oProjectDocument.getEntity().getBackendData().git;
+
+                _initTestGit.call(this, oOptions);
+                return that.oBasicUtil.createEditAndStageFile(oProjectDocument, newFileName , newFileContent)
+                        .then(function(){
+                            return that.oBasicUtil.createEditAndStageFile(oProjectDocument, newFileName2 , newFileContent2);
+                        })
+                        .then(function(){
+                            return that.oBasicUtil.getStatus(oGit);
+                        })
+                        .then(function(oStatusList){
+                            equal(oStatusList.length,4,"Should be three files");
+                            var status = that.oBasicUtil.findFileStatus(oStatusList,newFileName);
+                            notEqual(status,null,"File should be = " + newFileName);
+                            equal(status.Stage,true,"Stage shuld be true");
+
+                            status = that.oBasicUtil.findFileStatus(oStatusList,newFileName2);
+                            notEqual(status,null,"File should be = " + newFileName2);
+                            equal(status.Stage,true,"Stage shuld be true");
+
+                            return that.oBasicUtil.unStageFile(status.Git);
+                        })
+                        .then(function(){
+                            return that.oBasicUtil.getStatus(oGit);
+                        })
+                        .then(function(oStatusList){
+                            var status = that.oBasicUtil.findFileStatus(oStatusList,newFileName);
+                            equal(status.Stage,true,"Stage shuld be false");
+
+                            status = that.oBasicUtil.findFileStatus(oStatusList,newFileName2);
+                            equal(status.Stage,false,"Stage should be true");
+                        });
+            }));
+
+            QUnit.test("unstageAll", withPromise(function() {
+                var that = this;
+                var newFileName = "newFile.js";
+                var newFileName2 = "newFile2.js";
+                var oUserInfo = undefined;
+                var bAmend = false;
+                var bChangeId = false;
+                var sMessage = "commit message 1";
+                var newFileContent = "var newFile = /\"This is new file/\"";
+                var newFileContent2 = "var newFile = /\"This is new file2/\"";
+                var oOptions = {};// repositoryName  : "gitIntegration"};
+                var oGit = oProjectDocument.getEntity().getBackendData().git;
+
+                _initTestGit.call(this, oOptions);
+                return that.oBasicUtil.createEditAndStageFile(oProjectDocument, newFileName , newFileContent)
+                        .then(function(){
+                            return that.oBasicUtil.createEditAndStageFile(oProjectDocument, newFileName2 , newFileContent2);
+                        })
+                        .then(function(){
+                            return that.oBasicUtil.getStatus(oGit);
+                        })
+                        .then(function(oStatusList){
+                            equal(oStatusList.length,4,"Should be four files");
+
+                            var status = that.oBasicUtil.findFileStatus(oStatusList,newFileName);
+                            equal(status.Stage,true,"Stage shuld be true");
+
+                            status = that.oBasicUtil.findFileStatus(oStatusList,newFileName2);
+                            equal(status.Stage,true,"Stage shuld be true");
+                            return that.oBasicUtil.unstageAll(status.Git);
+                        })
+                        .then(function(){
+                            return that.oBasicUtil.getStatus(oGit);
+                        })
+                        .then(function(oStatusList){
+                            var status = that.oBasicUtil.findFileStatus(oStatusList,newFileName);
+                            equal(status.Stage,false,"Stage shuld be true");
+
+                            status = that.oBasicUtil.findFileStatus(oStatusList,newFileName2);
+                            equal(status.Stage,false,"Stage shuld be true");
+
+                        });
+            }));
+
+            QUnit.test("discardFiles", withPromise(function() {
+                var newFileName = "newFile.js";
+                var newFileName2 = "newFile2.js";
+                var newFileContent = "var newFile = /\"This is new file/\"";
+                var newFileContent2 = "var newFile = /\"This is new file2/\"";
+                var oOptions = {};// repositoryName  : "gitIntegration"};
+                var promiseArr = [];
+                var that = this;
+                var oGit = oProjectDocument.getEntity().getBackendData().git;
+                _initTestGit.call(this, oOptions);
+                promiseArr.push(that.oBasicUtil.createAndEditFile(oProjectDocument, newFileName , newFileContent));
+                promiseArr.push(that.oBasicUtil.createAndEditFile(oProjectDocument, newFileName2 , newFileContent2));
+                return Q.all(promiseArr).then(function(){
+                    return that.oBasicUtil.getStatus(oGit).then(function(oStatusList){
+                        equal(oStatusList.length, 4, "Should be three files");
+                        var status = that.oBasicUtil.findFileStatus(oStatusList,newFileName);
+                        notEqual(status,null,"File should be = " + newFileName);
+
+                        status = that.oBasicUtil.findFileStatus(oStatusList,newFileName2);
+                        notEqual(status,null,"File should be = " + newFileName2);
+
+                        var files = [];
+                        files.push(newFileName);
+                        return that.oBasicUtil.discardFiles(oGit,files).then(function(){
+                            return that.oBasicUtil.getStatus(oGit).then(function(oStatusList){
+                                equal(oStatusList.length, 3, "Should be two file");
+                                var status = that.oBasicUtil.findFileStatus(oStatusList,newFileName2);
+                                notEqual(status,null,"No file found with name = " + newFileName2);
+                            });
+                        });
+                    });
+                });
+            }));
+
+            function _initTestGit(sTestId, oOptions) {
+                var oServices = {
+                    oGitService: oGitService,
+                    oFileSystem: oFileSystem,
+                    oCloneService: oCloneService,
+                    oRepoBrowser: oRepoBrowser
+                };
+                this.oBasicUtil = new BasicUtil(oServices, oOptions);
+            }
+
+
+
+
+
+        });
+
+
+    </script>
+
+</head>
+<body>
+<div id="qunit"></div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AllTestsCdsHanaDdl V4</title>
+
+    <meta charset="UTF-8"/>
+    <meta http-equiv='cache-control' content='no-cache'/>
+    <meta http-equiv='expires' content='0'/>
+    <meta http-equiv='pragma' content='no-cache'/>
+	
+<!-- necessary style sheets -->	
+	<link rel="stylesheet" href="./lib/qunit/qunit.css" />
+    <link rel="stylesheet" href="./lib/qunit-composite/qunit-composite.css"/>
+
+<!-- use absolute links to avoid .. cascades -->
+    <script src="./lib/qunit/qunit.js"></script>	
+    <script src="./lib/qunit-composite/qunit-composite.js"></script>
+
+</head>
+
+<body>
+ 	<div id="qunit"></div>
+	<div id="qunit-fixture"></div>
+	<script>
+	    
+	    // list all suites here
+	    QUnit.testSuites( "Hdbdd suite", [
+	        "hanaddl/TestsUnitHanaDdlParserV4SemicolonOptional.html",
+	        "hanaddl/TestsUnitHanaDdlParserV4SeriesData.html",
+	        "hanaddl/TestsUnitHanaDdlParserV4FilterConditions.html",
+	        "hanaddl/TestsUnitHanaDdlParserV4DclGrantOnRoleName.html",
+	        "hanaddl/TestsUnitHanaDdlParserV4Functions.html",
+	        "hanaddl/TestsUnitHanaDdlParserV4GisFunctions.html",
+	        "hanaddl/TestsUnitHanaDdlParserV4IndexViaGrammar.html",
+	        "hanaddl/TestsUnitHanaDdlParserV4UsingForNativeTables.html",
+	        "hanaddl/TestsUnitHanaDdlParserV4PrefixNotation.html",
+	        "hanaddl/TestsUnitHanaDdlParserV4SeriesFunctions.html",
+        ]);
+	</script>
+    
+</body>
+    
+</html>

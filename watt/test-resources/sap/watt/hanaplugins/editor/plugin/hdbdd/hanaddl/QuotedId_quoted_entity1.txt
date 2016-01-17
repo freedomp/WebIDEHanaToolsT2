@@ -1,0 +1,8 @@
+namespace QuotedId;
+entity "quoted_entity1" {
+  key elem : Integer;
+};
+
+/* @classification: basic */
+/* @description: Quoted identifier for entity */
+/* @resource-name: QuotedId::quoted_entity1 */

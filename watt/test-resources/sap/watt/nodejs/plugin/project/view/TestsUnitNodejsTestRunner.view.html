@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TestsUnitNodejsTestRunner.view.html</title>
+
+<meta charset="UTF-8" />
+<meta http-equiv='cache-control' content='no-cache' />
+<meta http-equiv='expires' content='0' />
+<meta http-equiv='pragma' content='no-cache' />
+
+	<link rel="stylesheet" href="/resources/sap/ui/thirdparty/qunit.css" />
+
+<!-- load before all others -->
+	<script id="sap-ui-bootstrap" src="/resources/sap-ui-core.js"
+	data-sap-ui-theme="sap_bluecrystal"
+	data-sap-ui-libs="sap.ui.commons, sap.ui.ux3, sap.ui.table"
+	data-sap-ui-resourceroots='{ "sap.xs.nodejs.project": "../../../../../../../resources/sap/watt/nodejs/plugin/project/" }'>
+
+</script>
+
+<!-- keep sequence! -->
+<script src="/watt/resources/sap/watt/lib/q/q.js"></script>
+<script src="/watt/resources/sap/watt/lib/requirejs/require.js"></script>
+
+<script src="/resources/sap/ui/thirdparty/qunit.js"></script>
+<script src="../../../test-support/qunitHelper.js"></script>
+
+</head>
+
+<body>
+	<div id="qunit"></div>
+	<div id="qunit-fixture"></div>
+
+	<script>
+		"use strict";
+
+		// otherwise QUnit will start immediately and not wait for promises
+		QUnit.config.autostart = false;
+
+		var oView;
+		var oController;
+		var fnOldGetJSON;
+		var bAjaxCalled = false;
+
+		var oAjaxResult = {
+			status : "running"
+		};
+
+		module("Unit Tests for Nodejs Test Runner View", {
+			setup : function() {
+
+				fnOldGetJSON = jQuery.getJSON;
+
+				oView = sap.ui.view({
+					viewName: "sap.xs.nodejs.project.view.NodejsTestRunner",
+					type: sap.ui.core.mvc.ViewType.JS,
+					viewData: {
+						context : {
+							i18n : {
+								getText : function(sKey) {
+									return sKey;
+								}
+							},
+							service: {
+								preferences : {
+									get : function() { return Q(); },
+									set : function() { return Q(); },
+									remove : function() { return Q(); },
+								},
+								filesystem : {
+									jsonProvider : {
+										readJson : function() { return Q(); },
+										writeJson : function() { return Q(); }
+									},
+									documentProvider : {
+										search : function() { return Q(); },
+										getDocument : function() { return Q(); }
+									}
+								}
+							}
+						},
+					}
+				});
+
+				oController = oView.getController();
+				oController._setCoverageManager({
+					_setDataModel : function(oModel) {},
+					setCoverage: function() {},
+					setCoverageVisible: function(bVisible) {}
+				});
+				
+				// load test data SYNCHRONOUSLY
+				$.ajax({
+					url: '../testRun.json',
+					async: false,
+					dataType: 'json',
+					success: function (response) {
+						oController._getTestRunDataModel().setData(response);
+					}
+				});
+
+				//Mock getJSON function
+				jQuery.getJSON = function(url) {
+					bAjaxCalled = true;
+					return Q(oAjaxResult);
+				};
+			},
+
+			teardown : function() {
+				jQuery.getJSON = fnOldGetJSON;
+				bAjaxCalled = false;
+
+				oView.destroy();
+			}
+		});
+
+		test("Test coverage link enabled", function(assert) {
+
+			var oData = {
+					coverage : {},
+					projectPath : "project path",
+					timestamp : 123
+			};
+
+			oController._getTestRunsArray = function() { return []};
+			oController._getTestRunDataModel().setData(oData);
+			assert.ok(oView._oCoverageCheckbox.getEnabled(), "empty history");
+
+			oController._getTestRunsArray = function() {
+				return [
+					{
+						coverage : {},
+						projectPath : "project path",
+						timestamp : 123
+					}
+				]
+			};
+			oController._getTestRunDataModel().setData(oData);
+			assert.ok(oView._oCoverageCheckbox.getEnabled(), "only one, same object");
+		});
+
+		test("Test coverage link disabled", function(assert) {
+
+			var oData = {
+				projectPath : "project path",
+				timestamp : 123
+			};
+
+			oController._getTestRunsArray = function() { return []};
+			oController._getTestRunDataModel().setData(oData);
+			assert.equal(oView._oCoverageCheckbox.getEnabled(), false, "no coverage url empty history");
+
+			oController._getTestRunsArray = function() {
+				return [
+					{
+						coverage : {},
+						projectPath : "project path",
+						timestamp : 123
+					}
+				]
+			};
+			oController._getTestRunDataModel().setData(oData);
+			assert.equal(oView._oCoverageCheckbox.getEnabled(), false, "match but no coverage url in oData");
+		});
+
+
+		// now its safe to start the test execution
+		QUnit.start();
+	</script>
+
+</body>
+
+</html>

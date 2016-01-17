@@ -1,0 +1,325 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<script src="../../../util/qunitHelper.js" ></script>
+<script>setBase("sap/watt/uitools/")</script>
+
+<script src="../lib/requirejs/require.js"
+    data-main="../core/Global"
+    data-sap-ide-main="runTests"
+    data-sap-ide-environment-path="../../../../env.json"
+    data-sap-ide-basedir="../../../" 
+    data-sap-blanket-cover="/sap/watt/ideplatform/che/plugin/chebackend/service/ProjectTypeDAO"></script>
+
+<title>ProjectSettingsDAO qUnit Test</title>
+
+<script>
+defineTest(["sap/watt/ideplatform/che/plugin/chebackend/service/ProjectTypeDAO", "sap/watt/ideplatform/che/plugin/chebackend/dao/Project"],
+    function(ProjectTypeDAO, oProjectDao) {
+
+		var fMProjectTypes = {
+			"pType1": {
+				"id":"pType1",
+				"displayName" : "pType1 displayName",
+				"aAttributeDescriptors":[
+					{
+						"name":"sKey11"
+					},
+					{
+						"name":"sKey12"
+					}
+				],
+				"bMixable":false,
+				"bPrimaryable": true,
+				"aRunnerCategories":[],
+				"isBuiltIn": true
+
+			},
+			"pType2": {
+				"id":"pType2",
+				"displayName" : "pType2 displayName",
+				"aAttributeDescriptors":[],
+				"bMixable":true,
+				"bPrimaryable": false,
+				"aRunnerCategories":[]
+
+			},
+			"pType3": {
+				"id":"pType3",
+				"displayName" : "pType3 displayName",
+				"aAttributeDescriptors":[],
+				"bMixable":false,
+				"bPrimaryable": true,
+				"aRunnerCategories":[]
+			}
+		};
+
+		test("initProjectType", 14, withPromise(function() {
+			var fUpdateProject = oProjectDao.updateProject;
+			ok(fUpdateProject !== undefined,"check if method is avialable");
+			oProjectDao.updateProject = function() {return Q();};
+
+			var fGetProjectTypes = oProjectDao.getProjectTypes;
+			oProjectDao.getProjectTypes = function() {
+				return Q([
+					{
+						"id":"pType1",
+						"displayName" : "pType1 displayName",
+						"attributeDescriptors":[
+							{
+								"name":"sKey11"
+							},
+							{
+								"name":"sKey12"
+							}
+						],
+						"mixable":false,
+						"primaryable": true,
+						"runnerCategories":[]
+
+					},
+					{
+						"id":"pType2",
+						"displayName" : "pType2 displayName",
+						"attributeDescriptors":[],
+						"mixable":true,
+						"primaryable": false,
+						"runnerCategories":[]
+					},
+					{
+						"id":"pType3",
+						"displayName" : "pType3 displayName",
+						"attributeDescriptors":[],
+						"mixable":false,
+						"parents":[],
+						"primaryable": true,
+						"runnerCategories":[]
+					},
+
+				]);
+			};
+
+
+			return ProjectTypeDAO.initProjectType().then(function(mTypes){
+				equal(mTypes["pType2"].displayName,fMProjectTypes["pType2"].displayName, "displayName is as expected");
+				equal(mTypes["pType2"].bMixable,fMProjectTypes["pType2"].bMixable, "bMixable is as expected");
+				equal(mTypes["pType2"].bPrimaryable,fMProjectTypes["pType2"].bPrimaryable, "bPrimaryable is as expected");
+				deepEqual(mTypes["pType2"].aRunnerCategories,fMProjectTypes["pType2"].aRunnerCategories, "aRunnerCategories is as expected");
+				equal(mTypes["pType1"].displayName,fMProjectTypes["pType1"].displayName, "displayName is as expected");
+				equal(mTypes["pType1"].bMixable,fMProjectTypes["pType1"].bMixable, "bMixable is as expected");
+				equal(mTypes["pType1"].bPrimaryable,fMProjectTypes["pType1"].bPrimaryable, "bPrimaryable is as expected");
+				deepEqual(mTypes["pType1"].aRunnerCategories,fMProjectTypes["pType1"].aRunnerCategories, "aRunnerCategories is as expected");
+				deepEqual(mTypes["pType1"].aAttributeDescriptors,fMProjectTypes["pType1"].aAttributeDescriptors, "aAttributeDescriptors is as expected");
+				equal(mTypes["pType3"].displayName,fMProjectTypes["pType3"].displayName, "displayName is as expected");
+				equal(mTypes["pType3"].bMixable,fMProjectTypes["pType3"].bMixable, "bMixable is as expected");
+				equal(mTypes["pType3"].bPrimaryable,fMProjectTypes["pType3"].bPrimaryable, "bPrimaryable is as expected");
+				deepEqual(mTypes["pType3"].aRunnerCategories,fMProjectTypes["pType3"].aRunnerCategories, "aRunnerCategories is as expected");
+			});
+
+		}));
+
+		test("getAllTypes",(function() {
+			ProjectTypeDAO._mProjectTypes = fMProjectTypes;
+			var allTypes = ProjectTypeDAO.getAllTypes();
+			equal(allTypes.length,3,"getAllTypes return array as expected with length 3");
+			equal(allTypes[1].displayName,"pType2 displayName", "check if displayName is as expected after getAllTypes");
+			equal(allTypes[1].bMixable,true, "check if bMixable is as expected after getAllTypes");
+			equal(allTypes[0].displayName,"pType1 displayName", "check if  displayName is as expected after getAllTypes");
+			equal(allTypes[0].bMixable,false, " check if  bMixable is as expected after getAllTypes");
+			deepEqual(allTypes[0].aRunnerCategories,[], "check if  aRunnerCategories is as expected after getAllTypes");
+			equal(allTypes[2].displayName,"pType3 displayName", "check if  displayName is as expected after getAllTypes ");
+			equal(allTypes[2].bMixable,false, "check if  bMixable is as expected after getAllTypes");
+		}));
+
+		test("getProjectTypes", 6, withPromise(function() {
+			ProjectTypeDAO._mProjectTypes = fMProjectTypes;
+			var oDocument1 = {};
+			var oProjectDocument = {};
+			oDocument1.getProject = function() {
+				oProjectDocument.getProjectMetadata = function() {
+					var oMetadata = {
+						"type" : "pType1",
+					};
+					return oMetadata;
+				};
+				return Q(oProjectDocument);
+			}
+
+			ProjectTypeDAO._getProjectTypesIDs = function(oProjectDocument) {
+				return Q(["pType1"]);
+			}
+
+
+			return ProjectTypeDAO.getProjectTypes(oDocument1).then(function(aProjectTypes){
+				equal(aProjectTypes.length,1,"check project type number of types");
+				equal(aProjectTypes[0].displayName,fMProjectTypes["pType1"].displayName, "displayName in projectType of project");
+				equal(aProjectTypes[0].bMixable,fMProjectTypes["pType1"].bMixable, "bMixable in projectType of project");
+				equal(aProjectTypes[0].bPrimaryable,fMProjectTypes["pType1"].bPrimaryable, "bPrimaryable in projectType of project");
+				deepEqual(aProjectTypes[0].aRunnerCategories,fMProjectTypes["pType1"].aRunnerCategories, "aRunnerCategories in projectType of project");
+				deepEqual(aProjectTypes[0].aAttributeDescriptors,fMProjectTypes["pType1"].aAttributeDescriptors, "aAttributeDescriptors in projectType of project");
+			});
+		}));
+
+		test("_getProjectMetadata", 1, withPromise(function() {
+			var oDocument1 = {};
+			oDocument1.getProject = function() {
+				var oProjectDocument = {};
+				oProjectDocument.getProjectMetadata = function() {
+					var oMetadata = {
+						"type" : "pType1"
+					};
+					return oMetadata;
+				};
+				return Q(oProjectDocument);
+			}
+
+			var expectedMetaData = {
+				"type" : "pType1"
+			};
+			return ProjectTypeDAO._getProjectMetadata(oDocument1).then(function(ProjectMetadata){
+				equal(ProjectMetadata.type,expectedMetaData.type, "check if _getProjectMetadata return the correct value");
+			});
+
+		}));
+
+		test("_getProjectTypes",(function() {
+			ProjectTypeDAO._mProjectTypes = fMProjectTypes;
+			var oMetadata = {
+				"type" : "pType1",
+				"mixins" : ["mixinPType1", "mixinPType2"]
+			};
+
+
+			var expectedAProjectTypes = ["mixinPType1", "mixinPType2" , "pType1"];
+			var aProjectTypes =  ProjectTypeDAO._getProjectTypes(oMetadata);
+			deepEqual(aProjectTypes ,expectedAProjectTypes, "_getProjectTypes should return array containing combination of mixins and primary types of project");
+		}));
+
+		test("getType",(function() {
+			ProjectTypeDAO._mProjectTypes = fMProjectTypes;
+			var oProjectType =  ProjectTypeDAO.getType("pType1");
+			equal(oProjectType.id,fMProjectTypes["pType1"].id, "check getType return the correct value");
+			equal(oProjectType.bMixable,fMProjectTypes["pType1"].bMixable, "check getType return the correct value");
+			equal(oProjectType.bPrimaryable,fMProjectTypes["pType1"].bPrimaryable, "check getType return the correct value");
+			deepEqual(oProjectType.aRunnerCategories,fMProjectTypes["pType1"].aRunnerCategories, "check getType return the correct value");
+		}));
+
+		test("_buildProjectTypesDataObject",(function() {
+			var expextedData =  {
+				"mixinTypes" : ["mixinPType1","mixinPType2"],
+				"type": "pType1"
+			};
+
+			ProjectTypeDAO._mProjectTypes = fMProjectTypes;
+			var data =  ProjectTypeDAO._buildProjectTypesDataObject("pType1", ["mixinPType1","mixinPType2","mixinPType1","mixinPType2"]);
+			deepEqual(data,expextedData, "check ProjectTypes Data Object (for set function) is build successfully");
+		}));
+
+		test("setProjectTypes", 2, withPromise(function() {
+			ProjectTypeDAO.context = {};
+			ProjectTypeDAO.context.service = {};
+			ProjectTypeDAO.context.service.log = {};
+			ProjectTypeDAO.context.service.log.warn = function() {
+				return Q();
+			}
+			ProjectTypeDAO._mProjectTypes = fMProjectTypes;
+			var oDocument1 = {};
+			oDocument1.getProject = function() {
+				var oProjectDocument = {};
+				oProjectDocument.getProjectMetadata = function() {
+					var oMetadata = {
+						"type" : "pType1",
+						"mixins" : []
+					};
+					return oMetadata;
+				};
+				return Q(oProjectDocument);
+			}
+
+			var expectedAaddedTypes = ["pType2", "pType4", "pType5"];
+			var expectedAremovedTypes = [];
+
+			oProjectDao.updateProject = function() {return Q();
+			};
+
+			return ProjectTypeDAO.setProjectTypes(oDocument1, ["pType2", "pType3", "pType4", "pType5"]).then(function(ProjectTypesUpdatedParameters){
+				deepEqual(ProjectTypesUpdatedParameters.aAddedTypes,expectedAaddedTypes,"setProjectTypes return expected values");
+				deepEqual(ProjectTypesUpdatedParameters.aRemovedTypes,expectedAremovedTypes,"setProjectTypes return expected values");
+			});
+		}));
+
+		test("addProjectTypes", 2, withPromise(function() {
+			ProjectTypeDAO._mProjectTypes = fMProjectTypes;
+			var oDocument1 = {};
+			oDocument1.getProject = function() {
+				var oProjectDocument = {};
+				oProjectDocument.getProjectMetadata = function() {
+					var oMetadata = {
+						"type" : "pType1",
+						"mixins" : []
+					};
+					return oMetadata;
+				};
+				return Q(oProjectDocument);
+			}
+
+			var expectedAaddedTypes = ["pType4", "pType5"];
+			var expectedAremovedTypes = [];
+
+			oProjectDao.updateProject = function() {return Q();
+			};
+
+			return ProjectTypeDAO.addProjectTypes(oDocument1, ["pType4", "pType5"]).then(function(ProjectTypesUpdatedParameters){
+				deepEqual(ProjectTypesUpdatedParameters.aAddedTypes,expectedAaddedTypes,"addProjectTypes return expected values");
+				deepEqual(ProjectTypesUpdatedParameters.aRemovedTypes,expectedAremovedTypes,"addProjectTypes return expected values");
+			});
+		}));
+
+		test("removeProjectTypes", 3, withPromise(function() {
+			ProjectTypeDAO._mProjectTypes = fMProjectTypes;
+			var oDocument1 = {};
+			oDocument1.getProject = function() {
+				var oProjectDocument = {};
+				oProjectDocument.getProjectMetadata = function() {
+					var oMetadata = {
+						"type" : "pType1",
+						"mixins" : ["pType4", "pType5", "pType6"]
+					};
+					return oMetadata;
+				};
+				return Q(oProjectDocument);
+			}
+
+			var expectedAaddedTypes = [];
+			var expectedAremovedTypes = ["pType4", "pType5"];
+
+			var fUpdateProject = oProjectDao.updateProject;
+			ok(fUpdateProject !== undefined,"check if method is avialable");
+			oProjectDao.updateProject = function() {return Q();
+			};
+
+			return ProjectTypeDAO.removeProjectTypes(oDocument1, ["pType4", "pType5"]).then(function(ProjectTypesUpdatedParameters){
+				deepEqual(ProjectTypesUpdatedParameters.aAddedTypes,expectedAaddedTypes,"addProjectTypes return expected values");
+				deepEqual(ProjectTypesUpdatedParameters.aRemovedTypes,expectedAremovedTypes,"addProjectTypes return expected values");
+			});
+		}));
+
+		test("_removeNotMixableTypesFromArry",(function() {
+			ProjectTypeDAO._mProjectTypes = fMProjectTypes;
+			ProjectTypeDAO.context.service.log.warn = function() {
+				return Q();
+			}
+			var expectedTypesArray = ["pType2", "pType6"];
+			var aProjectTypeIDs = ProjectTypeDAO._removeNotMixableTypesFromArry (["pType2", "pType3", "pType6"]);
+			deepEqual(aProjectTypeIDs,expectedTypesArray,"Not Mixable Types was removed successfully From Array");
+		}));
+});
+</script>
+
+</head>
+<body >
+	<div id="qunit"></div>
+</body>
+</html>

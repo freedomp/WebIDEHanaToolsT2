@@ -1,0 +1,299 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+ <script src="../../../../util/qunitHelper.js"></script>
+<script>setBase("sap/watt/uitools/")</script>
+
+    <script src="../lib/requirejs/require.js"
+            data-main="../core/Global"
+            data-sap-ide-main="runTests"
+            data-sap-ide-environment-path="../../../../env.json"
+            data-sap-ide-basedir="../../../"
+            data-sap-blanket-cover="/sap/watt/hanaplugins/build/plugin/buildcommon/"
+            data-sap-ide-config="checonfig.json">
+    </script>
+
+    <title>Integration test Hana db client Build qUnit Test</title>
+
+
+
+
+<script>
+
+	var mConsumer =	{
+		"name" : "testConsumer",
+		
+		"requires": {
+			"services": [
+				"document",
+				"system",
+				"filesystem.documentProvider",
+				"builder",
+				"log"
+			]
+		}
+	};
+	
+	defineServiceTest(mConsumer, ["qunit/common/plugin/builder/utils/BasicUtil","sap/watt/ideplatform/che/plugin/chebackend/dao/Build"], function(oContext,BasicUtil,Builder) {
+		
+		var oParameters = jQuery.sap.getUriParameters();
+		var sUsername = oParameters.get("username");
+		var sPassword = oParameters.get("password");
+		var oLoginPromise = oContext.service.system.login(sUsername, sPassword);
+		
+		var oDocumentService = oContext.service.document;
+		var oDocumentProviderService = oContext.service.filesystem.documentProvider;
+		
+		var oRootMTAProjectData = {};
+		oRootMTAProjectData.type = "mta";
+		this.oLog = oContext.service.log;
+        this.origError = oLog.error;
+        this.sError = "";
+		module("UI5 Build test", {
+			setup : withPromise(function() {
+				var d = new Date();
+				var n = d.getTime();
+				oRootMTAProjectData.name = "RootTestMTA_" + n;
+				return Q();
+			}),
+			
+			teardown : withPromise(function() {
+				return oDocumentProviderService.getRoot().then(function(oRootDocument) {
+					return oRootDocument.getFolderContent().then(function(aContent) {
+						for (var i = 0; i < aContent.length; i++) {
+							if (aContent[i].getEntity().getName() === oRootMTAProjectData.name) {
+								return aContent[i].delete();
+							}
+						}
+					});
+				});
+			})
+		});
+		
+		test("Create MTA project and build it",6, withPromise(function() {
+			 var that = this;
+			return oDocumentProviderService.getRoot().then(function(oRootDocument) {
+				return oRootDocument.createProject(oRootMTAProjectData).then(function(oProjectDocument) {
+					
+							 ok(oProjectDocument != null, "MTA  - project created");
+							 var oBasicUtil = new BasicUtil("","",oContext.service);
+	                            return Q.spread([oBasicUtil.isBuildSupported(oProjectDocument),
+	                                            
+	                                             oBasicUtil.isBuildRequired(oProjectDocument),_isBuilderRegistered(oProjectDocument,"mtabuilder")], function (bIsBuildSupported, bIsBuildRequired,buildRegistrer) {
+
+	                                //Check build supported
+	                                ok(bIsBuildSupported === true, "MTA project build is supported");
+
+	                                //Check build required
+	                                ok(bIsBuildRequired === true, "MTA project build is required");
+	                              
+	                                //Check build registered
+	                                ok(buildRegistrer,"Builder MTA is register");
+
+	                               
+	                                //Trigger build
+	                               return oBasicUtil.build(oProjectDocument).then(function () {
+	                            	   var sProjectName = "/"+oRootMTAProjectData.name ;
+	                            
+	                                    	
+	                                    	return _getBuildStatus(oProjectDocument,sProjectName).then(function (buildStatus) {
+	                                    		ok(buildStatus !== null);
+	                                    		ok(buildStatus === "SUCCESSFUL");
+	                                    	});
+	                                });
+	                                
+	                                
+	                                
+								});
+						});
+				
+				});
+			}));
+		
+	
+		test("Create HTML5 sub project under root MTA project  build it and build the root MTA project",9, withPromise(function() {
+			 var that = this;
+			return oDocumentProviderService.getRoot().then(function(oRootDocument) {
+				return oRootDocument.createProject(oRootMTAProjectData).then(function(oProjectDocument) {
+					var oHTML5SubProjectData = {};
+					oHTML5SubProjectData.name = "testHtml5SubProject";
+					oHTML5SubProjectData.type = "sap.html5";
+						return oProjectDocument.createProject(oHTML5SubProjectData).then(function(oHTML5SubProjectDocument) {
+							 ok(oHTML5SubProjectDocument != null, "HTML 5  - Module created");
+							 var oBasicUtil = new BasicUtil("","",oContext.service);
+	                            return Q.spread([oBasicUtil.isBuildSupported(oHTML5SubProjectDocument),
+	                                            
+	                                             oBasicUtil.isBuildRequired(oHTML5SubProjectDocument),_isBuilderRegistered(oProjectDocument,"ui5-builder")], function (bIsBuildSupported, bIsBuildRequired,buildRegistrer) {
+
+	                                //Check build supported
+	                                ok(bIsBuildSupported === true, "UI5 build is supported");
+
+	                                //Check build required
+	                                ok(bIsBuildRequired === true, "UI5 build is required");
+									
+	                              //Check build registered
+	                                ok(buildRegistrer,"Builder UI5 is register");
+	                                
+	             
+	                               
+	                               return oBasicUtil.build(oHTML5SubProjectDocument).then(function () {
+	                            	   var sProjectName = "/"+oRootMTAProjectData.name + "/" + oHTML5SubProjectData.name;
+	                            	 
+	                                    	
+	                                    	return _getBuildStatus(oHTML5SubProjectDocument,sProjectName).then(function (buildStatus) {
+	                                    		ok(buildStatus !== null);
+	                                    		ok(buildStatus === "SUCCESSFUL");
+	                                    	return _isBuilderRegistered(oProjectDocument,"mtabuilder").then(function (buildRegistrer) {
+	                                    		ok(buildRegistrer,"Builder MTA is register");
+	                                    	  	return oBasicUtil.build(oProjectDocument).then(function (status) {
+	                                    	  		var sProjectName = "/"+oRootMTAProjectData.name ;
+	                                    			return _getBuildStatus(oProjectDocument,sProjectName).then(function (buildStatus) {
+	    	                                    			ok(buildStatus !== null);
+	    	                                    			ok(buildStatus === "SUCCESSFUL");
+	    	                                    	//		ok(that.sError === "", "no errors should return from Hana DB build " + that.sError);
+	    	                                    			});
+	                                    			});
+	      	                                  
+	      	                                	});
+	                                    	  	
+	                                    	});
+	                                   });
+	                                
+	                                })
+								
+	                            
+	                            });
+						});
+				
+				});
+			//});
+		}));
+		
+		
+	
+	
+	
+	
+	/*	test("Create HDB sub project under root MTA project  build it and build the root MTA project",9, withPromise(function() {
+			 var that = this;
+			return oDocumentProviderService.getRoot().then(function(oRootDocument) {
+				return oRootDocument.createProject(oRootMTAProjectData).then(function(oProjectDocument) {
+					var oHTML5SubProjectData = {};
+					oHTML5SubProjectData.name = "testHdbSubProject";
+					oHTML5SubProjectData.type = "sap.hdb";
+						return oProjectDocument.createProject(oHTML5SubProjectData).then(function(oHTML5SubProjectDocument) {
+							 ok(oHTML5SubProjectDocument != null, "HDB  - Module created");
+							 var oBasicUtil = new BasicUtil("","",oContext.service);
+	                            return Q.spread([oBasicUtil.isBuildSupported(oHTML5SubProjectDocument),
+	                                            
+	                                             oBasicUtil.isBuildRequired(oHTML5SubProjectDocument),_isBuilderRegistered(oProjectDocument,"hdi-builder")], function (bIsBuildSupported, bIsBuildRequired,buildRegistrer) {
+
+	                                //Check build supported
+	                                ok(bIsBuildSupported === true, "HDB build is supported");
+
+	                                //Check build required
+	                                ok(bIsBuildRequired === true, "HDB build is required");
+									
+	                              //Check build registered
+	                                ok(buildRegistrer,"Builder HDB is register");
+	                                
+	             
+	                               
+	                               return oBasicUtil.build(oHTML5SubProjectDocument).then(function () {
+	                            	   var sProjectName = "/"+oRootMTAProjectData.name + "/" + oHTML5SubProjectData.name;
+	                            	 
+	                                    	
+	                                    	return _getBuildStatus(oHTML5SubProjectDocument,sProjectName).then(function (buildStatus) {
+	                                    		ok(buildStatus !== null);
+	                                    		ok(buildStatus === "SUCCESSFUL");
+	                                    	return _isBuilderRegistered(oProjectDocument,"mtabuilder").then(function (buildRegistrer) {
+	                                    		ok(buildRegistrer,"Builder MTA is register");
+	                                    	  	return oBasicUtil.build(oProjectDocument).then(function (status) {
+	                                    	  		var sProjectName = "/"+oRootMTAProjectData.name ;
+	                                    			return _getBuildStatus(oProjectDocument,sProjectName).then(function (buildStatus) {
+	    	                                    			ok(buildStatus !== null);
+	    	                                    			ok(buildStatus === "SUCCESSFUL");
+	    	                                    	//		ok(that.sError === "", "no errors should return from Hana DB build " + that.sError);
+	    	                                    			});
+	                                    			});
+	      	                                  
+	      	                                	});
+	                                    	  	
+	                                    	});
+	                                   });
+	                                
+	                                })
+								
+	                            
+	                            });
+						});
+				
+				});
+			//});
+		}));
+	
+	
+	
+	
+	
+	
+	
+	
+	*/
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+		
+		return oLoginPromise;
+		
+		function _getBuildStatus(oHTML5SubProjectDocument,sProjectName) {
+			var oProjectMetadata = oHTML5SubProjectDocument.getProjectMetadata();
+            var sWorkspaceId= oProjectMetadata.workspaceId;
+            return Builder.getBuilds(sWorkspaceId).then(function(builds) {
+            	var buildStatus = null;
+            	for ( var i=0; i < builds.length; i++) {
+            		var projectName =sProjectName;
+            		if (builds[i].project === sProjectName) {
+            			buildStatus = builds[i].status;
+            		}
+            	}
+            	return buildStatus;
+			});
+		}
+		function _isBuilderRegistered(oDocument,sBuilderName) {
+			var oProjectMetadata = oDocument.getProjectMetadata();
+            var sWorkspaceId= oProjectMetadata.workspaceId
+            return Builder.doGetBuilders(sWorkspaceId).then(function(builders) {
+            	var isRegistered = false;
+            	for ( var i=0; i < builders.length; i++) {
+            		if (builders[i].name === sBuilderName) {
+            			isRegistered = true;
+            		}
+            	}
+            	return isRegistered;
+			});
+		}
+	
+	});
+
+
+</script>
+
+</head>
+<body >
+	<div id="qunit"></div>
+	<div id="content" style="display: none"></div>
+</body>
+</html>

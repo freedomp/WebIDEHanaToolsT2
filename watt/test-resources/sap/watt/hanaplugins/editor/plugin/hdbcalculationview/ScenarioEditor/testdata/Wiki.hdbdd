@@ -1,0 +1,23 @@
+namespace idetests.editor.plugin.analytics.testdata;
+
+@Schema : 'WEB_IDE_MODELER'
+context Wiki {
+ 	
+ 	entity User {
+ 		key _ID : Integer;
+ 		name : String(80);
+ 		birthday : LocalDate;
+ 	};
+ 	
+ 	entity Page {
+ 		key _ID : Integer;
+ 		name : String(256);
+ 		likes : Integer;
+ 		views : Integer;
+ 		changes : Integer;
+ 		createdBy : association to User;
+ 		createdAt : UTCDateTime;
+ 		changedBy : association to User;
+ 		changedAt : UTCDateTime;
+ 	};
+};

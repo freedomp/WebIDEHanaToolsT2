@@ -1,0 +1,9 @@
+namespace Defaults;
+entity simple_time {
+   key id : Integer;
+   timeWithDefault : LocalTime default time'17:38:06';
+};
+
+/* @classification: basic */
+/* @description: Simple Time default value */
+/* @resource-name: Defaults::simple_time */

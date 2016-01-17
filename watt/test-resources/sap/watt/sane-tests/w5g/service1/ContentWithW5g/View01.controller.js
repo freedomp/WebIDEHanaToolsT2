@@ -1,0 +1,1 @@
+sap.ui.controller("AnApp.view.View01", {});

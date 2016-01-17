@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<script src="../../../util/qunitHelper.js" ></script>
+<script>setBase("sap/watt/uitools/")</script>
+
+<script src="../lib/requirejs/require.js"
+	        data-main="../core/Global"
+	        data-sap-ide-main="runTests"
+	        data-sap-ide-environment-path="../../../../env.json"
+	        data-sap-ide-basedir="../../../"></script>
+
+<title>System Service qUnit Test</title>
+
+
+<script>
+	defineTest([ "sap/watt/ideplatform/orion/plugin/orionbackend/service/System" ], function(oSystemService) {
+		// login
+		var oParameters = jQuery.sap.getUriParameters();
+		var sUsername = oParameters.get("username");
+		var sPassword = oParameters.get("password");
+		oSystemService.context = {
+			"event" : {
+				fireLoggedIn : function() {return Q();}
+			}
+		};
+		
+		var oLoginPromise = oSystemService.login(sUsername, sPassword);
+						
+		module("System Service", {
+			setup : function() {
+			},
+			teardown : function() {
+			}
+		});
+
+		test("1. isAlive", 0, withPromise(function() {
+			return oSystemService.isAlive();
+
+		}));
+
+		test("2. getSystemInfo", 2, withPromise(function() {
+			return oSystemService.getSystemInfo().then(function(oSystemInfo) {
+				ok(oSystemInfo && oSystemInfo.sUsername && oSystemInfo.sUsername.length > 0);
+				ok(oSystemInfo && oSystemInfo.sDbname && oSystemInfo.sDbname.length > 0);
+			});
+		}));
+
+		test("3. login failure", 1, withPromise(function() {
+			if (sap.watt.getEnv("orion_needs_login")){
+				oSystemService._ensureLogin = null;
+				return oSystemService.login("nouser", "nopassword").fail(function(oError) {
+					ok(oError && oError.message);
+				});
+			}else{
+				ok("No login to orion needed");
+				return Q();
+			}
+		}));
+
+		test("6. getSystemInfo hcproxy", withPromise(function() {
+			// mock the Helium /services/userapi
+			jQuery.sap.require("sap.ui.core.util.MockServer");
+			var _oMockServer = new sap.ui.core.util.MockServer();
+			var mockResponse = {
+								"fullname": "fullname",
+								"firstName": "firstname",
+								"lastName": "lastname",
+								"email": "email",
+								"name": "id"
+								};
+			_oMockServer.setRequests([{method:"GET",path:sap.watt.getEnv("context_root") + "services/userapi/currentUser",response:  function(xhr) {
+				xhr.respond(200, {"Content-Type": "application/json"}, JSON.stringify(mockResponse));
+			} }
+			]);
+			_oMockServer.start();
+			ok(true,"mock server started");
+			console.log("mock server started");
+			var oldServerType = window["sap-ide-env"]["server_type"];
+			window["sap-ide-env"]["server_type"] = "hcproxy";
+			oSystemService._ensureLogin = null;
+			var oNewLoginPromise = oSystemService.login(sUsername, sPassword);
+			return oNewLoginPromise.then(function() {
+				ok(true,"login successfull");
+				console.log("login successfull");
+				return oSystemService.getSystemInfo().then(function(oSystemInfo) {
+					console.log("system info fetched");
+					ok(oSystemInfo,"system info fetched")
+					equal(oSystemInfo.sUsername, "id");
+					equal(oSystemInfo.sEMail, "email");
+					equal(oSystemInfo.sFirstName, "firstname");
+					equal(oSystemInfo.sLastName, "lastname");
+				});
+			})["finally"](function(){
+				_oMockServer.stop();
+				window["sap-ide-env"]["server_type"] = oldServerType;
+			});
+		}));
+
+		return oLoginPromise;
+	});
+</script>
+
+</head>
+<body >
+	<div id="qunit"></div>
+	<div id="content" style="display: none"></div>
+</body>
+</html>

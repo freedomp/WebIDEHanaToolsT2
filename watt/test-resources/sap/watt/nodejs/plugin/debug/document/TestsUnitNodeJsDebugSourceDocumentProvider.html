@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TestsUnitNodeJsDebugSourceDocumentProvider</title>
+
+    <meta charset="UTF-8"/>
+    <meta http-equiv='cache-control' content='no-cache'/>
+    <meta http-equiv='expires' content='0'/>
+    <meta http-equiv='pragma' content='no-cache'/>
+
+ 	<link rel="stylesheet" href="/resources/sap/ui/thirdparty/qunit.css" />
+    <!-- load before all others -->
+	<script id="sap-ui-bootstrap"
+			src="/resources/sap-ui-core.js"
+			data-sap-ui-theme="sap_bluecrystal"
+			data-sap-ui-libs="sap.ui.commons, sap.ui.ux3, sap.ui.table"
+			data-sap-ui-resourceroots='{ "sap.xs.nodejs.debug": "../../../../plugin/debug/" }'>
+	</script>
+
+<!-- keep sequence! -->
+
+<!-- keep sequence! -->
+  <script src="/watt/resources/sap/watt/lib/q/q.js"></script>
+  <script src="/watt/resources/sap/watt/lib/requirejs/require.js"></script>
+
+  <script src="/resources/sap/ui/thirdparty/qunit.js"></script>
+  <script src="../../../test-support/qunitHelper.js"></script>
+
+</head>
+
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+
+<script>
+	require.config({
+		map: {
+	        "*": {
+	            "sap.watt.common.document/Document": "../util/DocumentMock"
+	        }
+	    }
+	});
+
+	// otherwise QUnit will start immediately and not wait for promises
+    QUnit.config.autostart = false;
+
+	// load required productive lib
+	require([
+        "./TestsUnitNodeJsDebugSourceDocumentProvider"
+    ],
+
+	function(TestsUnitNodeJsDebugSourceDocumentProvider) {
+		// now its safe to start the test execution
+		QUnit.start();
+	});
+
+</script>
+</body>
+</html>

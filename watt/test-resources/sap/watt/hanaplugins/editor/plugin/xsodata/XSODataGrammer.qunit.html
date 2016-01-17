@@ -1,0 +1,551 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<script src="../../../../util/qunitHelper.js" ></script>
+<script>setBase("sap/watt/uitools/")</script>
+
+<script src="../lib/requirejs/require.js"
+	        data-main="../core/Global"
+	        data-sap-ide-main="runTests"
+	        data-sap-ide-environment-path="../../../../env.json"
+	        data-sap-ide-basedir="../../../"></script>
+
+<title>XSOdata Service qUnit Test</title>
+
+<script>
+defineTest(["sap/watt/hanaplugins/editor/plugin/xsodata/service/validator/XSODataValidatorHelper"], function(oXSODataValidatorHelper) {
+
+	var testData = {
+		positive: {},
+		negative: {}
+	};
+
+	var setData = function( /* String */ dataFile, data) {
+		var testDataIndex = dataFile.split("/");
+		var pathLength = testDataIndex.length;
+		if (pathLength >= 2) {
+			var testType = testDataIndex[pathLength - 2];
+			var dataIndex = testDataIndex[pathLength - 1].split(".")[0];
+			testData[testType][dataIndex] = data;
+		}
+	};
+
+	var loadData = function( /* String */ dataFileUrl) {
+		return $.get(dataFileUrl, function(data) {
+			setData(dataFileUrl, data);
+		});
+	};
+
+	var sourceToLines = function(source, editorSession) {
+		var lines = source.split("\n");
+		if (lines.length > 0) {
+			if (lines[0].match("\r$")) {
+				editorSession.$newlineLength = 2;
+				for (var i = 0; i < lines.length; i++) {
+					lines[i] = lines[i].substr(0, lines[i].length - 1);
+				}
+			} else {
+				editorSession.$newlineLength = 1;
+			}
+		}
+		editorSession.$lines = lines;
+	};
+	
+	var constructExpectedAnnotations = function(row,column,type,text,rangeStart,rangeEnd){
+        return {"row":row,"column":column,"type":type,"range":{"start":rangeStart,"end":rangeEnd},"text":text};
+    };
+
+	var _validateAnnotations = function(annotations, expectedAnnotations) {
+		//row,column,type,text,range.start,range.end
+		var index = 0;
+		var annotationFound;
+		for (var i = 0; i < annotations.length; i++) {
+			annotationFound = false;
+			for (var j = 0; j < expectedAnnotations.length; j++) {
+				if (annotations[i].line -1 === expectedAnnotations[j].row &&
+					annotations[i].column === expectedAnnotations[j].column + 1 &&
+					annotations[i].severity === expectedAnnotations[j].type &&
+					annotations[i].message === expectedAnnotations[j].text ){//&&
+					//annotations[i].range.start === expectedAnnotations[j].range.start &&
+					//annotations[i].range.end === expectedAnnotations[j].range.end) {
+					
+					index = index + 1;
+					annotationFound = true;
+					j = expectedAnnotations.length;
+				}
+			}
+			if (!annotationFound) {
+				equal(0, 1, "Expected annotation not found - row: " + annotations[i].line + " column: " + annotations[i].column + " text: " +
+					annotations[i].message);
+			}
+		}
+		equal(expectedAnnotations.length, annotations.length, "Expected all annotations matched");
+	};
+
+	var parserStartup = function() {
+		var oDeferred = Q.defer(); // Start of Async acction using a defered object
+		var allData = [loadData(resolveOnOldBase("positive/aggregation.data")),
+            loadData(resolveOnOldBase("positive/annotation.data")),
+            loadData(resolveOnOldBase("positive/association.data")),
+            loadData(resolveOnOldBase("positive/entity.data")),
+            loadData(resolveOnOldBase("positive/key.data")),
+            loadData(resolveOnOldBase("positive/modification.data")),
+            loadData(resolveOnOldBase("positive/namespace.data")),
+            loadData(resolveOnOldBase("positive/navigation.data")),
+            loadData(resolveOnOldBase("positive/parameters.data")),
+            loadData(resolveOnOldBase("negative/entity1.data")),
+            loadData(resolveOnOldBase("negative/entity2.data")),
+            loadData(resolveOnOldBase("negative/entity3.data")),
+            loadData(resolveOnOldBase("negative/entity4.data")),
+            loadData(resolveOnOldBase("negative/entity6.data")),
+            loadData(resolveOnOldBase("negative/entity7.data")),
+            loadData(resolveOnOldBase("negative/entity8.data")),
+            loadData(resolveOnOldBase("negative/entity9.data")),
+            loadData(resolveOnOldBase("negative/entity10.data")),
+            loadData(resolveOnOldBase("negative/entity11.data")),
+            loadData(resolveOnOldBase("negative/entity12.data")),
+            loadData(resolveOnOldBase("negative/entity13.data")),
+            loadData(resolveOnOldBase("negative/entity14.data")),
+            loadData(resolveOnOldBase("negative/entity15.data")),
+            loadData(resolveOnOldBase("negative/namespace1.data")),
+            loadData(resolveOnOldBase("negative/namespace2.data")),
+            loadData(resolveOnOldBase("negative/namespace3.data")),
+            loadData(resolveOnOldBase("negative/namespace4.data")),
+            loadData(resolveOnOldBase("negative/namespace5.data")),
+            loadData(resolveOnOldBase("negative/namespace6.data")),
+            loadData(resolveOnOldBase("negative/namespace7.data")),
+            loadData(resolveOnOldBase("negative/navigation1.data")),
+            loadData(resolveOnOldBase("negative/navigation2.data")),
+            loadData(resolveOnOldBase("negative/navigation3.data")),
+            loadData(resolveOnOldBase("negative/navigation4.data")),
+            loadData(resolveOnOldBase("negative/navigation5.data")),
+            loadData(resolveOnOldBase("negative/navigation6.data")),
+            loadData(resolveOnOldBase("negative/navigation7.data")),
+            loadData(resolveOnOldBase("negative/navigation8.data")),
+            loadData(resolveOnOldBase("negative/navigation9.data")),
+            loadData(resolveOnOldBase("negative/navigation10.data")),
+            loadData(resolveOnOldBase("negative/navigation11.data")),
+            loadData(resolveOnOldBase("negative/navigation12.data")),
+            loadData(resolveOnOldBase("negative/navigation13.data"))
+        ];		return Q.all(allData).then(function() {
+			console.log("Data loaded");
+		}).fail(function errorHnadler(e) {
+			console.log("Data loaded failure..............");
+		});
+	};
+	
+	var startTestPromise = parserStartup();
+	var source, oAnnotation;
+	
+	module("Editor grammar controller services tests", {
+		setup: function() {},
+		teardown: function() {}
+	});
+	
+
+
+	test("Positive Aggregation", function() {
+		source = testData.positive.aggregation;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		equal(oAnnotation.issues.length, 0, "No annotations expected");
+	});	
+
+	
+	test("Positive Annotation", function() {
+		source = testData.positive.annotation;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		equal(oAnnotation.issues.length, 0, "No annotations expected");
+	});
+	
+	test("Positive Association", function() {
+		source = testData.positive.association;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		equal(oAnnotation.issues.length, 0, "No annotations expected");
+    });
+	
+	test("Positive Entity", function() {
+		var source = testData.positive.entity;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		equal(oAnnotation.issues.length, 0, "No annotations expected");
+	});
+	
+	test("Positive Key", function() {
+		source = testData.positive.key;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+        equal(oAnnotation.issues.length, 0, "No annotations expected");
+    });
+
+	test("Positive Modification", function() {
+    	source = testData.positive.modification;
+        oAnnotation = oXSODataValidatorHelper.getIssues(source);
+        equal(oAnnotation.issues.length, 0, "No annotations expected");
+	});
+
+    test("Positive Namespace", function() {
+		source = testData.positive.namespace;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+ 		equal(oAnnotation.issues.length, 0, "No annotations expected");
+	});
+
+	test("Positive Navigation", function() {
+		source = testData.positive.navigation;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		equal(oAnnotation.issues.length, 0, "No annotations expected");
+	});
+
+	test("Positive Parameters", function() {
+		source = testData.positive.parameters;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		equal(oAnnotation.issues.length, 0, "No annotations expected");
+	});
+
+	test("Negative entity missing projection", function() {
+		source = testData.negative.entity1;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+        var row = 2,start = 51,end = 52;
+        var expectedAnnotations = [];
+        expectedAnnotations.push(constructExpectedAnnotations(row,start,"error",'{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":";"}',start,end))
+        _validateAnnotations(oAnnotation.issues, expectedAnnotations);
+        //var expectedMarkers = [];
+                //expectedMarkers.push(_constructExpectedMarkers(";",start,row));
+                //_validateMarkers(editorSession.markers,expectedMarkers);
+	});
+	
+	test("Negative entity Capital", function() {
+		var row = 2,start = 43,end = 50;
+		var source = testData.negative.entity2;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		var expectedAnnotations = [];
+		//expectedAnnotations.push(constructExpectedAnnotations(row,start,"error",editorSession.getAnnotationMessage(editorSession.ERROR_MESSAGE_ERROR,"Without"),start,end))
+		expectedAnnotations.push(constructExpectedAnnotations(row,start, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"Without"}', start,end))
+        _validateAnnotations(oAnnotation.issues, expectedAnnotations);
+	});
+	
+	
+      
+	test("Negative entity Without", function() {
+		var row = 2,start = 52,end = 53;
+		var source = testData.negative.entity3;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		var expectedAnnotations = [];
+		expectedAnnotations.push(constructExpectedAnnotations(row, start, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":")"}', start, end))
+		_validateAnnotations(oAnnotation.issues, expectedAnnotations);
+	});
+	
+        
+	test("Negative entity missing (", function() {
+		var row = 2,start = 51,end = 57;
+		var source = testData.negative.entity4;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		var expectedAnnotations = [];
+		expectedAnnotations.push(constructExpectedAnnotations(row, start, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"\\\"Text\\\""}', start, end))
+		_validateAnnotations(oAnnotation.issues, expectedAnnotations);
+	});
+
+	test("Negative missing comma", function() {
+		var row = 2,start = 59,end = 65;
+		var source = testData.negative.entity6;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		var expectedAnnotations = [];
+		expectedAnnotations.push(constructExpectedAnnotations(row, start, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"\\\"Time\\\""}', start, end))
+		_validateAnnotations(oAnnotation.issues, expectedAnnotations);
+	});
+
+
+	test("Negative missing )", function() {
+		var row = 2,start = 65,end = 66;
+		var source = testData.negative.entity7;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		var expectedAnnotations = [];
+		expectedAnnotations.push(constructExpectedAnnotations(row, start, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":";"}', start, end))
+		_validateAnnotations(oAnnotation.issues, expectedAnnotations);
+	});
+	
+	test("Negative missing ;", function() {
+		var row = 3,start = 0,end = 1;
+		var source = testData.negative.entity8;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		var expectedAnnotations = [];
+		expectedAnnotations.push(constructExpectedAnnotations(row, start, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"}"}', start, end))
+		_validateAnnotations(oAnnotation.issues, expectedAnnotations);
+	});
+
+	test("Negative With Capital", function() {
+		var row = 3,start = 43,end = 47;
+		var source = testData.negative.entity9;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		var expectedAnnotations = [];
+		expectedAnnotations.push(constructExpectedAnnotations(row, start, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"With"}', start, end))
+		_validateAnnotations(oAnnotation.issues, expectedAnnotations);
+	});
+
+	test("Negative missing projection", function() {
+		var row = 2,start = 48,end = 49;
+		var source = testData.negative.entity10;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		var expectedAnnotations = [];
+		expectedAnnotations.push(constructExpectedAnnotations(row, start, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":";"}', start, end))
+		_validateAnnotations(oAnnotation.issues, expectedAnnotations);
+	});
+
+	test("Negative entity Without", function() {
+		var row = 2,start = 49,end = 50;;
+		var source = testData.negative.entity11;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		var expectedAnnotations = [];
+		expectedAnnotations.push(constructExpectedAnnotations(row, start, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":")"}', start, end))
+		_validateAnnotations(oAnnotation.issues, expectedAnnotations);
+	});
+
+	test("Negative missing (", function() {
+		var row = 2,start = 48,end = 54;
+		var source = testData.negative.entity12;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		var expectedAnnotations = [];
+		expectedAnnotations.push(constructExpectedAnnotations(row, start, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"\\\"Text\\\""}', start, end))
+		_validateAnnotations(oAnnotation.issues, expectedAnnotations);
+	});
+
+	test("Negative missing ,", function() {
+		var row = 2,start = 56,end = 62;
+		var source = testData.negative.entity13;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		var expectedAnnotations = [];
+		expectedAnnotations.push(constructExpectedAnnotations(row, start, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"\\\"Time\\\""}', start, end));
+		_validateAnnotations(oAnnotation.issues, expectedAnnotations);
+	});
+	
+
+	test("Negative missing )", function() {
+		var row = 2,start = 62,end = 63;
+		var source = testData.negative.entity14;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		var expectedAnnotations = [];
+		expectedAnnotations.push(constructExpectedAnnotations(row, start, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":";"}', start, end));
+		_validateAnnotations(oAnnotation.issues, expectedAnnotations);
+	});	
+
+	test("Negative missing ;", function() {
+		var row = 3,start = 0,end = 1;
+		var source = testData.negative.entity15;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		var expectedAnnotations = [];
+		expectedAnnotations.push(constructExpectedAnnotations(row, start, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"}"}', start, end));
+		_validateAnnotations(oAnnotation.issues, expectedAnnotations);
+	});	
+	
+
+	test("Negative missing letter", function() {
+		var row = 1,start = 8,end = 16;
+		var source = testData.negative.namespace1;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		var expectedAnnotations = [];
+		expectedAnnotations.push(constructExpectedAnnotations(row, start, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"namespae"}', start, end));
+		_validateAnnotations(oAnnotation.issues, expectedAnnotations);
+	});	
+
+
+	test("Negative Capital letter", function() {
+		var row = 1,start = 8,end = 17;
+		var source = testData.negative.namespace2;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		var expectedAnnotations = [];
+		expectedAnnotations.push(constructExpectedAnnotations(row, start, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"Namespace"}', start, end));
+		_validateAnnotations(oAnnotation.issues, expectedAnnotations);
+	});	
+
+	test("Negative missing \"\\\"", function() {
+		var row = 1,start = 18,end = 25;
+		var source = testData.negative.namespace3;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		var expectedAnnotations = [];
+		expectedAnnotations.push(constructExpectedAnnotations(row, start, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"xstools"}', start, end));
+		expectedAnnotations.push(constructExpectedAnnotations(1, 25, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"\\\" {}  \\r"}', 25, 26));
+		_validateAnnotations(oAnnotation.issues, expectedAnnotations);
+	});	
+
+	test("Negative missing bracket", function() {
+		var row = 2,start = 1,end = 6;
+		var source = testData.negative.namespace4;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		var expectedAnnotations = [];
+		expectedAnnotations.push(constructExpectedAnnotations(row, start, "error", '{"i18nKey":"syntaxCheckAnnotationEOFErrorMessage"}', start, end));
+		_validateAnnotations(oAnnotation.issues, expectedAnnotations);
+	});	
+
+	test("Negative tail after bracket", function() {
+		var row = 1,start = 30,end = 31;
+		var source = testData.negative.namespace5;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		var expectedAnnotations = [];
+		expectedAnnotations.push(constructExpectedAnnotations(row, start, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":";"}', start, end));
+		_validateAnnotations(oAnnotation.issues, expectedAnnotations);
+	});	
+
+	test("Negative wrong string quote", function() {
+		var row = 1,start = 18,end = 27;
+		var source = testData.negative.namespace6;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		var expectedAnnotations = [];
+		expectedAnnotations.push(constructExpectedAnnotations(row, start, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"\'xstools\'"}', start, end));
+		_validateAnnotations(oAnnotation.issues, expectedAnnotations);
+	});	
+
+	test("Negative switch keywords", function() {
+		var row = 1,start = 0,end = 9;
+		var source = testData.negative.namespace7;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		var expectedAnnotations = [];
+		expectedAnnotations.push(constructExpectedAnnotations(row, start, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"namespace"}', start, end));
+		_validateAnnotations(oAnnotation.issues, expectedAnnotations);
+	});	
+
+	test("Negative Capital", function() {
+		var row = 5,start = 2,end = 11;
+		var source = testData.negative.navigation1;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		var expectedAnnotations = [];
+		expectedAnnotations.push(constructExpectedAnnotations(row, start, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"Navigates"}', start, end));
+		_validateAnnotations(oAnnotation.issues, expectedAnnotations);
+	});	
+
+
+	test("Negative missing (", function() {
+		var row = 4,start = 12,end = 29;
+		var source = testData.negative.navigation2;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		var expectedAnnotations = [];
+		expectedAnnotations.push(constructExpectedAnnotations(row, start, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"\\\"Customer_Orders\\\""}', start, end));
+		_validateAnnotations(oAnnotation.issues, expectedAnnotations);
+	});	
+
+	test("Negative missing (", function() {
+		var row = 4,start = 12,end = 29;
+		var source = testData.negative.navigation3;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		var expectedAnnotations = [];
+		expectedAnnotations.push(constructExpectedAnnotations(row, start, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"\\\"Customer_Orders\\\""}', start, end));
+		_validateAnnotations(oAnnotation.issues, expectedAnnotations);
+	});	
+
+	test("Negative missing \"", function() {
+		var row = 5,start = 13,end = 28;
+		var source = testData.negative.navigation4;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		var expectedAnnotations = [];
+		expectedAnnotations.push(constructExpectedAnnotations(row, start, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"Customer_Orders"}', start, end));
+		expectedAnnotations.push(constructExpectedAnnotations(5, 43, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"\\\",\\r"}', 43, 44));
+		_validateAnnotations(oAnnotation.issues, expectedAnnotations);
+	});	
+	
+	test("Negative wrong \"as\"\"", function() {
+		var row = 5,start = 13,end = 28;
+		var source = testData.negative.navigation5;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		var expectedAnnotations = [];
+		expectedAnnotations.push(constructExpectedAnnotations(row, start, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"Customer_Orders"}', start, end));
+		expectedAnnotations.push(constructExpectedAnnotations(5, 43, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"\\\",\\r"}', 43, 44));		
+		_validateAnnotations(oAnnotation.issues, expectedAnnotations);
+	});	
+
+	test("Negative missing \"", function() {
+		var row = 3,start = 13,end = 28;
+		var source = testData.negative.navigation6;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		var expectedAnnotations = [];
+		expectedAnnotations.push(constructExpectedAnnotations(row, start, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"Customer_Orders"}', start, end));
+		_validateAnnotations(oAnnotation.issues, expectedAnnotations);
+	});	
+
+	test("Negative missing ,", function() {
+		var row = 5,start = 13,end = 28;
+		var source = testData.negative.navigation7;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		var expectedAnnotations = [];
+		expectedAnnotations.push(constructExpectedAnnotations(row, start, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"Customer_Orders"}', start, end));
+		expectedAnnotations.push(constructExpectedAnnotations(5, 43, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"\\\" \\r"}', 43, 44));		
+		_validateAnnotations(oAnnotation.issues, expectedAnnotations);
+	});	
+
+
+	test("Negative missing from", function() {
+		var row = 4,start = 13,end = 28;
+		var source = testData.negative.navigation8;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		var expectedAnnotations = [];
+		expectedAnnotations.push(constructExpectedAnnotations(row, start, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"Customer_Orders"}', start, end));
+		expectedAnnotations.push(constructExpectedAnnotations(4, 43, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"\\\", \\r"}', 43, 44));
+		expectedAnnotations.push(constructExpectedAnnotations(6, 35, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"dependent"}', 39, 4));				
+		_validateAnnotations(oAnnotation.issues, expectedAnnotations);
+	});	
+
+	test("Negative missing dependent", function() {
+		var row = 4,start = 13,end = 28;
+		var source = testData.negative.navigation9;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		var expectedAnnotations = [];
+		expectedAnnotations.push(constructExpectedAnnotations(row, start, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"Customer_Orders"}', start, end));
+		expectedAnnotations.push(constructExpectedAnnotations(4, 43, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"\\\", \\r"}', 43, 44));
+		expectedAnnotations.push(constructExpectedAnnotations(6, 39, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":")"}', 39, 4));		
+		_validateAnnotations(oAnnotation.issues, expectedAnnotations);
+	});	
+
+
+	test("Negative missing ;", function() {
+		var row = 5,start = 13,end = 28;
+		var source = testData.negative.navigation10;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		var expectedAnnotations = [];
+		expectedAnnotations.push(constructExpectedAnnotations(row, start, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"Customer_Orders"}', start, end));
+		expectedAnnotations.push(constructExpectedAnnotations(5, 43, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"\\\", \\r"}', 43, 44));
+		expectedAnnotations.push(constructExpectedAnnotations(9, 0, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"\\\"sample.odata::order\\\""}', 0, 1));		
+		_validateAnnotations(oAnnotation.issues, expectedAnnotations);
+	});	
+
+
+
+	test("Negative missing ;", function() {
+		var row = 4,start = 13,end = 28;
+		var source = testData.negative.navigation11;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		var expectedAnnotations = [];
+		expectedAnnotations.push(constructExpectedAnnotations(row, start, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"Customer_Orders"}', start, end));
+		expectedAnnotations.push(constructExpectedAnnotations(4, 43, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"\\\", \\r"}', 43, 44));
+		expectedAnnotations.push(constructExpectedAnnotations(8, 0, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"\\\"sample.odata::order\\\""}', 0, 1));	
+		_validateAnnotations(oAnnotation.issues, expectedAnnotations);
+	});	
+
+
+	test("Negative tail after ;", function() {
+		var row = 4,start = 13,end = 28;
+		var source = testData.negative.navigation12;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		var expectedAnnotations = [];
+		expectedAnnotations.push(constructExpectedAnnotations(row, start, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"Customer_Orders"}', start, end));
+		expectedAnnotations.push(constructExpectedAnnotations(4, 43, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"\\\", \\r"}', 43, 44));
+		expectedAnnotations.push(constructExpectedAnnotations(6, 52, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"from"}', 52, 53));	
+		_validateAnnotations(oAnnotation.issues, expectedAnnotations);
+	});	
+
+	test("Negative Capital Navigate", function() {
+		var row = 4,start = 2,end = 11;
+		var source = testData.negative.navigation13;
+		oAnnotation = oXSODataValidatorHelper.getIssues(source);
+		var expectedAnnotations = [];
+		expectedAnnotations.push(constructExpectedAnnotations(row, start, "error", '{"i18nKey":"syntaxCheckAnnotationErrorMessage","arg":"Navigates"}', start, end));
+		_validateAnnotations(oAnnotation.issues, expectedAnnotations);
+	});	
+
+	return startTestPromise;
+});
+
+	
+</script>
+
+</head>
+<body>
+	<div id="qunit"></div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+namespace SelvaModule;
+
+context EMP{
+entity Entity1{
+ ID : Integer;
+ name: String(30);
+};
+};

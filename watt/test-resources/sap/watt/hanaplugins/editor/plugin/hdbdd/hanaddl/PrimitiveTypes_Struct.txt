@@ -1,0 +1,35 @@
+namespace PrimitiveTypes;
+type Struct {
+    // -- correct usage of primitive types --
+    elem01 : String(1)        ;
+    elem02 : String(5000)     ;
+    elem03 : LargeString      ;
+    elem04 : Binary(1)        ;
+    elem05 : LargeBinary      ;
+    elem16 : Integer          ;
+    elem07 : Integer64        ;
+    elem08 : Decimal(12,6)    ;
+    elem09 : DecimalFloat     ;
+    elem10 : BinaryFloat      ;
+    elem11 : Double           ;
+    elem12 : LocalDate        ;
+    elem13 : LocalTime        ;
+    elem14 : UTCDateTime      ;
+    elem15 : UTCTimestamp     ;
+    // -- incorrect usage --
+    elem21 : String           ;  // parameter missing
+    elem22 : String(0)        ;  // wrong parameter 
+    elem23 : String(6000)     ;  // wrong parameter 
+//    elem24 : String(-2)       ;  // wrong parameter 
+    elem25 : Binary           ;  // parameter missing
+    elem26 : Binary(5000)     ;  // parameter out of range
+    elem27 : Boolean          ;  // we desided to discard Boolean
+    elem28 : Decimal          ;  // parameters missing
+//    elem29 : Decimal(1,-6111) ;
+    elem30 : Decimal(34,6176) ;
+    elem31 : UTCTimeStamp     ;  // error in case
+};
+
+/* @classification: basic */
+/* @description: All kinds of primitive type usage */
+/* @resource-name: PrimitiveTypes::Struct */

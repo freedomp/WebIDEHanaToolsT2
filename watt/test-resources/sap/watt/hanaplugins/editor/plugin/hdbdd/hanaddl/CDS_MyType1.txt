@@ -1,0 +1,6 @@
+namespace CDS;
+type MyType1 : Integer;
+
+/* @classification: basic */
+/* @description: Type derived from Integer */
+/* @resource-name: CDS::MyType1 */

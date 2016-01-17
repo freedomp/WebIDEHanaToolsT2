@@ -1,0 +1,1 @@
+{"welcomeFile":"index.html","logout":{"logoutEndpoint":"/do/logout"},"routes":[{"source":"/sap/ui5/1(.*)","target":"$1","destination":"ui5"},{"source":"/rest/addressbook/testdataDestructor","destination":"backend","scope":"node-hello-world.Delete"},{"source":"/rest/.*","destination":"backend"},{"source":"^/(.*)","localDir":"resources"}]}

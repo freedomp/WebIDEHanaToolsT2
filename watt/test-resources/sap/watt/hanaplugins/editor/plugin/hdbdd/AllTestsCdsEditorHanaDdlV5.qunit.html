@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AllTestsCdsHanaDdl V5</title>
+
+    <meta charset="UTF-8"/>
+    <meta http-equiv='cache-control' content='no-cache'/>
+    <meta http-equiv='expires' content='0'/>
+    <meta http-equiv='pragma' content='no-cache'/>
+
+    <!-- necessary style sheets -->
+	<link rel="stylesheet" href="./lib/qunit/qunit.css" />
+    <link rel="stylesheet" href="./lib/qunit-composite/qunit-composite.css"/>
+
+    <!-- use absolute links to avoid .. cascades -->
+    <script src="./lib/qunit/qunit.js"></script>	
+    <script src="./lib/qunit-composite/qunit-composite.js"></script>
+
+</head>
+
+<body>
+ 	<div id="qunit"></div>
+	<div id="qunit-fixture"></div>
+	<script>
+
+	    // list all suites here
+	    QUnit.testSuites( "Hdbdd suite", [
+            "hanaddl/TestsUnitHanaDdlParserV5Extend.html",
+	        "hanaddl/TestsUnitHanaDdlParserV5RoundFunctions.html",
+            "hanaddl/TestsUnitHanaDdlParserV5RoundFunctions.html",
+            "hanaddl/TestsUnitHanaDdlParserV5AssociationFilter.html",
+            "hanaddl/TestsUnitHanaDdlParserV5Boolean.html",
+            "hanaddl/TestsUnitHanaDdlParserV5BooleanPartitionSupport.html",
+            "hanaddl/TestsUnitHanaDdlParserV5CalculatedFields.html",
+            "hanaddl/TestsUnitHanaDdlParserV5CdsExtensions.html",
+            "hanaddl/TestsUnitHanaDdlParserV5Distinct.html",
+            "hanaddl/TestsUnitHanaDdlParserV5FullTextIndex.html",
+            "hanaddl/TestsUnitHanaDdlParserV5Joins.html",
+            "hanaddl/TestsUnitHanaDdlParserV5MultipleTopLevelDeclarations.html",
+            "hanaddl/TestsUnitHanaDdlParserV5ParameterDeclaration.html",
+            "hanaddl/TestsUnitHanaDdlParserV5Performance.html",
+            "hanaddl/TestsUnitHanaDdlParserV5RoundFunction.html",
+            "hanaddl/TestsUnitHanaDdlParserV5RoundFunctions.html",
+            "hanaddl/TestsUnitHanaDdlParserV5Series.html",
+            "hanaddl/TestsUnitHanaDdlParserV5SeriesFunction.html",
+            "hanaddl/TestsUnitHanaDdlParserV5TableGroupDefinition.html",
+            "hanaddl/TestsUnitHanaDdlParserV5TechnicalConfiguration.html",
+            "hanaddl/TestsUnitHanaDdlParserV5ViewKeyElements.html",
+            "hanaddl/TestsUnitCodeCompletionV5.html",
+            "hanaddl/TestsUnitCodeCompletionV5Joins.html"
+        ]);
+	</script>
+
+</body>
+
+</html>

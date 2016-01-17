@@ -1,0 +1,8 @@
+namespace QuotedId;
+type t1 {
+  "quoted.id" : Integer;
+};
+
+/* @classification: basic */
+/* @description: Quoted identifier for type field */
+/* @resource-name: QuotedId::t1 */

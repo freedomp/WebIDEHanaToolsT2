@@ -1,0 +1,22 @@
+{
+	"name": "idetests.utils.testdoubles",
+	"description": "Test Double Plugin",
+
+	"provides" : {
+		"services": {
+			"focus" : {
+				"implements" : "sap.watt.common.plugin.focus.service.Focus",
+				"module" : "idetests.utils.testdoubles/Focus"
+			},
+			"resource" : {
+				"implements" : "sap.watt.common.plugin.resource.service.Resource",
+				"module" : "idetests.utils.testdoubles/Resource"
+			}
+		},
+		
+		"interfaces": {
+			"sap.watt.common.plugin.focus.service.Focus": "idetests.utils.testdoubles/Focus",
+			"sap.watt.common.plugin.resource.service.Resource": "idetests.utils.testdoubles/Resource"
+		}
+	}
+}

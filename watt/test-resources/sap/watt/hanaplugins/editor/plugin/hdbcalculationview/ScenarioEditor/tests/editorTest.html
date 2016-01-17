@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="stylesheet" type="text/css" href="editorTest.css">
+   <link rel="stylesheet"
+	href="/watt/resources/sap/watt/hanaplugins/editor/plugin/hdbcalculationview/css/calcvieweditor.css"
+	type="text/css" />
+    <title>Editor Test Page</title>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script id="sap-ui-bootstrap" src="/resources/sap-ui-core.js"
+	data-sap-ui-theme="sap_bluecrystal"
+	data-sap-ui-xx-bindingSyntax="complex"
+	data-sap-ui-libs="sap.ui.commons, sap.ui.table,sap.ui.ux3">
+	
+</script>
+<link rel="stylesheet" href="../../lib/qunit/qunit.css" type="text/css"
+	media="screen" />
+<script src="../../lib/qunit/qunit.js"></script>
+<script src="../../lib/qunit/QUnitUtils.js"></script>
+<script src="../../lib/thirdparty/sinon.js"></script>
+<script src="../../lib/thirdparty/sinon-qunit.js"></script>
+
+<script src="../../lib/qunit/qunit-reporter-junit.js"></script>
+<!-- <script src="/watt/resources/sap/watt/hanaplugins/editor/common/expressioneditor/rndexpressioneditor/rndfiles/lib/require.js"></script> -->
+<script src="../../lib/requirejs/require.js"></script>
+   <!--  <style type="text/css">
+        @font-face {
+            font-family: 'SAP-icons';
+            src: url('/sap/ui5/1/resources/sap/ui/core/themes/base/fonts/SAP-icons.eot');
+            src: url('/sap/ui5/1/resources/sap/ui/core/themes/base/fonts/SAP-icons.eot?#iefix') format('embedded-opentype'),url('/sap/ui5/1/resources/sap/ui/core/themes/base/fonts/SAP-icons.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style> -->
+</head>
+<body>
+    <div style="height:100%;" id="content"></div>
+    <script type="text/javascript">
+       
+         // var CalcView =   jQuery.sap.require("sap/hana/ide/editor/plugin/analytics/view/CalcViewEditor");
+        
+        require.config({
+    		paths : {
+    			"watt" : "/watt",
+    			"sap" : "/watt/resources/sap",
+    			"sap/hana/ide/editor/plugin/analytics" :"/watt/resources/sap/watt/hanaplugins/editor/plugin/hdbcalculationview",
+    			"idetests" : "/idetests"
+    		}
+    	});
+    	require.config({
+            paths: {
+                //Using the OPT version of rnd
+                'rndrt': '/watt/resources//sap/watt/hanaplugins/editor/common/expressioneditor/rndexpressioneditor/rndfiles/lib',
+                'commonddl': '/watt/resources/sap/watt/hanaplugins/editor/plugin/hdbdd/commonddl'
+            }
+        });
+        var parameters = jQuery.sap.getUriParameters();
+      ///  path="/idetests/editor/plugin/analytics/tests/DiagramTest.js"
+      // path = "testdata/CV_CDS_ARTIFACT.calculationview.xml"
+      //  var fileName = parameters.get(path);
+         var fileName = "/watt/resources/sap/watt/hanaplugins/test-resources/editor/plugin/hdbcalculationview/ScenarioEditor/testdata/Demo.hdbcalculationview"
+        if (!fileName) {
+            var content = jQuery.sap.domById("content");
+            content.innerHTML = "to specify which file to open, please add an URL parameter with name 'path' and the full repository path  as value, e.g. ?path=myFolder/test.calculationview";
+        }
+        else {
+        	require([ "../../lib/q/q" ], function(Q) {
+        		window.Q = Q;
+        		Q.onerror = function(oError) {
+        			if (console) {
+        				console.error("Unhandled Error", oError);
+        				console.error(oError.stack);
+        			}
+        			var sError = "Unhandled Error: " + oError.message;
+        			var messageBox = sap.ui.commons.MessageBox;
+        			messageBox.show(sError, "ERROR", "Error", [], null, null,
+        					"MSG_UNHANDLEDERROR");
+        		};
+        	});
+        require(["sap/watt/core/q"], function(Q) {
+            window.Q = Q;
+            Q.onerror = function(oError) {
+                if (console) {
+                    console.error("Unhandled Error", oError);
+                    console.error(oError.stack);
+                }
+                var sError = "Unhandled Error: " + oError.message;
+                var messageBox = sap.ui.commons.MessageBox;
+                messageBox.show(sError, "ERROR", "Error", [], null, null, "MSG_UNHANDLEDERROR");
+            };
+        });
+            require([
+                    'watt/resources/sap/watt/hanaplugins/editor/plugin/hdbcalculationview/util/ResourceLoader',
+                    'watt/resources/sap/watt/hanaplugins/editor/plugin/hdbcalculationview/view/CalcViewEditor'
+                    
+                   
+                ],
+                function(rl, CalcViewEditor) {
+                    var view = sap.ui.view({
+                       // viewName: "sap.hana.ide.common.layout.ViewContainer",
+                        viewName : "sap.watt.hanaplugins.editor.plugin.hdbcalculationview.control.ViewContainer",
+                        type: sap.ui.core.mvc.ViewType.JS
+                    });
+                    view.placeAt("content");
+
+                    var context = {
+                        event: {
+                            fireInit: function() {},
+                            fireRendered: function() {},
+                            fireScroll: function() {},
+                            fireModelOpened: function() {},
+                        },
+                        self: {
+                            attachEvent: function() {}
+                        },
+                        service: {
+                            catalogDAO: {
+                                getColumnsOfTable: function() {
+                                    
+                                }
+                            }
+                        }
+                    };
+
+                    var document = {
+                        _content: null,
+                        getKeyString: function() {
+                            return fileName;
+                        },
+                        getContent: function() {
+                            return {
+                                then: function(func) {
+                                    return $.ajax({
+                                        type: "GET",
+                                        url: "/sap/hana/xs/dt/base/file" + fileName,
+                                        dataType: "text",
+                                        processData: false,
+                                        error: function(XMLHttpRequest, textStatus, errorThrown) {
+                                            alert(XMLHttpRequest.responseText);
+                                        },
+                                        success: function(data, textStatus, XMLHttpRequest){
+                                            this._content = data;
+                                            try {
+                                                func(data);
+                                            } catch (e) {
+                                                console.log(e);
+                                                alert(e);
+                                            }
+                                        }
+                                    });
+                                }
+                            };
+                        },
+                        setContent: function(content) {
+                            this._content = content;
+                        }
+                    };
+
+                    var save = function(contentCode) {
+                        $.ajax({
+                            type: "HEAD",
+                            url: "/sap/hana/xs/ide/editor/server/csrf.xsjs",
+                            headers: { "X-CSRF-Token": "Fetch" },
+                            success: function(data, textStatus, jqXHR) {
+                                if(jqXHR.getResponseHeader("x-sap-login-page")){
+                                    return;
+                                }
+                                var securityToken = jqXHR.getResponseHeader("X-CSRF-Token");
+                                $.ajax({
+                                    url: "/sap/hana/xs/dt/base/file" + fileName,
+                                    type: "PUT",
+                                    contentType: 'text/plain; charset=UTF-8',
+                                    processData: false,
+                                    headers: { "X-CSRF-Token": securityToken },
+                                    data: contentCode,
+                                    error: function(XMLHttpRequest, textStatus, errorThrown){
+                                        var errorObj = JSON.parse(XMLHttpRequest.responseText);
+                                        var errorText = errorObj.errorMsg + "\n\n";
+                                        for (var i = 0; i < errorObj.activateResult.checkResults.length; i++) {
+                                            var res = errorObj.activateResult.checkResults[i];
+                                            errorText = errorText + res.error.message + "\n";
+                                        }
+                                        alert(errorText);
+                                        return false;
+                                    },
+                                    success: function(data, textStatus, XMLHttpRequest){
+                                        alert("save successfully");
+                                        return false;
+                                    },
+                                    complete:function(){
+                                    }
+                                });
+                            },
+                            error: function(XMLHttpRequest, textStatus, errorThrown){
+                                alert(XMLHttpRequest.responseText);
+                                return false;
+                            }
+                        });
+                        return false;
+                    }
+
+                    var editor = new CalcViewEditor(context, document);
+                    var container = new sap.watt.hanaplugins.editor.plugin.cds.control.EditorContainer();
+                    var viewContainer = view.byId("viewcontainer");
+                    var layout = new sap.ui.commons.Panel({text: fileName, width:"100%", height: "100%", showCollapseIcon: false});
+                    layout.addButton(new sap.ui.commons.Button({
+                        icon: "sap-icon://save",
+                        press: function() {
+                            editor.flush();
+                            save(document._content);
+                        }
+                    }));
+
+                    layout.addButton(new sap.ui.commons.Button({
+                        icon: "sap-icon://undo",
+                        press: function() { editor.undo(); }
+                    }));
+
+                    layout.addButton(new sap.ui.commons.Button({
+                        icon: "sap-icon://redo",
+                        press: function() { editor.redo(); }
+                    }));
+
+                    layout.addContent(container);
+                    viewContainer.addContent(layout);
+                    container.addContent(editor.getContent());
+                    editor.open();
+                     
+                }
+            );
+             var testModules = [
+                 "./DiagramTest.js"
+                    ];
+
+         require(testModules, function() {
+               QUnit.start();
+                 });
+        }
+    </script>
+</body>
+<h1 id="qunit-header">SAP HANA Web IDE Unit Tests - UI(CD2)</h1>
+    <h2 id="qunit-banner"></h2>
+    <h2 id="qunit-userAgent"></h2>
+
+    <div id="qunit-testrunner-toolbar"></div>
+    <div id="qunit-fixture">test markup, will be hidden</div>
+    <ol id="qunit-tests"></ol>
+    <div id="calcViewEditorEmpty"></div>
+    <div id="SCTest"  hidden="true"></div>
+    <div id="InputParameterTest"   hidden="true"></div>
+    <div id="InputVariableTest" hidden="true"></div>
+    <div id="CalculatedColumnTest" hidden="true" ></div>
+    <div id="CalculatedCounterTest" hidden="true"></div>
+    <div id="levelHierarchiesTest" hidden="true"></div>
+    <div id="ParentHierarchiesTest" hidden="true" ></div>
+     <div id="RCTest"  hidden="true"></div>
+     <div id="ViewPropertiesTest"  hidden="true"></div>
+<>
+</html>

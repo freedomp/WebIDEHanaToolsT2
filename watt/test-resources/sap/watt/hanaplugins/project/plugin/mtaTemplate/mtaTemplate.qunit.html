@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <script src="../../../../util/qunitHelper.js"></script>
+    <script>setBase("sap/watt/uitools/")</script>
+
+    <script src="../lib/requirejs/require.js"
+            data-main="../core/Global"
+            data-sap-ide-main="runTests"
+            data-sap-ide-environment-path="../../../../env.json"
+            data-sap-ide-basedir="../../../"
+            data-sap-blanket-cover="/sap/watt/hanaplugins/project/plugin/mtaTemplate/"
+            data-sap-ide-config="checonfig.json">
+    </script>
+
+    <title>MTA Template</title>
+
+
+    <script>
+        var SOME_WINDOW_TARGET = "someID";
+
+        var mConsumer = {
+            "name": "testConsumer",
+            "requires": {
+                "services": [
+                    "document",
+                    "filesystem.documentProvider",
+                    "repositorybrowser",
+                    "template",
+                    "generation",
+                    "projectType",
+                    "setting.project",
+                    "builder",
+                    "xs2ServiceStep",
+                    "mtaStep",
+                    "log"
+                ]
+            }
+        };
+
+        var mtaModel = {
+            "mtaProject": {
+                "parameters": {
+                    "application_id": {
+                        "type": "string",
+                        "value": "",
+                        "wizard": {
+                            "control": "TextField",
+                            "required": true,
+                            "title": "mtaproject_application_id",
+                            "regExp": "^[a-zA-Z_]+[a-zA-Z0-9_]*([\\.]?[a-zA-Z_]+[a-zA-Z0-9_]*)*$",
+                            "regExpErrMsg": "nameSpace_model_parameters_name_validationError"
+                        }
+                    },
+                    "application_version": {
+                        "type": "string",
+                        "value": "2.0.0",
+                        "wizard": {
+                            "control": "TextField",
+                            "required": true,
+                            "title": "mtaproject_application_version",
+                            "regExp": "^(?:0|[1-9][0-9]*)(\\.(?:0|[1-9][0-9]*)){2}$",
+                            "regExpErrMsg": "mtaproject_IllegalVersion"
+                        }
+                    },
+                    "application_description": {
+                        "type": "string",
+                        "value": "",
+                        "wizard": {
+                            "control": "TextField",
+                            "required": false,
+                            "title": "mtaproject_application_description"
+                        }
+                    }
+                },
+                "forms": [
+                    {
+                        "title": "mtaproject_form_Title",
+                        "groups": [
+                            {
+                                "title": "mtaproject_form_Title",
+                                "parameters": ["@mtaProject.parameters.application_id","@mtaProject.parameters.application_version","@mtaProject.parameters.application_description"]
+                            }
+                        ]
+                    }
+                ]
+            }
+        };
+
+        defineServiceTest(mConsumer, ["qunit/ideplatform/plugin/generationwizard/utils/BasicUtil"],
+                function (oContext, BasicUtil) {
+                    var oLog = oContext.service.log;
+
+
+                    //**************Tests***********************************************************//
+                    test("Generate MTA project and check files", 4, withPromise(function () {
+                        var that = this;
+
+                        var oOptions = {
+                            templateId: "hanatemplates.mtaproject",
+                            model: mtaModel
+                        };
+
+                        //Setup
+                        return _initTestProject.call(this, "mta", oOptions).then(function (oProject) {
+
+                            //Check Project created
+                            ok(oProject != null, "MTA - Project created");
+
+                            var aAssertPromises = [];
+
+                            //Check mta.yaml;
+                            aAssertPromises.push(that.oBasicUtil.getFileFolder("mta.yaml").then(function(oFileDocument) {
+                                ok(oFileDocument, "mta.yaml created");
+                                return oFileDocument.getContent().then(function(sContent){
+                                    var idRegExp = new RegExp("ID:.*_mta", "i");
+                                    equal(idRegExp.test(sContent), true, "ID updated correctly with mta");
+                                    var verRegExp = new RegExp("version:.*2.0.0", "i");
+                                    equal(verRegExp.test(sContent), true, "version updated correctly with 2.0.0");
+                                });
+                            }));
+
+                            return Q.all(aAssertPromises).fin(function () {
+                                that.oBasicUtil.deleteTestProject();
+                            });
+                        });
+
+                    })) ;
+
+
+                    //************End of tests******************************************************//
+
+                    function _initTestProject(sTestId, oOptions) {
+                        // this context refers to the "environment" of the qUnit test
+                        // which is the object that also holds the setup() and teardown() functions
+                        var dTestModuleTimeStamp = Number(new Date());
+                        this.oBasicUtil = new BasicUtil(sTestId, dTestModuleTimeStamp, oContext.service, oOptions);
+                        return this.oBasicUtil.initializeTestProject();
+                    }
+
+                });
+
+    </script>
+
+</head>
+<body>
+<div id="qunit"></div>
+</body>
+</html>

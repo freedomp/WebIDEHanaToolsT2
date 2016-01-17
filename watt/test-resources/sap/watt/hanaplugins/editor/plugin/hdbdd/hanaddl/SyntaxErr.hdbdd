@@ -1,0 +1,235 @@
+namespace Partitions;
+context SyntaxErr
+{
+   @nokey
+   entity HashPartition
+   {
+      id : Integer;
+      e1 : String(100);
+      e2 : String(200);
+   }
+   technical configuration
+   {
+      partition by hash (e1, e2, e3) partitions 0; // partition count must not be zero, e3 not element
+   };
+
+   entity HashPartition2
+   {
+      key id : Integer;
+      key e1 : Integer;
+       e2 : String(200);
+   }
+   technical configuration
+   {
+      partition by hash(e2) partitions 16001; // e2 not key, partcount wrong
+   };
+
+   entity RoundRobinPartition
+   {
+      key id : Integer; 
+      e1 : Integer;
+      e2 : String(200);
+   }
+   technical configuration
+   {
+      partition by roundrobin partitions 16000; // roundrobin supports no key
+   };
+
+   entity UnkownRangePartition
+   {
+    key id : Integer;
+    e1 : Integer;
+   }
+   technical configuration
+   {
+        partition by range (en) (partition value=0, partition others); // unknown range element
+   };
+   entity RangePartition
+   {
+      key id : Integer;
+      e1 : LocalDate;
+      e2 : String(200);
+   }
+   technical configuration
+   {
+      partition by range (year(e1)) (partition value=0, // 0 not YYYY, e1 not key
+                               partition 99 <= values < 1987, 
+                               partition '99' <= values < '1987', // overlap
+                               partition 1999 <= values < 19999, // 19999 not local date
+                               partition 2000 <= values < 1970, // 1970 not >= 2000
+                               partition 'abcd' <= values < 1970), // 'abcd' not local date
+                   range (month(e1)) (partition '1998-13' <= values < '199812',  // 13 no month, e1 already used, 13 not <= 12
+                               partition 1 <= values < 12, // 1 not MM
+                               partition 111 <= values < 12); // 111 not MM
+   };
+
+   entity RangeRangePartition
+   {
+      key id : Integer;
+                e1 : Integer;
+                e2 : Integer;
+   }
+   technical configuration
+   {
+      partition by range(e1, e2) (partition value=0), // more then one element
+                   range(e2) (partition value=0); // element has already been used in previous partition
+   };
+   type T
+   {
+      e1: Integer;
+      e2: LargeString;
+   };
+
+   @nokey
+   entity HashPartitionStructType
+   {
+       e1 : T;
+   }
+   technical configuration
+   {
+      partition by hash(e1) partitions 10; // structured types allowed, but large string not allowed
+   };
+
+   @nokey
+   entity RangePartitionStructType
+   {
+         e2 : T;
+   }
+   technical configuration
+   {
+       partition by range(e2) ( partition values = 5, partition others); // no struct type for ranges
+   };
+
+   @nokey
+   entity HashWithAnonymousStruct
+   {
+      e1 { e1 : Integer; e2 : LargeString; }; // large string not allowed 
+   }
+   technical configuration
+   {
+      partition by hash(e1) partitions 10; // anonymous structured types allowed, but large string not allowed
+   };
+
+   @nokey
+   entity RangeWithAnonymousStruct
+   {
+      e1 { e1 : Integer; e2 : LargeString;  e3 { e1:Integer; }; }; // anonymous substructure not allowed for range
+   }
+   technical configuration
+   {
+       partition by range(e1) ( partition values = 5, partition others); // no anonymous struct type for ranges
+   };
+
+   entity StringRangePartition
+   {
+       key id : Integer;
+       elt : String(100);
+   }
+   technical configuration
+   {
+      partition by range(elt) (partition value = 999,
+                               partition 'def' <= values < 'abc');  // def not < abc
+   };
+
+  
+   type WrongCharT
+   {
+        "wct$" : Integer;
+        "wct(" : Integer;
+        "wct," : Integer;
+   };
+
+   entity InvalidCharInPartitionExprEntity
+   {
+    key id : Integer;
+     key elt { 
+                elt2 
+                        { 
+                          "elt3("
+                                {
+                                    "elt4," : Integer;
+                                };
+                          "elt3$" : WrongCharT;
+                        }; 
+                "elt2," : Integer; 
+                "elt2$" : Integer; 
+                "elt2(" : WrongCharT;
+            };
+   }
+   technical configuration
+   {
+        partition by hash(elt."elt2(", elt.elt2) partitions get_num_servers(); // invalid characters in column name!
+   };
+   
+   @nokey
+   entity InvalidRangeCharEntity
+   {
+    id : Integer;
+   }
+   technical configuration
+   {
+        partition by range(id) ( partition '0-9' <= values < 9, partition value = '*', partition value = '10,9', partition others);
+   };
+    
+   @nokey
+   entity InvalidDateRangeCharEntity
+   {
+     id : LocalDate;
+   }
+   technical configuration
+   {
+        partition by range(id) (partition '1999-09-09' <= values < '1999,09/09', partition value = '*');
+   };
+
+   entity MultiLevelNoKey1stLevel
+   {
+        key e2 : Integer;
+        e1 : Integer;
+        e3 : Integer;
+   }
+   technical configuration
+   {
+    partition by hash(e1) partitions 10, hash(e3) partitions 10; // first level must use key
+   };
+
+
+   entity HashRangeWithYEARIncompatibleType
+   {
+        key e3 : Integer; // not compatible with year/month
+        key e2 : Timestamp; // unknown type
+        key e1 : String(1000); // not compatible with year/month
+   }
+   technical configuration
+   {
+        partition by hash(month(e1)) partitions 3, range(year(e3)) (partition value=1999, partition value=1998); // year/month type incompatible
+   };
+
+   entity WrongIntRange
+   {
+    key e1 : LocalDate;
+    }
+    technical configuration
+    {
+        partition by range(year(e1)) (partition value = '-1999', 
+                                   partition value = '-99.99');
+   };
+
+   @nokey
+   entity BoolRange
+   {
+    b: Boolean;
+    } technical configuration
+    {
+        partition by range(b) (partition true <= values < false, partition false <= values < false, partition true <= values < true);
+    };
+
+   @nokey
+   entity BoolRange2
+   {
+    b: Boolean;
+    } technical configuration
+    {
+        partition by range(b) (partition value = 'blabla', partition 1 <= values < false);
+    };
+};
+

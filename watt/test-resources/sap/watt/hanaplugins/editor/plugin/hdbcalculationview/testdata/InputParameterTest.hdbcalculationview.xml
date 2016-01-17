@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="rajesh::customer2" applyPrivilegeType="SQL_ANALYTIC_PRIVILEGE" dataCategory="CUBE" dimensionType="STANDARD" schemaVersion="2.3" defaultClient="$$client$$" visibility="reportingEnabled" outputViewType="Aggregation" calculationScenarioType="TREE_BASED" enforceSqlExecution="false">
+<descriptions defaultDescription="customer2"/>
+<localVariables>
+  <variable id="IP_1" parameter="true">
+    <descriptions defaultDescription=""/>
+    <variableProperties datatype="VARCHAR" length="1" mandatory="false">
+      <valueDomain type="empty"/>
+      <selection/>
+      <defaultRange/>
+    </variableProperties>
+  </variable>
+  <variable id="IP_2" parameter="true">
+    <descriptions defaultDescription=""/>
+    <variableProperties datatype="VARCHAR" length="1" mandatory="false">
+      <valueDomain type="empty"/>
+      <selection/>
+      <defaultRange/>
+    </variableProperties>
+  </variable>
+  <variable id="IP_3" parameter="true">
+    <descriptions defaultDescription=""/>
+    <variableProperties datatype="VARCHAR" length="1" mandatory="false">
+      <valueDomain type="empty"/>
+      <selection/>
+      <defaultRange/>
+    </variableProperties>
+  </variable>
+</localVariables>
+<variableMappings/>
+<dataSources>
+  <DataSource id="rajesh::customer1" type="CALCULATION_VIEW">
+    <resourceUri>rajesh::customer1</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews/>
+<logicalModel id="rajesh::customer1">
+  <attributes>
+    <attribute id="CUSTOMER_ID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CUSTOMER_ID"/>
+      <keyMapping schemaName="29B79BF14636447A88BD909A10655739" columnObjectName="rajesh::customer1" columnName="CUSTOMER_ID"/>
+    </attribute>
+    <attribute id="QUARTER" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="QUARTER"/>
+      <keyMapping schemaName="29B79BF14636447A88BD909A10655739" columnObjectName="rajesh::customer1" columnName="QUARTER"/>
+    </attribute>
+    <attribute id="YEAR" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="YEAR"/>
+      <keyMapping schemaName="29B79BF14636447A88BD909A10655739" columnObjectName="rajesh::customer1" columnName="YEAR"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="REVENUE" order="3" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="REVENUE"/>
+      <measureMapping schemaName="29B79BF14636447A88BD909A10655739" columnObjectName="rajesh::customer1" columnName="REVENUE"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

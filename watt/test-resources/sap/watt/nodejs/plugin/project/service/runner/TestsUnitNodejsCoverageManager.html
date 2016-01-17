@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>TestsUnitNodejsCoverageManager.html</title>
+
+	<meta charset="UTF-8" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="expires" content="0" />
+	<meta http-equiv="pragma" content="no-cache" />
+
+	<link rel="stylesheet" href="/resources/sap/ui/thirdparty/qunit.css" />
+
+	<!-- load before all others -->
+	<script id="sap-ui-bootstrap" src="/resources/sap-ui-core.js"
+		data-sap-ui-theme="sap_bluecrystal"
+		data-sap-ui-libs="sap.ui.commons, sap.ui.ux3, sap.ui.table"
+		data-sap-ui-resourceroots='{
+			"sap.xs.nodejs.project": "../../../../../../../../resources/sap/watt/nodejs/plugin/project/"
+		}' type="text/javascript">
+	</script>
+
+	<!-- keep sequence! -->
+	<script src="/resources/sap/ui/thirdparty/sinon.js"></script>
+
+	<script src="/watt/resources/sap/watt/lib/q/q.js"></script>
+	<script src="/watt/resources/sap/watt/lib/requirejs/require.js"></script>
+
+	<script src="/resources/sap/ui/thirdparty/qunit.js"></script>
+	<script src="../../../../test-support/qunitHelper.js"></script>
+
+</head>
+
+<body>
+	<div id="qunit"></div>
+	<div id="qunit-fixture"></div>
+
+	<script type="text/javascript">
+		// otherwise QUnit will start immediately and not wait for promises
+		QUnit.config.autostart = false;
+
+		var Range = function(a, b, c, d) {
+			this.a = a;
+			this.b = b;
+			this.c = c;
+			this.d = d;
+		};
+
+		var ace = {
+			require: function(path) {
+				return {
+					Range: Range,
+					a: 0,
+					b: 0,
+					c: 0,
+					d: 0
+				}
+			}
+		};
+
+		var oContext = {
+			service: {
+				content: {
+					attachEvent: function() {},
+					detachEvent: function() {},
+					getCurrentEditor: function() {
+						return Q({
+							getUI5Editor: function() {
+								return Q({
+									getSession: {},
+									getCurrentFilePath: "currentFile"
+								});
+							}
+						});
+					}
+				},
+				aceeditor: {
+					attachEvent: function() {},
+					detachEvent: function() {}
+				}
+			}
+		};
+
+		require(["../../../../../../../../resources/sap/watt/nodejs/plugin/project/service/runner/NodejsCoverageManager"], function(NodejsCoverageManager) {
+
+			"use strict";
+
+			var sandbox;
+
+			module("Unit Tests for Nodejs Test Runner Controller", {
+				setup: function() {
+					sandbox = sinon.sandbox.create();
+				},
+				teardown: function() {
+					sandbox.restore();
+				}
+			});
+
+			test("_setCoverageVisible true", withPromise(function(assert) {
+
+				var oCoverageManager = new NodejsCoverageManager(oContext);
+				var mockCoverageManager = sandbox.mock(oCoverageManager);
+
+				var mockAceService = sandbox.mock(oContext.service.aceeditor);
+				mockAceService.expects("attachEvent").once().withArgs("rendered", oCoverageManager._onEditorRendered, oCoverageManager);
+
+				var mockContentService = sandbox.mock(oContext.service.content);
+				mockContentService.expects("attachEvent").once().withArgs("tabClosed", oCoverageManager._onEditorTabClosed, oCoverageManager);
+				mockContentService.expects("getCurrentEditor").once().returns(
+					Q({
+						getUI5Editor: function() {
+							return Q({
+								getSession: {},
+								getCurrentFilePath: "currentFile"
+							});
+						}
+					})
+				);
+
+				mockCoverageManager.expects("_addEditorChangeListener").once().returns(true);
+				mockCoverageManager.expects("_decorate").once();
+
+				oCoverageManager._bCoverageVisible = false;
+				return oCoverageManager.setCoverageVisible(true).then(function() {
+					assert.ok(mockCoverageManager.verify());
+					assert.ok(mockAceService.verify());
+					assert.ok(mockContentService.verify());
+				});
+			}));
+
+			test("_decorate do not call for uncovered editors", withPromise(function(assert) {
+
+				var oCoverageManager = new NodejsCoverageManager(oContext);
+				var mockCoverageManager = sandbox.mock(oCoverageManager);
+
+				var mockAceService = sandbox.mock(oContext.service.aceeditor);
+				mockAceService.expects("attachEvent").once().withArgs("rendered", oCoverageManager._onEditorRendered, oCoverageManager);
+
+				var mockContentService = sandbox.mock(oContext.service.content);
+				mockContentService.expects("attachEvent").once().withArgs("tabClosed", oCoverageManager._onEditorTabClosed, oCoverageManager);
+				mockContentService.expects("getCurrentEditor").once().returns(
+					Q({
+						getUI5Editor: function() {
+							return Q({
+								getSession: {},
+								getCurrentFilePath: "currentFile"
+							});
+						}
+					})
+				);
+
+				mockCoverageManager.expects("_addEditorChangeListener").once().returns(false);
+				mockCoverageManager.expects("_decorate").never();
+
+				oCoverageManager._bCoverageVisible = false;
+
+				return oCoverageManager.setCoverageVisible(true).then(function() {
+					assert.ok(mockCoverageManager.verify());
+					assert.ok(mockAceService.verify());
+					assert.ok(mockContentService.verify());
+				});
+			}));
+
+			test("_setCoverageVisible false", withPromise(function(assert) {
+
+				var oCoverageManager = new NodejsCoverageManager(oContext);
+				var mockCoverageManager = sandbox.mock(oCoverageManager);
+
+				var mockAceService = sandbox.mock(oContext.service.aceeditor);
+				mockAceService.expects("detachEvent").once().withArgs("rendered", oCoverageManager._onEditorRendered, oCoverageManager);
+
+				var mockContentService = sandbox.mock(oContext.service.content);
+				mockContentService.expects("detachEvent").once().withArgs("tabClosed", oCoverageManager._onEditorTabClosed, oCoverageManager);
+
+				mockCoverageManager.expects("_removeMarkers").once();
+				mockCoverageManager.expects("_removeEditorChangeListener").once();
+
+				oCoverageManager._oFilePath2SessionData = {
+					"currentFile": {
+						session: {},
+						changeListener: {},
+						coverage: {},
+						functionLineSet: []
+					}
+				};
+
+				oCoverageManager._bCoverageVisible = true;
+				return oCoverageManager.setCoverageVisible(false).then(function() {
+					assert.ok(mockCoverageManager.verify());
+					assert.ok(mockAceService.verify());
+					assert.ok(mockContentService.verify());
+				});
+			}));
+
+			test("_decorate", function(assert) {
+
+				var oCoverageManager = new NodejsCoverageManager(oContext);
+				var mockCoverageManager = sandbox.mock(oCoverageManager);
+
+				var session = {
+					on: function(event, fn) {},
+					off: function(event, fn) {},
+					addMarker: function(range, clazz, type) {},
+					removeMarker: function(marker) {}
+				};
+
+				var mockSession = sandbox.mock(session);
+				var oUI5Editor = {
+					getCurrentFilePath: function() {
+						return "currentProject/currentFile";
+					},
+					getSession: function() {
+							return session;
+					}
+				};
+
+
+				var oCoverage = {
+					"currentFile": {
+						"path": "currentFile",
+						"s": {
+							"1": 1
+						},
+						"f": {
+							"1": 1
+						},
+						"fnMap": {
+							"1": {
+								"name": "method1",
+								"line": 2,
+								"loc": {
+									"start": {
+										"line": 2,
+										"column": 51
+									},
+									"end": {
+										"line": 2,
+										"column": 62
+									}
+								}
+							}
+						},
+						"statementMap": {
+							"1": {
+								"start": {
+									"line": 2,
+									"column": 0
+								},
+								"end": {
+									"line": 67,
+									"column": 2
+								}
+							},
+							"2": {
+								"start": {
+									"line": 4,
+									"column": 1
+								},
+								"end": {
+									"line": 4,
+									"column": 4
+								}
+							}
+						}
+					}
+				};
+
+				mockSession.expects("addMarker").once().withArgs(
+					new Range(1, 0, 1, 2),
+					"nodejs-coverage-covered-line",
+					"fullLine"
+				);
+
+				mockSession.expects("addMarker").once().withArgs(
+					new Range(3, 1, 3, 4),
+					"nodejs-coverage-uncovered-line",
+					"fullLine"
+				);
+
+				oCoverageManager._setDataModel({
+					setData : function() {}
+				});
+				oCoverageManager.setCoverage("currentProject", oCoverage);
+				oCoverageManager._decorate(oUI5Editor);
+
+				assert.ok(mockCoverageManager.verify());
+				assert.ok(mockSession.verify());
+			});
+
+			test("setCoverage", withPromise(function(assert) {
+
+				var oCoverageManager = new NodejsCoverageManager(oContext);
+				var mockCoverageManager = sandbox.mock(oCoverageManager);
+
+				mockCoverageManager.expects("_addEditorChangeListener").once().returns(true);
+				mockCoverageManager.expects("_decorate").once();
+
+				var session = {
+					on: function(event, fn) {},
+					off: function(event, fn) {},
+					addMarker: function(range, clazz, type) {},
+					removeMarker: function(marker) {}
+				};
+				var mockSession = sandbox.mock(session);
+				mockSession.expects("removeMarker");
+				mockSession.expects("off");
+
+				oCoverageManager._oFilePath2SessionData = {
+					"currentFile": {
+						session: session,
+						changeListener: {},
+						markers: ["markerId"],
+						markerInfo: [],
+						functionLineSet: []
+					}
+				};
+
+				oCoverageManager._bCoverageVisible = true;
+
+				var sProjectPath = "project/path";
+
+				var oFullCoverage = {
+					"/fileName": {
+						path: "/fileName",
+						"timestamp": 4323423424,
+						fnMap: {},
+						statementMap: {}
+					}
+				};
+
+				oCoverageManager._setDataModel({
+					setData : function() {}
+				});
+
+				return oCoverageManager.setCoverage(sProjectPath, oFullCoverage).then(function() {
+					mockSession.verify();
+					mockCoverageManager.verify();
+					assert.deepEqual(oCoverageManager._oFilePath2SessionData, {
+						"project/path/fileName": {
+							"coverage": {
+								"fnMap": {},
+								"statementMap": {},
+								"path": "/fileName",
+								"timestamp": 4323423424
+							},
+							"functionLineSet": [],
+							"markerInfos": [],
+							"coveredLineCount": 0,
+							"lineCount": 0,
+							"percentage": NaN,
+							"path": "/fileName",
+							"totalPercentage":  NaN
+						}
+					}, "new coverage has been set");
+				});
+			}));
+
+			// now its safe to start the test execution
+			QUnit.start();
+		})
+	</script>
+
+</body>
+
+</html>

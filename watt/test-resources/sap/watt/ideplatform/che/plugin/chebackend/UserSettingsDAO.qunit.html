@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<script src="../../../../util/qunitHelper.js" ></script>
+<script>setBase("sap/watt/uitools/")</script>
+
+<script src="../lib/requirejs/require.js"
+	        data-main="../core/Global"
+	        data-sap-ide-main="runTests"
+	        data-sap-ide-environment-path="../../../../env.json"
+	        data-sap-ide-basedir="../../../" data-sap-blanket-cover="/sap/watt/ideplatform/che/plugin/chebackend/service/UserSettingsDAO"></script>
+
+<title>UserSettingsDAO qUnit Test</title>
+
+
+<script>
+
+	
+	defineTest([ "sap/watt/ideplatform/che/plugin/chebackend/service/UserSettingsDAO",
+	             "sap/watt/ideplatform/che/plugin/chebackend/service/System"],
+	             function(oUserSettingsDao, oSystemService) {
+
+		// login
+		var oParameters = jQuery.sap.getUriParameters();
+		var sUsername = oParameters.get("username");
+		var sPassword = oParameters.get("password");
+		var oLoginPromise = oSystemService.login(sUsername, sPassword);
+		oSystemService.context = {
+			"event" : {
+				fireLoggedIn : function() {return Q();}
+			}
+		};
+				
+		var MockProjectDocument = function(sFullPath) {
+			
+			this.sFullPath = sFullPath;
+			var that = this;
+			this.oEntity =  {
+				getFullPath : function() {
+					return that.sFullPath;
+				}
+			},
+			
+			this.getEntity = function() {
+				return this.oEntity;
+			}
+		};
+		
+		var MockDocument = function(oProjectDocument) {
+			
+			this.oProjectDocument = oProjectDocument;
+			
+			this.getProject = function() {
+				return Q(this.oProjectDocument);
+			}	
+		};
+		
+		
+		
+		module("UserSettings DAO", {
+			setup : function() {
+			
+				
+			},
+			teardown : function() {
+				// TODO Clear user preferences
+			}
+		});
+
+		test("Set and get settings - object", 1, withPromise(function() {
+			var sSettingsName = "test_settings";
+			var vSettings = {
+				setting1: {
+					key1: "value1",
+					key2: "value2"
+				}
+			}; 
+			var oProjectDocument = new MockProjectDocument("/proj1");
+			var oDocument = new MockDocument(oProjectDocument);
+			
+			return oUserSettingsDao.set(sSettingsName, vSettings, oDocument).then(function() {
+				return oUserSettingsDao.get(sSettingsName, oDocument);
+			}).then(function(vResult) {
+				deepEqual(vResult, vSettings, "Settings were saved");
+			});			
+		}));
+		
+		
+		test("Set and get settings - primitive type", 1, withPromise(function() {
+			var sSettingsName = "test_settings";
+			var vSettings = "value1";
+			var oProjectDocument = new MockProjectDocument("/proj1");
+			var oDocument = new MockDocument(oProjectDocument);
+			
+			return oUserSettingsDao.set(sSettingsName, vSettings, oDocument).then(function() {
+				return oUserSettingsDao.get(sSettingsName, oDocument);
+			}).then(function(vResult) {
+				strictEqual(vResult, vSettings, "Settings were saved");
+			});			
+		}));
+		
+		test("get settings with an unexisting key", 1, withPromise(function() {
+			var sSettingsName = "test_settings_unexisting";
+			var oProjectDocument = new MockProjectDocument("/proj1");
+			var oDocument = new MockDocument(oProjectDocument);
+			
+			return oUserSettingsDao.get(sSettingsName, oDocument).then(function(vResult) {
+				ok(!vResult, "No settings were found");
+			});			
+		}));
+		
+		test("Set and get multiple settings of the same project", 2, withPromise(function() {
+			var sSettingsName1 = "test_settings";
+			var vSettings1 = "value1";
+			var sSettingsName2 = "test_settings2";
+			var vSettings2 = "value2";
+			var oProjectDocument = new MockProjectDocument("/proj1");
+			var oDocument = new MockDocument(oProjectDocument);
+			
+			return Q.all([oUserSettingsDao.set(sSettingsName1, vSettings1, oDocument),
+						 oUserSettingsDao.set(sSettingsName2, vSettings2, oDocument)]).then(function() {
+				return [oUserSettingsDao.get(sSettingsName1, oDocument),
+								oUserSettingsDao.get(sSettingsName2, oDocument)];
+			}).spread(function(vResult1, vResult2) {
+				deepEqual(vResult1, vSettings1, "first Settings were saved");
+				deepEqual(vResult2, vSettings2, "second Settings were saved");
+			});			
+		}));
+		
+		test("Set and get settings of different projects", 2, withPromise(function() {
+			var sSettingsName = "test_settings";
+			var vSettings = "value1";
+			var oProjectDocument1 = new MockProjectDocument("/proj1");
+			var oDocument1 = new MockDocument(oProjectDocument1);
+			var oProjectDocument2 = new MockProjectDocument("/proj2");
+			var oDocument2 = new MockDocument(oProjectDocument2);
+			
+			return Q.all([oUserSettingsDao.set(sSettingsName, vSettings, oDocument1),
+						 oUserSettingsDao.set(sSettingsName, vSettings, oDocument2)]).then(function() {
+				return [oUserSettingsDao.get(sSettingsName, oDocument1),
+								oUserSettingsDao.get(sSettingsName, oDocument2)];
+			}).spread(function(vResult1, vResult2) {
+				deepEqual(vResult1, vSettings, "first Settings were saved");
+				deepEqual(vResult2, vSettings, "second Settings were saved");
+			});			
+		}));
+				
+		return oLoginPromise;
+	});
+
+
+</script>
+
+</head>
+<body >
+	<div id="qunit"></div>
+</body>
+</html>

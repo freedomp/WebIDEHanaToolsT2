@@ -1,0 +1,29 @@
+[
+    {
+        "Archiver-Version": "Plexus Archiver",
+        "Build-Jdk": "1.8.0_51",
+        "Built-By": "jenkins",
+        "Created-By": "Apache Maven 3.3.3",
+        "Implementation-Title": "Node.js WATT Extensions",
+        "Implementation-Vendor": "SAP",
+        "Implementation-Vendor-Id": "com.sap.xs.nodejstools",
+        "Implementation-Version": "0.6.0-SNAPSHOT",
+        "Manifest-Version": "1.0",
+        "SCM-Revision": "51fca7e06a400bbbd9207d20c9b35da441426560",
+        "Specification-Title": "Node.js WATT Extensions",
+        "Specification-Vendor": "SAP",
+        "Specification-Version": "0.6.0-SNAPSHOT"
+    },
+    {
+        "Archiver-Version": "Plexus Archiver",
+        "Build-Jdk": "1.7.0_72",
+        "Built-By": "iwinfra",
+        "Bundle-Version": "1.21.0.201601101249",
+        "Created-By": "Apache Maven 3.0.5",
+        "Manifest-Version": "1.0",
+        "Web-ContextPath": "/",
+        "x-sap-ui5-BuildTimestamp": "201601101249",
+        "x-sap-ui5-ScmRevision": "",
+        "x-sap-ui5-Version": "1.21.0-SNAPSHOT"
+    }
+]

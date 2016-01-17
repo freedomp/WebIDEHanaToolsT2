@@ -1,0 +1,5 @@
+// Capital 
+service { 
+	"sample.odata::table" as "MyTableWithout" Without ("Text" "Time"); 
+	 
+}

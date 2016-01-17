@@ -1,0 +1,17 @@
+namespace Pack;
+
+@Schema: 'MyTestSchema'
+context MyContext {
+    @Catalog : { tableType : #ROW,
+                 index : [ { name : 'myIndex', order : #ASC,
+                             elementNames : ['a', 'b'] },
+                           { name : 'yourIndex', unique : false, order : #DESC,
+                             elementNames : ['c', 'b'] } ]
+               }
+    entity E {
+        key id : Integer;
+        a : Integer;
+        b : Integer;
+        c : Integer;
+    };
+};

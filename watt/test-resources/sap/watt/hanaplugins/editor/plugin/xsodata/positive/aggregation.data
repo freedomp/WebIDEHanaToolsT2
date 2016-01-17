@@ -1,0 +1,5 @@
+service {  
+	"sample.odata::revenues" as "Revenues" 
+        key generate local "ID"
+        aggregates always (SUM of "Amount", MIN of "Amount", MAX of "Amount",AVG of "Amount"); 
+}  

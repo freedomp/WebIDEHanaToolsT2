@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <script src="../../../../util/qunitHelper.js"></script>
+    <script>setBase("sap/watt/uitools/");</script>
+
+    <script src="../lib/requirejs/require.js"
+            data-main="../core/Global"
+            data-sap-ide-main="runTests"
+            data-sap-ide-environment-path="../../../../env.json"
+            data-sap-ide-basedir="../../../"></script>
+
+    <title>XS2Services - getAllRequireServices api test</title>
+
+    <script>
+
+        var mConsumer = {
+            "name": "testConsumer",
+
+            "requires": {
+                "services": [
+                    "document",
+                    "system",
+                    "filesystem.documentProvider",
+                    "chebackend.XS2ServicesDAO"
+                ]
+            }
+        };
+
+        defineServiceTest(mConsumer, ["sap/watt/lib/lodash/lodash"], function (oContext, _) {
+            var oParameters = jQuery.sap.getUriParameters();
+            var sUsername = oParameters.get("username");
+            var sPassword = oParameters.get("password");
+            var oLoginPromise = oContext.service.system.login(sUsername, sPassword);
+            var oDocumentProvider = oContext.service.filesystem.documentProvider;
+            var xs2Services = oContext.service.chebackend.XS2ServicesDAO;
+            var d = new Date();
+            var n = d.getTime();
+            var sMtaProjectName = "mta_" + n;
+
+
+            module("XS2Services - getAllRequireServices api test", {
+                teardown : withPromise(function() {
+                    return oDocumentProvider.getDocument("/" + sMtaProjectName).then(function(oTestProject) {
+                        return oTestProject.delete();
+                    });
+                })
+            });
+
+            test("Import MTA project and get all services required for module", 5, withPromise(function () {
+                var that = this;
+                var aPromises = [];
+                aPromises.push(oDocumentProvider.getRoot());
+                aPromises.push(_getBlob(require.toUrl("qunit/ideplatform/che/plugin/chebackend/utils/mta_require_services.zip")));
+
+                return Q.all(aPromises).spread(function (oRootDocument, oBlob) {
+                    ok(oRootDocument != null, "Repository root folder not null");
+                    ok(oBlob != null, "Project blob from zip resource not null");
+
+                    // 3. import project
+                    return oRootDocument.createFolder(sMtaProjectName).then(function (oNewFolder) {
+                        that.oProjectFolder = oNewFolder;
+                        return oNewFolder.importZip(oBlob, true).then(function (oFileDocument) {
+                            ok(oFileDocument != null, "import project passed ok");
+
+
+                            return oDocumentProvider.getDocument("/" + sMtaProjectName).then(function (oModule) {
+                                return oModule.getCurrentMetadata(true).then(function (aRawData) {
+                                    var oRawNode = _.find(aRawData, function (oRawData) {
+                                        return oRawData.name === "js";
+                                    });
+                                    if (oRawNode) {
+                                        return xs2Services.getAllRequireServices(oRawNode.path).then(function (result) {
+                                            ok(result != null);
+                                            ok(JSON.stringify(result).indexOf("saphana") > -1);
+                                        });
+                                    }
+
+                                });
+
+                            });
+                        });
+                    });
+
+                });
+            }));
+
+            //TODO: remove to utility
+            function _getBlob(sUri) {
+                var oRequest = new XMLHttpRequest();
+                oRequest.open("GET", sUri, true);
+                oRequest.responseType = "blob";
+                var oDeferred = Q.defer();
+                oRequest.onload = function (oEvent) {
+                    if (this.readyState === 4 && this.status < 300) {
+                        oDeferred.resolve(this.response);
+                    } else {
+                        oDeferred.reject(new Error(this.response));
+                    }
+                };
+                oRequest.send();
+                return oDeferred.promise;
+            }
+
+            return oLoginPromise;
+        });
+
+
+    </script>
+
+</head>
+<body>
+<div id="qunit"></div>
+<div id="content" style="display: none"></div>
+</body>
+</html>

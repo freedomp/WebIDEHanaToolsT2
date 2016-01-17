@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="UTF-8">
+
+    <title>SAP HANA Web IDE Unit Tests - UI(CD2)</title>
+
+    <script src="/idetests/utils/polyfillsForPhantomJS.js"></script>
+
+    <script id="sap-ui-bootstrap" src="/sap/ui5/1/resources/sap-ui-core.js" data-sap-ui-theme="sap_bluecrystal" data-sap-ui-xx-bindingSyntax="complex" data-sap-ui-libs="sap.ui.commons, sap.ui.table">
+    </script>
+
+    <link rel="stylesheet" href="/sap/ui5/1/resources/sap/ui/thirdparty/qunit.css" type="text/css" media="screen" />
+    <script src="/sap/ui5/1/resources/sap/ui/thirdparty/qunit.js"></script>
+    <script src="/sap/ui5/1/resources/sap/ui/qunit/QUnitUtils.js"></script>
+    <script src="/sap/ui5/1/resources/sap/ui/thirdparty/sinon.js"></script>
+    <script src="/sap/ui5/1/resources/sap/ui/thirdparty/sinon-qunit.js"></script>
+    <script src="/sap/watt/lib/requirejs/require.js"></script>
+    <script src="/idetests/utils/qunit-reporter-junit.js"></script>
+
+    <script type="text/javascript">
+        jQuery.sap.require("sap.ui.core.IconPool");
+         // sinon does not work with QUnit.asyncTest by default
+        sinon.config.useFakeTimers = false;
+         // required by to handle asynchronously loaded tests (requirejs) correctly and make junit reporter work
+        QUnit.config.autostart = false;
+    </script>
+
+    <!--  Insert the names of javascript/css test files here: -->
+    <link rel="stylesheet" href="/sap/hana/ide/editor/plugin/analytics/css/calcvieweditor.css" type="text/css" />
+
+
+
+
+    <!-- ***********Add your script here************ -->
+
+
+
+
+    <script type="text/javascript">
+        var testModules = [
+            /*
+             * Insert the names of the javascript tests that are defined as modules here:
+             */
+            "/idetests/editor/plugin/analytics/tests/DiagramTest.js"
+        ];
+
+
+         // configure root paths
+        jQuery.sap.registerModulePath('sap.hana', '/sap/hana');
+        require.config({
+            paths: {
+                "sap": "/sap",
+                "idetests": "/idetests"
+            }
+        });
+
+         // require the test modules
+        require(testModules, function() {
+            // required by to handle asynchronously loaded tests (requirejs) correctly and make junit reporter work
+            // together with QUnit.config.autostart = false; right after loading qunit.js
+            QUnit.start();
+        });
+    </script>
+</head>
+
+<body>
+    <h1 id="qunit-header">SAP HANA Web IDE Unit Tests - UI(CD2)</h1>
+    <h2 id="qunit-banner"></h2>
+    <h2 id="qunit-userAgent"></h2>
+    <div id="qunit-testrunner-toolbar"></div>
+    <div id="qunit-fixture">test markup, will be hidden</div>
+    <ol id="qunit-tests"></ol>
+    <div id="MyControlTest"></div>
+</body>
+
+</html>
