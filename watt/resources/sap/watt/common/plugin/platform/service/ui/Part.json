@@ -1,0 +1,50 @@
+{
+	"name" : "sap.watt.common.service.ui.Part",
+	"description" : "The ui part interface. Base interface for all visual components",
+	"configurationProperties" : {
+		"styles" : {
+			"type" : [{
+				"uri" : "string",
+				"type" : "string"
+			}],
+			"multiple" : false
+		}
+	},
+	"events" : {
+		"visibilityChanged" : {
+			"params" : [
+				{
+					"name" : "visible",
+					"type" : "boolean"
+				}
+			]
+		}
+	},
+	"methods" : {
+		"getContent" : {
+			"returns" : "object"
+		},
+		
+		"getFocusElement" : {
+			"returns" : "object"
+		},
+		"getTitle" : {
+			"returns" : "string"
+		},
+		"getTooltip" : {
+			"returns" : "string"
+		},
+		"setVisible" : {
+			"params" : [
+				{
+					"name" : "bVisible",
+					"type" : "boolean"
+				}
+			]
+		},
+
+		"isVisible" : {
+			"returns" : "boolean"
+		}
+	}
+}

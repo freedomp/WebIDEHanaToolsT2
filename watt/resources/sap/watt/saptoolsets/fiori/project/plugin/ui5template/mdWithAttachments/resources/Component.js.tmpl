@@ -1,0 +1,171 @@
+jQuery.sap.declare("{{projectName}}.Component");
+jQuery.sap.require("{{projectName}}.MyRouter");
+
+sap.ui.core.UIComponent.extend("{{projectName}}.Component", {
+	metadata : {
+		name : "{{projectName}}",
+		version : "1.0",
+		includes : [],
+		dependencies : {
+			libs : ["sap.m", "sap.ui.layout"],
+			components : []
+		},
+
+		rootView : "{{projectName}}.view.App",
+
+		config : {
+			resourceBundle : "i18n/messageBundle.properties",
+			serviceConfig : {
+				name: "{{connectionData.serviceName}}",
+				serviceUrl: "{{connectionData.runtimeUrl}}",
+				apikey : "{{connectionData.apiKey}}"
+			}
+		},
+
+		routing : {
+			config : {
+				routerClass : {{projectName}}.MyRouter,
+				viewType : "XML",
+				viewPath : "{{projectName}}.view",
+				targetAggregation : "detailPages",
+				clearTarget : false
+			},
+			routes : [
+				{
+					pattern : "",
+					name : "main",
+					view : "Master",
+					targetAggregation : "masterPages",
+					targetControl : "idAppControl",
+					subroutes : [
+						{
+							pattern : "{entity}/:tab:",
+							name : "detail",
+							view : "Detail"
+						}
+					]
+				},
+				{
+					name : "catchallMaster",
+					view : "Master",
+					targetAggregation : "masterPages",
+					targetControl : "idAppControl",
+					subroutes : [
+						{
+							pattern : ":all*:",
+							name : "catchallDetail",
+							view : "NotFound",
+							transition : "show"
+						}
+					]
+				}
+			]
+		}
+	},
+
+	init : function() {
+		sap.ui.core.UIComponent.prototype.init.apply(this, arguments);
+
+		var mConfig = this.getMetadata().getConfig();
+
+		// always use absolute paths relative to our own component
+		// (relative paths will fail if running in the Fiori Launchpad)
+		var oRootPath = jQuery.sap.getModulePath("{{projectName}}");
+
+		// set i18n model
+		var i18nModel = new sap.ui.model.resource.ResourceModel({
+			bundleUrl : [oRootPath, mConfig.resourceBundle].join("/")
+		});
+		this.setModel(i18nModel, "i18n");
+        
+		var oModel;
+		var mHeaders = {"apikey" : mConfig.serviceConfig.apikey};
+		if(window.cordova) {
+		{{~#if smpOffline}}
+			
+			//TODO: If running using Cordova without SMP :
+			// 1)  Comment the code lines for running using SMP and Uncomment the code lines for running using Cordova without SMP
+			// 2) Replace the place holder in the url with the service server host and port
+			// 3) Set the user name and password to the appropriate values or implement login screen
+			
+			// Code for running using SMP:
+			var url = appContext.applicationEndpointURL;
+ 			mHeaders["X-SMP-APPCID"] = appContext.applicationConnectionId;
+ 		    oModel = new sap.ui.model.odata.ODataModel(url, true, appContext.registrationContext.user, appContext.registrationContext.password, mHeaders);
+			 
+    		// Code for running using Cordova without SMP:
+		  	// var url = "<Service host and port>" + mConfig.serviceConfig.name;         
+		  	// var sUsername = null;
+		  	// var sPassword = null;
+            // oModel = new sap.ui.model.odata.ODataModel(url, true, sUsername, sPassword, mHeaders, true, true, true);
+    		
+ 			
+		{{~else}}
+			//TODO: If running using Cordova without SMP :
+			// 1)  Replace the place holder in the url with the service server host and port
+			// 2)  Set the user name and password to the appropriate values or implement login screen
+			
+		  	var url = "<Service host and port>" + mConfig.serviceConfig.name;
+		  	var sUsername = null;
+		  	var sPassword = null;
+            oModel = new sap.ui.model.odata.ODataModel(url, true, sUsername, sPassword, mHeaders, true, true, true);
+            
+    		//TODO: If using SMP uncomment the code below and use instead of the above lines 
+// 			var url = appContext.applicationEndpointURL;
+// 			mHeaders["X-SMP-APPCID"] = appContext.applicationConnectionId;
+// 			oModel = new sap.ui.model.odata.ODataModel(url, true, appContext.registrationContext.user, appContext.registrationContext.password, mHeaders);
+
+		{{~/if}}
+
+		} else {
+			var sServiceUrl = mConfig.serviceConfig.serviceUrl;
+			
+			//This code is only needed for testing the application when there is no local proxy available, and to have stable test data.
+			var bIsMocked = jQuery.sap.getUriParameters().get("responderOn") === "true";
+			
+			// start the mock server for the domain model
+			if (bIsMocked) {
+				this._startMockServer(sServiceUrl);
+			}
+
+			// Create and set domain model to the component
+			oModel = new sap.ui.model.odata.ODataModel(sServiceUrl, true, null, null, mHeaders);
+		}
+		this.setModel(oModel);
+
+		// set device model
+		var oDeviceModel = new sap.ui.model.json.JSONModel({
+			isTouch : sap.ui.Device.support.touch,
+			isNoTouch : !sap.ui.Device.support.touch,
+			isPhone : sap.ui.Device.system.phone,
+			isNoPhone : !sap.ui.Device.system.phone,
+			listMode : sap.ui.Device.system.phone ? "None" : "SingleSelectMaster",
+			listItemType : sap.ui.Device.system.phone ? "Active" : "Inactive"
+		});
+		oDeviceModel.setDefaultBindingMode("OneWay");
+		this.setModel(oDeviceModel, "device");
+
+		this.getRouter().initialize();
+
+	},
+	
+	_startMockServer : function (sServiceUrl) {
+		jQuery.sap.require("sap.ui.core.util.MockServer");
+		var oMockServer = new sap.ui.core.util.MockServer({
+			rootUri: sServiceUrl
+		});
+
+		var iDelay = +(jQuery.sap.getUriParameters().get("responderDelay") || 0);
+		sap.ui.core.util.MockServer.config({
+			autoRespondAfter : iDelay
+		});
+
+		oMockServer.simulate("model/metadata.xml", "model/");
+		oMockServer.start();
+
+
+		sap.m.MessageToast.show("Running in demo mode with mock data.", {
+			duration: 2000
+		});
+	}
+});

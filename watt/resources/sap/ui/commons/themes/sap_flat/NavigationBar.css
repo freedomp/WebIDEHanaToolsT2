@@ -1,0 +1,163 @@
+/* ================================================= */
+/* CSS for control sap.ui.ux3/NavigationBar.control     */
+/* Flat                                      */
+/* ================================================= */
+
+.wattTabStrip {
+
+	.sapUiUx3NavBar {
+		border-bottom: 0;
+		width: 100%;
+		height: 28px;
+		position: relative;
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		user-select: none;
+		overflow: hidden;
+		text-transform: none;
+		background-color: @ShellBg;
+		border-bottom: 1px solid @HeaderBrdr;
+	}
+	
+	.sapUiUx3NavBarList {
+		overflow: hidden;
+		left: 0;
+		margin: 0;
+		height: 28px;
+		right: 0px;
+	}
+	
+	.sapUiUx3NavBarArrow {
+		display: none!important;
+	}
+	
+	.sapUiUx3NavBarList {
+		li {
+			height: 28px;
+			position: relative;
+			display: inline-block;
+			padding: 0 0.5rem;
+			color: inherit;
+			text-decoration: none;
+			z-index: 1;
+			overflow: hidden;
+			text-overflow: ellipsis;	
+			background-color: @ShellBg;
+			border-right: 1px solid @HeaderBrdr;
+		}
+
+		li:first-child {
+			display: none;
+		}
+
+		.sapUiUx3NavBarItemSel {
+			background: @EditorSelBG;
+			border-top:2px solid @DarkerBlue;
+			height:26px;
+		}
+		.sapUiUx3NavBarItemSel a {
+			line-height: 24px;
+		}
+		.sapUiUx3NavBarItemSel .sapUiTabClose {
+		}
+
+
+	}
+
+
+	.sapUiTabClose {
+			font-family: Sap-icons;
+			font-size: 0.6rem;
+			color: @EditorXClr;
+			vertical-align: middle;
+			height: inherit;
+			margin: 0;
+			padding: 0;
+			width: 1.5rem;
+			height: 28px;
+			position: absolute;
+			right: 0.5rem;
+		}
+	
+	.sapUiUx3NavBarItem {
+			margin: 0;
+			cursor: default;
+			font-weight: normal;
+			font-size: 12px;
+			padding: 0 0.5rem;
+			color: @EditorTabClr;
+			text-decoration: none;
+			transition-property: none;
+			font-family: Arial;
+			line-height: 28px;
+		}
+
+	a.sapUiUx3NavBarItem {
+			display: inline-block;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			min-width: 0.2rem;
+			max-width: 13rem;
+			margin-right: 1.2rem;
+		}
+
+	.sapUiUx3NavBarScrollBack .sapUiUx3NavBarOverflowBtn, 
+	.sapUiUx3NavBarScrollForward .sapUiUx3NavBarOverflowBtn {
+			right: 4px;
+			font-size: 11px;
+			height: 28px;
+			width: 28px;
+			padding: 0;
+			background: transparent;
+			top: 4px;
+			vertical-align: middle;
+			line-height: 28px;
+		}
+	
+	.sapUiUx3NavBarBack, 
+	.sapUiUx3NavBarForward {
+		opacity: 1;
+		color: @sapFlatDarkText;
+		filter: none;
+		cursor: pointer;
+		width: 28px;
+		height: 28px;
+		padding: 0;
+		position: absolute;
+		line-height: 28px;
+		background: transparent;
+		text-align: center;
+		top: 4px;
+		right: 64px;
+	}
+	
+	.sapUiUx3NavBarBack:hover, 
+	.sapUiUx3NavBarForward:hover,
+	.sapUiUx3NavBarOverflowBtn:hover {
+		background: fade(@sapFlatActiveBG, 50%);
+	}
+	
+	.sapUiUx3NavBarBack:active, 
+	.sapUiUx3NavBarForward:active,
+	.sapUiUx3NavBarOverflowBtn:active {
+		background: fade(@sapFlatHighlight, 100%);
+		color: @sapFlatInvertedText;
+	}
+	
+	.sapUiUx3NavBarForward {
+		right: 36px;
+	}
+	
+	.sapUiUx3NavBarScrollBack>.sapUiUx3NavBarList, 
+	.sapUiUx3NavBarScrollForward>.sapUiUx3NavBarList {
+		right: 96px;
+	}
+	
+	.sapUiIcon {
+		vertical-align: middle;
+		margin: 0;
+		padding: 0;
+	}
+
+}

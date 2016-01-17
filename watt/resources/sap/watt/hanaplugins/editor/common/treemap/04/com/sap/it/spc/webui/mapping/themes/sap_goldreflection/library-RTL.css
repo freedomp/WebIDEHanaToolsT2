@@ -1,0 +1,102 @@
+/*!
+ * SAP UI development toolkit for HTML5 (SAPUI5)
+ *
+ * (c) Copyright 2009-2012 SAP AG. All rights reserved
+ */
+/* Global CSS for 'base' theme */
+/* ---------------------------------------------------------------------------------------- */
+/* TMP during LESS convertion ---- to be deleted */
+/* may be required by SubstitutionRulesManager.css in inbox lib */
+/* ---------------------------------------------------------------------------------------- */
+/* Global CSS for 'sap_goldreflection' theme */
+/* ---------------------------------------------------------------------------------------- */
+/* ============================================= */
+/* CSS for control com.sap.it.spc.webui.mapping/ExtSearchField.control */
+/* ============================================= */
+.webuiExtSearchField > .webuiExtSearchNavBtnNext {
+  position: absolute;
+  left: 20px;
+  margin: 4px;
+}
+.webuiExtSearchField > .webuiExtSearchNavBtnPrev {
+  position: absolute;
+  left: 40px;
+  margin: 4px;
+}
+.webuiExtSearchField > .webuiExtSearchInfoView {
+  position: absolute;
+  left: 60px;
+}
+/* ============================================= */
+/* CSS for control com.sap.it.spc.webui.mapping/Mapping.control */
+/* ============================================= */
+.webuiMapping .webuiGraphicalArea .webuiMessage .sapUiHLayoutChildWrapper {
+  vertical-align: middle;
+}
+.webuiMapping .webuiMappingInfoIcon {
+  margin: 2px;
+}
+.webuiMapping .webuiMessage .sapUiTableTreeIconLeaf {
+  visibility: hidden;
+}
+.webuiMapping .webuiCanvas {
+  position: absolute;
+  top: 0%;
+  height: 100%;
+  right: 0%;
+  width: 100%;
+  pointer-events: none;
+}
+.webuiMapping .webuiGraphicalArea .webuiCurve {
+  fill: none;
+  pointer-events: painted;
+  stroke-width: 2;
+}
+.webuiMapping .webuiGraphicalArea .webuiCurveDotted {
+  stroke-dasharray: 5, 5;
+  stroke-width: 1;
+}
+.webuiMapping .webuiGraphicalArea .webuiCurveHighlighted {
+  stroke-width: 2;
+}
+.webuiMapping .webuiGraphicalArea .webuiCurveSelected {
+  stroke-width: 2;
+}
+.webuiMapping .sapUiHSplitterSecondPane {
+  position: relative;
+}
+.webuiMapping .sapUiHSplitterSecondPane > .webuiMinMaxIcon {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin: 4px;
+}
+/* ============================================= */
+/* CSS for control com.sap.it.spc.webui.mapping/Mapping.control */
+/* ============================================= */
+.webuiMapping .webuiGraphicalArea .sapUiBorderLayoutCenter {
+  border: thin solid #CCCCCC;
+}
+.webuiMapping .sapUiHorizontalSplitterBar,
+.webuiMapping .sapUiHorizontalSplitterBar:hover {
+  background-color: #AFB7BD;
+}
+.webuiMapping .webuiGraphicalArea .webuiCurve {
+  stroke: #CCCCCC;
+}
+.webuiMapping .webuiGraphicalArea .webuiCurveHighlighted {
+  stroke: #0066CC;
+}
+.webuiMapping .webuiGraphicalArea .webuiCurveSelected {
+  stroke: #F0AB00;
+}
+.webuiMapping .webuiGraphicalArea .webuiMessage .webuiSearchResult {
+  background-color: #E5E5E5;
+}
+.webuiMapping .webuiGraphicalArea .webuiMessage .webuiSearchResultFocused {
+  outline: thin solid black;
+}
+.webuiMapping .webuiInfoArea .webuiSearchResultsInfo .webuiSearchResultFocusedInfo {
+  background-color: #007CC0;
+  color: white;
+}

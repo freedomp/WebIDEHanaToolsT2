@@ -1,0 +1,6 @@
+{
+	"name" : "sap.watt.common.service.ui.WizardFinishStep",
+	"extends" : ["sap.watt.common.service.ui.WizardPart"],
+	"description": "The wizard finish step interface. Any wizard finish step is a UI Wizard Part which its getContent method initiates the step UI (extending sap.watt.uitools.plugin.template.ui.wizard.WizardStepContent) with this.context, and returns the result of getWizardStep method of the wizard service with the step content object.",
+	"methods" : {}
+}

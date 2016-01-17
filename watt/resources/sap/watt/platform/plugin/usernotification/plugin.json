@@ -1,0 +1,19 @@
+{
+	"name": "sap.watt.platform.usernotification",
+	"description": "User notifications",
+	"i18n" : "sap.watt.platform.usernotification/i18n/i18n",
+	"requires": {
+		"services": [
+			"usernotificationbar",
+			"focus"
+		]
+	},
+	"provides": {
+		"services": {
+			"usernotification": {
+				"implements": "sap.watt.common.service.usernotification.UserNotification",
+				"module": "sap.watt.platform.usernotification/service/UserNotification"
+			}
+		}
+	}
+}

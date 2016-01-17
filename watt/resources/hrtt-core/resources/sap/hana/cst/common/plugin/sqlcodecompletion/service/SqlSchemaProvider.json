@@ -1,0 +1,9 @@
+{
+	"name" : "sap.hana.cst.common.sqlcodecompletion.interface.SqlSchemaProvider",
+	"description" : "Helper interface for sqlcodecompletion service",
+	"methods" : {
+		"getCurrentSqlSchema" : {
+			"returns" : "string"
+		}
+	}
+}

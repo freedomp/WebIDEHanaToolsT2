@@ -1,0 +1,19 @@
+<core:FragmentDefinition
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+  <Dialog
+    title="Delete Photo"
+    contentWidth="auto"
+    class="sapUiPopupWithPadding">
+    <content>
+        <Text text="Are you sure you want to delete this photo?"/>
+    </content>
+    <beginButton>
+        <Button id="okRemoveDialogButton" text="Ok" app:dialogType="FileRemover" press="onRemoveDialogCloseButton" />
+    </beginButton>
+    <endButton>
+        <Button text="Cancel" app:dialogType="FileRemover" press="onCancelButtonPress" />
+    </endButton>
+  </Dialog>
+</core:FragmentDefinition>

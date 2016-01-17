@@ -1,0 +1,24 @@
+{
+    "name": "sap.hana.ide.editor.plugin.intellisence",
+
+    "requires": {
+        "services": [
+            "aceeditor",
+            "jscodecompletion"
+        ]
+    },
+
+    "configures": {
+
+        "services": {
+            "intellisence:codeCompletion": [{
+                "fileExtension": "xsjslib",
+                "service": "@jscodecompletion",
+                "editor": "aceeditor"
+            }]
+        }
+    },
+    "subscribes": {
+        
+    }
+}

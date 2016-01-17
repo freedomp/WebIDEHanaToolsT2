@@ -1,0 +1,5 @@
+- folder and file names should not contain space characters,
+- their length should be less than 32 characters,
+- only ASCII characters,
+- the name of the icon file in favicon determines the name of the folder in launchicon,
+- the names of the launchicons are the same for all the apps, their differ only by their parent folder's name.

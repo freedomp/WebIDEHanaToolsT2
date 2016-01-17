@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Principles — SAP Web IDE Design Guidelines</title>
+    <meta name="author" content="SAP SE">
+
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="assets/flat.css" type="text/css" />
+    <link rel="stylesheet" href="css/guidelines.css" type="text/css" />
+    <link rel="stylesheet" href="css/Design-Principles.css" type="text/css" />
+
+    <script src="../lib/requirejs/require.js" 
+	        data-main="../core/Global.js"
+	        data-sap-ide-environment-path="../../../../env.json"
+	        data-sap-ide-main="startup"
+	        data-sap-ide-basedir="../../.."></script>
+
+    <script>
+        define("startup", [], function() {
+            Q.all([
+                    sap.watt.includeScript("assets/js/contextSwitch.js"),
+                    sap.watt.includeScript("assets/js/flat.js")])
+            .then(function(){
+                loadTableOfContent("Principles");
+            });
+        });
+    </script>
+
+</head>
+<body>
+
+<div class="VBrandingBar"></div>
+
+<div class="VHeaderBar">
+    <div class="VHeaderBarCnt">
+        <ul class="VFloatRight vInline">
+            <li><img src="assets/images/SAPLogo.png" alt="SAP" id="LogoSAP" /></li>
+        </ul>
+        
+        <ul class="VInline">
+            <li id="ToggleMenuButton" class="VShowSmallInlineBlock"></li>
+            <li>SAP Web IDE<span class="VHideSmallInline"> — Design Guidelines</span></li>
+        </ul>
+    </div>
+</div>
+
+<div class="navigationOffCanvas"></div>
+
+<div class="content Design-Colors">
+
+    <div class="sapUiRespGrid sapUiRespGridHSpace1 sapUiRespGridVSpace1">
+        <div class="sapUiRespGridSpanL10 sapUiRespGridSpanM12 sapUiRespGridSpanS12 sapUiRespGridBreak">
+            <div class="VBanner">
+                <h1 class="VH2 VFontSpecial">Visual Design Foundations</h1>
+                <h2 class="VH1 VFontSpecial">Principles</h2>
+            </div>
+        </div>
+
+        <div class="sapUiRespGridSpanL9 sapUiRespGridSpanM12 sapUiRespGridSpanS12 sapUiRespGridBreakL">
+            <p>Integrated Development Environments (IDEs) currently undergo a dramatic change. Tools such as <a href="http://www.eclipse.org/ide/">Eclipse</a> have dominated the field for many years, but are more and more rivaled by smaller lightweight applications. These tools no longer come installed on local machines, but are web-based and run in the browser. They no longer make use of a classical desktop-based interaction, but are rather inspired by contemporary web design. Often their approach to specialize, overrules the demand for a comprehensive feature list. And they strive for simplicity in regards of installation and usage&mdash;and are used by millions.</p>
+
+            <p>The SAP Web IDE is the new cloud-based IDE for SAPUI5. This novel IDE draws inspiration from the current process. To emphasize this visually as well as interaction-wise, the SAP Web IDE makes use of a flat and minimalistic design language. Its approach is not only to be visually simple, but also to strip off visual clutter and unnecessary elements where possible, to re-think conventions, and find simple solutions that are not only visually appealing but also easy to use.</p>
+
+
+            <h3 class="VH2 VFontSpecial VSpacingTop3">Flat and Light</h3>
+
+            <p><a href="http://en.wikipedia.org/wiki/Flat_UI_Design">Flat design</a> refers to a style of visual design which eliminates any stylistic choices that give the illusion of three-dimensionality. It emphasizes the use of simple elements and shapes and <a href="Design-Restrictions.html">avoids</a> graphical effects such as, gradients, drop shadows, and textures.
+            Skeuomorphism has been an opposing design trend over the last years. Skeuomorphic graphical user interfaces mimic objects in the physical world. This has led to pseudo realistic user interfaces that tend to be more concerned with texture, visual effects and detail than lightweight interaction, simplicity and overview. The new theme "SAP Flat" avoids rich graphical effects, and all of its visual elements are reduced to a beautiful and simple minimum.</p>
+
+            <h3 class="VH2 VFontSpecial VSpacingTop2">Minimalistic and Clutter-free</h3>
+            
+            <p>It is in the nature of integrated development environments to be complex. Eclipse, for instance, offers several different workspace styles, an extensible plug-in system for customizing it, and tons of icons and associated decorators. Yet its initial strength has led to complex user interfaces, which also have taken on a complicated visual appearance over the last years. Since the goal of the Flat theme was to reduce styling to a minimum, simple and minimalistic design can be a real benefit in the context of complex tools and applications in general where a large amount of information is presented on the screen.</p>
+
+            <h3 class="VH2 VFontSpecial VSpacingTop2">Rooted in Contemporary Web Design</h3>
+
+            <p class="VSpacingBottom0">Current developments on the web serve as an inspiration for the SAP Web IDE and its approach to simplify its design. These are only a few of the current practices on the web that have inspired the web-based IDE:</p>
+
+            <ul class="VListBullets">
+                <li>grid-based layouts systems</li>
+                <li>infinite and parallax scrolling</li>
+                <li>no more assets but icon fonts and CSS3 goodness</li>
+                <li>minimalist navigation</li>
+                <li><a href="http://www.getelastic.com/the-pinterestization-of-the-web-fab-or-fad/">"pinterestization"</a> and tiles</li>
+            </ul>
+
+            <h3 class="VH2 VFontSpecial VSpacingTop2">Inspired by and Based on the Fiori Visual Design</h3>
+
+            <p>SAP Fiori&mdash;meaning flowers in Italian&mdash;represents SAP’s intent to deliver consumer-grade user experience to our most broadly and frequently used business transactions. Delivered with a fresh and modern user interface, SAP Fiori apps adhere to a consistent and responsive design that allows users to seamlessly experience the apps across various interaction channels&mdash;desktop, tablet, and mobile. The SAP Web IDE follows the Fiori design principles and takes its simplicity to the ones actually creating the beautiful apps&mdash;the Fiori developers.</p>
+        </div>
+
+        <div class="sapUiRespGridSpanL3 sapUiRespGridSpanM6 sapUiRespGridSpanS12 sapUiRespGridBreak">
+            <div class="VSpacer4"></div>
+            <p>Last updated: June 27, 2014</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

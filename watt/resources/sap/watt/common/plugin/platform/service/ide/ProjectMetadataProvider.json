@@ -1,0 +1,17 @@
+{
+	"name" : "sap.watt.common.service.ide.ProjectMetadataProvider",
+	"description" : "The project metdata provider interface",
+    
+	"methods" : {
+		"getDependencies": {
+			"params": [{
+				"name": "oDocument",
+				"type": "sap.watt.common.plugin.document.Document"
+			}],
+			"returns": {
+				"name": "sDependencies",
+				"type": "[object]"
+			}
+		}
+    }
+}

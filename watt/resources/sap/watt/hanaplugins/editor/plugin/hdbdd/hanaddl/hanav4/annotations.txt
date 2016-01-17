@@ -1,0 +1,27 @@
+@Scope: #ENTITY
+annotation Catalog {
+	tableType: String(20) enum {ROW= 'ROW'; COLUMN= 'COLUMN'; GLOBAL_TEMPORARY= 'GLOBAL_TEMPORARY';} default #COLUMN;
+	index : array of {
+		name : String(128);
+		unique : boolean default true;
+		order : String(4) enum {ASC='ASC'; DESC='DESC';} default #ASC;
+		elementNames : array of String(128);
+	};
+};
+
+@Scope: #VIEW
+annotation ColumnView {
+	useCalcEngine : boolean default true;
+};
+
+/*
+For GenerateTableType the default depends on the fact if the type (to which this annotation is attached)
+is a structured type (default false) or a non-structured type (default true). This cannot be expressed via
+the Scope annotation and is also not known at the frontend.
+Because of all this we simply don't provide a default value.
+*/
+@Scope: [#TYPE]
+annotation GenerateTableType: Boolean;
+
+@Scope: [#VIEW]
+annotation WithStructuredPrivilegeCheck : boolean default false;

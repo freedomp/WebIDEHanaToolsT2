@@ -1,0 +1,7722 @@
+Release	700
+Patchlevel	3
+MaxSuspiciousMachtes	2
+Token	40	205	205
+0:	"#ANYKW#"
+1:	"#ANYLIT#"
+2:	"#EOF#"
+3:	"#NL#"
+4:	"#COMMENT1#"
+5:	"#COMMENT2#"
+6:	"."
+7:	".."
+8:	","
+9:	":"
+10:	"::"
+11:	";"
+12:	"@"
+13:	"("
+14:	")"
+15:	"{"
+16:	"}"
+17:	"="
+18:	"<"
+19:	">"
+20:	"<="
+21:	">="
+22:	"<>"
+23:	"=>"
+24:	"||"
+25:	"["
+26:	"]"
+27:	"#STR_CONST#"
+28:	"#INT_CONST#"
+29:	"#REAL_CONST#"
+30:	"#DATE_CONST#"
+31:	"#TIME_CONST#"
+32:	"#TIMESTAMP_CONST#"
+33:	"#BINARY_CONST#"
+34:	"*"
+35:	"?"
+36:	"+"
+37:	"-"
+38:	"/"
+39:	"$"
+40:	"#ID#"
+41:	"namespace"
+42:	"\""
+43:	"using"
+44:	"as"
+45:	"#COLON_FOLLOWED_BY_ID#"
+46:	"null"
+47:	"define"
+48:	"context"
+49:	"type"
+50:	"element"
+51:	"of"
+52:	"array"
+53:	"enum"
+54:	"count"
+55:	"min"
+56:	"max"
+57:	"sum"
+58:	"avg"
+59:	"stddev"
+60:	"var"
+61:	"all"
+62:	"distinct"
+63:	"abs"
+64:	"acos"
+65:	"add_days"
+66:	"add_months"
+67:	"add_seconds"
+68:	"add_years"
+69:	"ascii"
+70:	"asin"
+71:	"atan"
+72:	"atan2"
+73:	"bintohex"
+74:	"bitand"
+75:	"ceil"
+76:	"coalesce"
+77:	"concat"
+78:	"cos"
+79:	"cosh"
+80:	"cot"
+81:	"days_between"
+82:	"exp"
+83:	"floor"
+84:	"greatest"
+85:	"hasanyprivileges"
+86:	"hassystemprivilege"
+87:	"hextobin"
+88:	"ifnull"
+89:	"isauthorized"
+90:	"last_day"
+91:	"least"
+92:	"length"
+93:	"ln"
+94:	"locate"
+95:	"log"
+96:	"lower"
+97:	"lpad"
+98:	"mod"
+99:	"next_day"
+100:	"nullif"
+101:	"power"
+102:	"replace"
+103:	"round"
+104:	"rpad"
+105:	"seconds_between"
+106:	"session_context"
+107:	"sign"
+108:	"sin"
+109:	"sinh"
+110:	"sqrt"
+111:	"substr"
+112:	"substr_after"
+113:	"substr_before"
+114:	"tan"
+115:	"tanh"
+116:	"to_bigint"
+117:	"to_binary"
+118:	"to_blob"
+119:	"to_char"
+120:	"to_clob"
+121:	"to_date"
+122:	"to_dats"
+123:	"to_decimal"
+124:	"to_double"
+125:	"to_int"
+126:	"to_integer"
+127:	"to_nchar"
+128:	"to_nclob"
+129:	"to_nvarchar"
+130:	"to_real"
+131:	"to_seconddate"
+132:	"to_smalldecimal"
+133:	"to_smallint"
+134:	"to_time"
+135:	"to_timestamp"
+136:	"to_tinyint"
+137:	"to_varbinary"
+138:	"to_varchar"
+139:	"unicode"
+140:	"upper"
+141:	"weekday"
+142:	"char"
+143:	"nchar"
+144:	"instr"
+145:	"lcase"
+146:	"substring"
+147:	"ucase"
+148:	"curdate"
+149:	"curtime"
+150:	"database"
+151:	"now"
+152:	"user"
+153:	"convert_currency"
+154:	"convert_unit"
+155:	"case"
+156:	"when"
+157:	"then"
+158:	"not"
+159:	"aspect"
+160:	"is"
+161:	"between"
+162:	"and"
+163:	"like"
+164:	"escape"
+165:	"in"
+166:	"or"
+167:	"else"
+168:	"end"
+169:	"#PIPE_PIPE#"
+170:	"association"
+171:	"to"
+172:	"on"
+173:	"default"
+174:	"#ENUM_ID#"
+175:	"entity"
+176:	"key"
+177:	"view"
+178:	"select"
+179:	"from"
+180:	"mixin"
+181:	"into"
+182:	"where"
+183:	"group"
+184:	"by"
+185:	"having"
+186:	"union"
+187:	"intersect"
+188:	"except"
+189:	"minus"
+190:	"order"
+191:	"asc"
+192:	"desc"
+193:	"nulls"
+194:	"first"
+195:	"last"
+196:	"const"
+197:	"annotation"
+198:	"accesspolicy"
+199:	"role"
+200:	"grant"
+201:	"never"
+202:	"match"
+203:	"this"
+204:	"rule"
+
+rule	Colon
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	16
+follow= 15 25 27 28 29 30 31 32 33 37 40 42 46 49 52 170
+	BRAN	0	0	2
+	9!	L1
+	45!	L2
+L1:
+	MTCH	0	0	0	9
+	RETN
+L2:
+	MTCH	0	0	0	45
+	RETN
+
+rule	START
+rflags=	0
+role=	0
+tc=	0
+flgc=	1
+phrase=	""
+startrule=	"true"
+fllwc=	1
+follow= 2
+	EXCT	0	0
+	SFLG	0	0
+L3:
+	BRAN	1	1	13
+	2	L4
+	12	L5
+	40	L6
+	41	L5
+	43	L5
+	47	L5
+	48	L5
+	49	L5
+	175	L5
+	177	L5
+	196	L5
+	197	L5
+	198	L5
+L5:
+	PSHF	4	START2
+	CALL	START2
+	SFLG	0	1
+	GOTO	L3
+L6:
+	PSHF	5	NEVER_MATCH_RULE
+	CALL	NEVER_MATCH_RULE
+	SFLG	0	1
+	GOTO	L3
+L4:
+	CFLG	0	1
+	SYSC	0	0
+	RETN
+
+rule	NEVER_MATCH_RULE
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	17
+follow= 2 12 16 40 41 42 43 47 48 49 50 175 176 177 196 197 198
+	MTCH	0	0	0	40
+	MTCH	0	0	0	201
+	MTCH	0	0	0	202
+	MTCH	0	0	0	203
+	MTCH	0	0	0	204
+	MTCH	0	0	0	11
+	SYSC	0	0
+	RETN
+
+rule	START2
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	17
+follow= 2 12 16 40 41 42 43 47 48 49 50 175 176 177 196 197 198
+	BRAN	0	0	11
+	12!	L9
+	41!	L8
+	43!	L10
+	47!	L9
+	48!	L9
+	49!	L9
+	175!	L9
+	177!	L9
+	196!	L9
+	197!	L9
+	198!	L9
+L8:
+	PSHF	8	NamespaceDeclaration
+	CALL	NamespaceDeclaration
+	BRAN	0	0	10
+	12!	L9
+	43!	L10
+	47!	L9
+	48!	L9
+	49!	L9
+	175!	L9
+	177!	L9
+	196!	L9
+	197!	L9
+	198!	L9
+L10:
+	PSHF	7	UsingDirectiveList
+	CALL	UsingDirectiveList
+L9:
+	EXCT	0	0
+	PSHF	6	TopLevelDeclaration
+	CALL	TopLevelDeclaration
+	SYSC	0	0
+	RETN
+
+rule	START_SYNTAX_COLORING
+rflags=	0
+role=	0
+tc=	0
+flgc=	1
+phrase=	""
+startrule=	"true"
+fllwc=	1
+follow= 2
+	SFLG	0	0
+L11:
+	BRAN	1	1	19
+	2	L12
+	12	L14
+	12	L13
+	16	L16
+	40	L15
+	40	L14
+	41	L13
+	42	L14
+	43	L13
+	47	L13
+	48	L13
+	49	L13
+	50	L14
+	175	L13
+	176	L14
+	177	L13
+	196	L13
+	197	L13
+	198	L13
+L13:
+	PSHF	9	START2
+	CALL	START2
+	SFLG	0	1
+	GOTO	L11
+L14:
+	EXCT	0	0
+	PSHF	10	AnnotatedElementDeclaration
+	CALL	AnnotatedElementDeclaration
+	SFLG	0	1
+	GOTO	L11
+L15:
+	PSHF	11	NEVER_MATCH_RULE
+	CALL	NEVER_MATCH_RULE
+	SFLG	0	1
+	GOTO	L11
+L16:
+	MTCH	0	0	0	16
+	MTCH	0	0	0	11
+	SFLG	0	1
+	GOTO	L11
+L12:
+	CFLG	0	1
+	SYSC	0	0
+	RETN
+
+rule	NamespaceDeclaration
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	10
+follow= 12 43 47 48 49 175 177 196 197 198
+	EXCT	0	5
+	PSHF	13	NAMESPACE
+	CALL	NAMESPACE
+	EXCT	0	3
+	PSHF	12	NamespacePath
+	CALL	NamespacePath
+	EXCT	0	1
+	MTCH	0	0	0	11
+	EXCT	0	0
+	SYSC	0	0
+	RETN
+
+rule	UsingDirectiveList
+rflags=	0
+role=	0
+tc=	0
+flgc=	1
+phrase=	""
+fllwc=	9
+follow= 12 47 48 49 175 177 196 197 198
+	SFLG	0	0
+L17:
+	BRAN	0	0	10
+	12!	L18
+	43!	L19
+	47!	L18
+	48!	L18
+	49!	L18
+	175!	L18
+	177!	L18
+	196!	L18
+	197!	L18
+	198!	L18
+L19:
+	PSHF	14	UsingDirective
+	CALL	UsingDirective
+	EXCT	0	0
+	SFLG	0	1
+	GOTO	L17
+L18:
+	CFLG	0	1
+	RETN
+
+rule	UsingDirective
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	10
+follow= 12 43 47 48 49 175 177 196 197 198
+	EXCT	0	2
+	MTCH	0	0	0	43
+	PSHF	17	PathWithNamespace
+	CALL	PathWithNamespace
+	BRAN	0	0	2
+	11!	L20
+	44!	L21
+L21:
+	PSHF	16	AS
+	CALL	AS
+	PSHF	15	IdWrapper
+	CALL	IdWrapper
+L20:
+	MTCH	0	0	0	11
+	EXCT	0	0
+	SYSC	0	0
+	RETN
+
+rule	TopLevelDeclaration
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	17
+follow= 2 12 16 40 41 42 43 47 48 49 50 175 176 177 196 197 198
+	EXCT	0	8
+L22:
+	BRAN	0	0	9
+	12!	L24
+	47!	L26
+	48!	L28
+	49!	L32
+	175!	L30
+	177!	L31
+	196!	L33
+	197!	L34
+	198!	L29
+L24:
+	PSHF	26	PreAnnotation
+	CALL	PreAnnotation
+	EXCT	0	7
+	GOTO	L22
+L26:
+	PSHF	25	DEFINE
+	CALL	DEFINE
+	BRAN	0	0	7
+	48!	L28
+	49!	L32
+	175!	L30
+	177!	L31
+	196!	L33
+	197!	L34
+	198!	L29
+L28:
+	EXCT	0	0
+	PSHF	18	ContextDeclaration
+	CALL	ContextDeclaration
+	RETN
+L29:
+	EXCT	0	1
+	PSHF	19	AccessPolicyDeclaration
+	CALL	AccessPolicyDeclaration
+	RETN
+L30:
+	EXCT	0	2
+	PSHF	20	EntityDeclaration
+	CALL	EntityDeclaration
+	RETN
+L31:
+	EXCT	0	3
+	PSHF	21	ViewDeclaration
+	CALL	ViewDeclaration
+	RETN
+L32:
+	EXCT	0	4
+	PSHF	22	TypeDeclaration
+	CALL	TypeDeclaration
+	RETN
+L33:
+	EXCT	0	5
+	PSHF	23	ConstDeclaration
+	CALL	ConstDeclaration
+	RETN
+L34:
+	EXCT	0	6
+	PSHF	24	AnnotationDeclaration
+	CALL	AnnotationDeclaration
+	RETN
+
+rule	ContextDeclaration
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	17
+follow= 2 12 16 40 41 42 43 47 48 49 50 175 176 177 196 197 198
+	EXCT	0	4
+	PSHF	29	CONTEXT
+	CALL	CONTEXT
+	PSHF	28	QualifiedDefId
+	CALL	QualifiedDefId
+	EXCT	0	2
+	MTCH	0	0	0	15
+	SYSC	0	0
+L35:
+	BRAN	0	0	9
+	12!	L37
+	16!	L36
+	47!	L37
+	48!	L37
+	49!	L37
+	175!	L37
+	177!	L37
+	196!	L37
+	197!	L37
+L37:
+	EXCT	0	1
+	PSHF	27	ContextComponentDeclaration
+	CALL	ContextComponentDeclaration
+	GOTO	L35
+L36:
+	MTCH	0	0	0	16
+	MTCH	0	0	0	11
+	EXCT	0	0
+	SYSC	0	0
+	RETN
+
+rule	ContextComponentDeclaration
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	9
+follow= 12 16 47 48 49 175 177 196 197
+	EXCT	0	14
+	SYSC	0	0
+L38:
+	BRAN	0	0	8
+	12!	L40
+	47!	L42
+	48!	L44
+	49!	L45
+	175!	L46
+	177!	L47
+	196!	L48
+	197!	L49
+L40:
+	PSHF	37	PreAnnotation
+	CALL	PreAnnotation
+	EXCT	0	12
+	GOTO	L38
+L42:
+	PSHF	36	DEFINE
+	CALL	DEFINE
+	BRAN	0	0	6
+	48!	L44
+	49!	L45
+	175!	L46
+	177!	L47
+	196!	L48
+	197!	L49
+L44:
+	EXCT	0	1
+	PSHF	30	ContextDeclaration
+	CALL	ContextDeclaration
+L43:
+	SYSC	0	0
+	RETN
+L45:
+	EXCT	0	3
+	PSHF	31	TypeDeclaration
+	CALL	TypeDeclaration
+	GOTO	L43
+L46:
+	EXCT	0	5
+	PSHF	32	EntityDeclaration
+	CALL	EntityDeclaration
+	GOTO	L43
+L47:
+	EXCT	0	7
+	PSHF	33	ViewDeclaration
+	CALL	ViewDeclaration
+	GOTO	L43
+L48:
+	EXCT	0	9
+	PSHF	34	ConstDeclaration
+	CALL	ConstDeclaration
+	GOTO	L43
+L49:
+	EXCT	0	11
+	PSHF	35	AnnotationDeclaration
+	CALL	AnnotationDeclaration
+	GOTO	L43
+
+rule	AccessPolicyDeclaration
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	17
+follow= 2 12 16 40 41 42 43 47 48 49 50 175 176 177 196 197 198
+	EXCT	0	4
+	MTCH	0	0	0	198
+	PSHF	39	QualifiedDefId
+	CALL	QualifiedDefId
+	EXCT	0	2
+	MTCH	0	0	0	15
+L50:
+	BRAN	0	0	5
+	12!	L52
+	16!	L51
+	47!	L52
+	159!	L52
+	199!	L52
+L52:
+	EXCT	0	1
+	PSHF	38	AccessPolicyComponentDeclaration
+	CALL	AccessPolicyComponentDeclaration
+	GOTO	L50
+L51:
+	MTCH	0	0	0	16
+	MTCH	0	0	0	11
+	EXCT	0	0
+	SYSC	0	0
+	RETN
+
+rule	AccessPolicyComponentDeclaration
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	5
+follow= 12 16 47 159 199
+	EXCT	0	4
+	SYSC	0	0
+L53:
+	BRAN	0	0	4
+	12!	L55
+	47!	L57
+	159!	L60
+	199!	L59
+L55:
+	PSHF	43	PreAnnotation
+	CALL	PreAnnotation
+	EXCT	0	2
+	GOTO	L53
+L57:
+	PSHF	42	DEFINE
+	CALL	DEFINE
+	BRAN	0	0	2
+	159!	L60
+	199!	L59
+L59:
+	EXCT	0	0
+	PSHF	40	RoleDeclaration
+	CALL	RoleDeclaration
+	RETN
+L60:
+	EXCT	0	1
+	PSHF	41	AspectDeclaration
+	CALL	AspectDeclaration
+	RETN
+
+rule	RoleDeclaration
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	5
+follow= 12 16 47 159 199
+	EXCT	0	4
+	MTCH	0	0	0	199
+	PSHF	45	QualifiedDefId
+	CALL	QualifiedDefId
+	EXCT	0	2
+	MTCH	0	0	0	15
+L61:
+	BRAN	0	0	4
+	16!	L62
+	47!	L63
+	159!	L63
+	200!	L63
+L63:
+	EXCT	0	1
+	PSHF	44	RuleDeclaration
+	CALL	RuleDeclaration
+	GOTO	L61
+L62:
+	MTCH	0	0	0	16
+	MTCH	0	0	0	11
+	EXCT	0	0
+	SYSC	0	0
+	RETN
+
+rule	RuleDeclaration
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	4
+follow= 16 47 159 200
+	EXCT	0	3
+	BRAN	0	0	3
+	47!	L68
+	159!	L67
+	200!	L65
+L65:
+	EXCT	0	1
+	MTCH	0	0	0	200
+	EXCT	0	0
+	PSHF	46	RuleSubquery
+	CALL	RuleSubquery
+	RETN
+L68:
+	PSHF	48	DEFINE
+	CALL	DEFINE
+L67:
+	EXCT	0	2
+	PSHF	47	AspectDeclaration
+	CALL	AspectDeclaration
+	RETN
+
+rule	RuleSubquery
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	4
+follow= 16 47 159 200
+	EXCT	0	5
+	PSHF	50	RuleFromClause
+	CALL	RuleFromClause
+	EXCT	0	2
+	PSHF	49	WhereClause
+	CALL	WhereClause
+	EXCT	0	1
+	MTCH	0	0	0	11
+	EXCT	0	0
+	SYSC	0	0
+	RETN
+
+rule	RuleFromClause
+rflags=	0
+role=	0
+tc=	4
+flgc=	0
+phrase=	""
+fllwc=	2
+follow= 11 182
+	EXCT	0	3
+	BRAN	1	1	4
+	40	L71
+	42!	L71
+	45!	L71
+	178	L70
+L70:
+	MTCH	2	0	0	178
+	MTCH	1	0	0	172
+	EXCT	0	1
+	PSHF	51	QLPath
+	CALL	QLPath
+	EXCT	0	0
+L69:
+	SYSC	0	0
+	RETN
+L71:
+	PSHF	52	QLPath
+	CALL	QLPath
+	MTCH	0	0	0	6
+	MTCH	3	0	0	178
+	EXCT	0	2
+	GOTO	L69
+
+rule	AspectDeclaration
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	6
+follow= 12 16 47 159 199 200
+	EXCT	0	4
+	MTCH	0	0	0	159
+	PSHF	55	QualifiedDefId
+	CALL	QualifiedDefId
+	EXCT	0	2
+	PSHF	54	AS
+	CALL	AS
+	EXCT	0	1
+	PSHF	53	QLSubqueryElementary
+	CALL	QLSubqueryElementary
+	MTCH	0	0	0	11
+	EXCT	0	0
+	SYSC	0	0
+	RETN
+
+rule	EntityDeclaration
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	17
+follow= 2 12 16 40 41 42 43 47 48 49 50 175 176 177 196 197 198
+	EXCT	0	4
+	PSHF	58	ENTITY
+	CALL	ENTITY
+	PSHF	57	QualifiedDefId
+	CALL	QualifiedDefId
+	MTCH	0	0	0	15
+	SYSC	0	0
+	EXCT	0	2
+	PSHF	56	AnnotatedElementDeclarationLoop
+	CALL	AnnotatedElementDeclarationLoop
+	MTCH	0	0	0	16
+	MTCH	0	0	0	11
+	EXCT	0	0
+	SYSC	0	0
+	RETN
+
+rule	AnnotatedElementDeclarationLoop
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	1
+follow= 16
+	SYSC	0	0
+L72:
+	BRAN	1	1	6
+	12	L74
+	16	L73
+	40	L74
+	42!	L74
+	50!	L74
+	176!	L74
+L74:
+	EXCT	0	0
+	PSHF	59	AnnotatedElementDeclaration
+	CALL	AnnotatedElementDeclaration
+	GOTO	L72
+L73:
+	RETN
+
+rule	ViewDeclaration
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	17
+follow= 2 12 16 40 41 42 43 47 48 49 50 175 176 177 196 197 198
+	EXCT	0	4
+	PSHF	63	VIEW
+	CALL	VIEW
+	PSHF	62	QualifiedDefId
+	CALL	QualifiedDefId
+	EXCT	0	2
+	PSHF	61	AS
+	CALL	AS
+	EXCT	0	1
+	PSHF	60	QLSelectStmtNoOption
+	CALL	QLSelectStmtNoOption
+	MTCH	0	0	0	11
+	EXCT	0	0
+	SYSC	0	0
+	RETN
+
+rule	AnnotatedElementDeclaration
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	17
+follow= 2 12 16 40 41 42 43 47 48 49 50 175 176 177 196 197 198
+	EXCT	0	3
+L75:
+	BRAN	1	1	5
+	12	L77
+	40	L76
+	42!	L76
+	50!	L76
+	176!	L76
+L77:
+	PSHF	65	PreAnnotation
+	CALL	PreAnnotation
+	EXCT	0	1
+	GOTO	L75
+L76:
+	EXCT	0	0
+	PSHF	64	ElementDeclaration
+	CALL	ElementDeclaration
+	RETN
+
+rule	ElementDeclaration
+rflags=	0
+role=	0
+tc=	0
+flgc=	2
+phrase=	""
+fllwc=	17
+follow= 2 12 16 40 41 42 43 47 48 49 50 175 176 177 196 197 198
+	EXCT	0	6
+	BRAN	1	1	4
+	40	L78
+	42!	L80
+	50!	L78
+	176	L79
+L79:
+	PSHF	71	ElementModifier
+	CALL	ElementModifier
+L78:
+	BRAN	1	1	3
+	40	L80
+	42!	L80
+	50	L81
+L81:
+	PSHF	70	ELEMENT
+	CALL	ELEMENT
+L80:
+	PSHF	69	DefId
+	CALL	DefId
+	EXCT	0	4
+	PSHF	68	TypeSpec
+	CALL	TypeSpec
+	EXCT	0	3
+	SFLG	0	0
+	SFLG	1	0
+L82:
+	BRAN	0	0	4
+	11!	L83
+	46!	L84
+	158!	L84
+	173!	L85
+L84:
+	CFLG	0	0
+	EXCT	0	1
+	PSHF	66	Nullability
+	CALL	Nullability
+	SFLG	0	1
+	GOTO	L82
+L85:
+	CFLG	1	0
+	EXCT	0	2
+	PSHF	67	DefaultClause
+	CALL	DefaultClause
+	SFLG	1	1
+	GOTO	L82
+L83:
+	MTCH	0	0	0	11
+	EXCT	0	0
+	SYSC	0	0
+	RETN
+
+rule	Nullability
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	4
+follow= 11 46 158 173
+	BRAN	0	0	2
+	46!	L86
+	158!	L87
+L87:
+	PSHF	73	NOT
+	CALL	NOT
+	EXCT	0	1
+L86:
+	PSHF	72	NULL
+	CALL	NULL
+	EXCT	0	0
+	RETN
+
+rule	DefaultClause
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	4
+follow= 11 46 158 173
+	PSHF	76	DEFAULT
+	CALL	DEFAULT
+	BRAN	1	1	115
+	13	L89
+	27	L89
+	28	L89
+	29	L89
+	30	L89
+	31	L89
+	32	L89
+	33	L89
+	36	L89
+	37	L89
+	40	L89
+	42!	L89
+	45!	L89
+	46!	L89
+	54!	L89
+	55!	L89
+	56!	L89
+	57!	L89
+	58!	L89
+	59!	L89
+	60!	L89
+	63!	L89
+	64!	L89
+	65!	L89
+	66!	L89
+	67!	L89
+	68!	L89
+	69!	L89
+	70!	L89
+	71!	L89
+	72!	L89
+	73!	L89
+	74!	L89
+	75!	L89
+	76!	L89
+	77!	L89
+	78!	L89
+	79!	L89
+	80!	L89
+	81!	L89
+	82!	L89
+	83!	L89
+	84!	L89
+	85!	L89
+	86!	L89
+	87!	L89
+	88!	L89
+	89!	L89
+	90!	L89
+	91!	L89
+	92!	L89
+	93!	L89
+	94!	L89
+	95!	L89
+	96!	L89
+	97!	L89
+	98!	L89
+	99!	L89
+	100!	L89
+	101!	L89
+	102!	L89
+	103!	L89
+	104!	L89
+	105!	L89
+	106!	L89
+	107!	L89
+	108!	L89
+	109!	L89
+	110!	L89
+	111!	L89
+	112!	L89
+	113!	L89
+	114!	L89
+	115!	L89
+	116!	L89
+	117!	L89
+	118!	L89
+	119!	L89
+	120!	L89
+	121!	L89
+	122!	L89
+	123!	L89
+	124!	L89
+	125!	L89
+	126!	L89
+	127!	L89
+	128!	L89
+	129!	L89
+	130!	L89
+	131!	L89
+	132!	L89
+	133!	L89
+	134!	L89
+	135!	L89
+	136!	L89
+	137!	L89
+	138!	L89
+	139!	L89
+	140!	L89
+	141!	L89
+	142!	L89
+	143!	L89
+	144!	L89
+	145!	L89
+	146!	L89
+	147!	L89
+	148!	L89
+	149!	L89
+	150!	L89
+	151!	L89
+	152!	L89
+	153!	L89
+	154!	L89
+	155!	L89
+	174	L90
+L89:
+	PSHF	74	Expression
+	CALL	Expression
+	EXCT	0	0
+	RETN
+L90:
+	PSHF	75	EnumIdWrapper
+	CALL	EnumIdWrapper
+	EXCT	0	1
+	RETN
+
+rule	ElementModifier
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	3
+follow= 40 42 50
+	PSHF	77	KEY
+	CALL	KEY
+	EXCT	0	0
+	RETN
+
+rule	ConstDeclaration
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	17
+follow= 2 12 16 40 41 42 43 47 48 49 50 175 176 177 196 197 198
+	EXCT	0	5
+	MTCH	0	0	0	196
+	PSHF	80	QualifiedDefId
+	CALL	QualifiedDefId
+	EXCT	0	3
+	BRAN	0	0	4
+	9!	L92
+	15!	L92
+	17!	L91
+	45!	L92
+L92:
+	EXCT	0	2
+	PSHF	79	TypeSpec
+	CALL	TypeSpec
+L91:
+	MTCH	0	0	0	17
+	PSHF	78	ConstValue
+	CALL	ConstValue
+	EXCT	0	1
+	MTCH	0	0	0	11
+	EXCT	0	0
+	SYSC	0	0
+	RETN
+
+rule	ConstValue
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	1
+follow= 11
+	PSHF	81	Expression
+	CALL	Expression
+	EXCT	0	0
+	RETN
+
+rule	EnumValueDeclaration
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	3
+follow= 16 40 42
+	EXCT	0	4
+	PSHF	83	DefId
+	CALL	DefId
+	EXCT	0	2
+	MTCH	0	0	0	17
+	PSHF	82	Expression
+	CALL	Expression
+	EXCT	0	1
+	MTCH	0	0	0	11
+	EXCT	0	0
+	SYSC	0	0
+	RETN
+
+rule	TypeDeclaration
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	17
+follow= 2 12 16 40 41 42 43 47 48 49 50 175 176 177 196 197 198
+	EXCT	0	5
+	PSHF	87	TYPE
+	CALL	TYPE
+	PSHF	86	QualifiedDefId
+	CALL	QualifiedDefId
+	EXCT	0	3
+	BRAN	0	0	4
+	9!	L95
+	15	L95
+	15	L94
+	45!	L95
+L94:
+	EXCT	0	1
+	PSHF	84	StructuredType
+	CALL	StructuredType
+L93:
+	MTCH	0	0	0	11
+	EXCT	0	0
+	SYSC	0	0
+	RETN
+L95:
+	EXCT	0	2
+	PSHF	85	TypeSpec
+	CALL	TypeSpec
+	GOTO	L93
+
+rule	StructuredType
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	5
+follow= 11 17 46 158 173
+	MTCH	0	0	0	15
+	SYSC	0	0
+	EXCT	0	0
+	PSHF	88	StructuredTypeComponent
+	CALL	StructuredTypeComponent
+	MTCH	0	0	0	16
+	RETN
+
+rule	StructuredTypeComponent
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	1
+follow= 16
+L96:
+	BRAN	1	1	5
+	12	L98
+	16	L97
+	40	L98
+	42!	L98
+	50!	L98
+L98:
+	EXCT	0	1
+	PSHF	89	AnnotatedTypeComponentDeclaration
+	CALL	AnnotatedTypeComponentDeclaration
+	EXCT	0	0
+	SYSC	0	0
+	GOTO	L96
+L97:
+	RETN
+
+rule	AnnotatedTypeComponentDeclaration
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	5
+follow= 12 16 40 42 50
+	EXCT	0	3
+L99:
+	BRAN	1	1	4
+	12	L101
+	40	L100
+	42!	L100
+	50!	L100
+L101:
+	PSHF	91	PreAnnotation
+	CALL	PreAnnotation
+	EXCT	0	2
+	GOTO	L99
+L100:
+	EXCT	0	1
+	PSHF	90	TypeComponentDeclaration
+	CALL	TypeComponentDeclaration
+	EXCT	0	0
+	SYSC	0	0
+	RETN
+
+rule	TypeComponentDeclaration
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	5
+follow= 12 16 40 42 50
+	EXCT	0	5
+	BRAN	1	1	3
+	40	L102
+	42!	L102
+	50	L103
+L103:
+	PSHF	95	ELEMENT
+	CALL	ELEMENT
+L102:
+	PSHF	94	DefId
+	CALL	DefId
+	EXCT	0	3
+	PSHF	93	TypeSpec
+	CALL	TypeSpec
+	EXCT	0	2
+	BRAN	0	0	2
+	11!	L104
+	173!	L105
+L105:
+	EXCT	0	1
+	PSHF	92	DefaultClause
+	CALL	DefaultClause
+L104:
+	MTCH	0	0	0	11
+	EXCT	0	0
+	SYSC	0	0
+	RETN
+
+rule	TypeSpec
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	5
+follow= 11 17 46 158 173
+	EXCT	0	11
+	BRAN	0	0	3
+	9!	L107
+	15!	L108
+	45!	L107
+L107:
+	PSHF	100	Colon
+	CALL	Colon
+	EXCT	0	8
+	BRAN	1	1	5
+	40	L112
+	42!	L112
+	49	L110
+	52	L111
+	170	L113
+L110:
+	EXCT	0	1
+	PSHF	96	TypeTypeOf
+	CALL	TypeTypeOf
+	EXCT	0	0
+	RETN
+L111:
+	EXCT	0	3
+	PSHF	97	TypeArray
+	CALL	TypeArray
+	EXCT	0	2
+	RETN
+L112:
+	EXCT	0	5
+	PSHF	98	TypeNamedOrEnum
+	CALL	TypeNamedOrEnum
+	EXCT	0	4
+	RETN
+L113:
+	EXCT	0	7
+	PSHF	99	TypeAssoc
+	CALL	TypeAssoc
+	EXCT	0	6
+	RETN
+L108:
+	EXCT	0	10
+	PSHF	101	StructuredType
+	CALL	StructuredType
+	RETN
+
+rule	TypeSpecNoColon
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	5
+follow= 11 17 46 158 173
+	EXCT	0	7
+	BRAN	1	1	4
+	15	L117
+	40	L116
+	42!	L116
+	49	L115
+L115:
+	EXCT	0	2
+	PSHF	102	TypeTypeOf
+	CALL	TypeTypeOf
+	EXCT	0	0
+	RETN
+L116:
+	EXCT	0	4
+	PSHF	103	TypeNamedOrEnum
+	CALL	TypeNamedOrEnum
+	EXCT	0	3
+	RETN
+L117:
+	EXCT	0	6
+	PSHF	104	StructuredType
+	CALL	StructuredType
+	RETN
+
+rule	TypeTypeOf
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	5
+follow= 11 17 46 158 173
+	PSHF	107	TYPE
+	CALL	TYPE
+	PSHF	106	OF
+	CALL	OF
+	PSHF	105	PathSimple
+	CALL	PathSimple
+	EXCT	0	0
+	RETN
+
+rule	TypeArray
+rflags=	0
+role=	0
+tc=	3
+flgc=	0
+phrase=	""
+fllwc=	5
+follow= 11 17 46 158 173
+	SYSC	3	0
+	MTCH	1	0	0	52
+	SYSC	3	0
+	MTCH	2	0	0	51
+	EXCT	0	1
+	PSHF	108	TypeSpecNoColon
+	CALL	TypeSpecNoColon
+	EXCT	0	0
+	RETN
+
+rule	TypeNamedOrEnum
+rflags=	0
+role=	0
+tc=	0
+flgc=	1
+phrase=	""
+fllwc=	5
+follow= 11 17 46 158 173
+	EXCT	0	5
+	PSHF	110	TypeNamed
+	CALL	TypeNamed
+	EXCT	0	3
+	BRAN	0	0	6
+	11!	L118
+	17!	L118
+	46!	L118
+	53!	L119
+	158!	L118
+	173!	L118
+L119:
+	EXCT	0	2
+	MTCH	0	0	0	53
+	MTCH	0	0	0	15
+	SYSC	0	0
+	SFLG	0	0
+L120:
+	BRAN	1	1	3
+	16	L121
+	40	L122
+	42!	L122
+L122:
+	PSHF	109	EnumValueDeclaration
+	CALL	EnumValueDeclaration
+	EXCT	0	1
+	SFLG	0	1
+	GOTO	L120
+L121:
+	CFLG	0	1
+	MTCH	0	0	0	16
+	EXCT	0	0
+L118:
+	RETN
+
+rule	TypeNamed
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	6
+follow= 11 17 46 53 158 173
+	PSHF	113	TypeName
+	CALL	TypeName
+	EXCT	0	2
+	BRAN	0	0	7
+	11!	L123
+	13!	L124
+	17!	L123
+	46!	L123
+	53!	L123
+	158!	L123
+	173!	L123
+L124:
+	MTCH	0	0	0	13
+	PSHF	112	IntLiteralWrapper
+	CALL	IntLiteralWrapper
+	EXCT	0	1
+	BRAN	0	0	2
+	8!	L126
+	14!	L125
+L126:
+	MTCH	0	0	0	8
+	PSHF	111	IntLiteralWrapper
+	CALL	IntLiteralWrapper
+	EXCT	0	0
+L125:
+	MTCH	0	0	0	14
+L123:
+	RETN
+
+rule	TypeName
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	7
+follow= 11 13 17 46 53 158 173
+	PSHF	114	PathSimple
+	CALL	PathSimple
+	EXCT	0	0
+	RETN
+
+rule	AssociationForeignKeys
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	5
+follow= 11 17 46 158 173
+	EXCT	0	2
+	MTCH	0	0	0	15
+	EXCT	0	1
+	PSHF	115	AssociationForeignKeyElement
+	CALL	AssociationForeignKeyElement
+	EXCT	0	0
+	MTCH	0	0	0	16
+	RETN
+
+rule	AssociationForeignKeyElement
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	1
+follow= 16
+	EXCT	0	4
+	BRAN	1	1	3
+	16	L127
+	40	L128
+	42!	L128
+L128:
+	EXCT	0	3
+	PSHF	117	PathWithAlias
+	CALL	PathWithAlias
+	EXCT	0	2
+L129:
+	BRAN	0	0	2
+	8!	L131
+	16!	L127
+L131:
+	MTCH	0	0	0	8
+	EXCT	0	1
+	PSHF	116	PathWithAlias
+	CALL	PathWithAlias
+	EXCT	0	0
+	GOTO	L129
+L127:
+	RETN
+
+rule	AssociationTo
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	7
+follow= 11 15 17 46 158 172 173
+	EXCT	0	4
+	PSHF	121	ASSOCIATION
+	CALL	ASSOCIATION
+	EXCT	0	3
+	BRAN	0	0	2
+	25!	L133
+	171!	L132
+L133:
+	EXCT	0	2
+	PSHF	120	Cardinality
+	CALL	Cardinality
+L132:
+	PSHF	119	TO
+	CALL	TO
+	EXCT	0	1
+	PSHF	118	PathSimple
+	CALL	PathSimple
+	EXCT	0	0
+	RETN
+
+rule	AssocForeignKeyOrJoinCondition
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	5
+follow= 11 17 46 158 173
+	BRAN	0	0	7
+	11!	L134
+	15!	L135
+	17!	L134
+	46!	L134
+	158!	L134
+	172!	L136
+	173!	L134
+L135:
+	EXCT	0	0
+	PSHF	122	AssociationForeignKeys
+	CALL	AssociationForeignKeys
+	RETN
+L136:
+	EXCT	0	1
+	PSHF	123	AssociationOnCondition
+	CALL	AssociationOnCondition
+L134:
+	RETN
+
+rule	AssociationOnCondition
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	5
+follow= 11 17 46 158 173
+	MTCH	0	0	0	172
+	PSHF	124	Condition
+	CALL	Condition
+	EXCT	0	0
+	RETN
+
+rule	TypeAssoc
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	5
+follow= 11 17 46 158 173
+	EXCT	0	2
+	PSHF	126	AssociationTo
+	CALL	AssociationTo
+	EXCT	0	1
+	PSHF	125	AssocForeignKeyOrJoinCondition
+	CALL	AssocForeignKeyOrJoinCondition
+	RETN
+
+rule	Cardinality
+rflags=	0
+role=	0
+tc=	3
+flgc=	0
+phrase=	""
+fllwc=	1
+follow= 171
+	MTCH	0	0	0	25
+	BRAN	0	0	3
+	26!	L137
+	28!	L138
+	34!	L138
+L138:
+	BRAN	0	0	4
+	28	L139
+	28	L142
+	34	L148
+	34	L143
+L142:
+	PSHF	129	IntLiteralWrapper
+	CALL	IntLiteralWrapper
+L141:
+	MTCH	0	0	0	8
+L139:
+	BRAN	0	0	3
+	28	L147
+	28	L145
+	34!	L148
+L143:
+	MTCH	2	0	0	34
+	EXCT	0	2
+	GOTO	L141
+L145:
+	PSHF	128	IntLiteralWrapper
+	CALL	IntLiteralWrapper
+	MTCH	0	0	0	6
+	MTCH	0	0	0	6
+	BRAN	0	0	2
+	28!	L147
+	34!	L148
+L147:
+	PSHF	127	IntLiteralWrapper
+	CALL	IntLiteralWrapper
+L146:
+	EXCT	0	0
+L137:
+	MTCH	0	0	0	26
+	RETN
+L148:
+	MTCH	1	0	0	34
+	EXCT	0	1
+	GOTO	L146
+
+rule	NamespacePath
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	2
+follow= 10 11
+	PSHF	131	IdWrapper
+	CALL	IdWrapper
+	EXCT	0	1
+L149:
+	BRAN	0	0	3
+	6!	L151
+	10!	L150
+	11!	L150
+L151:
+	MTCH	0	0	0	6
+	PSHF	130	IdWrapper
+	CALL	IdWrapper
+	EXCT	0	0
+	GOTO	L149
+L150:
+	RETN
+
+rule	QualifiedDefId
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	5
+follow= 9 15 17 44 45
+	PSHF	134	IdWrapper
+	CALL	IdWrapper
+	EXCT	0	2
+	BRAN	0	0	7
+	6!	L156
+	9!	L152
+	10!	L155
+	15!	L152
+	17!	L152
+	44!	L152
+	45!	L152
+L156:
+	MTCH	0	0	0	6
+	PSHF	133	IdWrapper
+	CALL	IdWrapper
+	EXCT	0	1
+	BRAN	0	0	2
+	6!	L156
+	10!	L155
+L155:
+	MTCH	0	0	0	10
+	PSHF	132	DefId
+	CALL	DefId
+	EXCT	0	0
+L152:
+	RETN
+
+rule	QuotedId
+rflags=	0
+role=	0
+tc=	2
+flgc=	0
+phrase=	""
+fllwc=	177
+follow= 2 6 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 26 27 28 29 30 31 32 33 34 36 37 38 40 41 42 43 44 45 46 47 48 49 50 53 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 172 173 175 176 177 180 182 183 185 186 187 188 189 190 191 192 193 196 197 198 199
+	MTCH	0	0	0	42
+	MTCH	1	0	0	40
+	EXCT	0	0
+	MTCH	0	0	0	42
+	RETN
+
+rule	IdWrapper
+rflags=	0
+role=	0
+tc=	2
+flgc=	0
+phrase=	""
+fllwc=	177
+follow= 2 6 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 26 27 28 29 30 31 32 33 34 36 37 38 40 41 42 43 44 45 46 47 48 49 50 53 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 172 173 175 176 177 180 182 183 185 186 187 188 189 190 191 192 193 196 197 198 199
+	BRAN	1	1	2
+	40	L158
+	42	L159
+L158:
+	MTCH	1	0	0	40
+	EXCT	0	0
+	RETN
+L159:
+	PSHF	135	QuotedId
+	CALL	QuotedId
+	EXCT	0	1
+	RETN
+
+rule	ScopedIdWrapper
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	47
+follow= 2 6 8 11 14 15 16 17 18 19 20 21 22 34 36 37 38 40 42 44 46 156 157 158 160 161 162 163 164 165 166 167 168 169 173 180 182 183 185 186 187 188 189 190 191 192 193
+	MTCH	0	0	0	45
+	PSHF	136	IdWrapper
+	CALL	IdWrapper
+	EXCT	0	0
+	RETN
+
+rule	EnumIdWrapper
+rflags=	0
+role=	0
+tc=	2
+flgc=	0
+phrase=	""
+fllwc=	4
+follow= 11 46 158 173
+	MTCH	1	0	0	174
+	EXCT	0	0
+	RETN
+
+rule	IntLiteralWrapper
+rflags=	0
+role=	0
+tc=	2
+flgc=	0
+phrase=	""
+fllwc=	167
+follow= 6 8 11 12 13 14 15 16 17 18 19 20 21 22 26 27 28 29 30 31 32 33 34 36 37 38 40 42 44 45 46 47 48 49 50 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 173 175 176 177 183 185 186 187 188 189 190 191 192 193 196 197 198 199
+	MTCH	1	0	0	28
+	EXCT	0	0
+	RETN
+
+rule	StringLiteralWrapper
+rflags=	0
+role=	0
+tc=	2
+flgc=	0
+phrase=	""
+fllwc=	166
+follow= 8 11 12 13 14 15 16 17 18 19 20 21 22 26 27 28 29 30 31 32 33 34 36 37 38 40 42 44 45 46 47 48 49 50 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 173 175 176 177 183 185 186 187 188 189 190 191 192 193 196 197 198 199
+	MTCH	1	0	0	27
+	EXCT	0	0
+	RETN
+
+rule	RealLiteral
+rflags=	0
+role=	0
+tc=	2
+flgc=	0
+phrase=	""
+fllwc=	166
+follow= 8 11 12 13 14 15 16 17 18 19 20 21 22 26 27 28 29 30 31 32 33 34 36 37 38 40 42 44 45 46 47 48 49 50 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 173 175 176 177 183 185 186 187 188 189 190 191 192 193 196 197 198 199
+	MTCH	1	0	0	29
+	EXCT	0	0
+	RETN
+
+rule	BinaryLiteral
+rflags=	0
+role=	0
+tc=	2
+flgc=	0
+phrase=	""
+fllwc=	166
+follow= 8 11 12 13 14 15 16 17 18 19 20 21 22 26 27 28 29 30 31 32 33 34 36 37 38 40 42 44 45 46 47 48 49 50 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 173 175 176 177 183 185 186 187 188 189 190 191 192 193 196 197 198 199
+	MTCH	1	0	0	33
+	EXCT	0	0
+	RETN
+
+rule	DateLiteral
+rflags=	0
+role=	0
+tc=	2
+flgc=	0
+phrase=	""
+fllwc=	166
+follow= 8 11 12 13 14 15 16 17 18 19 20 21 22 26 27 28 29 30 31 32 33 34 36 37 38 40 42 44 45 46 47 48 49 50 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 173 175 176 177 183 185 186 187 188 189 190 191 192 193 196 197 198 199
+	MTCH	1	0	0	30
+	EXCT	0	0
+	RETN
+
+rule	TimeLiteral
+rflags=	0
+role=	0
+tc=	2
+flgc=	0
+phrase=	""
+fllwc=	166
+follow= 8 11 12 13 14 15 16 17 18 19 20 21 22 26 27 28 29 30 31 32 33 34 36 37 38 40 42 44 45 46 47 48 49 50 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 173 175 176 177 183 185 186 187 188 189 190 191 192 193 196 197 198 199
+	MTCH	1	0	0	31
+	EXCT	0	0
+	RETN
+
+rule	TimeStampLiteral
+rflags=	0
+role=	0
+tc=	2
+flgc=	0
+phrase=	""
+fllwc=	166
+follow= 8 11 12 13 14 15 16 17 18 19 20 21 22 26 27 28 29 30 31 32 33 34 36 37 38 40 42 44 45 46 47 48 49 50 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 173 175 176 177 183 185 186 187 188 189 190 191 192 193 196 197 198 199
+	MTCH	1	0	0	32
+	EXCT	0	0
+	RETN
+
+rule	NullLiteral
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	166
+follow= 8 11 12 13 14 15 16 17 18 19 20 21 22 26 27 28 29 30 31 32 33 34 36 37 38 40 42 44 45 46 47 48 49 50 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 173 175 176 177 183 185 186 187 188 189 190 191 192 193 196 197 198 199
+	PSHF	137	NULL
+	CALL	NULL
+	EXCT	0	0
+	RETN
+
+rule	DefId
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	5
+follow= 9 15 17 44 45
+	PSHF	138	IdWrapper
+	CALL	IdWrapper
+	EXCT	0	0
+	RETN
+
+rule	AnnotationValue
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	131
+follow= 8 12 13 15 16 26 27 28 29 30 31 32 33 36 37 40 42 45 46 47 48 49 50 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 159 175 176 177 196 197 198 199
+	EXCT	0	6
+	BRAN	1	1	13
+	15	L163
+	25	L164
+	27	L162
+	28	L162
+	29	L162
+	30	L162
+	31	L162
+	32	L162
+	33	L162
+	37	L162
+	40	L161
+	42!	L161
+	46	L162
+L161:
+	EXCT	0	1
+	PSHF	139	PathSimple
+	CALL	PathSimple
+	EXCT	0	0
+	RETN
+L162:
+	EXCT	0	3
+	PSHF	140	AnnotationLiteral
+	CALL	AnnotationLiteral
+	EXCT	0	2
+	RETN
+L163:
+	EXCT	0	4
+	PSHF	141	RecordValue
+	CALL	RecordValue
+	RETN
+L164:
+	EXCT	0	5
+	PSHF	142	ArrayValue
+	CALL	ArrayValue
+	RETN
+
+rule	RecordValue
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	131
+follow= 8 12 13 15 16 26 27 28 29 30 31 32 33 36 37 40 42 45 46 47 48 49 50 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 159 175 176 177 196 197 198 199
+	EXCT	0	5
+	MTCH	0	0	0	15
+	EXCT	0	3
+	PSHF	144	RecordComponent
+	CALL	RecordComponent
+L165:
+	BRAN	0	0	2
+	8!	L167
+	16!	L166
+L167:
+	MTCH	0	0	0	8
+	EXCT	0	1
+	PSHF	143	RecordComponent
+	CALL	RecordComponent
+	GOTO	L165
+L166:
+	MTCH	0	0	0	16
+	EXCT	0	0
+	RETN
+
+rule	PreAnnotation
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	128
+follow= 12 13 15 27 28 29 30 31 32 33 36 37 40 42 45 46 47 48 49 50 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 159 175 176 177 196 197 198 199
+	EXCT	0	5
+	MTCH	0	0	0	12
+	EXCT	0	3
+	PSHF	147	AnnotationPath
+	CALL	AnnotationPath
+	BRAN	1	1	130
+	9	L169
+	12	L168
+	13	L168
+	15	L168
+	27	L168
+	28	L168
+	29	L168
+	30	L168
+	31	L168
+	32	L168
+	33	L168
+	36	L168
+	37	L168
+	40	L168
+	42!	L168
+	45!	L168
+	45	L169
+	46!	L168
+	47!	L168
+	48!	L168
+	49!	L168
+	50!	L168
+	54!	L168
+	55!	L168
+	56!	L168
+	57!	L168
+	58!	L168
+	59!	L168
+	60!	L168
+	63!	L168
+	64!	L168
+	65!	L168
+	66!	L168
+	67!	L168
+	68!	L168
+	69!	L168
+	70!	L168
+	71!	L168
+	72!	L168
+	73!	L168
+	74!	L168
+	75!	L168
+	76!	L168
+	77!	L168
+	78!	L168
+	79!	L168
+	80!	L168
+	81!	L168
+	82!	L168
+	83!	L168
+	84!	L168
+	85!	L168
+	86!	L168
+	87!	L168
+	88!	L168
+	89!	L168
+	90!	L168
+	91!	L168
+	92!	L168
+	93!	L168
+	94!	L168
+	95!	L168
+	96!	L168
+	97!	L168
+	98!	L168
+	99!	L168
+	100!	L168
+	101!	L168
+	102!	L168
+	103!	L168
+	104!	L168
+	105!	L168
+	106!	L168
+	107!	L168
+	108!	L168
+	109!	L168
+	110!	L168
+	111!	L168
+	112!	L168
+	113!	L168
+	114!	L168
+	115!	L168
+	116!	L168
+	117!	L168
+	118!	L168
+	119!	L168
+	120!	L168
+	121!	L168
+	122!	L168
+	123!	L168
+	124!	L168
+	125!	L168
+	126!	L168
+	127!	L168
+	128!	L168
+	129!	L168
+	130!	L168
+	131!	L168
+	132!	L168
+	133!	L168
+	134!	L168
+	135!	L168
+	136!	L168
+	137!	L168
+	138!	L168
+	139!	L168
+	140!	L168
+	141!	L168
+	142!	L168
+	143!	L168
+	144!	L168
+	145!	L168
+	146!	L168
+	147!	L168
+	148!	L168
+	149!	L168
+	150!	L168
+	151!	L168
+	152!	L168
+	153!	L168
+	154!	L168
+	155!	L168
+	159!	L168
+	175!	L168
+	176!	L168
+	177!	L168
+	196!	L168
+	197!	L168
+	198!	L168
+	199!	L168
+L169:
+	PSHF	146	Colon
+	CALL	Colon
+	EXCT	0	1
+	PSHF	145	AnnotationValue
+	CALL	AnnotationValue
+L168:
+	EXCT	0	0
+	RETN
+
+rule	RecordComponent
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	2
+follow= 8 16
+	EXCT	0	5
+	PSHF	150	AnnotationPath
+	CALL	AnnotationPath
+	BRAN	0	0	4
+	8!	L170
+	9!	L171
+	16!	L170
+	45!	L171
+L171:
+	PSHF	149	Colon
+	CALL	Colon
+	EXCT	0	1
+	PSHF	148	AnnotationValue
+	CALL	AnnotationValue
+L170:
+	EXCT	0	0
+	RETN
+
+rule	ArrayValue
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	131
+follow= 8 12 13 15 16 26 27 28 29 30 31 32 33 36 37 40 42 45 46 47 48 49 50 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 159 175 176 177 196 197 198 199
+	EXCT	0	5
+	MTCH	0	0	0	25
+	EXCT	0	3
+	BRAN	1	1	14
+	15	L173
+	25	L173
+	26	L172
+	27	L173
+	28	L173
+	29	L173
+	30	L173
+	31	L173
+	32	L173
+	33	L173
+	37	L173
+	40	L173
+	42!	L173
+	46!	L173
+L173:
+	EXCT	0	2
+	PSHF	152	AnnotationValue
+	CALL	AnnotationValue
+L174:
+	BRAN	0	0	2
+	8!	L176
+	26!	L172
+L176:
+	MTCH	0	0	0	8
+	EXCT	0	1
+	PSHF	151	AnnotationValue
+	CALL	AnnotationValue
+	GOTO	L174
+L172:
+	MTCH	0	0	0	26
+	EXCT	0	0
+	RETN
+
+rule	AnnotationPath
+rflags=	0
+role=	0
+tc=	2
+flgc=	0
+phrase=	""
+fllwc=	131
+follow= 8 9 12 13 15 16 27 28 29 30 31 32 33 36 37 40 42 45 46 47 48 49 50 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 159 175 176 177 196 197 198 199
+	PSHF	154	AnnotationId
+	CALL	AnnotationId
+	EXCT	0	2
+L177:
+	BRAN	1	1	132
+	6	L179
+	8	L178
+	9	L178
+	12	L178
+	13	L178
+	15	L178
+	16	L178
+	27	L178
+	28	L178
+	29	L178
+	30	L178
+	31	L178
+	32	L178
+	33	L178
+	36	L178
+	37	L178
+	40	L178
+	42!	L178
+	45!	L178
+	46!	L178
+	47!	L178
+	48!	L178
+	49!	L178
+	50!	L178
+	54!	L178
+	55!	L178
+	56!	L178
+	57!	L178
+	58!	L178
+	59!	L178
+	60!	L178
+	63!	L178
+	64!	L178
+	65!	L178
+	66!	L178
+	67!	L178
+	68!	L178
+	69!	L178
+	70!	L178
+	71!	L178
+	72!	L178
+	73!	L178
+	74!	L178
+	75!	L178
+	76!	L178
+	77!	L178
+	78!	L178
+	79!	L178
+	80!	L178
+	81!	L178
+	82!	L178
+	83!	L178
+	84!	L178
+	85!	L178
+	86!	L178
+	87!	L178
+	88!	L178
+	89!	L178
+	90!	L178
+	91!	L178
+	92!	L178
+	93!	L178
+	94!	L178
+	95!	L178
+	96!	L178
+	97!	L178
+	98!	L178
+	99!	L178
+	100!	L178
+	101!	L178
+	102!	L178
+	103!	L178
+	104!	L178
+	105!	L178
+	106!	L178
+	107!	L178
+	108!	L178
+	109!	L178
+	110!	L178
+	111!	L178
+	112!	L178
+	113!	L178
+	114!	L178
+	115!	L178
+	116!	L178
+	117!	L178
+	118!	L178
+	119!	L178
+	120!	L178
+	121!	L178
+	122!	L178
+	123!	L178
+	124!	L178
+	125!	L178
+	126!	L178
+	127!	L178
+	128!	L178
+	129!	L178
+	130!	L178
+	131!	L178
+	132!	L178
+	133!	L178
+	134!	L178
+	135!	L178
+	136!	L178
+	137!	L178
+	138!	L178
+	139!	L178
+	140!	L178
+	141!	L178
+	142!	L178
+	143!	L178
+	144!	L178
+	145!	L178
+	146!	L178
+	147!	L178
+	148!	L178
+	149!	L178
+	150!	L178
+	151!	L178
+	152!	L178
+	153!	L178
+	154!	L178
+	155!	L178
+	159!	L178
+	175!	L178
+	176!	L178
+	177!	L178
+	196!	L178
+	197!	L178
+	198!	L178
+	199!	L178
+L179:
+	MTCH	1	0	0	6
+	EXCT	0	1
+	PSHF	153	AnnotationId
+	CALL	AnnotationId
+	EXCT	0	0
+	GOTO	L177
+L178:
+	RETN
+
+rule	AnnotationId
+rflags=	0
+role=	0
+tc=	2
+flgc=	0
+phrase=	""
+fllwc=	132
+follow= 6 8 9 12 13 15 16 27 28 29 30 31 32 33 36 37 40 42 45 46 47 48 49 50 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 159 175 176 177 196 197 198 199
+	MTCH	1	0	0	40
+	EXCT	0	0
+	RETN
+
+rule	AnnotationLiteral
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	132
+follow= 8 11 12 13 15 16 26 27 28 29 30 31 32 33 36 37 40 42 45 46 47 48 49 50 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 159 175 176 177 196 197 198 199
+	BRAN	0	0	10
+	27!	L181
+	28!	L189
+	29!	L191
+	30!	L185
+	31!	L186
+	32!	L187
+	33!	L184
+	37	L192
+	37	L190
+	46!	L188
+L181:
+	PSHF	155	StringLiteralWrapper
+	CALL	StringLiteralWrapper
+	EXCT	0	0
+	RETN
+L190:
+	SYSC	3	0
+	MTCH	0	0	0	37
+L189:
+	PSHF	156	IntLiteralWrapper
+	CALL	IntLiteralWrapper
+	EXCT	0	1
+	RETN
+L192:
+	SYSC	3	0
+	MTCH	0	0	0	37
+L191:
+	PSHF	157	RealLiteral
+	CALL	RealLiteral
+	EXCT	0	2
+	RETN
+L184:
+	PSHF	158	BinaryLiteral
+	CALL	BinaryLiteral
+	EXCT	0	3
+	RETN
+L185:
+	PSHF	159	DateLiteral
+	CALL	DateLiteral
+	EXCT	0	4
+	RETN
+L186:
+	PSHF	160	TimeLiteral
+	CALL	TimeLiteral
+	EXCT	0	5
+	RETN
+L187:
+	PSHF	161	TimeStampLiteral
+	CALL	TimeStampLiteral
+	EXCT	0	6
+	RETN
+L188:
+	PSHF	162	NullLiteral
+	CALL	NullLiteral
+	EXCT	0	7
+	RETN
+
+rule	QLSelectStmtNoOption
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	1
+follow= 11
+	EXCT	0	0
+	PSHF	163	QLSubqueryComplex
+	CALL	QLSubqueryComplex
+	RETN
+
+rule	QLSubqueryWithParens
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	7
+follow= 11 14 186 187 188 189 190
+	EXCT	0	4
+	MTCH	0	0	0	13
+	EXCT	0	2
+	PSHF	164	QLSubqueryComplex
+	CALL	QLSubqueryComplex
+	EXCT	0	1
+	MTCH	0	0	0	14
+	EXCT	0	0
+	RETN
+
+rule	QLSubqueryComplex
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	2
+follow= 11 14
+	EXCT	0	5
+	PSHF	166	QLSubquerySet
+	CALL	QLSubquerySet
+	EXCT	0	2
+	PSHF	165	OrderByClause
+	CALL	OrderByClause
+	EXCT	0	0
+	RETN
+
+rule	QLSubquerySet
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	3
+follow= 11 14 190
+	EXCT	0	13
+	BRAN	0	0	2
+	13!	L195
+	178!	L194
+L194:
+	EXCT	0	9
+	PSHF	170	QLSubqueryElementary
+	CALL	QLSubqueryElementary
+	EXCT	0	8
+L196:
+	BRAN	0	0	7
+	11!	L197
+	14!	L197
+	186!	L198
+	187!	L198
+	188!	L198
+	189!	L198
+	190!	L197
+L195:
+	EXCT	0	11
+	PSHF	171	QLSubqueryWithParens
+	CALL	QLSubqueryWithParens
+	EXCT	0	10
+	GOTO	L196
+L198:
+	PSHF	169	SetOperator
+	CALL	SetOperator
+	BRAN	0	0	2
+	13!	L201
+	178!	L200
+L200:
+	EXCT	0	4
+	PSHF	167	QLSubqueryElementary
+	CALL	QLSubqueryElementary
+	EXCT	0	2
+L199:
+	EXCT	0	1
+	GOTO	L196
+L201:
+	EXCT	0	7
+	PSHF	168	QLSubqueryWithParens
+	CALL	QLSubqueryWithParens
+	EXCT	0	5
+	GOTO	L199
+L197:
+	RETN
+
+rule	QLSubqueryElementary
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	7
+follow= 11 14 186 187 188 189 190
+	EXCT	0	9
+	PSHF	178	SELECT
+	CALL	SELECT
+	EXCT	0	7
+	PSHF	177	FromClause
+	CALL	FromClause
+	EXCT	0	5
+	PSHF	176	AdhocDeclarationBlock
+	CALL	AdhocDeclarationBlock
+	EXCT	0	4
+	PSHF	175	QLSelectClause
+	CALL	QLSelectClause
+	EXCT	0	3
+	PSHF	174	WhereClause
+	CALL	WhereClause
+	EXCT	0	2
+	PSHF	173	GroupByClause
+	CALL	GroupByClause
+	EXCT	0	1
+	PSHF	172	HavingClause
+	CALL	HavingClause
+	EXCT	0	0
+	RETN
+
+rule	AdhocDeclarationBlock
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	1
+follow= 15
+	BRAN	0	0	2
+	15!	L202
+	180!	L203
+L203:
+	MTCH	0	0	0	180
+	MTCH	0	0	0	15
+L204:
+	BRAN	1	1	4
+	16	L205
+	40	L206
+	42!	L206
+	50!	L206
+L206:
+	EXCT	0	0
+	PSHF	179	AdhocElementDeclaration
+	CALL	AdhocElementDeclaration
+	GOTO	L204
+L205:
+	MTCH	0	0	0	16
+	MTCH	0	0	0	181
+L202:
+	RETN
+
+rule	AdhocElementDeclaration
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	4
+follow= 16 40 42 50
+	EXCT	0	5
+	BRAN	1	1	3
+	40	L207
+	42!	L207
+	50	L208
+L208:
+	MTCH	0	0	0	50
+L207:
+	PSHF	183	DefId
+	CALL	DefId
+	PSHF	182	Colon
+	CALL	Colon
+	EXCT	0	4
+	PSHF	181	AssociationTo
+	CALL	AssociationTo
+	EXCT	0	2
+	PSHF	180	AssociationOnCondition
+	CALL	AssociationOnCondition
+	MTCH	0	0	0	11
+	EXCT	0	0
+	SYSC	0	0
+	RETN
+
+rule	QLSelectClause
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	15
+follow= 8 11 14 16 40 42 44 182 183 185 186 187 188 189 190
+	EXCT	0	4
+	MTCH	0	0	0	15
+	BRAN	1	1	117
+	12	L210
+	13	L210
+	15	L210
+	16	L209
+	27	L210
+	28	L210
+	29	L210
+	30	L210
+	31	L210
+	32	L210
+	33	L210
+	36	L210
+	37	L210
+	40	L210
+	42!	L210
+	45!	L210
+	46!	L210
+	54!	L210
+	55!	L210
+	56!	L210
+	57!	L210
+	58!	L210
+	59!	L210
+	60!	L210
+	63!	L210
+	64!	L210
+	65!	L210
+	66!	L210
+	67!	L210
+	68!	L210
+	69!	L210
+	70!	L210
+	71!	L210
+	72!	L210
+	73!	L210
+	74!	L210
+	75!	L210
+	76!	L210
+	77!	L210
+	78!	L210
+	79!	L210
+	80!	L210
+	81!	L210
+	82!	L210
+	83!	L210
+	84!	L210
+	85!	L210
+	86!	L210
+	87!	L210
+	88!	L210
+	89!	L210
+	90!	L210
+	91!	L210
+	92!	L210
+	93!	L210
+	94!	L210
+	95!	L210
+	96!	L210
+	97!	L210
+	98!	L210
+	99!	L210
+	100!	L210
+	101!	L210
+	102!	L210
+	103!	L210
+	104!	L210
+	105!	L210
+	106!	L210
+	107!	L210
+	108!	L210
+	109!	L210
+	110!	L210
+	111!	L210
+	112!	L210
+	113!	L210
+	114!	L210
+	115!	L210
+	116!	L210
+	117!	L210
+	118!	L210
+	119!	L210
+	120!	L210
+	121!	L210
+	122!	L210
+	123!	L210
+	124!	L210
+	125!	L210
+	126!	L210
+	127!	L210
+	128!	L210
+	129!	L210
+	130!	L210
+	131!	L210
+	132!	L210
+	133!	L210
+	134!	L210
+	135!	L210
+	136!	L210
+	137!	L210
+	138!	L210
+	139!	L210
+	140!	L210
+	141!	L210
+	142!	L210
+	143!	L210
+	144!	L210
+	145!	L210
+	146!	L210
+	147!	L210
+	148!	L210
+	149!	L210
+	150!	L210
+	151!	L210
+	152!	L210
+	153!	L210
+	154!	L210
+	155!	L210
+L210:
+	EXCT	0	2
+	PSHF	184	QLSelectList
+	CALL	QLSelectList
+L209:
+	MTCH	0	0	0	16
+	EXCT	0	0
+	RETN
+
+rule	QLSelectList
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	1
+follow= 16
+	EXCT	0	1
+	PSHF	186	AnnotatedQLSelectItem
+	CALL	AnnotatedQLSelectItem
+L211:
+	BRAN	0	0	2
+	8!	L213
+	16!	L212
+L213:
+	MTCH	0	0	0	8
+	SYSC	0	0
+	EXCT	0	0
+	PSHF	185	AnnotatedQLSelectItem
+	CALL	AnnotatedQLSelectItem
+	GOTO	L211
+L212:
+	RETN
+
+rule	AnnotatedQLSelectItem
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	2
+follow= 8 16
+	EXCT	0	2
+L214:
+	BRAN	1	1	116
+	12	L216
+	13	L215
+	15	L215
+	27	L215
+	28	L215
+	29	L215
+	30	L215
+	31	L215
+	32	L215
+	33	L215
+	36	L215
+	37	L215
+	40	L215
+	42!	L215
+	45!	L215
+	46!	L215
+	54!	L215
+	55!	L215
+	56!	L215
+	57!	L215
+	58!	L215
+	59!	L215
+	60!	L215
+	63!	L215
+	64!	L215
+	65!	L215
+	66!	L215
+	67!	L215
+	68!	L215
+	69!	L215
+	70!	L215
+	71!	L215
+	72!	L215
+	73!	L215
+	74!	L215
+	75!	L215
+	76!	L215
+	77!	L215
+	78!	L215
+	79!	L215
+	80!	L215
+	81!	L215
+	82!	L215
+	83!	L215
+	84!	L215
+	85!	L215
+	86!	L215
+	87!	L215
+	88!	L215
+	89!	L215
+	90!	L215
+	91!	L215
+	92!	L215
+	93!	L215
+	94!	L215
+	95!	L215
+	96!	L215
+	97!	L215
+	98!	L215
+	99!	L215
+	100!	L215
+	101!	L215
+	102!	L215
+	103!	L215
+	104!	L215
+	105!	L215
+	106!	L215
+	107!	L215
+	108!	L215
+	109!	L215
+	110!	L215
+	111!	L215
+	112!	L215
+	113!	L215
+	114!	L215
+	115!	L215
+	116!	L215
+	117!	L215
+	118!	L215
+	119!	L215
+	120!	L215
+	121!	L215
+	122!	L215
+	123!	L215
+	124!	L215
+	125!	L215
+	126!	L215
+	127!	L215
+	128!	L215
+	129!	L215
+	130!	L215
+	131!	L215
+	132!	L215
+	133!	L215
+	134!	L215
+	135!	L215
+	136!	L215
+	137!	L215
+	138!	L215
+	139!	L215
+	140!	L215
+	141!	L215
+	142!	L215
+	143!	L215
+	144!	L215
+	145!	L215
+	146!	L215
+	147!	L215
+	148!	L215
+	149!	L215
+	150!	L215
+	151!	L215
+	152!	L215
+	153!	L215
+	154!	L215
+	155!	L215
+L216:
+	PSHF	188	PreAnnotation
+	CALL	PreAnnotation
+	EXCT	0	1
+	GOTO	L214
+L215:
+	EXCT	0	0
+	PSHF	187	QLSelectItem
+	CALL	QLSelectItem
+	RETN
+
+rule	QLSelectItem
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	2
+follow= 8 16
+	BRAN	1	1	118
+	13	L218
+	15	L219
+	27	L218
+	28	L218
+	29	L218
+	30	L218
+	31	L218
+	32	L218
+	33	L218
+	36	L218
+	37	L218
+	40	L219
+	40	L218
+	42	L219
+	42	L218
+	45	L219
+	45	L218
+	46	L218
+	54	L218
+	55	L218
+	56	L218
+	57	L218
+	58	L218
+	59	L218
+	60	L218
+	63	L218
+	64	L218
+	65	L218
+	66	L218
+	67	L218
+	68	L218
+	69	L218
+	70	L218
+	71	L218
+	72	L218
+	73	L218
+	74	L218
+	75	L218
+	76	L218
+	77	L218
+	78	L218
+	79	L218
+	80	L218
+	81	L218
+	82	L218
+	83	L218
+	84	L218
+	85	L218
+	86	L218
+	87	L218
+	88	L218
+	89	L218
+	90	L218
+	91	L218
+	92	L218
+	93	L218
+	94	L218
+	95	L218
+	96	L218
+	97	L218
+	98	L218
+	99	L218
+	100	L218
+	101	L218
+	102	L218
+	103	L218
+	104	L218
+	105	L218
+	106	L218
+	107	L218
+	108	L218
+	109	L218
+	110	L218
+	111	L218
+	112	L218
+	113	L218
+	114	L218
+	115	L218
+	116	L218
+	117	L218
+	118	L218
+	119	L218
+	120	L218
+	121	L218
+	122	L218
+	123	L218
+	124	L218
+	125	L218
+	126	L218
+	127	L218
+	128	L218
+	129	L218
+	130	L218
+	131	L218
+	132	L218
+	133	L218
+	134	L218
+	135	L218
+	136	L218
+	137	L218
+	138	L218
+	139	L218
+	140	L218
+	141	L218
+	142	L218
+	143	L218
+	144	L218
+	145	L218
+	146	L218
+	147	L218
+	148	L218
+	149	L218
+	150	L218
+	151	L218
+	152	L218
+	153	L218
+	154	L218
+	155	L218
+L218:
+	EXCT	0	1
+	PSHF	189	ExprSelectItem
+	CALL	ExprSelectItem
+	EXCT	0	0
+	RETN
+L219:
+	EXCT	0	3
+	PSHF	190	QLPathListSelectItem
+	CALL	QLPathListSelectItem
+	EXCT	0	2
+	RETN
+
+rule	QLPathListSelectItemAlias
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	3
+follow= 8 15 16
+	BRAN	1	1	3
+	40	L220
+	42!	L220
+	44	L221
+L221:
+	PSHF	192	AS
+	CALL	AS
+L220:
+	PSHF	191	IdWrapper
+	CALL	IdWrapper
+	EXCT	0	0
+	RETN
+
+rule	QLPathListSelectItem
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	2
+follow= 8 16
+	EXCT	0	10
+	BRAN	1	1	4
+	15	L224
+	40	L223
+	42!	L223
+	45!	L223
+L223:
+	PSHF	195	QLPath
+	CALL	QLPath
+	EXCT	0	5
+	BRAN	1	1	4
+	15	L225
+	40	L226
+	42!	L226
+	44!	L226
+L226:
+	EXCT	0	3
+	PSHF	194	QLPathListSelectItemAlias
+	CALL	QLPathListSelectItemAlias
+L225:
+	EXCT	0	2
+	SYSC	3	0
+	EXCT	0	1
+	PSHF	193	QLSelectClause
+	CALL	QLSelectClause
+L222:
+	EXCT	0	0
+	RETN
+L224:
+	EXCT	0	8
+	SYSC	3	0
+	EXCT	0	7
+	PSHF	197	QLSelectClause
+	CALL	QLSelectClause
+	BRAN	1	1	5
+	8	L222
+	16	L222
+	40	L228
+	42!	L228
+	44!	L228
+L228:
+	EXCT	0	6
+	PSHF	196	QLPathListSelectItemAlias
+	CALL	QLPathListSelectItemAlias
+	GOTO	L222
+
+rule	QLPath
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	47
+follow= 2 6 8 11 14 15 16 17 18 19 20 21 22 34 36 37 38 40 42 44 46 156 157 158 160 161 162 163 164 165 166 167 168 169 173 180 182 183 185 186 187 188 189 190 191 192 193
+	EXCT	0	5
+	BRAN	1	1	3
+	40	L230
+	42!	L230
+	45	L231
+L230:
+	PSHF	199	IdWrapper
+	CALL	IdWrapper
+	EXCT	0	2
+L232:
+	BRAN	1	1	48
+	2	L233
+	6	L233
+	6	L234
+	8	L233
+	11	L233
+	14	L233
+	15	L233
+	16	L233
+	17	L233
+	18	L233
+	19	L233
+	20	L233
+	21	L233
+	22	L233
+	34	L233
+	36	L233
+	37	L233
+	38	L233
+	40	L233
+	42!	L233
+	44!	L233
+	46!	L233
+	156!	L233
+	157!	L233
+	158!	L233
+	160!	L233
+	161!	L233
+	162!	L233
+	163!	L233
+	164!	L233
+	165!	L233
+	166!	L233
+	167!	L233
+	168!	L233
+	169!	L233
+	173!	L233
+	180!	L233
+	182!	L233
+	183!	L233
+	185!	L233
+	186!	L233
+	187!	L233
+	188!	L233
+	189!	L233
+	190!	L233
+	191!	L233
+	192!	L233
+	193!	L233
+L231:
+	PSHF	200	ScopedIdWrapper
+	CALL	ScopedIdWrapper
+	EXCT	0	3
+	GOTO	L232
+L234:
+	MTCH	0	0	0	6
+	PSHF	198	IdWrapper
+	CALL	IdWrapper
+	EXCT	0	1
+	GOTO	L232
+L233:
+	EXCT	0	0
+	RETN
+
+rule	PathGeneric
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	141
+follow= 2 8 11 12 13 15 16 17 26 27 28 29 30 31 32 33 36 37 40 41 42 43 44 45 46 47 48 49 50 53 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 158 159 172 173 175 176 177 196 197 198 199
+	PSHF	202	IdWrapper
+	CALL	IdWrapper
+	EXCT	0	1
+L235:
+	BRAN	1	1	142
+	2	L236
+	6	L237
+	8	L236
+	11	L236
+	12	L236
+	13	L236
+	15	L236
+	16	L236
+	17	L236
+	26	L236
+	27	L236
+	28	L236
+	29	L236
+	30	L236
+	31	L236
+	32	L236
+	33	L236
+	36	L236
+	37	L236
+	40	L236
+	41!	L236
+	42!	L236
+	43!	L236
+	44!	L236
+	45!	L236
+	46!	L236
+	47!	L236
+	48!	L236
+	49!	L236
+	50!	L236
+	53!	L236
+	54!	L236
+	55!	L236
+	56!	L236
+	57!	L236
+	58!	L236
+	59!	L236
+	60!	L236
+	63!	L236
+	64!	L236
+	65!	L236
+	66!	L236
+	67!	L236
+	68!	L236
+	69!	L236
+	70!	L236
+	71!	L236
+	72!	L236
+	73!	L236
+	74!	L236
+	75!	L236
+	76!	L236
+	77!	L236
+	78!	L236
+	79!	L236
+	80!	L236
+	81!	L236
+	82!	L236
+	83!	L236
+	84!	L236
+	85!	L236
+	86!	L236
+	87!	L236
+	88!	L236
+	89!	L236
+	90!	L236
+	91!	L236
+	92!	L236
+	93!	L236
+	94!	L236
+	95!	L236
+	96!	L236
+	97!	L236
+	98!	L236
+	99!	L236
+	100!	L236
+	101!	L236
+	102!	L236
+	103!	L236
+	104!	L236
+	105!	L236
+	106!	L236
+	107!	L236
+	108!	L236
+	109!	L236
+	110!	L236
+	111!	L236
+	112!	L236
+	113!	L236
+	114!	L236
+	115!	L236
+	116!	L236
+	117!	L236
+	118!	L236
+	119!	L236
+	120!	L236
+	121!	L236
+	122!	L236
+	123!	L236
+	124!	L236
+	125!	L236
+	126!	L236
+	127!	L236
+	128!	L236
+	129!	L236
+	130!	L236
+	131!	L236
+	132!	L236
+	133!	L236
+	134!	L236
+	135!	L236
+	136!	L236
+	137!	L236
+	138!	L236
+	139!	L236
+	140!	L236
+	141!	L236
+	142!	L236
+	143!	L236
+	144!	L236
+	145!	L236
+	146!	L236
+	147!	L236
+	148!	L236
+	149!	L236
+	150!	L236
+	151!	L236
+	152!	L236
+	153!	L236
+	154!	L236
+	155!	L236
+	158!	L236
+	159!	L236
+	172!	L236
+	173!	L236
+	175!	L236
+	176!	L236
+	177!	L236
+	196!	L236
+	197!	L236
+	198!	L236
+	199!	L236
+L237:
+	MTCH	0	0	0	6
+	PSHF	201	IdWrapper
+	CALL	IdWrapper
+	EXCT	0	0
+	GOTO	L235
+L236:
+	RETN
+
+rule	PathSimple
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	141
+follow= 2 8 11 12 13 15 16 17 26 27 28 29 30 31 32 33 36 37 40 41 42 43 44 45 46 47 48 49 50 53 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 158 159 172 173 175 176 177 196 197 198 199
+	EXCT	0	1
+	PSHF	203	PathGeneric
+	CALL	PathGeneric
+	RETN
+
+rule	PathWithNamespace
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	2
+follow= 11 44
+	EXCT	0	3
+	PSHF	205	NamespacePath
+	CALL	NamespacePath
+	EXCT	0	1
+	MTCH	0	0	0	10
+	EXCT	0	0
+	PSHF	204	PathGeneric
+	CALL	PathGeneric
+	RETN
+
+rule	PathWithAlias
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	2
+follow= 8 16
+	PSHF	208	PathSimple
+	CALL	PathSimple
+	EXCT	0	1
+	BRAN	0	0	3
+	8!	L238
+	16!	L238
+	44!	L239
+L239:
+	PSHF	207	AS
+	CALL	AS
+	PSHF	206	IdWrapper
+	CALL	IdWrapper
+	EXCT	0	0
+L238:
+	RETN
+
+rule	SetOperator
+rflags=	0
+role=	0
+tc=	10
+flgc=	0
+phrase=	""
+fllwc=	2
+follow= 13 178
+	BRAN	0	0	4
+	186!	L241
+	187!	L242
+	188!	L243
+	189!	L244
+L241:
+	MTCH	3	0	0	186
+	EXCT	0	2
+	BRAN	0	0	4
+	13!	L240
+	61!	L246
+	62!	L247
+	178!	L240
+L246:
+	MTCH	1	0	0	61
+	EXCT	0	0
+	RETN
+L247:
+	MTCH	2	0	0	62
+	EXCT	0	1
+	RETN
+L242:
+	MTCH	5	0	0	187
+	EXCT	0	4
+	BRAN	0	0	3
+	13!	L240
+	62!	L249
+	178!	L240
+L249:
+	MTCH	4	0	0	62
+	EXCT	0	3
+	RETN
+L243:
+	MTCH	7	0	0	188
+	EXCT	0	6
+	BRAN	0	0	3
+	13!	L240
+	62!	L251
+	178!	L240
+L251:
+	MTCH	6	0	0	62
+	EXCT	0	5
+	RETN
+L244:
+	MTCH	9	0	0	189
+	EXCT	0	8
+	BRAN	0	0	3
+	13!	L240
+	62!	L253
+	178!	L240
+L253:
+	MTCH	8	0	0	62
+	EXCT	0	7
+L240:
+	RETN
+
+rule	ExprSelectItem
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	2
+follow= 8 16
+	EXCT	0	3
+	PSHF	209	ExprAlias
+	CALL	ExprAlias
+	EXCT	0	1
+	RETN
+
+rule	FromClause
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	2
+follow= 15 180
+	PSHF	211	FROM
+	CALL	FROM
+	PSHF	210	TablePathList
+	CALL	TablePathList
+	EXCT	0	0
+	RETN
+
+rule	TablePathList
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	2
+follow= 15 180
+	EXCT	0	3
+	PSHF	212	TablePath
+	CALL	TablePath
+	EXCT	0	1
+	RETN
+
+rule	TablePathAlias
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	2
+follow= 15 180
+	BRAN	1	1	5
+	15	L254
+	40	L255
+	42!	L256
+	44!	L255
+	180	L254
+L255:
+	BRAN	1	1	3
+	40	L256
+	42!	L256
+	44	L257
+L257:
+	PSHF	214	AS
+	CALL	AS
+L256:
+	PSHF	213	IdWrapper
+	CALL	IdWrapper
+	EXCT	0	0
+L254:
+	RETN
+
+rule	TablePath
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	2
+follow= 15 180
+	EXCT	0	3
+	PSHF	216	QLPath
+	CALL	QLPath
+	PSHF	215	TablePathAlias
+	CALL	TablePathAlias
+	EXCT	0	1
+	RETN
+
+rule	WhereClause
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	9
+follow= 11 14 183 185 186 187 188 189 190
+	EXCT	0	3
+	BRAN	0	0	10
+	11!	L258
+	14!	L258
+	182!	L259
+	183!	L258
+	185!	L258
+	186!	L258
+	187!	L258
+	188!	L258
+	189!	L258
+	190!	L258
+L259:
+	PSHF	218	WHERE
+	CALL	WHERE
+	PSHF	217	Condition
+	CALL	Condition
+	EXCT	0	1
+L258:
+	EXCT	0	0
+	RETN
+
+rule	GroupByClause
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	8
+follow= 11 14 185 186 187 188 189 190
+	EXCT	0	2
+	BRAN	0	0	9
+	11!	L260
+	14!	L260
+	183!	L261
+	185!	L260
+	186!	L260
+	187!	L260
+	188!	L260
+	189!	L260
+	190!	L260
+L261:
+	PSHF	221	GROUP
+	CALL	GROUP
+	PSHF	220	BY
+	CALL	BY
+	PSHF	219	ExpressionList
+	CALL	ExpressionList
+	EXCT	0	0
+L260:
+	RETN
+
+rule	HavingClause
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	7
+follow= 11 14 186 187 188 189 190
+	EXCT	0	2
+	BRAN	0	0	8
+	11!	L262
+	14!	L262
+	185!	L263
+	186!	L262
+	187!	L262
+	188!	L262
+	189!	L262
+	190!	L262
+L263:
+	EXCT	0	1
+	PSHF	223	HAVING
+	CALL	HAVING
+	PSHF	222	Condition
+	CALL	Condition
+	EXCT	0	0
+L262:
+	RETN
+
+rule	OrderByClause
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	2
+follow= 11 14
+	EXCT	0	3
+	BRAN	0	0	3
+	11!	L264
+	14!	L264
+	190!	L265
+L265:
+	EXCT	0	2
+	PSHF	226	ORDER
+	CALL	ORDER
+	EXCT	0	1
+	PSHF	225	BY
+	CALL	BY
+	PSHF	224	SortSpecList
+	CALL	SortSpecList
+	EXCT	0	0
+L264:
+	RETN
+
+rule	SortSpecList
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	2
+follow= 11 14
+	PSHF	228	SortSpec
+	CALL	SortSpec
+	EXCT	0	1
+L266:
+	BRAN	0	0	3
+	8!	L268
+	11!	L267
+	14!	L267
+L268:
+	MTCH	0	0	0	8
+	PSHF	227	SortSpec
+	CALL	SortSpec
+	EXCT	0	0
+	GOTO	L266
+L267:
+	RETN
+
+rule	SortSpec
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	3
+follow= 8 11 14
+	EXCT	0	3
+	PSHF	231	Expression
+	CALL	Expression
+	PSHF	230	OptAscDesc
+	CALL	OptAscDesc
+	PSHF	229	OptNullsFirstLast
+	CALL	OptNullsFirstLast
+	EXCT	0	1
+	RETN
+
+rule	OptAscDesc
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	4
+follow= 8 11 14 193
+	BRAN	0	0	6
+	8!	L269
+	11!	L269
+	14!	L269
+	191!	L270
+	192!	L271
+	193!	L269
+L270:
+	PSHF	232	ASC
+	CALL	ASC
+	EXCT	0	0
+	RETN
+L271:
+	PSHF	233	DESC
+	CALL	DESC
+	EXCT	0	1
+L269:
+	RETN
+
+rule	OptNullsFirstLast
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	3
+follow= 8 11 14
+	BRAN	0	0	4
+	8!	L272
+	11!	L272
+	14!	L272
+	193!	L273
+L273:
+	PSHF	236	NULLS
+	CALL	NULLS
+	BRAN	0	0	2
+	194!	L275
+	195!	L276
+L275:
+	PSHF	234	FIRST
+	CALL	FIRST
+	EXCT	0	0
+	RETN
+L276:
+	PSHF	235	LAST
+	CALL	LAST
+	EXCT	0	1
+L272:
+	RETN
+
+rule	Condition
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	14
+follow= 11 14 17 46 157 158 173 183 185 186 187 188 189 190
+	EXCT	0	4
+	PSHF	239	ConditionAnd
+	CALL	ConditionAnd
+	EXCT	0	2
+L277:
+	BRAN	0	0	15
+	11!	L278
+	14!	L278
+	17!	L278
+	46!	L278
+	157!	L278
+	158!	L278
+	166!	L279
+	173!	L278
+	183!	L278
+	185!	L278
+	186!	L278
+	187!	L278
+	188!	L278
+	189!	L278
+	190!	L278
+L279:
+	PSHF	238	OR
+	CALL	OR
+	PSHF	237	ConditionAnd
+	CALL	ConditionAnd
+	EXCT	0	1
+	GOTO	L277
+L278:
+	EXCT	0	0
+	RETN
+
+rule	ConditionAnd
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	15
+follow= 11 14 17 46 157 158 166 173 183 185 186 187 188 189 190
+	EXCT	0	4
+	PSHF	242	ConditionTerm
+	CALL	ConditionTerm
+	EXCT	0	2
+L280:
+	BRAN	0	0	16
+	11!	L281
+	14!	L281
+	17!	L281
+	46!	L281
+	157!	L281
+	158!	L281
+	162!	L282
+	166!	L281
+	173!	L281
+	183!	L281
+	185!	L281
+	186!	L281
+	187!	L281
+	188!	L281
+	189!	L281
+	190!	L281
+L282:
+	PSHF	241	AND
+	CALL	AND
+	PSHF	240	ConditionTerm
+	CALL	ConditionTerm
+	EXCT	0	1
+	GOTO	L280
+L281:
+	EXCT	0	0
+	RETN
+
+rule	ConditionTerm
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	16
+follow= 11 14 17 46 157 158 162 166 173 183 185 186 187 188 189 190
+	EXCT	0	5
+	BRAN	1	1	117
+	13	L286
+	13	L285
+	27	L286
+	28	L286
+	29	L286
+	30	L286
+	31	L286
+	32	L286
+	33	L286
+	36	L286
+	37	L286
+	40	L286
+	42!	L286
+	45!	L286
+	46!	L286
+	54!	L286
+	55!	L286
+	56!	L286
+	57!	L286
+	58!	L286
+	59!	L286
+	60!	L286
+	63!	L286
+	64!	L286
+	65!	L286
+	66!	L286
+	67!	L286
+	68!	L286
+	69!	L286
+	70!	L286
+	71!	L286
+	72!	L286
+	73!	L286
+	74!	L286
+	75!	L286
+	76!	L286
+	77!	L286
+	78!	L286
+	79!	L286
+	80!	L286
+	81!	L286
+	82!	L286
+	83!	L286
+	84!	L286
+	85!	L286
+	86!	L286
+	87!	L286
+	88!	L286
+	89!	L286
+	90!	L286
+	91!	L286
+	92!	L286
+	93!	L286
+	94!	L286
+	95!	L286
+	96!	L286
+	97!	L286
+	98!	L286
+	99!	L286
+	100!	L286
+	101!	L286
+	102!	L286
+	103!	L286
+	104!	L286
+	105!	L286
+	106!	L286
+	107!	L286
+	108!	L286
+	109!	L286
+	110!	L286
+	111!	L286
+	112!	L286
+	113!	L286
+	114!	L286
+	115!	L286
+	116!	L286
+	117!	L286
+	118!	L286
+	119!	L286
+	120!	L286
+	121!	L286
+	122!	L286
+	123!	L286
+	124!	L286
+	125!	L286
+	126!	L286
+	127!	L286
+	128!	L286
+	129!	L286
+	130!	L286
+	131!	L286
+	132!	L286
+	133!	L286
+	134!	L286
+	135!	L286
+	136!	L286
+	137!	L286
+	138!	L286
+	139!	L286
+	140!	L286
+	141!	L286
+	142!	L286
+	143!	L286
+	144!	L286
+	145!	L286
+	146!	L286
+	147!	L286
+	148!	L286
+	149!	L286
+	150!	L286
+	151!	L286
+	152!	L286
+	153!	L286
+	154!	L286
+	155!	L286
+	158	L284
+	159!	L286
+L284:
+	PSHF	244	NOT
+	CALL	NOT
+	PSHF	243	ConditionTerm
+	CALL	ConditionTerm
+	EXCT	0	1
+L283:
+	EXCT	0	0
+	RETN
+L285:
+	MTCH	0	0	0	13
+	PSHF	245	Condition
+	CALL	Condition
+	EXCT	0	2
+	MTCH	0	0	0	14
+	GOTO	L283
+L286:
+	PSHF	246	PredicateLeftIsExpression
+	CALL	PredicateLeftIsExpression
+	EXCT	0	3
+	GOTO	L283
+
+rule	PredicateLeftIsExpression
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	16
+follow= 11 14 17 46 157 158 162 166 173 183 185 186 187 188 189 190
+	EXCT	0	14
+	BRAN	1	1	115
+	13	L288
+	27	L288
+	28	L288
+	29	L288
+	30	L288
+	31	L288
+	32	L288
+	33	L288
+	36	L288
+	37	L288
+	40	L288
+	42!	L288
+	45!	L288
+	46!	L288
+	54!	L288
+	55!	L288
+	56!	L288
+	57!	L288
+	58!	L288
+	59!	L288
+	60!	L288
+	63!	L288
+	64!	L288
+	65!	L288
+	66!	L288
+	67!	L288
+	68!	L288
+	69!	L288
+	70!	L288
+	71!	L288
+	72!	L288
+	73!	L288
+	74!	L288
+	75!	L288
+	76!	L288
+	77!	L288
+	78!	L288
+	79!	L288
+	80!	L288
+	81!	L288
+	82!	L288
+	83!	L288
+	84!	L288
+	85!	L288
+	86!	L288
+	87!	L288
+	88!	L288
+	89!	L288
+	90!	L288
+	91!	L288
+	92!	L288
+	93!	L288
+	94!	L288
+	95!	L288
+	96!	L288
+	97!	L288
+	98!	L288
+	99!	L288
+	100!	L288
+	101!	L288
+	102!	L288
+	103!	L288
+	104!	L288
+	105!	L288
+	106!	L288
+	107!	L288
+	108!	L288
+	109!	L288
+	110!	L288
+	111!	L288
+	112!	L288
+	113!	L288
+	114!	L288
+	115!	L288
+	116!	L288
+	117!	L288
+	118!	L288
+	119!	L288
+	120!	L288
+	121!	L288
+	122!	L288
+	123!	L288
+	124!	L288
+	125!	L288
+	126!	L288
+	127!	L288
+	128!	L288
+	129!	L288
+	130!	L288
+	131!	L288
+	132!	L288
+	133!	L288
+	134!	L288
+	135!	L288
+	136!	L288
+	137!	L288
+	138!	L288
+	139!	L288
+	140!	L288
+	141!	L288
+	142!	L288
+	143!	L288
+	144!	L288
+	145!	L288
+	146!	L288
+	147!	L288
+	148!	L288
+	149!	L288
+	150!	L288
+	151!	L288
+	152!	L288
+	153!	L288
+	154!	L288
+	155!	L288
+	159	L289
+L288:
+	PSHF	253	Expression
+	CALL	Expression
+L287:
+	BRAN	0	0	11
+	17!	L291
+	18!	L291
+	19!	L291
+	20!	L291
+	21!	L291
+	22!	L291
+	158!	L295
+	160!	L292
+	161!	L297
+	163!	L298
+	165!	L299
+L289:
+	PSHF	254	AspectExpression
+	CALL	AspectExpression
+	GOTO	L287
+L291:
+	EXCT	0	2
+	PSHF	247	ComparisonPredicate
+	CALL	ComparisonPredicate
+	EXCT	0	1
+L290:
+	EXCT	0	0
+	RETN
+L292:
+	EXCT	0	4
+	PSHF	248	NullPredicate
+	CALL	NullPredicate
+	EXCT	0	3
+	GOTO	L290
+L295:
+	PSHF	252	NOT
+	CALL	NOT
+	EXCT	0	11
+	BRAN	0	0	3
+	161!	L297
+	163!	L298
+	165!	L299
+L297:
+	EXCT	0	6
+	PSHF	249	RangePredicate
+	CALL	RangePredicate
+	EXCT	0	5
+	GOTO	L290
+L298:
+	EXCT	0	8
+	PSHF	250	LikePredicate
+	CALL	LikePredicate
+	EXCT	0	7
+	GOTO	L290
+L299:
+	EXCT	0	10
+	PSHF	251	InPredicate
+	CALL	InPredicate
+	EXCT	0	9
+	GOTO	L290
+
+rule	ComparisonPredicate
+rflags=	0
+role=	0
+tc=	7
+flgc=	0
+phrase=	""
+fllwc=	16
+follow= 11 14 17 46 157 158 162 166 173 183 185 186 187 188 189 190
+	BRAN	0	0	6
+	17!	L301
+	18!	L305
+	19!	L303
+	20!	L306
+	21!	L304
+	22!	L302
+L301:
+	MTCH	1	0	0	17
+	EXCT	0	1
+L300:
+	BRAN	1	1	115
+	13	L308
+	27	L308
+	28	L308
+	29	L308
+	30	L308
+	31	L308
+	32	L308
+	33	L308
+	36	L308
+	37	L308
+	40	L308
+	42!	L308
+	45!	L308
+	46!	L308
+	54!	L308
+	55!	L308
+	56!	L308
+	57!	L308
+	58!	L308
+	59!	L308
+	60!	L308
+	63!	L308
+	64!	L308
+	65!	L308
+	66!	L308
+	67!	L308
+	68!	L308
+	69!	L308
+	70!	L308
+	71!	L308
+	72!	L308
+	73!	L308
+	74!	L308
+	75!	L308
+	76!	L308
+	77!	L308
+	78!	L308
+	79!	L308
+	80!	L308
+	81!	L308
+	82!	L308
+	83!	L308
+	84!	L308
+	85!	L308
+	86!	L308
+	87!	L308
+	88!	L308
+	89!	L308
+	90!	L308
+	91!	L308
+	92!	L308
+	93!	L308
+	94!	L308
+	95!	L308
+	96!	L308
+	97!	L308
+	98!	L308
+	99!	L308
+	100!	L308
+	101!	L308
+	102!	L308
+	103!	L308
+	104!	L308
+	105!	L308
+	106!	L308
+	107!	L308
+	108!	L308
+	109!	L308
+	110!	L308
+	111!	L308
+	112!	L308
+	113!	L308
+	114!	L308
+	115!	L308
+	116!	L308
+	117!	L308
+	118!	L308
+	119!	L308
+	120!	L308
+	121!	L308
+	122!	L308
+	123!	L308
+	124!	L308
+	125!	L308
+	126!	L308
+	127!	L308
+	128!	L308
+	129!	L308
+	130!	L308
+	131!	L308
+	132!	L308
+	133!	L308
+	134!	L308
+	135!	L308
+	136!	L308
+	137!	L308
+	138!	L308
+	139!	L308
+	140!	L308
+	141!	L308
+	142!	L308
+	143!	L308
+	144!	L308
+	145!	L308
+	146!	L308
+	147!	L308
+	148!	L308
+	149!	L308
+	150!	L308
+	151!	L308
+	152!	L308
+	153!	L308
+	154!	L308
+	155!	L308
+	159	L309
+L302:
+	MTCH	2	0	0	22
+	EXCT	0	2
+	GOTO	L300
+L303:
+	MTCH	3	0	0	19
+	EXCT	0	3
+	GOTO	L300
+L304:
+	MTCH	4	0	0	21
+	EXCT	0	4
+	GOTO	L300
+L305:
+	MTCH	5	0	0	18
+	EXCT	0	5
+	GOTO	L300
+L306:
+	MTCH	6	0	0	20
+	EXCT	0	6
+	GOTO	L300
+L308:
+	PSHF	255	Expression
+	CALL	Expression
+L307:
+	EXCT	0	0
+	RETN
+L309:
+	PSHF	256	AspectExpression
+	CALL	AspectExpression
+	GOTO	L307
+
+rule	RangePredicate
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	16
+follow= 11 14 17 46 157 158 162 166 173 183 185 186 187 188 189 190
+	EXCT	0	3
+	PSHF	260	BETWEEN
+	CALL	BETWEEN
+	PSHF	259	Expression
+	CALL	Expression
+	PSHF	258	AND
+	CALL	AND
+	PSHF	257	Expression
+	CALL	Expression
+	EXCT	0	1
+	RETN
+
+rule	LikePredicate
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	16
+follow= 11 14 17 46 157 158 162 166 173 183 185 186 187 188 189 190
+	EXCT	0	4
+	PSHF	265	LIKE
+	CALL	LIKE
+	BRAN	1	1	115
+	13	L311
+	27	L311
+	28	L311
+	29	L311
+	30	L311
+	31	L311
+	32	L311
+	33	L311
+	36	L311
+	37	L311
+	40	L311
+	42!	L311
+	45!	L311
+	46!	L311
+	54!	L311
+	55!	L311
+	56!	L311
+	57!	L311
+	58!	L311
+	59!	L311
+	60!	L311
+	63!	L311
+	64!	L311
+	65!	L311
+	66!	L311
+	67!	L311
+	68!	L311
+	69!	L311
+	70!	L311
+	71!	L311
+	72!	L311
+	73!	L311
+	74!	L311
+	75!	L311
+	76!	L311
+	77!	L311
+	78!	L311
+	79!	L311
+	80!	L311
+	81!	L311
+	82!	L311
+	83!	L311
+	84!	L311
+	85!	L311
+	86!	L311
+	87!	L311
+	88!	L311
+	89!	L311
+	90!	L311
+	91!	L311
+	92!	L311
+	93!	L311
+	94!	L311
+	95!	L311
+	96!	L311
+	97!	L311
+	98!	L311
+	99!	L311
+	100!	L311
+	101!	L311
+	102!	L311
+	103!	L311
+	104!	L311
+	105!	L311
+	106!	L311
+	107!	L311
+	108!	L311
+	109!	L311
+	110!	L311
+	111!	L311
+	112!	L311
+	113!	L311
+	114!	L311
+	115!	L311
+	116!	L311
+	117!	L311
+	118!	L311
+	119!	L311
+	120!	L311
+	121!	L311
+	122!	L311
+	123!	L311
+	124!	L311
+	125!	L311
+	126!	L311
+	127!	L311
+	128!	L311
+	129!	L311
+	130!	L311
+	131!	L311
+	132!	L311
+	133!	L311
+	134!	L311
+	135!	L311
+	136!	L311
+	137!	L311
+	138!	L311
+	139!	L311
+	140!	L311
+	141!	L311
+	142!	L311
+	143!	L311
+	144!	L311
+	145!	L311
+	146!	L311
+	147!	L311
+	148!	L311
+	149!	L311
+	150!	L311
+	151!	L311
+	152!	L311
+	153!	L311
+	154!	L311
+	155!	L311
+	159	L312
+L311:
+	PSHF	263	Expression
+	CALL	Expression
+L310:
+	BRAN	0	0	17
+	11!	L313
+	14!	L313
+	17!	L313
+	46!	L313
+	157!	L313
+	158!	L313
+	162!	L313
+	164!	L314
+	166!	L313
+	173!	L313
+	183!	L313
+	185!	L313
+	186!	L313
+	187!	L313
+	188!	L313
+	189!	L313
+	190!	L313
+L312:
+	PSHF	264	AspectExpression
+	CALL	AspectExpression
+	GOTO	L310
+L314:
+	PSHF	262	ESCAPE
+	CALL	ESCAPE
+	PSHF	261	Expression
+	CALL	Expression
+	EXCT	0	2
+L313:
+	EXCT	0	1
+	RETN
+
+rule	NullPredicate
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	16
+follow= 11 14 17 46 157 158 162 166 173 183 185 186 187 188 189 190
+	EXCT	0	2
+	PSHF	268	IS
+	CALL	IS
+	BRAN	0	0	2
+	46!	L315
+	158!	L316
+L316:
+	PSHF	267	NOT
+	CALL	NOT
+	EXCT	0	1
+L315:
+	PSHF	266	NULL
+	CALL	NULL
+	EXCT	0	0
+	RETN
+
+rule	InPredicate
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	16
+follow= 11 14 17 46 157 158 162 166 173 183 185 186 187 188 189 190
+	EXCT	0	3
+	PSHF	272	IN
+	CALL	IN
+	BRAN	1	1	116
+	13	L319
+	13	L318
+	27	L319
+	28	L319
+	29	L319
+	30	L319
+	31	L319
+	32	L319
+	33	L319
+	36	L319
+	37	L319
+	40	L319
+	42!	L319
+	45!	L319
+	46!	L319
+	54!	L319
+	55!	L319
+	56!	L319
+	57!	L319
+	58!	L319
+	59!	L319
+	60!	L319
+	63!	L319
+	64!	L319
+	65!	L319
+	66!	L319
+	67!	L319
+	68!	L319
+	69!	L319
+	70!	L319
+	71!	L319
+	72!	L319
+	73!	L319
+	74!	L319
+	75!	L319
+	76!	L319
+	77!	L319
+	78!	L319
+	79!	L319
+	80!	L319
+	81!	L319
+	82!	L319
+	83!	L319
+	84!	L319
+	85!	L319
+	86!	L319
+	87!	L319
+	88!	L319
+	89!	L319
+	90!	L319
+	91!	L319
+	92!	L319
+	93!	L319
+	94!	L319
+	95!	L319
+	96!	L319
+	97!	L319
+	98!	L319
+	99!	L319
+	100!	L319
+	101!	L319
+	102!	L319
+	103!	L319
+	104!	L319
+	105!	L319
+	106!	L319
+	107!	L319
+	108!	L319
+	109!	L319
+	110!	L319
+	111!	L319
+	112!	L319
+	113!	L319
+	114!	L319
+	115!	L319
+	116!	L319
+	117!	L319
+	118!	L319
+	119!	L319
+	120!	L319
+	121!	L319
+	122!	L319
+	123!	L319
+	124!	L319
+	125!	L319
+	126!	L319
+	127!	L319
+	128!	L319
+	129!	L319
+	130!	L319
+	131!	L319
+	132!	L319
+	133!	L319
+	134!	L319
+	135!	L319
+	136!	L319
+	137!	L319
+	138!	L319
+	139!	L319
+	140!	L319
+	141!	L319
+	142!	L319
+	143!	L319
+	144!	L319
+	145!	L319
+	146!	L319
+	147!	L319
+	148!	L319
+	149!	L319
+	150!	L319
+	151!	L319
+	152!	L319
+	153!	L319
+	154!	L319
+	155!	L319
+	159!	L319
+L318:
+	MTCH	0	0	0	13
+	PSHF	269	ExpressionList
+	CALL	ExpressionList
+	MTCH	0	0	0	14
+	EXCT	0	0
+	RETN
+L319:
+	EXCT	0	2
+	BRAN	1	1	115
+	13	L321
+	27	L321
+	28	L321
+	29	L321
+	30	L321
+	31	L321
+	32	L321
+	33	L321
+	36	L321
+	37	L321
+	40	L321
+	42!	L321
+	45!	L321
+	46!	L321
+	54!	L321
+	55!	L321
+	56!	L321
+	57!	L321
+	58!	L321
+	59!	L321
+	60!	L321
+	63!	L321
+	64!	L321
+	65!	L321
+	66!	L321
+	67!	L321
+	68!	L321
+	69!	L321
+	70!	L321
+	71!	L321
+	72!	L321
+	73!	L321
+	74!	L321
+	75!	L321
+	76!	L321
+	77!	L321
+	78!	L321
+	79!	L321
+	80!	L321
+	81!	L321
+	82!	L321
+	83!	L321
+	84!	L321
+	85!	L321
+	86!	L321
+	87!	L321
+	88!	L321
+	89!	L321
+	90!	L321
+	91!	L321
+	92!	L321
+	93!	L321
+	94!	L321
+	95!	L321
+	96!	L321
+	97!	L321
+	98!	L321
+	99!	L321
+	100!	L321
+	101!	L321
+	102!	L321
+	103!	L321
+	104!	L321
+	105!	L321
+	106!	L321
+	107!	L321
+	108!	L321
+	109!	L321
+	110!	L321
+	111!	L321
+	112!	L321
+	113!	L321
+	114!	L321
+	115!	L321
+	116!	L321
+	117!	L321
+	118!	L321
+	119!	L321
+	120!	L321
+	121!	L321
+	122!	L321
+	123!	L321
+	124!	L321
+	125!	L321
+	126!	L321
+	127!	L321
+	128!	L321
+	129!	L321
+	130!	L321
+	131!	L321
+	132!	L321
+	133!	L321
+	134!	L321
+	135!	L321
+	136!	L321
+	137!	L321
+	138!	L321
+	139!	L321
+	140!	L321
+	141!	L321
+	142!	L321
+	143!	L321
+	144!	L321
+	145!	L321
+	146!	L321
+	147!	L321
+	148!	L321
+	149!	L321
+	150!	L321
+	151!	L321
+	152!	L321
+	153!	L321
+	154!	L321
+	155!	L321
+	159	L322
+L321:
+	PSHF	270	Expression
+	CALL	Expression
+	EXCT	0	1
+	RETN
+L322:
+	PSHF	271	AspectExpression
+	CALL	AspectExpression
+	RETN
+
+rule	ExpressionList
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	8
+follow= 11 14 185 186 187 188 189 190
+	PSHF	274	Expression
+	CALL	Expression
+	EXCT	0	1
+L323:
+	BRAN	0	0	9
+	8!	L325
+	11!	L324
+	14!	L324
+	185!	L324
+	186!	L324
+	187!	L324
+	188!	L324
+	189!	L324
+	190!	L324
+L325:
+	MTCH	0	0	0	8
+	PSHF	273	Expression
+	CALL	Expression
+	EXCT	0	0
+	GOTO	L323
+L324:
+	RETN
+
+rule	Expression
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	37
+follow= 8 11 14 16 17 18 19 20 21 22 40 42 44 46 156 157 158 160 161 162 163 164 165 166 167 168 173 183 185 186 187 188 189 190 191 192 193
+	EXCT	0	3
+	PSHF	275	ExprConcat
+	CALL	ExprConcat
+	EXCT	0	1
+	RETN
+
+rule	ExprConcat
+rflags=	0
+role=	0
+tc=	2
+flgc=	0
+phrase=	""
+fllwc=	37
+follow= 8 11 14 16 17 18 19 20 21 22 40 42 44 46 156 157 158 160 161 162 163 164 165 166 167 168 173 183 185 186 187 188 189 190 191 192 193
+	EXCT	0	4
+	PSHF	277	ExprSum
+	CALL	ExprSum
+	EXCT	0	2
+L326:
+	BRAN	1	1	38
+	8	L327
+	11	L327
+	14	L327
+	16	L327
+	17	L327
+	18	L327
+	19	L327
+	20	L327
+	21	L327
+	22	L327
+	40	L327
+	42!	L327
+	44!	L327
+	46!	L327
+	156!	L327
+	157!	L327
+	158!	L327
+	160!	L327
+	161!	L327
+	162!	L327
+	163!	L327
+	164!	L327
+	165!	L327
+	166!	L327
+	167!	L327
+	168!	L327
+	169	L328
+	173!	L327
+	183!	L327
+	185!	L327
+	186!	L327
+	187!	L327
+	188!	L327
+	189!	L327
+	190!	L327
+	191!	L327
+	192!	L327
+	193!	L327
+L328:
+	MTCH	1	0	0	169
+	PSHF	276	ExprSum
+	CALL	ExprSum
+	EXCT	0	1
+	GOTO	L326
+L327:
+	EXCT	0	0
+	RETN
+
+rule	ExprSum
+rflags=	0
+role=	0
+tc=	3
+flgc=	0
+phrase=	""
+fllwc=	38
+follow= 8 11 14 16 17 18 19 20 21 22 40 42 44 46 156 157 158 160 161 162 163 164 165 166 167 168 169 173 183 185 186 187 188 189 190 191 192 193
+	EXCT	0	5
+	PSHF	280	ExprFactor
+	CALL	ExprFactor
+	EXCT	0	3
+L329:
+	BRAN	1	1	40
+	8	L330
+	11	L330
+	14	L330
+	16	L330
+	17	L330
+	18	L330
+	19	L330
+	20	L330
+	21	L330
+	22	L330
+	36	L331
+	37	L332
+	40	L330
+	42!	L330
+	44!	L330
+	46!	L330
+	156!	L330
+	157!	L330
+	158!	L330
+	160!	L330
+	161!	L330
+	162!	L330
+	163!	L330
+	164!	L330
+	165!	L330
+	166!	L330
+	167!	L330
+	168!	L330
+	169!	L330
+	173!	L330
+	183!	L330
+	185!	L330
+	186!	L330
+	187!	L330
+	188!	L330
+	189!	L330
+	190!	L330
+	191!	L330
+	192!	L330
+	193!	L330
+L331:
+	MTCH	1	0	0	36
+	PSHF	278	ExprFactor
+	CALL	ExprFactor
+	EXCT	0	1
+	GOTO	L329
+L332:
+	MTCH	2	0	0	37
+	PSHF	279	ExprFactor
+	CALL	ExprFactor
+	EXCT	0	2
+	GOTO	L329
+L330:
+	EXCT	0	0
+	RETN
+
+rule	ExprFactor
+rflags=	0
+role=	0
+tc=	3
+flgc=	0
+phrase=	""
+fllwc=	40
+follow= 8 11 14 16 17 18 19 20 21 22 36 37 40 42 44 46 156 157 158 160 161 162 163 164 165 166 167 168 169 173 183 185 186 187 188 189 190 191 192 193
+	PSHF	283	ExprTerm
+	CALL	ExprTerm
+	EXCT	0	2
+L333:
+	BRAN	1	1	42
+	8	L334
+	11	L334
+	14	L334
+	16	L334
+	17	L334
+	18	L334
+	19	L334
+	20	L334
+	21	L334
+	22	L334
+	34	L335
+	36	L334
+	37	L334
+	38	L336
+	40	L334
+	42!	L334
+	44!	L334
+	46!	L334
+	156!	L334
+	157!	L334
+	158!	L334
+	160!	L334
+	161!	L334
+	162!	L334
+	163!	L334
+	164!	L334
+	165!	L334
+	166!	L334
+	167!	L334
+	168!	L334
+	169!	L334
+	173!	L334
+	183!	L334
+	185!	L334
+	186!	L334
+	187!	L334
+	188!	L334
+	189!	L334
+	190!	L334
+	191!	L334
+	192!	L334
+	193!	L334
+L335:
+	MTCH	1	0	0	34
+	PSHF	281	ExprTerm
+	CALL	ExprTerm
+	EXCT	0	0
+	GOTO	L333
+L336:
+	MTCH	2	0	0	38
+	PSHF	282	ExprTerm
+	CALL	ExprTerm
+	EXCT	0	1
+	GOTO	L333
+L334:
+	RETN
+
+rule	ExprTerm
+rflags=	0
+role=	0
+tc=	3
+flgc=	0
+phrase=	""
+fllwc=	42
+follow= 8 11 14 16 17 18 19 20 21 22 34 36 37 38 40 42 44 46 156 157 158 160 161 162 163 164 165 166 167 168 169 173 183 185 186 187 188 189 190 191 192 193
+	EXCT	0	11
+	BRAN	1	1	114
+	13	L341
+	27	L342
+	28	L342
+	29	L342
+	30	L342
+	31	L342
+	32	L342
+	33	L342
+	36	L339
+	37	L340
+	40	L338
+	42!	L338
+	45!	L338
+	46	L342
+	54	L343
+	55	L343
+	56	L343
+	57	L343
+	58	L343
+	59	L343
+	60	L343
+	63	L344
+	64	L344
+	65	L344
+	66	L344
+	67	L344
+	68	L344
+	69	L344
+	70	L344
+	71	L344
+	72	L344
+	73	L344
+	74	L344
+	75	L344
+	76	L344
+	77	L344
+	78	L344
+	79	L344
+	80	L344
+	81	L344
+	82	L344
+	83	L344
+	84	L344
+	85	L344
+	86	L344
+	87	L344
+	88	L344
+	89	L344
+	90	L344
+	91	L344
+	92	L344
+	93	L344
+	94	L344
+	95	L344
+	96	L344
+	97	L344
+	98	L344
+	99	L344
+	100	L344
+	101	L344
+	102	L344
+	103	L344
+	104	L344
+	105	L344
+	106	L344
+	107	L344
+	108	L344
+	109	L344
+	110	L344
+	111	L344
+	112	L344
+	113	L344
+	114	L344
+	115	L344
+	116	L344
+	117	L344
+	118	L344
+	119	L344
+	120	L344
+	121	L344
+	122	L344
+	123	L344
+	124	L344
+	125	L344
+	126	L344
+	127	L344
+	128	L344
+	129	L344
+	130	L344
+	131	L344
+	132	L344
+	133	L344
+	134	L344
+	135	L344
+	136	L344
+	137	L344
+	138	L344
+	139	L344
+	140	L344
+	141	L344
+	142	L344
+	143	L344
+	144	L344
+	145	L344
+	146	L344
+	147	L344
+	148	L344
+	149	L344
+	150	L344
+	151	L344
+	152	L344
+	153	L345
+	154	L345
+	155	L346
+L338:
+	PSHF	284	QLPath
+	CALL	QLPath
+	EXCT	0	1
+L337:
+	EXCT	0	0
+	RETN
+L339:
+	MTCH	1	0	0	36
+	PSHF	285	ExprTerm
+	CALL	ExprTerm
+	EXCT	0	2
+	GOTO	L337
+L340:
+	MTCH	2	0	0	37
+	PSHF	286	ExprTerm
+	CALL	ExprTerm
+	EXCT	0	3
+	GOTO	L337
+L341:
+	MTCH	0	0	0	13
+	PSHF	287	Expression
+	CALL	Expression
+	MTCH	0	0	0	14
+	EXCT	0	4
+	GOTO	L337
+L342:
+	PSHF	288	Literal
+	CALL	Literal
+	EXCT	0	5
+	GOTO	L337
+L343:
+	PSHF	289	Agg
+	CALL	Agg
+	EXCT	0	6
+	GOTO	L337
+L344:
+	PSHF	290	Func
+	CALL	Func
+	EXCT	0	7
+	GOTO	L337
+L345:
+	PSHF	291	NamedArgFunc
+	CALL	NamedArgFunc
+	EXCT	0	8
+	GOTO	L337
+L346:
+	PSHF	292	CaseExpression
+	CALL	CaseExpression
+	EXCT	0	9
+	GOTO	L337
+
+rule	AspectExpression
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	26
+follow= 11 14 17 18 19 20 21 22 46 157 158 160 161 162 163 164 165 166 173 183 185 186 187 188 189 190
+	MTCH	0	0	0	159
+	PSHF	293	QLPathStartRule
+	CALL	QLPathStartRule
+	RETN
+
+rule	QLPathStartRule
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+startrule=	"true"
+fllwc=	27
+follow= 2 11 14 17 18 19 20 21 22 46 157 158 160 161 162 163 164 165 166 173 183 185 186 187 188 189 190
+	PSHF	294	QLPath
+	CALL	QLPath
+	RETN
+
+rule	CaseExpression
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	42
+follow= 8 11 14 16 17 18 19 20 21 22 34 36 37 38 40 42 44 46 156 157 158 160 161 162 163 164 165 166 167 168 169 173 183 185 186 187 188 189 190 191 192 193
+	EXCT	0	7
+	MTCH	0	0	0	155
+	BRAN	1	1	115
+	13	L348
+	27	L348
+	28	L348
+	29	L348
+	30	L348
+	31	L348
+	32	L348
+	33	L348
+	36	L348
+	37	L348
+	40	L348
+	42!	L348
+	45!	L348
+	46!	L348
+	54!	L348
+	55!	L348
+	56!	L348
+	57!	L348
+	58!	L348
+	59!	L348
+	60!	L348
+	63!	L348
+	64!	L348
+	65!	L348
+	66!	L348
+	67!	L348
+	68!	L348
+	69!	L348
+	70!	L348
+	71!	L348
+	72!	L348
+	73!	L348
+	74!	L348
+	75!	L348
+	76!	L348
+	77!	L348
+	78!	L348
+	79!	L348
+	80!	L348
+	81!	L348
+	82!	L348
+	83!	L348
+	84!	L348
+	85!	L348
+	86!	L348
+	87!	L348
+	88!	L348
+	89!	L348
+	90!	L348
+	91!	L348
+	92!	L348
+	93!	L348
+	94!	L348
+	95!	L348
+	96!	L348
+	97!	L348
+	98!	L348
+	99!	L348
+	100!	L348
+	101!	L348
+	102!	L348
+	103!	L348
+	104!	L348
+	105!	L348
+	106!	L348
+	107!	L348
+	108!	L348
+	109!	L348
+	110!	L348
+	111!	L348
+	112!	L348
+	113!	L348
+	114!	L348
+	115!	L348
+	116!	L348
+	117!	L348
+	118!	L348
+	119!	L348
+	120!	L348
+	121!	L348
+	122!	L348
+	123!	L348
+	124!	L348
+	125!	L348
+	126!	L348
+	127!	L348
+	128!	L348
+	129!	L348
+	130!	L348
+	131!	L348
+	132!	L348
+	133!	L348
+	134!	L348
+	135!	L348
+	136!	L348
+	137!	L348
+	138!	L348
+	139!	L348
+	140!	L348
+	141!	L348
+	142!	L348
+	143!	L348
+	144!	L348
+	145!	L348
+	146!	L348
+	147!	L348
+	148!	L348
+	149!	L348
+	150!	L348
+	151!	L348
+	152!	L348
+	153!	L348
+	154!	L348
+	155!	L348
+	156	L349
+L348:
+	PSHF	297	Expression
+	CALL	Expression
+	EXCT	0	3
+	PSHF	296	WhenExpressionThenList
+	CALL	WhenExpressionThenList
+L347:
+	BRAN	0	0	2
+	167!	L351
+	168!	L350
+L349:
+	EXCT	0	5
+	PSHF	298	WhenConditionThenList
+	CALL	WhenConditionThenList
+	GOTO	L347
+L351:
+	MTCH	0	0	0	167
+	PSHF	295	Expression
+	CALL	Expression
+	EXCT	0	1
+L350:
+	MTCH	0	0	0	168
+	EXCT	0	0
+	RETN
+
+rule	WhenExpressionThenList
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	2
+follow= 167 168
+	EXCT	0	1
+	PSHF	300	WhenExpressionThen
+	CALL	WhenExpressionThen
+L352:
+	BRAN	0	0	3
+	156!	L354
+	167!	L353
+	168!	L353
+L354:
+	EXCT	0	0
+	PSHF	299	WhenExpressionThen
+	CALL	WhenExpressionThen
+	GOTO	L352
+L353:
+	RETN
+
+rule	WhenConditionThenList
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	2
+follow= 167 168
+	EXCT	0	1
+	PSHF	302	WhenConditionThen
+	CALL	WhenConditionThen
+L355:
+	BRAN	0	0	3
+	156!	L357
+	167!	L356
+	168!	L356
+L357:
+	EXCT	0	0
+	PSHF	301	WhenConditionThen
+	CALL	WhenConditionThen
+	GOTO	L355
+L356:
+	RETN
+
+rule	WhenExpressionThen
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	3
+follow= 156 167 168
+	EXCT	0	2
+	MTCH	0	0	0	156
+	PSHF	304	Expression
+	CALL	Expression
+	MTCH	0	0	0	157
+	PSHF	303	Expression
+	CALL	Expression
+	EXCT	0	0
+	RETN
+
+rule	WhenConditionThen
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	3
+follow= 156 167 168
+	EXCT	0	2
+	MTCH	0	0	0	156
+	PSHF	306	Condition
+	CALL	Condition
+	MTCH	0	0	0	157
+	PSHF	305	Expression
+	CALL	Expression
+	EXCT	0	0
+	RETN
+
+rule	Literal
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	42
+follow= 8 11 14 16 17 18 19 20 21 22 34 36 37 38 40 42 44 46 156 157 158 160 161 162 163 164 165 166 167 168 169 173 183 185 186 187 188 189 190 191 192 193
+	BRAN	0	0	8
+	27!	L360
+	28!	L359
+	29!	L361
+	30!	L363
+	31!	L364
+	32!	L365
+	33!	L362
+	46!	L366
+L359:
+	PSHF	307	IntLiteralWrapper
+	CALL	IntLiteralWrapper
+	EXCT	0	0
+	RETN
+L360:
+	PSHF	308	StringLiteralWrapper
+	CALL	StringLiteralWrapper
+	EXCT	0	1
+	RETN
+L361:
+	PSHF	309	RealLiteral
+	CALL	RealLiteral
+	EXCT	0	2
+	RETN
+L362:
+	PSHF	310	BinaryLiteral
+	CALL	BinaryLiteral
+	EXCT	0	3
+	RETN
+L363:
+	PSHF	311	DateLiteral
+	CALL	DateLiteral
+	EXCT	0	4
+	RETN
+L364:
+	PSHF	312	TimeLiteral
+	CALL	TimeLiteral
+	EXCT	0	5
+	RETN
+L365:
+	PSHF	313	TimeStampLiteral
+	CALL	TimeStampLiteral
+	EXCT	0	6
+	RETN
+L366:
+	PSHF	314	NullLiteral
+	CALL	NullLiteral
+	EXCT	0	7
+	RETN
+
+rule	ExprAlias
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	2
+follow= 8 16
+	PSHF	317	Expression
+	CALL	Expression
+	EXCT	0	1
+	BRAN	1	1	5
+	8	L367
+	16	L367
+	40	L368
+	42!	L369
+	44!	L368
+L368:
+	BRAN	1	1	3
+	40	L369
+	42!	L369
+	44	L370
+L370:
+	PSHF	316	AS
+	CALL	AS
+L369:
+	PSHF	315	IdWrapper
+	CALL	IdWrapper
+	EXCT	0	0
+L367:
+	RETN
+
+rule	Agg
+rflags=	0
+role=	0
+tc=	2
+flgc=	0
+phrase=	""
+fllwc=	42
+follow= 8 11 14 16 17 18 19 20 21 22 34 36 37 38 40 42 44 46 156 157 158 160 161 162 163 164 165 166 167 168 169 173 183 185 186 187 188 189 190 191 192 193
+	EXCT	0	5
+	PSHF	322	AggName
+	CALL	AggName
+	MTCH	0	0	0	13
+	BRAN	1	1	117
+	13	L373
+	27	L373
+	28	L373
+	29	L373
+	30	L373
+	31	L373
+	32	L373
+	33	L373
+	34	L372
+	36	L373
+	37	L373
+	40	L373
+	42!	L373
+	45!	L373
+	46!	L373
+	54!	L373
+	55!	L373
+	56!	L373
+	57!	L373
+	58!	L373
+	59!	L373
+	60!	L373
+	61!	L373
+	62	L374
+	63!	L373
+	64!	L373
+	65!	L373
+	66!	L373
+	67!	L373
+	68!	L373
+	69!	L373
+	70!	L373
+	71!	L373
+	72!	L373
+	73!	L373
+	74!	L373
+	75!	L373
+	76!	L373
+	77!	L373
+	78!	L373
+	79!	L373
+	80!	L373
+	81!	L373
+	82!	L373
+	83!	L373
+	84!	L373
+	85!	L373
+	86!	L373
+	87!	L373
+	88!	L373
+	89!	L373
+	90!	L373
+	91!	L373
+	92!	L373
+	93!	L373
+	94!	L373
+	95!	L373
+	96!	L373
+	97!	L373
+	98!	L373
+	99!	L373
+	100!	L373
+	101!	L373
+	102!	L373
+	103!	L373
+	104!	L373
+	105!	L373
+	106!	L373
+	107!	L373
+	108!	L373
+	109!	L373
+	110!	L373
+	111!	L373
+	112!	L373
+	113!	L373
+	114!	L373
+	115!	L373
+	116!	L373
+	117!	L373
+	118!	L373
+	119!	L373
+	120!	L373
+	121!	L373
+	122!	L373
+	123!	L373
+	124!	L373
+	125!	L373
+	126!	L373
+	127!	L373
+	128!	L373
+	129!	L373
+	130!	L373
+	131!	L373
+	132!	L373
+	133!	L373
+	134!	L373
+	135!	L373
+	136!	L373
+	137!	L373
+	138!	L373
+	139!	L373
+	140!	L373
+	141!	L373
+	142!	L373
+	143!	L373
+	144!	L373
+	145!	L373
+	146!	L373
+	147!	L373
+	148!	L373
+	149!	L373
+	150!	L373
+	151!	L373
+	152!	L373
+	153!	L373
+	154!	L373
+	155!	L373
+L372:
+	MTCH	1	0	0	34
+	EXCT	0	1
+L371:
+	MTCH	0	0	0	14
+	EXCT	0	0
+	RETN
+L373:
+	PSHF	319	OptAll
+	CALL	OptAll
+	PSHF	318	Expression
+	CALL	Expression
+	EXCT	0	2
+	GOTO	L371
+L374:
+	PSHF	321	DISTINCT
+	CALL	DISTINCT
+	PSHF	320	Expression
+	CALL	Expression
+	EXCT	0	3
+	GOTO	L371
+
+rule	AggName
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	1
+follow= 13
+	BRAN	0	0	7
+	54!	L376
+	55!	L377
+	56!	L378
+	57!	L379
+	58!	L380
+	59!	L381
+	60!	L382
+L376:
+	PSHF	323	COUNT
+	CALL	COUNT
+	EXCT	0	0
+	RETN
+L377:
+	PSHF	324	MIN
+	CALL	MIN
+	EXCT	0	1
+	RETN
+L378:
+	PSHF	325	MAX
+	CALL	MAX
+	EXCT	0	2
+	RETN
+L379:
+	PSHF	326	SUM
+	CALL	SUM
+	EXCT	0	3
+	RETN
+L380:
+	PSHF	327	AVG
+	CALL	AVG
+	EXCT	0	4
+	RETN
+L381:
+	PSHF	328	STDDEV
+	CALL	STDDEV
+	EXCT	0	5
+	RETN
+L382:
+	PSHF	329	VAR
+	CALL	VAR
+	EXCT	0	6
+	RETN
+
+rule	OptAll
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	114
+follow= 13 27 28 29 30 31 32 33 36 37 40 42 45 46 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155
+	BRAN	1	1	115
+	13	L384
+	27	L384
+	28	L384
+	29	L384
+	30	L384
+	31	L384
+	32	L384
+	33	L384
+	36	L384
+	37	L384
+	40	L384
+	42!	L384
+	45!	L384
+	46!	L384
+	54!	L384
+	55!	L384
+	56!	L384
+	57!	L384
+	58!	L384
+	59!	L384
+	60!	L384
+	61	L385
+	63!	L384
+	64!	L384
+	65!	L384
+	66!	L384
+	67!	L384
+	68!	L384
+	69!	L384
+	70!	L384
+	71!	L384
+	72!	L384
+	73!	L384
+	74!	L384
+	75!	L384
+	76!	L384
+	77!	L384
+	78!	L384
+	79!	L384
+	80!	L384
+	81!	L384
+	82!	L384
+	83!	L384
+	84!	L384
+	85!	L384
+	86!	L384
+	87!	L384
+	88!	L384
+	89!	L384
+	90!	L384
+	91!	L384
+	92!	L384
+	93!	L384
+	94!	L384
+	95!	L384
+	96!	L384
+	97!	L384
+	98!	L384
+	99!	L384
+	100!	L384
+	101!	L384
+	102!	L384
+	103!	L384
+	104!	L384
+	105!	L384
+	106!	L384
+	107!	L384
+	108!	L384
+	109!	L384
+	110!	L384
+	111!	L384
+	112!	L384
+	113!	L384
+	114!	L384
+	115!	L384
+	116!	L384
+	117!	L384
+	118!	L384
+	119!	L384
+	120!	L384
+	121!	L384
+	122!	L384
+	123!	L384
+	124!	L384
+	125!	L384
+	126!	L384
+	127!	L384
+	128!	L384
+	129!	L384
+	130!	L384
+	131!	L384
+	132!	L384
+	133!	L384
+	134!	L384
+	135!	L384
+	136!	L384
+	137!	L384
+	138!	L384
+	139!	L384
+	140!	L384
+	141!	L384
+	142!	L384
+	143!	L384
+	144!	L384
+	145!	L384
+	146!	L384
+	147!	L384
+	148!	L384
+	149!	L384
+	150!	L384
+	151!	L384
+	152!	L384
+	153!	L384
+	154!	L384
+	155!	L384
+L384:
+	EXCT	0	0
+	RETN
+L385:
+	PSHF	330	ALL
+	CALL	ALL
+	EXCT	0	1
+	RETN
+
+rule	NamedArgFunc
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	42
+follow= 8 11 14 16 17 18 19 20 21 22 34 36 37 38 40 42 44 46 156 157 158 160 161 162 163 164 165 166 167 168 169 173 183 185 186 187 188 189 190 191 192 193
+	EXCT	0	5
+	PSHF	333	NamedArgumentFuncName
+	CALL	NamedArgumentFuncName
+	EXCT	0	3
+	MTCH	0	0	0	13
+	BRAN	1	1	3
+	14	L386
+	40	L387
+	42!	L387
+L387:
+	EXCT	0	2
+	PSHF	332	NamedArgument
+	CALL	NamedArgument
+	BRAN	0	0	2
+	8!	L389
+	14!	L386
+L389:
+	MTCH	0	0	0	8
+	EXCT	0	1
+	PSHF	331	NamedArgumentList
+	CALL	NamedArgumentList
+L386:
+	MTCH	0	0	0	14
+	EXCT	0	0
+	RETN
+
+rule	NamedArgument
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	2
+follow= 8 14
+	EXCT	0	4
+	PSHF	335	IdWrapper
+	CALL	IdWrapper
+	EXCT	0	2
+	MTCH	0	0	0	23
+	PSHF	334	Expression
+	CALL	Expression
+	EXCT	0	1
+	RETN
+
+rule	NamedArgumentList
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	1
+follow= 14
+	EXCT	0	1
+	PSHF	337	NamedArgument
+	CALL	NamedArgument
+L390:
+	BRAN	0	0	2
+	8!	L392
+	14!	L391
+L392:
+	MTCH	0	0	0	8
+	EXCT	0	0
+	PSHF	336	NamedArgument
+	CALL	NamedArgument
+	GOTO	L390
+L391:
+	RETN
+
+rule	Func
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	42
+follow= 8 11 14 16 17 18 19 20 21 22 34 36 37 38 40 42 44 46 156 157 158 160 161 162 163 164 165 166 167 168 169 173 183 185 186 187 188 189 190 191 192 193
+	EXCT	0	5
+	PSHF	340	FuncName
+	CALL	FuncName
+	MTCH	0	0	0	13
+	EXCT	0	3
+	BRAN	1	1	115
+	13	L394
+	14	L393
+	27	L394
+	28	L394
+	29	L394
+	30	L394
+	31	L394
+	32	L394
+	33	L394
+	36	L394
+	37	L394
+	40	L394
+	42!	L394
+	45!	L394
+	46!	L394
+	54!	L394
+	55!	L394
+	56!	L394
+	57!	L394
+	58!	L394
+	59!	L394
+	60!	L394
+	63!	L394
+	64!	L394
+	65!	L394
+	66!	L394
+	67!	L394
+	68!	L394
+	69!	L394
+	70!	L394
+	71!	L394
+	72!	L394
+	73!	L394
+	74!	L394
+	75!	L394
+	76!	L394
+	77!	L394
+	78!	L394
+	79!	L394
+	80!	L394
+	81!	L394
+	82!	L394
+	83!	L394
+	84!	L394
+	85!	L394
+	86!	L394
+	87!	L394
+	88!	L394
+	89!	L394
+	90!	L394
+	91!	L394
+	92!	L394
+	93!	L394
+	94!	L394
+	95!	L394
+	96!	L394
+	97!	L394
+	98!	L394
+	99!	L394
+	100!	L394
+	101!	L394
+	102!	L394
+	103!	L394
+	104!	L394
+	105!	L394
+	106!	L394
+	107!	L394
+	108!	L394
+	109!	L394
+	110!	L394
+	111!	L394
+	112!	L394
+	113!	L394
+	114!	L394
+	115!	L394
+	116!	L394
+	117!	L394
+	118!	L394
+	119!	L394
+	120!	L394
+	121!	L394
+	122!	L394
+	123!	L394
+	124!	L394
+	125!	L394
+	126!	L394
+	127!	L394
+	128!	L394
+	129!	L394
+	130!	L394
+	131!	L394
+	132!	L394
+	133!	L394
+	134!	L394
+	135!	L394
+	136!	L394
+	137!	L394
+	138!	L394
+	139!	L394
+	140!	L394
+	141!	L394
+	142!	L394
+	143!	L394
+	144!	L394
+	145!	L394
+	146!	L394
+	147!	L394
+	148!	L394
+	149!	L394
+	150!	L394
+	151!	L394
+	152!	L394
+	153!	L394
+	154!	L394
+	155!	L394
+L394:
+	PSHF	339	Expression
+	CALL	Expression
+	EXCT	0	2
+	BRAN	0	0	2
+	8!	L396
+	14!	L393
+L396:
+	MTCH	0	0	0	8
+	PSHF	338	ExpressionList
+	CALL	ExpressionList
+	EXCT	0	1
+L393:
+	MTCH	0	0	0	14
+	EXCT	0	0
+	RETN
+
+rule	NamedArgumentFuncName
+rflags=	0
+role=	0
+tc=	3
+flgc=	0
+phrase=	""
+fllwc=	1
+follow= 13
+	BRAN	0	0	2
+	153!	L398
+	154!	L399
+L398:
+	MTCH	1	0	0	153
+	EXCT	0	0
+	RETN
+L399:
+	MTCH	2	0	0	154
+	EXCT	0	1
+	RETN
+
+rule	FuncName
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	1
+follow= 13
+	BRAN	0	0	90
+	63!	L401
+	64!	L402
+	65!	L403
+	66!	L404
+	67!	L405
+	68!	L406
+	69!	L407
+	70!	L408
+	71!	L409
+	72!	L410
+	73!	L411
+	74!	L412
+	75!	L413
+	76!	L414
+	77!	L415
+	78!	L416
+	79!	L417
+	80!	L418
+	81!	L419
+	82!	L420
+	83!	L421
+	84!	L422
+	85!	L423
+	86!	L424
+	87!	L425
+	88!	L426
+	89!	L427
+	90!	L428
+	91!	L429
+	92!	L430
+	93!	L431
+	94!	L432
+	95!	L433
+	96!	L434
+	97!	L435
+	98!	L436
+	99!	L437
+	100!	L438
+	101!	L439
+	102!	L440
+	103!	L441
+	104!	L442
+	105!	L443
+	106!	L444
+	107!	L445
+	108!	L446
+	109!	L447
+	110!	L448
+	111!	L449
+	112!	L450
+	113!	L451
+	114!	L452
+	115!	L453
+	116!	L454
+	117!	L455
+	118!	L456
+	119!	L457
+	120!	L458
+	121!	L459
+	122!	L460
+	123!	L461
+	124!	L462
+	125!	L463
+	126!	L464
+	127!	L465
+	128!	L466
+	129!	L467
+	130!	L468
+	131!	L469
+	132!	L470
+	133!	L471
+	134!	L472
+	135!	L473
+	136!	L474
+	137!	L475
+	138!	L476
+	139!	L477
+	140!	L478
+	141!	L479
+	142!	L480
+	143!	L481
+	144!	L482
+	145!	L483
+	146!	L484
+	147!	L485
+	148!	L486
+	149!	L487
+	150!	L488
+	151!	L489
+	152!	L490
+L401:
+	MTCH	0	0	0	63
+L400:
+	EXCT	0	0
+	RETN
+L402:
+	MTCH	0	0	0	64
+	GOTO	L400
+L403:
+	MTCH	0	0	0	65
+	GOTO	L400
+L404:
+	MTCH	0	0	0	66
+	GOTO	L400
+L405:
+	MTCH	0	0	0	67
+	GOTO	L400
+L406:
+	MTCH	0	0	0	68
+	GOTO	L400
+L407:
+	MTCH	0	0	0	69
+	GOTO	L400
+L408:
+	MTCH	0	0	0	70
+	GOTO	L400
+L409:
+	MTCH	0	0	0	71
+	GOTO	L400
+L410:
+	MTCH	0	0	0	72
+	GOTO	L400
+L411:
+	MTCH	0	0	0	73
+	GOTO	L400
+L412:
+	MTCH	0	0	0	74
+	GOTO	L400
+L413:
+	MTCH	0	0	0	75
+	GOTO	L400
+L414:
+	MTCH	0	0	0	76
+	GOTO	L400
+L415:
+	MTCH	0	0	0	77
+	GOTO	L400
+L416:
+	MTCH	0	0	0	78
+	GOTO	L400
+L417:
+	MTCH	0	0	0	79
+	GOTO	L400
+L418:
+	MTCH	0	0	0	80
+	GOTO	L400
+L419:
+	MTCH	0	0	0	81
+	GOTO	L400
+L420:
+	MTCH	0	0	0	82
+	GOTO	L400
+L421:
+	MTCH	0	0	0	83
+	GOTO	L400
+L422:
+	MTCH	0	0	0	84
+	GOTO	L400
+L423:
+	MTCH	0	0	0	85
+	GOTO	L400
+L424:
+	MTCH	0	0	0	86
+	GOTO	L400
+L425:
+	MTCH	0	0	0	87
+	GOTO	L400
+L426:
+	MTCH	0	0	0	88
+	GOTO	L400
+L427:
+	MTCH	0	0	0	89
+	GOTO	L400
+L428:
+	MTCH	0	0	0	90
+	GOTO	L400
+L429:
+	MTCH	0	0	0	91
+	GOTO	L400
+L430:
+	MTCH	0	0	0	92
+	GOTO	L400
+L431:
+	MTCH	0	0	0	93
+	GOTO	L400
+L432:
+	MTCH	0	0	0	94
+	GOTO	L400
+L433:
+	MTCH	0	0	0	95
+	GOTO	L400
+L434:
+	MTCH	0	0	0	96
+	GOTO	L400
+L435:
+	MTCH	0	0	0	97
+	GOTO	L400
+L436:
+	MTCH	0	0	0	98
+	GOTO	L400
+L437:
+	MTCH	0	0	0	99
+	GOTO	L400
+L438:
+	MTCH	0	0	0	100
+	GOTO	L400
+L439:
+	MTCH	0	0	0	101
+	GOTO	L400
+L440:
+	MTCH	0	0	0	102
+	GOTO	L400
+L441:
+	MTCH	0	0	0	103
+	GOTO	L400
+L442:
+	MTCH	0	0	0	104
+	GOTO	L400
+L443:
+	MTCH	0	0	0	105
+	GOTO	L400
+L444:
+	MTCH	0	0	0	106
+	GOTO	L400
+L445:
+	MTCH	0	0	0	107
+	GOTO	L400
+L446:
+	MTCH	0	0	0	108
+	GOTO	L400
+L447:
+	MTCH	0	0	0	109
+	GOTO	L400
+L448:
+	MTCH	0	0	0	110
+	GOTO	L400
+L449:
+	MTCH	0	0	0	111
+	GOTO	L400
+L450:
+	MTCH	0	0	0	112
+	GOTO	L400
+L451:
+	MTCH	0	0	0	113
+	GOTO	L400
+L452:
+	MTCH	0	0	0	114
+	GOTO	L400
+L453:
+	MTCH	0	0	0	115
+	GOTO	L400
+L454:
+	MTCH	0	0	0	116
+	GOTO	L400
+L455:
+	MTCH	0	0	0	117
+	GOTO	L400
+L456:
+	MTCH	0	0	0	118
+	GOTO	L400
+L457:
+	MTCH	0	0	0	119
+	GOTO	L400
+L458:
+	MTCH	0	0	0	120
+	GOTO	L400
+L459:
+	MTCH	0	0	0	121
+	GOTO	L400
+L460:
+	MTCH	0	0	0	122
+	GOTO	L400
+L461:
+	MTCH	0	0	0	123
+	GOTO	L400
+L462:
+	MTCH	0	0	0	124
+	GOTO	L400
+L463:
+	MTCH	0	0	0	125
+	GOTO	L400
+L464:
+	MTCH	0	0	0	126
+	GOTO	L400
+L465:
+	MTCH	0	0	0	127
+	GOTO	L400
+L466:
+	MTCH	0	0	0	128
+	GOTO	L400
+L467:
+	MTCH	0	0	0	129
+	GOTO	L400
+L468:
+	MTCH	0	0	0	130
+	GOTO	L400
+L469:
+	MTCH	0	0	0	131
+	GOTO	L400
+L470:
+	MTCH	0	0	0	132
+	GOTO	L400
+L471:
+	MTCH	0	0	0	133
+	GOTO	L400
+L472:
+	MTCH	0	0	0	134
+	GOTO	L400
+L473:
+	MTCH	0	0	0	135
+	GOTO	L400
+L474:
+	MTCH	0	0	0	136
+	GOTO	L400
+L475:
+	MTCH	0	0	0	137
+	GOTO	L400
+L476:
+	MTCH	0	0	0	138
+	GOTO	L400
+L477:
+	MTCH	0	0	0	139
+	GOTO	L400
+L478:
+	MTCH	0	0	0	140
+	GOTO	L400
+L479:
+	MTCH	0	0	0	141
+	GOTO	L400
+L480:
+	MTCH	0	0	0	142
+	GOTO	L400
+L481:
+	MTCH	0	0	0	143
+	GOTO	L400
+L482:
+	MTCH	0	0	0	144
+	GOTO	L400
+L483:
+	MTCH	0	0	0	145
+	GOTO	L400
+L484:
+	MTCH	0	0	0	146
+	GOTO	L400
+L485:
+	MTCH	0	0	0	147
+	GOTO	L400
+L486:
+	MTCH	0	0	0	148
+	GOTO	L400
+L487:
+	MTCH	0	0	0	149
+	GOTO	L400
+L488:
+	MTCH	0	0	0	150
+	GOTO	L400
+L489:
+	MTCH	0	0	0	151
+	GOTO	L400
+L490:
+	MTCH	0	0	0	152
+	GOTO	L400
+
+rule	DDL_ENUM
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	1
+follow= 15
+	MTCH	0	0	0	53
+	RETN
+
+rule	DDL_COLON
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	4
+follow= 40 42 49 52
+	MTCH	0	0	0	9
+	RETN
+
+rule	annotationDefintions
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+startrule=	"true"
+fllwc=	1
+follow= 2
+	EXCT	0	0
+	PSHF	341	annotationDefintionsWithAnnotation
+	CALL	annotationDefintionsWithAnnotation
+	RETN
+
+rule	annotationDefintionsWithAnnotation
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	1
+follow= 2
+	EXCT	0	4
+L491:
+	BRAN	0	0	3
+	2!	L492
+	12!	L493
+	197!	L493
+L493:
+	EXCT	0	3
+L494:
+	BRAN	0	0	2
+	12!	L496
+	197!	L495
+L496:
+	PSHF	343	PreAnnotation
+	CALL	PreAnnotation
+	EXCT	0	2
+	GOTO	L494
+L495:
+	EXCT	0	1
+	PSHF	342	AnnotationDeclaration
+	CALL	AnnotationDeclaration
+	EXCT	0	0
+	GOTO	L491
+L492:
+	RETN
+
+rule	AnnotationDeclaration
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	17
+follow= 2 12 16 40 41 42 43 47 48 49 50 175 176 177 196 197 198
+	EXCT	0	4
+	MTCH	0	0	0	197
+	PSHF	345	QualifiedDefId
+	CALL	QualifiedDefId
+	EXCT	0	2
+	PSHF	344	annotationTypeSpec
+	CALL	annotationTypeSpec
+	BRAN	1	1	18
+	2	L497
+	11	L498
+	12	L497
+	16	L497
+	40	L497
+	41!	L497
+	42!	L497
+	43!	L497
+	47!	L497
+	48!	L497
+	49!	L497
+	50!	L497
+	175!	L497
+	176!	L497
+	177!	L497
+	196!	L497
+	197!	L497
+	198!	L497
+L498:
+	MTCH	0	0	0	11
+L497:
+	EXCT	0	0
+	SYSC	0	0
+	RETN
+
+rule	annotationTypeSpec
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	18
+follow= 2 11 12 16 40 41 42 43 47 48 49 50 175 176 177 196 197 198
+	BRAN	0	0	2
+	9!	L500
+	15!	L501
+L500:
+	PSHF	349	DDL_COLON
+	CALL	DDL_COLON
+	BRAN	1	1	4
+	40	L504
+	42!	L504
+	49	L505
+	52	L503
+L503:
+	EXCT	0	0
+	PSHF	346	AnnotationTypeArray
+	CALL	AnnotationTypeArray
+	RETN
+L504:
+	EXCT	0	1
+	PSHF	347	AnnotationTypeNamedOrEnum
+	CALL	AnnotationTypeNamedOrEnum
+	RETN
+L505:
+	EXCT	0	2
+	PSHF	348	AnnotationTypeTypeOf
+	CALL	AnnotationTypeTypeOf
+	RETN
+L501:
+	EXCT	0	3
+	PSHF	350	annotationStructuredType
+	CALL	annotationStructuredType
+	RETN
+
+rule	AnnotationTypeTypeOf
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	18
+follow= 2 11 12 16 40 41 42 43 47 48 49 50 175 176 177 196 197 198
+	PSHF	353	TYPE
+	CALL	TYPE
+	PSHF	352	OF
+	CALL	OF
+	PSHF	351	PathSimple
+	CALL	PathSimple
+	EXCT	0	0
+	RETN
+
+rule	AnnotationTypeNamedOrEnum
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	18
+follow= 2 11 12 16 40 41 42 43 47 48 49 50 175 176 177 196 197 198
+	EXCT	0	2
+	PSHF	356	AnnotationTypeNamed
+	CALL	AnnotationTypeNamed
+	BRAN	0	0	3
+	11!	L508
+	53!	L507
+	173!	L509
+L507:
+	EXCT	0	1
+	PSHF	355	annotationEnumClause
+	CALL	annotationEnumClause
+	BRAN	0	0	2
+	11!	L508
+	173!	L509
+L509:
+	EXCT	0	0
+	PSHF	354	AnnotationDefaultClause
+	CALL	AnnotationDefaultClause
+L508:
+	MTCH	0	0	0	11
+	SYSC	0	0
+	RETN
+
+rule	AnnotationDefaultClause
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	1
+follow= 11
+	SYSC	3	0
+	PSHF	359	DEFAULT
+	CALL	DEFAULT
+	BRAN	1	1	115
+	13	L511
+	27	L511
+	28	L511
+	29	L511
+	30	L511
+	31	L511
+	32	L511
+	33	L511
+	36	L511
+	37	L511
+	40	L511
+	42!	L511
+	45!	L511
+	46!	L511
+	54!	L511
+	55!	L511
+	56!	L511
+	57!	L511
+	58!	L511
+	59!	L511
+	60!	L511
+	63!	L511
+	64!	L511
+	65!	L511
+	66!	L511
+	67!	L511
+	68!	L511
+	69!	L511
+	70!	L511
+	71!	L511
+	72!	L511
+	73!	L511
+	74!	L511
+	75!	L511
+	76!	L511
+	77!	L511
+	78!	L511
+	79!	L511
+	80!	L511
+	81!	L511
+	82!	L511
+	83!	L511
+	84!	L511
+	85!	L511
+	86!	L511
+	87!	L511
+	88!	L511
+	89!	L511
+	90!	L511
+	91!	L511
+	92!	L511
+	93!	L511
+	94!	L511
+	95!	L511
+	96!	L511
+	97!	L511
+	98!	L511
+	99!	L511
+	100!	L511
+	101!	L511
+	102!	L511
+	103!	L511
+	104!	L511
+	105!	L511
+	106!	L511
+	107!	L511
+	108!	L511
+	109!	L511
+	110!	L511
+	111!	L511
+	112!	L511
+	113!	L511
+	114!	L511
+	115!	L511
+	116!	L511
+	117!	L511
+	118!	L511
+	119!	L511
+	120!	L511
+	121!	L511
+	122!	L511
+	123!	L511
+	124!	L511
+	125!	L511
+	126!	L511
+	127!	L511
+	128!	L511
+	129!	L511
+	130!	L511
+	131!	L511
+	132!	L511
+	133!	L511
+	134!	L511
+	135!	L511
+	136!	L511
+	137!	L511
+	138!	L511
+	139!	L511
+	140!	L511
+	141!	L511
+	142!	L511
+	143!	L511
+	144!	L511
+	145!	L511
+	146!	L511
+	147!	L511
+	148!	L511
+	149!	L511
+	150!	L511
+	151!	L511
+	152!	L511
+	153!	L511
+	154!	L511
+	155!	L511
+	174	L512
+L511:
+	PSHF	357	Expression
+	CALL	Expression
+	EXCT	0	0
+	RETN
+L512:
+	PSHF	358	EnumIdWrapper
+	CALL	EnumIdWrapper
+	EXCT	0	1
+	RETN
+
+rule	AnnotationTypeNamed
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	3
+follow= 11 53 173
+	PSHF	362	AnnotationTypeName
+	CALL	AnnotationTypeName
+	EXCT	0	2
+	BRAN	0	0	4
+	11!	L513
+	13!	L514
+	53!	L513
+	173!	L513
+L514:
+	MTCH	0	0	0	13
+	PSHF	361	IntLiteralWrapper
+	CALL	IntLiteralWrapper
+	EXCT	0	1
+	BRAN	0	0	2
+	8!	L516
+	14!	L515
+L516:
+	MTCH	0	0	0	8
+	PSHF	360	IntLiteralWrapper
+	CALL	IntLiteralWrapper
+	EXCT	0	0
+L515:
+	MTCH	0	0	0	14
+L513:
+	RETN
+
+rule	AnnotationTypeSpecNoColon
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	18
+follow= 2 11 12 16 40 41 42 43 47 48 49 50 175 176 177 196 197 198
+	BRAN	1	1	3
+	15	L518
+	40	L519
+	42!	L519
+L518:
+	EXCT	0	0
+	PSHF	363	annotationStructuredType
+	CALL	annotationStructuredType
+	RETN
+L519:
+	EXCT	0	1
+	PSHF	364	AnnotationTypeNamedOrEnum
+	CALL	AnnotationTypeNamedOrEnum
+	RETN
+
+rule	AnnotationTypeArray
+rflags=	0
+role=	0
+tc=	3
+flgc=	0
+phrase=	""
+fllwc=	18
+follow= 2 11 12 16 40 41 42 43 47 48 49 50 175 176 177 196 197 198
+	MTCH	1	0	0	52
+	MTCH	2	0	0	51
+	EXCT	0	1
+	PSHF	365	AnnotationTypeSpecNoColon
+	CALL	AnnotationTypeSpecNoColon
+	RETN
+
+rule	AnnotationTypeName
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	4
+follow= 11 13 53 173
+	PSHF	366	TypeName
+	CALL	TypeName
+	EXCT	0	0
+	RETN
+
+rule	annotationEnumClause
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	2
+follow= 11 173
+	EXCT	0	6
+	PSHF	369	DDL_ENUM
+	CALL	DDL_ENUM
+	EXCT	0	5
+	MTCH	0	0	0	15
+L520:
+	BRAN	1	1	3
+	16	L521
+	40	L522
+	42!	L522
+L522:
+	EXCT	0	4
+	PSHF	368	IdWrapper
+	CALL	IdWrapper
+	EXCT	0	3
+	MTCH	0	0	0	17
+	PSHF	367	AnnotationLiteral
+	CALL	AnnotationLiteral
+	EXCT	0	2
+	MTCH	0	0	0	11
+	EXCT	0	0
+	GOTO	L520
+L521:
+	MTCH	0	0	0	16
+	RETN
+
+rule	annotationStructuredType
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	18
+follow= 2 11 12 16 40 41 42 43 47 48 49 50 175 176 177 196 197 198
+	EXCT	0	7
+	MTCH	0	0	0	15
+	EXCT	0	5
+L523:
+	BRAN	1	1	3
+	16	L524
+	40	L525
+	42!	L525
+L525:
+	EXCT	0	4
+	PSHF	371	IdWrapper
+	CALL	IdWrapper
+	EXCT	0	3
+	PSHF	370	annotationTypeSpec
+	CALL	annotationTypeSpec
+	EXCT	0	1
+	GOTO	L523
+L524:
+	MTCH	0	0	0	16
+	EXCT	0	0
+	BRAN	1	1	19
+	2	L526
+	11	L526
+	11	L527
+	12	L526
+	16	L526
+	40	L526
+	41!	L526
+	42!	L526
+	43!	L526
+	47!	L526
+	48!	L526
+	49!	L526
+	50!	L526
+	175!	L526
+	176!	L526
+	177!	L526
+	196!	L526
+	197!	L526
+	198!	L526
+L527:
+	MTCH	0	0	0	11
+L526:
+	RETN
+
+rule	CONTEXT
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	2
+follow= 40 42
+	MTCH	0	0	0	48
+	RETN
+
+rule	BETWEEN
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	114
+follow= 13 27 28 29 30 31 32 33 36 37 40 42 45 46 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155
+	MTCH	0	0	0	161
+	RETN
+
+rule	DEFINE
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	9
+follow= 48 49 159 175 177 196 197 198 199
+	MTCH	0	0	0	47
+	RETN
+
+rule	ENTITY
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	2
+follow= 40 42
+	MTCH	0	0	0	175
+	RETN
+
+rule	VIEW
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	2
+follow= 40 42
+	MTCH	0	0	0	177
+	RETN
+
+rule	AS
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	4
+follow= 13 40 42 178
+	MTCH	0	0	0	44
+	RETN
+
+rule	TYPE
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	3
+follow= 40 42 51
+	MTCH	0	0	0	49
+	RETN
+
+rule	ELEMENT
+rflags=	0
+role=	0
+tc=	2
+flgc=	0
+phrase=	""
+fllwc=	2
+follow= 40 42
+	MTCH	1	0	0	50
+	EXCT	0	0
+	RETN
+
+rule	ESCAPE
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	114
+follow= 13 27 28 29 30 31 32 33 36 37 40 42 45 46 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155
+	MTCH	0	0	0	164
+	RETN
+
+rule	IN
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	115
+follow= 13 27 28 29 30 31 32 33 36 37 40 42 45 46 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 159
+	MTCH	0	0	0	165
+	RETN
+
+rule	IS
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	2
+follow= 46 158
+	MTCH	0	0	0	160
+	RETN
+
+rule	KEY
+rflags=	0
+role=	0
+tc=	2
+flgc=	0
+phrase=	""
+fllwc=	3
+follow= 40 42 50
+	MTCH	1	0	0	176
+	EXCT	0	0
+	RETN
+
+rule	LIKE
+rflags=	0
+role=	0
+tc=	2
+flgc=	0
+phrase=	""
+fllwc=	115
+follow= 13 27 28 29 30 31 32 33 36 37 40 42 45 46 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 159
+	MTCH	1	0	0	163
+	EXCT	0	0
+	RETN
+
+rule	NAMESPACE
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	2
+follow= 40 42
+	MTCH	0	0	0	41
+	RETN
+
+rule	OF
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	2
+follow= 40 42
+	MTCH	0	0	0	51
+	RETN
+
+rule	ASSOCIATION
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	2
+follow= 25 171
+	MTCH	0	0	0	170
+	RETN
+
+rule	TO
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	2
+follow= 40 42
+	MTCH	0	0	0	171
+	RETN
+
+rule	SELECT
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	1
+follow= 179
+	MTCH	0	0	0	178
+	RETN
+
+rule	FROM
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	3
+follow= 40 42 45
+	MTCH	0	0	0	179
+	RETN
+
+rule	WHERE
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	116
+follow= 13 27 28 29 30 31 32 33 36 37 40 42 45 46 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 158 159
+	MTCH	0	0	0	182
+	RETN
+
+rule	AND
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	116
+follow= 13 27 28 29 30 31 32 33 36 37 40 42 45 46 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 158 159
+	MTCH	0	0	0	162
+	RETN
+
+rule	OR
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	116
+follow= 13 27 28 29 30 31 32 33 36 37 40 42 45 46 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 158 159
+	MTCH	0	0	0	166
+	RETN
+
+rule	NOT
+rflags=	0
+role=	0
+tc=	2
+flgc=	0
+phrase=	""
+fllwc=	119
+follow= 13 27 28 29 30 31 32 33 36 37 40 42 45 46 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 158 159 161 163 165
+	MTCH	1	0	0	158
+	EXCT	0	0
+	RETN
+
+rule	NULL
+rflags=	0
+role=	0
+tc=	2
+flgc=	0
+phrase=	""
+fllwc=	166
+follow= 8 11 12 13 14 15 16 17 18 19 20 21 22 26 27 28 29 30 31 32 33 34 36 37 38 40 42 44 45 46 47 48 49 50 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 173 175 176 177 183 185 186 187 188 189 190 191 192 193 196 197 198 199
+	SYSC	3	0
+	MTCH	1	0	0	46
+	EXCT	0	0
+	RETN
+
+rule	DEFAULT
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	115
+follow= 13 27 28 29 30 31 32 33 36 37 40 42 45 46 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 174
+	MTCH	0	0	0	173
+	RETN
+
+rule	GROUP
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	1
+follow= 184
+	MTCH	0	0	0	183
+	RETN
+
+rule	BY
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	114
+follow= 13 27 28 29 30 31 32 33 36 37 40 42 45 46 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155
+	MTCH	0	0	0	184
+	RETN
+
+rule	HAVING
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	116
+follow= 13 27 28 29 30 31 32 33 36 37 40 42 45 46 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 158 159
+	MTCH	0	0	0	185
+	RETN
+
+rule	ORDER
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	1
+follow= 184
+	MTCH	0	0	0	190
+	RETN
+
+rule	ASC
+rflags=	0
+role=	0
+tc=	2
+flgc=	0
+phrase=	""
+fllwc=	4
+follow= 8 11 14 193
+	MTCH	1	0	0	191
+	EXCT	0	0
+	RETN
+
+rule	DESC
+rflags=	0
+role=	0
+tc=	2
+flgc=	0
+phrase=	""
+fllwc=	4
+follow= 8 11 14 193
+	MTCH	1	0	0	192
+	EXCT	0	0
+	RETN
+
+rule	NULLS
+rflags=	0
+role=	0
+tc=	2
+flgc=	0
+phrase=	""
+fllwc=	2
+follow= 194 195
+	MTCH	1	0	0	193
+	EXCT	0	0
+	RETN
+
+rule	FIRST
+rflags=	0
+role=	0
+tc=	2
+flgc=	0
+phrase=	""
+fllwc=	3
+follow= 8 11 14
+	MTCH	1	0	0	194
+	EXCT	0	0
+	RETN
+
+rule	LAST
+rflags=	0
+role=	0
+tc=	2
+flgc=	0
+phrase=	""
+fllwc=	3
+follow= 8 11 14
+	MTCH	1	0	0	195
+	EXCT	0	0
+	RETN
+
+rule	DISTINCT
+rflags=	0
+role=	0
+tc=	2
+flgc=	0
+phrase=	""
+fllwc=	114
+follow= 13 27 28 29 30 31 32 33 36 37 40 42 45 46 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155
+	MTCH	1	0	0	62
+	EXCT	0	0
+	RETN
+
+rule	COUNT
+rflags=	0
+role=	0
+tc=	2
+flgc=	0
+phrase=	""
+fllwc=	1
+follow= 13
+	MTCH	1	0	0	54
+	EXCT	0	0
+	RETN
+
+rule	MIN
+rflags=	0
+role=	0
+tc=	2
+flgc=	0
+phrase=	""
+fllwc=	1
+follow= 13
+	MTCH	1	0	0	55
+	EXCT	0	0
+	RETN
+
+rule	MAX
+rflags=	0
+role=	0
+tc=	2
+flgc=	0
+phrase=	""
+fllwc=	1
+follow= 13
+	MTCH	1	0	0	56
+	EXCT	0	0
+	RETN
+
+rule	SUM
+rflags=	0
+role=	0
+tc=	2
+flgc=	0
+phrase=	""
+fllwc=	1
+follow= 13
+	MTCH	1	0	0	57
+	EXCT	0	0
+	RETN
+
+rule	AVG
+rflags=	0
+role=	0
+tc=	2
+flgc=	0
+phrase=	""
+fllwc=	1
+follow= 13
+	MTCH	1	0	0	58
+	EXCT	0	0
+	RETN
+
+rule	STDDEV
+rflags=	0
+role=	0
+tc=	2
+flgc=	0
+phrase=	""
+fllwc=	1
+follow= 13
+	MTCH	1	0	0	59
+	EXCT	0	0
+	RETN
+
+rule	VAR
+rflags=	0
+role=	0
+tc=	2
+flgc=	0
+phrase=	""
+fllwc=	1
+follow= 13
+	MTCH	1	0	0	60
+	EXCT	0	0
+	RETN
+
+rule	ALL
+rflags=	0
+role=	0
+tc=	2
+flgc=	0
+phrase=	""
+fllwc=	114
+follow= 13 27 28 29 30 31 32 33 36 37 40 42 45 46 54 55 56 57 58 59 60 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155
+	MTCH	1	0	0	61
+	EXCT	0	0
+	RETN
+	RETN
+	PSHF	1	START_SYNTAX_COLORING
+	CALL	START_SYNTAX_COLORING
+	STOP
+	PSHF	2	QLPathStartRule
+	CALL	QLPathStartRule
+	STOP
+	PSHF	3	annotationDefintions
+	CALL	annotationDefintions
+	STOP
+	PSHF	0	START
+	CALL	START
+	STOP

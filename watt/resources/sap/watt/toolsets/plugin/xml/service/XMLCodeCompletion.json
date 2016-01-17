@@ -1,0 +1,25 @@
+{
+	"name" : "sap.watt.common.plugin.xml.service.XMLCodeCompletion",
+	"description" : "The XMLCodeCompletion interface",
+	"extends" : [
+		"sap.watt.common.service.editor.CodeCompletion",
+		"sap.watt.common.service.editor.PrefixCalculation"
+	],
+	"configurationProperties" : {
+		"libraries" : {
+			"type" : {
+				"name" : "string",
+				"version" : "string",
+				"libIndexFile": "string",
+				"libTemplate": "string",
+				"libMetadata": "string",
+				"help": "string",
+				"helpService": "string"
+			},
+			"multiple" : true
+		}
+	},
+	"methods" : {
+		
+	}
+}

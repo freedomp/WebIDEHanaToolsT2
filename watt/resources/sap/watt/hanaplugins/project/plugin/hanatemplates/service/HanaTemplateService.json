@@ -1,0 +1,9 @@
+{
+    "name": "sap.watt.hana.project.hanatemplates.service.HanaTemplateService",
+    "description": "Interface for configure the project settings of the hanadbproject",
+    "methods": {
+		"onAfterGeneration" : {
+		    "params" : [{"name" : "oEvent", "type": "object"}]
+		}
+    }
+}

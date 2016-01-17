@@ -1,0 +1,3008 @@
+/* NOTE: This file was generated as an optimized version of "library.source.less" for the Theme Designer. */
+
+/*!
+ * SAP UI development toolkit for HTML5 (SAPUI5)
+ *
+ * (c) Copyright 2009-2016 SAP SE. All rights reserved
+ */
+
+@import "../base/library.less";
+@import (less) "../../../../../sap/ui/core/themes/sap_flat/global.css";
+/* START "shared.css" */
+.wattTabPanel .sapUiTabPanel {
+	display: none;
+}
+
+.sapUiShd {
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+}
+
+.wattTabStrip .sapUiUx3NavBar {
+	position : static; 	
+}
+
+.WattTabStripFirstAction.sapUiLbl{
+	text-align: center;
+	height: 32px;
+	left: 50%;
+	margin-left: -150px;
+	position: absolute;
+	top: 48%;
+	width: 300px;
+	font-size: 16px;
+	line-height: 24px;
+	font-family: "Segoe UI Light", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+	font-weight: 100;
+	text-shadow: 0 0 4px @sapFlatMediumBG;
+	overflow: visible;
+	white-space: normal;
+}
+
+.WattTabStripFirstActionTitle.sapUiLbl{
+	left: 50%;
+	margin-left: -250px;
+	position: absolute;
+	top: 90%;
+	width: 500px;
+	font-size: 24px;
+	font-family: "Segoe UI Light", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+	font-weight: 100;
+	text-shadow: 0 0 4px @sapFlatMediumBG;
+	overflow: visible;
+	white-space: normal;
+}
+
+.wizardStepContent div[class*="sapUiRespGrid"] > div[class*="sapUiRespGridSpan"] {
+	text-overflow: ellipsis;
+}
+
+.wizardStepContent .sapUiBtnS > .sapUiBtnTxt {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	width: 90%;
+}
+
+.wizardStepContent .sapUiBtnIcoR {
+	padding-left: 4px;
+}
+
+*:focus {
+	outline: none;
+}
+/* END "shared.css" */
+
+
+/* START "AbsoluteLayout.css" */
+/* ================================================= */
+/* CSS for control sap.ui.commons.layout.AbsoluteLayout.control     */
+/* Flat                                      */
+/* ================================================= */
+
+.wattTabStrip {
+	.sapUiLayoutAbsPos {
+		height : 100%;
+		width : 100%;
+	}
+}
+	
+/* END "AbsoluteLayout.css" */
+
+/* START "Accordion.css" */
+/* ======================================================= */
+/* CSS for control sap.ui.commons.Accordion.control        */
+/* Flat                                                    */
+/* ======================================================= */
+
+/*.sapUiAcd {
+	height: auto !important;
+	margin-bottom: -1px;
+}*/
+
+
+.sapUiAcdSectionHdr:hover {
+	background: rgba(0, 91, 141, 0.05);
+}
+
+.sapUiAcdSectionHdr:active {
+	background: rgba(0, 91, 141, 1);
+	color: white;
+}
+
+.sapUiAcd .sapUiAcdSectionHdr:active .sapUiAcdSectionMinArrow:after {
+	color: white;
+}
+
+.sapUiAcdSectionArea .sapUiAcdSectionCont {
+	background-color: rgba(255,255,255, 0.5);
+}
+
+
+/* normal */
+/*.sapUiAcdSection .sapUiAcdSectionCont {
+	border-top: 1px solid #999;
+	padding: 0.5rem;
+}
+
+.sapUiAcdSectionArea .sapUiAcdSectionCont {
+	border-bottom: none;
+	top: 2rem;
+}
+
+.sapUiAcd .sapUiAcdSectionHdr {
+	height: 2rem;
+	line-height: 2rem;
+	border-top: 1px solid #e5e5e5;
+}
+*/
+.sapUiAcd .sapUiAcdSectionHdr:focus{
+	outline: 1px solid rgba(0,0,0,0.5);
+	outline-offset: -1px;
+}
+/*
+.sapUiAcdSectionLast {
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.sapUiAcdSectionHdr span {
+	font-weight: normal !important;
+}
+
+.sapUiAcd .sapUiAcdSectionHdr>div>span>span {
+	display: inline-block;
+	left: 0.5rem;
+	margin-left: 0;
+	overflow: hidden;
+	position: absolute;
+	right: 2rem;
+	text-overflow: ellipsis;
+}
+
+.sapUiAcdSection.sapUiAcdSectionColl .sapUiAcdSectionMinArrow,
+.sapUiAcdSection .sapUiAcdSectionMinArrow {
+	background-image: none;
+	background-repeat: no-repeat;
+	height: 2rem;
+	margin: 0;
+	position: absolute;
+	right: 0;
+	text-align: center;
+	text-decoration: none;
+	width: 2rem;
+}
+
+.sapUiAcdSection.sapUiAcdSectionColl .sapUiAcdSectionMinArrow:after,
+.sapUiAcdSection .sapUiAcdSectionMinArrow:after {
+	color: #666;
+	font-family: "SAP-icons-watt";
+	font-size: 1rem;
+	height: inherit;
+	line-height: 1rem;	
+	width: inherit;
+}
+
+.sapUiAcdSection.sapUiAcdSectionColl .sapUiAcdSectionMinArrow:after {
+	content: "\e025";
+}
+
+.sapUiAcdSection .sapUiAcdSectionMinArrow:after {
+	content: "\e026";
+}
+*/
+/* small */
+/*.sapUiAcd.riverControlSmall .sapUiAcdSectionHdr {
+	font-size: 0.75rem;
+	height: 1.5rem;
+	line-height: 1.5rem;
+}
+
+.sapUiAcd.riverControlSmall .sapUiAcdSectionCont {
+	top: 1.5rem;
+	padding: 0.25rem 0.5rem;
+}
+*/
+/* accordion in accordion */
+/*.sapUiAcd.riverAccordionStacked .sapUiAcdSectionCont  {
+	padding: 0;
+	overflow: hidden;
+}
+
+.sapUiAcd.riverAccordionStacked .sapUiAcdSectionCont .sapUiAcdSectionCont {
+	padding: 0.25rem 0.5rem;
+	border-top: 0;
+}
+*/
+/* w5g accordion in accordion */
+/*.sapUiAcd.riverAccordionStacked.riverAccordionPalette .sapUiAcdSectionArea .sapUiAcdSectionCont {
+	background-color: rgba(255,255,255, 1);
+}
+
+.sapUiAcd.riverAccordionStacked.riverAccordionPalette .sapUiAcdSectionHdr>div>span>span {
+	font-family: "SegoeUI", "Segoe UI Light", "Helvetica Neue", Arial, sans-serif;
+	font-size: 17px;
+	line-height: 28px;
+}
+
+.sapUiAcd.riverAccordionStacked.riverAccordionPalette .sapUiAcd .sapUiAcdSectionHdr>div>span>span {
+	font-family: Arial, sans-serif;
+	font-size: 0.75rem;
+	line-height: 1.5rem;
+}
+
+.sapUiAcd.riverAccordionStacked.riverAccordionPalette .sapUiAcd .sapUiAcdSectionMinArrow {
+	opacity: 0.5;
+}*/
+/* END "Accordion.css" */
+
+/* START "Button.css" */
+/* ================================================= */
+/* CSS for control sap.ui.commons/Button.control     */
+/* Flat                                      */
+/* ================================================= */
+
+.sapUiBtn {
+	height: 2rem;
+	padding: 0 1rem;
+	font-size: 0.875rem;
+}
+
+.sapUiBtnS.sapUiBtnNorm {
+	color: @sapFlatStandardText;
+	border-width: 1px;
+	border-style: solid;
+	border-color: @sapFlatExtraDarkBorder;
+	border-radius: 2px;
+}
+
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnStd {
+	background-color: @BtnBG;
+	color:@BtnClr;
+}
+
+/* button focus state */
+.sapUiBtnS.sapUiBtnStd:focus,
+.sapUiBtnS.sapUiBtnStd.sapUiBtnStdFocus {
+	outline: 1px solid fade(@sapFlatDarkestBorder ,50%);
+	background-color: @sapFlatButtonStandardBG;
+}
+
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnStd:focus,
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnStd.sapUiBtnStdFocus {
+	outline: 1px solid fade(@sapFlatDarkestBorder ,50%);
+	background-color: @sapFlatButtonStandardBG;
+}
+
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnStd:hover {
+	background-color: darken(@BtnBG, 2.5%);
+	color: @sapFlatStandardText;
+	border-color: @sapFlatExtraDarkBorder;
+}
+
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnAct:hover {
+	background-color: darken(@sapFlatButtonStandardBG, 5%);
+	color: @sapFlatStandardText;
+	border-color: @sapFlatExtraDarkBorder;
+}
+
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnAct:hover {
+	background-color: darken(@sapFlatButtonStandardBG, 5%);
+	color: @sapFlatStandardText;
+	border-color: @sapFlatExtraDarkBorder;
+}
+
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnDsbl,
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnDsbl:focus {
+	background-color: @sapFlatButtonStandardBG;
+	color: fade(@sapFlatStandardText,50%);
+	border-color: @sapFlatExtraDarkBorder;
+}
+
+/*emphasized Button*/
+.sapUiBtnS.sapUiBtnEmph {
+	font-weight: normal;
+	background-color:@BtnEmphClr;
+	color: #fff;
+}
+
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnEmph {
+	background-color: @sapFlatButtonStandardBG;
+	border-color: @sapFlatExtraDarkBorder;
+	font-weight: normal;
+	padding: 0 2rem;
+}
+
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnEmph.sapUiBtnStd:focus,
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnEmph.sapUiBtnStd:hover {
+	background-color: darken(@sapFlatBrand, 2.5%);
+	border-color: @sapFlatExtraDarkBorder;
+}
+
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnEmph.sapUiBtnAct,
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnEmph.sapUiBtnAct:focus,
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnEmph.sapUiBtnAct:hover,
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnEmph.sapUiBtnStd:active {
+	background-color: darken(@sapFlatBrand, 5%);
+	border-color: @sapFlatExtraDarkBorder;
+}
+
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnEmph.sapUiBtnDsbl,
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnEmph.sapUiBtnDsbl:focus {
+	border-color: @sapFlatExtraDarkBorder;
+	background-color: @sapFlatButtonStandardBG;
+	opacity: 0.5;
+}
+
+/* accept button*/
+.sapUiBtnS.sapUiBtnAccept {
+	font-weight: normal;
+}
+
+.sapUiBtnS.sapUiBtnStd.sapUiBtnAccept {
+	color: @sapFlatInvertedText;
+}
+
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnAccept {
+	background-color: @sapFlatPositiveElement;
+	border-color: @sapFlatExtraDarkBorder;
+}
+
+.sapUiBtnS.sapUiBtnAccept.sapUiBtnStd:focus,
+.sapUiBtnS.sapUiBtnAccept.sapUiBtnStd:hover {
+	/*font-weight: bold;*/
+	background-color: darken(@sapFlatPositiveElement, 2.5%);
+	border-color: @sapFlatExtraDarkBorder;
+	color: @sapFlatInvertedText;
+}
+
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnAccept.sapUiBtnStd:focus,
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnAccept.sapUiBtnStd:hover {
+	border-color: @sapFlatExtraDarkBorder;
+}
+
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnAccept.sapUiBtnAct,
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnAccept.sapUiBtnAct:focus,
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnAccept.sapUiBtnAct:hover,
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnAccept.sapUiBtnStd:active {
+	background-color: darken(@sapFlatPositiveElement, 5%);
+	border-color: @sapFlatExtraDarkBorder;
+	color: @sapFlatInvertedText;
+}
+
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnAccept.sapUiBtnDsbl,
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnAccept.sapUiBtnDsbl:focus {
+	background-color: fade(@sapFlatPositiveElement, 75%);
+	border-color: @sapFlatExtraDarkBorder;
+	color: @sapFlatInvertedText;
+}
+
+/* reject button*/
+.sapUiBtnS.sapUiBtnReject{
+	font-weight: normal;
+}
+
+.sapUiBtnS.sapUiBtnStd.sapUiBtnReject{
+	color: @sapFlatInvertedText;
+}
+
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnReject{
+	background-color: @sapFlatNegativeElement;
+	border-color: @sapFlatExtraDarkBorder;
+}
+
+.sapUiBtnS.sapUiBtnReject.sapUiBtnStd:focus,
+.sapUiBtnS.sapUiBtnReject.sapUiBtnStd:hover {
+	/*font-weight: bold;*/
+	background-color: darken(@sapFlatNegativeElement, 2.5%);
+}
+
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnReject.sapUiBtnStd:focus,
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnReject.sapUiBtnStd:hover {
+	border-color: @sapFlatExtraDarkBorder;
+	color: @sapFlatInvertedText;
+}
+
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnReject.sapUiBtnAct,
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnReject.sapUiBtnAct:focus,
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnReject.sapUiBtnAct:hover,
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnReject.sapUiBtnStd:active {
+	background-color: darken(@sapFlatNegativeElement, 5%);
+	border-color: @sapFlatExtraDarkBorder;
+}
+
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnReject.sapUiBtnDsbl,
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnReject.sapUiBtnDsbl:focus {
+	background-color: fade(@sapFlatNegativeElement, 75%);
+	color: @sapFlatInvertedText;
+	border-color: @sapFlatExtraDarkBorder;
+}
+
+/* sidebars */
+.rightsidebar, .leftsidebar {
+	.sapUiBtn {
+		height: 3rem;
+		padding: 0 1rem;
+		width : 100%;
+
+	}
+
+	.sapUiBtnS.sapUiBtnNorm {
+		color:@RightSideBarClr;
+		border-width: 0;
+		border-style: none;
+		border-color: transparent;
+		background-color: transparent;
+		border-radius: 0;
+		min-width: 36px;
+		font-size: 1.2rem;
+		padding: 0;
+		text-align: center;
+	}
+	
+	.sapUiBtnS.sapUiBtnNorm.sapUiBtnStd:hover,
+	.sapUiBtnS.sapUiBtnNorm.sapUiBtnAct:hover {
+		background-color: fade(@SideBarHighlightBG, 25%);
+		border-color: transparent;
+	}
+	
+	.sapUiBtnS.sapUiBtnNorm.sapUiBtnStd:focus {
+		outline: none;
+		background-color: transparent;
+	}
+
+	.sapUiBtnS.sapUiBtnNorm.sapUiBtnDsbl,
+	.sapUiBtnS.sapUiBtnNorm.sapUiBtnDsbl:focus {
+		background-color: transparent;
+		border-color: transparent;
+		color: @ShellBg;
+	}
+	
+	.sapUiBtnS.sapUiBtnNorm.sapUiBtnStd.selected{
+		color:@ActiveBG;
+		background-color: @SideBarHighlightBG;
+	}
+	
+	.sapUiBtnS.sapUiBtnNorm.sapUiBtnDsbl.selected,
+	.sapUiBtnS.sapUiBtnNorm.sapUiBtnDsbl.selected:focus {
+		background-color: @SideBarHighlightBG;
+		border-color: transparent;
+		color: @menuBarClr;
+	}
+}
+.leftsidebar {
+
+	.sapUiBtnS.sapUiBtnNorm {
+		min-width: 48px;
+		color:@SideNavBarIconClr;
+	}
+
+	.sapUiBtnS.sapUiBtnNorm.sapUiBtnStd:hover,
+	.sapUiBtnS.sapUiBtnNorm.sapUiBtnAct:hover {
+		background-color: @SideNavBarHoverClr;
+		border-color: transparent;
+		color:@SideNavBarIconClr;
+	}
+}
+/* END "Button.css" */
+
+/* START "CheckBox.css" */
+/* =============================================== */
+/* CSS for control sap.ui.commons/CheckBox.control */
+/* =============================================== */
+
+.sapUiCb{
+    height: 2rem;
+    line-height: 2rem;
+    vertical-align: middle;
+    position: relative;
+}
+
+.sapUiCb input[type="CheckBox"] {
+    display: none;
+}
+
+.sapUiCb:focus {
+    outline: 1px dotted rgba(0,0,0, 0.25);
+    outline-offset: -1px;
+}
+
+.sapUiCb>label {
+    vertical-align: bottom;
+    line-height: 1.65rem;
+    height: 1.5rem;
+    padding: 0 0.5rem 0 2rem;
+}
+
+.sapUiCb label:before {
+    height: 14px;
+    width: 14px;
+    background-color: white;
+    border: 1px solid #69767F;
+    position: absolute;
+    left: 9px;
+    top: 9px;
+    content: "";
+    box-sizing: border-box;
+}
+
+.sapUiCb.flatControlSmall {
+    height: 1.5rem;
+    line-height: 1.5rem;
+}
+
+.sapUiCb.flatControlSmall label:before {
+    height: 12px;
+    width: 12px;
+    left: 6px;
+    top: 6px;
+}
+
+.sapUiCb.flatControlSmall>label {
+    vertical-align: middle;
+    line-height: 1.5rem;
+    height: 1.5rem;
+    padding: 0 0.5rem 0 1.5rem;
+}
+
+.sapUiCb.sapUiCbChk:after {
+    height: 14px;
+    width: 14px;
+    position: absolute;
+    left: 11px;
+    top: -2px;
+    content: "\e04e";
+    box-sizing: border-box;
+    font-family: "SAP-icons-watt";
+    font-size: 17px;
+    color: #69767F;
+}
+
+.sapUiCb.flatControlSmall.sapUiCbChk:after {
+    left: 8px;
+    top: -2px;
+    font-size: 13px;
+}
+
+.sapUiCb.sapUiCbWarn label:before { border-color: #f0ab00; }
+.sapUiCb.sapUiCbWarn.sapUiCbChk:after { color: #f0ab00; }
+
+.sapUiCb.sapUiCbErr label:before { border-color: #e22525; }
+.sapUiCb.sapUiCbErr.sapUiCbChk:after { color: #e22525; }
+
+.sapUiCb.sapUiCbRo label:before { background: #e5e5e5; }
+
+.sapUiCb.sapUiCbDis label:before { opacity: 0.75; }
+.sapUiCb.sapUiCbDis.sapUiCbChk:after { opacity: 0.5; }
+
+.sapUiCb.sapUiCbDis label { /* text-decoration: line-through; */ color: black; opacity: 0.5; }
+
+html[data-sap-ui-browser*='ie'] .sapUiCb input[type="checkbox"] {
+    padding: 0;
+    margin-bottom: 3px;
+    margin-left: 4px;
+    margin-right: 3px;
+}
+
+html[data-sap-ui-browser='ie10'] .sapUiCb,
+html[data-sap-ui-browser='ie11'] .sapUiCb {
+    margin-top:1px;
+    margin-left:1px;
+}
+
+html[data-sap-ui-browser='ie10'] .sapUiCb:focus,
+html[data-sap-ui-browser='ie11'] .sapUiCb:focus {
+    position: relative;
+    box-sizing: border-box;
+    border: 1px dotted rgba(0, 0, 0, 0.25);
+    outline: 0;
+    top:-1px;
+    left:-1px;
+}
+
+/* removing the dotted outline for IE */
+
+html[data-sap-ui-browser^='ie'] .sapUiCb:focus::after {
+    border: 0px !important;
+}
+
+.sapUiCb.sapUiCbChk:focus::after {
+    content: "\e04e" !important;
+    background: transparent;
+    left: 11px !important;
+    top: -3px !important;
+}
+/* END "CheckBox.css" */
+
+/* START "ComboBox.css" */
+/* =============================================== */
+/* CSS for control sap.ui.commons/ComboBox.control */
+/* =============================================== */
+
+.sapUiTfCombo {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	vertical-align: top;
+	width: 22ex;
+	position: relative;
+	overflow: visible;
+	display: inline-block;
+	outline: none;
+}
+
+.sapUiTfCombo > select{
+	background-color: transparent;
+	height: 100%;
+	opacity: 0;
+	position: absolute;
+	width: 100%;
+}
+
+.sapUiTfCombo > select + input{
+	/*to put input field over select and make it focused on click*/
+	position: relative;
+}
+
+.sapUiTfCombo > input + select{ /* DropdownBox */
+	left: 0;
+}
+
+.sapUiTfFoc > .sapUiTfComboIcon,
+.sapUiTfFoc > .sapUiTfComboIcon:hover{
+	background: #e5f2f9 !important;
+}
+
+.sapUiTfComboIcon{
+	height: 2rem;
+	line-height: 2rem;
+	right: 0;
+	overflow: visible;
+	display: inline;
+	position: absolute;
+	font-size: 0;
+	color: transparent;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}
+
+.sapUiTfComboIcon:hover {
+	background-color: #ffffff !important;
+}
+
+.sapUiTfStd > .sapUiTfComboIcon{
+	cursor: pointer;
+}
+
+.sapUiComboPopup>* {
+	visibility: hidden;
+	/* initially hidden off the screen */
+	position: absolute;
+	top: -10000px;
+	display: block;
+}
+
+
+.sapUiLbx {
+    background-color: white;
+    margin-top: 10px !important;
+}
+
+.sapUiTfCombo.flatControlSmall .sapUiTf {
+    height: 1.5rem;
+    line-height: 1.5rem;
+    font-size: 0.75rem;
+}
+
+.sapUiTfCombo .sapUiTf {
+    padding: 0 30px 0 0.5rem;
+}
+
+.sapUiTfCombo.flatControlSmall .sapUiTf {
+    padding: 0 22px 0 0.5rem;
+}
+
+.sapUiTfCombo .sapUiTfComboIcon,
+.sapUiTfCombo .sapUiTfComboIcon:hover {
+    color: transparent;
+    height: calc(~"2rem - 2px");
+	line-height: 1.72rem;
+    text-align: center;
+    width: calc(~"2rem - 2px");
+}
+
+.sapUiTfCombo.sapUiTfDsbl .sapUiTfComboIcon, .sapUiTfCombo.sapUiTfDsbl .sapUiTfComboIcon:hover,
+.sapUiTfCombo.sapUiTfRo .sapUiTfComboIcon, .sapUiTfCombo.sapUiTfRo .sapUiTfComboIcon:hover {
+    color: transparent;
+}
+
+.sapUiTfCombo .sapUiTfComboIcon::after {
+    color: #666;
+    width: calc(~"2rem - 2px");
+    display: block;
+    position: absolute;
+    top: 0;
+}
+
+.sapUiTfCombo .sapUiTfComboIcon:hover::after {
+    color: black;
+}
+
+.sapUiTfCombo.sapUiTfDsbl .sapUiTfComboIcon::after, .sapUiTfCombo.sapUiTfDsbl .sapUiTfComboIcon:hover::after,
+.sapUiTfCombo.sapUiTfRo .sapUiTfComboIcon::after, .sapUiTfCombo.sapUiTfRo .sapUiTfComboIcon:hover::after {
+    color: #333;
+    opacity: 0.5;
+}
+
+.sapUiTfCombo .sapUiTfComboIcon:after {
+    content: "\e025";
+    font-family: "SAP-icons-watt";
+}
+
+/* small */
+
+.sapUiTfCombo.flatControlSmall .sapUiTfComboIcon {
+    height: calc(~"1.5rem - 2px");
+    width: calc(~"1.5rem - 2px");
+    line-height: 1.5rem;
+    font-size: 0.75rem;
+}
+
+.flatControlSmall.sapUiTfBack {
+    height: 1.5rem;
+}
+
+.sapUiTfCombo.flatControlSmall .sapUiTfComboIcon:after {
+    font-size: 14px;
+    line-height: 20px;
+}
+/* END "ComboBox.css" */
+
+/* START "Controls-Switch-Delta.css" */
+/* reset colors */
+
+.sapUiBtn.sapUiToggleBtn.WebSwitch,
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnStd.sapUiToggleBtn {
+	background-color: transparent;
+	border: 0;
+}
+
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnStd.sapUiToggleBtn:hover, 
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnStd.sapUiToggleBtn.sapUiBtnAct,
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnStd.sapUiToggleBtn.sapUiBtnAct:hover,
+.sapUiBtnS.sapUiBtnNorm.sapUiToggleBtn.sapUiBtnAct:active {
+	background-color: transparent;
+	color: black;
+}
+
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnStd.sapUiToggleBtn.sapUiToggleBtnPressed {
+	background-color: transparent;
+	color: black;
+}
+
+/* new spacings */
+
+.sapUiBtn.sapUiToggleBtn.WebSwitch {
+	padding: 0 0.5rem 0 2.5rem;
+	position: relative;
+	margin-right: 0.5rem;
+}
+
+/* knob container */
+
+.sapUiBtn.sapUiToggleBtn.WebSwitch:before {
+	background-color: #CC1919;
+	border-radius: 6px;
+	cursor: pointer;
+	height: 12px;
+	position: relative;
+	width: 1.5rem;
+	content: "";
+	position: absolute;
+	left: 0.5rem;
+	top: 10px;
+}
+
+/* knob */
+
+.sapUiBtn.sapUiToggleBtn.WebSwitch:after {
+	background-color: white;
+	border-radius: 50%;
+	content: "";
+	height: 0.5rem;
+	margin: 12px 0 0 10px;
+	position: absolute;
+	width: 0.5rem;
+	left: 0;
+	top: 0;
+	-webkit-transition-duration: 0.05s;
+	transition-duration: 0.05s;
+	-webkit-transition-timing-function: ease-in;
+	transition-timing-function: ease-in;
+}
+
+.sapUiBtn.sapUiToggleBtn.WebSwitch.sapUiToggleBtnPressed:before {
+	background-color: #007833
+}
+
+.sapUiBtn.sapUiToggleBtn.WebSwitch.sapUiToggleBtnPressed:after {
+	left: 12px;
+}
+
+/* small */
+
+.sapUiBtn.sapUiToggleBtn.WebSwitch.flatControlSmall {
+	padding: 0 0.5rem 0 2rem;
+	margin-right: 0.25rem;
+	height: 1.5rem;
+	font-size: 0.75rem;
+}
+
+.sapUiBtn.sapUiToggleBtn.WebSwitch.flatControlSmall:before {	
+	border-radius: 5px;
+	height: 10px;
+	width: 18px;
+	left: 0.5rem;
+	top: 8px;
+}
+
+.sapUiBtn.sapUiToggleBtn.WebSwitch.flatControlSmall:after {
+	height: 6px;
+	margin: 10px 0 0 10px;
+	width: 6px;
+}
+
+.sapUiBtn.sapUiToggleBtn.WebSwitch.flatControlSmall.sapUiToggleBtnPressed:after {
+	left: 8px;
+}
+
+/* no text */
+
+.sapUiBtn.sapUiToggleBtn.WebSwitch.WebSwitchNoText {
+	padding: 0 0.5rem 0 2rem;
+}
+
+.sapUiBtn.sapUiToggleBtn.WebSwitch.WebSwitchNoText.flatControlSmall {
+	padding: 0 0.5rem 0 1.5em;
+}
+/* END "Controls-Switch-Delta.css" */
+
+/* START "Dialog.css" */
+.sapUiBLy {
+    background-color: #000000;
+}
+.sapUiDlg {
+    background: @DlgBG;
+    border-radius: 3px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    width: calc(29rem);
+}
+
+.sapUiDlgCont {
+    border: none;
+    padding: 1rem 1rem 2rem 0;
+    overflow: inherit;
+    background-color: transparent;
+    padding: 1rem;
+}
+
+/* vertical layouts should always take the whole vertical space in a dialog */
+.sapUiDlgCont .sapuiVlt {
+	width: 100% !important;
+}
+
+.resourceListDLG {
+	width: 700px;
+}
+
+div[id^="MSG_UNHANDLEDERROR"] .sapUiDlgHdrSep {
+    border-top: 1px solid @sapFlatErrorBorder;
+}
+
+#MSG_ERROR .sapUiDlgHdrSep {
+    border-top: 1px solid @sapFlatErrorBorder;
+}
+
+#MSG_WARNING .sapUiDlgHdrSep {
+    border-top: 1px solid @sapFlatWarningBorder;
+}
+
+.sapUiDlgHdrSep {
+}
+
+.sapUiDlgHdr {
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    height: auto;
+    line-height: auto;
+    margin:0 !important;
+    padding: 1rem;
+    color:@DlgHdrClr;
+    background-color:@DlgHdrBG;
+    border-bottom: 1px solid @DlgHdrLine;
+
+    span {
+        font-weight: 100;
+    }
+    
+    .sapUiDlgCloseBtn {
+        display: none;
+    }
+}
+html[data-sap-ui-os="mac"] .sapUiDlgHdr {
+    letter-spacing: 1px;
+}
+
+.sapUiDlgFooter {
+    height: 2rem;
+    padding: 0.5rem;
+    border-top: 1px solid #cdcdcf;
+    -webkit-box-shadow:@InsetBrdrLine;
+    -moz-box-shadow:@InsetBrdrLine;
+    box-shadow:@InsetBrdrLine;
+
+}
+
+.sapUiDlgBtns {
+    padding: 0 0 0.5rem 0;
+}
+
+.sapUiDlgFooter .sapUiDlgBtns button {
+    margin-left: 1rem;
+}
+
+.sapUiDlgCloseBtn{
+    visibility: hidden;
+}
+
+.sapUiDlgNoPad .sapUiDlgCont {
+    padding: inherit;
+}
+
+.sapUiDlgBtns .sapUiBtnS.sapUiBtnNorm.sapUiBtnEmph{
+    padding: 0 1rem;
+}
+
+.sapUiDlgFooter .sapUiDlgBtns button {
+    margin-left: 0.5rem;
+}
+
+.sapUiDlgCont .sapUiFup .sapUiTf {
+    vertical-align: top;
+}
+
+.sapUiDlgCont .sapUiFup .sapUiFupGroup > div > div:last-child {
+    padding-left: 0.5rem;
+}
+
+
+.sapUiDlgFooter .sapUiBtnS.sapUiBtnNorm.sapUiBtnEmph.sapUiBtnStd:focus,
+.sapUiDlgFooter .sapUiBtnS.sapUiBtnNorm.sapUiBtnEmph.sapUiBtnStd:hover {
+    background-color: darken(@sapFlatButtonStandardBG, 2.5%);
+    border-color: @sapFlatExtraDarkBorder;
+}
+
+
+.sapUiDlgFooter .sapUiBtnS.sapUiBtnNorm.sapUiBtnEmph.sapUiBtnAct,
+.sapUiDlgFooter .sapUiBtnS.sapUiBtnNorm.sapUiBtnEmph.sapUiBtnAct:focus,
+.sapUiDlgFooter .sapUiBtnS.sapUiBtnNorm.sapUiBtnEmph.sapUiBtnAct:hover,
+.sapUiDlgFooter .sapUiBtnS.sapUiBtnNorm.sapUiBtnEmph.sapUiBtnStd:active {
+    background-color: darken(@sapFlatButtonStandardBG, 5%);
+    border-color: @sapFlatExtraDarkBorder;
+}
+
+.wattTranslationConfirm .sapUiDlgCont .sapUiTable .sapUiTablePaginator{
+    padding-top: 0.5rem;
+}
+
+.wattTranslationConfirm .sapUiDlgCont .sapUiTable .sapUiTableRowHdr{
+    width: 0.5rem;
+}
+
+.wattTranslationConfirm .sapUiTableRSel .sapUiTableTr > td.sapUiTableTdFirst{
+    padding-left: 1rem; 
+}
+
+.wattTranslationConfirm .sapUiTv,
+.wattTranslationConfirm .sapUiTf{
+    font-size: 0.875rem;
+}
+
+.wattTranslationConfirm .sapUiTableColRowHdrIco:before{
+    font-size: 0.875rem;
+    font-family: SAP-icons;
+    content: "\e0dA";
+}
+
+.wattTranslationConfirm .sapUiTableColRowHdr .sapUiTableColRowHdrIco{
+    padding-top: 0.5rem;
+    background-image: none;
+}
+
+.wattTranslationConfirm .sapUiTableRSel .sapUiTableColHdrScr, 
+.wattTranslationConfirm .sapUiTableRSel .sapUiTableColHdrFixed{
+    margin-left: 1.5rem;
+}
+
+.wattTranslationConfirm .sapUiTableColRowHdr.sapUiTableSelAll{
+    width: 1.5rem;
+}
+
+.wattTranslationConfirm .sapUiDlgCont {
+    position: relative;
+    top: 0px;
+}
+
+.wattTranslationConfirm .sapUiDlgFooter{
+    position: static;
+}
+
+
+.sapUiDlg[role="alertdialog"]{
+    top: 383px;
+    left: 345px;
+    height: 350px;
+    width: 600px;
+}
+
+.sapUiDlg[role="alertdialog"] .sapUiDlgHdrSep{
+    margin: 0;
+}
+
+.sapUiDlg[role="alertdialog"] .sapUiDlgCont{
+    height: 65%;
+    padding: 1rem;
+    overflow: auto;
+}
+.sapUiDlg[role="dialog"] .sapUiDlgCont{
+    padding: 1rem;
+}
+
+.sapUiDlg[role="alertdialog"] .sapUiMboxText  {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+.sapUiDlg[role="alertdialog"] .sapUiMboxCont{
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 2rem;
+}
+
+.sapUiDlg[role="alertdialog"] .sapUiMboxIcon{
+    display: none;
+}
+
+.sapUiDlg[role="alertdialog"] .sapUiTv{
+    line-height: normal;
+    word-wrap: break-word;
+}
+
+.sapUiDlg[role="alertdialog"] .sapUiDlgBtns{
+    padding: 0 0 0 0;   
+}
+/* END "Dialog.css" */
+
+/* START "ImageViewer.css" */
+/* ================================================= */
+/* CSS for control sap.watt.common.plugin.imageviewer     */
+/* Flat												 */
+/* ================================================= */
+
+.sapWattImageViewer {
+	background-color: white;
+}
+
+.sapWattImageViewerContainer {
+	width: 98%; 
+	height: 100%; 
+	position: relative;
+}
+
+.sapWattImageViewerImage {
+	margin: auto;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 1%;
+	right: 1%;
+	max-width: 100%;
+	max-height: 100%;
+}
+/* END "ImageViewer.css" */
+
+/* START "Label.css" */
+/* ======================================================= */
+/* CSS for control sap.ui.commons.Label.control            */
+/* Flat                                                    */
+/* ======================================================= */
+
+/* Normal Size */
+.sapUiLbl {
+	height: 2rem;
+	line-height: 2rem;
+	text-align: right;
+	padding: 0 0.5rem; 
+	vertical-align: top;
+}
+
+/* Small Size*/
+.sapUiLbl.flatControlSmall {
+	padding: 0 0.25rem;
+	font-size: 0.75rem;
+	line-height: 1.5rem;
+	height: 1.5rem;
+}
+
+/* label in the Grid */
+.sapUiLbl.flatLabelInGrid {
+    text-overflow: ellipsis;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    white-space: nowrap;
+}
+
+/* 'Required'-sign always black */
+.sapUiLbl.sapUiLblReqEnd:after,
+.sapUiLbl.sapUiLblReqBeg:before {
+	color: black;
+}
+
+/* focused Label */
+.sapUiLbl:focus{
+	outline: 1px solid rgba(0,0,0,0.5);
+	outline-offset: -1px;
+}
+/* END "Label.css" */
+
+/* START "Link.css" */
+.sapUiLnk,.sapUiLnkDsbl{
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:0.85rem;
+    line-height:21px;
+    color:#00679e;
+    text-decoration:none;
+    vertical-align:top;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    display:inline-block}
+.sapUiLnk:active, .sapUiLnk:focus{color:#00679e}
+.sapUiLnk:visited{color:#00679e}
+.sapUiLnk:hover{color:#00679e;text-decoration:underline;}
+.sapUiLnkDsbl{color:#cccccc;cursor:default}
+/* END "Link.css" */
+
+/* START "ListBox.css" */
+.sapUiLbx {
+	border: 1px solid @sapFlatExtraLightBorder;
+	border-radius:0;
+	background-color: @sapFlatLightestBG;
+	display: inline-block;
+	padding: 1px 0;
+	cursor: default;
+	color: @sapFlatStandardText;
+}
+
+.sapUiLbx ul {
+	box-shadow: 0 0 3px -2px rgba(0, 0, 0, 0.3);	
+}
+
+.sapUiLbxStd > ul > .sapUiLbxISel > span, /* Fix for IE10 bug - need to set the color on children as well */
+.sapUiLbxStd > ul > .sapUiLbxISel {
+	color: @sapFlatInvertedText;
+	background-color: fade(@sapFlatActiveBG, 50%);
+}
+
+.sapUiLbxITxt {
+	font-size: 0.875rem;
+}
+
+.sapUiLbxI {
+	height: 2rem;
+	width: inherit;
+	line-height: 2rem;
+	padding: 0 0.5rem;
+	background-color: @sapFlatLightestBG;
+	border: none;
+	border-top: none;
+}
+
+.sapUiLbxI:focus {
+	outline: 1px solid fade(@sapFlatDarkestBorder, 50%);
+}
+
+.sapUiLbxI:hover {
+	background-color: fade(@sapFlatActiveBG, 25%)
+}
+/* END "ListBox.css" */
+
+/* START "MainLayout.css" */
+@headerHeight:61;
+@headerHeightPx:59px;
+@menuHeightPx:26px;
+@ToolbarHeightPx:32px;
+@SideBarsWidthPx:48px;
+html{
+    font-size:@BaseFontSize;
+}
+.header {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    min-width : 700px;
+    background: @HeaderBG;
+    line-height: 22px;
+    /*box-shadow: inset 0px -1px 0px 0px @HeaderBrdr;*/
+    /*-webkit-box-shadow: inset 0px -1px 0px 0px @HeaderBrdr;*/
+    /*-moz-box-shadow: inset 0px -1px 0px 0px @HeaderBrdr;*/
+    height: @menuHeightPx;
+    border-top: 3px solid @HeaderBG;
+    padding-left: 0.1rem;;
+}
+.toolbar {
+    position: fixed;
+    top: 27px;
+    left: 48px;
+    right: 0;
+    /*border-left: 1px solid @HeaderLightCl.sapUiMnuBarItmr;*/
+    /*box-shadow: -1px 0px 0px 0px @HeaderBrdr;*/
+    /*-webkit-box-shadow: -1px 0px 0px 0px @HeaderBrdr;*/
+    /*-moz-box-shadow: -1px 0px 0px 0px @HeaderBrdr;*/
+    height: @ToolbarHeightPx;
+    padding-left: 4px;
+    background-color:@ToolbarBg;
+}
+.center {
+    position: absolute;
+    top: @headerHeightPx;
+    bottom: 0;
+    right: 0;
+    left: @SideBarsWidthPx;
+    background-color:@ShellBg;
+}
+.rightsidebar, .leftsidebar {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.leftsidebar {
+    background-color: @SideNavBarBG;
+    left: 0;
+    width:48px;
+    top:27px;
+}
+.rightsidebar {
+    top: @headerHeightPx;
+    border-left: 1px solid @HeaderBrdr;
+    width: 35px;
+    background-color: @ShellBg;
+}
+.rightpaneText {
+    margin-right: 0.5rem;
+    color:@menuBarClr;
+    line-height: 1.6rem;
+}
+
+.feedbackButton{
+    font-size: inherit;
+    color:@menuBarClr;
+    height: 1.6rem;
+}
+
+.feedbackButton:hover{
+    color: white;
+    background-color: #005b8d !important;
+}
+
+/* END "MainLayout.css" */
+
+/* START "Menu.css" */
+.sapUiMnu {
+	background-color: @sapFlatLightestBG;
+	box-shadow: 0 2px 6px -3px fade(@sapFlatDarkestBG, 75%);
+	border: none;
+	color: @sapFlatStandardText;
+	padding: 0 1rem;
+	border: none;
+	padding: 0;
+}
+
+.sapUiMnuLst {
+	padding: 0;
+	margin: 0;
+	color: @sapFlatStandardText;
+	font-size: 12px;
+	font-family: Arial,Helvetica,sans-serif;
+}
+
+.sapUiMnuDiv {
+	height: 1px;
+}
+
+.sapUiMnuDiv > hr {
+	left: 0;
+	right: 0;
+	margin: 0;
+	border-top: 1px solid @sapFlatMediumBorder;
+}
+
+.sapUiMnuItm {
+	padding: 0 2rem 0 1rem;
+	height: 25px;
+	line-height: 25px;
+	color: @sapFlatStandardText;
+}
+
+.sapUiMnuItm.sapUiMnuItmHov{
+	background-color: @sapFlatHighlight;
+	color: @sapFlatInvertedText;
+}
+
+.sapUiMnuItm:active {
+	background-color: darken(@sapFlatHighlight, 5%);
+	color: @sapFlatInvertedText;
+}
+
+.sapUiMnuItm.sapUiMnuItmDsbl,
+.sapUiMnuItm.sapUiMnuTfItm.sapUiMnuItmDsbl > .sapUiMnuItmTxt > label,
+.sapUiMnuItm.sapUiMnuTfItm.sapUiMnuItmDsbl.sapUiMnuItmHov > .sapUiMnuItmTxt > label {
+	color: fade(@sapFlatStandardText, 50%);
+}
+
+.sapUiMnuItm.sapUiMnuItmDsbl.sapUiMnuItmHov {
+	color: fade(@sapFlatStandardText, 50%);
+	background-color: lighten(@sapFlatLightBG, 1%);
+}
+
+.sapUiMnuItm .sapUiMnuItmSbMnu > div {
+	background-image: none;
+	position: relative;
+	top: 47%;
+	transform: translateY(-53%);
+	-webkit-transform: translateY(-53%);
+	-ms-transform: translateY(-53%);
+}
+
+.sapUiMnuItm .sapUiMnuItmSbMnu > div:before {
+	content: "\e00c";
+	color: black;
+	font-family: "SAP-icons-watt";
+	font-size: .5rem;
+	line-height: 1.5rem;
+}
+
+.sapUiMnuItm:active .sapUiMnuItmSbMnu > div:before {
+	color: black;
+}
+
+.sapUiMnuItm.sapUiMnuItmHov .sapUiMnuItmSbMnu > div:before {
+	color: white;
+}
+
+/*Navigationbar menu*/
+
+.sapWattNavigationMenu.sapUiMnu {
+	background: @sapFlatMediumBG;
+	box-shadow: none;
+	padding: 0;
+}
+
+.sapWattNavigationMenu.sapUiMnu.sapUiMnuScroll{
+	overflow-x: none;
+	overflow-y: auto;
+}
+
+.sapWattNavigationMenu.sapUiMnu.sapUiMnuScroll .sapUiMnuItmR{
+	width: 24px;
+	width: 1.5rem;
+}
+
+.sapWattNavigationMenu .sapUiMnuItm {
+	padding: 0 2rem 0 0;
+}
+
+
+.sapWattNavigationMenu .sapUiIcon{
+	display: none;
+}
+
+.sapWattNavigationMenu .sapUiMnuItm[id$="selected"] {
+	background: @sapFlatMediumBG;
+	color: black;
+	font-weight: bold;
+}
+
+.sapWattNavigationMenu .sapUiMnuItm.sapUiMnuItmHov {
+	background: @sapFlatHighlight;
+	color: @sapFlatInvertedText;
+}
+
+.sapWattNavigationMenu .sapUiMnuItm[id$="selected"].sapUiMnuItm.sapUiMnuItmHov {
+	background: @sapFlatHighlight;
+	color: @sapFlatInvertedText;
+}
+
+.sapUiInvisibleText, .sapUiHiddenPlaceholder {
+	display: none !important;
+}
+
+/*Context menu*/
+.sapWattContextMenu.sapUiMnu {
+	box-shadow: 0 0 8px -2px fade(@sapFlatDarkestBG, 75%);
+}
+/* END "Menu.css" */
+
+/* START "MenuBar.css" */
+.sapUiMnuBar {
+	border: none;
+	height: 100%;
+}
+
+.sapUiMnuBarArea {
+	height: 100%;
+	padding: 0;
+}
+
+.sapUiMnuBarItm {
+	border: 0 none !important;
+	color: @menuBarClr;
+	display: table-cell;
+	height: 1.2rem;
+	margin: 0;
+	padding: 0;
+	vertical-align: middle;
+}
+
+.sapUiMnuBarItm:hover {
+	background: @HighlightBg;
+	border: 0;
+	padding: 0;
+	color: @sapFlatInvertedText;
+	margin: 0;
+}
+
+.sapUiMnuBarItm.active {
+	background: @HighlightBg;
+	border: 0;
+	padding: 0;
+	color: @sapFlatInvertedText;
+	margin: 0;
+}
+
+.sapUiMnuBarItm span, .sapUiMnuBarItm span:hover {
+	border: 0 none !important;
+	padding: 0 0.6rem;
+}
+/* END "MenuBar.css" */
+
+/* START "MenuButton.css" */
+/* ===================================================== */
+/* Gold Reflection for sap.ui.commons/MenuButton.control */
+/* ===================================================== */
+
+.sapUiMenuButton{
+	position: relative;
+}
+
+.sapUiMenuButton.sapUiBtnS{
+	padding-right: 15px;
+}
+
+.sapUiTb.sapUiTbStandalone .sapUiTbInner .sapUiMenuButton.watt_toolbar_menubutton_text {
+	width: auto;
+	padding: 0 0.5rem;
+	font-size: 14px;
+	color: #333;
+}
+
+.sapUiTb.sapUiTbStandalone .sapUiTbInner .sapUiMenuButton.watt_toolbar_menubutton_text:active {
+	color: white;
+}
+ 
+.sapUiMenuButtonIco {
+	width: 5px;
+	height: 5px;
+	margin-left: 6px;
+	background-image: url("img/menubutton/Menu_Regular.png");
+	background-repeat: no-repeat;
+	bottom: 4px;
+	right: 3px;
+	position: absolute;
+	opacity: 0.5;
+}
+
+.sapUiMenuButtonIco:active {
+	background-image: url("img/menubutton/Menu_Hover.png");
+	opacity: 1;
+}	
+
+.sapUiTb.sapUiTbStandalone .sapUiTbInner button.watt_toolbar_menubutton_split{
+	width: 10px;
+}
+
+.sapUiBtnLite > .sapUiMenuButtonIco{
+	right: 4px;
+}
+
+.sapUiBtnS.sapUiBtnAccept > .sapUiMenuButtonIco,
+.sapUiBtnS.sapUiBtnReject > .sapUiMenuButtonIco,
+.sapUiBtnS.sapUiBtnAct > .sapUiMenuButtonIco,
+.sapUiBtnS.sapUiBtnStd:active > .sapUiMenuButtonIco,
+.sapUiBtnS.sapUiBtnStd:focus > .sapUiMenuButtonIco,
+.sapUiBtnS.sapUiBtnStd:hover > .sapUiMenuButtonIco{
+	/*background-image: url("img/menubutton/Menu_Hover.png");*/
+}
+
+.sapUiBtnDsbl.sapUiMenuButton > .sapUiMenuButtonIco {
+	background-image: url("img/menubutton/Menu_Disabled.png");
+}
+
+/* END "MenuButton.css" */
+
+/* START "NavigationBar.css" */
+/* ================================================= */
+/* CSS for control sap.ui.ux3/NavigationBar.control     */
+/* Flat                                      */
+/* ================================================= */
+
+.wattTabStrip {
+
+	.sapUiUx3NavBar {
+		border-bottom: 0;
+		width: 100%;
+		height: 28px;
+		position: relative;
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		user-select: none;
+		overflow: hidden;
+		text-transform: none;
+		background-color: @ShellBg;
+		border-bottom: 1px solid @HeaderBrdr;
+	}
+	
+	.sapUiUx3NavBarList {
+		overflow: hidden;
+		left: 0;
+		margin: 0;
+		height: 28px;
+		right: 0px;
+	}
+	
+	.sapUiUx3NavBarArrow {
+		display: none!important;
+	}
+	
+	.sapUiUx3NavBarList {
+		li {
+			height: 28px;
+			position: relative;
+			display: inline-block;
+			padding: 0 0.5rem;
+			color: inherit;
+			text-decoration: none;
+			z-index: 1;
+			overflow: hidden;
+			text-overflow: ellipsis;	
+			background-color: @ShellBg;
+			border-right: 1px solid @HeaderBrdr;
+		}
+
+		li:first-child {
+			display: none;
+		}
+
+		.sapUiUx3NavBarItemSel {
+			background: @EditorSelBG;
+			border-top:2px solid @DarkerBlue;
+			height:26px;
+		}
+		.sapUiUx3NavBarItemSel a {
+			line-height: 24px;
+		}
+		.sapUiUx3NavBarItemSel .sapUiTabClose {
+		}
+
+
+	}
+
+
+	.sapUiTabClose {
+			font-family: Sap-icons;
+			font-size: 0.6rem;
+			color: @EditorXClr;
+			vertical-align: middle;
+			height: inherit;
+			margin: 0;
+			padding: 0;
+			width: 1.5rem;
+			height: 28px;
+			position: absolute;
+			right: 0.5rem;
+		}
+	
+	.sapUiUx3NavBarItem {
+			margin: 0;
+			cursor: default;
+			font-weight: normal;
+			font-size: 12px;
+			padding: 0 0.5rem;
+			color: @EditorTabClr;
+			text-decoration: none;
+			transition-property: none;
+			font-family: Arial;
+			line-height: 28px;
+		}
+
+	a.sapUiUx3NavBarItem {
+			display: inline-block;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			min-width: 0.2rem;
+			max-width: 13rem;
+			margin-right: 1.2rem;
+		}
+
+	.sapUiUx3NavBarScrollBack .sapUiUx3NavBarOverflowBtn, 
+	.sapUiUx3NavBarScrollForward .sapUiUx3NavBarOverflowBtn {
+			right: 4px;
+			font-size: 11px;
+			height: 28px;
+			width: 28px;
+			padding: 0;
+			background: transparent;
+			top: 4px;
+			vertical-align: middle;
+			line-height: 28px;
+		}
+	
+	.sapUiUx3NavBarBack, 
+	.sapUiUx3NavBarForward {
+		opacity: 1;
+		color: @sapFlatDarkText;
+		filter: none;
+		cursor: pointer;
+		width: 28px;
+		height: 28px;
+		padding: 0;
+		position: absolute;
+		line-height: 28px;
+		background: transparent;
+		text-align: center;
+		top: 4px;
+		right: 64px;
+	}
+	
+	.sapUiUx3NavBarBack:hover, 
+	.sapUiUx3NavBarForward:hover,
+	.sapUiUx3NavBarOverflowBtn:hover {
+		background: fade(@sapFlatActiveBG, 50%);
+	}
+	
+	.sapUiUx3NavBarBack:active, 
+	.sapUiUx3NavBarForward:active,
+	.sapUiUx3NavBarOverflowBtn:active {
+		background: fade(@sapFlatHighlight, 100%);
+		color: @sapFlatInvertedText;
+	}
+	
+	.sapUiUx3NavBarForward {
+		right: 36px;
+	}
+	
+	.sapUiUx3NavBarScrollBack>.sapUiUx3NavBarList, 
+	.sapUiUx3NavBarScrollForward>.sapUiUx3NavBarList {
+		right: 96px;
+	}
+	
+	.sapUiIcon {
+		vertical-align: middle;
+		margin: 0;
+		padding: 0;
+	}
+
+}
+
+/* END "NavigationBar.css" */
+
+/* START "RadioButton.css" */
+/* ================================================== */
+/* CSS for control sap.ui.commons/RadioButton.control */
+/* ================================================== */
+
+.sapUiRbG.sapUiRbG1Row > .sapUiRb {
+    display: inline-block;
+    height: 2rem;
+    line-height: 2rem;
+    margin-right: 1.5rem;
+    padding: 0;
+    vertical-align: middle;
+}
+
+.sapUiRb input[type="radio"] + label:before {
+    background-color: white;
+    border-radius: 50%;
+    border: 1px solid #CCCCCC;
+    box-shadow: none;
+    content: "";
+    display: inline-block;
+    height: 14px;
+    vertical-align: top;
+    width: 14px;
+}
+
+.sapUiRb {
+	display: inline-block;
+	height: 2rem;
+	line-height: 2rem;
+	vertical-align: middle;
+	text-align: right;
+}
+
+.sapUiRb input[type="radio"] {
+	display: none;
+}
+
+.sapUiRb label:before {
+	background-color: #E5E5E5;
+	box-shadow: inset 0 1px 1px rgba(0,0,0, 0.3);
+	border-radius: 1rem;
+	content: "";
+	display: inline-block;  
+	height: 1rem;
+	margin-bottom: 0;
+	margin-top: 0;
+	margin: 0.5rem;	
+	vertical-align: bottom;
+	width: 1rem;
+}
+
+/* circle in the radio button */
+.sapUiRb input[type="radio"]:checked + label:before {
+    color: #666;
+    content: "\25cf";
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 12px;
+    text-align: center;
+}
+
+.sapUiRb:focus, .sapUiRbG>.sapUiRb:focus, .sapUiRbGCol>.sapUiRb:focus {
+    outline: 1px solid rgba(0,0,0, 0.25);
+    outline-offset: -1px;
+}
+
+.sapUiRb.sapUiRbWarn input[type="radio"] + label:before { border-color: #f0ab00; }
+.sapUiRb.sapUiRbWarn input[type="radio"]:checked + label:before { color: #f0ab00; }
+
+.sapUiRb.sapUiRbErr input[type="radio"] + label:before { border-color: #e22525; }
+.sapUiRb.sapUiRbErr input[type="radio"]:checked + label:before { color: #e22525; }
+
+.sapUiRb.sapUiRbRo input[type="radio"] + label:before { background: #e5e5e5; }
+
+.sapUiRb.sapUiRbDis label:before { opacity: 0.75; }
+.sapUiRb.sapUiRbDis.sapUiCbChk:after { opacity: 0.5; }
+.sapUiRb.sapUiRbDis label {color: black; opacity: 0.5; }
+
+/* small versions */
+
+.sapUiRb.flatControlSmall {
+    height: 1.5rem;
+    line-height: 1.5rem;
+}
+
+.sapUiRb.flatControlSmall label {
+    font-size: 0.75rem;
+}
+
+.sapUiRb.flatControlSmall input[type="radio"] + label:before {
+    height: 12px;
+    vertical-align: top;
+    width: 12px;
+    margin: 5px;
+}
+
+.sapUiRb.flatControlSmall input[type="radio"]:checked + label:before {
+    font-size: 14px;
+    line-height: 11px;
+}
+
+.sapUiRb>label {
+	padding-right: 0.5rem;
+}
+
+
+/* Browser specific setting for IE10 */
+html[data-sap-ui-browser*='ie'] .sapUiRb label::before {
+	background-color: #E5E5E5;
+	box-shadow: inset 0 1px 1px rgba(0,0,0, 0.3);
+	border-radius: 1rem;
+	content: "";
+	display: inline-block;  
+	height: 1rem;
+	margin-bottom: 0;
+	margin-top: 0;
+	margin: 0.5rem;
+	vertical-align: top;
+	width: 14px;
+	height: 14px;
+}
+
+html[data-sap-ui-browser*='ie'] .sapUiRb input[type="radio"]:checked + label::before {
+	color: #666;
+    content: "\25cf";
+    font-family: Arial;
+    font-size: 19px;
+    font-weight:bold;
+    line-height: 14px;
+    text-align: center;
+}
+
+html[data-sap-ui-browser="ie10"] .sapUiRbSel{
+	position: relative;
+}
+
+html[data-sap-ui-browser="ie10"] .sapUiRbSel:after {
+	content: "";
+	position: absolute;
+	width: calc(100% - 2px);
+	height: calc(100% - 2px);
+	border: 1px solid rgba(0,0,0, 0.25);
+	top: 0;
+	left: 0;
+	box-sizing: border-box;
+}
+
+html[data-sap-ui-browser="ie10"] .sapUiRbSel:focus{
+	outline: none
+}
+/* END "RadioButton.css" */
+
+/* START "RepositoryBrowser.css" */
+/* ================================================= */
+/* CSS for control sap.watt.platform.plugin.repositorybrowser		     */
+/* Flat												 */
+/* ================================================= */
+
+.sapWattRepositoryBrowser {
+
+	.sapUiTreeFixedHeight .sapUiTreeHeader {
+		width: calc(~"100% - 0.5rem"); 
+	}
+	
+	.sapUiTreeCont {
+		background-color: @sapFlatBrandSupport;
+		top: 0;
+		padding: 0;
+	}
+	
+	.sapUiTreeTbCont {
+		float: left;
+		line-height: auto;
+	}
+	
+	.sapUiTreeList {
+	    list-style-position: inside;
+	    margin: 0;
+		padding-left: 0;
+		padding-right: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+	
+	.sapUiTreeNode {
+		background-image: none;
+		border: none;
+	}
+	
+	.sapUiTreeChildrenNodes{
+		padding: 0;
+	}
+	
+	.sapUiTreeNodeCutted {
+		text-decoration: line-through;
+	}
+
+	.sapUiTreeNode:before, .sapUiTreeNodeCollapsed:before, .sapUiTreeNodeExpanded:before {
+		color:@RepoBrowserTreeNodeClr;
+		display: inline-block;
+		font-family: "SAP-icons-watt";
+		font-size: 16px;
+		margin: 0 4px;
+		position: absolute;
+		text-align: center;
+		top: -2px;
+		width: 16px;
+	}
+	
+	.sapUiTreeNode:before {
+		content: "\e03A";
+	}
+
+	.sapUiTreeNodeCollapsed:before {
+		content: "\e03F";
+		padding: 0 0 0 1px;
+	}
+
+	.sapUiTreeNodeExpanded:before {
+		content: "\e03C";
+	}
+
+	.sapUiTreeNodeCollapsed.sapUiTreeNodePluginProject:before {
+		content: "\e059";
+	}
+
+	.sapUiTreeNodeExpanded.sapUiTreeNodePluginProject:before {
+		content: "\e05A";
+	}
+
+
+
+	.wattTreeFile:before {
+		content: "\e03D";
+		color: #5B5B5B;
+		font-size: 13px;
+
+	}
+	
+	/*.wattTreeFile .sapUiTreeNodeContent:before {*/
+		/*font-family: "SAP-icons-watt";*/
+		/*content: "\e03D";*/
+		/*color: #69767f;*/
+		/*position: absolute;*/
+		/*left: -23px;*/
+		/*font-size: 16px;*/
+		/*top: -2px;*/
+	/*}*/
+	
+	
+	.sapUiTreeNodeSelected.sapUiTreeNode:before {
+		color: white;
+	}
+	
+	.sapUiTreeNodeSelected.wattTreeFile .sapUiTreeNodeContent:before {
+		display: none;
+	}
+	
+
+	.sapUiTreeNodeContent {
+		width: calc(~"100% - 28px");
+		margin-left: 28px;
+		top: 0px;
+		left: 0;
+	}
+	
+	#tree-CollapseAll:after {
+		content: "Collapse";
+		font-size: 10px;
+		font-family: Arial, sans-serif;
+	}
+	
+	#tree-ExpandAll:after {
+		content: "Expand";
+		font-size: 10px;
+		font-family: Arial, sans-serif;
+	}
+	
+	#tree-CollapseAll:hover, 
+	#tree-ExpandAll:hover {
+		background-color: transparent;
+	}
+	
+	#tree-CollapseAll:focus, 
+	#tree-ExpandAll:focus {
+		outline: 1px solid rgba(0,0,0, 0.5);
+	}
+	
+	#tree-CollapseAll.sapUiBtnAct, #tree-ExpandAll.sapUiBtnAct {
+		outline: 1px solid rgba(0,0,0, 0.5);
+		outline-offset: -1px;
+		border: none !important;
+		background: transparent;
+	} 
+	
+	
+	#tree-CollapseAll img, #tree-ExpandAll img {
+		display: none;
+	}
+	
+	/* public */
+	
+/* 	.wattTreeFilePublic:before { */
+/* 		color: #008a11; */
+/* 	} */
+	
+/* 	.wattTreeFilePublicUpdate:before { */
+/* 		color: #008a11; */
+/* 	} */
+	
+/* 	.wattTreeFilePublicDisabled:before { */
+/* 		color: #008a11; */
+/* 		opacity: 0.5; */
+/* 	} */
+	
+/* 	.wattTreeFilePublicUpdate .sapUiTreeNodeContent:after { */
+/* 		content: "updated!"; */
+/* 		color: #008a11; */
+/* 		margin-left: 0.25rem; */
+/* 		font-size: 0.75rem; */
+/* 	} */
+	
+/* 	.wattTreeFilePublicDisabled .sapUiTreeNodeContent:after { */
+/* 		content: "disconnected"; */
+/* 		color: #e22525; */
+/* 		margin-left: 0.25rem; */
+/* 		font-size: 0.75rem; */
+/* 	} */
+	
+/* 	.wattTreeFolderPublic:before { */
+/* 		color: #008a11; */
+/* 	} */
+	
+	.wattTreeFolderPublic span:before {
+		content: "";
+		position: absolute;
+		background: @sapFlatPositive;
+		width: 7px;
+		height: 7px;
+		left: -26px;
+		top: 13px;
+		border: 1px solid @sapFlatBrandSupport;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	
+	.wattTreeFilePublic span:after {
+		content: "";
+		position: absolute;
+		background: @sapFlatPositive;
+		width: 6px;
+		height: 6px;
+		left: -22px;
+		top: 10px;
+		border: 0px solid @sapFlatBrandSupport;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	
+	
+	
+	/* top bar */
+	
+	#tree-TBCont .sapUiBtnS {
+		height: 2rem;
+		line-height: 2rem;
+		vertical-align: middle;
+		font-size: 10px;
+		padding: 0 0.5rem;
+	}
+}
+
+.sapWattRepositoryBrowser.sapUiTreeTransparent .sapUiTreeCont {
+	background-color: @RepoBrowserBG;
+}
+
+/****************** tree node decorations: ***********************/
+
+.wattTreeFile .sapUiTreeNodeDecoratorBottomLeft{
+	left: 5px;
+	bottom: 4px;
+}
+.wattTreeFile .sapUiTreeNodeDecoratorBottomRight{
+	left: 15px;
+	bottom: 4px;
+}
+.wattTreeFile .sapUiTreeNodeDecoratorTopLeft{
+	left: 5px;
+	bottom: 16px;
+}
+.wattTreeFile .sapUiTreeNodeDecoratorTopRight{
+	left: 15px;
+	bottom: 16px;
+}
+
+.sapUiTreeNodeDecoratorSpan span:before{
+	padding-left: inherit;
+	height : 0px;
+}
+
+.sapUiTreeNodeDecoratorBottomLeftOnly{
+	position: absolute;
+	width : 5px;
+	height : 5px;
+	border: 1px solid white;
+	margin-left: 2px;
+	bottom: 4px;
+}
+
+.sapUiTreeNodeDecoratorBottomRightOnly{
+	position: absolute;
+	width : 5px;
+	height : 5px;
+	border: 1px solid white;
+	margin-left: 16px;
+	bottom: 4px;
+}
+.sapUiTreeNodeDecoratorTopLeftOnly{
+	position: absolute;
+	width : 5px;
+	height : 5px;
+	border: 1px solid white;
+	margin-left: 2px;
+	bottom: 14px;
+}
+
+.sapUiTreeNodeDecoratorTopRightOnly{
+	position: absolute;
+	width : 5px;
+	height : 5px;
+	border: 1px solid white;
+	margin-left: 16px;
+	bottom: 14px;
+}
+
+.wattTreeFile .sapUiTreeNodeDecoratorBottomLeftOnly{
+	margin-left: 4px;
+	bottom: 3px;
+}
+
+ .wattTreeFile .sapUiTreeNodeDecoratorBottomRightOnly{
+	margin-left: 14px;
+	bottom: 3px;
+ }
+ 
+ .wattTreeFile .sapUiTreeNodeDecoratorTopLeftOnly{
+	margin-left: 4px;
+	bottom: 17px;
+}
+ 
+ .wattTreeFile .sapUiTreeNodeDecoratorTopRightOnly{
+	margin-left: 14px;
+	bottom: 17px;
+}
+
+
+/* END "RepositoryBrowser.css" */
+
+/* START "SearchField.css" */
+/* ======================================================= */
+/* sap_flat CSS for control sap.ui.commons/SearchField.control */
+/* ======================================================= */
+
+.sapUiSearchField {
+	height: 2rem;
+	box-sizing: border-box;
+}
+
+.sapUiSearchFieldTf {
+	height: 2rem;	
+}
+
+.sapUiTf {
+	text-align: left;
+    border-color: #CCCCCC rgba(204, 204, 204, 0.5) rgba(204, 204, 204, 0.5) #CCCCCC;
+    border-radius: 2px;
+    border-style: solid;
+    border-width: 1px;
+    padding: 0 2.5rem 0 0.5rem;
+    vertical-align: middle;
+    width: auto;
+    height: 2rem;
+    position: relative;
+    /*Needed for Safari*/
+    -webkit-user-select: text;
+    -ms-user-select: text;
+}
+
+.sapUiTfInner.sapUiTf {
+	height: 2rem;
+}
+
+.sapUiSearchFieldCb {
+	padding: 0 30px 0 0;
+}
+
+.sapUiSearchFieldIco {
+	height: calc(~"2rem - 2px");
+	width: calc(~"2rem - 2px");
+	color: @sapFlatStandardText;
+	margin: 0;
+	z-index: 0;
+	right: 0;
+	top: -1px;
+	cursor: pointer;
+	text-align: center;
+	line-height: 2rem;
+	font-size: 1rem;
+	vertical-align: middle;
+	background-image: none;
+}
+
+.sapUiSearchFieldClear.sapUiSearchFieldVal > .sapUiSearchFieldTf > .sapUiSearchFieldIco, 
+.sapUiSearchFieldClear.sapUiSearchFieldVal > .sapUiSearchFieldCb > .sapUiSearchFieldIco {
+	font-size: 1rem;
+	color: @sapFlatStandardText;
+}
+
+.sapUiSearchFieldClear.sapUiSearchFieldVal > .sapUiSearchFieldTf > .sapUiSearchFieldIco:hover {
+	color: @sapFlatInvertedText;
+}
+
+.sapUiSearchFieldTf .sapUiSearchFieldIco:hover {
+	color: @sapFlatInvertedText;
+	background-color: @sapFlatNeutralElement;
+}
+
+.sapUiSearchFieldIco:before {
+	font-family: 'SAP-icons';
+	top: -1px;
+	speak: none;
+	content: "\e00d";
+}
+
+.sapUiSearchFieldClear.sapUiSearchFieldVal > .sapUiSearchFieldTf > .sapUiSearchFieldIco:before,
+.sapUiSearchFieldClear.sapUiSearchFieldVal > .sapUiSearchFieldCb > .sapUiSearchFieldIco:before {
+  font-family: 'SAP-icons-watt';
+  top: -1px;
+  speak: none;
+  content: "\e010";
+}
+
+/* END "SearchField.css" */
+
+/* START "SidePanel.css" */
+.sidepanel {
+    background: @ShellBg;
+    color: @BaseFontClr;
+
+    .sapUiPanelAreaDesignFill > .sapUiPanelCont {
+        background-color: transparent !important;
+    }
+
+    button.tabButton.sapUiBtnS.sapUiBtnNorm.sapUiBtnStd.sapUiToggleBtn.sapUiToggleBtnPressed {
+        color:@BaseFontClr;
+        border-bottom: 1px solid @BaseFontClr;
+    }
+
+    label{
+        color:@BaseFontClr;
+    }
+}
+/* END "SidePanel.css" */
+
+/* START "Splitter.css" */
+.sapUiHorizontalSplitterBar, .sapUiVerticalSplitterBar {
+	background-color: @PanelBg;
+}
+.sapUiHorizontalSplitterBar:focus, .sapUiVerticalSplitterBar:focus {
+	outline: 1px solid rgba(0,0,0, 0.25);
+	outline-offset: -1px;
+
+}
+.sapUiHorizontalSplitterBar {
+	height:3px;
+	box-shadow: inset 0px 1px 0px 0px @HeaderBrdr;
+	-webkit-box-shadow: inset 0px 1px 0px 0px @HeaderBrdr;
+	-moz-box-shadow: inset 0px 1px 0px 0px @HeaderBrdr;
+}
+.sapUiVerticalSplitterBar {
+	width:3px;
+	-webkit-box-shadow: inset 1px 0px 0px 0px @HeaderBrdr;
+	-moz-box-shadow: inset 1px 0px 0px 0px @HeaderBrdr;
+	box-shadow: inset 1px 0px 0px 0px @HeaderBrdr;
+}
+
+/* END "Splitter.css" */
+
+/* START "TabIcon.css" */
+.errorTabIcon{
+    content: "";
+    background: #e22525;
+    width: 6px;
+    height: 6px;
+    position: initial;
+    top: 11px;
+    left: 8px;
+    margin-top: 10px;
+    margin-left: 10px;
+    display: inline-block;
+    float:left
+}
+
+
+.warningTabIcon{
+    content: "";
+    background: #d19860;
+    width: 6px;
+    height: 6px;
+    position: initial;
+    top: 11px;
+    left: 8px;
+    margin-top: 10px;
+    margin-left: 10px;
+    display: inline-block;
+    float:left
+}
+/* END "TabIcon.css" */
+
+/* START "TabStrip.css" */
+.sapUiTabStrip {
+	border: none;
+}
+
+.sapUiTabBar {
+	height: 32px;
+}
+.sapUiTabBarCnt {
+	height: inherit;
+	background-color: transparent;
+}
+
+.sapUiTabBarCnt {
+	height: 30px;
+	background-color: transparent;
+	margin: 0;
+	overflow: hidden;
+	padding-top: 4px;
+	font-size: 0.86rem;
+	text-align: center;
+	line-height: 1.6rem;
+	border-bottom: 1px solid #DADCE0;
+	li {
+		height: 30px;
+		max-width: 170px;
+		position: relative;
+		display: inline-block;
+		padding: 4px 1em 0px 1em;
+		text-decoration: none;
+		z-index: 1;
+		box-sizing: border-box;
+	}
+	li:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: -1;
+		text-align: center;
+	}
+	li[aria-selected="false"]:before {
+		background: transparent;
+	}
+}
+
+.sapUiTabSel {
+	font-weight: bold;
+	border-bottom: 3px solid #416B8E;
+}
+
+.sapUiTabBarCnt:empty {
+	height: 0px;
+}
+
+.sapUiTabClose {
+	font-family: Sap-icons;
+}
+
+.sapUiTabClose:before {
+	content: "\e03e";
+	speak: none;
+	font-weight: normal;
+	-webkit-font-smoothing: antialiased;
+}
+/* END "TabStrip.css" */
+
+/* START "TextArea.css" */
+/* ================================================ */
+/* CSS for control sap.ui.commons/TextArea.control  */
+/* ================================================ */
+
+
+.sapUiTf.sapUiTxtA:not(.sapUiTfInner) {
+	line-height: 1.5rem;
+	margin: 0;
+	padding: 3px 0.5rem;
+}
+
+.sapUiTf.flatControlSmall.sapUiTxtA:not(.sapUiTfInner) {
+	font-size: 0.75rem;
+	line-height: 1rem;
+	margin: 0;
+	padding: 3px 0.25rem;
+}
+/* END "TextArea.css" */
+
+/* START "TextField.css" */
+/* ================================================ */
+/* CSS for control sap.ui.commons/TextField.control */
+/* ================================================ */
+
+@sapUiTextFieldHeight: 16px;
+
+.sapUiTf{
+	height: 2rem;
+	font-family: Arial;
+	font-size: 0.875rem;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0 0.5rem;
+	vertical-align: top;
+	width: auto;
+	-moz-user-select: text;
+	-ms-user-select: text;
+	user-select: text;
+}
+
+/* Inner (ComboBox) */
+.sapUiTfInner.sapUiTf{
+	height: 2rem;
+}
+
+.sapUiTfCombo {
+	height: 2rem;
+}
+
+.sapUiTfComboIcon {
+    background: @sapFlatLightestBG;
+    color: @sapFlatElement;
+    font-size: 1rem;
+    height: 30px;
+    line-height: 2rem;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    vertical-align: middle;
+    width: 30px;
+    z-index: 1;
+    content: "\E043";
+}
+
+.sapUiTfComboIcon:hover {
+	color: @sapFlatStandardText;
+	background-color: transparent;
+}
+
+.sapUiTfFoc>.sapUiTfComboIcon{
+	background-color: transparent;	
+}
+
+.sapUiTfBrd{
+	border: 0;
+	border-radius: 2px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgb(204, 204, 204)
+		 rgba(204, 204, 204, 0.5)
+		 rgba(204, 204, 204, 0.5)
+		 rgb(204, 204, 204);
+}
+
+.sapUiTfMono{
+	font-family: @sapUiFontMonospaceFamily;
+}
+
+.sapUiTfStd{
+	background-color: @sapUiFieldBackground;
+	color: @sapUiBaseText;
+}
+
+.sapUiTfRo {
+	border-color: rgb(204, 204, 204)
+		rgba(204, 204, 204, 0.5)
+		rgba(204, 204, 204, 0.5)
+		rgb(204, 204, 204);
+	background-color: white;
+	color: #333;
+	border-style: dashed;
+}
+
+.sapUiTfRo > .sapUiTfInner{ 
+	cursor: default; /* in ComboBox Cursor is overwitten */
+}
+
+.sapUiTfFoc{
+	border-color: rgb(191, 191, 191)
+	 rgba(191, 191, 191, 0.75)
+	 rgba(191, 191, 191, 0.75)
+	 rgb(191, 191, 191);
+	background: #e5f2f9;
+}
+
+.sapUiTf.sapUiTfFoc, .sapUiTfBrd.sapUiTfFoc {
+	border: 1px solid rgba(0,0,0, 0.5);
+}
+
+.sapUiTfBrd.sapUiTfErr{
+	color: black;
+	border-color: rgba(229, 41, 41, 0.5)
+	 rgba(229, 41, 41, 0.125)
+	 rgba(229, 41, 41, 0.125)
+	 rgba(229, 41, 41, 0.5);
+}
+
+.sapUiTfBrd.sapUiTfWarn {
+	color: black;
+	border-color: rgba(240, 171, 0, 0.5)
+	 rgba(240, 171, 0, 0.125)
+	 rgba(240, 171, 0, 0.125)
+	 rgba(240, 171, 0, 0.5);
+}
+
+.sapUiTfErr.sapUiTfStd{
+	background-color: #fbdfdf;
+}
+
+.sapUiTfWarn.sapUiTfStd{
+	background-color: #fffcb5;
+}
+
+.sapUiTfSucc.sapUiTfStd{
+	background-color: #e0f1e7;
+	color: black;
+	border-color: rgba(0, 138, 59, 0.5)
+	 rgba(0, 138, 59, 0.25) 
+	 rgba(0, 138, 59, 0.25) 
+	 rgba(0, 138, 59, 0.5);
+}
+
+.sapUiTfDsbl {
+	border-color: rgb(204, 204, 204)
+		rgba(204, 204, 204, 0.5)
+		rgba(204, 204, 204, 0.5)
+		rgb(204, 204, 204);
+	background-color: #f2f2f2;
+	color: black;
+}
+
+.filesearch .gitBackgroundColor .sapUiTf{
+	margin: 0;
+}
+
+
+/* if there is an input field in a dialog, it should look the same everywhere and take the full width, (from sapui5 it gets only 22ex per default) */
+.sapUiDlgCont .sapUiTf {
+	width: 100% !important;
+	margin-left: 0px;	
+}
+
+#ResourceList .resourceListIF {
+	width: 100%;
+} 
+
+.sapUiTf.flatControlSmall,
+.sapUiTfCombo.flatControlSmall,
+.sapUiTfCombo.flatControlSmall .sapUiTfInner {
+	height: 1.5rem;
+	font-size: 0.75rem;
+}
+
+/* END "TextField.css" */
+
+/* START "TextView.css" */
+/* ================================================ */
+/* CSS for control sap.ui.commons/TextView.control  */
+/* ================================================ */
+
+
+.sapUiTv {
+	font-size: 0.875rem;
+	height: auto;
+	line-height: 1.5rem;
+	vertical-align: top;
+}
+
+.sapUiTv.flatControlSmall {
+	font-size: 0.75rem;
+	height: auto;
+	line-height: 1.25rem;
+}
+
+.sapUiTvH5 {
+	font-size: @sapGroupFontSize;
+	color: @BaseFontClr;
+}
+/* END "TextView.css" */
+
+/* START "ToggleButton.css" */
+/* ======================================================= */
+/* CSS for control sap.ui.commons.ToggleButton.control     */
+/* Flat                                                    */
+/* ======================================================= */
+
+/* reset colors */
+.sapUiBtn.sapUiToggleBtn.riverSwitch,
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnStd.riverSwitch.sapUiToggleBtn {
+	background-color: transparent;
+	border: 0;
+}
+
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnStd.riverSwitch.sapUiToggleBtn:hover, 
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnStd.riverSwitch.sapUiToggleBtn.sapUiBtnAct,
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnStd.riverSwitch.sapUiToggleBtn.sapUiBtnAct:hover,
+.sapUiBtnS.sapUiBtnNorm.sapUiToggleBtn.riverSwitch.sapUiBtnAct:active {
+	background-color: transparent;
+	color: black;
+}
+
+/* Basic toggle button colors */
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnStd.sapUiToggleBtn.sapUiToggleBtnPressed{
+	color: #ffffff;
+	background-color: #107dc2;
+}
+
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnStd.sapUiToggleBtn.riverSwitch.sapUiToggleBtnPressed {
+	background-color: transparent;
+	color: black;
+}
+
+/* focus */
+.sapUiBtn.riverSwitch.sapUiToggleBtn:focus{
+	outline: 1px solid rgba(0,0,0,0.5);
+	outline-offset: -1px;
+}
+
+/* new spacings */
+.sapUiBtn.sapUiToggleBtn.riverSwitch {
+	padding: 0 0.5rem 0 2.5rem;
+	position: relative;
+	margin-right: 0.5rem;
+}
+
+/* knob container */
+.sapUiBtn.sapUiToggleBtn.riverSwitch:before {
+	background-color: #CC1919;
+	border-radius: 6px;
+	cursor: pointer;
+	height: 12px;
+	position: relative;
+	width: 1.5rem;
+	content: "";
+	position: absolute;
+	left: 0.5rem;
+	top: 10px;
+}
+
+/* knob */
+.sapUiBtn.sapUiToggleBtn.riverSwitch:after {
+	background-color: white;
+	border-radius: 50%;
+	content: "";
+	height: 0.5rem;
+	margin: 12px 0 0 10px;
+	position: absolute;
+	width: 0.5rem;
+	left: 0;
+	top: 0;
+	-webkit-transition-duration: 0.05s;
+	transition-duration: 0.05s;
+	-webkit-transition-timing-function: ease-in;
+	transition-timing-function: ease-in;
+}
+
+.sapUiBtn.sapUiToggleBtn.riverSwitch.sapUiToggleBtnPressed:before {
+	background-color: #007833
+}
+
+.sapUiBtn.sapUiToggleBtn.riverSwitch.sapUiToggleBtnPressed:after {
+	left: 12px;
+}
+
+/* small */
+.sapUiBtn.sapUiToggleBtn.riverSwitch.riverControlSmall {
+	padding: 0 0.5rem 0 2rem;
+	margin-right: 0.25rem;
+	height: 1.5rem;
+	font-size: 0.75rem;
+}
+
+.sapUiBtn.sapUiToggleBtn.riverSwitch.riverControlSmall:before {	
+	border-radius: 5px;
+	height: 10px;
+	width: 18px;
+	left: 0.5rem;
+	top: 8px;
+}
+
+.sapUiBtn.sapUiToggleBtn.riverSwitch.riverControlSmall:after {
+	height: 6px;
+	margin: 10px 0 0 10px;
+	width: 6px;
+}
+
+.sapUiBtn.sapUiToggleBtn.riverSwitch.riverControlSmall.sapUiToggleBtnPressed:after {
+	left: 8px;
+}
+/* END "ToggleButton.css" */
+
+/* START "Toolbar.css" */
+.sapUiTb.sapUiTbStandalone {
+	height:@ToolbarHeightPx;
+	.sapUiTbInner {
+		height: 100%;
+		button {
+			border: none;
+			border-radius: 0px;
+			background-color: transparent;
+			color: @ToolbarClr;
+			cursor: pointer;
+			height: 2.2rem;
+			padding: 0;
+			vertical-align: middle;
+			min-width: 2rem;
+			width: 2.8rem;
+			font-size: 1.2rem;
+		}
+		button .sapUiBtnTxt {
+			color: @ToolbarClr;
+		}
+		button[id*="content.save"] {
+			color: @LighBlueColor;
+		}
+		button[id*="preview.run"] {
+			color: @LightGreenColor;
+		}
+		button[id*="content.navigateToLastEdit"] {
+			color: @LightPurpleColor;
+		}
+		button:focus {
+			border: none;
+			background-color: transparent;
+			outline: none;
+		}
+		button:hover {
+			background-color: fade(@sapFlatActiveBG, 25%);
+			color: @ToolbarClr;
+		}
+		button:active {
+			background-color: transparent;
+		}
+		button.sapUiBtnDsbl:active {
+			background-color: transparent;
+			color: fade(@sapFlatActiveBG, 50%);
+		}
+		button.sapUiBtnDsbl {
+			color: fade(@ToolbarClr, 40%);
+		}
+		button.sapUiBtnDsbl:hover {
+			background-color: transparent;
+			cursor: default;
+		}
+		
+		button:hover[id*="content.save"] {
+			color: @LighBlueColor;
+		}
+		button:hover[id*="preview.run"] {
+			color: @LightGreenColor;
+		}
+		button:hover[id*="content.navigateToLastEdit"] {
+			color: @LightPurpleColor;
+		}
+		button.sapUiBtnDsbl[id*="content.save"] {
+			color: fade(@LighBlueColor,50%);
+		}
+		button.sapUiBtnDsbl[id*="preview.run"] {
+			color: fade(@LightGreenColor,50%);
+		}
+		button.sapUiBtnDsbl[id*="content.navigateToLastEdit"] {
+			color: fade(@LightPurpleColor,50%);
+		}
+
+
+	}
+	.sapUiTbCont {
+		border: none;
+		height: 100%;
+		padding: 0;
+	}
+	.sapUiTbInner > *, .sapUiTbInnerRight > * {
+		margin: 0;
+	}
+	.sapUiTbSeparator.sapUiTbSepFullHeight {
+		border-left: 1px solid @sapFlatLightBorder;
+		height: 2rem;
+		vertical-align: middle;
+		margin: 0;
+		width: 1px;
+	}
+	.sapUiTbInner > .sapUiBtnDsbl:focus, .sapUiTbInnerRight > .sapUiBtnDsbl:focus {
+		outline: none;
+		outline-offset: -1px;
+	}
+}
+
+
+.sapUiTb.sapUiTbStandalone .sapUiTbInner button.watt_toolbar_text.sapUiBtnS > .sapUiBtnTxt {
+  vertical-align: middle;
+  line-height: 32px;
+  display: inline-block;
+  height: 2.2rem;
+  margin-top: 0;
+  padding-left: 0.25rem;
+}
+
+.sapUiTb.sapUiTbStandalone .sapUiTbSeparator.sapUiTbSepFullHeight {
+  border : none;
+  vertical-align: middle;
+  margin: 0;
+  height: 2.2rem;
+  width: 1rem;
+}
+
+.sapUiTb.sapUiTbStandalone .sapUiTbInner button.watt_toolbar_text{
+	font-size: 0.75rem;
+	width: auto;
+	padding: 0 0.8rem;
+}
+
+.sapUiTb.sapUiTbStandalone .sapUiTbInner button.watt_toolbar_text .sapUiBtnIco{
+	font-size: 1.2rem;
+}
+
+.sapUiTb.sapUiTbStandalone .sapUiTbInner button.watt_toolbar_splitbutton{
+	background-color: fade(@sapFlatActiveBG, 25%);
+	color: @sapFlatActiveBG;
+}
+
+.sapUiTb.sapUiTbStandalone .sapUiTbInner button.watt_toolbar_splitbutton:active {
+	background-color: @sapFlatHighlight;
+	color: @sapFlatInvertedText;
+}
+
+/* END "Toolbar.css" */
+
+/* START "Tree.css" */
+.sapUiTreeHeader {
+	border-bottom: none;
+	height: 32px;
+	overflow-y: hidden;
+	text-align: right;
+	width: 100%;
+	position: fixed;
+	background: rgba(245, 247, 240, 0.9);
+	z-index: 1;
+	top: 0;
+}
+.sapUiTree {
+	color:@BaseFontClr !important;
+}
+.sapUiBtnS.sapUiBtnStd:focus, 
+.sapUiBtnS.sapUiBtnStd.sapUiBtnStdFocus {
+	background-color: transparent;
+	outline: 0;
+	outline-offset: -1px;
+}
+
+.sapUiTreeCont {
+	font-family: Arial, sans-serif;
+	font-size: 0.86rem;
+	height: auto;
+	border: none;
+	width: 100%;
+	overflow: auto;
+}
+
+.sapUiTreeNode {
+	padding: 0;
+	margin: 0;
+	height: 21px;
+	line-height: 21px;
+	position: relative;
+	overflow: hidden;
+}
+
+.sapUiTreeNode:hover {
+	background-color: rgba(0, 91, 141, 0.125);
+}
+
+.sapUiTreeNodeContent {
+	cursor: default;
+	display: inline-block;
+	vertical-align: baseline;
+	left: 1rem;
+}
+
+.sapUiTreeNode:focus { 
+	outline: 1px solid rgba(0, 0, 0, 0.25);
+	outline-offset: -1px;
+}
+
+/* selection */
+
+.sapUiTreeNodeSelected, .sapUiTreeNodeSelected:hover {
+	background-color: @sapFlatBrand;
+	color: white;
+}
+
+.sapUiTreeNodeSelected { 
+	color: white;
+}
+
+.sapUiTreeNodeSelected .sapUiTreeNodeContent:after {
+	color: white;
+}
+
+.sapUiTreeNodeSelected.sapUiTreeNode:focus { 
+	outline: 1px solid rgba(0,0,0, 1);
+	outline-offset: -1px;
+}
+
+.sapUiTreeNodeSelected.sapUiTreeNodeUnfocused, .sapUiTreeNodeSelected.sapUiTreeNodeUnfocused:hover {
+	background-color: #bfbfbf;
+	color: #000;
+}
+
+.sapUiTreeNodeSelected.sapUiTreeNodeUnfocused .sapUiTreeNodeContent:after {
+	color: #000;
+}
+
+/* END "Tree.css" */
+
+/* START "TriStateCheckBox.css" */
+/* ======================================================= */
+/* CSS for control sap.ui.commons.TriStateCheckBox.control */
+/* ======================================================= */
+
+.sapUiTriCbInner {
+	height:11px;
+	width:11px;
+	border: 1px solid @sapFlatMediumBorder;
+	background-color: @sapFlatLightestBG;
+}
+
+.sapUiTriCbInner.sapUiTriCbCheck,
+.sapUiTriCbInner.sapUiTriCbMix {
+	background-image: url(img/TriStateCheckBox.png);
+}
+
+.sapUiTriCb:hover > .sapUiTriCbInner {
+	border: 1px solid @sapFlatDarkBG;
+}
+/* END "TriStateCheckBox.css" */
+
+/* START "ValueHelpField.css" */
+/* =============================================== */
+/* CSS for control sap.ui.commons/ValueHelpField.control */
+/* Overwrites some of the attributes                */
+/* =============================================== */
+
+.sapUiTfCombo > .sapUiTfValueHelpIcon {
+    border: none;
+    display: inline;
+    font-size: 0;
+    position: absolute;
+    right: 0;
+    line-height: 100%;
+    padding: 1px 2px 3px 2px;
+}
+.sapUiTfCombo > span.sapUiTfValueHelpIcon {
+    display: inline-block;
+    font-size: 16px;
+    text-align: center;
+    color: #333333;
+    cursor: default;
+}
+.sapUiTfCombo > .sapUiTfValueHelpRegularIcon:hover, .sapUiTfCombo > span.sapUiTfValueHelpIcon:hover {
+    background-color: #BFBFBF;
+    color: #ffffff;
+}
+.sapUiTfCombo > .sapUiTfValueHelpDsblIcon,
+.sapUiTfCombo.sapUiTfDsbl > span.sapUiTfValueHelpIcon {
+    opacity: .3;
+    filter: alpha(opacity=30);
+}
+
+/* END "ValueHelpField.css" */
+

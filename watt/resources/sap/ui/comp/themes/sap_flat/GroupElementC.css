@@ -1,0 +1,9 @@
+
+/* ============================================= */
+/* CSS for control sap.ui.comp/GroupElement.control */
+/* ============================================= */
+
+.sapUiCompGroupElement{
+  color: @sapUiTextColor;
+  border: 1px solid blue;
+}

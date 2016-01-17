@@ -1,0 +1,143 @@
+/* ======================================================= */
+/* CSS for control sap.ui.commons.Accordion.control        */
+/* Flat                                                    */
+/* ======================================================= */
+
+/*.sapUiAcd {
+	height: auto !important;
+	margin-bottom: -1px;
+}*/
+
+
+.sapUiAcdSectionHdr:hover {
+	background: rgba(0, 91, 141, 0.05);
+}
+
+.sapUiAcdSectionHdr:active {
+	background: rgba(0, 91, 141, 1);
+	color: white;
+}
+
+.sapUiAcd .sapUiAcdSectionHdr:active .sapUiAcdSectionMinArrow:after {
+	color: white;
+}
+
+.sapUiAcdSectionArea .sapUiAcdSectionCont {
+	background-color: rgba(255,255,255, 0.5);
+}
+
+
+/* normal */
+/*.sapUiAcdSection .sapUiAcdSectionCont {
+	border-top: 1px solid #999;
+	padding: 0.5rem;
+}
+
+.sapUiAcdSectionArea .sapUiAcdSectionCont {
+	border-bottom: none;
+	top: 2rem;
+}
+
+.sapUiAcd .sapUiAcdSectionHdr {
+	height: 2rem;
+	line-height: 2rem;
+	border-top: 1px solid #e5e5e5;
+}
+*/
+.sapUiAcd .sapUiAcdSectionHdr:focus{
+	outline: 1px solid rgba(0,0,0,0.5);
+	outline-offset: -1px;
+}
+/*
+.sapUiAcdSectionLast {
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.sapUiAcdSectionHdr span {
+	font-weight: normal !important;
+}
+
+.sapUiAcd .sapUiAcdSectionHdr>div>span>span {
+	display: inline-block;
+	left: 0.5rem;
+	margin-left: 0;
+	overflow: hidden;
+	position: absolute;
+	right: 2rem;
+	text-overflow: ellipsis;
+}
+
+.sapUiAcdSection.sapUiAcdSectionColl .sapUiAcdSectionMinArrow,
+.sapUiAcdSection .sapUiAcdSectionMinArrow {
+	background-image: none;
+	background-repeat: no-repeat;
+	height: 2rem;
+	margin: 0;
+	position: absolute;
+	right: 0;
+	text-align: center;
+	text-decoration: none;
+	width: 2rem;
+}
+
+.sapUiAcdSection.sapUiAcdSectionColl .sapUiAcdSectionMinArrow:after,
+.sapUiAcdSection .sapUiAcdSectionMinArrow:after {
+	color: #666;
+	font-family: "SAP-icons-watt";
+	font-size: 1rem;
+	height: inherit;
+	line-height: 1rem;	
+	width: inherit;
+}
+
+.sapUiAcdSection.sapUiAcdSectionColl .sapUiAcdSectionMinArrow:after {
+	content: "\e025";
+}
+
+.sapUiAcdSection .sapUiAcdSectionMinArrow:after {
+	content: "\e026";
+}
+*/
+/* small */
+/*.sapUiAcd.riverControlSmall .sapUiAcdSectionHdr {
+	font-size: 0.75rem;
+	height: 1.5rem;
+	line-height: 1.5rem;
+}
+
+.sapUiAcd.riverControlSmall .sapUiAcdSectionCont {
+	top: 1.5rem;
+	padding: 0.25rem 0.5rem;
+}
+*/
+/* accordion in accordion */
+/*.sapUiAcd.riverAccordionStacked .sapUiAcdSectionCont  {
+	padding: 0;
+	overflow: hidden;
+}
+
+.sapUiAcd.riverAccordionStacked .sapUiAcdSectionCont .sapUiAcdSectionCont {
+	padding: 0.25rem 0.5rem;
+	border-top: 0;
+}
+*/
+/* w5g accordion in accordion */
+/*.sapUiAcd.riverAccordionStacked.riverAccordionPalette .sapUiAcdSectionArea .sapUiAcdSectionCont {
+	background-color: rgba(255,255,255, 1);
+}
+
+.sapUiAcd.riverAccordionStacked.riverAccordionPalette .sapUiAcdSectionHdr>div>span>span {
+	font-family: "SegoeUI", "Segoe UI Light", "Helvetica Neue", Arial, sans-serif;
+	font-size: 17px;
+	line-height: 28px;
+}
+
+.sapUiAcd.riverAccordionStacked.riverAccordionPalette .sapUiAcd .sapUiAcdSectionHdr>div>span>span {
+	font-family: Arial, sans-serif;
+	font-size: 0.75rem;
+	line-height: 1.5rem;
+}
+
+.sapUiAcd.riverAccordionStacked.riverAccordionPalette .sapUiAcd .sapUiAcdSectionMinArrow {
+	opacity: 0.5;
+}*/

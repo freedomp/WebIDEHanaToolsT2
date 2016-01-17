@@ -1,0 +1,376 @@
+{
+  "modules" : [
+    {
+      "name" : "sap/ui/rta/ContextMenu.js",
+      "description" : "Provides control sap.ui.rta.ContextMenu.",
+      "size" : 9241,
+      "compressedSize" : 4588,
+      "required" : ["jquery.sap.global.js", "sap/ui/rta/library.js", "sap/ui/unified/Menu.js", "sap/ui/unified/MenuItem.js", "sap/ui/core/Popup.js", "sap/ui/dt/ElementUtil.js", "sap/ui/rta/Utils.js", "sap/ui/comp/smartform/GroupElement.js", "sap/ui/comp/smartform/Group.js", "sap/ui/comp/smartform/SmartForm.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/FieldRepository.js",
+      "description" : "Provides control sap.ui.rta.FieldRepository",
+      "size" : 12165,
+      "compressedSize" : 6133,
+      "required" : ["jquery.sap.global.js", "sap/ui/rta/library.js", "sap/ui/core/Control.js", "sap/ui/commons/Label.js", "sap/ui/commons/LabelDesign.js", "sap/ui/commons/Dialog.js", "sap/ui/commons/TextView.js", "sap/ui/commons/CheckBox.js", "sap/ui/table/Table.js", "sap/ui/table/SelectionMode.js", "sap/ui/table/SelectionBehavior.js", "sap/ui/table/NavigationMode.js", "sap/ui/core/HorizontalAlign.js", "sap/ui/layout/VerticalLayout.js", "sap/ui/layout/HorizontalLayout.js", "sap/ui/model/json/JSONModel.js", "sap/m/SearchField.js", "sap/m/Button.js", "sap/m/Toolbar.js", "sap/ui/model/Filter.js", "sap/ui/model/FilterOperator.js", "sap/ui/table/SortOrder.js", "sap/ui/rta/Utils.js", "sap/ui/rta/FlexAdapter.js", "sap/ui/rta/ModelConverter.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/FlexAdapter.js",
+      "description" : "Provides FlexAdapter",
+      "size" : 6008,
+      "compressedSize" : 3071,
+      "required" : ["jquery.sap.global.js", "sap/ui/fl/FlexControllerFactory.js", "sap/ui/rta/Utils.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/ModelConverter.js",
+      "description" : "declare unusual global vars for JSLint/SAPUI5 validation",
+      "size" : 6355,
+      "compressedSize" : 2259,
+      "required" : ["jquery.sap.global.js", "sap/ui/comp/odata/FieldSelectorModelConverter.js", "sap/ui/dt/ElementUtil.js", "sap/ui/rta/Utils.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/RTADragDropPlugin.js",
+      "description" : "Provides class sap.ui.rta.RTADragDropPlugin.",
+      "size" : 13945,
+      "compressedSize" : 6608,
+      "required" : ["jquery.sap.global.js", "sap/ui/dt/plugin/ControlDragDrop.js", "sap/ui/dt/ElementUtil.js", "sap/ui/dt/OverlayUtil.js", "sap/ui/rta/Utils.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/RTARenamePlugin.js",
+      "description" : "Provides class sap.ui.rta.RTARenamePlugin.",
+      "size" : 11412,
+      "compressedSize" : 5115,
+      "required" : ["jquery.sap.global.js", "sap/ui/dt/Plugin.js", "sap/ui/dt/ElementUtil.js", "sap/ui/dt/OverlayUtil.js", "sap/ui/rta/Utils.js", "sap/ui/fl/FlexControllerFactory.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/RuntimeAuthoring.js",
+      "description" : "Provides class sap.ui.rta.Main.",
+      "size" : 25122,
+      "compressedSize" : 14043,
+      "required" : ["sap/ui/base/ManagedObject.js", "sap/ui/rta/ToolsMenu.js", "sap/ui/rta/ContextMenu.js", "sap/ui/comp/smartform/flexibility/FormP13nHandler.js", "sap/ui/dt/Preloader.js", "sap/ui/dt/ElementUtil.js", "sap/ui/dt/DesignTime.js", "sap/ui/dt/OverlayRegistry.js", "sap/ui/rta/RTARenamePlugin.js", "sap/ui/rta/RTADragDropPlugin.js", "sap/ui/rta/FlexAdapter.js", "sap/ui/rta/FieldRepository.js", "sap/ui/rta/Utils.js", "sap/ui/fl/Transports.js", "sap/ui/fl/Utils.js", "sap/m/MessageBox.js", "sap/ui/comp/smartform/GroupElement.js", "sap/ui/comp/smartform/Group.js", "jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/ToolsMenu.js",
+      "description" : "Provides control sap.ui.rta.ToolsMenu.",
+      "size" : 7415,
+      "compressedSize" : 3495,
+      "required" : ["jquery.sap.global.js", "sap/ui/rta/library.js", "sap/ui/core/Control.js", "sap/m/Toolbar.js", "sap/m/ToolbarDesign.js", "sap/m/ToolbarLayoutData.js", "sap/m/ToolbarSpacer.js", "sap/m/Label.js", "sap/ui/fl/registry/Settings.js", "sap/ui/fl/Utils.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/ToolsMenuRenderer.js",
+      "description" : "Provides default renderer for control sap.ui.rta.ToolsMenu",
+      "size" : 1162,
+      "compressedSize" : 423,
+      "required" : ["jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/Utils.js",
+      "description" : "Provides object sap.ui.rta.Utils.",
+      "size" : 15538,
+      "compressedSize" : 5879,
+      "required" : ["jquery.sap.global.js", "sap/ui/fl/Utils.js", "sap/ui/dt/OverlayUtil.js", "sap/ui/dt/ElementUtil.js", "sap/ui/comp/odata/FieldSelectorModelConverter.js", "sap/ui/fl/registry/Settings.js", "sap/ui/comp/smartform/GroupElement.js", "sap/ui/comp/smartform/Group.js", "sap/ui/comp/smartfield/SmartField.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/changeHandler/AddControl.js",
+      "description" : "global sap",
+      "size" : 3714,
+      "compressedSize" : 1620,
+      "required" : ["jquery.sap.global.js", "sap/ui/fl/changeHandler/Base.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/changeHandler/HandlerController.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 1357,
+      "compressedSize" : 723,
+      "required" : ["jquery.sap.global.js", "sap/ui/rta/changeHandler/Move.js", "sap/ui/rta/changeHandler/Property.js", "sap/ui/rta/changeHandler/AddControl.js", "sap/ui/fl/registry/ChangeRegistry.js", "sap/ui/fl/registry/SimpleChanges.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/changeHandler/Move.js",
+      "description" : "global sap",
+      "size" : 2469,
+      "compressedSize" : 853,
+      "required" : ["jquery.sap.global.js", "sap/ui/fl/changeHandler/Base.js", "sap/ui/fl/Utils.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/changeHandler/Property.js",
+      "description" : "global sap",
+      "size" : 2353,
+      "compressedSize" : 757,
+      "required" : ["jquery.sap.global.js", "sap/ui/fl/changeHandler/Base.js", "sap/ui/fl/Utils.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/library.js",
+      "description" : "Initialization Code and shared classes of library sap.ui.rta.",
+      "size" : 872,
+      "compressedSize" : 470,
+      "required" : ["jquery.sap.global.js", "sap/ui/core/Core.js", "sap/ui/core/library.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/manifest.json",
+      "size" : 796,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle.properties",
+      "size" : 2139,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_ar.properties",
+      "size" : 2894,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_bg.properties",
+      "size" : 4624,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_ca.properties",
+      "size" : 2100,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_cs.properties",
+      "size" : 2202,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_da.properties",
+      "size" : 2072,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_de.properties",
+      "size" : 2208,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_el.properties",
+      "size" : 4336,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_en.properties",
+      "size" : 2017,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_en_US_sappsd.properties",
+      "size" : 5131,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_en_US_saptrc.properties",
+      "size" : 2615,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_es.properties",
+      "size" : 2129,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_et.properties",
+      "size" : 2137,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_fi.properties",
+      "size" : 2280,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_fr.properties",
+      "size" : 2160,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_hi.properties",
+      "size" : 4177,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_hr.properties",
+      "size" : 2154,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_hu.properties",
+      "size" : 2541,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_it.properties",
+      "size" : 2034,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_iw.properties",
+      "size" : 3135,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_ja.properties",
+      "size" : 2639,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_kk.properties",
+      "size" : 4125,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_ko.properties",
+      "size" : 2534,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_lt.properties",
+      "size" : 2239,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_lv.properties",
+      "size" : 2263,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_nl.properties",
+      "size" : 2099,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_no.properties",
+      "size" : 2096,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_pl.properties",
+      "size" : 2186,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_pt.properties",
+      "size" : 2093,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_ro.properties",
+      "size" : 2179,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_ru.properties",
+      "size" : 4020,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_sh.properties",
+      "size" : 2149,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_sk.properties",
+      "size" : 2296,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_sl.properties",
+      "size" : 2171,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_sv.properties",
+      "size" : 2210,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_th.properties",
+      "size" : 4131,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_tr.properties",
+      "size" : 2263,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_uk.properties",
+      "size" : 4224,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_vi.properties",
+      "size" : 2807,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_zh_CN.properties",
+      "size" : 2355,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/rta/messagebundle_zh_TW.properties",
+      "size" : 2400,
+      "required" : [],
+      "includes" : []
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+	"name": "sap.xs.nodejs.debug.service.NodeJsDebugPart",
+	"description": "The Node.js debug part service",
+	"extends": "sap.watt.common.service.ui.Part",
+	"methods": {
+		"getDebugController": {
+			"description": "Returns the debugger controller.",
+			"returns": {
+				"type": "object",
+				"description": "The Node.js debugger controller."
+			}
+		}
+	}
+}

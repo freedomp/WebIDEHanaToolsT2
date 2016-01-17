@@ -1,0 +1,1922 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Library name="sap.ui.comp" xmlns="http://www.sap.com/ui5/ide/templates/xmlview">
+<Template name="sap.ui.comp.filterbar.FilterBar" alias="FilterBar,Bar">
+	<jsTemplate><![CDATA[new sap.ui.comp.filterbar.FilterBar({
+	id: "${id}", // sap.ui.core.ID
+	busy: false, // boolean
+	busyIndicatorDelay: 1000, // int
+	visible: true, // boolean
+	fieldGroupIds: [], // string[], since 1.31
+	width: "100%", // sap.ui.core.CSSSize
+	vSpacing: 1, // float
+	hSpacing: 1, // float
+	position: sap.ui.layout.GridPosition.Left, // sap.ui.layout.GridPosition
+	defaultSpan: "XL3 L3 M6 S12", // sap.ui.layout.GridSpan
+	defaultIndent: "XL0 L0 M0 S0", // sap.ui.layout.GridIndent
+	containerQuery: false, // boolean
+	persistencyKey: undefined, // string
+	advancedMode: false, // boolean
+	expandAdvancedArea: false, // boolean, since 1.30.0
+	searchEnabled: true, // boolean
+	filterBarExpanded: true, // boolean, since 1.26.1
+	considerGroupTitle: false, // boolean, since 1.28.0
+	showClearButton: false, // boolean, since 1.26.1
+	showRestoreButton: true, // boolean, since 1.26.1
+	showGoOnFB: true, // boolean, since 1.28.0
+	showRestoreOnFB: false, // boolean, since 1.28.0
+	showClearOnFB: false, // boolean, since 1.28.0
+	showGoButton: undefined, // boolean, since 1.26.1
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [], // sap.ui.core.Control, since 1.19
+	content: [], // sap.ui.core.Control
+	filterItems: [], // sap.ui.comp.filterbar.FilterItem
+	filterGroupItems: [], // sap.ui.comp.filterbar.FilterGroupItem
+	basicSearch: undefined, // sap.m.SearchField, since 1.30.0
+	validateFieldGroup: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	cancel: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	reset: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	search: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	beforeVariantSave: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	beforeVariantFetch: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this], // since 1.28.13
+	afterVariantLoad: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	filterChange: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	clear: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	initialise: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	afterVariantSave: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this]
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<filterbar/FilterBar xmlns="sap.ui.comp"
+	id="${id}"
+	busy="false"
+	busyIndicatorDelay="1000"
+	visible="true"
+	fieldGroupIds=""
+	width="100%"
+	vSpacing="1"
+	hSpacing="1"
+	position="Left"
+	defaultSpan="XL3 L3 M6 S12"
+	defaultIndent="XL0 L0 M0 S0"
+	containerQuery="false"
+	persistencyKey=""
+	advancedMode="false"
+	expandAdvancedArea="false"
+	searchEnabled="true"
+	filterBarExpanded="true"
+	considerGroupTitle="false"
+	showClearButton="false"
+	showRestoreButton="true"
+	showGoOnFB="true"
+	showRestoreOnFB="false"
+	showClearOnFB="false"
+	showGoButton=""
+	basicSearch=""
+	validateFieldGroup=""
+	cancel=""
+	reset=""
+	search=""
+	beforeVariantSave=""
+	beforeVariantFetch=""
+	afterVariantLoad=""
+	filterChange=""
+	clear=""
+	initialise=""
+	afterVariantSave="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+		<content></content> <!-- sap.ui.core.Control -->
+		<filterItems></filterItems> <!-- sap.ui.comp.filterbar.FilterItem -->
+		<filterGroupItems></filterGroupItems> <!-- sap.ui.comp.filterbar.FilterGroupItem -->
+</filterbar/FilterBar>
+]]></xmlTemplate>
+</Template>
+<Template name="sap.ui.comp.filterbar.FilterGroupItem" alias="FilterGroupItem,Item">
+	<jsTemplate><![CDATA[new sap.ui.comp.filterbar.FilterGroupItem({
+	id: "${id}", // sap.ui.core.ID
+	label: undefined, // string
+	name: undefined, // string
+	mandatory: false, // boolean
+	visible: true, // boolean
+	labelTooltip: undefined, // string
+	partOfCurrentVariant: false, // boolean, since 1.26.1
+	visibleInFilterBar: true, // boolean, since 1.26.1
+	groupTitle: undefined, // string
+	groupName: undefined, // string
+	visibleInAdvancedArea: false, // boolean, since 1.24.0
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [], // sap.ui.core.Control, since 1.19
+	control: undefined, // sap.ui.core.Control
+	change: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this]
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<filterbar/FilterGroupItem xmlns="sap.ui.comp"
+	id="${id}"
+	label=""
+	name=""
+	mandatory="false"
+	visible="true"
+	labelTooltip=""
+	partOfCurrentVariant="false"
+	visibleInFilterBar="true"
+	groupTitle=""
+	groupName=""
+	visibleInAdvancedArea="false"
+	change="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+		<control></control> <!-- sap.ui.core.Control -->
+</filterbar/FilterGroupItem>
+]]></xmlTemplate>
+</Template>
+<Template name="sap.ui.comp.filterbar.FilterItem" alias="FilterItem,Item">
+	<jsTemplate><![CDATA[new sap.ui.comp.filterbar.FilterItem({
+	id: "${id}", // sap.ui.core.ID
+	label: undefined, // string
+	name: undefined, // string
+	mandatory: false, // boolean
+	visible: true, // boolean
+	labelTooltip: undefined, // string
+	partOfCurrentVariant: false, // boolean, since 1.26.1
+	visibleInFilterBar: true, // boolean, since 1.26.1
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [], // sap.ui.core.Control, since 1.19
+	control: undefined, // sap.ui.core.Control
+	change: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this]
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<filterbar/FilterItem xmlns="sap.ui.comp"
+	id="${id}"
+	label=""
+	name=""
+	mandatory="false"
+	visible="true"
+	labelTooltip=""
+	partOfCurrentVariant="false"
+	visibleInFilterBar="true"
+	change="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+		<control></control> <!-- sap.ui.core.Control -->
+</filterbar/FilterItem>
+]]></xmlTemplate>
+</Template>
+<Template name="sap.ui.comp.navpopover.LinkData" alias="LinkData,Data">
+	<jsTemplate><![CDATA[new sap.ui.comp.navpopover.LinkData({
+	id: "${id}", // sap.ui.core.ID
+	text: undefined, // string, since 1.28.0
+	href: undefined, // string, since 1.28.0
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [] // sap.ui.core.Control, since 1.19
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<navpopover/LinkData xmlns="sap.ui.comp"
+	id="${id}"
+	text=""
+	href="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+</navpopover/LinkData>
+]]></xmlTemplate>
+</Template>
+<Template name="sap.ui.comp.navpopover.NavigationPopover" alias="NavigationPopover,Popover">
+	<jsTemplate><![CDATA[new sap.ui.comp.navpopover.NavigationPopover({
+	id: "${id}", // sap.ui.core.ID
+	busy: false, // boolean
+	busyIndicatorDelay: 1000, // int
+	visible: true, // boolean
+	fieldGroupIds: [], // string[], since 1.31
+	placement: sap.m.PlacementType.Right, // sap.m.PlacementType
+	showHeader: true, // boolean
+	title: undefined, // string
+	modal: false, // boolean
+	offsetX: 0, // int
+	offsetY: 0, // int
+	showArrow: true, // boolean, since 1.31
+	contentWidth: undefined, // sap.ui.core.CSSSize, since 1.9.0
+	contentHeight: undefined, // sap.ui.core.CSSSize, since 1.9.0
+	enableScrolling: true, // boolean
+	verticalScrolling: true, // boolean, since 1.15.0
+	horizontalScrolling: true, // boolean, since 1.15.0
+	bounce: undefined, // boolean, since 1.16.5
+	title: undefined, // string, since 1.28.0
+	semanticObjectName: undefined, // string, since 1.28.0
+	semanticAttributes: undefined, // object, since 1.28.0
+	appStateKey: undefined, // string, since 1.28.0
+	mainNavigationId: undefined, // string
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [], // sap.ui.core.Control, since 1.19
+	content: [], // sap.ui.core.Control
+	customHeader: undefined, // sap.ui.core.Control
+	subHeader: undefined, // sap.ui.core.Control, since 1.15.1
+	footer: undefined, // sap.ui.core.Control
+	beginButton: undefined, // sap.ui.core.Control, since 1.15.1
+	endButton: undefined, // sap.ui.core.Control, since 1.15.1
+	availableActions: [], // sap.ui.comp.navpopover.LinkData, since 1.28.0
+	mainNavigation: undefined, // sap.ui.comp.navpopover.LinkData, since 1.28.0
+	ownNavigation: undefined, // sap.ui.comp.navpopover.LinkData, since 1.28.0
+	leftButton: undefined, // sap.m.Button
+	rightButton: undefined, // sap.m.Button
+	initialFocus: undefined, // sap.ui.core.Control, since 1.15.0
+	ariaDescribedBy: [], // sap.ui.core.Control
+	source: undefined, // sap.ui.core.Control, since 1.28.0
+	extraContent: undefined, // sap.ui.core.Control, since 1.28.0
+	component: undefined, // sap.ui.core.Element
+	validateFieldGroup: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	afterOpen: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	afterClose: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	beforeOpen: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	beforeClose: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	targetsObtained: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this], // since 1.28.0
+	navigate: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this] // since 1.28.0
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<navpopover/NavigationPopover xmlns="sap.ui.comp"
+	id="${id}"
+	busy="false"
+	busyIndicatorDelay="1000"
+	visible="true"
+	fieldGroupIds=""
+	placement="Right"
+	showHeader="true"
+	title=""
+	modal="false"
+	offsetX="0"
+	offsetY="0"
+	showArrow="true"
+	contentWidth=""
+	contentHeight=""
+	enableScrolling="true"
+	verticalScrolling="true"
+	horizontalScrolling="true"
+	bounce=""
+	title=""
+	semanticObjectName=""
+	semanticAttributes=""
+	appStateKey=""
+	mainNavigationId=""
+	leftButton=""
+	rightButton=""
+	initialFocus=""
+	ariaDescribedBy=""
+	source=""
+	extraContent=""
+	component=""
+	validateFieldGroup=""
+	afterOpen=""
+	afterClose=""
+	beforeOpen=""
+	beforeClose=""
+	targetsObtained=""
+	navigate="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+		<content></content> <!-- sap.ui.core.Control -->
+		<customHeader></customHeader> <!-- sap.ui.core.Control -->
+		<subHeader></subHeader> <!-- sap.ui.core.Control, since 1.15.1 -->
+		<footer></footer> <!-- sap.ui.core.Control -->
+		<beginButton></beginButton> <!-- sap.ui.core.Control, since 1.15.1 -->
+		<endButton></endButton> <!-- sap.ui.core.Control, since 1.15.1 -->
+		<availableActions></availableActions> <!-- sap.ui.comp.navpopover.LinkData, since 1.28.0 -->
+		<mainNavigation></mainNavigation> <!-- sap.ui.comp.navpopover.LinkData, since 1.28.0 -->
+		<ownNavigation></ownNavigation> <!-- sap.ui.comp.navpopover.LinkData, since 1.28.0 -->
+</navpopover/NavigationPopover>
+]]></xmlTemplate>
+</Template>
+<Template name="sap.ui.comp.navpopover.SemanticObjectController" alias="SemanticObjectController,Controller">
+	<jsTemplate><![CDATA[new sap.ui.comp.navpopover.SemanticObjectController({
+	id: "${id}", // sap.ui.core.ID
+	ignoredFields: undefined, // string, since 1.28.0
+	prefetchNavigationTargets: false, // boolean, since 1.28.0
+	fieldSemanticObjectMap: undefined, // object, since 1.28.0
+	entitySet: undefined, // string, since 1.28.0
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [], // sap.ui.core.Control, since 1.19
+	navigationTargetsObtained: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this], // since 1.28.0
+	beforePopoverOpens: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this], // since 1.28.0
+	navigate: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this], // since 1.28.0
+	prefetchDone: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this] // since 1.28.0
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<navpopover/SemanticObjectController xmlns="sap.ui.comp"
+	id="${id}"
+	ignoredFields=""
+	prefetchNavigationTargets="false"
+	fieldSemanticObjectMap=""
+	entitySet=""
+	navigationTargetsObtained=""
+	beforePopoverOpens=""
+	navigate=""
+	prefetchDone="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+</navpopover/SemanticObjectController>
+]]></xmlTemplate>
+</Template>
+<Template name="sap.ui.comp.navpopover.SmartLink" alias="SmartLink,Link">
+	<jsTemplate><![CDATA[new sap.ui.comp.navpopover.SmartLink({
+	id: "${id}", // sap.ui.core.ID
+	busy: false, // boolean
+	busyIndicatorDelay: 1000, // int
+	visible: true, // boolean
+	fieldGroupIds: [], // string[], since 1.31
+	text: "", // string
+	enabled: true, // boolean
+	target: undefined, // string
+	width: undefined, // sap.ui.core.CSSSize
+	href: undefined, // sap.ui.core.URI
+	wrapping: false, // boolean
+	textAlign: sap.ui.core.TextAlign.Initial, // sap.ui.core.TextAlign, since 1.28.0
+	textDirection: sap.ui.core.TextDirection.Inherit, // sap.ui.core.TextDirection, since 1.28.0
+	subtle: false, // boolean, since 1.22
+	emphasized: false, // boolean, since 1.22
+	semanticObject: undefined, // string, since 1.28.0
+	semanticObjectController: undefined, // any, since 1.28.0
+	fieldName: undefined, // string, since 1.28.0
+	semanticObjectLabel: undefined, // string, since 1.28.0
+	createControlCallback: undefined, // object, since 1.28.0
+	mapFieldToSemanticObject: true, // boolean
+	ignoreLinkRendering: false, // boolean, since 1.28.0
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [], // sap.ui.core.Control, since 1.19
+	innerControl: undefined, // sap.ui.core.Control, since 1.28.0
+	ariaDescribedBy: [], // sap.ui.core.Control
+	ariaLabelledBy: [], // sap.ui.core.Control
+	validateFieldGroup: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	press: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	beforePopoverOpens: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this], // since 1.28.0
+	navigationTargetsObtained: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this], // since 1.28.0
+	innerNavigate: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this] // since 1.28.0
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<navpopover/SmartLink xmlns="sap.ui.comp"
+	id="${id}"
+	busy="false"
+	busyIndicatorDelay="1000"
+	visible="true"
+	fieldGroupIds=""
+	text=""
+	enabled="true"
+	target=""
+	width=""
+	href=""
+	wrapping="false"
+	textAlign="Initial"
+	textDirection="Inherit"
+	subtle="false"
+	emphasized="false"
+	semanticObject=""
+	semanticObjectController=""
+	fieldName=""
+	semanticObjectLabel=""
+	createControlCallback=""
+	mapFieldToSemanticObject="true"
+	ignoreLinkRendering="false"
+	ariaDescribedBy=""
+	ariaLabelledBy=""
+	validateFieldGroup=""
+	press=""
+	beforePopoverOpens=""
+	navigationTargetsObtained=""
+	innerNavigate="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+		<innerControl></innerControl> <!-- sap.ui.core.Control, since 1.28.0 -->
+</navpopover/SmartLink>
+]]></xmlTemplate>
+</Template>
+<Template name="sap.ui.comp.odata.FieldSelector" alias="FieldSelector,Selector">
+	<jsTemplate><![CDATA[new sap.ui.comp.odata.FieldSelector({
+	id: "${id}", // sap.ui.core.ID
+	busy: false, // boolean
+	busyIndicatorDelay: 1000, // int
+	visible: true, // boolean
+	fieldGroupIds: [], // string[], since 1.31
+	showSearchBar: true, // boolean
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [], // sap.ui.core.Control, since 1.19
+	content: undefined, // sap.ui.core.Control
+	validateFieldGroup: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	fieldSelectionChanged: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this]
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<odata/FieldSelector xmlns="sap.ui.comp"
+	id="${id}"
+	busy="false"
+	busyIndicatorDelay="1000"
+	visible="true"
+	fieldGroupIds=""
+	showSearchBar="true"
+	validateFieldGroup=""
+	fieldSelectionChanged="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+		<content></content> <!-- sap.ui.core.Control -->
+</odata/FieldSelector>
+]]></xmlTemplate>
+</Template>
+<Template name="sap.ui.comp.smartfield.Configuration" alias="Configuration">
+	<jsTemplate><![CDATA[new sap.ui.comp.smartfield.Configuration({
+	id: "${id}", // sap.ui.core.ID
+	controlType: undefined, // sap.ui.comp.smartfield.ControlType
+	displayBehaviour: undefined, // sap.ui.comp.smartfield.DisplayBehaviour
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [] // sap.ui.core.Control, since 1.19
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<smartfield/Configuration xmlns="sap.ui.comp"
+	id="${id}"
+	controlType=""
+	displayBehaviour="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+</smartfield/Configuration>
+]]></xmlTemplate>
+</Template>
+<Template name="sap.ui.comp.smartfield.SmartField" alias="SmartField,Field">
+	<jsTemplate><![CDATA[new sap.ui.comp.smartfield.SmartField({
+	id: "${id}", // sap.ui.core.ID
+	busy: false, // boolean
+	busyIndicatorDelay: 1000, // int
+	visible: true, // boolean
+	fieldGroupIds: [], // string[], since 1.31
+	value: undefined, // any
+	enabled: true, // boolean
+	entitySet: undefined, // string
+	editable: true, // boolean
+	contextEditable: true, // boolean, since 1.31.0
+	width: undefined, // sap.ui.core.CSSSize
+	textAlign: sap.ui.core.TextAlign.Initial, // sap.ui.core.TextAlign
+	placeholder: undefined, // string
+	name: undefined, // string
+	valueState: sap.ui.core.ValueState.None, // sap.ui.core.ValueState
+	valueStateText: undefined, // string
+	showValueStateMessage: true, // boolean
+	jsontype: undefined, // sap.ui.comp.smartfield.JSONType
+	mandatory: false, // boolean
+	maxLength: 0, // int
+	showSuggestion: true, // boolean
+	showValueHelp: true, // boolean
+	showLabel: true, // boolean
+	textLabel: undefined, // string
+	tooltipLabel: undefined, // string
+	uomVisible: true, // boolean
+	uomEditable: true, // boolean
+	uomEnabled: true, // boolean
+	url: undefined, // string
+	uomEditState: -1, // int, since 1.31.0
+	controlContext: sap.ui.comp.smartfield.ControlContextType.None, // sap.ui.comp.smartfield.ControlContextType, since 1.31.0
+	proposedControl: sap.ui.comp.smartfield.ControlProposalType.None, // sap.ui.comp.smartfield.ControlProposalType, since 1.31.0
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [], // sap.ui.core.Control, since 1.19
+	configuration: undefined, // sap.ui.comp.smartfield.Configuration
+	validateFieldGroup: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	entitySetFound: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	change: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	initialise: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	visibleChanged: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	editableChanged: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this], // since 1.30.0
+	contextEditableChanged: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this], // since 1.31.0
+	innerControlsCreated: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	valueListChanged: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this] // since 1.31.0
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<smartfield/SmartField xmlns="sap.ui.comp"
+	id="${id}"
+	busy="false"
+	busyIndicatorDelay="1000"
+	visible="true"
+	fieldGroupIds=""
+	value=""
+	enabled="true"
+	entitySet=""
+	editable="true"
+	contextEditable="true"
+	width=""
+	textAlign="Initial"
+	placeholder=""
+	name=""
+	valueState="None"
+	valueStateText=""
+	showValueStateMessage="true"
+	jsontype=""
+	mandatory="false"
+	maxLength="0"
+	showSuggestion="true"
+	showValueHelp="true"
+	showLabel="true"
+	textLabel=""
+	tooltipLabel=""
+	uomVisible="true"
+	uomEditable="true"
+	uomEnabled="true"
+	url=""
+	uomEditState="-1"
+	controlContext="None"
+	proposedControl="None"
+	validateFieldGroup=""
+	entitySetFound=""
+	change=""
+	initialise=""
+	visibleChanged=""
+	editableChanged=""
+	contextEditableChanged=""
+	innerControlsCreated=""
+	valueListChanged="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+		<configuration></configuration> <!-- sap.ui.comp.smartfield.Configuration -->
+</smartfield/SmartField>
+]]></xmlTemplate>
+</Template>
+<Template name="sap.ui.comp.smartfield.SmartLabel" alias="SmartLabel,Label">
+	<jsTemplate><![CDATA[new sap.ui.comp.smartfield.SmartLabel({
+	id: "${id}", // sap.ui.core.ID
+	busy: false, // boolean
+	busyIndicatorDelay: 1000, // int
+	visible: true, // boolean
+	fieldGroupIds: [], // string[], since 1.31
+	design: sap.m.LabelDesign.Standard, // sap.m.LabelDesign
+	text: undefined, // string
+	textAlign: sap.ui.core.TextAlign.Begin, // sap.ui.core.TextAlign
+	textDirection: sap.ui.core.TextDirection.Inherit, // sap.ui.core.TextDirection
+	width: "", // sap.ui.core.CSSSize
+	required: false, // boolean
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [], // sap.ui.core.Control, since 1.19
+	labelFor: undefined, // sap.ui.core.Control
+	validateFieldGroup: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this]
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<smartfield/SmartLabel xmlns="sap.ui.comp"
+	id="${id}"
+	busy="false"
+	busyIndicatorDelay="1000"
+	visible="true"
+	fieldGroupIds=""
+	design="Standard"
+	text=""
+	textAlign="Begin"
+	textDirection="Inherit"
+	width=""
+	required="false"
+	labelFor=""
+	validateFieldGroup="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+</smartfield/SmartLabel>
+]]></xmlTemplate>
+</Template>
+<Template name="sap.ui.comp.smartfilterbar.ControlConfiguration" alias="ControlConfiguration,Configuration">
+	<jsTemplate><![CDATA[new sap.ui.comp.smartfilterbar.ControlConfiguration({
+	id: "${id}", // sap.ui.core.ID
+	key: undefined, // string
+	groupId: undefined, // string
+	label: undefined, // string
+	visible: true, // boolean
+	hasValueHelpDialog: true, // boolean
+	controlType: "auto", // string
+	filterType: "auto", // string
+	index: undefined, // any
+	hasTypeAhead: true, // boolean
+	mandatory: "auto", // string
+	width: undefined, // string
+	visibleInAdvancedArea: false, // boolean
+	preventInitialDataFetchInValueHelpDialog: true, // boolean
+	displayBehaviour: "auto", // string
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [], // sap.ui.core.Control, since 1.19
+	defaultFilterValues: [], // sap.ui.comp.smartfilterbar.SelectOption
+	customControl: undefined, // sap.ui.core.Control
+	change: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this]
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<smartfilterbar/ControlConfiguration xmlns="sap.ui.comp"
+	id="${id}"
+	key=""
+	groupId=""
+	label=""
+	visible="true"
+	hasValueHelpDialog="true"
+	controlType="auto"
+	filterType="auto"
+	index="undefined"
+	hasTypeAhead="true"
+	mandatory="auto"
+	width=""
+	visibleInAdvancedArea="false"
+	preventInitialDataFetchInValueHelpDialog="true"
+	displayBehaviour="auto"
+	change="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+		<defaultFilterValues></defaultFilterValues> <!-- sap.ui.comp.smartfilterbar.SelectOption -->
+		<customControl></customControl> <!-- sap.ui.core.Control -->
+</smartfilterbar/ControlConfiguration>
+]]></xmlTemplate>
+</Template>
+<Template name="sap.ui.comp.smartfilterbar.GroupConfiguration" alias="GroupConfiguration,Configuration">
+	<jsTemplate><![CDATA[new sap.ui.comp.smartfilterbar.GroupConfiguration({
+	id: "${id}", // sap.ui.core.ID
+	key: undefined, // string
+	index: undefined, // any
+	label: undefined, // any
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [], // sap.ui.core.Control, since 1.19
+	change: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this]
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<smartfilterbar/GroupConfiguration xmlns="sap.ui.comp"
+	id="${id}"
+	key=""
+	index="undefined"
+	label="undefined"
+	change="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+</smartfilterbar/GroupConfiguration>
+]]></xmlTemplate>
+</Template>
+<Template name="sap.ui.comp.smartfilterbar.SelectOption" alias="SelectOption,Option">
+	<jsTemplate><![CDATA[new sap.ui.comp.smartfilterbar.SelectOption({
+	id: "${id}", // sap.ui.core.ID
+	sign: "I", // string
+	operator: "EQ", // string
+	low: undefined, // string
+	high: undefined, // string
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [] // sap.ui.core.Control, since 1.19
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<smartfilterbar/SelectOption xmlns="sap.ui.comp"
+	id="${id}"
+	sign="I"
+	operator="EQ"
+	low=""
+	high="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+</smartfilterbar/SelectOption>
+]]></xmlTemplate>
+</Template>
+<Template name="sap.ui.comp.smartfilterbar.SmartFilterBar" alias="SmartFilterBar,Bar">
+	<jsTemplate><![CDATA[new sap.ui.comp.smartfilterbar.SmartFilterBar({
+	id: "${id}", // sap.ui.core.ID
+	busy: false, // boolean
+	busyIndicatorDelay: 1000, // int
+	visible: true, // boolean
+	fieldGroupIds: [], // string[], since 1.31
+	width: "100%", // sap.ui.core.CSSSize
+	vSpacing: 1, // float
+	hSpacing: 1, // float
+	position: sap.ui.layout.GridPosition.Left, // sap.ui.layout.GridPosition
+	defaultSpan: "XL3 L3 M6 S12", // sap.ui.layout.GridSpan
+	defaultIndent: "XL0 L0 M0 S0", // sap.ui.layout.GridIndent
+	containerQuery: false, // boolean
+	persistencyKey: undefined, // string
+	advancedMode: false, // boolean
+	expandAdvancedArea: false, // boolean, since 1.30.0
+	searchEnabled: true, // boolean
+	filterBarExpanded: true, // boolean, since 1.26.1
+	considerGroupTitle: false, // boolean, since 1.28.0
+	showClearButton: false, // boolean, since 1.26.1
+	showRestoreButton: true, // boolean, since 1.26.1
+	showGoOnFB: true, // boolean, since 1.28.0
+	showRestoreOnFB: false, // boolean, since 1.28.0
+	showClearOnFB: false, // boolean, since 1.28.0
+	showGoButton: undefined, // boolean, since 1.26.1
+	entityType: undefined, // string
+	resourceUri: undefined, // string
+	basicSearchFieldName: undefined, // string
+	enableBasicSearch: false, // boolean
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [], // sap.ui.core.Control, since 1.19
+	content: [], // sap.ui.core.Control
+	filterItems: [], // sap.ui.comp.filterbar.FilterItem
+	filterGroupItems: [], // sap.ui.comp.filterbar.FilterGroupItem
+	controlConfiguration: [], // sap.ui.comp.smartfilterbar.ControlConfiguration
+	groupConfiguration: [], // sap.ui.comp.smartfilterbar.GroupConfiguration
+	basicSearch: undefined, // sap.m.SearchField, since 1.30.0
+	validateFieldGroup: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	cancel: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	reset: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	search: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	beforeVariantSave: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	beforeVariantFetch: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this], // since 1.28.13
+	afterVariantLoad: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	filterChange: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	clear: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	initialise: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	afterVariantSave: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this]
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<smartfilterbar/SmartFilterBar xmlns="sap.ui.comp"
+	id="${id}"
+	busy="false"
+	busyIndicatorDelay="1000"
+	visible="true"
+	fieldGroupIds=""
+	width="100%"
+	vSpacing="1"
+	hSpacing="1"
+	position="Left"
+	defaultSpan="XL3 L3 M6 S12"
+	defaultIndent="XL0 L0 M0 S0"
+	containerQuery="false"
+	persistencyKey=""
+	advancedMode="false"
+	expandAdvancedArea="false"
+	searchEnabled="true"
+	filterBarExpanded="true"
+	considerGroupTitle="false"
+	showClearButton="false"
+	showRestoreButton="true"
+	showGoOnFB="true"
+	showRestoreOnFB="false"
+	showClearOnFB="false"
+	showGoButton=""
+	entityType=""
+	resourceUri=""
+	basicSearchFieldName=""
+	enableBasicSearch="false"
+	basicSearch=""
+	validateFieldGroup=""
+	cancel=""
+	reset=""
+	search=""
+	beforeVariantSave=""
+	beforeVariantFetch=""
+	afterVariantLoad=""
+	filterChange=""
+	clear=""
+	initialise=""
+	afterVariantSave="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+		<content></content> <!-- sap.ui.core.Control -->
+		<filterItems></filterItems> <!-- sap.ui.comp.filterbar.FilterItem -->
+		<filterGroupItems></filterGroupItems> <!-- sap.ui.comp.filterbar.FilterGroupItem -->
+		<controlConfiguration></controlConfiguration> <!-- sap.ui.comp.smartfilterbar.ControlConfiguration -->
+		<groupConfiguration></groupConfiguration> <!-- sap.ui.comp.smartfilterbar.GroupConfiguration -->
+</smartfilterbar/SmartFilterBar>
+]]></xmlTemplate>
+</Template>
+<Template name="sap.ui.comp.smartform.Group" alias="Group">
+	<jsTemplate><![CDATA[new sap.ui.comp.smartform.Group({
+	id: "${id}", // sap.ui.core.ID
+	expanded: true, // boolean
+	expandable: false, // boolean
+	visible: true, // boolean
+	useHorizontalLayout: undefined, // boolean
+	horizontalLayoutGroupElementMinWidth: undefined, // int
+	label: undefined, // string
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [], // sap.ui.core.Control, since 1.19
+	formElements: [], // sap.ui.layout.form.FormElement
+	title: undefined, // sap.ui.core.Title
+	groupElements: [], // sap.ui.comp.smartform.GroupElement
+	layout: undefined // sap.ui.layout.GridData
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<smartform/Group xmlns="sap.ui.comp"
+	id="${id}"
+	expanded="true"
+	expandable="false"
+	visible="true"
+	useHorizontalLayout=""
+	horizontalLayoutGroupElementMinWidth=""
+	label="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+		<formElements></formElements> <!-- sap.ui.layout.form.FormElement -->
+		<title></title> <!-- sap.ui.core.Title -->
+		<groupElements></groupElements> <!-- sap.ui.comp.smartform.GroupElement -->
+		<layout></layout> <!-- sap.ui.layout.GridData -->
+</smartform/Group>
+]]></xmlTemplate>
+</Template>
+<Template name="sap.ui.comp.smartform.GroupElement" alias="GroupElement,Element">
+	<jsTemplate><![CDATA[new sap.ui.comp.smartform.GroupElement({
+	id: "${id}", // sap.ui.core.ID
+	visible: true, // boolean
+	useHorizontalLayout: undefined, // boolean
+	horizontalLayoutGroupElementMinWidth: undefined, // int
+	elementForLabel: 0, // int
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [], // sap.ui.core.Control, since 1.19
+	label: undefined, // sap.ui.core.Label
+	fields: [], // sap.ui.core.Control
+	elements: [], // sap.ui.core.Control
+	visibleChanged: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this]
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<smartform/GroupElement xmlns="sap.ui.comp"
+	id="${id}"
+	visible="true"
+	useHorizontalLayout=""
+	horizontalLayoutGroupElementMinWidth=""
+	elementForLabel="0"
+	visibleChanged="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+		<label></label> <!-- sap.ui.core.Label -->
+		<fields></fields> <!-- sap.ui.core.Control -->
+		<elements></elements> <!-- sap.ui.core.Control -->
+</smartform/GroupElement>
+]]></xmlTemplate>
+</Template>
+<Template name="sap.ui.comp.smartform.Layout" alias="Layout">
+	<jsTemplate><![CDATA[new sap.ui.comp.smartform.Layout({
+	id: "${id}", // sap.ui.core.ID
+	labelSpanL: undefined, // int
+	labelSpanM: undefined, // int
+	labelSpanS: undefined, // int
+	emptySpanL: undefined, // int
+	emptySpanM: undefined, // int
+	emptySpanS: undefined, // int
+	columnsL: undefined, // int
+	columnsM: undefined, // int
+	breakpointL: undefined, // int
+	breakpointM: undefined, // int
+	gridDataSpan: "", // sap.ui.layout.GridSpan
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [] // sap.ui.core.Control, since 1.19
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<smartform/Layout xmlns="sap.ui.comp"
+	id="${id}"
+	labelSpanL=""
+	labelSpanM=""
+	labelSpanS=""
+	emptySpanL=""
+	emptySpanM=""
+	emptySpanS=""
+	columnsL=""
+	columnsM=""
+	breakpointL=""
+	breakpointM=""
+	gridDataSpan="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+</smartform/Layout>
+]]></xmlTemplate>
+</Template>
+<Template name="sap.ui.comp.smartform.SmartForm" alias="SmartForm,Form">
+	<jsTemplate><![CDATA[new sap.ui.comp.smartform.SmartForm({
+	id: "${id}", // sap.ui.core.ID
+	busy: false, // boolean
+	busyIndicatorDelay: 1000, // int
+	visible: true, // boolean
+	fieldGroupIds: [], // string[], since 1.31
+	title: undefined, // string
+	useHorizontalLayout: undefined, // boolean
+	horizontalLayoutGroupElementMinWidth: undefined, // int
+	checkButton: false, // boolean
+	entityType: undefined, // string
+	expandable: false, // boolean
+	expanded: undefined, // boolean
+	editTogglable: false, // boolean
+	editable: false, // boolean
+	ignoredFields: undefined, // string
+	flexEnabled: true, // boolean
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [], // sap.ui.core.Control, since 1.19
+	groups: [], // sap.ui.comp.smartform.Group
+	layout: undefined, // sap.ui.comp.smartform.Layout
+	semanticObjectController: undefined, // sap.ui.comp.navpopover.SemanticObjectController
+	customToolbar: undefined, // sap.m.Toolbar
+	validateFieldGroup: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	editToggled: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	checked: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this]
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<smartform/SmartForm xmlns="sap.ui.comp"
+	id="${id}"
+	busy="false"
+	busyIndicatorDelay="1000"
+	visible="true"
+	fieldGroupIds=""
+	title=""
+	useHorizontalLayout=""
+	horizontalLayoutGroupElementMinWidth=""
+	checkButton="false"
+	entityType=""
+	expandable="false"
+	expanded=""
+	editTogglable="false"
+	editable="false"
+	ignoredFields=""
+	flexEnabled="true"
+	validateFieldGroup=""
+	editToggled=""
+	checked="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+		<groups></groups> <!-- sap.ui.comp.smartform.Group -->
+		<layout></layout> <!-- sap.ui.comp.smartform.Layout -->
+		<semanticObjectController></semanticObjectController> <!-- sap.ui.comp.navpopover.SemanticObjectController -->
+		<customToolbar></customToolbar> <!-- sap.m.Toolbar -->
+</smartform/SmartForm>
+]]></xmlTemplate>
+</Template>
+<Template name="sap.ui.comp.smartform.flexibility.DialogContent" alias="DialogContent,Content">
+	<jsTemplate><![CDATA[new sap.ui.comp.smartform.flexibility.DialogContent({
+	id: "${id}", // sap.ui.core.ID
+	busy: false, // boolean
+	busyIndicatorDelay: 1000, // int
+	visible: true, // boolean
+	fieldGroupIds: [], // string[], since 1.31
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [], // sap.ui.core.Control, since 1.19
+	content: undefined, // sap.ui.core.Control
+	validateFieldGroup: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this]
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<smartform/flexibility/DialogContent xmlns="sap.ui.comp"
+	id="${id}"
+	busy="false"
+	busyIndicatorDelay="1000"
+	visible="true"
+	fieldGroupIds=""
+	validateFieldGroup="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+		<content></content> <!-- sap.ui.core.Control -->
+</smartform/flexibility/DialogContent>
+]]></xmlTemplate>
+</Template>
+<Template name="sap.ui.comp.smartform.flexibility.FieldList" alias="FieldList,List">
+	<jsTemplate><![CDATA[new sap.ui.comp.smartform.flexibility.FieldList({
+	id: "${id}", // sap.ui.core.ID
+	busy: false, // boolean
+	busyIndicatorDelay: 1000, // int
+	visible: true, // boolean
+	fieldGroupIds: [], // string[], since 1.31
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [], // sap.ui.core.Control, since 1.19
+	nodes: [], // sap.ui.comp.smartform.flexibility.FieldListNode
+	validateFieldGroup: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	selectionChanged: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	labelChanged: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	nodeHidden: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this]
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<smartform/flexibility/FieldList xmlns="sap.ui.comp"
+	id="${id}"
+	busy="false"
+	busyIndicatorDelay="1000"
+	visible="true"
+	fieldGroupIds=""
+	validateFieldGroup=""
+	selectionChanged=""
+	labelChanged=""
+	nodeHidden="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+		<nodes></nodes> <!-- sap.ui.comp.smartform.flexibility.FieldListNode -->
+</smartform/flexibility/FieldList>
+]]></xmlTemplate>
+</Template>
+<Template name="sap.ui.comp.smartform.flexibility.FieldListNode" alias="FieldListNode,Node">
+	<jsTemplate><![CDATA[new sap.ui.comp.smartform.flexibility.FieldListNode({
+	id: "${id}", // sap.ui.core.ID
+	busy: false, // boolean
+	busyIndicatorDelay: 1000, // int
+	visible: true, // boolean
+	fieldGroupIds: [], // string[], since 1.31
+	label: undefined, // string
+	isVisible: undefined, // boolean
+	isSelected: undefined, // boolean
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [], // sap.ui.core.Control, since 1.19
+	nodes: [], // sap.ui.comp.smartform.flexibility.FieldListNode
+	layout: undefined, // sap.ui.core.Control
+	validateFieldGroup: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	selected: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	labelChanged: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	nodeHidden: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this]
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<smartform/flexibility/FieldListNode xmlns="sap.ui.comp"
+	id="${id}"
+	busy="false"
+	busyIndicatorDelay="1000"
+	visible="true"
+	fieldGroupIds=""
+	label=""
+	isVisible=""
+	isSelected=""
+	validateFieldGroup=""
+	selected=""
+	labelChanged=""
+	nodeHidden="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+		<nodes></nodes> <!-- sap.ui.comp.smartform.flexibility.FieldListNode -->
+		<layout></layout> <!-- sap.ui.core.Control -->
+</smartform/flexibility/FieldListNode>
+]]></xmlTemplate>
+</Template>
+<Template name="sap.ui.comp.smartform.flexibility.Input" alias="Input">
+	<jsTemplate><![CDATA[new sap.ui.comp.smartform.flexibility.Input({
+	id: "${id}", // sap.ui.core.ID
+	busy: false, // boolean
+	busyIndicatorDelay: 1000, // int
+	visible: true, // boolean
+	fieldGroupIds: [], // string[], since 1.31
+	value: undefined, // string
+	width: undefined, // sap.ui.core.CSSSize
+	enabled: true, // boolean
+	valueState: sap.ui.core.ValueState.None, // sap.ui.core.ValueState
+	name: undefined, // string
+	placeholder: undefined, // string
+	editable: true, // boolean, since 1.12.0
+	valueStateText: undefined, // string, since 1.26.0
+	showValueStateMessage: true, // boolean, since 1.26.0
+	textAlign: sap.ui.core.TextAlign.Initial, // sap.ui.core.TextAlign, since 1.26.0
+	textDirection: sap.ui.core.TextDirection.Inherit, // sap.ui.core.TextDirection, since 1.28.0
+	type: sap.m.InputType.Text, // sap.m.InputType
+	maxLength: 0, // int
+	dateFormat: "YYYY-MM-dd", // string
+	showValueHelp: false, // boolean, since 1.16
+	showSuggestion: false, // boolean, since 1.16.1
+	valueHelpOnly: false, // boolean, since 1.21.0
+	filterSuggests: true, // boolean
+	maxSuggestionWidth: undefined, // sap.ui.core.CSSSize, since 1.21.1
+	startSuggestion: 1, // int, since 1.21.2
+	showTableSuggestionValueHelp: true, // boolean, since 1.22.1
+	description: undefined, // string
+	fieldWidth: "50%", // sap.ui.core.CSSSize
+	valueLiveUpdate: false, // boolean, since 1.24
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [], // sap.ui.core.Control, since 1.19
+	suggestionItems: [], // sap.ui.core.Item, since 1.16.1
+	suggestionColumns: [], // sap.m.Column, since 1.21.1
+	suggestionRows: [], // sap.m.ColumnListItem, since 1.21.1
+	ariaLabelledBy: [], // sap.ui.core.Control, since 1.27.0
+	validateFieldGroup: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	change: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	liveChange: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	valueHelpRequest: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this], // since 1.16
+	suggest: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this], // since 1.16.1
+	suggestionItemSelected: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this], // since 1.16.3
+	selectedByKeyboard: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this]
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<smartform/flexibility/Input xmlns="sap.ui.comp"
+	id="${id}"
+	busy="false"
+	busyIndicatorDelay="1000"
+	visible="true"
+	fieldGroupIds=""
+	value=""
+	width=""
+	enabled="true"
+	valueState="None"
+	name=""
+	placeholder=""
+	editable="true"
+	valueStateText=""
+	showValueStateMessage="true"
+	textAlign="Initial"
+	textDirection="Inherit"
+	type="Text"
+	maxLength="0"
+	dateFormat="YYYY-MM-dd"
+	showValueHelp="false"
+	showSuggestion="false"
+	valueHelpOnly="false"
+	filterSuggests="true"
+	maxSuggestionWidth=""
+	startSuggestion="1"
+	showTableSuggestionValueHelp="true"
+	description=""
+	fieldWidth="50%"
+	valueLiveUpdate="false"
+	ariaLabelledBy=""
+	validateFieldGroup=""
+	change=""
+	liveChange=""
+	valueHelpRequest=""
+	suggest=""
+	suggestionItemSelected=""
+	selectedByKeyboard="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+		<suggestionItems></suggestionItems> <!-- sap.ui.core.Item, since 1.16.1 -->
+		<suggestionColumns></suggestionColumns> <!-- sap.m.Column, since 1.21.1 -->
+		<suggestionRows></suggestionRows> <!-- sap.m.ColumnListItem, since 1.21.1 -->
+</smartform/flexibility/Input>
+]]></xmlTemplate>
+</Template>
+<Template name="sap.ui.comp.smarttable.SmartTable" alias="SmartTable,Table">
+	<jsTemplate><![CDATA[new sap.ui.comp.smarttable.SmartTable({
+	id: "${id}", // sap.ui.core.ID
+	busy: false, // boolean
+	busyIndicatorDelay: 1000, // int
+	visible: true, // boolean
+	fieldGroupIds: [], // string[], since 1.31
+	height: "", // sap.ui.core.CSSSize, since 1.9.1
+	width: "", // sap.ui.core.CSSSize, since 1.9.1
+	displayInline: false, // boolean
+	direction: sap.m.FlexDirection.Row, // sap.m.FlexDirection
+	fitContainer: false, // boolean
+	renderType: sap.m.FlexRendertype.Div, // sap.m.FlexRendertype
+	justifyContent: sap.m.FlexJustifyContent.Start, // sap.m.FlexJustifyContent
+	alignItems: sap.m.FlexAlignItems.Stretch, // sap.m.FlexAlignItems
+	entitySet: undefined, // string, since 1.26.0
+	smartFilterId: undefined, // string, since 1.26.0
+	ignoredFields: undefined, // string, since 1.26.0
+	initiallyVisibleFields: undefined, // string, since 1.32.0
+	requestAtLeastFields: undefined, // string, since 1.32.0
+	ignoreFromPersonalisation: undefined, // string, since 1.32.0
+	tableType: undefined, // sap.ui.comp.smarttable.TableType, since 1.26.0
+	useVariantManagement: true, // boolean, since 1.26.0
+	useExportToExcel: true, // boolean, since 1.26.0
+	useTablePersonalisation: true, // boolean, since 1.26.0
+	showRowCount: true, // boolean, since 1.26.0
+	header: undefined, // string, since 1.26.0
+	toolbarStyleClass: undefined, // string, since 1.26.0
+	enableCustomFilter: true, // boolean, since 1.26.0
+	persistencyKey: undefined, // string, since 1.26.0
+	useOnlyOneSolidToolbar: false, // boolean, since 1.26.0
+	currentVariantId: undefined, // string, since 1.28.0
+	editable: false, // boolean, since 1.28.0
+	enableAutoBinding: false, // boolean, since 1.28.0
+	tableBindingPath: undefined, // string, since 1.28.0
+	editTogglable: false, // boolean, since 1.28.0
+	demandPopin: false, // boolean, since 1.30.0
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [], // sap.ui.core.Control, since 1.19
+	items: [], // sap.ui.core.Control
+	customToolbar: undefined, // sap.m.Toolbar, since 1.26.0
+	semanticObjectController: undefined, // sap.ui.comp.navpopover.SemanticObjectController, since 1.28.0
+	noData: undefined, // sap.ui.core.Control, since 1.32.0
+	validateFieldGroup: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	initialise: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this], // since 1.26.0
+	beforeRebindTable: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this], // since 1.26.0
+	editToggled: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this], // since 1.28.0
+	dataReceived: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this], // since 1.28.0
+	afterVariantInitialise: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this], // since 1.28.0
+	afterVariantSave: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this], // since 1.28.0
+	afterVariantApply: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this], // since 1.28.0
+	showOverlay: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this] // since 1.32.0
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<smarttable/SmartTable xmlns="sap.ui.comp"
+	id="${id}"
+	busy="false"
+	busyIndicatorDelay="1000"
+	visible="true"
+	fieldGroupIds=""
+	height=""
+	width=""
+	displayInline="false"
+	direction="Row"
+	fitContainer="false"
+	renderType="Div"
+	justifyContent="Start"
+	alignItems="Stretch"
+	entitySet=""
+	smartFilterId=""
+	ignoredFields=""
+	initiallyVisibleFields=""
+	requestAtLeastFields=""
+	ignoreFromPersonalisation=""
+	tableType=""
+	useVariantManagement="true"
+	useExportToExcel="true"
+	useTablePersonalisation="true"
+	showRowCount="true"
+	header=""
+	toolbarStyleClass=""
+	enableCustomFilter="true"
+	persistencyKey=""
+	useOnlyOneSolidToolbar="false"
+	currentVariantId=""
+	editable="false"
+	enableAutoBinding="false"
+	tableBindingPath=""
+	editTogglable="false"
+	demandPopin="false"
+	validateFieldGroup=""
+	initialise=""
+	beforeRebindTable=""
+	editToggled=""
+	dataReceived=""
+	afterVariantInitialise=""
+	afterVariantSave=""
+	afterVariantApply=""
+	showOverlay="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+		<items></items> <!-- sap.ui.core.Control -->
+		<customToolbar></customToolbar> <!-- sap.m.Toolbar, since 1.26.0 -->
+		<semanticObjectController></semanticObjectController> <!-- sap.ui.comp.navpopover.SemanticObjectController, since 1.28.0 -->
+		<noData></noData> <!-- sap.ui.core.Control, since 1.32.0 -->
+</smarttable/SmartTable>
+]]></xmlTemplate>
+</Template>
+<Template name="sap.ui.comp.smartvariants.PersonalizableInfo" alias="PersonalizableInfo,Info">
+	<jsTemplate><![CDATA[new sap.ui.comp.smartvariants.PersonalizableInfo({
+	id: "${id}", // sap.ui.core.ID
+	type: undefined, // string
+	dataSource: undefined, // string
+	keyName: undefined, // string
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [], // sap.ui.core.Control, since 1.19
+	control: undefined // sap.ui.core.Control
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<smartvariants/PersonalizableInfo xmlns="sap.ui.comp"
+	id="${id}"
+	type=""
+	dataSource=""
+	keyName=""
+	control="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+</smartvariants/PersonalizableInfo>
+]]></xmlTemplate>
+</Template>
+<Template name="sap.ui.comp.smartvariants.SmartVariantManagementUi2" alias="SmartVariantManagementUi2,Ui2">
+	<jsTemplate><![CDATA[new sap.ui.comp.smartvariants.SmartVariantManagementUi2({
+	id: "${id}", // sap.ui.core.ID
+	busy: false, // boolean
+	busyIndicatorDelay: 1000, // int
+	visible: true, // boolean
+	fieldGroupIds: [], // string[], since 1.31
+	initialSelectionKey: undefined, // string, since 1.22.0
+	enabled: true, // boolean, since 1.22.0
+	defaultVariantKey: undefined, // string, since 1.22.0
+	selectionKey: undefined, // string, since 1.24.0
+	showCreateTile: false, // boolean, since 1.26.0
+	showExecuteOnSelection: false, // boolean, since 1.26.0
+	showShare: false, // boolean, since 1.26.0
+	lifecycleSupport: false, // boolean, since 1.26.0
+	standardItemText: undefined, // string, since 1.28.0
+	industrySolutionMode: false, // boolean, since 1.32.0
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [], // sap.ui.core.Control, since 1.19
+	items: [], // sap.ui.core.Item, since 1.22.0
+	variantItems: [], // sap.ui.comp.variants.VariantItem, since 1.26.0
+	personalizableControl: undefined, // sap.ui.comp.smartvariants.PersonalizableInfo
+	validateFieldGroup: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	save: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this], // since 1.22.0
+	manage: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this], // since 1.22.0
+	select: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this], // since 1.22.0
+	initialise: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	afterSave: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this]
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<smartvariants/SmartVariantManagementUi2 xmlns="sap.ui.comp"
+	id="${id}"
+	busy="false"
+	busyIndicatorDelay="1000"
+	visible="true"
+	fieldGroupIds=""
+	initialSelectionKey=""
+	enabled="true"
+	defaultVariantKey=""
+	selectionKey=""
+	showCreateTile="false"
+	showExecuteOnSelection="false"
+	showShare="false"
+	lifecycleSupport="false"
+	standardItemText=""
+	industrySolutionMode="false"
+	validateFieldGroup=""
+	save=""
+	manage=""
+	select=""
+	initialise=""
+	afterSave="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+		<items></items> <!-- sap.ui.core.Item, since 1.22.0 -->
+		<variantItems></variantItems> <!-- sap.ui.comp.variants.VariantItem, since 1.26.0 -->
+		<personalizableControl></personalizableControl> <!-- sap.ui.comp.smartvariants.PersonalizableInfo -->
+</smartvariants/SmartVariantManagementUi2>
+]]></xmlTemplate>
+</Template>
+<Template name="sap.ui.comp.transport.TransportDialog" alias="TransportDialog,Dialog">
+	<jsTemplate><![CDATA[new sap.ui.comp.transport.TransportDialog({
+	id: "${id}", // sap.ui.core.ID
+	busy: false, // boolean
+	busyIndicatorDelay: 1000, // int
+	visible: true, // boolean
+	fieldGroupIds: [], // string[], since 1.31
+	icon: undefined, // sap.ui.core.URI
+	title: undefined, // string
+	showHeader: true, // boolean, since 1.15.1
+	type: sap.m.DialogType.Standard, // sap.m.DialogType
+	state: sap.ui.core.ValueState.None, // sap.ui.core.ValueState, since 1.11.2
+	stretchOnPhone: false, // boolean, since 1.11.2
+	stretch: false, // boolean, since 1.13.1
+	contentWidth: undefined, // sap.ui.core.CSSSize, since 1.12.1
+	contentHeight: undefined, // sap.ui.core.CSSSize, since 1.12.1
+	horizontalScrolling: true, // boolean, since 1.15.1
+	verticalScrolling: true, // boolean, since 1.15.1
+	resizable: false, // boolean, since 1.30
+	draggable: false, // boolean, since 1.30
+	pkg: undefined, // string
+	transports: undefined, // any
+	lrepObject: undefined, // any
+	hidePackage: undefined, // boolean
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [], // sap.ui.core.Control, since 1.19
+	content: [], // sap.ui.core.Control
+	subHeader: undefined, // sap.m.IBar, since 1.12.2
+	customHeader: undefined, // sap.m.IBar, since 1.15.1
+	beginButton: undefined, // sap.m.Button, since 1.15.1
+	endButton: undefined, // sap.m.Button, since 1.15.1
+	buttons: [], // sap.m.Button, since 1.21.1
+	leftButton: undefined, // sap.m.Button
+	rightButton: undefined, // sap.m.Button
+	initialFocus: undefined, // sap.ui.core.Control, since 1.15.0
+	ariaDescribedBy: [], // sap.ui.core.Control
+	validateFieldGroup: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	beforeOpen: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	afterOpen: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	beforeClose: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	afterClose: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	ok: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	cancel: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this]
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<transport/TransportDialog xmlns="sap.ui.comp"
+	id="${id}"
+	busy="false"
+	busyIndicatorDelay="1000"
+	visible="true"
+	fieldGroupIds=""
+	icon=""
+	title=""
+	showHeader="true"
+	type="Standard"
+	state="None"
+	stretchOnPhone="false"
+	stretch="false"
+	contentWidth=""
+	contentHeight=""
+	horizontalScrolling="true"
+	verticalScrolling="true"
+	resizable="false"
+	draggable="false"
+	pkg=""
+	transports=""
+	lrepObject=""
+	hidePackage=""
+	leftButton=""
+	rightButton=""
+	initialFocus=""
+	ariaDescribedBy=""
+	validateFieldGroup=""
+	beforeOpen=""
+	afterOpen=""
+	beforeClose=""
+	afterClose=""
+	ok=""
+	cancel="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+		<content></content> <!-- sap.ui.core.Control -->
+		<subHeader></subHeader> <!-- sap.m.IBar, since 1.12.2 -->
+		<customHeader></customHeader> <!-- sap.m.IBar, since 1.15.1 -->
+		<beginButton></beginButton> <!-- sap.m.Button, since 1.15.1 -->
+		<endButton></endButton> <!-- sap.m.Button, since 1.15.1 -->
+		<buttons></buttons> <!-- sap.m.Button, since 1.21.1 -->
+</transport/TransportDialog>
+]]></xmlTemplate>
+</Template>
+<Template name="sap.ui.comp.valuehelpdialog.ValueHelpDialog" alias="ValueHelpDialog,Dialog">
+	<jsTemplate><![CDATA[new sap.ui.comp.valuehelpdialog.ValueHelpDialog({
+	id: "${id}", // sap.ui.core.ID
+	busy: false, // boolean
+	busyIndicatorDelay: 1000, // int
+	visible: true, // boolean
+	fieldGroupIds: [], // string[], since 1.31
+	icon: undefined, // sap.ui.core.URI
+	title: undefined, // string
+	showHeader: true, // boolean, since 1.15.1
+	type: sap.m.DialogType.Standard, // sap.m.DialogType
+	state: sap.ui.core.ValueState.None, // sap.ui.core.ValueState, since 1.11.2
+	stretchOnPhone: false, // boolean, since 1.11.2
+	stretch: false, // boolean, since 1.13.1
+	contentWidth: undefined, // sap.ui.core.CSSSize, since 1.12.1
+	contentHeight: undefined, // sap.ui.core.CSSSize, since 1.12.1
+	horizontalScrolling: true, // boolean, since 1.15.1
+	verticalScrolling: true, // boolean, since 1.15.1
+	resizable: false, // boolean, since 1.30
+	draggable: false, // boolean, since 1.30
+	basicSearchText: undefined, // string, since 1.24
+	supportMultiselect: true, // boolean, since 1.24
+	supportRanges: false, // boolean, since 1.24
+	supportRangesOnly: false, // boolean, since 1.24
+	key: undefined, // string, since 1.24
+	keys: undefined, // string[], since 1.24
+	descriptionKey: undefined, // string, since 1.24
+	maxIncludeRanges: "-1", // string, since 1.24
+	maxExcludeRanges: "-1", // string, since 1.24
+	displayFormat: undefined, // string, since 1.24
+	tokenDisplayBehaviour: undefined, // string, since 1.24
+	filterMode: false, // boolean, since 1.24
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [], // sap.ui.core.Control, since 1.19
+	content: [], // sap.ui.core.Control
+	subHeader: undefined, // sap.m.IBar, since 1.12.2
+	customHeader: undefined, // sap.m.IBar, since 1.15.1
+	beginButton: undefined, // sap.m.Button, since 1.15.1
+	endButton: undefined, // sap.m.Button, since 1.15.1
+	buttons: [], // sap.m.Button, since 1.21.1
+	filterBar: undefined, // sap.ui.comp.filterbar.FilterBar
+	leftButton: undefined, // sap.m.Button
+	rightButton: undefined, // sap.m.Button
+	initialFocus: undefined, // sap.ui.core.Control, since 1.15.0
+	ariaDescribedBy: [], // sap.ui.core.Control
+	validateFieldGroup: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	beforeOpen: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	afterOpen: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	beforeClose: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	afterClose: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	ok: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this], // since 1.24
+	cancel: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this], // since 1.24
+	selectionChange: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this], // since 1.32
+	tokenRemove: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this], // since 1.32
+	updateSelection: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this] // since 1.32
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<valuehelpdialog/ValueHelpDialog xmlns="sap.ui.comp"
+	id="${id}"
+	busy="false"
+	busyIndicatorDelay="1000"
+	visible="true"
+	fieldGroupIds=""
+	icon=""
+	title=""
+	showHeader="true"
+	type="Standard"
+	state="None"
+	stretchOnPhone="false"
+	stretch="false"
+	contentWidth=""
+	contentHeight=""
+	horizontalScrolling="true"
+	verticalScrolling="true"
+	resizable="false"
+	draggable="false"
+	basicSearchText=""
+	supportMultiselect="true"
+	supportRanges="false"
+	supportRangesOnly="false"
+	key=""
+	keys=""
+	descriptionKey=""
+	maxIncludeRanges="-1"
+	maxExcludeRanges="-1"
+	displayFormat=""
+	tokenDisplayBehaviour=""
+	filterMode="false"
+	leftButton=""
+	rightButton=""
+	initialFocus=""
+	ariaDescribedBy=""
+	validateFieldGroup=""
+	beforeOpen=""
+	afterOpen=""
+	beforeClose=""
+	afterClose=""
+	ok=""
+	cancel=""
+	selectionChange=""
+	tokenRemove=""
+	updateSelection="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+		<content></content> <!-- sap.ui.core.Control -->
+		<subHeader></subHeader> <!-- sap.m.IBar, since 1.12.2 -->
+		<customHeader></customHeader> <!-- sap.m.IBar, since 1.15.1 -->
+		<beginButton></beginButton> <!-- sap.m.Button, since 1.15.1 -->
+		<endButton></endButton> <!-- sap.m.Button, since 1.15.1 -->
+		<buttons></buttons> <!-- sap.m.Button, since 1.21.1 -->
+		<filterBar></filterBar> <!-- sap.ui.comp.filterbar.FilterBar -->
+</valuehelpdialog/ValueHelpDialog>
+]]></xmlTemplate>
+</Template>
+<Template name="sap.ui.comp.variants.EditableVariantItem" alias="EditableVariantItem,Item">
+	<jsTemplate><![CDATA[new sap.ui.comp.variants.EditableVariantItem({
+	id: "${id}", // sap.ui.core.ID
+	busy: false, // boolean
+	busyIndicatorDelay: 1000, // int
+	visible: true, // boolean
+	fieldGroupIds: [], // string[], since 1.31
+	type: sap.m.ListType.Inactive, // sap.m.ListType
+	visible: true, // boolean
+	unread: false, // boolean
+	selected: false, // boolean
+	counter: undefined, // int
+	vAlign: sap.ui.core.VerticalAlign.Inherit, // sap.ui.core.VerticalAlign, since 1.20
+	key: undefined, // string, since 1.22.0
+	global: undefined, // boolean, since 1.26.0
+	lifecyclePackage: undefined, // string, since 1.26.0
+	lifecycleTransportId: undefined, // string, since 1.26.0
+	"namespace": undefined, // string, since 1.26.0
+	readOnly: false, // boolean, since 1.26.0
+	accessOptions: undefined, // string, since 1.26.0
+	labelReadOnly: false, // boolean, since 1.28.0
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [], // sap.ui.core.Control, since 1.19
+	cells: [], // sap.ui.core.Control
+	ariaLabelledBy: [], // sap.ui.core.Control, since 1.28.0
+	validateFieldGroup: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	tap: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	detailTap: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	press: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	detailPress: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this]
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<variants/EditableVariantItem xmlns="sap.ui.comp"
+	id="${id}"
+	busy="false"
+	busyIndicatorDelay="1000"
+	visible="true"
+	fieldGroupIds=""
+	type="Inactive"
+	visible="true"
+	unread="false"
+	selected="false"
+	counter=""
+	vAlign="Inherit"
+	key=""
+	global=""
+	lifecyclePackage=""
+	lifecycleTransportId=""
+	"namespace"=""
+	readOnly="false"
+	accessOptions=""
+	labelReadOnly="false"
+	ariaLabelledBy=""
+	validateFieldGroup=""
+	tap=""
+	detailTap=""
+	press=""
+	detailPress="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+		<cells></cells> <!-- sap.ui.core.Control -->
+</variants/EditableVariantItem>
+]]></xmlTemplate>
+</Template>
+<Template name="sap.ui.comp.variants.VariantItem" alias="VariantItem,Item">
+	<jsTemplate><![CDATA[new sap.ui.comp.variants.VariantItem({
+	id: "${id}", // sap.ui.core.ID
+	text: "", // string
+	enabled: true, // boolean
+	textDirection: sap.ui.core.TextDirection.Inherit, // sap.ui.core.TextDirection
+	key: undefined, // string
+	executeOnSelection: false, // boolean, since 1.26.0
+	readOnly: false, // boolean, since 1.26.0
+	lifecycleTransportId: undefined, // string, since 1.26.0
+	global: undefined, // boolean, since 1.26.0
+	lifecyclePackage: undefined, // string, since 1.26.0
+	"namespace": undefined, // string, since 1.26.0
+	accessOptions: undefined, // string, since 1.26.0
+	labelReadOnly: false, // boolean, since 1.26.0
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [] // sap.ui.core.Control, since 1.19
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<variants/VariantItem xmlns="sap.ui.comp"
+	id="${id}"
+	text=""
+	enabled="true"
+	textDirection="Inherit"
+	key=""
+	executeOnSelection="false"
+	readOnly="false"
+	lifecycleTransportId=""
+	global=""
+	lifecyclePackage=""
+	"namespace"=""
+	accessOptions=""
+	labelReadOnly="false">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+</variants/VariantItem>
+]]></xmlTemplate>
+</Template>
+<Template name="sap.ui.comp.variants.VariantManagement" alias="VariantManagement,Management">
+	<jsTemplate><![CDATA[new sap.ui.comp.variants.VariantManagement({
+	id: "${id}", // sap.ui.core.ID
+	busy: false, // boolean
+	busyIndicatorDelay: 1000, // int
+	visible: true, // boolean
+	fieldGroupIds: [], // string[], since 1.31
+	initialSelectionKey: undefined, // string, since 1.22.0
+	enabled: true, // boolean, since 1.22.0
+	defaultVariantKey: undefined, // string, since 1.22.0
+	selectionKey: undefined, // string, since 1.24.0
+	showCreateTile: false, // boolean, since 1.26.0
+	showExecuteOnSelection: false, // boolean, since 1.26.0
+	showShare: false, // boolean, since 1.26.0
+	lifecycleSupport: false, // boolean, since 1.26.0
+	standardItemText: undefined, // string, since 1.28.0
+	industrySolutionMode: false, // boolean, since 1.32.0
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [], // sap.ui.core.Control, since 1.19
+	items: [], // sap.ui.core.Item, since 1.22.0
+	variantItems: [], // sap.ui.comp.variants.VariantItem, since 1.26.0
+	validateFieldGroup: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	save: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this], // since 1.22.0
+	manage: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this], // since 1.22.0
+	select: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this] // since 1.22.0
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<variants/VariantManagement xmlns="sap.ui.comp"
+	id="${id}"
+	busy="false"
+	busyIndicatorDelay="1000"
+	visible="true"
+	fieldGroupIds=""
+	initialSelectionKey=""
+	enabled="true"
+	defaultVariantKey=""
+	selectionKey=""
+	showCreateTile="false"
+	showExecuteOnSelection="false"
+	showShare="false"
+	lifecycleSupport="false"
+	standardItemText=""
+	industrySolutionMode="false"
+	validateFieldGroup=""
+	save=""
+	manage=""
+	select="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+		<items></items> <!-- sap.ui.core.Item, since 1.22.0 -->
+		<variantItems></variantItems> <!-- sap.ui.comp.variants.VariantItem, since 1.26.0 -->
+</variants/VariantManagement>
+]]></xmlTemplate>
+</Template>
+</Library>

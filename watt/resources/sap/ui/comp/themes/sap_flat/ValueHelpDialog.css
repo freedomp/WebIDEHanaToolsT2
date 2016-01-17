@@ -1,0 +1,408 @@
+/*  Dialog Title styles */
+.sapUiSizeCompact.compValueHelpDialog .compVHTitleText {
+	font-size: 18px; /* @sapMFontHeader4Size; */
+	margin-top: 0.5rem;
+}
+
+.compValueHelpDialog .compVHTitleText {
+	font-size: 18px; /* @sapMFontHeader4Size; */
+	margin-top: 1rem;
+}
+
+
+/* FIX for IE10 */
+.compValueHelpDialog .sapMFlexItem {
+	-ms-flex-negative: 0;
+}
+
+
+/* IconToolBar Styles - Tabs */
+ .compValueHelpDialog .sapMITBContainerContent {
+	box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05); 
+	border-bottom: 0rem; 
+}
+
+
+.compValueHelpDialog .sapMITBContent {
+	padding: 0rem; 
+}
+
+
+.compValueHelpDialog .sapMITBHead {
+	margin-top: 0rem;
+}
+
+
+.sap-tablet .compValueHelpDialog .sapMITBHead {
+  	margin: 0 1.5rem 0 1.5rem; 
+}
+
+.sap-tablet .compValueHelpDialog .sapMITBScrollContainer {
+	margin-right: 0rem; 
+	margin-left: 0rem; 
+}
+
+/* required for Table */
+.compValueHelpDialog .sapUiTable .sapUiTableHdrTitle {
+	font-size: 18px; /* @sapMFontHeader4Size; */ 
+	font-weight: normal; /* @sapUiFontHeaderWeight; */
+	color: #333333; /* @sapUiHeaderText; */
+}
+
+.compValueHelpDialog .sapMITBScrollContainer {
+	padding: 0px;
+	margin-right: 0rem; 
+	margin-left: 0rem; 
+}
+
+.sap-tablet .sapMITBScrollContainer {
+	margin-right: 0rem; 
+	margin-left: 0rem; 
+}
+
+
+/* Tokenizer Panel */
+.compValueHelpDialog .compVHTokensPanel .sapMPanelExpandableIcon {
+/*	transform: translateY(-50%) rotate(-90deg);
+	-webkit-transform: translateY(-50%) rotate(-90deg); */
+}
+
+.sapUiSizeCompact.compValueHelpDialog .compVHTokensPanel .sapMPanelExpandableIcon:focus {
+	outline-offset: -2px;
+	outline-style: dotted;
+  	outline-width: 1px;
+}
+
+.sapUiSizeCompact.compValueHelpDialog .compVHTokensPanel .sapMPanelExpandableIcon {
+	width: 1.5rem;
+	height: 1.5rem;
+	line-height: 1.5rem;
+}
+
+.compValueHelpDialog .compVHTokensPanel .sapMPanelExpandableIconExpanded {
+/*	transform: translateY(-50%) rotate(90deg);
+	-webkit-transform: translateY(-50%) rotate(90deg); */
+}
+
+.sapUiSizeCompact.compValueHelpDialog .compVHTokensPanel .sapMPanelExpandableIconExpanded {
+	width: 1.5rem;
+	height: 1.5rem;
+	line-height: 1.5rem;
+}
+
+.sapUiSizeCompact.compValueHelpDialog .compVHBackgroundTransparent .sapMPanelHdr {
+	font-size: 14px; /* @sapMFontMediumSize; */	
+	font-weight: normal;
+	color: #333333; /* @sapUiHeaderText; */
+	height: 1.5rem;
+	line-height: 1.5rem;
+	margin-left: 2rem;
+}
+
+.compValueHelpDialog .compVHBackgroundTransparent .sapMPanelBG {
+ 	background-color: Transparent; 
+	margin-left: 3rem;
+}
+
+.sapUiSizeCompact.compValueHelpDialog .compVHBackgroundTransparent .sapMPanelBG {
+	margin-left: 2rem;
+}
+
+.compValueHelpDialog .compVHDarkBackground {
+	border-color: @sapUiExtraLightBorder;
+	border-style: solid;
+	border-top-width: 0.0625rem;
+	border-left-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+ 	background-color: fade(@sapUiExtraLightBG, 80%);	
+	padding-left: 2rem; 
+	padding-right: 2rem;
+}
+
+.sapUiSizeCompact.compValueHelpDialog .compVHDarkBackground {
+	padding-left: 2rem; 
+	padding-bottom: 0.5rem;
+	padding-top: 0.5rem;
+}
+
+.compValueHelpDialog .compVHDarkBackground {
+	padding-left: 1rem; 
+}
+
+.compValueHelpDialog .compVHSelectedItemsText {
+	font-size: 16px;
+	font-weight: normal;
+	color: #333333; /* @sapUiHeaderText; */
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.sapUiSizeCompact.compValueHelpDialog .compVHSelectedItemsText {
+	font-size: 14px; /* @sapMFontMediumSize; */	
+	font-weight: normal;
+	color: #333333; /* @sapUiHeaderText; */
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+
+/* Tokens DIV */
+.compValueHelpDialog .compVHTokensDiv {
+	border-width: 1px;
+	border-color: lightgrey;
+	border-style: solid;
+	border-radius: 5px;
+	padding-top: 0px;
+	padding-left: 2px;
+	padding-right: 2px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	min-height: 41px;
+	display: block;
+	box-sizing: border-box;	
+	margin-right: 42px;
+	overflow: hidden;	
+}
+
+.sapUiSizeCompact.compValueHelpDialog .compVHTokensDiv {
+	padding-top: 2px;
+	min-height: 27px;
+	margin-right: 35px;
+}
+
+/* Tokenizer Styles */
+.compValueHelpDialog .sapMTokenizerScrollContainer {
+ 	overflow: hidden;
+	height: 32px; 
+}
+ 
+.sapUiSizeCompact.compValueHelpDialog .sapMTokenizerScrollContainer {
+	height: 22px;
+}
+ 
+.compValueHelpDialog .compVHTokenizerHLayout {
+	position: relative;
+	width: 100%;
+}
+
+.compValueHelpDialog .compVHTokenizerHLayout .sapUiHLayoutChildWrapper {
+	width: 100%;
+}
+
+.compValueHelpDialog .compVHRemoveAllBtn {
+	position: absolute;
+	right: 0px;
+  	top: 50%;
+  	transform: translateY(-50%);
+  	-webkit-transform: translateY(-50%);
+}
+
+.compValueHelpDialog .compVHRemoveAllBtn .sapMBtnIcon {
+}
+
+.compValueHelpDialog .compVHBackgroundTransparent .sapMPanelContent {
+	margin-left: 3rem;
+}
+
+.sapUiSizeCompact.compValueHelpDialog .compVHBackgroundTransparent .sapMPanelContent {
+	margin-left: 2rem;
+}
+
+
+/* Workaround to make the Filter/Conditions Panels background transparent */  
+.sapMFilterPanel .sapMPanelBG {
+  background-color: Transparent;
+}
+
+.compValueHelpDialog .sapUiTable {
+	margin-left: 2rem;
+	margin-right: 2rem;
+	margin-bottom: 1rem;
+}
+
+/* Filterbar */
+.compValueHelpDialog .sapUiCompFilterBar .sapMPanel {
+  	margin-top: 0.5rem;
+}
+ 
+.compValueHelpDialog .sapUiCompFilterBar .sapUiFormResGridCont > div {
+  	padding-right: 0rem;
+}
+ 
+.compValueHelpDialog .sapUiCompFilterBar {
+	background: @sapUiExtraLightBG;
+	border-color: @sapUiExtraLightBorder;
+	border-style: solid;
+ 	background-color: fade(@sapUiExtraLightBG, 0%);	
+	margin-bottom: 1rem;
+}
+
+/* Filterbar and Collective Search */
+.compValueHelpDialog .compVHSearch {
+	background: @sapUiExtraLightBG;
+	border-color: @sapUiExtraLightBorder;
+	border-style: solid;
+	border-left-width: 0rem;
+	border-right-width: 0rem;
+	border-top-width: 0rem;
+	border-bottom-width: 0rem;
+	margin-bottom: 1rem;	
+	margin-left: 0rem;
+	padding-left: 2rem;	
+ 	background-color: fade(@sapUiExtraLightBG, 80%);	
+}
+
+.compValueHelpDialog .compVHFilterBarPadding.sapUiCompFilterBarNonPhone.sapUiRespGrid.sapUiRespGridHSpace1 {
+	padding-bottom: 1rem;
+}
+
+
+/* Collective Search Elements */
+.compValueHelpDialog .compVHColSearch {
+	padding-top: 1rem;
+	padding-right: 1rem;
+}
+
+.sapUiSizeCompact.compValueHelpDialog .compVHColSearchText {
+	font-size: 18px; /* @sapMFontHeader4Size; */
+	font-weight: normal; /* @sapUiFontHeaderWeight; */
+	color: #333333; /* @sapUiHeaderText; */
+	padding-top: 0.4rem;
+	max-width: 20rem;
+}
+
+.compValueHelpDialog .compVHColSearchText {
+	font-size: 18px; /* @sapMFontHeader4Size; */ 
+	font-weight: normal; /* @sapUiFontHeaderWeight; */
+	color: #333333; /* @sapUiHeaderText; */
+	padding-top: 1rem;
+	max-width: 20rem;
+}
+
+.compValueHelpDialog .compVHColSearchBtn {
+	line-height: 1.5rem;
+	margin-right: 1rem;
+}
+
+.sapUiSizeCompact.compValueHelpDialog .compVHColSearchBtn {
+	line-height: 1.5rem;
+	margin-right: 1rem;
+}
+
+.sapUiSizeCompact.compValueHelpDialog .compVHColSearchBtn .sapMBtnInner {
+	border-width: 0px; 	
+}
+
+.compValueHelpDialog .compVHColSearchBtn .sapMBtnInner {
+	border-width: 0px; 	
+}
+/* -------------------------------------------- */ 
+ 
+
+.compValueHelpDialog .sapMPanelContent {
+	padding: 0; 
+	border-bottom: 0px;
+	background-color: Transparent;
+}
+
+.sapUiSizeCompact.compValueHelpDialog .sapMPanelHdr {
+  	font-size: 14px; /* @sapMFontMediumSize; */
+	font-weight: normal;
+	color: #333333; /* @sapUiHeaderText; */
+}
+
+.compValueHelpDialog .sapUiCompFilterBar .sapMPanelHdr {
+  	height: 0.5rem;
+  	border-bottom: 0px;	
+}
+
+
+/* set the content Scrollbar vertical "auto scroll" */
+.compValueHelpDialog .sapMDialogScrollCont {
+	padding-top: 0px;
+ 	height: 100%;
+	overflow-y: auto;
+}
+
+.compValueHelpDialog .displayNone {
+	display: none;
+}
+
+
+.compValueHelpDialog .sapMPanelWrappingDiv {
+ 	border-bottom: 0px;
+}
+
+
+/* FilterBar adjustment */
+.compValueHelpDialog .sapUiCompFilterBar {
+	border-color: @sapUiExtraLightBorder;
+	border-style: solid;
+	border-top-width: 0px;
+	border-left-width: 0px;
+	border-right-width: 0px;
+}
+
+.compValueHelpDialog .sapMFilterPanel {
+	padding-left: 1rem;
+	padding-bottom: 1rem;
+}
+
+
+.compValueHelpDialog .compVHAdvancedSearchLink {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+html.sap-phone .compValueHelpDialog .compVHDarkBackground {
+ 	padding-left: 0rem;
+ 	padding-right: 0.5rem;
+}
+
+html.sap-phone .compValueHelpDialog .compVHDarkBackground .sapMPanelHdr {
+ 	font-size: 0.875rem;
+}
+
+html.sap-phone .compValueHelpDialog .compVHSelectedItemsText {
+    font-size: 0.875rem;
+}
+
+html.sap-phone .compValueHelpDialog .compVHSearch {
+ 	background-color: transparent;	
+ 	margin-bottom: 0rem;
+ 	margin-top: 0.5rem;
+ 	padding-right: 0rem;
+}
+
+html.sap-phone .compValueHelpDialog .compVHColSearchText {
+	margin-left: 1rem;
+}
+
+html.sap-phone .compValueHelpDialog .sapMFilterPanel {
+    padding-left: 0rem; 	
+}
+
+html.sap-phone .compValueHelpDialog .sapMTokenizerScrollContainer {
+	height: auto; 
+}
+ 
+html.sap-phone .compValueHelpDialog .compVHRemoveAllBtn {
+  	top: 1.5rem;
+}
+
+html.sap-phone .compValueHelpDialog .sapUiCompFilterBarToolbar .sapMBarChild.sapMSF {
+    max-width: initial;
+}
+
+
+html.sap-phone .compValueHelpDialog .sapUiCompFilterBar .sapUiFormResGridCont > div {
+    padding-left: 0rem;
+}
+
+.compValueHelpDialog .sapMPanelContent:not(.sapMPanelBGTransparent) {
+    border-bottom-width: 0px; 
+}
+

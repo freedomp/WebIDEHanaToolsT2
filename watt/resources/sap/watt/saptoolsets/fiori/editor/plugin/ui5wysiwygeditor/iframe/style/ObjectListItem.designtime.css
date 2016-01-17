@@ -1,0 +1,24 @@
+.widget-droparea-sortable-firstStatus .sapMObjLStatus1DivEmpty,
+.widget-droparea-sortable-secondStatus .sapMObjLStatus2DivEmpty {
+    height: 20px;
+    width: 35% !important;
+    float: right;
+}
+.widget-droparea-sortable-attributes .sapMObjLAttrDivEmpty {
+    height: 20px;
+    width: 65%;
+    float: left;
+}
+.widget-droparea-sortable-firstStatus .sapMObjLAttrDiv,
+.widget-droparea-sortable-secondStatus .sapMObjLAttrDiv{
+    width: 65% !important;
+}
+.widget-droparea-sortable-attributes .sapMObjLStatusDiv {
+    width: 35% !important;
+    float: right;
+}
+.widget-droparea-sortable-firstStatus.sapUiDtEmptyNarrowContainer .sapMObjLStatus1DivEmpty,
+.widget-droparea-sortable-secondStatus.sapUiDtEmptyNarrowContainer .sapMObjLStatus2DivEmpty,
+.widget-droparea-sortable-attributes.sapUiDtEmptyNarrowContainer .sapMObjLAttrDivEmpty {
+    margin: 0.5rem;
+}

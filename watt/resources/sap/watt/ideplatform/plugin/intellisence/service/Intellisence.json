@@ -1,0 +1,124 @@
+{
+	"name": "sap.watt.common.plugin.intellisence.service.Intellisence",
+	"description": "The Intellisence interface",
+	"configurationProperties": {
+		"libraries": {
+			"type": {
+				"id": "string",
+				"name": "string",
+				"version": "string",
+				"libIndexFile": "string",
+				"libTemplate": "string",
+				"libMetadata": "string",
+				"help": "string",
+				"helpService": "sap.watt.common.plugin.javascript.service.JSApiReference"
+			},
+			"multiple": true
+		},
+		"codeCompletion": {
+			"type": {
+				"fileExtension": "string",
+				"service": "sap.watt.common.plugin.platform.service.editor.CodeCompletion"
+			},
+			"multiple": true
+		},
+		"helpWebsite": {
+			"type": "string",
+			"multiple": false
+		},
+		"iconRoot": {
+			"type": "string",
+			"multiple": false
+		},
+		"categoryIcon": {
+			"type": {
+				"type": "string",
+				"path": "string",
+				"pathSelected": "string",
+				"isRoot": "boolean",
+				"isExternal": "boolean"
+			},
+			"multiple": true
+		},
+		"hintLevel": {
+			"type": "number",
+			"multiple": false
+		},
+		"styles": {
+			"type": [{
+				"uri": "string",
+				"type": "string"
+			}],
+			"multiple": false
+		}
+	},
+	"methods": {
+		"executeIntellisence": {
+		},
+		"getCodeEditor": {
+			"returns": {
+				"type": "object"
+			}
+		},
+		"getCalculatedLibraries": {
+			"params": [{
+				"name": "oDocument",
+				"type": "sap.watt.common.plugin.document.Document",
+				"optional" : true
+			}],
+			"returns": {
+				"type": "[object]",
+				"default": null
+			}
+		},
+		"getCodeCompletion": {
+			"returns": "object"
+		},
+		"showSuggestions": {
+			"params": [{
+					"name": "aProposals",
+					"type": "object"
+			},
+				{
+					"name": "oCoords",
+					"type": "object"
+			},
+				{
+					"name": "sPrefix",
+					"type": "string"
+			}]
+		},
+
+		"initTermsContext": {
+			"params": [{
+				"name": "oContentStatus",
+				"type": "object"
+			}],
+			"returns": "object"
+		},
+		"replaceByTerm": {
+			"params": [{
+				"name": "sTerm",
+				"type": "string"
+			}]
+		},
+		"isShowPopup": {
+			"returns": "boolean"
+		},
+		"getSetting": {
+			"returns": "object"
+		},
+		"setSetting": {
+			"params": [{
+				"name": "oSetting",
+				"type": "object"
+			}]
+		}
+
+	},
+	"events": {
+		"helpTipShown": {
+			"description": "It's the timing when the help tips shown."
+		}
+	}
+}

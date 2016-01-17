@@ -1,0 +1,45 @@
+.VImageWrapper {
+	overflow: hidden;
+}
+
+.VImageWrapper img {
+	margin-bottom: -3px;
+}
+
+.VNoBorder {
+	border: 0;
+}
+
+.VBorderInside {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.VLightestBorder {
+	border: 1px solid #ffffff;
+}
+
+.VExtraLightBorder {
+	border: 1px solid #e5e5e5;
+}
+
+.VLightBorder {
+	border: 1px solid #dddddd;
+}
+
+.VMediumBorder {
+	border: 1px solid #cccccc;
+}
+
+.VDarkBorder {
+	border: 1px solid #bfbfbf;
+}
+
+.VExtraDarkBorder {
+	border: 1px solid #999999;
+}
+
+.VDarkestBorder {
+	border: 1px solid #000000;
+}

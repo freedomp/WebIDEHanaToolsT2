@@ -1,0 +1,8 @@
+.addPostTextArea {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.suggestionPopover {
+	overflow-y: hidden !important;
+}

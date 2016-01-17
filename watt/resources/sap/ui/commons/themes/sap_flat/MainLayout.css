@@ -1,0 +1,78 @@
+@headerHeight:61;
+@headerHeightPx:59px;
+@menuHeightPx:26px;
+@ToolbarHeightPx:32px;
+@SideBarsWidthPx:48px;
+html{
+    font-size:@BaseFontSize;
+}
+.header {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    min-width : 700px;
+    background: @HeaderBG;
+    line-height: 22px;
+    /*box-shadow: inset 0px -1px 0px 0px @HeaderBrdr;*/
+    /*-webkit-box-shadow: inset 0px -1px 0px 0px @HeaderBrdr;*/
+    /*-moz-box-shadow: inset 0px -1px 0px 0px @HeaderBrdr;*/
+    height: @menuHeightPx;
+    border-top: 3px solid @HeaderBG;
+    padding-left: 0.1rem;;
+}
+.toolbar {
+    position: fixed;
+    top: 27px;
+    left: 48px;
+    right: 0;
+    /*border-left: 1px solid @HeaderLightCl.sapUiMnuBarItmr;*/
+    /*box-shadow: -1px 0px 0px 0px @HeaderBrdr;*/
+    /*-webkit-box-shadow: -1px 0px 0px 0px @HeaderBrdr;*/
+    /*-moz-box-shadow: -1px 0px 0px 0px @HeaderBrdr;*/
+    height: @ToolbarHeightPx;
+    padding-left: 4px;
+    background-color:@ToolbarBg;
+}
+.center {
+    position: absolute;
+    top: @headerHeightPx;
+    bottom: 0;
+    right: 0;
+    left: @SideBarsWidthPx;
+    background-color:@ShellBg;
+}
+.rightsidebar, .leftsidebar {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.leftsidebar {
+    background-color: @SideNavBarBG;
+    left: 0;
+    width:48px;
+    top:27px;
+}
+.rightsidebar {
+    top: @headerHeightPx;
+    border-left: 1px solid @HeaderBrdr;
+    width: 35px;
+    background-color: @ShellBg;
+}
+.rightpaneText {
+    margin-right: 0.5rem;
+    color:@menuBarClr;
+    line-height: 1.6rem;
+}
+
+.feedbackButton{
+    font-size: inherit;
+    color:@menuBarClr;
+    height: 1.6rem;
+}
+
+.feedbackButton:hover{
+    color: white;
+    background-color: #005b8d !important;
+}

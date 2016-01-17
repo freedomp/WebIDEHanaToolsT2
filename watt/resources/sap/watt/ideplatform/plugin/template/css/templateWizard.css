@@ -1,0 +1,182 @@
+/* This CSS is used for styling specific wizard steps.
+	We should move these rules to css files located and loaded from the plugins providing the steps*/
+
+.wizardTileDiv {
+    background-color:#DCE5EC !important;
+    float: left;
+    height: 9rem;
+    margin: 0.5rem 0.8rem 0.5rem 0.5rem;
+    position: relative;
+    text-align: center;
+    width: 11rem;
+}
+.wizardTileDiv .tileTextDiv{
+    color:inherit;
+}
+.wizardBody  .sapUiRespGrid.sapUiRespGridHSpace1 {
+    padding: 0rem 0rem 0rem 0rem !important
+
+}
+.wizardBody .sapUiBorderLayoutTop .sapUiRespGrid.sapUiRespGridHSpace1{
+    background:#e8edf2;
+    height: 40px;
+}
+
+.wizardBody .sapUiBorderLayoutTop .sapUiRespGrid.sapUiRespGridHSpace1 > div {
+    margin: 0;
+    height: 40px;
+}
+/*.sapUiUx3DSSVSelected .wizardTileDiv:after {*/
+/*content: "";*/
+/*position: absolute;*/
+/*top: 0;*/
+/*right: 0;*/
+/*width: 1rem;*/
+/*height: 1rem;*/
+/*background: #bfbfbf; /!* @sapFlatDarkBG *!/*/
+
+/*width: 0;*/
+/*height: 0;*/
+/*border-style: solid;*/
+/*border-width: 0 1rem 1rem 0;*/
+/*border-color: transparent white transparent transparent;*/
+/*/!*  white = @sapFlatInvertedText*!/*/
+/*}*/
+
+/*selected and hover*/
+.sapUiUx3DSSVSelected, .sapUiUx3DSSVSelected:hover, .sapUiUx3DSSVItem:hover{
+    background: transparent !important;
+    color: #fff !important;
+}
+
+.sapUiUx3DSSVSelected .wizardTileDiv {
+    background-color: #346180 !important;
+}
+
+
+/*selected for icon*/
+.sapUiUx3DSSVSelected .wizardTileDiv .wizardButtonuttonWithIconFont{
+    color: #fff !important;
+}
+
+/*hover for icon*/
+.sapUiUx3DSSVSelected , .sapUiUx3DSSVSelected:hover, .sapUiUx3DSSVItem:hover .wizardButtonuttonWithIconFont{
+    background: transparent !important;
+    color: #fff !important;
+}
+
+.sapUiUx3DSSVItem:hover .wizardTileDiv, .sapUiUx3DSSVSelected .wizardTileDiv:hover {
+    background-color: #346180 !important;
+}
+
+.favoriteButton{
+    height: 100%;
+    color: #ffffff;
+    font-size: 1.1rem;
+    background: transparent;
+    padding-left: 7px;
+    padding-top: 5px;
+}
+
+.favoriteButton:hover {
+    background: transparent !important;
+}
+
+.sapUiUx3DS {
+    position: relative;
+    top: -9px;
+}
+
+.wizardStepErrorText{
+    background-color: white;
+    color: #f9717a;
+    height: 28px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px
+}
+
+.wizardStepFontSpecial{
+    font-size: 0.875rem;
+    font-family : Arial;
+}
+
+.wizardButtonuttonWithIconFont{
+    vertical-align: middle !important;
+    text-align: center !important;
+    height: 100%;
+    color: #005B8D  !important;
+    font-size: 2.2rem !important;
+    font-family: SAP-icons !important;
+    font-weight: normal;
+    font-style: normal;
+    background: transparent  !important;
+}
+
+.sapUiIcon .favBtn{
+    font-size: small;
+}
+
+.wizardButtonuttonWithIconFont:hover{
+    vertical-align: middle !important;
+    text-align: center !important;
+    height: 100%;
+    color: white !important; /* @sapFlatInvertedText */
+    font-family: SAP-icons !important;
+    font-weight: normal;
+    font-style: normal;
+    background: transparent  !important;
+    /* please replace existing values, skip !important if possible */
+}
+
+.wizardImageDiv{
+    height: 4.4rem;
+    width: 100%;
+    /* please replace existing values */
+}
+
+.tileTextDiv{
+    font-family: Arial, sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    /* color: #313131; */ /* @sapFlatInvertedText */
+    text-align: center;
+    padding: 0 0.5rem;
+    height: 4rem;
+}
+
+.catalogTreeBackground{
+    background-color: #F2F2F2;
+}
+
+.catalogSearchField >div   {
+    background-color: #e5e5e5 !important;
+}
+
+.stepSectionBackground{
+    background-color: #F2F2F2 !important;
+}
+
+.newCategoryTextField{
+    padding-left: 40px !important;
+}
+
+.textFieldDisableStatus{
+    background-color: #F2F2F2 !important;
+    color: black !important;
+}
+
+.alignControlToTheRight{
+    float : right !important;
+}
+
+.alignBreadCrumbsFinishButtonToTheRight{
+    float : right !important;
+    position: absolute;
+    right: 30px;
+    background : transparent !important;
+}
+
+.errorMsg{
+    color: #e22525 !important;
+}

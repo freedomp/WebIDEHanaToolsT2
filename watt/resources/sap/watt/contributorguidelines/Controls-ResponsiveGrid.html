@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Responsive Grid — SAP Web IDE Design Guidelines</title>
+    <meta name="author" content="SAP SE">
+
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="assets/flat.css" type="text/css" />
+    <link rel="stylesheet" href="css/guidelines.css" type="text/css" />
+    <link rel="stylesheet" href="css/Controls-ContextSpecificUsage.css" type="text/css" />
+
+    <script src="../lib/requirejs/require.js" 
+	        data-main="../core/Global.js"
+	        data-sap-ide-environment-path="../../../../env.json"
+	        data-sap-ide-main="startup"
+	        data-sap-ide-basedir="../../.."></script>
+
+    <script>
+        define("startup", [], function() {
+            Q.all([
+                    sap.watt.includeScript("assets/js/contextSwitch.js"),
+                    sap.watt.includeScript("assets/js/flat.js")])
+            .then(function(){
+                loadTableOfContent("Responsive Grid");
+            });
+        });
+    </script>
+
+</head>
+<body>
+
+<div class="VBrandingBar"></div>
+
+<div class="VHeaderBar">
+    <div class="VHeaderBarCnt">
+        <ul class="VFloatRight vInline">
+            <li><img src="assets/images/SAPLogo.png" alt="SAP" id="LogoSAP" /></li>
+        </ul>
+        
+        <ul class="VInline">
+            <li id="ToggleMenuButton" class="VShowSmallInlineBlock"></li>
+            <li>SAP Web IDE<span class="VHideSmallInline"> — Design Guidelines</span></li>
+        </ul>
+    </div>
+</div>
+
+<div class="navigationOffCanvas"></div>
+
+<div class="content Design-Colors">
+
+    <div class="sapUiRespGrid sapUiRespGridHSpace1 sapUiRespGridVSpace1">
+        <div class="sapUiRespGridSpanL10 sapUiRespGridSpanM12 sapUiRespGridSpanS12 sapUiRespGridBreak">
+            <div class="VBanner">
+                <h1 class="VH2 VFontSpecial">UI Controls</h1>
+                <h2 class="VH1 VFontSpecial">Responsive Grid</h2>
+            </div>
+        </div>
+
+        <div class="sapUiRespGridSpanL10 sapUiRespGridSpanM12 sapUiRespGridSpanS12">
+            <p>In the context of visual design, a grid is a structure consisting of a series of intersecting vertical and horizontal lines used to organize content. The grid serves as a framework on which elements such as paragraphs and images can be organized in a rational way. In the context of web design CSS-based grids serve not only to reduce the complexity on content-level, but they also provide an abstraction layer for growingly complex CSS layouts. Over the past years several grid systems have been developed that facilitate responsive layouts on desktops, tablets and mobile phones by means of media queries.</p>
+        </div>
+
+        <div class="sapUiRespGridSpanL10 sapUiRespGridSpanM12 sapUiRespGridSpanS12">
+            <p>The Responive Grid control is a layout which positions its child controls in a 12 column flow layout. Its children can be specified to take on a variable amount of columns depending on available screen size. With this control it is possible to achieve flexible layouts and line-breaks for large-, medium- and small-sized screens, such as desktop, tablet, and mobile. The Grid control's width can be percentage or pixel-based and the spacing between its columns can be set to various pre-defined values.</p>
+        </div>
+
+        <div class="sapUiRespGridSpanL10 sapUiRespGridSpanM12 sapUiRespGridSpanS12">
+            <p>The Grid can be placed in almost any container and be set to take on its width. The spacing between its columns can be set to <a href="Design-Numerology.html">0, 1rem, or 2rem</a>. The columns take on the remaining space. Alternatively, the grid can be set to a fixed pixel width by means of CSS.</p>
+        </div>
+
+        <div class="sapUiRespGridSpanL10 sapUiRespGridSpanM12 sapUiRespGridSpanS12">
+            <p>We recommend to use the Grid as the default container control for the SAP Web IDE. It is built into the Wizard, used to lay out this documentation, and it also should be used for all right panes.</p>
+        </div>
+
+
+        <div class="sapUiRespGridSpanL8 sapUiRespGridSpanM10 sapUiRespGridSpanS12 VSpacingTop2">   
+            <h2 class="VH2 VFontSpecial VColorSuccess">Do</h2>
+
+            <ul class="VListBullets VColorSuccess">
+                <li>Do use the Grid</li>
+                <li>When placing a control inside of the Grid, set its width to 100%. The Grid then will take care of its width.</li> 
+                <li>Check if the control looks nice on all resolutions</li>
+                <li>In case a control is cropped, consider using a bigger width property for its grid container</li>
+                <li>Use the parameters for vertical spacings between the grid containers</li>
+            </ul>
+        </div>
+    
+        <div class="sapUiRespGridSpanL8 sapUiRespGridSpanM10 sapUiRespGridSpanS12">   
+            <h2 class="VH2 VFontSpecial VColorError">Don't</h2>
+ 
+            <ul class="VListBullets VColorError">
+                <li>Do not stack horizontal and vertical layouts</li>
+                <li>Do not overwrite horizontal spacings of grid containers since this might break the layout</li>
+            </ul>
+        </div>
+
+        <div class="sapUiRespGridSpanL8 sapUiRespGridSpanM10 sapUiRespGridSpanS12 VSpacingTop2">   
+            <h2 class="VH2 VFontSpecial">Related</h2>
+
+            <ul class="VListBullets">
+                <li><a href="http://veui5infra.dhcp.wdf.sap.corp:8080/demokit/#test-resources/sap/ui/layout/demokit/Grid.html">The Grid</a> in the <a href="http://veui5infra.dhcp.wdf.sap.corp:8080/demokit/">SAPUI5 Demokit</a></li>
+                <li><a href="http://veui5infra.dhcp.wdf.sap.corp:8080/demokit/explored.html#/entity/sap.ui.layout.Grid/samples">The Grid</a> in the <a href="http://veui5infra.dhcp.wdf.sap.corp:8080/demokit/explored.html">SAPUI5 Explored Application</a></li>
+                <li><a href="http://experience.sap.com/basics/post-123/">Post on Responsive Web Design and the Grid</a> on the <a href="http://experience.sap.com/">SAP User Experience Community</a></li>
+            </ul>
+        </div>
+
+        
+
+        <div class="sapUiRespGridSpanL3 sapUiRespGridSpanM6 sapUiRespGridSpanS12 sapUiRespGridBreak">
+            <div class="VSpacer4"></div>
+            <p>Last updated: June 24, 2014</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

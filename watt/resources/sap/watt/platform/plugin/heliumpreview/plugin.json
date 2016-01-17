@@ -1,0 +1,41 @@
+{
+	"name": "sap.watt.platform.heliumpreview",
+	
+	"description": "The Orion Backend Plugin",
+	
+	"requires": {
+		"services": [
+			"document",
+			"filesystem.documentProvider",
+			"log",
+			"preferences",
+			"preview",
+			"setting.project",
+            "usagemonitoring"
+		]
+	},
+
+	"provides": {
+		"services": {
+			"heliumPreviewAdapter": {
+				"implements": "sap.watt.common.plugin.preview.service.PreviewAdapter",
+				"module": "sap.watt.platform.heliumpreview/service/HeliumPreviewAdapter"
+			}
+		}
+	},
+		
+	"configures": {
+	
+		"services": {
+			"preview:adapter":{
+				"service": "@heliumPreviewAdapter"
+			}, 
+            "usagemonitoring:reportParams": [
+            {
+                "components": ["heliumpreview"],
+                "eventTypes": ["found_in_workspace"]
+            }]
+			
+		}
+	}
+}

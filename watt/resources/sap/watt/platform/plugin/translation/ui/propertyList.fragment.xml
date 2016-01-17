@@ -1,0 +1,31 @@
+<Table id="tableResource" visibleRowCount="15" selectionMode="Multi" navigationMode="Paginator"
+xmlns="sap.ui.table" xmlns:commons="sap.ui.commons">
+    <title>
+    </title>
+    <columns>
+        <Column name="">
+            <label>
+                <commons:Label text="Key"></commons:Label>
+            </label>
+            <template>
+                <commons:TextView text="{key}"></commons:TextView>
+            </template>
+        </Column>
+        <Column name="">
+            <label>
+                <commons:Label text="Default Value"></commons:Label>
+            </label>
+            <template>
+                <commons:TextView text="{defaultValue}"></commons:TextView>
+            </template>
+        </Column>
+        <Column name="">
+            <label>
+                <commons:Label text="{/locale/name}"></commons:Label>
+            </label>
+            <template>
+                <commons:TextField value="{value}"></commons:TextField>
+            </template>
+        </Column>
+    </columns>
+</Table>

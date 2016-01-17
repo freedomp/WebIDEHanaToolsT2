@@ -1,0 +1,23 @@
+{
+	"name" : "sap.watt.common.plugin.javascript.service.JSCodeCompletion",
+	"description" : "The jscodecompletion interface",
+	"extends" : [
+		"sap.watt.common.service.editor.CodeCompletion",
+		"sap.watt.common.service.editor.PrefixCalculation",
+		"sap.watt.common.service.ide.SummaryFromMetaProvider"
+	],
+	
+	"configurationProperties" : {
+		"libraries" : {
+			"type" : {
+				"name" : "string",
+				"version" : "string",
+				"libIndexFile": "string",
+				"libTemplate": "string",
+				"help": "string",
+				"helpService": "sap.watt.common.plugin.javascript.service.JSApiReference"
+			},
+			"multiple" : true
+		}
+	}
+}

@@ -1,0 +1,33 @@
+.sapUiBody.screenBlocker:after {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #CCCCCC;
+    content: '';
+    opacity: 0.15;
+    filter: alpha(opacity=15);
+    z-index: 1;
+}
+
+#dialogProgressLoading {
+    top: calc(50% - 100px);
+    left: calc(50% - 225px);
+    width: 450px;
+    height: 200px;
+    position: fixed;
+    z-index: 1;
+    display: none;
+}
+
+#dialogProgressLoading div {
+    text-align: center;
+    padding: 32px 0;
+    font-size: 20px;
+}
+
+#dialogProgressLoading progress {
+    position: absolute;
+    width: 60%;
+}

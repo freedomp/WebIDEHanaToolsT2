@@ -1,0 +1,14 @@
+.sapUiBtnS.sapUiBtnLite.reportBtn {
+    border-left-width : 0px;
+    color : #b7cee4
+}
+
+.sapUiBtnS.sapUiBtnLite.reportBtn:hover {
+    background-color: #107dc2;
+    color:white;
+}
+
+.reportBtn > .sapUiBtnIco {
+    font-size: 15px;
+    margin-bottom: 7px;
+}

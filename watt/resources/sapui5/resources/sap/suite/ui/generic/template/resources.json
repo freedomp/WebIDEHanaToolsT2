@@ -1,0 +1,654 @@
+{
+	"resources":[
+		{
+			"name": ".library"
+		},
+		{
+			"name": ".theming"
+		},
+		{
+			"name": "ListReport/Component-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ListReport/Component.js"
+		},
+		{
+			"name": "ListReport/i18n/i18n.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":""
+		},
+		{
+			"name": "ListReport/i18n/i18n_ar.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"ar"
+		},
+		{
+			"name": "ListReport/i18n/i18n_bg.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"bg"
+		},
+		{
+			"name": "ListReport/i18n/i18n_ca.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"ca"
+		},
+		{
+			"name": "ListReport/i18n/i18n_cs.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"cs"
+		},
+		{
+			"name": "ListReport/i18n/i18n_da.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"da"
+		},
+		{
+			"name": "ListReport/i18n/i18n_de.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"de"
+		},
+		{
+			"name": "ListReport/i18n/i18n_el.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"el"
+		},
+		{
+			"name": "ListReport/i18n/i18n_en.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"en"
+		},
+		{
+			"name": "ListReport/i18n/i18n_es.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"es"
+		},
+		{
+			"name": "ListReport/i18n/i18n_et.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"et"
+		},
+		{
+			"name": "ListReport/i18n/i18n_fi.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"fi"
+		},
+		{
+			"name": "ListReport/i18n/i18n_fr.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"fr"
+		},
+		{
+			"name": "ListReport/i18n/i18n_hi.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"hi"
+		},
+		{
+			"name": "ListReport/i18n/i18n_hr.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"hr"
+		},
+		{
+			"name": "ListReport/i18n/i18n_hu.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"hu"
+		},
+		{
+			"name": "ListReport/i18n/i18n_it.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"it"
+		},
+		{
+			"name": "ListReport/i18n/i18n_iw.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"iw"
+		},
+		{
+			"name": "ListReport/i18n/i18n_ja.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"ja"
+		},
+		{
+			"name": "ListReport/i18n/i18n_ko.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"ko"
+		},
+		{
+			"name": "ListReport/i18n/i18n_lt.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"lt"
+		},
+		{
+			"name": "ListReport/i18n/i18n_lv.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"lv"
+		},
+		{
+			"name": "ListReport/i18n/i18n_nl.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"nl"
+		},
+		{
+			"name": "ListReport/i18n/i18n_no.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"no"
+		},
+		{
+			"name": "ListReport/i18n/i18n_pl.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"pl"
+		},
+		{
+			"name": "ListReport/i18n/i18n_pt.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"pt"
+		},
+		{
+			"name": "ListReport/i18n/i18n_ro.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"ro"
+		},
+		{
+			"name": "ListReport/i18n/i18n_ru.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"ru"
+		},
+		{
+			"name": "ListReport/i18n/i18n_sh.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"sh"
+		},
+		{
+			"name": "ListReport/i18n/i18n_sk.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"sk"
+		},
+		{
+			"name": "ListReport/i18n/i18n_sl.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"sl"
+		},
+		{
+			"name": "ListReport/i18n/i18n_sv.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"sv"
+		},
+		{
+			"name": "ListReport/i18n/i18n_th.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"th"
+		},
+		{
+			"name": "ListReport/i18n/i18n_tr.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"tr"
+		},
+		{
+			"name": "ListReport/i18n/i18n_uk.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"uk"
+		},
+		{
+			"name": "ListReport/i18n/i18n_vi.properties",
+			"raw":"ListReport/i18n/i18n.properties",
+			"locale":"vi"
+		},
+		{
+			"name": "ListReport/i18n/i18n_zh_CN.properties",
+			"raw":"ListReport/i18n/i18n_zh.properties",
+			"locale":"CN"
+		},
+		{
+			"name": "ListReport/i18n/i18n_zh_TW.properties",
+			"raw":"ListReport/i18n/i18n_zh.properties",
+			"locale":"TW"
+		},
+		{
+			"name": "ListReport/manifest.json"
+		},
+		{
+			"name": "ListReport/nav/Error-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ListReport/nav/Error.js"
+		},
+		{
+			"name": "ListReport/nav/NavigationHandler-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ListReport/nav/NavigationHandler.js"
+		},
+		{
+			"name": "ListReport/nav/SelectionVariant-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ListReport/nav/SelectionVariant.js"
+		},
+		{
+			"name": "ListReport/view/ListReport-dbg.controller.js",
+			"isDebug":true
+		},
+		{
+			"name": "ListReport/view/ListReport.controller.js"
+		},
+		{
+			"name": "ListReport/view/ListReport.view.xml"
+		},
+		{
+			"name": "ObjectPage/Component-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ObjectPage/Component.js"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":""
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_ar.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"ar"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_bg.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"bg"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_ca.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"ca"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_cs.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"cs"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_da.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"da"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_de.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"de"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_el.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"el"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_en.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"en"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_es.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"es"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_et.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"et"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_fi.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"fi"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_fr.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"fr"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_hi.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"hi"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_hr.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"hr"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_hu.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"hu"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_it.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"it"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_iw.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"iw"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_ja.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"ja"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_ko.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"ko"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_lt.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"lt"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_lv.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"lv"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_nl.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"nl"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_no.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"no"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_pl.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"pl"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_pt.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"pt"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_ro.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"ro"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_ru.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"ru"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_sh.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"sh"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_sk.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"sk"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_sl.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"sl"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_sv.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"sv"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_th.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"th"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_tr.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"tr"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_uk.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"uk"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_vi.properties",
+			"raw":"ObjectPage/i18n/i18n.properties",
+			"locale":"vi"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_zh_CN.properties",
+			"raw":"ObjectPage/i18n/i18n_zh.properties",
+			"locale":"CN"
+		},
+		{
+			"name": "ObjectPage/i18n/i18n_zh_TW.properties",
+			"raw":"ObjectPage/i18n/i18n_zh.properties",
+			"locale":"TW"
+		},
+		{
+			"name": "ObjectPage/manifest.json"
+		},
+		{
+			"name": "ObjectPage/view/Details-dbg.controller.js",
+			"isDebug":true
+		},
+		{
+			"name": "ObjectPage/view/Details.controller.js"
+		},
+		{
+			"name": "ObjectPage/view/Details.view.xml"
+		},
+		{
+			"name": "ObjectPage/view/MessagePopover.fragment.xml"
+		},
+		{
+			"name": "fragments/ContactDetails.fragment.xml"
+		},
+		{
+			"name": "fragments/Contacts.fragment.xml"
+		},
+		{
+			"name": "fragments/DraftAdminDataPopover.fragment.xml"
+		},
+		{
+			"name": "fragments/Facet.fragment.xml"
+		},
+		{
+			"name": "fragments/SmartForm.fragment.xml"
+		},
+		{
+			"name": "fragments/SmartFormDataField.fragment.xml"
+		},
+		{
+			"name": "fragments/SmartTable.fragment.xml"
+		},
+		{
+			"name": "fragments/TableColumns.fragment.xml"
+		},
+		{
+			"name": "js/AnnotationHelper-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "js/AnnotationHelper.js"
+		},
+		{
+			"name": "lib/TemplateComponent-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "lib/TemplateComponent.js"
+		},
+		{
+			"name": "lib/TemplateViewController-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "lib/TemplateViewController.js"
+		},
+		{
+			"name": "library-all-dbg.js",
+			"isDebug":true,
+			"merged":true
+		},
+		{
+			"name": "library-all.js",
+			"merged":true
+		},
+		{
+			"name": "library-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "library-preload.json",
+			"merged":true
+		},
+		{
+			"name": "library.dependencies.json"
+		},
+		{
+			"name": "library.dependencies.xml"
+		},
+		{
+			"name": "library.js"
+		},
+		{
+			"name": "manifest.json"
+		},
+		{
+			"name": "themes/base/.theming",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/ListReport.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/ObjectPage.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library-RTL-dbg.css",
+			"isDebug":true,
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library-RTL.css",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library-dbg.css",
+			"isDebug":true,
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library-parameters.json",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library.css",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library.source.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/sap_bluecrystal/.theming",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/ListReport.less",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/ObjectPage.less",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library-RTL-dbg.css",
+			"isDebug":true,
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library-RTL.css",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library-dbg.css",
+			"isDebug":true,
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library-parameters.json",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library.css",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library.less",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library.source.less",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_hcb/.theming",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/ListReport.less",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/ObjectPage.less",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-RTL-dbg.css",
+			"isDebug":true,
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-RTL.css",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-dbg.css",
+			"isDebug":true,
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-parameters.json",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library.css",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library.less",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library.source.less",
+			"theme":"sap_hcb"
+		}
+	]
+}

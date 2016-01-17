@@ -1,0 +1,8 @@
+{
+	"name" : "sap.watt.hana.editor.xsodata.service.codecompletion.XSODataCodeCompletion",
+	"description" : "The XSOData code completion interface",
+	"extends" : [
+		"sap.watt.common.service.editor.CodeCompletion"
+	]	
+
+}

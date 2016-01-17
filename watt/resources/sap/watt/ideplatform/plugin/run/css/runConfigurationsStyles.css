@@ -1,0 +1,425 @@
+.runconfigurationsdialog .sapUiDlgCont {
+    padding: 1rem;
+    margin: 1rem;
+}
+.runconfigurationsdialog .sapUiTabPanel {
+    padding-left: 20px;
+}
+.runConfiugrationsSplitter {
+    height: 100%;
+    overflow-y: hidden;
+}
+.runConfiugrationsSplitter .runConfigurationsButton {
+    margin: 16px;
+}
+.runConfiugrationsSplitter .sapUiTreeHeader {
+    position: relative;
+}
+.runConfiugrationsSplitter .runConfigurationName:not(:focus) {
+    border: none;
+}
+.runConfiugrationsSplitter .runConfigurationName {
+    font-weight: 100;
+    color: #000000;
+    font-family: "Segoe UI Light", "Segoe UI", "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    height: 40px;
+}
+.runConfiugrationsSplitter .configurationErrorMessage {
+    color: #ff0000;
+    margin-top: 0.5rem;
+    line-height: 1rem;
+    padding-bottom: 0.5rem;
+    overflow: visible;
+    white-space: normal;
+}
+.runConfiugrationsSplitter .runConfiugrationsBorderLayout {
+    margin-left: 10px;
+}
+.runConfiugrationsSplitter .configurationNameDivider {
+    borderwidth: 1px 0px 0px 0px;
+    border-color: #e5e5e5;
+    border-style: solid;
+}
+.runConfiugrationsSplitter .sapUiBtnS.sapUiBtnNorm.sapUiBtnStd.sapUiToggleBtn.sapUiToggleBtnPressed {
+    color: #ffffff;
+    background-color: #107dc2;
+}
+.runConfiugrationHeader {
+    margin-left: 9px;
+}
+.runConfigurationExceptionDialog {
+    padding-right: 1rem
+}
+.runConfigurationExceptionDialog .sapUiDlgHdrSep {
+    border-top: 1px solid #ff0000;
+}
+.runConfigurationExceptionDialog .sapUiDlgCont {
+    margin-bottom: 20px;
+}
+.runConfigurationNode {
+    color: red;
+}
+/* Field Validation */
+
+input.inputError {
+    background-color: #fbdfdf !important;
+    color: black !important;
+    border-color: rgba(229, 41, 41, 0.5) rgba(229, 41, 41, 0.125) rgba(229, 41, 41, 0.125) rgba(229, 41, 41, 0.5) !important;
+}
+input.inputError:hover {
+    background-color: #fbdfdf !important;
+    color: black !important;
+    border-color: rgba(229, 41, 41, 0.75) rgba(229, 41, 41, 0.5) rgba(229, 41, 41, 0.5) rgba(229, 41, 41, 0.75) !important;
+}
+input.inputError:focus {
+    background-color: white !important;
+    color: black !important;
+    border-color: rgba(229, 41, 41, 0.75) rgba(229, 41, 41, 0.5) rgba(229, 41, 41, 0.5) rgba(229, 41, 41, 0.75) !important;
+}
+input.inputConfirmed {
+    background-color: #e0f1e7 !important;
+    color: black !important;
+    border-color: rgba(0, 138, 59, 0.5) rgba(0, 138, 59, 0.25) rgba(0, 138, 59, 0.25) rgba(0, 138, 59, 0.5) !important;
+}
+input.inputConfirmed:hover {
+    background-color: #e0f1e7 !important;
+    color: black !important;
+    border-color: rgba(0, 138, 59, 0.75) rgba(0, 138, 59, 0.5) rgba(0, 138, 59, 0.5) rgba(0, 138, 59, 0.75) !important;
+}
+input.inputConfirmed:focus {
+    background-color: white !important;
+    color: black !important;
+    border-color: rgba(0, 138, 59, 0.75) rgba(0, 138, 59, 0.5) rgba(0, 138, 59, 0.5) rgba(0, 138, 59, 0.75) !important;
+}
+.inputError > input {
+    background-color: #fbdfdf !important;
+    color: black !important;
+    border-color: rgba(229, 41, 41, 0.5) rgba(229, 41, 41, 0.125) rgba(229, 41, 41, 0.125) rgba(229, 41, 41, 0.5) !important;
+}
+.inputError > form > div > div > div > div > input {
+    background-color: #fbdfdf !important;
+    color: black !important;
+    border-color: rgba(229, 41, 41, 0.5) rgba(229, 41, 41, 0.125) rgba(229, 41, 41, 0.125) rgba(229, 41, 41, 0.5) !important;
+}
+.inputError:hover > input {
+    background-color: #fbdfdf !important;
+    color: black !important;
+    border-color: rgba(229, 41, 41, 0.75) rgba(229, 41, 41, 0.5) rgba(229, 41, 41, 0.5) rgba(229, 41, 41, 0.75) !important;
+}
+.inputError:focus > input {
+    background-color: white !important;
+    color: black !important;
+    border-color: rgba(229, 41, 41, 0.75) rgba(229, 41, 41, 0.5) rgba(229, 41, 41, 0.5) rgba(229, 41, 41, 0.75) !important;
+}
+.inputConfirmed > input {
+    background-color: #e0f1e7 !important;
+    color: black !important;
+    border-color: rgba(0, 138, 59, 0.5) rgba(0, 138, 59, 0.25) rgba(0, 138, 59, 0.25) rgba(0, 138, 59, 0.5) !important;
+}
+.inputConfirmed > form > div > div > div > div > input {
+    background-color: #e0f1e7 !important;
+    color: black !important;
+    border-color: rgba(0, 138, 59, 0.5) rgba(0, 138, 59, 0.25) rgba(0, 138, 59, 0.25) rgba(0, 138, 59, 0.5) !important;
+}
+.inputConfirmed:hover > input {
+    background-color: #e0f1e7 !important;
+    color: black !important;
+    border-color: rgba(0, 138, 59, 0.75) rgba(0, 138, 59, 0.5) rgba(0, 138, 59, 0.5) rgba(0, 138, 59, 0.75) !important;
+}
+.inputConfirmed:focus > input {
+    background-color: white !important;
+    color: black !important;
+    border-color: rgba(0, 138, 59, 0.75) rgba(0, 138, 59, 0.5) rgba(0, 138, 59, 0.5) rgba(0, 138, 59, 0.75) !important;
+}
+.runConfigRtt {
+    -webkit-box-shadow: 3px 3px 3px 0 #ccc;
+    -moz-box-shadow: 3px 3px 3px 0 #ccc;
+    box-shadow: 3px 3px 3px 0 #ccc;
+}
+.runConfigRtt .sapUiRttSep {
+    background-color: red;
+}
+.runConfigRtt .sapUiRttText {
+    font-size: 0.875rem;
+}
+.runConfigRtt .sapUiRttTitle {
+    font-weight: normal;
+    font-family: Segoe UI light;
+    font-size: 0.875rem;
+}
+.runConfigurationsAddUrlParameter .sapUiBtnS.sapUiBtnStd:hover,
+.runConfigurationsAddUrlParameter .sapUiBtnS.sapUiBtnStd:focus,
+.runConfigurationsAddUrlParameter .sapUiBtnS.sapUiBtnStd.sapUiBtnStdHover,
+.runConfigurationsTreeHeader .sapUiBtnS.sapUiBtnStd:hover,
+.runConfigurationsTreeHeader .sapUiBtnS.sapUiBtnStd:focus,
+.runConfigurationsTreeHeader .sapUiBtnS.sapUiBtnStd.sapUiBtnStdHover {
+    background-color: transparent;
+}
+.runConfigurationsUrlParameterMarginTop {
+    margin-top: 1rem;
+}
+.runConfigurationsTreeAddDialog > .sapUiDlgHdr,
+.runConfigurationsTreeAddDialog > .sapUiDlgFooter {
+    display: none;
+}
+.runConfigurationsTreeAddDialog {} .runConfigurationsTree {
+    border-top: #C2C1C1 1px solid;
+    height: calc(100% - 33px) !important;
+}
+.runConfigurationsTree .sapUiTreeCont {
+    top: 0;
+}
+.runConfigurationsTree .sapUiTreeTbCont {
+    float: left;
+    line-height: auto;
+}
+.runConfigurationsTree .sapUiTreeList {
+    list-style-position: inside;
+    margin: 0;
+    padding: 0;
+}
+.runConfigurationsTree .sapUiTreeNode {
+    background-image: none;
+    border: none;
+}
+.runConfigurationsTree .sapUiTreeChildrenNodes {
+    padding: 0;
+}
+.runConfigurationsTree .sapUiTemplateChildrenNodes {
+    background: rgba(255, 255, 255, 0.5);
+}
+.runConfigurationsTree .sapUiTreeNodeCutted {
+    text-decoration: line-through;
+}
+.runConfigurationsTree .sapUiTreeNode:before,
+.runConfigurationsTree .sapUiTreeNodeCollapsed:before,
+.runConfigurationsTree .sapUiTreeNodeExpanded:before {
+    color: #69767F;
+    display: inline-block;
+    font-family: "SAP-icons-watt";
+    font-size: 16px;
+    margin: 0 4px;
+    position: absolute;
+    text-align: center;
+    top: -2px;
+    width: 16px;
+}
+.runConfigurationsTree .sapUiTreeNode:before {
+    content: "";
+}
+.runConfigurationsTree .sapUiTreeNodeCollapsed:before {
+    content: "\e022";
+    padding: 0 0 0 1px;
+}
+.runConfigurationsTree .sapUiTreeNodeExpanded:before {
+    content: "\e024";
+}
+.runConfigurationsTree .sapUiTreeNodeWarning {
+    background: rgba(255, 0, 0, 0.05);
+}
+.runConfigurationsTree .wattTreeFile:before {
+    content: "\e03E";
+    color: white;
+    font-size: 16px;
+}
+.runConfigurationsTree .wattTreeFile .sapUiTreeNodeContent:before {
+    font-family: "SAP-icons-watt";
+    content: "\e03D";
+    color: #69767f;
+    position: absolute;
+    left: -23px;
+    font-size: 16px;
+    top: -1px;
+}
+.runConfigurationsTree .sapUiTreeNodeSelected.sapUiTreeNode:before {
+    color: white;
+}
+.runConfigurationsTree .sapUiTreeNodeNotSelectable {
+    color: #AAA;
+}
+.runConfigurationsTree .sapUiTreeAdditionalText {
+    color: #005b8d;
+    font-size: 10px;
+    padding-left: 0.5rem;
+}
+.runConfigurationsTree .sapUiTreeNodeNotSelectable .sapUiTreeAdditionalText {
+    opacity: 0.7
+}
+.runConfigurationsTree .sapUiTreeNodeSelected .sapUiTreeAdditionalText {
+    color: #FFF;
+}
+.runConfigurationsTree .sapUiTreeNodeSelected.wattTreeFile .sapUiTreeNodeContent:before {
+    display: none;
+}
+.runConfigurationsTree .sapUiTreeNodeContent {
+    margin-left: 28px;
+    top: 0px;
+    left: 0;
+    padding-right: 10px;
+    width: 100%;
+}
+.runConfigurationsTree .sapUiTreeNodeContent .sapUiTreeNodeContent {
+    width: auto;
+    margin-left: 0;
+    padding-right: 0;
+}
+.runConfigurationsTree #tree-CollapseAll:after {
+    content: "Collapse";
+    font-size: 10px;
+    font-family: Arial, sans-serif;
+}
+.runConfigurationsTree #tree-ExpandAll:after {
+    content: "Expand";
+    font-size: 10px;
+    font-family: Arial, sans-serif;
+}
+.runConfigurationsTree #tree-CollapseAll:hover,
+.runConfigurationsTree #tree-ExpandAll:hover {
+    background-color: transparent;
+}
+.runConfigurationsTree #tree-CollapseAll:focus,
+.runConfigurationsTree #tree-ExpandAll:focus {
+    outline: 1px solid rgba(0, 0, 0, 0.5);
+}
+.runConfigurationsTree #tree-CollapseAll.sapUiBtnAct,
+.runConfigurationsTree #tree-ExpandAll.sapUiBtnAct {
+    outline: 1px solid rgba(0, 0, 0, 0.5);
+    outline-offset: -1px;
+    border: none !important;
+    background: transparent;
+}
+.runConfigurationsTree #tree-CollapseAll img,
+.runConfigurationsTree #tree-ExpandAll img {
+    display: none;
+}
+.runConfigurationsTree .wattTreeFolderPublic span:before {
+    content: "";
+    position: absolute;
+    background: #008a11;
+    width: 7px;
+    height: 7px;
+    left: -26px;
+    top: 13px;
+    border: 1px solid #f7f5f0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.runConfigurationsTree .wattTreeFilePublic span:after {
+    content: "";
+    position: absolute;
+    background: #008a11;
+    width: 6px;
+    height: 6px;
+    left: -22px;
+    top: 10px;
+    border: 0px solid #f7f5f0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.runConfigurationsTree #tree-TBCont .sapUiBtnS {
+    height: 2rem;
+    line-height: 2rem;
+    vertical-align: middle;
+    font-size: 10px;
+    padding: 0 0.5rem;
+}
+.runRunnerNode {
+    display: none;
+}
+/*File Path*/
+
+.filePath {
+    float: left;
+    width: 10%;
+    margin-bottom: 10px;
+    font-size: 0.86rem;
+}
+/*UI5 version section*/
+
+.webIDErcUiFilepath:hover {
+    background-color: transparent;
+}
+.webIDErcUiFilepath:focus {
+    background-color: transparent;
+}
+.previewIcon {
+    margin-left: 2rem;
+}
+.compositeControlTextColour {
+    color: #6E6E6E;
+}
+.nameValueIndent {
+    padding-left: 1rem;
+}
+.spaceAfterInfo {
+    margin-bottom: 3rem;
+}
+.spaceUpBetweenControls {
+    padding-top: 20px;
+}
+.labelPaddingLeft {
+    padding-left: 0rem;
+}
+.redWarningLabel {
+    color: red;
+}
+.emdModeSimpleForm .sapUiFormElementLbl .sapUiLbl {
+    float: left !important;
+}
+.emdModeSimpleForm .sapUiRespGridMedia-Std-Phone.sapUiFormResGridCont > .sapUiFormElementLbl:not(.sapUiRespGridSpanS12) > .sapUiLbl.sapUiLblReqEnd:after,
+.sapUiRespGridMedia-Std-Tablet.sapUiFormResGridCont > .sapUiFormElementLbl:not(.sapUiRespGridSpanM12) > .sapUiLbl.sapUiLblReqEnd:after,
+.sapUiRespGridMedia-Std-Desktop.sapUiFormResGridCont > .sapUiFormElementLbl:not(.sapUiRespGridSpanL12) > .sapUiLbl.sapUiLblReqEnd:after,
+.sapUiRespGridMedia-Std-LargeDesktop.sapUiFormResGridCont > .sapUiFormElementLbl:not(.sapUiRespGridSpanXL12) > .sapUiLbl.sapUiLblReqEnd:after {
+    padding-left: 0.25rem;
+    content: '*';
+}
+.emdModeSimpleForm .sapUiRespGridMedia-Std-Phone.sapUiFormResGridCont > .sapUiFormElementLbl:not(.sapUiRespGridSpanS12) > .sapUiLbl.sapUiLblReqEnd:before,
+.sapUiRespGridMedia-Std-Tablet.sapUiFormResGridCont > .sapUiFormElementLbl:not(.sapUiRespGridSpanM12) > .sapUiLbl.sapUiLblReqEnd:before,
+.sapUiRespGridMedia-Std-Desktop.sapUiFormResGridCont > .sapUiFormElementLbl:not(.sapUiRespGridSpanL12) > .sapUiLbl.sapUiLblReqEnd:before,
+.sapUiRespGridMedia-Std-LargeDesktop.sapUiFormResGridCont > .sapUiFormElementLbl:not(.sapUiRespGridSpanXL12) > .sapUiLbl.sapUiLblReqEnd:before {
+    content: initial;
+}
+.ui5VersionVertical {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.ui5VersionVertical-content {
+    margin-top: 5px;
+    padding-top: 7px;
+    width: 100%
+}
+.ui5VersionVertical-content > div:first-child {
+    margin-right: 25px;
+}
+.ui5VersionVerticalDropDownBox {
+    margin-top: 25px;
+}
+.runconfigurationsdialog .sapUiTabPanelHeight {
+    position: auto;
+}
+.runconfigurationsdialog .sapUiTabStrip {
+    font-size: 0.86rem;
+}
+.runconfigurationsdialog .sapUiTabBarCnt li {
+    min-width: 110px;
+    box-sizing: border-box;
+}
+.runconfigurationsdialog .sapUiTabBarCnt li:before {
+    background: none;
+}
+.runconfigurationsdialog .sapUiTabBarCnt li .sapUiTabIco {
+    color: #BF1818;
+    margin-right: 6px;
+    font-size: 14px;
+    line-height: 12px;
+    height: 15px;
+    width: 15px;
+    margin-top: 3px;
+}
+.runconfigurationFilePath .sapUiLbxITxt {
+    white-space: pre-wrap;
+}

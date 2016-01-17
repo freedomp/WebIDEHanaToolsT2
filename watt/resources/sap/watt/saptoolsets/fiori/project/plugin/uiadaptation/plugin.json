@@ -1,0 +1,102 @@
+{
+	"name": "sap.watt.saptoolsets.fiori.project.uiadaptation",
+	"description": "The UI Adaptation  Plugin",
+	"i18n": "sap.watt.saptoolsets.fiori.project.uiadaptation/i18n/i18n",
+
+	"requires": {
+		"services": [
+			"command",
+			"commandGroup",
+			"contextMenu",
+			"template",
+			"document",
+			"filesystem.documentProvider",
+			"selection",
+			"setting.project",
+			"generation",
+			"translation",
+			"preview",
+			"content",
+			"beautifierProcessor",
+			"ui5projecthandler",
+			"projectType",
+			"git",
+			"run",
+			"lrepconnector",
+			"filefilter"
+		]
+	},
+	"configures": {
+		"services": {
+			"filefilter:alwaysHidden": [{
+				"regExps": ["/{1}(UIAdaptation_index.html)$"]
+			}, {
+				"regExps": ["/{1}(changes_preview_index.html)$"]
+			}],
+			"git:ignore": [
+				"UIAdaptation_index.html",
+				"changes_preview_index.html"
+			],
+			"command:commands": [{
+				"id": "uiadaptation.adaptuipane",
+				"label": "{i18n>command_openUIAdaptationPane}",
+				"service": "sap.watt.saptoolsets.fiori.project.uiadaptation/command/AdaptUi"
+			}, {
+				"id": "uiadaptation.deploychangestoabap",
+				"label": "{i18n>command_deployChangesToABAP}",
+				"service": "sap.watt.saptoolsets.fiori.project.uiadaptation/command/DeployChangesToABAP"
+			}, {
+				"id": "uiadaptation.runwithchanges",
+				"label": "{i18n>command_runWithChanges}",
+				"windowTarget": "preview_changes",
+				"service": "sap.watt.saptoolsets.fiori.project.uiadaptation/command/RunWithChanges"
+			}],
+			"commandGroup:items": [{
+				"parent": "tools.uiadaptation",
+				"command": "uiadaptation.adaptuipane",
+				"prio": 10
+			}, {
+				"parent": "deploy.actions",
+				"command": "uiadaptation.deploychangestoabap",
+				"prio": 50
+			}, {
+				"parent": "run.otherPreviews",
+				"command": "uiadaptation.runwithchanges",
+				"prio": 30
+			}],
+			"template:templates": [{
+				"id": "uiadaptation.uiadaptationpanehtml",
+				"template": "sap.watt.saptoolsets.fiori.project.uiadaptation/UIAdaptationPaneHTMLTemplate/UIAdaptationPaneHTMLTemplate",
+				"path": "uiadaptation/UIAdaptationPaneHTMLTemplate",
+				"fileName": "UIAdaptationTemplateResources.zip",
+				"templateType": "uiAdaptation_internal_html"
+			}, {
+				"id": "uiadaptation.changespreviewhtml",
+				"template": "sap.watt.saptoolsets.fiori.project.uiadaptation/ChangesPreviewHTMLTemplate/ChangesPreviewHTMLTemplate",
+				"path": "uiadaptation/ChangesPreviewHTMLTemplate",
+				"fileName": "ChangesPreviewTemplateResources.zip",
+				"templateType": "uiAdaptation_internal_html"
+			}],
+			"projectType:types": [{
+				"id": "sap.watt.saptoolsets.fiori.project.uiadaptation",
+				"displayName": "{i18n>settings_adaptation_project_type_name}",
+				"description": "{i18n>settings_adaptation_project_type_description}",
+				"service": "sap.watt.saptoolsets.fiori.project.uiadaptation/service/UiAdaptationProjectType"
+			}]
+		}
+	},
+
+	"provides": {
+		"services": {
+			"uiadaptation": {
+				"implements": "sap.watt.saptoolsets.fiori.project.uiadaptation.UIAdaptation",
+				"module": "sap.watt.saptoolsets.fiori.project.uiadaptation/service/UIAdaptation"
+			}
+
+		},
+		"interfaces": {
+			"sap.watt.saptoolsets.fiori.project.uiadaptation.UIAdaptation": "sap.watt.saptoolsets.fiori.project.uiadaptation/service/UIAdaptation"
+		}
+	}
+
+}

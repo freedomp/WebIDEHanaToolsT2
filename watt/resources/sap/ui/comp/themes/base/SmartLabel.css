@@ -1,0 +1,9 @@
+
+/* ============================================= */
+/* CSS for control sap.ui.comp/SmartLabel.control */
+/* ============================================= */
+
+.sapUiCompSmartLabel{
+  color: @sapUiTextColor;
+  border: 1px solid blue;
+}

@@ -1,0 +1,21 @@
+<core:View controllerName="sap.watt.ideplatform.plugin.basevalidator.view.XmlValidatorSetting"
+	xmlns:commons="sap.ui.commons" xmlns:layout="sap.ui.layout" xmlns:martix="sap.ui.commons.layout" xmlns:form="sap.ui.layout.form"
+	xmlns:ide="sap.watt.ideplatform.plugin.basevalidator.view" xmlns="sap.ui.table"
+	xmlns:core="sap.ui.core" xmlns:m="sap.m" width="100%" busyIndicatorDelay="0" 
+	height="100%" class="linterprojectsetting">
+
+	<layout:HorizontalLayout allowWrapping="false">
+		<layout:layoutData>
+			<layout:GridData span="L3 M6 S12"/><!--<layout:ResponsiveFlowLayoutData linebreak="true"></layout:ResponsiveFlowLayoutData>-->
+		</layout:layoutData>
+		<commons:Label text="{i18n>xml_choose_validator_label}">
+		</commons:Label>
+		<commons:DropdownBox id="xmlValidatorsSelection" items="{path: 'validatorsModel>/validators'}" change="onValidatorChange" tooltip="{i18n>xml_beautifier_tooltip}" >
+			<commons:items>
+				<core:ListItem key="{validatorsModel>serviceID}" text="{validatorsModel>displayName}" />
+			</commons:items>
+		</commons:DropdownBox>
+	</layout:HorizontalLayout>
+
+
+</core:View>

@@ -1,0 +1,27 @@
+{
+	"name" : "sap.watt.uitools.plugin.commonrunners.service.UI5Versions",
+	"description" : "Receiving the UI5 Versions from HCP",
+	"methods" : {
+		 "getUi5VersionsList" : {
+        	"params" : [{
+				"name" : "oDocument",
+				"type" : "object",
+				"description" : "Selected document"
+			}],
+			"returns" : {
+				"type" : "object",
+				"description" : "UI5 Versions"
+			}
+        },
+		"getUI5CurrentVersion": {
+			"params": [{
+				"name": "oDocument",
+				"type": "object"
+			}],
+			"returns": {
+				"type": "string",
+				"description": "UI5 Version from the neo-app.json"
+			}
+		}
+	}
+}

@@ -1,0 +1,46 @@
+{
+	"name": "sap.watt.platform.hcp.hcplibrarymetadataprovider",
+	"description": "The HCP Library Metadata Provider Plugin",
+	
+	"requires" : {
+		"services": [
+			"librarymetadata"
+		]
+	},
+	
+	"provides": {
+		"services": {
+			"hcplibrarymetadataprovider": {
+				"implements": "sap.watt.platform.hcp.plugin.hcplibrarymetadataprovider.service.HcpLibraryMetadataProvider",
+				"module":  "sap.watt.platform.hcp.hcplibrarymetadataprovider/service/HcpLibraryMetadataProvider"
+			}
+		},
+		
+		"interfaces" : {
+			"sap.watt.platform.hcp.plugin.hcplibrarymetadataprovider.service.HcpLibraryMetadataProvider": "sap.watt.platform.hcp.hcplibrarymetadataprovider/service/HcpLibraryMetadataProvider"
+		}
+	},
+	
+	
+	
+	"configures" : {
+		"services": {
+			"librarymetadata:providers": [{
+				"service": "@hcplibrarymetadataprovider",
+				"libraries": ["sapui5"],
+				"isSnapshotSupported": true
+			}],
+			"hcplibrarymetadataprovider:libraries" :[{
+				"name" : "sapui5",
+				"internalPathPrefix" : "/sapui5preview",
+				"nonInternalPathPrefix" : "/sapui5versions",
+				"snapshotPathPrefix" : "/sapui5nightly",
+				"versionsFileName" : "neo-app.json",
+				"minVersion" : "1.30.0",
+			    "packages" : ["sap.ui.core", "sap.ui.commons", "sap.m", "sap.me", "sap.ui.layout", "sap.ui.unified", "sap.ushell",
+	                       "sap.ca.ui", "sap.viz", "sap.ui.comp", "sap.ui.table", "sap.ui.ux3", "sap.ui.richtexteditor", "sap.uxap"
+            	 ]
+			}]
+		}
+	}
+}

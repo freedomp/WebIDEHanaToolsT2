@@ -1,0 +1,113 @@
+<mvc:View controllerName="sap.watt.uitools.plugin.sapui5clientbuild.ui.builderConfig" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns:t="sap.ui.table" xmlns="sap.ui.commons">
+	<f:Form busy="false" busyIndicatorDelay="1000" editable="true" fieldGroupIds="[]" visible="true" width="80%">
+		<f:formContainers>
+			<f:FormContainer >
+				<f:formElements>
+					<f:FormElement>
+						<CheckBox checked="{/buildRequired}" id="isBuildRequired" text="{i18n>builder_sapui5clientbuild_configuration_label_build_required}"
+							xmlns="sap.ui.commons"></CheckBox>
+					</f:FormElement>
+					<f:FormElement>
+						<Label id="LabelForLastBuildDateTime" text="{i18n>builder_sapui5clientbuild_configuration_label_last_build}">
+							<layoutData>
+								<f:GridElementData hCells="1"></f:GridElementData>
+							</layoutData>
+						</Label>
+						<TextView id="lastBuildDateTime" text="{/lastBuildDateTime}" xmlns="sap.ui.commons">
+							<layoutData>
+								<f:GridElementData hCells="2"></f:GridElementData>
+							</layoutData>
+						</TextView>
+					</f:FormElement>
+					<f:FormElement visible="{/isDeepStructure}">
+						<Label id="LabelForSourceFolder" text="{i18n>builder_sapui5clientbuild_configuration_label_source_folder}">
+							<layoutData>
+								<f:GridElementData hCells="1"></f:GridElementData>
+							</layoutData>
+						</Label>
+						<ComboBox busy="false" busyIndicatorDelay="1000" id="sourceFolder" value="{/sourceFolder}" visible="true" xmlns="sap.ui.commons">
+							<layoutData>
+								<f:GridElementData hCells="2"></f:GridElementData>
+							</layoutData>
+						</ComboBox>
+					</f:FormElement>
+					<f:FormElement visible="{/isDeepStructure}">
+						<Label id="LabelForTargetFolder" text="{i18n>builder_sapui5clientbuild_configuration_label_target_folder}" xmlns="sap.ui.commons">
+							<layoutData>
+								<f:GridElementData hCells="1"></f:GridElementData>
+							</layoutData>
+						</Label>
+						<TextField id="targetFolder" value="{/targetFolder}">
+							<layoutData>
+								<f:GridElementData hCells="2"></f:GridElementData>
+							</layoutData>
+						</TextField>
+					</f:FormElement>
+					<f:FormElement visible="{/isDeepStructure}">
+						<TabStrip xmlns="sap.ui.commons">
+							<tabs>
+								<Tab xmlns="sap.ui.commons">
+									<content>
+										<t:Table busy="false" busyIndicatorDelay="1000" id="excludedFolders" rows="{/excludedFolders}" selectionMode="Single" visible="true" columnHeaderVisible="false"
+											visibleRowCount="2">
+											<t:toolbar>
+												<Toolbar xmlns="sap.ui.commons">
+													<items>
+														<Button press="addRowExcludedFolders" text="{i18n>builder_sapui5clientbuild_configuration_button_add_folder}" xmlns="sap.ui.commons"></Button>
+														<Button press="removeRowExcludedFolders" text="{i18n>builder_sapui5clientbuild_configuration_button_remove_folder}" xmlns="sap.ui.commons"></Button>
+													</items>
+													<!-- sap.ui.commons.ToolbarItem -->
+												</Toolbar>
+											</t:toolbar>
+											<t:columns>
+												<t:Column id="excludedFolder" xmlns="sap.ui.table">
+													<template>
+														<ComboBox value="{}" xmlns="sap.ui.commons"></ComboBox>
+													</template>
+												</t:Column>
+											</t:columns>
+										</t:Table>
+									</content>
+									<!-- sap.ui.core.Control -->
+									<title>
+										<core:Title text="{i18n>builder_sapui5clientbuild_configuration_label_excluded_folders}" xmlns="sap.ui.core"></core:Title>
+									</title>
+								</Tab>
+								<Tab text="{i18n>builder_sapui5clientbuild_configuration_label_excluded_files}" xmlns="sap.ui.commons">
+									<content>
+										<t:Table busy="false" busyIndicatorDelay="1000" id="excludedFiles" rows="{/excludedFiles}" selectionMode="Single" visible="true" columnHeaderVisible="false"
+											visibleRowCount="2">
+											<t:toolbar>
+												<Toolbar xmlns="sap.ui.commons">
+													<items>
+														<Button press="addRowExcludedFiles" text="{i18n>builder_sapui5clientbuild_configuration_button_add_file}" xmlns="sap.ui.commons"></Button>
+														<Button press="removeRowExcludedFiles" text="{i18n>builder_sapui5clientbuild_configuration_button_remove_file}" xmlns="sap.ui.commons"></Button>
+													</items>
+												</Toolbar>
+											</t:toolbar>
+											<t:columns>
+												<t:Column id="excludedFile" xmlns="sap.ui.table">
+													<template>
+														<ComboBox value="{}" xmlns="sap.ui.commons"></ComboBox>
+													</template>
+												</t:Column>
+											</t:columns>
+										</t:Table>
+									</content>
+									<title>
+										<core:Title text="{i18n>builder_sapui5clientbuild_configuration_label_excluded_files}" xmlns="sap.ui.core"></core:Title>
+									</title>
+								</Tab>
+							</tabs>
+							<!-- sap.ui.commons.Tab -->
+						</TabStrip>
+					</f:FormElement>
+				</f:formElements>
+			</f:FormContainer>
+		</f:formContainers>
+		<f:layout>
+			<f:GridLayout singleColumn="true"></f:GridLayout>
+		</f:layout>
+	</f:Form>
+</mvc:View>

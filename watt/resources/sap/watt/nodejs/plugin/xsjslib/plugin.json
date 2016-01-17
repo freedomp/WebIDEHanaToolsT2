@@ -1,0 +1,87 @@
+{
+    "name": "sap.hana.ide.editor.editors.xsjslib",
+    "description": "The XS Javascript Library Editor Plugin",
+    "i18n" : "sap.hana.ide.editor.editors.xsjslib/i18n/i18n.hdbtextbundle",
+    "version": "0.6.0-SNAPSHOT",
+    "scm-revision": "51fca7e06a400bbbd9207d20c9b35da441426560",
+
+    "requires": {
+        "services": [
+            "layout",
+            "perspective",
+            "document",
+            "editor",
+            "commandGroup",
+            "system",
+            "command",
+            "content",
+            "menuBar",
+            "selection",
+            "log",
+            "console",
+            "focus",
+            "repositorybrowser",
+            "filesystem.documentProvider",
+            "aceeditor",
+            "intellisence",
+            "nodeJsBase",
+            "jsOutline",
+            "jsdefinition",
+            "snippet"
+        ]
+    },
+
+    "configures": {
+
+        "services": {
+
+        	"aceeditor:editorContextMenu":[
+                {
+                    "extension" : "xsjslib",
+                    "menuGroup" : "jsContextMenu"
+                }
+        	],
+
+            "aceeditor:editorGutterContextMenu":[
+            	{
+                    "extension" : "xsjslib",
+                    "menuGroup" : "jsGutterContextMenu"
+                }
+            ],
+
+            "jsdefinition:supportedFileExtensions" : ["xsjslib"],
+            "jsOutline:supportedFileExtensions" : ["xsjslib"],
+
+            "intellisence:codeCompletion": [{
+                "fileExtension": "xsjslib",
+                "service": "@jscodecompletion",
+                "editor": "aceeditor"
+            }],
+
+            "snippet:snippets" : [
+            {
+                "fileExtension" : "xsjslib",
+                "snippets" : [
+                    	{
+                        	"id" : "xsjslib.readFromTable",
+                        	"filePath" : "sap.hana.ide.editor.editors.xsjslib/snippet/xsjslib.readtable.txt",
+                        	"title" : "{i18n>readFromTable_xmsg}"
+                    	},
+                    	{
+                        	"id" : "xsjslib.WriteToTable",
+                        	"filePath" : "sap.hana.ide.editor.editors.xsjslib/snippet/xsjslib.updatetable.txt",
+                        	"title" : "{i18n>writeToTable_xmsg}"
+                    	}
+                	]
+            	}
+        	]
+
+        }
+
+    },
+
+    "subscribes": {
+
+    }
+
+}

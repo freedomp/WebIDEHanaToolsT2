@@ -1,0 +1,1130 @@
+{
+  "modules" : [
+    {
+      "name" : "sap/ui/comp/filterbar/FilterBar.js",
+      "description" : "Provides control sap.ui.comp.filterbar.FilterBar.",
+      "size" : 129058,
+      "compressedSize" : 56695,
+      "required" : ["jquery.sap.global.js", "sap/m/MultiInput.js", "sap/m/ActionSheet.js", "sap/m/Bar.js", "sap/m/Button.js", "sap/m/ButtonType.js", "sap/m/CheckBox.js", "sap/m/CustomListItem.js", "sap/m/Dialog.js", "sap/m/Label.js", "sap/m/LabelDesign.js", "sap/m/Link.js", "sap/m/List.js", "sap/m/ListSeparators.js", "sap/m/ListType.js", "sap/m/Panel.js", "sap/m/PlacementType.js", "sap/m/SearchField.js", "sap/m/Text.js", "sap/m/Toolbar.js", "sap/m/ToolbarSpacer.js", "sap/ui/Device.js", "sap/ui/comp/filterbar/VariantConverterFrom.js", "sap/ui/comp/filterbar/VariantConverterTo.js", "sap/ui/comp/library.js", "sap/ui/comp/smartvariants/PersonalizableInfo.js", "sap/ui/comp/smartvariants/SmartVariantManagement.js", "sap/ui/comp/smartvariants/SmartVariantManagementUi2.js", "sap/ui/comp/variants/VariantManagement.js", "sap/ui/core/Icon.js", "sap/ui/core/TextAlign.js", "sap/ui/core/Title.js", "sap/ui/core/ValueState.js", "sap/ui/layout/Grid.js", "sap/ui/layout/GridData.js", "sap/ui/layout/HorizontalLayout.js", "sap/ui/layout/ResponsiveFlowLayout.js", "sap/ui/layout/ResponsiveFlowLayoutData.js", "sap/ui/layout/VerticalLayout.js", "sap/ui/layout/form/Form.js", "sap/ui/layout/form/FormContainer.js", "sap/ui/layout/form/FormElement.js", "sap/ui/layout/form/ResponsiveGridLayout.js", "sap/ui/layout/form/FormRenderer.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/filterbar/FilterBarRenderer.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 832,
+      "compressedSize" : 276,
+      "required" : ["jquery.sap.global.js", "sap/ui/layout/GridRenderer.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/filterbar/FilterGroupItem.js",
+      "description" : "Provides control sap.ui.comp.filterbar.FilterGroupItem.",
+      "size" : 2790,
+      "compressedSize" : 991,
+      "required" : ["jquery.sap.global.js", "sap/m/Label.js", "sap/ui/comp/filterbar/FilterItem.js", "sap/ui/comp/library.js", "sap/ui/core/TooltipBase.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/filterbar/FilterItem.js",
+      "description" : "Provides control sap.ui.comp.filterbar.FilterItem.",
+      "size" : 6044,
+      "compressedSize" : 2648,
+      "required" : ["jquery.sap.global.js", "sap/m/Label.js", "sap/ui/comp/library.js", "sap/ui/core/Element.js", "sap/ui/core/TooltipBase.js", "sap/ui/base/DataType.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/filterbar/VariantConverterFrom.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 10762,
+      "compressedSize" : 4371,
+      "required" : ["jquery.sap.global.js", "sap/ui/comp/smartfilterbar/ControlConfiguration.js", "sap/ui/comp/valuehelpdialog/ValueHelpDialog.js", "sap/m/MultiComboBox.js", "sap/m/MultiInput.js", "sap/m/DatePicker.js", "sap/m/DateRangeSelection.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/filterbar/VariantConverterTo.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 11287,
+      "compressedSize" : 4249,
+      "required" : ["jquery.sap.global.js", "sap/ui/comp/smartfilterbar/ControlConfiguration.js", "sap/ui/comp/valuehelpdialog/ValueHelpDialog.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/library.js",
+      "description" : "Initialization Code and shared classes of library sap.ui.comp.",
+      "size" : 10117,
+      "compressedSize" : 3243,
+      "required" : ["jquery.sap.global.js", "sap/ui/core/Core.js", "sap/ui/core/library.js", "sap/ui/fl/library.js", "sap/ui/comp/smartform/flexibility/Registration.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/manifest.json",
+      "size" : 805,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle.properties",
+      "size" : 19968,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_ar.properties",
+      "size" : 32641,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_bg.properties",
+      "size" : 38528,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_ca.properties",
+      "size" : 20515,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_cs.properties",
+      "size" : 21582,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_da.properties",
+      "size" : 20066,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_de.properties",
+      "size" : 21012,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_el.properties",
+      "size" : 38444,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_en.properties",
+      "size" : 19743,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_en_US_sappsd.properties",
+      "size" : 44031,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_en_US_saptrc.properties",
+      "size" : 23935,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_es.properties",
+      "size" : 20701,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_et.properties",
+      "size" : 20420,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_fi.properties",
+      "size" : 20661,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_fr.properties",
+      "size" : 21592,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_hi.properties",
+      "size" : 35696,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_hr.properties",
+      "size" : 20449,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_hu.properties",
+      "size" : 22767,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_it.properties",
+      "size" : 20414,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_iw.properties",
+      "size" : 30509,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_ja.properties",
+      "size" : 26211,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_ko.properties",
+      "size" : 24238,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_lt.properties",
+      "size" : 21473,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_lv.properties",
+      "size" : 21953,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_nl.properties",
+      "size" : 20307,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_no.properties",
+      "size" : 20010,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_pl.properties",
+      "size" : 21479,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_pt.properties",
+      "size" : 20987,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_ro.properties",
+      "size" : 21229,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_ru.properties",
+      "size" : 36422,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_sh.properties",
+      "size" : 20396,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_sk.properties",
+      "size" : 21622,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_sl.properties",
+      "size" : 20376,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_sv.properties",
+      "size" : 20411,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_th.properties",
+      "size" : 36944,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_tr.properties",
+      "size" : 21425,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_uk.properties",
+      "size" : 36819,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_vi.properties",
+      "size" : 26452,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_zh_CN.properties",
+      "size" : 22432,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/messagebundle_zh_TW.properties",
+      "size" : 22306,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/navpopover/LinkData.js",
+      "description" : "Provides control sap.ui.comp.navpopover.LinkData.",
+      "size" : 1673,
+      "compressedSize" : 439,
+      "required" : ["jquery.sap.global.js", "sap/ui/comp/library.js", "sap/ui/core/Element.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/navpopover/NavigationPopover.js",
+      "description" : "Provides control sap.ui.comp.navpopover.NavigationPopover.",
+      "size" : 15220,
+      "compressedSize" : 6873,
+      "required" : ["jquery.sap.global.js", "sap/m/CustomListItem.js", "sap/m/Link.js", "sap/m/MessageBox.js", "sap/m/Popover.js", "sap/ui/comp/library.js", "sap/ui/core/Title.js", "sap/ui/layout/form/SimpleForm.js", "sap/m/VBox.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/navpopover/NavigationPopoverRenderer.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 438,
+      "compressedSize" : 252,
+      "required" : ["jquery.sap.global.js", "sap/m/PopoverRenderer.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/navpopover/SemanticObjectController.js",
+      "description" : "Provides control sap.ui.comp.navpopover.SemanticObjectController.",
+      "size" : 17931,
+      "compressedSize" : 5956,
+      "required" : ["jquery.sap.global.js", "sap/ui/comp/library.js", "sap/ui/core/Element.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/navpopover/SmartLink.js",
+      "description" : "Provides control sap.ui.comp.navpopover.SmartLink.",
+      "size" : 19238,
+      "compressedSize" : 6822,
+      "required" : ["jquery.sap.global.js", "sap/m/Link.js", "sap/ui/comp/library.js", "sap/ui/comp/navpopover/NavigationPopover.js", "sap/ui/comp/navpopover/LinkData.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/navpopover/SmartLinkRenderer.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 1360,
+      "compressedSize" : 466,
+      "required" : ["jquery.sap.global.js", "sap/m/LinkRenderer.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/odata/FieldSelector.js",
+      "description" : "Provides control sap.ui.comp.odata.FieldSelector.",
+      "size" : 18773,
+      "compressedSize" : 10592,
+      "required" : ["jquery.sap.global.js", "sap/ui/comp/library.js", "sap/ui/core/Control.js", "sap/ui/comp/odata/FieldSelectorController.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/odata/FieldSelectorController.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 10394,
+      "compressedSize" : 3204,
+      "required" : ["jquery.sap.global.js", "sap/ui/comp/odata/FieldSelectorModelConverter.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/odata/FieldSelectorModelConverter.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 10432,
+      "compressedSize" : 3399,
+      "required" : ["jquery.sap.global.js", "sap/ui/comp/odata/MetadataAnalyser.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/odata/FieldSelectorRenderer.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 1032,
+      "compressedSize" : 351,
+      "required" : ["jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/odata/MetadataAnalyser.js",
+      "description" : "global Promise",
+      "size" : 43876,
+      "compressedSize" : 14300,
+      "required" : ["jquery.sap.global.js", "sap/ui/model/odata/ODataModel.js", "sap/ui/model/odata/ODataAnnotations.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/odata/ODataType.js",
+      "description" : "-------------------------------------------------------------------------------",
+      "size" : 3262,
+      "compressedSize" : 1275,
+      "required" : ["sap/ui/model/odata/type/Boolean.js", "sap/ui/model/odata/type/Byte.js", "sap/ui/model/odata/type/DateTime.js", "sap/ui/model/odata/type/DateTimeOffset.js", "sap/ui/model/odata/type/Decimal.js", "sap/ui/model/odata/type/Double.js", "sap/ui/model/odata/type/Single.js", "sap/ui/model/odata/type/Guid.js", "sap/ui/model/odata/type/Int16.js", "sap/ui/model/odata/type/Int32.js", "sap/ui/model/odata/type/Int64.js", "sap/ui/model/odata/type/SByte.js", "sap/ui/model/odata/type/String.js", "sap/ui/model/odata/type/Time.js", "jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/odata/SideEffects.js",
+      "description" : "SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 4225,
+      "compressedSize" : 1207,
+      "required" : ["jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/personalization/BaseController.js",
+      "description" : "Provides BaseController",
+      "size" : 10846,
+      "compressedSize" : 3404,
+      "required" : ["jquery.sap.global.js", "sap/m/P13nItem.js", "sap/ui/base/ManagedObject.js", "sap/ui/comp/personalization/Util.js", "sap/ui/table/Table.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/personalization/ColumnsController.js",
+      "description" : "Provides ColumnsController",
+      "size" : 36139,
+      "compressedSize" : 14523,
+      "required" : ["jquery.sap.global.js", "sap/ui/comp/personalization/BaseController.js", "sap/m/library.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/personalization/Controller.js",
+      "description" : "Provides Controller",
+      "size" : 38334,
+      "compressedSize" : 16155,
+      "required" : ["jquery.sap.global.js", "sap/ui/base/ManagedObject.js", "sap/ui/comp/personalization/ColumnsController.js", "sap/ui/comp/personalization/FilterController.js", "sap/ui/comp/personalization/GroupController.js", "sap/ui/comp/personalization/SortController.js", "sap/ui/comp/personalization/Util.js", "sap/ui/comp/library.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/personalization/FilterController.js",
+      "description" : "Provides FilterController",
+      "size" : 12400,
+      "compressedSize" : 6526,
+      "required" : ["jquery.sap.global.js", "sap/ui/comp/personalization/BaseController.js", "sap/m/library.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/personalization/GroupController.js",
+      "description" : "Provides GroupController",
+      "size" : 14244,
+      "compressedSize" : 7554,
+      "required" : ["jquery.sap.global.js", "sap/ui/comp/personalization/BaseController.js", "sap/m/library.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/personalization/SortController.js",
+      "description" : "Provides SortController",
+      "size" : 11218,
+      "compressedSize" : 6078,
+      "required" : ["jquery.sap.global.js", "sap/ui/comp/personalization/BaseController.js", "sap/m/library.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/personalization/Util.js",
+      "description" : "@namespace Provides utitlity functions for the personalization dialog @name sap.ui.comp.personalization.Util @author SAP SE @version 1.32.7 @private @since 1.25.0",
+      "size" : 14632,
+      "compressedSize" : 5332,
+      "required" : ["sap/ui/base/Object.js", "sap/ui/core/MessageType.js", "jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/providers/BaseValueListProvider.js",
+      "description" : "-----------------------------------------------------------------------------",
+      "size" : 14690,
+      "compressedSize" : 6586,
+      "required" : ["jquery.sap.global.js", "sap/ui/base/EventProvider.js", "sap/ui/comp/smartfilterbar/ControlConfiguration.js", "sap/ui/model/type/Date.js", "sap/ui/comp/odata/MetadataAnalyser.js", "sap/ui/comp/util/FormatUtil.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/providers/ControlProvider.js",
+      "description" : "-------------------------------------------------------------------------------",
+      "size" : 19514,
+      "compressedSize" : 9004,
+      "required" : ["jquery.sap.global.js", "sap/m/CheckBox.js", "sap/m/ComboBox.js", "sap/m/DatePicker.js", "sap/m/HBox.js", "sap/m/Input.js", "sap/m/Text.js", "sap/ui/comp/navpopover/SmartLink.js", "sap/ui/comp/odata/MetadataAnalyser.js", "sap/ui/comp/smartfield/ODataHelper.js", "sap/ui/comp/smartfield/SmartField.js", "sap/ui/comp/odata/ODataType.js", "sap/ui/comp/util/FormatUtil.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/providers/TableProvider.js",
+      "description" : "-----------------------------------------------------------------------------",
+      "size" : 13931,
+      "compressedSize" : 6001,
+      "required" : ["jquery.sap.global.js", "sap/ui/comp/odata/MetadataAnalyser.js", "sap/ui/comp/providers/ControlProvider.js", "sap/ui/comp/util/FormatUtil.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/providers/ValueHelpProvider.js",
+      "description" : "-----------------------------------------------------------------------------",
+      "size" : 17704,
+      "compressedSize" : 9552,
+      "required" : ["jquery.sap.global.js", "sap/m/List.js", "sap/m/PlacementType.js", "sap/m/ResponsivePopover.js", "sap/m/StandardListItem.js", "sap/ui/comp/providers/BaseValueListProvider.js", "sap/ui/comp/valuehelpdialog/ValueHelpDialog.js", "sap/ui/model/json/JSONModel.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/providers/ValueListProvider.js",
+      "description" : "-----------------------------------------------------------------------------",
+      "size" : 14474,
+      "compressedSize" : 6727,
+      "required" : ["jquery.sap.global.js", "sap/m/Column.js", "sap/m/ColumnListItem.js", "sap/m/Text.js", "sap/m/Token.js", "sap/ui/comp/providers/BaseValueListProvider.js", "sap/ui/core/Item.js", "sap/ui/model/Filter.js", "sap/ui/model/Sorter.js", "sap/ui/model/json/JSONModel.js", "sap/ui/comp/util/FormatUtil.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartfield/AnnotationHelper.js",
+      "description" : "Utility to access annotations for SmartField control. OData V2 annotations are supported and vocabulary-based OData V4 annotations, which are used as fall-back. For <code>sap:updatable-path</code> currently no OData V4 annotation is considered, because it is replaced by the instance annotation <code>com.sap.vocabularies.Common.v1.Updatable</code>, which is meaningless in a context of OData V2 with additional OData V4 annotations. An additional exception is <code>sap:visible</code>, as there is no replacement available. Additionally please note that <code>sap:display-format</code> with value <code>Date</code> is not considered here, as it is replaced by the new primitive type <code>Edm.Date</code> from V4 onwards. And <code>sap:semantics</code> with value <code>fixed-values</code> on entity set is not considered here. It addresses value help use cases, especially the entity set used for value help.  @private @name sap.ui.comp.smartfield.AnnotationHelper @author SAP SE @version 1.32.7 @since 1.29.0 @return {sap.ui.comp.smartfield.AnnotationHelper} the annotation access class.",
+      "size" : 10852,
+      "compressedSize" : 2973,
+      "required" : ["jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartfield/BindingUtil.js",
+      "description" : "Utility to access control binding for SmartFieldControl.  @private @name sap.ui.comp.smartfield.BindingUtil @author SAP SE @version 1.32.7 @since 1.28.0 @param {sap.ui.model.odata.AnnotationHelper} AnnotationHelper A reference to the AnnotationHelper implementation @param {sap.ui.base.BindingParser} BindingParser A reference to the BindingParser implementation @returns {sap.ui.comp.smartfield.BindingUtil} The binding access class.",
+      "size" : 7363,
+      "compressedSize" : 1943,
+      "required" : ["sap/ui/model/odata/AnnotationHelper.js", "sap/ui/base/BindingParser.js", "jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartfield/Configuration.js",
+      "description" : "Provides control sap.ui.comp.smartfield.Configuration.",
+      "size" : 1916,
+      "compressedSize" : 524,
+      "required" : ["jquery.sap.global.js", "sap/ui/comp/library.js", "sap/ui/core/Element.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartfield/ControlFactoryBase.js",
+      "description" : "Base class for factory implementations that create controls that are hosted by <code>sap.ui.comp.SmartField</code>.  @private @name sap.ui.comp.smartfield.ControlFactoryBase @author SAP SE @version 1.32.7 @since 1.28.0 @param {jquery.sap.global} jQuery a reference to the jQuery implementation. @param {sap.ui.base.Object} BaseObject a reference to the base object implementation. @param {sap.ui.comp.providers.ValueHelpProvider} ValueHelpProvider a reference to the value help provider implementation. @param {sap.ui.comp.providers.ValueListProvider} ValueListProvider a reference to the value list provider implementation. @param {sap.ui.comp.smartfield.BindingUtil} BindingUtil a reference to the binding utility implementation. @returns {sap.ui.comp.smartfield.ControlFactoryBase} new control factory instance.",
+      "size" : 14460,
+      "compressedSize" : 4736,
+      "required" : ["jquery.sap.global.js", "sap/ui/base/Object.js", "sap/ui/comp/util/FormatUtil.js", "sap/ui/comp/providers/ValueHelpProvider.js", "sap/ui/comp/providers/ValueListProvider.js", "sap/ui/comp/smartfield/BindingUtil.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartfield/FieldControl.js",
+      "description" : "Field Control Implementation for SmartField Control. The implementation operates on OData meta data, so an instance of <code>sap.ui.model.odata.ODataModel</code>.  @private @name sap.ui.comp.smartfield.FieldControl @author SAP SE @version 1.32.7 @since 1.28.0 @param {jquery.sap.global} jQuery a reference to the jQuery implementation. @param {sap.ui.comp.smartfield.BindingUtil} BindingUtil a reference to the binding utility implementation. @param {sap.ui.model.ParseException} ParseException a reference to the parse exception implementation. @returns {sap.ui.comp.smartfield.FieldControl} the field control class.",
+      "size" : 21312,
+      "compressedSize" : 5750,
+      "required" : ["jquery.sap.global.js", "sap/ui/comp/smartfield/BindingUtil.js", "sap/ui/model/ParseException.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartfield/JSONControlFactory.js",
+      "description" : "Factory class to create controls that are hosted by <code>sap.ui.comp.SmartField</code>.  @private @name sap.ui.comp.smartfield.JSONControlFactory @author SAP SE @version 1.32.7 @since 1.28.0 @param {jquery.sap.global} jQuery a reference to the jQuery implementation. @param {sap.m.CheckBox} CheckBox a reference to the check box implementation. @param {sap.m.ComboBox} ComboBox a reference to the combo box implementation. @param {sap.m.DatePicker} DatePicker a reference to the DatePicker implementation. @param {sap.m.Input} Input a reference to the Input implementation. @param {sap.m.Text} Text a reference to the Text implementation. @param {sap.ui.comp.smartfield.ControlFactoryBase} ControlFactoryBase a reference to the control factory base class implementation. @param {sap.ui.comp.smartfield.JSONTypes} JSONTypes a reference to the JSON type implementation. @returns {sap.ui.comp.smartfield.JSONControlFactory} new control factory instance.",
+      "size" : 7809,
+      "compressedSize" : 2780,
+      "required" : ["jquery.sap.global.js", "sap/m/CheckBox.js", "sap/m/ComboBox.js", "sap/m/DatePicker.js", "sap/m/Input.js", "sap/m/Text.js", "sap/ui/comp/smartfield/ControlFactoryBase.js", "sap/ui/comp/smartfield/JSONTypes.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartfield/JSONTypes.js",
+      "description" : "Utility class to access data types, if the SmartField uses a JSON model.  @private @name sap.ui.comp.smartfield.JSONTypes @author SAP SE @version 1.32.7 @since 1.28.0 @param {jquery.sap.global} jQuery a reference to the jQuery implementation. @param {sap.ui.model.type.Boolean} BooleanType a reference to the boolean type implementation. @param {sap.ui.model.type.Date} DateType a reference to the date type implementation. @param {sap.ui.model.type.Float} FloatType a reference to the float type implementation. @param {sap.ui.model.type.Integer} IntegerType a reference to the integer type implementation. @param {sap.ui.model.type.String} StringType a reference to the string type implementation. @returns {sap.ui.comp.smartfield.JSONTypes} the new instance.",
+      "size" : 2300,
+      "compressedSize" : 582,
+      "required" : ["jquery.sap.global.js", "sap/ui/model/type/Boolean.js", "sap/ui/model/type/Date.js", "sap/ui/model/type/Float.js", "sap/ui/model/type/Integer.js", "sap/ui/model/type/String.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartfield/ODataControlFactory.js",
+      "description" : "Factory class to create controls that are hosted by <code>sap.ui.comp.SmartField</code>.  @private @name sap.ui.comp.smartfield.ODataControlFactory @author SAP SE @version 1.32.7 @since 1.28.0 @param {jquery.sap.global} jQuery a reference to the jQuery implementation @param {sap.m.TextArea} TextArea a reference to the MultiLiteText implementation @param {sap.m.Link} Link a reference to the link implementation @param {sap.m.CheckBox} CheckBox a reference to the check box implementation @param {sap.m.ComboBox} ComboBox a reference to the combo box implementation @param {sap.m.DatePicker} DatePicker a reference to the DatePicker implementation @param {sap.m.FlexItemData} FlexItemData a reference to the FlexItemData implementation @param {FlexJustifyContent} FlexJustifyContent a reference to the FlexJustifyContent implementation @param {sap.m.HBox} HBox a reference to the HBox implementation @param {sap.m.Input} Input a reference to the Input implementation @param {sap.m.InputType} InputType a reference to the InputType implementation @param {sap.m.Select} Select a reference to the select implementation @param {sap.m.Text} Text a reference to the Text implementation @param {sap.ui.core.Renderer} Renderer a reference to the ui.core.Renderer implementation @param {sap.ui.core.TextAlign} TextAlign a reference to the ui.core.TextAlign implementation @param {sap.ui.comp.navpopover.SmartLink} SmartLink a reference to the smart link implementation @param {sap.ui.comp.smartfield.ControlFactoryBase} ControlFactoryBase a reference to the control factory base class implementation @param {sap.ui.comp.smartfield.FieldControl} FieldControl a reference to the field control implementation @param {sap.ui.comp.smartfield.ODataControlSelector} ODataControlSelector a reference to the OData control selector implementation @param {sap.ui.comp.smartfield.ODataHelper} ODataHelper a reference to the OData helper implementation @param {sap.ui.comp.smartfield.ODataTypes} ODataTypes a reference to the OData types implementation @param {sap.m.ObjectNumber} ObjectNumber a reference to the object number implementation @param {sap.m.ObjectIdentifier} ObjectIdentifier a reference to the object identifier implementation @return {sap.ui.comp.smartfield.ODataControlFactory} new control factory instance.",
+      "size" : 50034,
+      "compressedSize" : 21552,
+      "required" : ["jquery.sap.global.js", "sap/m/TextArea.js", "sap/m/Link.js", "sap/m/CheckBox.js", "sap/m/ComboBox.js", "sap/m/DatePicker.js", "sap/m/FlexItemData.js", "sap/m/FlexJustifyContent.js", "sap/m/HBox.js", "sap/m/Input.js", "sap/m/InputType.js", "sap/m/Select.js", "sap/m/Text.js", "sap/ui/core/Renderer.js", "sap/ui/core/TextAlign.js", "sap/ui/comp/navpopover/SmartLink.js", "sap/ui/comp/smartfield/ControlFactoryBase.js", "sap/ui/comp/smartfield/FieldControl.js", "sap/ui/comp/smartfield/ODataControlSelector.js", "sap/ui/comp/smartfield/ODataHelper.js", "sap/ui/comp/smartfield/ODataTypes.js", "sap/m/ObjectNumber.js", "sap/m/ObjectIdentifier.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartfield/ODataControlSelector.js",
+      "description" : "Selector for controls that are hosted by <code>sap.ui.comp.SmartField</code>.  @private @name sap.ui.comp.smartfield.ODataControlSelector @author SAP SE @version 1.32.7 @since 1.28.0 @param {jquery.sap.global} jQuery a reference to the jQuery implementation. @returns {sap.ui.comp.smartfield.ODataControlSelector} new control selector instance.",
+      "size" : 9541,
+      "compressedSize" : 3533,
+      "required" : ["jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartfield/ODataHelper.js",
+      "description" : "Utility class to access OData Meta Data.  @private @name sap.ui.comp.smartfield.ODataHelper @author SAP SE @version 1.32.7 @since 1.28.0 @param {jquery.sap.global} jQuery a reference to the jQuery implementation. @param {sap.ui.comp.odata.MetadataAnalyser} MData a reference to the meta data analyzer implementation. @param {sap.ui.comp.smartfield.AnnotationHelper} Annotation a reference to the annotation helper implementation. @returns {sap.ui.comp.smartfield.ODataHelper} the new instance.",
+      "size" : 23604,
+      "compressedSize" : 6247,
+      "required" : ["jquery.sap.global.js", "sap/ui/comp/odata/MetadataAnalyser.js", "sap/ui/comp/smartfield/AnnotationHelper.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartfield/ODataTypes.js",
+      "description" : "Utility class to access OData Types. The implementation operates on OData meta data, so an instance of <code>sap.ui.model.odata.ODataModel</code>.  @private @name sap.ui.comp.smartfield.ODataTypes @author SAP SE @version 1.32.7 @since 1.28.0 @param {jquery.sap.global} jQuery a reference to the jQuery implementation. @param {sap.ui.core.format.NumberFormat} NumberFormat a reference to the number format implementation. @param {sap.ui.model.odata.type.Boolean} BooleanType a reference to the boolean type implementation. @param {sap.ui.comp.smartfield.type.DateTime} DateTimeType a reference to the date type implementation. @param {sap.ui.comp.smartfield.type.DateTimeOffset} DateTimeOffsetType a reference to the date-time type implementation. @param {sap.ui.comp.smartfield.type.Decimal} DecimalType a reference to the decimal type implementation. @param {sap.ui.comp.smartfield.type.Int16} Int16Type a reference to the 16 bit integer type implementation. @param {sap.ui.comp.smartfield.Int32} Int32Type a reference to the 32 bit integer type implementation. @param {sap.ui.comp.smartfield.Int64} Int64Type a reference to the 32 bit integer type implementation. @param {sap.ui.comp.smartfield.type.SByte} SByteType a reference to the SByte type implementation. @param {sap.ui.comp.smartfield.type.String} StringType a reference to the string type implementation. @param {sap.ui.comp.smartfield.type.AbapBool} AbapBoolean a reference to the simple boolean type implementation. @param {sap.ui.model.type.Currency} CurrencyType a reference to the currency type implementation. @returns {sap.ui.comp.smartfield.ODataTypes} the new instance.",
+      "size" : 11596,
+      "compressedSize" : 3282,
+      "required" : ["jquery.sap.global.js", "sap/ui/core/format/NumberFormat.js", "sap/ui/model/odata/type/Boolean.js", "sap/ui/comp/smartfield/type/DateTime.js", "sap/ui/comp/smartfield/type/DateTimeOffset.js", "sap/ui/comp/smartfield/type/Decimal.js", "sap/ui/comp/smartfield/type/Int16.js", "sap/ui/comp/smartfield/type/Int32.js", "sap/ui/comp/smartfield/type/Int64.js", "sap/ui/comp/smartfield/type/SByte.js", "sap/ui/comp/smartfield/type/String.js", "sap/ui/comp/smartfield/type/AbapBool.js", "sap/ui/model/type/Currency.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartfield/SideEffectUtil.js",
+      "description" : "SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 6101,
+      "compressedSize" : 1888,
+      "required" : ["jquery.sap.global.js", "sap/ui/comp/odata/SideEffects.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartfield/SmartField.js",
+      "description" : "Provides control sap.ui.comp.smartfield.SmartField.",
+      "size" : 44759,
+      "compressedSize" : 12538,
+      "required" : ["jquery.sap.global.js", "sap/ui/comp/library.js", "sap/ui/comp/smartfield/JSONControlFactory.js", "sap/ui/comp/smartfield/ODataControlFactory.js", "sap/ui/comp/smartfield/BindingUtil.js", "sap/ui/comp/smartfield/SideEffectUtil.js", "sap/ui/comp/smartfield/ODataHelper.js", "sap/ui/core/Control.js", "sap/ui/model/ParseException.js", "sap/ui/model/ValidateException.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartfield/SmartFieldRenderer.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 1004,
+      "compressedSize" : 391,
+      "required" : ["jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartfield/SmartLabel.js",
+      "description" : "Provides control sap.ui.comp.smartfield.SmartLabel.",
+      "size" : 6727,
+      "compressedSize" : 2782,
+      "required" : ["jquery.sap.global.js", "sap/m/Label.js", "sap/ui/comp/library.js", "sap/ui/comp/smartfield/BindingUtil.js", "sap/ui/comp/smartfield/AnnotationHelper.js", "sap/ui/comp/smartfield/SmartField.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartfield/SmartLabelRenderer.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 828,
+      "compressedSize" : 269,
+      "required" : ["jquery.sap.global.js", "sap/m/LabelRenderer.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartfield/type/AbapBool.js",
+      "description" : "SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 2834,
+      "compressedSize" : 905,
+      "required" : ["jquery.sap.global.js", "sap/ui/model/FormatException.js", "sap/ui/model/ParseException.js", "sap/ui/model/SimpleType.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartfield/type/DateTime.js",
+      "description" : "Date Time data type that supports field-control.  @private @name sap.ui.comp.smartfield.type.DateTime @author SAP SE @version 1.32.7 @since 1.28.0 @extends sap.ui.model.odata.type.DateTime @param {sap.ui.model.odata.type.DateTime} DateTimeBase a reference to the date time implementation. @returns {sap.ui.comp.smartfield.type.DateTime} the date time implementation.",
+      "size" : 2033,
+      "compressedSize" : 524,
+      "required" : ["sap/ui/model/odata/type/DateTime.js", "jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartfield/type/DateTimeOffset.js",
+      "description" : "Date Time Offset data type that supports field-control.  @private @name sap.ui.comp.smartfield.type.DateTimeOffset @author SAP SE @version 1.32.7 @since 1.28.0 @extends sap.ui.model.odata.type.DateTimeOffset @param {sap.ui.model.odata.type.DateTimeOffset} DateTimeBase a reference to the date time implementation. @returns {sap.ui.comp.smartfield.type.DateTimeOffset} the date time implementation.",
+      "size" : 2112,
+      "compressedSize" : 542,
+      "required" : ["sap/ui/model/odata/type/DateTimeOffset.js", "jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartfield/type/Decimal.js",
+      "description" : "Decimal data type that supports field-control.  @private @name sap.ui.comp.smartfield.type.Decimal @author SAP SE @version 1.32.7 @since 1.28.0 @extends sap.ui.model.odata.type.Decimal @param {sap.ui.model.odata.type.Decimal} DecimalBase a reference to the decimal implementation. @returns {sap.ui.comp.smartfield.type.Decimal} the decimal implementation.",
+      "size" : 2032,
+      "compressedSize" : 521,
+      "required" : ["sap/ui/model/odata/type/Decimal.js", "jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartfield/type/Int16.js",
+      "description" : "16 byte integer data type that supports field-control.  @private @name sap.ui.comp.smartfield.type.Int16 @author SAP SE @version 1.32.7 @since 1.28.0 @extends sap.ui.model.odata.type.Int16 @param {sap.ui.model.odata.type.Int16} IntBase a reference to the integer implementation. @returns {sap.ui.comp.smartfield.type.Int16} the integer implementation.",
+      "size" : 1996,
+      "compressedSize" : 515,
+      "required" : ["sap/ui/model/odata/type/Int16.js", "jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartfield/type/Int32.js",
+      "description" : "32 byte integer data type that supports field-control.  @private @name sap.ui.comp.smartfield.type.Int32 @author SAP SE @version 1.32.7 @since 1.28.0 @extends sap.ui.model.odata.type.Int32 @param {sap.ui.model.odata.type.Int32} IntBase a reference to the integer implementation. @returns {sap.ui.comp.smartfield.type.Int32} the integer implementation.",
+      "size" : 1996,
+      "compressedSize" : 515,
+      "required" : ["sap/ui/model/odata/type/Int32.js", "jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartfield/type/Int64.js",
+      "description" : "64 byte integer data type that supports field-control.  @private @name sap.ui.comp.smartfield.type.Int64 @author SAP SE @version 1.32.7 @since 1.31.0 @extends sap.ui.model.odata.type.Int64 @param {sap.ui.model.odata.type.Int64} IntBase a reference to the integer implementation. @returns {sap.ui.comp.smartfield.type.Int64} the integer implementation.",
+      "size" : 1996,
+      "compressedSize" : 515,
+      "required" : ["sap/ui/model/odata/type/Int64.js", "jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartfield/type/SByte.js",
+      "description" : "SByte data type that supports field-control.  @private @name sap.ui.comp.smartfield.type.SByte @author SAP SE @version 1.32.7 @since 1.28.0 @extends sap.ui.model.odata.type.SByte @param {sap.ui.model.odata.type.SByte} SByteBase a reference to the integer implementation. @returns {sap.ui.comp.smartfield.type.SByte} the byte implementation.",
+      "size" : 1993,
+      "compressedSize" : 515,
+      "required" : ["sap/ui/model/odata/type/SByte.js", "jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartfield/type/String.js",
+      "description" : "String data type that supports field-control.  @private @name sap.ui.comp.smartfield.type.String @author SAP SE @version 1.32.7 @since 1.28.0 @extends sap.ui.model.odata.type.String @param {sap.ui.model.odata.type.String} StringBase a reference to the string implementation. @returns {sap.ui.comp.smartfield.type.String} the string implementation.",
+      "size" : 2010,
+      "compressedSize" : 518,
+      "required" : ["sap/ui/model/odata/type/String.js", "jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartfilterbar/AdditionalConfigurationHelper.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 4333,
+      "compressedSize" : 1908,
+      "required" : ["jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartfilterbar/ControlConfiguration.js",
+      "description" : "Provides control sap.ui.comp.smartfilterbar.ControlConfiguration.",
+      "size" : 8512,
+      "compressedSize" : 2768,
+      "required" : ["jquery.sap.global.js", "sap/ui/comp/library.js", "sap/ui/core/Element.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartfilterbar/FilterProvider.js",
+      "description" : "-----------------------------------------------------------------------------",
+      "size" : 78211,
+      "compressedSize" : 28485,
+      "required" : ["jquery.sap.global.js", "sap/m/ComboBox.js", "sap/m/DatePicker.js", "sap/m/DateRangeSelection.js", "sap/m/Input.js", "sap/m/MultiComboBox.js", "sap/m/MultiInput.js", "sap/m/SearchField.js", "sap/m/Token.js", "sap/ui/comp/odata/MetadataAnalyser.js", "sap/ui/comp/providers/ValueHelpProvider.js", "sap/ui/comp/providers/ValueListProvider.js", "sap/ui/model/Filter.js", "sap/ui/model/json/JSONModel.js", "sap/ui/comp/odata/ODataType.js", "sap/ui/comp/util/FormatUtil.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartfilterbar/GroupConfiguration.js",
+      "description" : "Provides control sap.ui.comp.smartfilterbar.GroupConfiguration.",
+      "size" : 2382,
+      "compressedSize" : 673,
+      "required" : ["jquery.sap.global.js", "sap/ui/comp/library.js", "sap/ui/core/Element.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartfilterbar/SelectOption.js",
+      "description" : "Provides control sap.ui.comp.smartfilterbar.SelectOption.",
+      "size" : 2265,
+      "compressedSize" : 691,
+      "required" : ["jquery.sap.global.js", "sap/ui/comp/library.js", "sap/ui/core/Element.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartfilterbar/SmartFilterBar.js",
+      "description" : "Provides control sap.ui.comp.smartfilterbar.SmartFilterBar.",
+      "size" : 35612,
+      "compressedSize" : 12982,
+      "required" : ["jquery.sap.global.js", "sap/m/MessageBox.js", "sap/ui/comp/filterbar/FilterBar.js", "sap/ui/comp/filterbar/FilterGroupItem.js", "sap/ui/comp/filterbar/FilterItem.js", "sap/ui/comp/library.js", "sap/ui/comp/smartfilterbar/AdditionalConfigurationHelper.js", "sap/ui/comp/smartfilterbar/ControlConfiguration.js", "sap/ui/comp/smartfilterbar/FilterProvider.js", "sap/ui/comp/smartfilterbar/GroupConfiguration.js", "sap/ui/comp/smartvariants/PersonalizableInfo.js", "sap/ui/comp/smartvariants/SmartVariantManagement.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartfilterbar/SmartFilterBarRenderer.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 927,
+      "compressedSize" : 291,
+      "required" : ["jquery.sap.global.js", "sap/ui/comp/filterbar/FilterBarRenderer.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartform/Group.designtime.js",
+      "description" : "Provides the Design Time Metadata for the sap.ui.comp.smartform.Group control",
+      "size" : 407,
+      "compressedSize" : 262,
+      "required" : ["jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartform/Group.js",
+      "description" : "Provides control sap.ui.comp.smartform.Group.",
+      "size" : 12439,
+      "compressedSize" : 4318,
+      "required" : ["jquery.sap.global.js", "sap/ui/comp/library.js", "sap/ui/layout/ResponsiveFlowLayoutData.js", "sap/ui/layout/form/FormContainer.js", "sap/ui/comp/smartform/GroupElement.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartform/GroupElement.js",
+      "description" : "Provides control sap.ui.comp.smartform.GroupElement.",
+      "size" : 17590,
+      "compressedSize" : 7655,
+      "required" : ["jquery.sap.global.js", "sap/m/Label.js", "sap/m/VBox.js", "sap/ui/comp/library.js", "sap/ui/core/Element.js", "sap/ui/layout/form/FormElement.js", "sap/ui/layout/ResponsiveFlowLayoutData.js", "sap/ui/comp/smartfield/SmartLabel.js", "sap/ui/comp/smartfield/SmartField.js", "sap/ui/comp/smartfield/BindingUtil.js", "sap/ui/comp/smartfield/Configuration.js", "sap/ui/core/TooltipBase.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartform/Layout.js",
+      "description" : "Provides control sap.ui.comp.smartform.Layout.",
+      "size" : 3348,
+      "compressedSize" : 955,
+      "required" : ["jquery.sap.global.js", "sap/ui/comp/library.js", "sap/ui/core/Element.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartform/SmartForm.js",
+      "description" : "Provides control sap.ui.comp.smartform.SmartForm.",
+      "size" : 40213,
+      "compressedSize" : 18460,
+      "required" : ["jquery.sap.global.js", "sap/ui/comp/library.js", "sap/m/MessageBox.js", "sap/ui/core/Control.js", "sap/ui/layout/form/Form.js", "sap/ui/layout/form/ResponsiveLayout.js", "sap/ui/fl/Utils.js", "sap/ui/fl/registry/Settings.js", "sap/m/Label.js", "sap/m/Button.js", "sap/m/ButtonType.js", "sap/m/Panel.js", "sap/m/Toolbar.js", "sap/m/ToolbarSpacer.js", "sap/m/ToolbarSeparator.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartform/SmartFormRenderer.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 1439,
+      "compressedSize" : 648,
+      "required" : ["jquery.sap.global.js", "sap/ui/layout/form/Form.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartform/flexibility/DialogContent.js",
+      "description" : "Provides control sap.ui.comp.smartform.flexibility.DialogContent.",
+      "size" : 41776,
+      "compressedSize" : 17475,
+      "required" : ["jquery.sap.global.js", "sap/m/Button.js", "sap/m/FlexAlignItems.js", "sap/m/FlexAlignSelf.js", "sap/m/FlexDirection.js", "sap/m/FlexItemData.js", "sap/m/FlexJustifyContent.js", "sap/m/HBox.js", "sap/m/VBox.js", "sap/ui/comp/library.js", "sap/ui/comp/odata/FieldSelector.js", "sap/ui/comp/smartform/flexibility/FieldList.js", "sap/ui/core/Control.js", "sap/ui/core/ResizeHandler.js", "sap/ui/fl/registry/Settings.js", "sap/ui/layout/Grid.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartform/flexibility/DialogContentRenderer.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 1032,
+      "compressedSize" : 349,
+      "required" : ["jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartform/flexibility/FieldList.js",
+      "description" : "Provides control sap.ui.comp.smartform.flexibility.FieldList.",
+      "size" : 7228,
+      "compressedSize" : 2616,
+      "required" : ["jquery.sap.global.js", "sap/ui/comp/library.js", "sap/ui/core/Control.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartform/flexibility/FieldListNode.js",
+      "description" : "Provides control sap.ui.comp.smartform.flexibility.FieldListNode.",
+      "size" : 9060,
+      "compressedSize" : 4238,
+      "required" : ["jquery.sap.global.js", "sap/m/CheckBox.js", "sap/m/FlexBox.js", "sap/ui/comp/library.js", "sap/ui/comp/smartform/flexibility/Input.js", "sap/ui/core/Control.js", "sap/m/Button.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartform/flexibility/FieldListNodeRenderer.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 2143,
+      "compressedSize" : 818,
+      "required" : ["jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartform/flexibility/FieldListRenderer.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 1454,
+      "compressedSize" : 467,
+      "required" : ["jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartform/flexibility/FormP13nHandler.js",
+      "description" : "global Promise",
+      "size" : 54264,
+      "compressedSize" : 18224,
+      "required" : ["jquery.sap.global.js", "sap/m/Dialog.js", "sap/m/FlexBox.js", "sap/m/FlexItemData.js", "sap/m/Text.js", "sap/m/Button.js", "sap/m/DialogType.js", "sap/ui/core/mvc/XMLView.js", "sap/ui/comp/smartform/SmartForm.js", "sap/ui/comp/smartform/Group.js", "sap/ui/comp/smartform/GroupElement.js", "sap/ui/comp/odata/FieldSelector.js", "sap/ui/fl/Utils.js", "sap/ui/model/json/JSONModel.js", "sap/ui/fl/FlexControllerFactory.js", "sap/m/MessageBox.js", "sap/ui/comp/transport/TransportSelection.js", "sap/ui/fl/Transports.js", "sap/ui/fl/registry/Settings.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartform/flexibility/Input.js",
+      "description" : "Provides control sap.ui.comp.smartform.flexibility.Input.",
+      "size" : 2499,
+      "compressedSize" : 1252,
+      "required" : ["jquery.sap.global.js", "sap/m/Input.js", "sap/ui/comp/library.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartform/flexibility/InputRenderer.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 783,
+      "compressedSize" : 261,
+      "required" : ["jquery.sap.global.js", "sap/m/InputRenderer.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartform/flexibility/Registration.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 2905,
+      "compressedSize" : 1731,
+      "required" : ["jquery.sap.global.js", "sap/ui/fl/registry/ChangeRegistry.js", "sap/ui/fl/registry/SimpleChanges.js", "sap/ui/comp/smartform/flexibility/changes/RemoveField.js", "sap/ui/comp/smartform/flexibility/changes/RemoveGroup.js", "sap/ui/comp/smartform/flexibility/changes/RenameField.js", "sap/ui/comp/smartform/flexibility/changes/RenameGroup.js", "sap/ui/comp/smartform/flexibility/changes/AddField.js", "sap/ui/comp/smartform/flexibility/changes/AddGroup.js", "sap/ui/comp/smartform/flexibility/changes/MoveGroups.js", "sap/ui/comp/smartform/flexibility/changes/MoveFields.js", "sap/ui/comp/smartform/flexibility/changes/OrderGroups.js", "sap/ui/comp/smartform/flexibility/changes/OrderFields.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartform/flexibility/changes/AddField.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 5420,
+      "compressedSize" : 2418,
+      "required" : ["jquery.sap.global.js", "sap/ui/fl/Utils.js", "sap/ui/fl/changeHandler/Base.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartform/flexibility/changes/AddGroup.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 3192,
+      "compressedSize" : 1449,
+      "required" : ["sap/ui/fl/Utils.js", "jquery.sap.global.js", "sap/ui/fl/changeHandler/Base.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartform/flexibility/changes/MoveFields.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 5530,
+      "compressedSize" : 2167,
+      "required" : ["jquery.sap.global.js", "sap/ui/fl/changeHandler/Base.js", "sap/ui/fl/Utils.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartform/flexibility/changes/MoveGroups.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 4228,
+      "compressedSize" : 1810,
+      "required" : ["jquery.sap.global.js", "sap/ui/fl/changeHandler/Base.js", "sap/ui/fl/Utils.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartform/flexibility/changes/OrderFields.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 3558,
+      "compressedSize" : 1320,
+      "required" : ["jquery.sap.global.js", "sap/ui/fl/changeHandler/Base.js", "sap/ui/fl/Utils.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartform/flexibility/changes/OrderGroups.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 3330,
+      "compressedSize" : 1294,
+      "required" : ["jquery.sap.global.js", "sap/ui/fl/changeHandler/Base.js", "sap/ui/fl/Utils.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartform/flexibility/changes/RemoveField.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 1704,
+      "compressedSize" : 593,
+      "required" : ["jquery.sap.global.js", "sap/ui/fl/changeHandler/Base.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartform/flexibility/changes/RemoveGroup.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 1755,
+      "compressedSize" : 603,
+      "required" : ["jquery.sap.global.js", "sap/ui/fl/changeHandler/Base.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartform/flexibility/changes/RenameField.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 2389,
+      "compressedSize" : 1070,
+      "required" : ["sap/ui/fl/Utils.js", "jquery.sap.global.js", "sap/ui/fl/changeHandler/Base.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartform/flexibility/changes/RenameGroup.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 2150,
+      "compressedSize" : 900,
+      "required" : ["sap/ui/fl/Utils.js", "jquery.sap.global.js", "sap/ui/fl/changeHandler/Base.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smarttable/SmartTable.js",
+      "description" : "Provides control sap.ui.comp.smarttable.SmartTable.",
+      "size" : 72717,
+      "compressedSize" : 31722,
+      "required" : ["jquery.sap.global.js", "sap/m/Column.js", "sap/m/Label.js", "sap/m/MessageBox.js", "sap/m/Table.js", "sap/m/Text.js", "sap/m/OverflowToolbar.js", "sap/m/ToolbarSeparator.js", "sap/m/VBox.js", "sap/ui/comp/library.js", "sap/ui/comp/providers/TableProvider.js", "sap/ui/comp/smartfilterbar/FilterProvider.js", "sap/ui/comp/smartvariants/SmartVariantManagement.js", "sap/ui/model/FilterOperator.js", "sap/ui/model/json/JSONModel.js", "sap/ui/table/AnalyticalColumn.js", "sap/ui/table/AnalyticalTable.js", "sap/ui/table/Column.js", "sap/ui/table/Table.js", "sap/ui/table/TreeTable.js", "sap/ui/comp/personalization/Util.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smarttable/SmartTableRenderer.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 417,
+      "compressedSize" : 349,
+      "required" : ["sap/ui/core/Renderer.js", "sap/m/VBoxRenderer.js", "jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartvariants/PersonalizableInfo.js",
+      "description" : "Provides control sap.ui.comp.smartvariants.PersonalizableInfo.",
+      "size" : 1868,
+      "compressedSize" : 655,
+      "required" : ["jquery.sap.global.js", "sap/ui/comp/library.js", "sap/ui/core/Element.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartvariants/SmartVariantManagement.js",
+      "description" : "Provides control sap.ui.comp.smartvariants.SmartVariantManagement.",
+      "size" : 34097,
+      "compressedSize" : 14537,
+      "required" : ["jquery.sap.global.js", "sap/ui/comp/library.js", "sap/ui/comp/smartvariants/PersonalizableInfo.js", "sap/ui/comp/variants/VariantItem.js", "sap/ui/comp/variants/VariantManagement.js", "sap/ui/core/ValueState.js", "sap/ui/fl/Change.js", "sap/ui/fl/Persistence.js", "sap/ui/fl/registry/Settings.js", "sap/ui/fl/Utils.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartvariants/SmartVariantManagementRenderer.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 521,
+      "compressedSize" : 283,
+      "required" : ["jquery.sap.global.js", "sap/ui/comp/variants/VariantManagementRenderer.js", "sap/ui/core/Renderer.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartvariants/SmartVariantManagementUi2.js",
+      "description" : "Provides control sap.ui.comp.smartvariants.SmartVariantManagementUi2.",
+      "size" : 19484,
+      "compressedSize" : 7483,
+      "required" : ["jquery.sap.global.js", "sap/ui/comp/library.js", "sap/ui/comp/smartvariants/PersonalizableInfo.js", "sap/ui/comp/variants/VariantItem.js", "sap/ui/comp/variants/VariantManagement.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/smartvariants/SmartVariantManagementUi2Renderer.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 529,
+      "compressedSize" : 283,
+      "required" : ["jquery.sap.global.js", "sap/ui/comp/variants/VariantManagementRenderer.js", "sap/ui/core/Renderer.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/transport/TransportDialog.js",
+      "description" : "Provides control sap.ui.comp.transport.TransportDialog.",
+      "size" : 15180,
+      "compressedSize" : 6801,
+      "required" : ["jquery.sap.global.js", "sap/m/Button.js", "sap/m/ComboBox.js", "sap/m/Dialog.js", "sap/m/Input.js", "sap/m/Label.js", "sap/m/MessageToast.js", "sap/ui/comp/library.js", "sap/ui/core/ListItem.js", "sap/ui/fl/Transports.js", "sap/ui/layout/Grid.js", "sap/ui/layout/GridData.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/transport/TransportDialogRenderer.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 825,
+      "compressedSize" : 241,
+      "required" : ["jquery.sap.global.js", "sap/m/DialogRenderer.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/transport/TransportSelection.js",
+      "description" : "@public @name sap.ui.comp.transport.TransportSelection @author SAP SE @version 1.32.7 @since 1.26.0  Helper object to select an ABAP transport for an LREP object. This is not a generic utility to select a transport request, but part of the SmartVariant control. @param {jquery.sap.global} jQuery a reference to the jQuery implementation. @param {sap.ui.fl.Utils} Utils a reference to the flexibility utilities implementation. @param {sap.ui.fl.Transports} Transports a reference to the transport service implementation. @param {sap.ui.comp.transport.TransportDialog} TransportDialog a reference to the transport dialog implementation. @param {sap.ui.fl.registry.Settings} FlexSettings a reference to the settings implementation @returns {sap.ui.comp.transport.TransportSelection} a new instance of <code>sap.ui.comp.transport.TransportSelection</code>.",
+      "size" : 9719,
+      "compressedSize" : 2159,
+      "required" : ["jquery.sap.global.js", "sap/ui/fl/Utils.js", "sap/ui/fl/Transports.js", "sap/ui/comp/transport/TransportDialog.js", "sap/ui/fl/registry/Settings.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/util/FormatUtil.js",
+      "description" : "--------------------------------------------------------------------------------",
+      "size" : 9149,
+      "compressedSize" : 2686,
+      "required" : ["jquery.sap.global.js", "sap/ui/model/FilterOperator.js", "sap/ui/core/format/NumberFormat.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/valuehelpdialog/ItemsCollection.js",
+      "description" : "EXC_ALL_CLOSURE_003",
+      "size" : 3752,
+      "compressedSize" : 1124,
+      "required" : ["jquery.sap.global.js", "sap/ui/comp/util/FormatUtil.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/valuehelpdialog/ValueHelpDialog.js",
+      "description" : "Provides control sap.ui.comp.valuehelpdialog.ValueHelpDialog.",
+      "size" : 84101,
+      "compressedSize" : 43732,
+      "required" : ["jquery.sap.global.js", "sap/m/Dialog.js", "sap/m/MessageBox.js", "sap/m/MultiInput.js", "sap/m/Token.js", "sap/ui/comp/library.js", "sap/ui/comp/valuehelpdialog/ItemsCollection.js", "sap/ui/core/Control.js", "sap/ui/core/format/DateFormat.js", "sap/ui/core/format/NumberFormat.js", "sap/m/VBox.js", "sap/m/HBox.js", "sap/m/ButtonType.js", "sap/ui/comp/util/FormatUtil.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/valuehelpdialog/ValueHelpDialogRenderer.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 793,
+      "compressedSize" : 241,
+      "required" : ["jquery.sap.global.js", "sap/m/DialogRenderer.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/variants/EditableVariantItem.js",
+      "description" : "Provides control sap.ui.comp.variants.EditableVariantItem.",
+      "size" : 2577,
+      "compressedSize" : 838,
+      "required" : ["jquery.sap.global.js", "sap/m/ColumnListItem.js", "sap/ui/comp/library.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/variants/EditableVariantItemRenderer.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 468,
+      "compressedSize" : 259,
+      "required" : ["jquery.sap.global.js", "sap/m/ColumnListItemRenderer.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/variants/VariantItem.js",
+      "description" : "Provides control sap.ui.comp.variants.VariantItem.",
+      "size" : 2491,
+      "compressedSize" : 843,
+      "required" : ["jquery.sap.global.js", "sap/ui/comp/library.js", "sap/ui/core/Item.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/variants/VariantItemRenderer.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 390,
+      "compressedSize" : 249,
+      "required" : ["jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/variants/VariantManagement.js",
+      "description" : "Provides control sap.ui.comp.variants.VariantManagement.",
+      "size" : 67324,
+      "compressedSize" : 43078,
+      "required" : ["jquery.sap.global.js", "sap/ui/Device.js", "sap/ui/model/json/JSONModel.js", "sap/m/SearchField.js", "sap/m/RadioButton.js", "sap/ui/core/TextAlign.js", "sap/m/ScreenSize.js", "sap/m/PopinDisplay.js", "sap/m/Column.js", "sap/m/Text.js", "sap/m/Bar.js", "sap/m/Table.js", "sap/m/Page.js", "sap/m/PlacementType.js", "sap/m/ButtonType.js", "sap/m/Toolbar.js", "sap/m/ToolbarSpacer.js", "sap/m/ActionSheet.js", "sap/m/Button.js", "sap/m/CheckBox.js", "sap/m/Dialog.js", "sap/m/Input.js", "sap/m/Label.js", "sap/m/ResponsivePopover.js", "sap/m/SelectList.js", "sap/ui/comp/library.js", "sap/ui/comp/transport/TransportSelection.js", "sap/ui/comp/variants/EditableVariantItem.js", "sap/ui/comp/variants/VariantItem.js", "sap/ui/core/Control.js", "sap/ui/core/Item.js", "sap/ui/core/ValueState.js", "sap/ui/core/VerticalAlign.js", "sap/ui/layout/HorizontalLayout.js", "sap/ui/layout/Grid.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/comp/variants/VariantManagementRenderer.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 980,
+      "compressedSize" : 376,
+      "required" : ["jquery.sap.global.js"],
+      "includes" : []
+    }
+  ]
+}

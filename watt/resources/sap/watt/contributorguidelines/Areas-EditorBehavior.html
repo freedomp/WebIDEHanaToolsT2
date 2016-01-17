@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Editor Behavior — SAP Web IDE Design Guidelines</title>
+    <meta name="author" content="SAP SE">
+
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="assets/flat.css" type="text/css" />
+    <link rel="stylesheet" href="css/guidelines.css" type="text/css" />
+    <link rel="stylesheet" href="css/Areas-EditorBehavior.css" type="text/css" />
+
+    <script src="../lib/requirejs/require.js" 
+	        data-main="../core/Global.js"
+	        data-sap-ide-environment-path="../../../../env.json"
+	        data-sap-ide-main="startup"
+	        data-sap-ide-basedir="../../.."></script>
+
+    <script>
+        define("startup", [], function() {
+            Q.all([
+                    sap.watt.includeScript("assets/js/contextSwitch.js"),
+                    sap.watt.includeScript("assets/js/flat.js")])
+            .then(function(){
+                loadTableOfContent("Editor Behavior");
+            });
+        });
+    </script>
+
+</head>
+<body>
+
+<div class="VBrandingBar"></div>
+
+<div class="VHeaderBar">
+    <div class="VHeaderBarCnt">
+        <ul class="VFloatRight vInline">
+            <li><img src="assets/images/SAPLogo.png" alt="SAP" id="LogoSAP" /></li>
+        </ul>
+        
+        <ul class="VInline">
+            <li id="ToggleMenuButton" class="VShowSmallInlineBlock"></li>
+            <li>SAP Web IDE<span class="VHideSmallInline"> — Design Guidelines</span></li>
+        </ul>
+    </div>
+</div>
+
+<div class="navigationOffCanvas"></div>
+
+<div class="content Design-ContextSpecificUsage">
+
+    <div class="sapUiRespGrid sapUiRespGridHSpace1 sapUiRespGridVSpace1">
+        <div class="sapUiRespGridSpanL10 sapUiRespGridSpanM12 sapUiRespGridSpanS12 sapUiRespGridBreak">
+            <div class="VBanner">
+                <h1 class="VH2 VFontSpecial">Functional Areas</h1>
+                <h2 class="VH1 VFontSpecial">Editor Behavior</h2>
+            </div>
+        </div>
+
+        <div class="sapUiRespGridSpanL8 sapUiRespGridSpanM12 sapUiRespGridSpanS12">
+            <h3 class="VH1 VFontSpecial"><em>Each</em> File has
+                <em>Several</em> Representations
+                With <em>One</em> Purpose each.
+            </h3>
+        </div>
+
+        <div class="sapUiRespGridSpanL8 sapUiRespGridSpanM12 sapUiRespGridSpanS12">
+            <h3 class="VH3">Tabs and their Representing Views</h3>
+            
+            <p>In the SAP Web IDE, opened files are represented as tabs in the main area. Depending on its type, each file can have various representations to their content. These representations are called Views.</p>
+
+            <p>For example, a certain XML files can be represented in Code view (which shows the actual XML code as text), in Design view (which shows the UI elements contained in the XML in an WYSIWYG interface), or as Data Binding view (which shows a view to connect UI elements to data sources). These Views are shown as additional tabs at the bottom of each file tab.</p>
+        </div>
+
+        <div class="sapUiRespGridSpanL8 sapUiRespGridSpanM12 sapUiRespGridSpanS12">
+            <h3 class="VH3">Links</h3>
+
+            <p>To connect different files and views to each other, the SAP Web IDE makes use of Hyperlinks. Selecting a link in a View, the related file is opened in the desired Views.</p>
+        </div>
+
+        <div class="sapUiRespGridSpanL8 sapUiRespGridSpanM12 sapUiRespGridSpanS12">
+            <h3 class="VH3">Pop-Out / Dock-out</h3>
+
+            <p>To show two views of one file side-by-side, currently not selected views can be popped-out to the side of the selected view via its contextual menu. The tab at the bottom then jointly displays both tabs. Popped-out views can be separated again via the contextual menu.</p>
+        </div>
+
+        <div class="sapUiRespGridSpanL8 sapUiRespGridSpanM12 sapUiRespGridSpanS12">
+            <h3 class="VH3">Split mode</h3>
+
+            <p>The entire editor can be split in two areas. To be continued.</p>
+        </div>
+
+        <div class="sapUiRespGridSpanL3 sapUiRespGridSpanM6 sapUiRespGridSpanS12 sapUiRespGridBreak">
+            <div class="VSpacer4"></div>
+            <p>Last updated: June 30, 2014</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

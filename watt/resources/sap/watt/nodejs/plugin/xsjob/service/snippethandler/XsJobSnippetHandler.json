@@ -1,0 +1,7 @@
+{
+    "name" : "sap.hana.ide.editor.editors.xsjob.service.snippet.XsJobSnippetHandler",
+    "description" : "The XS Job snippet handler interface",
+    "extends" : [
+        "sap.watt.common.plugin.snippet.PreSnippetInsertionHandler"
+    ]
+}

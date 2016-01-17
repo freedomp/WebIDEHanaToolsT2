@@ -1,0 +1,218 @@
+<core:View controllerName="sap.watt.platform.plugin.filesearch.view.FileSearch"
+	xmlns:commons="sap.ui.commons" xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form"
+	xmlns:ide="sap.watt.platform.plugin.filesearch.view"
+	xmlns:core="sap.ui.core" xmlns:m="sap.m" height="100%" busyIndicatorDelay="0" >
+	<commons:Panel id="SearchPanel" showCollapseIcon="false" borderDesign="None" 
+		areaDesign="Transparent" height="92%" class="filesearch">
+		<commons:buttons>
+			<commons:ToggleButton id="TabBtnSearch" text="{i18n>fileSearch_search}" pressed="{bTabBtnSearchPressed}" class="tabButton" press="onSelectSearch" />
+			<commons:ToggleButton id="TabBtnReplace" text="{i18n>fileSearch_replace}" pressed="{bTabBtnReplacePressed}" class="tabButton" press="onSelectReplace" />
+		</commons:buttons>
+		<commons:content>
+			<form:Form id="SearchForm" class="searchCriteria" visible="{bInSearchMode}">
+				<form:formContainers>
+					<form:FormContainer>
+						<form:formElements>
+							<form:FormElement>
+								<form:layoutData>
+									<layout:ResponsiveFlowLayoutData weight="100%"></layout:ResponsiveFlowLayoutData>
+								</form:layoutData>
+								<form:fields>
+									<commons:SearchField id="SearchForm_Term" width="100%" enableListSuggest="false" tooltip="{i18n>fileSearch_containingtext}"
+									    enableClear="true" enableFilterMode="true" search="onUpdateList" value="{sSearchValue}">
+										<commons:layoutData>
+											<layout:ResponsiveFlowLayoutData weight="3"></layout:ResponsiveFlowLayoutData>
+										</commons:layoutData>
+									</commons:SearchField>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement>
+								<form:fields>
+									<commons:RadioButtonGroup id="SearchForm_SearchIn" columns="2" selectedIndex ="{iSearchInSelectedIndex}">
+										<commons:layoutData>
+											<layout:ResponsiveFlowLayoutData linebreak="true"></layout:ResponsiveFlowLayoutData>
+										</commons:layoutData>
+										<commons:items>
+											<core:Item id="SearchForm_RadioInContent" text="{i18n>fileSearch_content}" key="1"></core:Item>
+											<core:Item id="SearchForm_RadioInName" text="{i18n>fileSearch_filename}" key="2"></core:Item>
+										</commons:items>
+									</commons:RadioButtonGroup>
+								</form:fields>
+							</form:FormElement>
+						</form:formElements>
+					</form:FormContainer>
+				</form:formContainers>
+				<form:layout>
+					<form:ResponsiveLayout></form:ResponsiveLayout>
+				</form:layout>
+			</form:Form>
+			<form:Form id="ReplaceForm" class="searchCriteria replaceForm" visible="{
+					    path: 'bInSearchMode',
+					    formatter: '.inReplaceMode'}">
+				<form:formContainers>
+					<form:FormContainer>
+						<form:formElements>
+							<form:FormElement>
+								<form:layoutData>
+									<layout:ResponsiveFlowLayoutData
+										linebreak="true"></layout:ResponsiveFlowLayoutData>
+								</form:layoutData>
+								<form:fields>
+									<commons:TextField id="ReplaceForm_Term" width="100%"
+									tooltip="{i18n>fileSearch_findtext}" placeholder="{i18n>fileSearch_findtext}" value = "{sSearchValue}">
+										<commons:layoutData>
+											<layout:ResponsiveFlowLayoutData weight="3"></layout:ResponsiveFlowLayoutData>
+										</commons:layoutData>
+									</commons:TextField>
+									<commons:Button tooltip="{i18n>fileSearch_find}" text="{i18n>fileSearch_find}" press="onUpdateList" class="riverControlSmall">
+										<commons:layoutData>
+											<layout:ResponsiveFlowLayoutData weight="1" minWidth="60px"></layout:ResponsiveFlowLayoutData>
+										</commons:layoutData>
+									</commons:Button>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement>
+								<form:layoutData>
+									<layout:ResponsiveFlowLayoutData
+										linebreak="true"></layout:ResponsiveFlowLayoutData>
+								</form:layoutData>
+								<form:fields>
+									<commons:TextField id="ReplaceForm_ReplaceText" width="100%"  liveChange="onReplaceWithChanged"
+									tooltip="{i18n>fileSearch_replacewith}" placeholder="{i18n>fileSearch_replacewith}" value = "{sReplaceWithValue}">
+										<commons:layoutData>
+											<layout:ResponsiveFlowLayoutData weight="2" minWidth="100px"></layout:ResponsiveFlowLayoutData>
+										</commons:layoutData>
+									</commons:TextField>
+									<commons:Button id="ReplaceForm_Replace" tooltip="{i18n>fileSearch_replace}" text="{i18n>fileSearch_replace}"
+									    enabled="{bIsReplaceble}" press="onNodeButtonClicked" class="riverControlSmall">
+										<commons:layoutData>
+											<layout:ResponsiveFlowLayoutData weight="1" minWidth="100px"></layout:ResponsiveFlowLayoutData>
+										</commons:layoutData>
+									</commons:Button>
+									<commons:Button id="ReplaceForm_ReplaceAll" tooltip="{i18n>fileSearch_replaceAll}" text="{i18n>fileSearch_replaceAll}" 
+									enabled="{bIsReplaceble}" press="onReplaceAll" class="riverControlSmall">
+										<commons:layoutData>
+											<layout:ResponsiveFlowLayoutData weight="3" minWidth="100px"></layout:ResponsiveFlowLayoutData>
+										</commons:layoutData>
+									</commons:Button>
+								</form:fields>
+							</form:FormElement>
+						</form:formElements>
+					</form:FormContainer>
+				</form:formContainers>
+				<form:layout>
+					<form:ResponsiveLayout></form:ResponsiveLayout>
+				</form:layout>
+			</form:Form>
+			<ide:Accordion width="100%">
+				<commons:AccordionSection id="FolderSection" title="{
+				    path: 'sTextFieldFolder',
+				    formatter: '.getFolderSectionSearchTitle'}"  collapsed="true">
+					<form:Form>
+						<form:formContainers>
+							<form:FormContainer>
+								<form:formElements>
+									<form:FormElement>
+										<form:fields>
+											<commons:RadioButtonGroup id="SearchForm_SearchScope" columns="3" select="onUpdateScope">
+												<commons:layoutData>
+													<layout:ResponsiveFlowLayoutData weight="3"></layout:ResponsiveFlowLayoutData>
+												</commons:layoutData>
+												<commons:items>
+													<core:Item id="SearchForm_RadioComplete" text="{i18n>fileSearch_all}" key="{i18n>fileSearch_default_search_in}"></core:Item>
+													<core:Item id="SearchForm_RadioProject" text="{i18n>fileSearch_project}" key="/"></core:Item>
+													<core:Item id="SearchForm_RadioFolder" text="{i18n>fileSearch_folder}" key="/"></core:Item>
+												</commons:items>
+											</commons:RadioButtonGroup>
+										</form:fields>
+									</form:FormElement>
+									<form:FormElement>
+										<form:layoutData>
+											<layout:ResponsiveFlowLayoutData
+												linebreak="true"></layout:ResponsiveFlowLayoutData>
+										</form:layoutData>
+										<form:fields>
+											<commons:TextField id="SearchForm_TextFieldFolder"
+												value = "{sTextFieldFolder}" width="100%" change="onUpdateScope">
+											</commons:TextField>
+											<commons:Label text="{i18n>fileSearch_key}" class="description">
+												<commons:layoutData>
+													<layout:ResponsiveFlowLayoutData linebreak="true"></layout:ResponsiveFlowLayoutData>
+												</commons:layoutData>
+											</commons:Label>
+										</form:fields>
+									</form:FormElement>
+								</form:formElements>
+							</form:FormContainer>
+						</form:formContainers>
+						<form:layout>
+							<form:ResponsiveLayout></form:ResponsiveLayout>
+						</form:layout>
+					</form:Form>
+				</commons:AccordionSection>
+				<commons:AccordionSection id="FiletypesSection" title="{
+				    path: 'sComboFileTypesValue',
+				    formatter: '.getFileTypesSearchTitle'}"
+				    collapsed="true">
+					<form:Form>
+						<form:formContainers>
+							<form:FormContainer>
+								<form:formElements>
+									<form:FormElement>
+										<form:fields>
+											<commons:ComboBox id="SearchForm_ComboFileType"
+												value="{sComboFileTypesValue}" displaySecondaryValues="true" width="100%"
+												class="flatControlSmall">
+												<commons:items>
+													<core:ListItem text="{i18n>fileSearch_default_file_types}" additionalText="All files"></core:ListItem>
+													<core:ListItem text="*.html"></core:ListItem>
+													<core:ListItem text="*.htm"></core:ListItem>
+													<core:ListItem text="*.css"></core:ListItem>
+													<core:ListItem text="*.js"></core:ListItem>
+													<core:ListItem text="*.json"></core:ListItem>
+													<core:ListItem text="*.xml"></core:ListItem>
+													<core:ListItem text="*.txt"></core:ListItem>
+													<core:ListItem text="*.properties"></core:ListItem>
+												</commons:items>
+											</commons:ComboBox>
+										</form:fields>
+									</form:FormElement>
+								</form:formElements>
+							</form:FormContainer>
+						</form:formContainers>
+						<form:layout>
+							<form:ResponsiveLayout></form:ResponsiveLayout>
+						</form:layout>
+					</form:Form>
+				</commons:AccordionSection>
+			</ide:Accordion>
+			<commons:Button class="bulletRes searchButton" enabled="false" id="SearchResultsBullet" lite="true" text="{sSearchBulletText}"
+				visible="{bHasSearchResults}">
+					<commons:layoutData>
+					<layout:ResponsiveFlowLayoutData weight="1"></layout:ResponsiveFlowLayoutData>
+				</commons:layoutData>
+				</commons:Button>
+			<commons:Button id="SearchButton" tooltip="{i18n>fileSearch_search}" text="{i18n>fileSearch_search}" press ="onUpdateList" class="floatRight searchButton riverControlSmall"
+			    visible="{bInSearchMode}"
+			/>
+			<ide:SearchResultTree id="SearchResultTree" class="clearboth" select="onNodeSelected" itemButtonClicked="onNodeButtonClicked" title="{sTitle}"
+				width="100%" showHeader="false" showHorizontalScrollbar="false" selectionMode="Single" >
+			</ide:SearchResultTree>
+			<commons:Label id="lblNoResult" text="{i18n>fileSearch_noresult}" class="description noresult" visible="{bShowNoData}" />
+		</commons:content>
+	</commons:Panel>
+	<commons:Panel borderDesign="None" height="8%" showCollapseIcon="false" class="filesearch">
+		<commons:content>
+			<commons:Button class="floatRight riverControlSmall" id="btnNext" press="onLoadMore" text="{i18n>fileSearch_NextPage}" enabled="{bHasMoreResults}" visible="{bHasSearchResults}">
+				<commons:layoutData>
+					<layout:ResponsiveFlowLayoutData weight="1" minWidth="60px"></layout:ResponsiveFlowLayoutData>
+				</commons:layoutData>
+			</commons:Button>   
+			<commons:Button class="floatRight riverControlSmall" id="btnPrev" press="onLoadPrev" text="{i18n>fileSearch_PrevPage}" enabled="{bHasPrevResults}" visible="{bHasSearchResults}">
+				<commons:layoutData>
+					<layout:ResponsiveFlowLayoutData weight="1" minWidth="60px"></layout:ResponsiveFlowLayoutData>
+				</commons:layoutData>
+			</commons:Button>   
+		</commons:content>
+	</commons:Panel>
+</core:View>

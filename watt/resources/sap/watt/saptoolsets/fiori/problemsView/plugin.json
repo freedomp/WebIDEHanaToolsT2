@@ -1,0 +1,90 @@
+{
+	"name": "sap.watt.saptoolsets.fiori.problemsView",
+	"description": "The Problems View Plugin",
+	"i18n": "sap.watt.saptoolsets.fiori.problemsView/i18n/i18n",
+	"requires": {
+		"services": [
+			"perspective",
+			"command",
+			"commandGroup",
+			"resource",
+			"content",
+			"problems",
+			"log",
+			"progress",
+			"perspective",
+			"usernotification",
+			"problemsViewValidation",
+			"usagemonitoring",
+			"validationTriggers"
+		]
+	},
+	"provides": {
+		"services": {
+			"problemsView": {
+				"implements": "sap.watt.common.problemsView.problemsView",
+				"module": "sap.watt.saptoolsets.fiori.problemsView/service/ProblemsView"
+			}
+		},
+		"interfaces": {
+			"sap.watt.common.problemsView.problemsView": "sap.watt.saptoolsets.fiori.problemsView/service/ProblemsView"
+		}
+	},
+	"configures": {
+		"services": {
+			"perspective:views": [
+				{
+					"id": "problemsView",
+					"service": "@problemsView",
+					"area": "center_bottom",
+					"visible": "false"
+				}
+			],
+			"commandGroup:groups": [
+				{
+					"id": "view.problemsView"
+				}
+			],
+			"commandGroup:items": [
+				{
+					"parent": "view",
+					"type": "inline",
+					"group": "view.problemsView",
+					"prio": 20
+				},
+				{
+					"parent": "view.problemsView",
+					"command": "problemsView.open",
+					"prio": 20
+				}
+			],
+			"command:commands": [
+				{
+					"id": "problemsView.open",
+					"label": "{i18n>command_problems_open}",
+					"type": "action",
+					"service": "sap.watt.saptoolsets.fiori.problemsView/command/openProblemsView",
+					"keyBinding": "mod+alt+p"
+				}
+			],
+			"usagemonitoring:reportParams": [
+				{
+					"components": [
+						"ProblemsView"
+					],
+					"eventTypes": [
+						"Analyse"
+					]
+				}
+			]
+		}
+	},
+	"subscribes": {
+		"content:tabClosed": "problemsView:onTabClosed",
+		"problems:titleUpdate": "problemsView:onTitleUpdate",
+		"problems:titleDelete": "problemsView:onTitleDelete",
+		"problems:problemsUpdate": "problemsView:onProblemsUpdate",
+		"problems:problemsDelete": "problemsView:onProblemsDelete",
+		"problemsViewValidation:problemsLongRunningProcessing": "problemsView:onWaitingForLongRunningProblemsCalc"
+	}
+}

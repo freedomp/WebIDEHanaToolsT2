@@ -1,0 +1,276 @@
+
+.compVHSearch .sapUiCompFilterBarPhone.sapUiRespGrid.sapUiRespGridHSpace1 {
+	padding-left: 0rem;	
+}
+
+.sapUiCompFilterBarPhone.sapUiRespGrid.sapUiRespGridHSpace1 {
+	padding-top: 0rem;
+	padding-bottom: 0rem;
+	padding-right: 1rem;
+	padding-left: 1rem;	
+}
+
+.sapUiCompFilterBarNonPhone.sapUiRespGrid.sapUiRespGridHSpace1 {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	
+	padding-right: 2rem;
+	padding-left: 2rem;		
+}
+
+.sapUiSizeCondensed .sapUiCompFilterBarNonPhone.sapUiRespGrid.sapUiRespGridHSpace1 {
+	padding-top: 0rem;
+	padding-bottom: 0.2rem;
+}
+
+.sapUiCompFilterBar .sapMSlt,.sapMSltLabel,.sapMSltArrow {
+    display: block;
+}
+
+.sapUiCompFilterBar.sapUiRespGridMedia-Std-Desktop.sapUiRespGridHSpace1 > .sapUiRespGridSpanL12 {
+	width: 100%;
+}
+
+.sapUiCompFilterBar .sapUiCompVarMngmt .sapUICompVarMngmtText {
+	padding-left: 0;
+}
+
+.sapUiCompFilterBarNonPhone .sapMIBar .sapMBarChild:first-child {
+	margin-left: 0;
+}
+
+.sapUiCompFilterBarNonPhone .sapMIBar>.sapMBarChild:last-child {
+	margin-right: 0;
+}
+
+.sapUiCompFilterBarDialog .sapUiRespGridSpanL10.sapUiRespGridSpanM10.sapUiRespGridSpanS12 {
+	padding-left: 0rem;
+}
+
+.sapUiCompFilterBarDialogForm .sapUiFormResGridMain {
+	padding-top: 0rem;
+	padding-bottom: 0rem;
+	padding-left: 0rem;
+	padding-right: 0rem;
+}
+
+
+.sapUiCompFilterBarDialogForm .sapMDialogScrollCont {
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.sapUiCompFilterBarDialogNonPhone .sapMDialogScrollCont {
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
+
+.sapUiCompFilterBarDialogForm .sapUiFormResGridMain > div {
+	padding-bottom: 1rem !important;
+}
+
+.sapUiCompFilterBarDialogForm .sapUiFormM .sapUiRespGrid.sapUiRespGridVSpace0>div {
+	padding-bottom: 1rem;
+}
+
+.sapUiCompFilterBarDialog .sapUiCompVarMngmt .sapUICompVarMngmtText {
+	padding-left: 0.25em;
+}
+.sapUiCompFilterBarDialog .sapUiCompVarMngmt .sapMLabel {
+	padding-right: 0em;
+}
+
+.sapUiCompFilterBarDialog .sapUiCompVarMngmt .sapMLabel:after {
+	content: "";
+}
+
+.sapUiCompFilterBarDialog .sapUiForm .sapUiCompFilterBarAddFilterLabel.sapMLabel:after {
+	content: "";
+}
+.sapUiCompFilterBarDialog .sapUiForm .sapUiCompFilterBarAddFilterLabelNoGroup.sapMLabel:after {
+	content: "";
+}
+
+.sapUiCompFilterBarDialog .sapUiForm .sapUiRGLContainerCont {
+	padding-top: 1rem;
+}
+
+.sapUiCompFilterBarDialog .sapUiRGLContainer > .sapUiFormTitle {
+	margin-bottom: 0rem;
+}
+
+.sapUiCompFilterBarDialog .sapMFooter-CTX {
+	padding-right: 0.25rem;
+}
+
+.sapUiCompFilterBarButtonHide {
+	display: none !important;
+}
+
+.sapUiForm .sapUiCompFilterBarAddFilterLabel.sapMLabel {
+	position: absolute;
+	right: 10px;
+	top: 4rem;	
+}
+
+.sapUiForm .sapUiCompFilterBarAddFilterLabelNoGroup.sapMLabel {
+	position: absolute;
+	right: 10px;
+	top: 4rem;	
+}
+
+.sapUiTheme-sap_hcb .sapUiCompFilterBarDialog .sapUiFormTitleH4 {
+	font-size: 1rem;
+}
+
+.sapUiCompFilterBarBasicArea {	
+}
+
+.sapUiCompFilterBarBasicArea .sapMLabel:after {
+	content: ":";
+}
+
+.sapUiCompFilterBarWidth100 {
+	width: 100%;
+}
+
+.sapUiCompFilterBarCheckBox {
+	margin-left: 2rem;
+	width: 2rem;
+}
+
+.sapUiSizeCompact .sapMInputBase.sapUiCompFilterBarFilterControl{
+	padding-right: 2rem;
+}
+
+.sapUiCompFilterBarButtonGroup {
+   padding-left: 1rem;	
+}
+
+.sapMIBar .sapUiCompFilterBarButtonGroup.sapMBarChild {
+   margin-left: 0rem;   
+}
+
+.sapMIBar .sapUiCompFilterBarMarginLeft.sapMBarChild:first-child {
+	margin-left: 0rem;	
+}
+
+.sapUiCompFilterBar.sapUiRespGrid.sapUiRespGridVSpace1 > div {
+	margin-bottom: 0rem;
+	margin-left: 0rem;
+	margin-right: 0rem;
+	overflow: visible;
+}
+
+.sapUiCompFilterBar .sapUiCompFilterBarPaddingForm .sapUiFormResGridMain {
+	background-color: transparent;
+}
+
+.sapUiCompFilterBar .sapUiFormM .sapUiRGLContainerCont {
+	padding-bottom: 0.5rem;
+}
+
+.sapUiCompFilterBarDialogPaddingBottom {
+	padding-bottom: 1rem;
+}
+
+.sapUiSizeCompact .sapMBtn.sapUiCompFilterBarPaddingRightBtn  {
+	padding-right: 1rem;
+}
+
+.sapMBtn.sapUiCompFilterBarPaddingRightBtn  {
+	padding-right: 1rem;
+}
+
+.sapUiCompFilterBarPaddingRight {
+	padding-right: 1rem;
+}
+
+.sapUiCompFilterBarPaddingTop {
+	padding-top: 0.5rem;
+}
+
+.sapUiSizeCondensed .sapUiCompFilterBarPaddingTop {
+	padding-top: 0rem;
+}
+
+.sapMTB.sapUiCompFilterBarToolbarMarker {
+	border-bottom-style: none;
+}
+
+.sapUiCompFilterBarToolbar {
+}
+
+.sapUiCompFilterBarToolbar .sapMBarChild.sapMSF {
+	min-width: 4rem;
+	max-width: 28rem;	
+}
+
+.sapUiCompFilterBarToolbarBasicSearchNoVariant .sapMBarChild.sapMSF {
+	margin-left: 0rem;	
+}
+
+.sapUiCompFilterBarDialog .sapUiFormM.sapUiFormResGridLastL {	
+	padding-bottom: 0rem;
+}
+
+.sapUiCompFilterBarDialog .sapUiFormM .sapUiRGLContainerCont {	
+	padding-bottom: 0rem;
+}
+
+.sapUiCompFilterBarPaddingForm.sapUiFormResGrid > div {
+	padding-top: 0rem;
+	padding-right: 0rem;
+	padding-bottom: 0rem;
+	padding-left: 0rem;		
+}
+
+.sapUiCompFilterBarPaddingPanel .sapMPanelContent {
+	padding-top: 0.2rem;
+	padding-right: 0.2rem;
+	padding-bottom: 0rem;
+	padding-left: 0.1rem;
+	
+	background-color: transparent;
+	
+	border-bottom: 0px;
+}
+
+.sapUiCompFilterBarToolbar  {
+}
+
+.sapUiCompFilterBarFloatRight {
+	float:right;
+}	
+
+.sapMBarRight, .sapMBarPH {
+	padding-left: 0.25rem;
+}
+
+.sapUiCompFilterBarListItem  {
+	margin-left: -0.75rem;
+}
+
+.sapUiCompFilterBarListItem > div:nth-child(n+1) > label{
+	padding-top: 1rem;
+}
+
+.sapUiCompFilterBarListItemCompact {
+	margin-left: -0.5rem;
+}
+
+.sapUiCompFilterBarListItemCompact > div:nth-child(n+1) > label{
+	padding-top: 0.5rem;
+}
+
+.sapUiCompFilterBar .sapMPanelWrappingDiv { 
+   border-bottom: 0px;
+} 
+
+.sapUiCompFilterBarDialogForm .sapUiFormResGrid>div {
+	background-color: transparent;
+}
+
+.sapUiCompAddRemoveFilterDialog .sapMListBGSolid .sapMLIB {
+    background-color: transparent;
+}

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright (c) 2009-2014 SAP SE, All Rights Reserved -->
+<core:View controllerName="sap.ushell.components.tiles.action.Configuration"
+	xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:layout="sap.ui.commons.layout"
+	xmlns="sap.m" xmlns:table="sap.ui.table" xmlns:common="sap.ui.commons">
+	<form:SimpleForm id="configuration" maxContainerCols="2"
+		minWidth="1024" editable="true">
+		<form:content>
+
+			<core:Title id="categoryChipConfiguration"
+				text="{i18n>configuration.category.action_chip_configuration}"></core:Title>
+
+			<Label text="{i18n>configuration.semantic_object}"></Label>
+			<Input id="semantic_objectInput" width="100%"
+				tooltip="{i18n>configuration.semantic_object.tooltip}" maxLength="30"
+				liveChange="onConfigurationInputChange" valueHelpRequest="onValueHelpRequest"
+				showValueHelp="true" showSuggestion="true" value="{/value}" enabled="{/config/editable}" />
+			<Label text="{i18n>configuration.semantic_action}"></Label>
+			<Input id="semantic_actionInput" value="{/config/semantic_action}"
+				maxLength="50" liveChange="onConfigurationInputChange" enabled="{/config/editable}"
+				valueHelpRequest="onActionValueHelpRequest" showValueHelp="true"
+				showSuggestion="true" width="100%"
+				tooltip="{i18n>configuration.semantic_action.tooltip}" />
+
+			<core:Title id="categoryTargetApplication"
+				text="{i18n>configuration.category.target_application}"></core:Title>
+
+			<Label id="targetType" text="{i18n>configuration.target_applicationType}"></Label>
+			<ComboBox id="targetTypeInput" selectedKey="{/config/navigation_provider}" enabled="{/config/editable}"
+				selectionChange="onApplicationTypeChange"></ComboBox>
+
+			<Label id="application_description" text="{i18n>configuration.target_application.description}"></Label>
+			<Input id="target_application_descriptionInput" value="{/config/display_title_text}"
+				liveChange="onConfigurationInputChange" width="100%" enabled="{/config/editable}"
+				tooltip="{i18n>configuration.target_application.description.tooltip}" />
+			<Label id="application_url" text="{i18n>configuration.target_application.url}"></Label>
+			<Input id="target_application_urlInput" value="{/config/url}" enabled="{/config/editable}"
+				maxLength="512" liveChange="onConfigurationInputChange" width="100%"
+				tooltip="{i18n>configuration.target_application.url.tooltip}" />
+			<Label id="application_component" text="{i18n>configuration.target_application.component}"></Label>
+			<Input id="target_application_componentInput" value="{/config/ui5_component}" enabled="{/config/editable}"
+				liveChange="onConfigurationInputChange" width="100%"
+				tooltip="{i18n>configuration.target_application.component.tooltip}" />
+
+			<Label id="navigation_provider_role" text="{i18n>configuration.navigation_provider_role}"></Label>
+			<Input id="navigation_provider_roleInput" valueHelpRequest="onRoleValueHelpRequest"
+				showValueHelp="true" showTableSuggestionValueHelp="true" enabled="{/config/editable}"
+				showSuggestion="true" value="{/value}" width="100%" maxLength="10"
+				tooltip="{i18n>configuration.navigation_provider_role.tooltip}"
+				liveChange="onConfigurationInputChange">
+				<suggestionColumns>
+					<Column hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+						<Label text="{i18n>configuration.navigation_provider_role}" />
+					</Column>
+					<Column hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+						<Label text="{i18n>configuration.navigation_provider_instance}" />
+					</Column>
+				</suggestionColumns>
+			</Input>
+			<Label id="navigation_provider_instance" text="{i18n>configuration.navigation_provider_instance}"></Label>
+			<Input id="navigation_provider_instanceInput" value="{/value}"
+				width="100%" maxLength="32" valueHelpRequest="onInstanceValueHelpRequest" enabled="{/config/editable}"
+				showValueHelp="true" showSuggestion="true" suggest="instanceSuggest"
+				tooltip="{i18n>configuration.navigation_provider_instance.tooltip}"
+				liveChange="onConfigurationInputChange" />
+
+			<Label id="target_application_alias" text="{i18n>configuration.target_application_alias}"></Label>
+			<Input id="target_application_aliasInput" value="{/value}"
+				width="100%" valueHelpRequest="onAliasValueHelpRequest" enabled="{/config/editable}"
+				showValueHelp="true" showSuggestion="true" suggest="aliasSuggest"
+				tooltip="{i18n>configuration.target_application_alias.tooltip}"
+				liveChange="onConfigurationInputChange" />
+			<Label id="target_application_id" text="{i18n>configuration.target_application_id}"></Label>
+			<Input id="target_application_idInput" value="{/config/target_application_id}"
+				width="100%" maxLength="32" enabled="{/config/editable}"
+				tooltip="{i18n>configuration.target_application_id.tooltip}"
+				liveChange="onConfigurationInputChange" />
+
+			<Label id="target_transaction" text="{i18n>configuration.target_transaction}"></Label>
+			<Input id="target_transactionInput" value="{/config/transaction/code}"
+				width="100%" maxLength="20" enabled="{/config/editable}"
+				tooltip="{i18n>configuration.target_transaction.tooltip}"
+				liveChange="onConfigurationInputChange" />
+
+			<Label id="target_web_dynpro_application" text="{i18n>configuration.target_web_dynpro.application}"></Label>
+			<Input id="target_web_dynpro_applicationInput" value="{/config/web_dynpro/application}"
+				width="100%" maxLength="30" enabled="{/config/editable}"
+				tooltip="{i18n>configuration.target_web_dynpro_application.tooltip}"
+				liveChange="onConfigurationInputChange" />
+
+			<Label id="target_web_dynpro_configuration"
+				text="{i18n>configuration.target_web_dynpro.configuration}"></Label>
+			<Input id="target_web_dynpro_configurationInput" value="{/config/web_dynpro/configuration}"
+				width="100%" maxLength="32" enabled="{/config/editable}"
+				tooltip="{i18n>configuration.target_web_dynpro_application.tooltip}"
+				liveChange="onConfigurationInputChange" />
+
+            <Label id="target_system_alias" text="{i18n>configuration.target_system_alias}"></Label>
+            <Input id="target_system_aliasInput" value="{/config/target_system_alias}"
+                width="100%" maxLength="30" enabled="{/config/editable}"
+                tooltip="{i18n>configuration.target_system_alias.tooltip}"
+                liveChange="onConfigurationInputChange" />
+
+			<core:Title id="categoryGeneral" text="{i18n>configuration.category.general}"></core:Title>
+			<Label text="{i18n>configuration.display_info_text}"></Label>
+			<Input id="additionalInfo" value="{/config/display_info_text}" enabled="{/config/editable}"
+				width="100%" liveChange="onConfigurationInputChange" />
+
+			<Label text="{i18n>configuration.form_factor}" tooltip="{i18n>configuration.form_factor.tooltip}"></Label>
+			<CheckBox id="desktopCB" text="{i18n>configuration.form_factor_desktop}"
+				select="onFormFactorChange" selected="{/config/desktopChecked}"
+				enabled="{/config/manualFormFactor}" />
+			<CheckBox id="tabletCB" text="{i18n>configuration.form_factor_tablet}"
+				select="onFormFactorChange" selected="{/config/tabletChecked}"
+				enabled="{/config/manualFormFactor}" />
+			<CheckBox id="phoneCB" text="{i18n>configuration.form_factor_phone}"
+				select="onFormFactorChange" selected="{/config/phoneChecked}"
+				enabled="{/config/manualFormFactor}" />
+			<Label />
+			<Label text="{i18n>configuration.signature.table.title}"
+				tooltip="{i18n>configuration.mapping_signature.tooltip}"></Label>
+			<table:Table id="mappingSignatureTable" rows="{/config/rows}"
+				selectionBehavior="Row" selectionMode="Multi" visibleRowCount="5"
+				enableColumnReordering="false" rowHeight="30px">
+				<table:Column id="nameCol" width="82px">
+					<Label text="{i18n>configuration.signature.table.name}" />
+					<table:template>
+						<common:TextField value="{name}" editable="{editable}"
+							placeholder="{i18n>configuration.signature.table.nameFieldLbl}"
+							change="checkDuplicateNames"></common:TextField>
+					</table:template>
+				</table:Column>
+
+				<table:Column id="mandatoryCol" width="92px" hAlign="Center">
+					<Label text="{i18n>configuration.signature.table.mandatory}" />
+					<table:template>
+						<common:CheckBox checked="{mandatory}" editable="{editable}" change="handleMandatoryChange"></common:CheckBox>
+					</table:template>
+				</table:Column>
+
+				<table:Column id="valueCol" width="85px">
+					<Label text="{i18n>configuration.signature.table.value}" />
+					<table:template>
+						<common:TextField value="{value}" editable="{editable}" enabled="{valEnabled}"></common:TextField>
+					</table:template>
+				</table:Column>
+
+				<table:Column id="isRegExCol" width="162px" hAlign="Center">
+					<Label text="{i18n>configuration.signature.table.isRegEx}" />
+					<table:template>
+						<common:CheckBox checked="{isRegularExpression}"
+							editable="{editable}" enabled="{valEnabled}"></common:CheckBox>
+					</table:template>
+				</table:Column>
+
+				<table:Column id="defValueCol" width="110px">
+					<Label text="{i18n>configuration.signature.table.defaultValue}" />
+					<table:template>
+						<common:TextField value="{defaultValue}" editable="{editable}" enabled="{defValEnabled}"></common:TextField>
+					</table:template>
+				</table:Column>
+			</table:Table>
+			<Label />
+
+			<layout:MatrixLayout>
+				<layout:MatrixLayoutRow>
+					<layout:MatrixLayoutCell>
+						<common:CheckBox id="isUnknownAllowed" class="" enabled="{/config/editable}"
+							text="{i18n>configuration.signature.table.allowUndefined}"
+							checked="{/config/isUnknownAllowed}" width="400px" />
+					</layout:MatrixLayoutCell>
+				</layout:MatrixLayoutRow>
+				<layout:MatrixLayoutRow>
+					<layout:MatrixLayoutCell hAlign="Right">
+						<common:Button id="addRow" enabled="{/config/editable}"
+							text="{i18n>configuration.signature.table.add}" press="addRow"
+							width="100px" />
+						<common:Button id="deleteRow" enabled="{/config/editable}"
+							text="{i18n>configuration.signature.table.delete}" press="deleteRow"
+							width="100px" />
+					</layout:MatrixLayoutCell>
+				</layout:MatrixLayoutRow>
+			</layout:MatrixLayout>
+
+		</form:content>
+	</form:SimpleForm>
+</core:View>

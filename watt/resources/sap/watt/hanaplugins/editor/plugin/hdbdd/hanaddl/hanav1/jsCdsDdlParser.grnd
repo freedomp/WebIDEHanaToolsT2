@@ -1,0 +1,2774 @@
+//based on /SAPDevelop/HDB/git/sys/src/cds/compiler/parses/CDS.grnd
+//01d37b28b7eb05d548a71ee896210124bdfc2f69
+//Author: Gerd Kluger <gerd.kluger@sap.com>  2013-10-24 12:34:52
+//Committer: Gerd Kluger <gerd.kluger@sap.com>  2013-10-24 12:34:52
+//Parent: f58f9644ead5c6f0fea0432755756d563f36ed1c (SP7 bugfix: Remove unsupported SQL functions from CDS grammar.)
+//Branch:
+//Follows:
+//Precedes:
+//    Cds Coompiler: - extend qp_position to keep resource information
+//    - use resource name in qp_position to report errors instead of qp_parse_tree
+
+options {
+    maxSuspiciousMatches = 2;
+    sloppyNames           = true;
+    warningLevel          = 1;
+}
+
+// any keyword wildcard
+TOK_DEF(_C("#ANYKW#"), NUM_ANYKW)
+// any literal wildcard
+TOK_DEF(_C("#ANYLIT#"), NUM_ANYLIT)
+// whitespace stuff
+TOK_DEF(_C("#EOF#"), NUM_EOF)
+TOK_DEF(_C("#NL#"), NUM_NL)
+TOK_DEF(_C("#COMMENT1#"), NUM_COMMENT1)
+TOK_DEF(_C("#COMMENT2#"), NUM_COMMENT2)
+// for obscure reasons, the tokens above shall not be changed!
+TOK_DEF(_C("."), DOT)
+TOK_DEF(_C(".."), DDOT_OP)
+TOK_DEF(_C(","), COMMA)
+TOK_DEF(_C(":"), NUM_COLON)
+TOK_DEF(_C("::"), DCOLON)
+TOK_DEF(_C(";"), SEMICOLON)
+TOK_DEF(_C("@"), AT)
+TOK_DEF(_C("("), LPAREN)
+TOK_DEF(_C(")"), RPAREN)
+TOK_DEF(_C("{"), LCURLY)
+TOK_DEF(_C("}"), RCURLY)
+TOK_DEF(_C("="), EQ_OP)
+TOK_DEF(_C("<"), LT_OP)
+TOK_DEF(_C(">"), GT_OP)
+TOK_DEF(_C("<="), LE_OP)
+TOK_DEF(_C(">="), GE_OP)
+TOK_DEF(_C("<>"), NE_OP)
+TOK_DEF(_C("=>"), NAMED_PARAM_ASSIGN_OP)
+TOK_DEF(_C("||"), CONCAT_OP)
+TOK_DEF(_C("["), NUM_LBRACK)
+TOK_DEF(_C("]"), NUM_RBRACK)
+TOK_DEF(_C("#STR_CONST#"), NUM_STR_CONST)
+TOK_DEF(_C("#INT_CONST#"), NUM_INT_CONST)
+TOK_DEF(_C("#REAL_CONST#"), NUM_REAL_CONST)
+TOK_DEF(_C("#DATE_CONST#"), NUM_DATE_CONST)
+TOK_DEF(_C("#TIME_CONST#"), NUM_TIME_CONST)
+TOK_DEF(_C("#TIMESTAMP_CONST#"), NUM_TIMESTAMP_CONST)
+TOK_DEF(_C("#BINARY_CONST#"), NUM_BINARY_CONST)
+TOK_DEF(_C("*"), NUM_STAR)
+TOK_DEF(_C("?"), NUM_QUESTION)
+TOK_DEF(_C("+"), NUM_PLUS)
+TOK_DEF(_C("-"), MINUS_OP)
+TOK_DEF(_C("/"), DIV_OP)
+TOK_DEF(_C("$"), NUM_DOLLAR)
+
+// ID is the end of reserved keywords list
+// THE ID
+TOK_DEF(_C("#ID#"), NUM_ID)
+
+target JsResolver {
+	language = JavaScript;
+	generatedResolver = "CdsDdlParserResolver.js";
+	generatedPad = "CdsDdlParserJs.pad";
+}
+
+@JsResolver::header {{{
+
+/*eslint-disable */
+define(
+["hanaddl/hanaddlNonUi","rndrt/rnd","commonddl/commonddlNonUi"], //dependencies
+function (hanaddlNonUi,rnd,commonddlNonUi) {
+
+var StdFuncExpressionImpl = commonddlNonUi.StdFuncExpressionImpl;
+var SelectListImpl = commonddlNonUi.SelectListImpl;
+var ExpressionContainerImpl = commonddlNonUi.ExpressionContainerImpl;
+var GroupByImpl = commonddlNonUi.GroupByImpl;
+var OrderByImpl = commonddlNonUi.OrderByImpl;
+var ExpressionImpl = commonddlNonUi.ExpressionImpl;
+var AnnotationValueImpl = commonddlNonUi.AnnotationValueImpl;
+var PathExpressionImpl = commonddlNonUi.PathExpressionImpl;
+var LiteralExpressionImpl = commonddlNonUi.LiteralExpressionImpl;
+var Token = rnd.Token;
+var OrderByEntryImpl = commonddlNonUi.OrderByEntryImpl;
+var ForeignKeyImpl = commonddlNonUi.ForeignKeyImpl;
+var BaseCdsDdlParser = hanaddlNonUi.BaseCdsDdlParser;
+var IAstFactory = commonddlNonUi.IAstFactory;
+var Stackframe = rnd.Stackframe;
+var Parser = rnd.Parser;
+var FramePtr = rnd.FramePtr;
+var NullFrame = rnd.NullFrame;
+var UserStackframeT = rnd.UserStackframeT;
+
+  function CdsDdlParserResolver(byte_code, scanner) {
+        BaseCdsDdlParser.call(this,byte_code, scanner);
+        this.m_start_attr = new rnd.NullFrame();
+    }
+    CdsDdlParserResolver.prototype = Object.create(BaseCdsDdlParser.prototype);
+
+}}}
+
+////////////////////////////////////////
+// Main logic
+////////////////////////////////////////
+// take care of re-naming this rule name; its name is referenced in VersionsFactory#setErrorRecoveryHook
+START
+    @init
+    {
+RESOLVER.initializeParser();
+}
+    :
+    ( START2 | NEVER_MATCH_RULE )+  %COMMIT
+;
+
+// take care of re-naming this rule name; its name is referenced in VersionsFactory#setErrorRecoveryHook
+NEVER_MATCH_RULE: //introduced for error recovery -> word completion should work when statements are invalid
+   	#ID# "never" "match" "this" "rule" ";" %COMMIT
+;
+
+// take care of re-naming this rule name; its name is referenced in VersionsFactory#setErrorRecoveryHook
+START2:
+	(
+        NamespaceDeclaration
+    )?
+    (
+		UsingDirectiveList
+    )?
+    (
+        TopLevelDeclaration[null]
+    )
+    %COMMIT
+;
+
+//start rule for syntax coloring (no AST creation)
+// support also element declarations as part of start rule
+START_SYNTAX_COLORING
+options{
+	startrule = "TRUE";
+}
+:
+	( 	START2 |
+		AnnotatedElementDeclaration[null] |
+		NEVER_MATCH_RULE |
+		(
+			"}" ";" // for end of type/entitiy declaration (damage repairer goes only back to last ";" -> therefore rest could be "};" -> strategy is to parse as less as possible (for performance reasons)
+		)
+	)+  %COMMIT
+;
+
+
+NamespaceDeclaration returns[int startIndex=0,int endIndex=0,INamespaceDeclaration cdecl]:
+	{
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+    NAMESPACE
+    path = NamespacePath
+    {
+$$.cdecl = RESOLVER.createNamespace($path);
+RESOLVER.setRootNamespace($$.cdecl);
+}
+    ";"
+    {
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($$.cdecl,$$.startIndex,$$.endIndex);
+}
+    %COMMIT
+;
+
+UsingDirectiveList:
+    directive_1 = UsingDirective
+    {
+RESOLVER.compilationUnit.getStatements().push($directive_1.res);
+}
+    (
+        directive_n = UsingDirective
+        {
+RESOLVER.compilationUnit.getStatements().push($directive_n.res);
+}
+    )*
+;
+
+UsingDirective returns [IUsingDirective res,int startIndex=0,int endIndex=0] :
+	{
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+    "using"
+    path = PathName
+    (
+        alias = CdsAlias
+    )?
+    ";"
+    {
+$$.res = RESOLVER.createUsingDirective($path.res,$alias.res);
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$$.startIndex,$$.endIndex);
+}
+    %COMMIT
+;
+
+
+// Temporary SP5 restriction:
+// One file contains just one single top-level declaration
+// take care of re-naming this rule name; its name is referenced in VersionsFactory#setErrorRecoveryHook
+TopLevelDeclaration
+[List<IPreAnnotation> preAnnotations]
+:
+   	{
+$$.preAnnotations = RESOLVER.createPreAnnotationList();
+}
+    (
+        annotation = PreAnnotation
+        {
+RESOLVER.collectPreAnnotation($$.preAnnotations,$annotation.res);
+}
+    ) *
+    (
+        (
+            c_decl = ContextDeclaration[$$.preAnnotations,RESOLVER.compilationUnit.getStatements()]
+        )
+        |
+        (
+            e_decl = EntityDeclaration[$$.preAnnotations,RESOLVER.compilationUnit.getStatements()]
+        )
+        |
+        (
+            v_decl = ViewDeclaration[$$.preAnnotations,RESOLVER.compilationUnit.getStatements()]
+        )
+        |
+        (
+            t_decl = TypeDeclaration[$$.preAnnotations,RESOLVER.compilationUnit.getStatements()]
+        )
+    )
+;
+
+// take care of re-naming this rule name; its name is referenced in VersionsFactory#setErrorRecoveryHook
+ContextDeclaration
+		[List<IPreAnnotation> annots,List<IDdlStatement> parentStmts]
+returns [IContextDeclaration res,int startIndex,int endIndex]
+:
+	{
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+
+    CONTEXT
+    id = QualifiedDefId
+	{
+$$.res = RESOLVER.createContext($id);
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$$.startIndex,-1);
+RESOLVER.addAnnotations($$.res,$$.annots);
+if ($$.parentStmts != null) {
+$$.parentStmts.push($$.res);
+}
+}
+    "{"
+    %COMMIT
+    (
+        ContextComponentDeclaration[null, $$.res]
+    )*
+    "}"
+    ";"
+    {
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$$.startIndex,$$.endIndex);
+}
+    %COMMIT
+;
+
+// take care of re-naming this rule name; its name is referenced in VersionsFactory#setErrorRecoveryHook
+ContextComponentDeclaration
+[ List<IPreAnnotation> preAnnotations, IContextDeclaration context]
+	@init{
+		List<IDdlStatement> stmts = null;
+	}
+:
+
+   	{
+$$.preAnnotations = RESOLVER.createPreAnnotationList();
+}
+   	%COMMIT
+    (
+        annotation = PreAnnotation
+        {
+RESOLVER.collectPreAnnotation($$.preAnnotations,$annotation.res);
+}
+    ) *
+    (
+        (
+        	{
+if ($$.context != null) {
+$stmts = $$.context.getStatements();
+}
+}
+            c_decl = ContextDeclaration[$$.preAnnotations,$stmts]
+        )
+        |
+        (
+        	{
+if ($$.context != null) {
+$stmts = $$.context.getStatements();
+}
+}
+            t_decl = TypeDeclaration[$$.preAnnotations,$stmts]
+        )
+        |
+        (
+        	{
+if ($$.context != null) {
+$stmts = $$.context.getStatements();
+}
+}
+            e_decl = EntityDeclaration[$$.preAnnotations,$stmts]
+        )
+        |
+        (
+        	{
+if ($$.context != null) {
+$stmts = $$.context.getStatements();
+}
+}
+            v_decl = ViewDeclaration[$$.preAnnotations,$stmts]
+        )
+    )
+
+    %COMMIT  //!!! maybe not needed
+;
+
+// take care of re-naming this rule name; its name is referenced in VersionsFactory#setErrorRecoveryHook
+EntityDeclaration
+		[List<IPreAnnotation> annots,List<IDdlStatement> parentStmts]
+returns [IEntityDeclaration res,int startIndex=0,int endIndex=0]
+:
+	{
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+    DEFINE ?
+    ENTITY
+    id = QualifiedDefId
+    "{"
+    %COMMIT
+	{
+$$.res = RESOLVER.createEntity($id);
+if ($$.parentStmts != null) {
+$$.parentStmts.push($$.res);
+}
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$$.startIndex,-1);
+RESOLVER.addAnnotations($$.res,$$.annots);
+}
+	AnnotatedElementDeclarationLoop[$$.res]
+    "}"
+    ";"   // Temporary SP5 restriction: Semicolon is "optional" according spec
+    {
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$$.startIndex,$$.endIndex);
+}
+    %COMMIT
+;
+
+AnnotatedElementDeclarationLoop [IEntityDeclaration res]:
+	%COMMIT //needed for error recovery
+	(
+        elem_decl = AnnotatedElementDeclaration[$$.res]
+    ) *  //changed to "optional" to also get an AST for empty entities
+;
+
+// take care of re-naming this rule name; its name is referenced in VersionsFactory#setErrorRecoveryHook
+ViewDeclaration
+		[List<IPreAnnotation> annots,List<IDdlStatement> parentStmts]
+returns [IViewDefinition res,int startIndex=0,int endIndex=0] :
+	{
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+
+    DEFINE ?
+    VIEW
+    id = QualifiedDefId
+    {
+$$.res = RESOLVER.viewparser_startDefineView();
+if ($$.parentStmts != null) {
+$$.parentStmts.push($$.res);
+}
+$$.res.setNamePath($id.res);
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$$.startIndex,-1);
+RESOLVER.addAnnotations($$.res,$$.annots);
+}
+    AS
+    (
+        (
+            QLSubquery[res]
+        )
+
+        // %_ is a specific extension for RDL it is not part of the .hdbdd feature set
+        // the client partser will not support such a case.
+        /*
+        |
+        (
+            "%_" ENTITY
+            "{"
+            (
+                elem_decl = AnnotatedElementDeclaration[null]
+            ) +
+            "}"
+            "%_" QUERY
+            q_str = StringLiteralWrapper
+        )
+        */
+    )
+    ";"   // Temporary SP5 restriction: Semicolon is "optional" according spec
+
+    {
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$$.startIndex,$$.endIndex);
+}
+    %COMMIT
+;
+
+AnnotatedElementDeclaration [IComponentDeclaration parent] returns [IElementDeclaration res,List<IPreAnnotation> preAnnotations]
+    :
+    {
+$$.preAnnotations = RESOLVER.createPreAnnotationList();
+}
+    (
+        annot = PreAnnotation
+        {
+RESOLVER.collectPreAnnotation($$.preAnnotations,$annot.res);
+}
+    ) *
+    elemDecl = ElementDeclaration[$$.parent]
+    {
+$$.res = $elemDecl.res;
+RESOLVER.addAnnotations($$.res,$$.preAnnotations);
+}
+;
+
+ElementDeclaration [IComponentDeclaration parent] returns [IElementDeclaration res,int startIndex=0,int endIndex=0] :
+	{
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+    modifiers:ElementModifier?
+    element:ELEMENT ?
+    id = DefId
+    type = TypeSpec[$$.parent,$id.res]
+    {
+$$.res = type;
+RESOLVER.initializeElement($$.res,id,$modifiers.keyToken,null,$element.name,null);
+}
+    <
+        Nullability[$$.res] ?
+        DefaultClause[$$.res] ?
+    >
+    ";"
+    {
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$$.startIndex,$$.endIndex);
+}
+    %COMMIT
+;
+
+Nullability [IElementDeclaration res] :
+    (
+        (
+            no:NOT
+            {
+RESOLVER.setNotToken($$.res,$no.name);
+}
+        ) ?
+        nu:NULL
+        {
+RESOLVER.setNullableToken($$.res,$nu.name);
+}
+    )
+;
+
+DefaultClause [IElementDeclaration res] :
+    (
+        DEFAULT expr = Expression
+        {
+RESOLVER.viewparser_setElementDefault($$.res,$expr.res);
+}
+    )
+;
+
+
+ElementModifier returns [Token keyToken] :
+    (
+        key:KEY
+        {
+$$.keyToken = $key.name;
+}
+    )
+;
+
+TypeDeclaration
+		[List<IPreAnnotation> annots,List<IDdlStatement> parentStmts]
+returns	[ITypeDeclaration res,int startIndex=0,int endIndex=0] :
+	{
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+    TYPE
+    id = QualifiedDefId
+    {
+$$.res = RESOLVER.createType($id);
+if ($$.parentStmts != null) {
+$$.parentStmts.push($$.res);
+}
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$$.startIndex,-1);
+RESOLVER.addAnnotations($$.res,$$.annots);
+}
+    (
+        StructuredType[$$.res]
+    |
+        typespec = TypeSpec[null,null]
+        {
+if (typespec != null) {
+$$.res.getElements().push($typespec);
+}
+}
+    )
+    ";"   // Temporary SP5 restriction: Semicolon is "optional" according spec
+    {
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$$.startIndex,$$.endIndex);
+}
+    %COMMIT
+;
+
+// take care of re-naming this rule name; its name is referenced in VersionsFactory#setErrorRecoveryHook
+StructuredType [ITypeDeclaration res] :
+    "{"
+    %COMMIT
+    StructuredTypeComponent[$$.res]
+    "}"
+;
+
+StructuredTypeComponent [ITypeDeclaration res] :
+	(
+        typecomponent = AnnotatedTypeComponentDeclaration
+        {
+RESOLVER.addTypeElement($$.res,$typecomponent.res);
+}
+
+    ) *
+;
+
+AnnotatedTypeComponentDeclaration returns [IElementDeclaration res,List<IPreAnnotation> preAnnotations]
+    :
+    {
+$$.preAnnotations = RESOLVER.createPreAnnotationList();
+}
+    (
+        annot = PreAnnotation
+     	{
+RESOLVER.collectPreAnnotation($$.preAnnotations,$annot.res);
+}
+    ) *
+    typeCompDecl = TypeComponentDeclaration
+    {
+$$.res = $typeCompDecl.res;
+RESOLVER.addAnnotations($$.res,$$.preAnnotations);
+}
+;
+
+TypeComponentDeclaration returns [IElementDeclaration res,int startIndex=0,int endIndex=0] :
+	{
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+	element:ELEMENT ?
+    id = DefId
+    typespec = TypeSpec[null,null]
+    {
+$$.res = $typespec;
+RESOLVER.initializeTypeComponent($$.res,$id,$element.name);
+}
+    ";"
+    {
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$$.startIndex,$$.endIndex);
+}
+    %COMMIT
+;
+
+// take care of re-naming this rule name; its name is referenced in VersionsFactory#setErrorRecoveryHook
+// There's a copy of this rule "AnnotationTypeSpec" that is used in AnnotationDefinition.
+// It needed to be copied because the AST for Annotations is completely different - putting both into one rule
+// would be to complicated. Nobody would understand it afterwards
+TypeSpec [IComponentDeclaration parent,Token def] returns [IElementDeclaration res]
+	@init{
+		int startIndex;
+	}
+:
+    ":"
+    {
+$startIndex = RESOLVER.getNextTokenIndex();
+}
+
+    (
+        tto = TypeTypeOf[$$.parent,$$.def]
+        {
+$$.res = $tto;
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$startIndex,-1);
+}
+    |
+        typename = TypeNamed[$$.parent,$$.def]
+        {
+$$.res = $typename;
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$startIndex,-1);
+}
+    |
+// not needed on client
+//		uts = TypeUtcts
+//        {
+//        	$$.res = $uts;
+//        }
+//    |
+        typeassoc = TypeAssoc[$$.parent,$$.def]
+        {
+$$.res = $typeassoc.res;
+}
+    )
+;
+
+// not needed on client - just keep it here for synch with backend grammar
+//
+//Type UTCTimestamp allowed eventhough UTCTIMESTAMP is reserved SQL
+//semantic check will check the case
+//TypeUtcts returns [IAttributeDeclaration res] :
+//	id = UTCTimestampPathName
+//  	{
+//  		IPathExpression pe = createPathExpression();
+//  		addEntry(pe,createPathEntry($id.res));
+//		$$.res = createAttribute(pe);
+//	}
+//  	(
+//    	"("
+//        	p1 = IntLiteralWrapper
+//        	(
+//            	","
+//            	p2 = IntLiteralWrapper
+//        	)?
+//        ")"
+//	)?
+//;
+
+UTCTimestampPathName returns [Token res] :
+    first = IdUTCTimestamp
+    {
+$$.res = $first.res;
+}
+;
+
+IdUTCTimestamp returns [Token res] :
+    id2 = "utctimestamp"
+    {
+$$.res = TOK(id2);
+}
+;
+
+TypeTypeOf  [IComponentDeclaration parent,Token def] returns [IAttributeDeclaration res]:
+    TYPE OF id = PathName
+    {
+$$.res = RESOLVER.createAttributeTypeOf($id);
+if ($$.def != null) {
+$$.res.setNameToken($$.def);
+}
+if ($$.parent != null) {
+$$.parent.getElements().push($$.res);
+}
+}
+;
+
+// There's a copy of this rule "AnnotationTypeNamed" that is used in AnnotationDefinition.
+// It needed to be copied because the AST for Annotations is completely different - putting both into one rule
+// would be to complicated. Nobody would understand it afterwards
+TypeNamed [IComponentDeclaration parent,Token def] returns [IAttributeDeclaration res]:
+    id = TypeName
+    {
+$$.res = RESOLVER.createAttribute($id);
+if ($$.def != null) {
+$$.res.setNameToken($$.def);
+}
+if ($$.parent != null) {
+$$.parent.getElements().push($$.res);
+}
+}
+    (
+        "("
+        p1 = IntLiteralWrapper
+        {
+$$.res.setLengthToken($p1);
+}
+        (
+            ","
+            p2 = IntLiteralWrapper
+            {
+$$.res.setDecimalsToken($p2);
+}
+        )?
+        ")"
+    )?
+;
+
+TypeName returns [IPathExpression res]:
+	id = PathName
+	{
+$$.res = $id.res;
+}
+;
+
+AssociationForeignKeys [IAssociationDeclaration res] returns [int startIndex=0,int endIndex=0]:
+	"{"
+		r = AssociationForeignKeyElement [$$.res]
+		{
+$$.startIndex = $r.startIndex;
+$$.endIndex = $r.endIndex;
+}
+	"}"
+;
+
+AssociationForeignKeyElement [IAssociationDeclaration res] returns [int startIndex=0,int endIndex=0]:
+	(
+		{
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+	    k1 = PathName (alias1 = CdsAlias)?
+	    {
+var fk = RESOLVER.addKey($$.res, $k1, $alias1);
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex(fk,$$.startIndex,$$.endIndex);
+}
+	    (
+	    	","
+	        {
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+	        kn = PathName (aliasn = CdsAlias)?
+	        {
+var fk = RESOLVER.addKey($$.res, $kn, $aliasn);
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex(fk,$$.startIndex,$$.endIndex);
+}
+	     )*
+	 )?
+;
+
+AssociationOnCondition [IAssociationDeclaration res]:
+	ON
+	cond = Condition
+    {
+if ($$.res != null) {
+$$.res.setOnExpression($cond.res);
+}
+}
+;
+
+
+TypeAssoc  [IComponentDeclaration parent,Token def] returns [IAssociationDeclaration res,int startIndex=0,int endIndex=0]
+	@init{
+		int startTargetIndex;
+		int endTargetIndex;
+	}
+:
+    ASSOCIATION
+    {
+$$.res = RESOLVER.createAssociation();
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,-1,-1);
+if ($$.def != null) {
+$$.res.setNameToken($$.def);
+}
+if ($$.parent != null) {
+parent.getElements().push($$.res);
+}
+}
+    Cardinality[$$.res] ?
+    TO
+    {
+$startTargetIndex = RESOLVER.getNextTokenIndex();
+}
+    target:PathName
+    {
+$endTargetIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($target,$startTargetIndex,$endTargetIndex);
+$$.res.setTargetEntityPath($target);
+}
+    (
+    	(
+    		AssociationForeignKeys[$$.res]
+//	        "{"
+//	        { $$.startIndex = RESOLVER.getNextTokenIndex();}
+//	        k1 = PathName (alias1 = CdsAlias)?
+//	        {
+//	           IForeignKey fk = addKey($$.res, $k1, $alias1);
+//	           $$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+//	 		   viewparser_setStartEndTokenIndex(fk,$$.startIndex, $$.endIndex);
+//	        }
+//	        (
+//	            ","
+//	            { $$.startIndex = RESOLVER.getNextTokenIndex();}
+//	            kn = PathName (aliasn = CdsAlias)?
+//	            {
+//	               IForeignKey fk = addKey($$.res, $kn, $aliasn);
+//	               $$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+//	 		   	   viewparser_setStartEndTokenIndex(fk,$$.startIndex, $$.endIndex);
+//	            }
+//	        )*
+//	        "}"
+		|
+			AssociationOnCondition[$$.res]
+		)
+    )?
+;
+
+
+CdsAlias returns [Token res] :
+    AS
+    alias = IdWrapper
+    {
+$$.res = $alias;
+}
+;
+
+
+Cardinality [IAssociationDeclaration res] returns[Token srcMaxStar, Token maxStar] :
+    "["
+    (
+        () // epsilon production,  "[]" means "[0..*]"
+    |
+
+        //here we have backtracking, but performance is
+        //not critical at this point, so prefer clear grammar
+        //
+        // source, maximum
+        (
+            (
+               srcMax:IntLiteralWrapper
+               |
+               srcStar:"*" {
+$$.srcMaxStar = TOK(srcStar);
+}
+            )
+            ","
+        )?
+        // target, minimum
+        (
+        	min:IntLiteralWrapper
+        	"." "."
+        )?
+        // target, maximum
+        (
+            max1:IntLiteralWrapper
+            |
+            star:"*" {
+$$.maxStar = TOK(star);
+}
+        )
+        {
+RESOLVER.setCardinality($$.res,$srcMax.res,$$.srcMaxStar,$min.res,$max1.res,$$.maxStar);
+}
+    )
+    "]"
+;
+
+////////////////////////////////////////////
+// Composed identifiers in defining context
+////////////////////////////////////////////
+
+NamespacePath returns [IPathDeclaration res]:
+    id_1 = IdWrapper
+    {
+$$.res = RESOLVER.createPathDeclaration();
+RESOLVER.addEntry($$.res,RESOLVER.createPathEntry($id_1));
+}
+    (
+        "."
+        id_n = IdWrapper
+        {
+if (id_n != null) {
+RESOLVER.addEntry($$.res,RESOLVER.createPathEntry($id_n.res));
+}
+}
+    ) *
+;
+
+QualifiedDefId returns [IPathDeclaration res]:
+    id_1 = IdWrapper
+    {
+$$.res = RESOLVER.createPathDeclaration();
+RESOLVER.addEntry($$.res,RESOLVER.createPathEntry($id_1));
+}
+    (
+        (
+        )
+        |
+        (
+            "."
+            id_n = IdWrapper
+            {
+if ($id_n != null) {
+RESOLVER.addEntry($$.res,RESOLVER.createPathEntry($id_n.res));
+}
+}
+        ) *
+
+        (
+            "::"
+            defid = DefId
+            {
+if ($defid != null) {
+RESOLVER.addEntry($$.res,RESOLVER.createPathEntry($defid.res));
+}
+}
+        )
+    )
+//    |
+//        idq = QuotedId // Paris change: #QUOTED_ID#
+//        {
+//          if ($$.res==null) {
+//    	      $$.res = createPathDeclaration();
+//          }
+//          if ($idq != null)
+//             addEntry($$.res,createPathEntry($idq.res));
+//        }
+;
+
+// Paris change start
+QuotedId returns [Token res]:
+    "\""
+    id = #ID#
+    {
+var tok = TOK(id);
+$$.res = tok;
+}
+    "\""
+;
+// Paris change end
+
+
+//============================================================================
+// take care of re-naming this rule name; its name is referenced in VersionsFactory#setErrorRecoveryHook
+PathName returns [IPathExpression res]:
+    first = IdWrapper
+    {
+$$.res = RESOLVER.createPathExpression();
+RESOLVER.addEntry($$.res,RESOLVER.createPathEntry($first));
+}
+    (
+    	(
+	        "::" base1 = IdWrapper
+	        {
+RESOLVER.markLastNamespacePathEntry($$.res);
+RESOLVER.addEntry($$.res,RESOLVER.createPathEntry($base1.res));
+}
+	        (
+	            (
+	                "." tail1 = IdWrapper
+	                {
+RESOLVER.addEntry($$.res,RESOLVER.createPathEntry($tail1.res));
+}
+	            )+
+	        )?
+        )
+    	|
+    	(
+	        // now first assume relative name (without "::")
+	        (
+	            "." med2 = IdWrapper
+	             {
+RESOLVER.addEntry($$.res,RESOLVER.createPathEntry($med2.res));
+}
+	        )+
+	        (
+	            "::" base2 = IdWrapper
+	            {
+RESOLVER.markLastNamespacePathEntry($$.res);
+RESOLVER.addEntry($$.res,RESOLVER.createPathEntry($base2.res));
+}
+	            (
+	                (
+	                    "." tail2 = IdWrapper
+	                    {
+RESOLVER.addEntry($$.res,RESOLVER.createPathEntry($tail2.res));
+}
+	                )+
+	            )?
+	        )?
+	    )
+    )?
+;
+
+IdWrapper returns [Token res]:
+    (
+	    id = #ID#
+	    {
+$$.res = TOK(id);
+}
+	)
+	|
+    (
+        idq = QuotedId
+        {
+$$.res = $idq.res;
+}
+    )
+;
+
+IntLiteralWrapper returns [Token res]:
+    intLit = #INT_CONST#
+    {
+$$.res = TOK(intLit);
+}
+;
+
+StringLiteralWrapper returns [Token res]:
+    strLit = #STR_CONST#
+    {
+$$.res = TOK(strLit);
+}
+;
+
+RealLiteral returns [Token res] :
+    realLit = #REAL_CONST#
+    {
+$$.res = TOK(realLit);
+}
+;
+
+BinaryLiteral returns [Token res] :
+    binaryLit = #BINARY_CONST#
+    {
+$$.res = TOK(binaryLit);
+}
+;
+
+DateLiteral returns [Token res] :
+    dateLit = #DATE_CONST#
+    {
+$$.res = TOK(dateLit);
+}
+;
+
+TimeLiteral returns [Token res] :
+    timeLit = #TIME_CONST#
+    {
+$$.res = TOK(timeLit);
+}
+;
+
+TimeStampLiteral returns [Token res] :
+    timeStampLit = #TIMESTAMP_CONST#
+    {
+$$.res = TOK(timeStampLit);
+}
+;
+
+NullLiteral returns [Token res] :
+    nullLit = NULL
+    {
+$$.res = $nullLit.name;
+}
+;
+
+////////////////////////////////////////////
+// Identifier in defining context
+////////////////////////////////////////////
+
+DefId returns [Token res]:
+    id1 = IdWrapper
+    {
+$$.res = $id1.res;
+}
+;
+
+
+////////////////////////////////////////////
+// Annotations
+////////////////////////////////////////////
+
+
+// take care of re-naming this rule name; its name is referenced in VersionsFactory#setErrorRecoveryHook
+AnnotationValue [Object container] returns [int startIndex=0,int endIndex=0]:
+
+
+//  not needed in the frontend, as the EnumId is already handled by the AnnotationConstantId rule and the scanner
+//  (
+//      AnnotationEnumId
+//  )
+//  |
+    (
+    	{
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+        const_val = AnnotationConstantId
+        {
+var av = RESOLVER.addAnnotationValue($$.container, $const_val.res);
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex(av,$$.startIndex,$$.endIndex);
+}
+    )
+    |
+    (
+    	{
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+        lit_val = AnnotationLiteral
+        {
+var av = RESOLVER.addAnnotationValue($$.container, $lit_val.res);
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex(av,$$.startIndex,$$.endIndex);
+}
+    )
+    |
+    (
+        RecordValue[$$.container]
+    )
+    |
+    (
+        ArrayValue[$$.container]
+    )
+
+;
+
+RecordValue
+			[Object container]
+returns		[IAnnotationRecordValue record,int startIndex=0,int endIndex=0]
+:
+	{
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+    "{"
+    {
+$$.record = RESOLVER.createAnnotationRecordValue();
+RESOLVER.addAnnotationRecordValue($$.container,$$.record);
+}
+    RecordComponent[$$.record]
+    (
+        ","
+        RecordComponent[$$.record]
+    ) *
+    "}"
+    {
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($$.record,$$.startIndex,$$.endIndex);
+}
+;
+
+PreAnnotation
+returns [IPreAnnotation res,int startIndex=0,int endIndex=0]
+:
+	{
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+    "@"
+	{
+$$.res = RESOLVER.createPreAnnotation();
+}
+
+    AnnotationPath[$$.res]
+    (
+        ":"
+        AnnotationValue[$$.res]
+    )?
+    {
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$$.startIndex,$$.endIndex);
+}
+;
+
+RecordComponent
+		[IAnnotationRecordValue container]
+returns [IAnnotationNameValuePair res,int startIndex=0,int endIndex=0]
+:
+	{
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+	{
+$$.res = RESOLVER.createAnnotationNameValuePair();
+RESOLVER.addAnnotationNameValuePair($$.container,$$.res);
+}
+
+	AnnotationPath[$$.res]
+    (
+    	":"
+    	AnnotationValue[$$.res]
+    )?
+    {
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$$.startIndex,$$.endIndex);
+}
+
+;
+
+ArrayValue
+		[Object container]
+returns	[IAnnotationArrayValue array,int startIndex=0,int endIndex=0]
+:
+	{
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+    "["
+    {
+$$.array = RESOLVER.createAnnotationArrayValue();
+RESOLVER.addAnnotationArrayValue($$.container,$$.array);
+}
+    (
+	    AnnotationValue[$$.array]
+	    (
+	        ","
+	        AnnotationValue[$$.array]
+
+	    ) *
+	)?
+    "]"
+    {
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($$.array,$$.startIndex,$$.endIndex);
+}
+;
+
+AnnotationPath
+	[IAnnotationNameValuePair nameValuePair]
+	:
+    id_1 = AnnotationId
+    {
+RESOLVER.addAnnotationPath($$.nameValuePair,$id_1.res);
+}
+    (
+        dot = "."
+        {
+RESOLVER.addAnnotationPath($$.nameValuePair,TOK(dot));
+}
+        id_n = AnnotationId
+    	{
+RESOLVER.addAnnotationPath($$.nameValuePair,$id_n.res);
+}
+    )*
+;
+
+// Annotation can contain any tokens, even reserved SQL keyword
+//
+// for example 'order' in
+//  @Catalog.index:[ { name:'Index1', unique:false, order:#DESC, elementNames:['ELT1', 'ELT2' ] } ]
+//
+AnnotationId returns [Token res]:
+    id = #ID# // runtime is using "UnreservedId" = matches #ID# and reserved keyword -> but desingtime is accepting everything -> intended behavior!!
+    {
+$$.res = TOK(id);
+}
+;
+
+// not needed see above
+//AnnotationEnumId:
+//    id = #ENUM_ID#
+//;
+
+
+AnnotationConstantId returns [Token res]:
+    id = #ID#  // runtime is using "UnreservedId" = matches #ID# and reserved keyword -> but desingtime is accepting everything -> intended behavior!!
+    {
+$$.res = TOK(id);
+}
+;
+
+AnnotationLiteral returns [Token res]:
+    (
+        str_val = StringLiteralWrapper
+        {
+$$.res = $str_val;
+}
+    )
+    |
+    (
+    	( %CCIGNORE "-" )?
+        int_val = IntLiteralWrapper
+        {
+$$.res = $int_val;
+}
+    )
+;
+
+// UnreservedId rule not used at designtime; please use #ID# instead
+//////////////////////////////////////////////////
+// in annotations we may use any tokens, even reserved SQL keyword
+// UnreservedId may be used wherever all IDs are allowed
+//UnreservedId returns [Token* tok]:
+// ...
+// ;
+
+////////////////////////////////////////////
+// Queries
+////////////////////////////////////////////
+
+//QL: rule not taken because runtime colleagues are using it only for testing purposes of SELECT stmt (test and compare the ptime AST)
+
+/******************************************************************************
+ *
+ * SELECT FROM <path> { <elementlist> } ...
+ *
+ ******************************************************************************/
+
+QLSubquery [IViewDefinition viewDef] returns [IViewSelect res,int startIndex=0,int endIndex=0] :
+	{
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+    SELECT
+    {
+$$.res = RESOLVER.viewparser_startSelect();
+$$.viewDef.setSelect($$.res);
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$$.startIndex,-1);
+}
+    from = FromClause[$$.res]
+    select = QLSelectClause[$$.res,null]
+    where = WhereClause[$$.res]
+    group = GroupByClause[$$.res]
+    having = HavingClause[$$.res]
+    order = OrderByClause[$$.res]
+
+    {
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$$.startIndex,$$.endIndex);
+}
+;
+
+QLSelectClause [IViewSelect select,ISelectList list] returns [ISelectList res]
+	@init{
+		int startIndex = 0;
+		int endIndex = 0;
+	}
+:
+	{
+$startIndex = RESOLVER.getNextTokenIndex();
+}
+	{
+if ($$.list != null) {
+$$.res = $$.list;
+}else{
+$$.res = RESOLVER.viewparser_startSelectList0();
+RESOLVER.viewparser_selectlist($$.select,$$.res);
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$startIndex,-1);
+}
+}
+	QLSelectList[res]
+	{
+$endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$startIndex,$endIndex);
+}
+;
+
+QLSelectList [ISelectList list] :
+
+    "{"
+        (
+	        AnnotatedQLSelectItem[list]
+
+	        (   "," p2=AnnotatedQLSelectItem[list]
+	        )*
+		)? //* -> please dont use * here <- we are then too error tolerant and error recovery will not work // made optional by intention; client should be more error tolerant.
+    "}"
+;
+
+//this rule name is used in DdlErrorRecoveryHook
+AnnotatedQLSelectItem [ISelectList list] returns [List<IPreAnnotation> preAnnotations]
+    :
+
+    {
+$$.preAnnotations = RESOLVER.createPreAnnotationList();
+}
+    (
+        annotation = PreAnnotation
+        {
+RESOLVER.collectPreAnnotation($$.preAnnotations,$annotation.res);
+}
+    ) *
+
+    QLSelectItem[$$.preAnnotations,$$.list]
+;
+
+QLSelectItem [List<IPreAnnotation> preAnnotations,ISelectList list] returns [ISelectListEntry res]:
+    (
+    	p1 = QLPathListSelectItem[$$.preAnnotations,$$.list]
+	    {
+$$.res = $p1.entry;
+}
+	    |
+    	p2 = ExprSelectItem[$$.preAnnotations,$$.list]
+	    {
+$$.res = $p2.entry;
+}
+    )
+
+    // do a commit for performance reasons after each select list entry
+    %COMMIT
+;
+
+QLPathListSelectItemAlias [ISelectListEntry entry] // this rule exists only on client. It was introduced for better code completion support; don't propose entity/view elements for alias id.
+:
+ 	(
+    	(AS)?
+        alias1 = IdWrapper
+        {
+if ($$.entry != null) {
+RESOLVER.viewparser_alias($$.entry,alias1.res);
+}
+}
+	)
+;
+
+QLPathListSelectItem [List<IPreAnnotation> preAnnotations,ISelectList list] returns [ISelectListEntry entry]  // AM: Does the return val really need a NULL default? I don't think so.
+	@init{
+		INestedSelectListPathEntry nestedEntry = null;
+		int startIndex = 0;
+		int endIndex = 0;
+	}
+:
+	{
+$startIndex = RESOLVER.getNextTokenIndex();
+}
+	(
+		(
+			pathExp = QLPath
+			{
+$endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex(pathExp.res,$startIndex,$endIndex);
+}
+			{
+$$.entry = RESOLVER.viewparser_selectListEntry($pathExp.res);
+RESOLVER.addAnnotations($$.entry,$$.preAnnotations);
+RESOLVER.viewparser_addSelectListEntry($$.list,$$.entry);
+}
+			QLPathListSelectItemAlias[$$.entry]?
+			(
+				{
+var nestedList = IAstFactory.eINSTANCE.createSelectList();
+$nestedEntry = IAstFactory.eINSTANCE.createNestedSelectListPathEntry();
+nestedEntry.setSelectList(nestedList);
+$pathExp.res.getPathEntries().push($nestedEntry);
+}
+				%CCIGNORE p2 = QLSelectClause[null,$nestedEntry.getSelectList()]
+			)?
+		)
+		|
+		(
+			{
+var nestedList = IAstFactory.eINSTANCE.createSelectList();
+$nestedEntry = IAstFactory.eINSTANCE.createNestedSelectListPathEntry();
+nestedEntry.setSelectList(nestedList);
+var pExp = RESOLVER.createPathExpression();
+pExp.getPathEntries().push($nestedEntry);
+$$.entry = RESOLVER.viewparser_selectListEntry(pExp);
+RESOLVER.addAnnotations($$.entry,$$.preAnnotations);
+RESOLVER.viewparser_addSelectListEntry($$.list,$$.entry);
+}
+			%CCIGNORE p3 = QLSelectClause[null,$nestedEntry.getSelectList()]
+			QLPathListSelectItemAlias[$$.entry]?
+		)
+	)
+
+	{
+$endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($$.entry,$startIndex,$endIndex);
+}
+;
+
+QLPath returns [IPathExpression res]
+	@init{
+		int startIndex = 0;
+		int endIndex = 0;
+	}
+:
+	{
+$startIndex = RESOLVER.getNextTokenIndex();
+}
+	id1=IdWrapper
+	{
+$$.res = RESOLVER.createPathExpression();
+RESOLVER.addEntry($$.res,RESOLVER.createPathEntry($id1.res));
+}
+	(   "."  id2=IdWrapper
+		{
+RESOLVER.addEntry($$.res,RESOLVER.createPathEntry($id2.res));
+}
+	)*
+	{
+$endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$startIndex,$endIndex);
+}
+;
+
+ExprSelectItem [List<IPreAnnotation> preAnnotations,ISelectList list] returns [ISelectListEntry entry,int startIndex=0,int endIndex=0]:
+	{
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+    alias = ExprAlias
+    {
+$$.entry = RESOLVER.viewparser_selectListEntry($alias.res);
+RESOLVER.addAnnotations($$.entry,$$.preAnnotations);
+RESOLVER.viewparser_addSelectListEntry($$.list,$$.entry);
+RESOLVER.viewparser_alias($$.entry,$alias.alias);
+}
+
+    {
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($$.entry,$$.startIndex,$$.endIndex);
+}
+;
+
+FromClause [IViewSelect select] returns [IDataSource res] :
+    FROM
+    l:TablePathList
+    {
+$$.res = $l.res;
+$$.select.setFrom($$.res);
+}
+;
+
+TablePathList returns [IDataSource res,int startIndex=0,int endIndex=0] :
+	{
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+    tab_path_1 = TablePath
+    {
+$$.res = $tab_path_1.res;
+}
+
+    //after discussion with Steffen Weinstock
+    // define view v as select from table1, table2, .... where table1.id = table2.id
+    // this is the old way how to define an inner join; on condition is then specified in the where clause
+    // we will not support this kind of statement
+    /*
+    (
+        ","
+        tab_path_n = TablePath
+        {
+            $$.res = viewparser_innerjoinDatasource($$.res,$tab_path_n.res,null);
+        }
+    ) *
+    */
+
+    {
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$$.startIndex,$$.endIndex);
+}
+;
+
+TablePathAlias returns [Token res] :
+	(
+        (AS)?
+        alias = IdWrapper
+        {
+$$.res = $alias.res;
+}
+    )?
+;
+
+TablePath  returns [IDataSource res,int startIndex=0,int endIndex=0]:
+	{
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+    path = QLPath
+
+    alias = TablePathAlias
+
+    {
+$$.res = RESOLVER.viewparser_tableDatasource($path.res);
+if ($alias.res != null) {
+$$.res.setAliasToken($alias.res);
+}
+}
+
+    {
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$$.startIndex,$$.endIndex);
+}
+;
+
+WhereClause [IViewSelect select] returns [IExpressionContainer res,int startIndex=0,int endIndex=0]:
+	{
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+    (
+        WHERE
+        cond = Condition
+        {
+$$.res = RESOLVER.createExpressionContainer($cond.res);
+$$.select.setWhere($$.res);
+}
+    )?
+    {
+if ($$.res != null) {
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$$.startIndex,$$.endIndex);
+}
+}
+;
+
+/* Note: For now, we don't support the more complex forms of GROUP: grouping_sets, rollup_expression, cube_expression */
+GroupByClause [IViewSelect select] returns [IGroupBy res,int startIndex=0,int endIndex=0]
+    :
+    {
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+    (
+        GROUP BY
+        (
+            list:ExpressionList
+            {
+var groupBy = RESOLVER.viewparser_groupBy1($list.res);
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex(groupBy,$$.startIndex,$$.endIndex);
+select.setGroupBy(groupBy);
+}
+        )
+    )?
+;
+
+HavingClause [IViewSelect select] returns [IExpressionContainer res,int startIndex=0,int endIndex=0]:
+    (
+    	{
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+        HAVING
+        cond = Condition
+        {
+var cont = RESOLVER.createExpressionContainer($cond.res);
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex(cont,$$.startIndex,$$.endIndex);
+select.setHaving(cont);
+}
+    )?
+;
+
+OrderByClause [IViewSelect select] returns [IOrderBy res,int startIndex=0,int endIndex=0]:
+    (
+    	{
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+        ORDER BY
+        order = SortSpecList
+        {
+var orderBy = RESOLVER.viewparser_createOrderBy($order.res);
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex(orderBy,$$.startIndex,$$.endIndex);
+select.setOrderBy(orderBy);
+}
+    )?
+;
+
+SortSpecList returns[List<IOrderByEntry> res]:
+    spec1 = SortSpec
+    {
+$$.res = [];
+$$.res.push($spec1.res);
+}
+    (
+        "," specN = SortSpec
+        {
+$$.res.push($specN.res);
+}
+    )*
+;
+
+SortSpec returns[IOrderByEntry res,int startIndex=0,int endIndex=0]:
+	{
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+    expr = Expression
+    order = OptAscDesc
+    nfl = OptNullsFirstLast
+    {
+$$.res = RESOLVER.viewparser_createOrderByEntry($expr.res);
+$$.res.setOrderSequenceToken($order.res);
+$$.res.setNullsToken(nfl.nulls);
+$$.res.setNullsFirstLastToken(nfl.firstLast);
+}
+
+    {
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$$.startIndex,$$.endIndex);
+}
+;
+
+OptAscDesc returns [Token res] :
+    () /* empty */
+    |
+    asc:ASC
+    {
+$$.res = $asc.name;
+}
+    |
+    des:DESC
+    {
+$$.res = $des.name;
+}
+;
+
+OptNullsFirstLast returns [Token nulls,Token firstLast]:
+    () /* empty */
+    |
+	(
+	    n:NULLS
+	    (
+	        f:FIRST
+	        {
+$$.nulls = $n.name;
+$$.firstLast = $f.name;
+}
+	        |
+	        l:LAST
+	        {
+$$.nulls = $n.name;
+$$.firstLast = $l.name;
+}
+	    )
+	)
+;
+
+Condition returns [IExpression res,int startIndex=0,int endIndex=0]:
+	{
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+    condAnd = ConditionAnd
+    {
+$$.res = $condAnd.res;
+}
+    (
+        OR
+        right = ConditionAnd
+        {
+if ($$.res == null) {
+$$.res = RESOLVER.viewparser_orExpression($condAnd.res,$right.res);
+}else $$.res = RESOLVER.viewparser_orExpression($$.res,$right.res);
+}
+    )*
+
+    {
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$$.startIndex,$$.endIndex);
+}
+;
+
+ConditionAnd returns [IExpression res,int startIndex=0,int endIndex=0]:
+	{
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+    condTerm = ConditionTerm
+    {
+$$.res = $condTerm.res;
+}
+    (
+        AND
+        right = ConditionTerm
+        {
+$$.res = RESOLVER.viewparser_andExpression($$.res,$right.res);
+}
+    )*
+
+    {
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$$.startIndex,$$.endIndex);
+}
+;
+
+ConditionTerm returns [IExpression res,int startIndex=0,int endIndex=0]:
+	{
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+	(
+	    (
+	        NOT
+	        cond1 = ConditionTerm
+	        {
+$$.res = RESOLVER.viewparser_notExpression($cond1.res);
+}
+	    )
+	    |
+	    (
+	        "("
+	        cond2 = Condition
+	        {
+$$.res = $cond2.res;
+}
+	        ")"
+	    )
+	    |
+	    (
+	        predLeftIsExpr = PredicateLeftIsExpression
+	        {
+$$.res = $predLeftIsExpr.res;
+}
+	    )
+    )
+
+    {
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$$.startIndex,$$.endIndex);
+}
+;
+
+PredicateLeftIsExpression returns [IExpression res,boolean negated=false,int startIndex=0,int endIndex=0]
+    :
+    {
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+    left = Expression
+    (
+        (
+            comp = ComparisonPredicate[$left.res]
+            {
+$$.res = $comp.res;
+}
+        )
+        |
+        (
+            nullPred = NullPredicate[$left.res]
+            {
+$$.res = $nullPred.res;
+}
+        )
+        |
+        (
+            ( NOT {
+$$.negated = true;
+} )?
+            (
+                (
+                    range = RangePredicate[$left.res, negated]
+                    {
+if ($$.negated == true) {
+$$.res = RESOLVER.viewparser_notExpression($range.res);
+}else{
+$$.res = $range.res;
+}
+}
+                )
+                |
+                (
+                    like = LikePredicate[$left.res, negated]
+                    {
+if ($$.negated == true) {
+$$.res = RESOLVER.viewparser_notExpression($like.res);
+}else{
+$$.res = $like.res;
+}
+}
+                )
+                |
+                (
+                    in = InPredicate[$left.res, negated]
+                    {
+if ($$.negated == true) {
+$$.res = RESOLVER.viewparser_notExpression($in.res);
+}else{
+$$.res = $in.res;
+}
+}
+                )
+            )
+        )
+    )
+
+    {
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$$.startIndex,$$.endIndex);
+}
+;
+
+ComparisonPredicate [IExpression left] returns [IExpression res,Token comp]:
+    (
+        eq:"="
+        {
+$$.comp = TOK(eq);
+}
+    |
+        gs:"<>"
+        {
+$$.comp = TOK(gs);
+}
+    |
+        b:">"
+        {
+$$.comp = TOK(b);
+}
+    |
+        be:">="
+        {
+$$.comp = TOK(be);
+}
+    |
+        s:"<"
+        {
+$$.comp = TOK(s);
+}
+    |
+        se:"<="
+        {
+$$.comp = TOK(se);
+}
+    )
+    right = Expression
+    {
+$$.res = RESOLVER.viewparser_compExpression($$.comp,$$.left,$right.res);
+}
+;
+
+RangePredicate [IExpression expr1, boolean negated] returns [IExpression res,int startIndex=0,int endIndex=0]:
+    {
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+    BETWEEN
+    expr2 = Expression
+    AND
+    expr3 = Expression
+    {
+$$.res = RESOLVER.viewparser_betweenExpression($$.expr1,$expr2.res,$expr3.res);
+}
+
+    {
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$$.startIndex,$$.endIndex);
+}
+;
+
+LikePredicate [IExpression expr1, boolean negated] returns [IExpression res,Token escapeToken,int startIndex=0,int endIndex=0]:
+	{
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+    l = LIKE
+    expr2 = Expression
+    (
+        ESCAPE
+        expr3 = Expression
+        {
+$$.escapeToken = ($expr3.res).getTokenToken();
+}
+    )?
+    {
+$$.res = RESOLVER.viewparser_likeExpression($l.name,$$.expr1,$expr2.res,$$.escapeToken);
+}
+
+    {
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$$.startIndex,$$.endIndex);
+}
+;
+
+NullPredicate [IExpression expr] returns [IExpression res,boolean isNull=false]:
+    IS
+    (
+        NOT
+        {
+$$.isNull = true;
+}
+    )?
+    NULL
+    {
+$$.res = RESOLVER.viewparser_nullExpression($$.expr,$$.isNull);
+}
+;
+
+InPredicate [IExpression left, boolean negated] returns [IExpression res]
+    :
+    IN
+    "("
+    list:ExpressionList //[right_list]
+    ")"
+    {
+$$.res = RESOLVER.viewparser_inExpression($$.left,$list.res);
+}
+;
+
+ExpressionList returns [List<IExpression> res] :
+    expr = Expression
+    {
+$$.res = [];
+$$.res.push($expr.res);
+}
+    (
+        ","
+        expr_n = Expression
+        {
+$$.res.push($expr_n.res);
+}
+    )*
+;
+
+
+Expression returns [IExpression res,int startIndex=0,int endIndex=0]:
+    // still lacking CASE stuff, so just delegating
+    {
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+    exprConcat = ExprConcat
+    {
+$$.res = $exprConcat.res;
+}
+
+    {
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$$.startIndex,$$.endIndex);
+}
+;
+
+ExprConcat returns [IExpression res,int startIndex=0,int endIndex=0]:
+	{
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+    exprSum1 = ExprSum
+    {
+$$.res = $exprSum1.res;
+}
+    (
+        op:#PIPE_PIPE# exprSum2 = ExprSum
+        {
+$$.res = RESOLVER.viewparser_createConcatenationExpression($$.res,$exprSum2.res,TOK(op));
+}
+    )*
+
+    {
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$$.startIndex,$$.endIndex);
+}
+;
+
+ExprSum returns [IExpression res,int startIndex=0,int endIndex=0]:
+	{
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+    exprFactor1 = ExprFactor
+    {
+$$.res = $exprFactor1.res;
+}
+    (
+        (
+            opPlus:"+" exprFactor2 = ExprFactor
+            {
+$$.res = RESOLVER.viewparser_createConcatenationExpression($$.res,$exprFactor2.res,TOK(opPlus));
+}
+        )
+        |
+        (
+            opMinus:"-" exprFactor3 = ExprFactor
+            {
+$$.res = RESOLVER.viewparser_createConcatenationExpression($$.res,$exprFactor3.res,TOK(opMinus));
+}
+        )
+    )*
+
+    {
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$$.startIndex,$$.endIndex);
+}
+;
+
+ExprFactor returns [IExpression res]:
+    exprTerm1 = ExprTerm
+    {
+$$.res = $exprTerm1.res;
+}
+    (
+        (
+            opMul:"*" exprTerm2 = ExprTerm
+            {
+$$.res = RESOLVER.viewparser_createConcatenationExpression($$.res,$exprTerm2.res,TOK(opMul));
+}
+        )
+        |
+        (
+            opDiv:"/" exprTerm3 = ExprTerm
+            {
+$$.res = RESOLVER.viewparser_createConcatenationExpression($$.res,$exprTerm3.res,TOK(opDiv));
+}
+        )
+    )*
+;
+
+
+ExprTerm returns [IExpression res,int startIndex=0,int endIndex=0]:
+	{
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+	(
+	    (
+	        col = QLPath
+	        {
+$$.res = $col.res;
+}
+	    )
+	    |
+	    (
+	        opPlus:"+" exprTerm1 = ExprTerm
+	        {
+$$.res = RESOLVER.viewparser_createConcatenationExpression(null,$exprTerm1.res,TOK(opPlus));
+}
+	    )
+	    |
+	    (
+	        opMinus:"-" exprTerm2 = ExprTerm
+	        {
+$$.res = RESOLVER.viewparser_createConcatenationExpression(null,$exprTerm2.res,TOK(opMinus));
+}
+	    )
+	    |
+	    (
+	        "(" exprTerm3 = Expression ")"
+	        {
+$$.res = $exprTerm3.res;
+}
+	    )
+	    |
+	    (
+	        literal = Literal
+	        {
+$$.res = RESOLVER.viewparser_iliteral($literal.res);
+}
+	    )
+	    |
+	    (
+	        agg = Agg
+	        {
+$$.res = $agg.res;
+}
+	    )
+	    |
+	    (
+	        func = Func
+	        {
+$$.res = $func.res;
+}
+	    )
+    )
+    {
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$$.startIndex,$$.endIndex);
+}
+;
+
+Literal returns [Token res] :
+    (
+        int_val = IntLiteralWrapper
+        {
+$$.res = $int_val.res;
+}
+    )
+    |
+    (
+        string_lit = StringLiteralWrapper
+        {
+$$.res = $string_lit.res;
+}
+    )
+    |
+    (
+        real_lit = RealLiteral
+        {
+$$.res = $real_lit.res;
+}
+    )
+    |
+    (
+        binary_lit = BinaryLiteral
+        {
+$$.res = $binary_lit.res;
+}
+    )
+    |
+    (
+        date_lit = DateLiteral
+        {
+$$.res = $date_lit.res;
+}
+    )
+    |
+    (
+        time_lit = TimeLiteral
+        {
+$$.res = $time_lit.res;
+}
+    )
+    |
+    (
+        timestamp_lit = TimeStampLiteral
+        {
+$$.res = $timestamp_lit.res;
+}
+    )
+// FIXME: NullLiteral NULL not yet supported in SemanticCheck
+    |
+    (
+        null_lit = NullLiteral
+        {
+$$.res = $null_lit.res;
+}
+    )
+;
+
+// FIXME: Shouldn't we also take care of "AS" and res->alias here?
+ExprAlias returns [IExpression res,Token alias] :
+    expr = Expression
+    {
+$$.res = $expr.res;
+}
+    (
+        (AS)?
+        alias1 = IdWrapper
+        {
+$$.alias = $alias1.res;
+}
+    )?
+;
+
+
+// Aggregate function
+Agg returns [IExpression res,int startIndex=0,int endIndex=0]
+    :
+    {
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+    agg_name = AggName "("
+    (
+        (
+	        st:'*'
+	        {
+$$.res = RESOLVER.viewparser_stdFunctionExpression($agg_name.res,RESOLVER.viewparser_iliteral(TOK(st)));
+}
+	    )
+        |
+        (
+        	agg_all = OptAll
+        	agg_expr = Expression
+	        {
+$$.res = RESOLVER.viewparser_stdFunctionExpression($agg_name.res,$agg_expr.res);
+($$.res).setAllToken($agg_all.res);
+}
+        )
+        |
+        (
+        	d:DISTINCT
+        	agg_expr2 = Expression
+	        {
+$$.res = RESOLVER.viewparser_stdFunctionExpression($agg_name.res,$agg_expr2.res);
+($$.res).setDistinctToken($d.name);
+}
+		)
+    )
+    ")"
+    {
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$$.startIndex,$$.endIndex);
+}
+;
+
+AggName returns [Token res]:
+    c:COUNT      {
+$$.res = $c.name;
+}
+    | mi:MIN     {
+$$.res = $mi.name;
+}
+    | ma:MAX     {
+$$.res = $ma.name;
+}
+    | su:SUM     {
+$$.res = $su.name;
+}
+    | av:AVG     {
+$$.res = $av.name;
+}
+    | std:STDDEV {
+$$.res = $std.name;
+}
+    | va:VAR     {
+$$.res = $va.name;
+}
+;
+
+OptAll returns [Token res]:
+    () /* empty */ {
+$$.res = null;
+}
+    | a:ALL        {
+$$.res = $a.name;
+}
+;
+
+// Built-in function
+Func returns [IFuncExpression res,int startIndex=0,int endIndex=0]:
+	{
+$$.startIndex = RESOLVER.getNextTokenIndex();
+}
+    func_name = FuncName "("
+    {
+$$.res = RESOLVER.viewparser_funcExpression($func_name.res);
+}
+    (
+        expr = Expression
+        {
+RESOLVER.viewparser_addFuncExprParameter($$.res,$expr.res);
+}
+        (
+            "," list:ExpressionList
+            {
+for (var exCount = 0;exCount < list.length;exCount++) {
+var ex = list[exCount];
+RESOLVER.viewparser_addFuncExprParameter($$.res,ex);
+}
+}
+        )?
+    )?
+    ")"
+    {
+$$.endIndex = RESOLVER.getLastMatchedTokenIndex();
+RESOLVER.viewparser_setStartEndTokenIndex($$.res,$$.startIndex,$$.endIndex);
+}
+;
+
+FuncName returns [Token res]:
+ // The extremely simple ones where Function name matches QPC_FUNC enum, with args
+(
+      "abs"
+    | "acos"
+    | "add_days"
+    | "add_months"
+    | "add_seconds"
+    | "add_years"
+    | "ascii"
+    | "asin"
+    | "atan"
+    | "atan2"
+// These functions are not documented anywhere, so we do not support them (yet?)
+//  | "bind_bigint"
+//  | "bind_char"
+//  | "bind_decimal"
+//  | "bind_double"
+//  | "bind_nchar"
+//  | "bind_real"
+    | "bintohex"
+    | "bitand"
+    | "ceil"
+    | "coalesce"
+    | "concat"
+    | "cos"
+    | "cosh"
+    | "cot"
+    | "days_between"
+    | "exp"
+    | "floor"
+    | "greatest"
+    | "hasanyprivileges"
+    | "hassystemprivilege"
+    | "hextobin"
+    | "ifnull"
+    | "isauthorized"
+    | "last_day"
+    | "least"
+    | "length"
+    | "ln"
+    | "locate"
+    | "log"
+    | "lower"
+    | "lpad"
+// This function is internally implemented as a CASE statement (see ptime::qo_Func::toExpression)
+// We don't support that yet
+//  | "map"
+    | "mod"
+    | "next_day"
+    | "nullif"
+    | "power"
+    | "replace"
+    | "round"
+    | "rpad"
+    | "seconds_between"
+    | "session_context"
+    | "sign"
+    | "sin"
+    | "sinh"
+    | "sqrt"
+    | "substr"
+    | "substr_after"
+    | "substr_before"
+    | "tan"
+    | "tanh"
+    | "to_bigint"
+    | "to_binary"
+    | "to_blob"
+    | "to_char"
+    | "to_clob"
+    | "to_date"
+    | "to_dats"
+    | "to_decimal"
+    | "to_double"
+    | "to_int"
+    | "to_integer"
+    | "to_nchar"
+    | "to_nclob"
+    | "to_nvarchar"
+    | "to_real"
+    | "to_seconddate"
+    | "to_smalldecimal"
+    | "to_smallint"
+    | "to_time"
+    | "to_timestamp"
+    | "to_tinyint"
+    | "to_varbinary"
+    | "to_varchar"
+    | "unicode"
+    | "upper"
+    | "weekday"
+ // The ones where the function name does not match QPC_FUNC code, with args
+    | "char"
+ // This function is related to grouping sets, which are not supported yet
+ // | "grouping"
+    | "nchar"
+ // The ones where the function is actually an alias of another function, with args
+    | "instr"
+    | "lcase"
+    | "substring"
+    | "ucase"
+ // The ones where the function name does match QPC_FUNC code, no args
+ // This function is related to grouping sets, which are not supported yet
+ // | "grouping_filter"
+ // This function is not documented anywhere, so we do not support it (yet?)
+ // | "istotal"
+ // The ones where the function name does match QPC_FUNC code, no args
+    | "curdate"
+    | "curtime"
+    | "database"
+    | "now"
+ // This function is not documentres = QPC_FUNC_ACOS;ed anywhere, so we do not support it (yet?)
+ // | "olymp"
+    | "user"
+)
+{
+$$.res = TOK_AT(this.getFirstTokenIndex());
+}
+;
+
+
+////////////////////////////////////////
+// Annotation Definitions (only client)
+//
+// TODO: typeSpec, enumClause and defaultClause are now defined two times in the grammar.
+//  Please fix this flaw when runtime colleagues also introduced annotationDefinitions in their grammar.
+//
+////////////////////////////////////////
+
+DDL_ANNOTATION: 'annotation' ;
+DDL_ENUM      : 'enum' ;
+DDL_COLON     : ":";
+
+/* This rule is used to parse the Annotations that can be used in DDL Sources
+   Currently this is not possible for the user to define his own annotations  */
+annotationDefintions
+options{
+	startrule = "TRUE";
+}
+:
+	defs=annotationDefintionsWithAnnotation[null]
+;
+
+annotationDefintionsWithAnnotation
+[List<IPreAnnotation> preAnnotations]
+:
+	{
+RESOLVER.compilationUnit = IAstFactory.eINSTANCE.createCompilationUnit();
+}
+	(
+		{
+$$.preAnnotations = RESOLVER.createPreAnnotationList();
+}
+		(
+			annotation = PreAnnotation
+			{
+RESOLVER.collectPreAnnotation($$.preAnnotations,$annotation.res);
+}
+		)*
+		definition = annotationDefinition
+ 		{
+if ($definition != null && $$.preAnnotations != null) {
+RESOLVER.addAnnotations($definition.anno,$$.preAnnotations);
+}
+}
+	)*
+;
+
+annotationDefinition
+returns [IAnnotationDeclaration anno]
+:
+	DDL_ANNOTATION
+	name=IdWrapper
+	{
+$$.anno = RESOLVER.createAnnotationDeclaration($name.res);
+RESOLVER.viewparser_setDDLStmt($$.anno);
+}
+	type = annotationTypeSpec[$$.anno]
+   	(
+   		";"
+   	)? %COMMIT
+;
+
+arrayCardinality[IElementDeclaration element]:
+	start:"["
+	(
+		//min
+        min:IntLiteralWrapper
+    	"." "." //TODO replace with one ".." token
+    	//max
+        (
+            max1:IntLiteralWrapper
+            |
+            max2:"*"
+        )
+	)?
+	end:"]"
+	{
+if ($$.element != null) {
+var max = null;
+if ($max1 != null) {
+max = $max1.res;
+}else{
+max = TOK(max2);
+}
+RESOLVER.setArrayCardinality($$.element,TOK(start),$min.res,max,TOK(end));
+}
+}
+;
+
+annotationTypeSpec
+[IElementDeclaration element]
+:
+	(
+		DDL_COLON
+		(
+			AnnotationTypeArray[$$.element]
+			|
+			AnnotationTypeNamedOrEnum[$$.element]
+		)
+	)
+	|
+	(
+		type2 = annotationStructuredType[$$.element, null]
+	)
+;
+
+AnnotationTypeNamedOrEnum
+[IElementDeclaration element]
+:
+
+	AnnotationTypeNamed[$$.element]
+	(
+		enumeration = annotationEnumClause[$$.element, null]
+	)?
+	(
+		def = DefaultClause[$$.element]  //backend does not allow default yet, but we allow it on the client to be able to provide defaults in Annotation Code completion
+	)?
+	";" %COMMIT
+;
+
+AnnotationTypeNamed
+[IElementDeclaration element]
+:
+	typeName=IdWrapper
+	{
+RESOLVER.setType($$.element,$typeName.res);
+}
+	(
+		"("
+		length:IntLiteralWrapper
+		{
+RESOLVER.setLength($$.element,$length.res);
+}
+		(
+			","
+			decimals:IntLiteralWrapper
+			{
+RESOLVER.setDecimals($$.element,$decimals.res);
+}
+		)?
+		")"
+	)?
+;
+
+AnnotationTypeSpecNoColon
+[IElementDeclaration element]
+:
+	type1 = annotationStructuredType[$$.element, null]
+	|
+	AnnotationTypeNamedOrEnum[$$.element]
+;
+
+AnnotationTypeArray
+[IElementDeclaration element]
+:
+	arr: "array" arrof: "of"
+	{
+$$.element.setArrayToken(TOK(arr));
+$$.element.setArrayOfToken(TOK(arrof));
+}
+	AnnotationTypeSpecNoColon[$$.element]
+;
+
+annotationEnumClause
+[IElementDeclaration element, IEnumerationValue val]
+returns [IEnumerationDeclaration enumeration]
+:
+	DDL_ENUM
+	{
+$$.enumeration = RESOLVER.createAndSetEnumerationDeclaration($$.element);
+}
+	"{"
+	(
+		{
+$$.val = RESOLVER.createAndSetEnumerationValue($$.enumeration);
+}
+		symbol = IdWrapper
+		{
+$$.val.setSymbol($symbol.res);
+}
+		(
+			"="
+			lit = AnnotationLiteral
+			{
+$$.val.setLiteral(RESOLVER.viewparser_cliteral($lit.res));
+}
+		)?
+		{
+if ($$.val.getLiteral() == null) {
+var implicitSymbol = RESOLVER.viewparser_cliteral($symbol.res);
+$$.val.setLiteral(implicitSymbol);
+}
+}
+		";"
+	)*
+	"}"
+;
+
+annotationDefaultClause
+[IElementDeclaration element]
+:
+	DEFAULT
+	(
+		(
+			con = AnnotationConstantId {
+RESOLVER.viewparser_setElementDefaultToken($$.element,$con.res);
+}
+		)
+		|
+		(
+			expr = Expression
+			{
+RESOLVER.viewparser_setElementDefault($$.element,$expr.res);
+}
+		)
+	)
+;
+
+annotationStructuredType
+[IElementDeclaration element, IAnonymousTypeDeclaration type]
+:
+	"{"
+	{
+$$.type = RESOLVER.createAndSetAnonymousTypeDeclaration($$.element);
+}
+	(
+		{
+$$.element = RESOLVER.createAndSetAttributeDeclaration($$.type);
+}
+		name = IdWrapper {
+$$.element.setNameToken($name.res);
+}
+		type = annotationTypeSpec[$$.element]
+	)*
+	"}"
+	(
+		";"
+	)?
+;
+
+
+////////////////////////////////////////
+// Preliminary keyword handling
+////////////////////////////////////////
+
+CONTEXT       								: "context"        						;
+BETWEEN       								: "between"								;
+DEFINE        								: "define"         						;
+// take care of re-naming this rule name; its name is referenced in VersionsFactory#setErrorRecoveryHook
+ENTITY        								: "entity"         						;
+VIEW          								: "view"           						;
+AS            								: "as"             						;
+QUERY         								: "query"          						;
+TYPE          								: "type"           						;
+ELEMENT returns     [Token name]    	: e:"element" 	{
+$$.name = TOK(e);
+}	;
+ESCAPE        								: "escape"								;
+IN            								: "in"									;
+IS								            : "is" 									;
+KEY returns 		[Token name]    	: k:"key" 		{
+$$.name = TOK(k);
+}	;
+LIKE returns   		[Token name]		: l:"like" 		{
+$$.name = TOK(l);
+}	;
+NULLABLE returns 	[Token name]    	: n:"nullable" 	{
+$$.name = TOK(n);
+}	;
+NAMESPACE     								: "namespace"      						;
+OF            								: "of"             						;
+ASSOCIATION   								: "association"    						;
+ON            								: "on" 									;
+TO            								: "to"             						;
+SELECT        								: "select"         						;
+FROM          								: "from"           						;
+INTO          								: "into"           						;
+WHERE         								: "where"          						;
+AND           								: "and"            						;
+OR            								: "or"             						;
+NOT  returns 		[Token name]      : n:"not"		{
+$$.name = TOK(n);
+}	;
+NULL returns 		[Token name]    	: n:"null"		{
+$$.name = TOK(n);
+}	;
+DEFAULT       								: "default"								;
+GROUP         								: "group" 								;
+BY           		 						: "by"   								;
+HAVING        								: "having"								;
+ORDER         								: "order" 								;
+ASC returns         [Token name]      : n:"asc"		{
+$$.name = TOK(n);
+}	;
+DESC returns		[Token name]		: n:"desc" 		{
+$$.name = TOK(n);
+}	;
+NULLS returns  		[Token name]		: n:"nulls"     {
+$$.name = TOK(n);
+}	;
+FIRST returns  		[Token name]		: n:"first"		{
+$$.name = TOK(n);
+}	;
+LAST  returns  		[Token name]		: n:"last"      {
+$$.name = TOK(n);
+}	;
+DISTINCT returns	[Token name]		: n:"distinct"  {
+$$.name = TOK(n);
+}	;
+COUNT  returns 		[Token name]		: n:"count"     {
+$$.name = TOK(n);
+}	;
+MIN    returns 		[Token name]		: n:"min"       {
+$$.name = TOK(n);
+}	;
+MAX    returns 		[Token name]		: n:"max"       {
+$$.name = TOK(n);
+}	;
+SUM    returns 		[Token name]		: n:"sum"       {
+$$.name = TOK(n);
+}	;
+AVG    returns 		[Token name]		: n:"avg"       {
+$$.name = TOK(n);
+}	;
+STDDEV returns 		[Token name]		: n:"stddev"    {
+$$.name = TOK(n);
+}	;
+VAR    returns 		[Token name]		: n:"var"       {
+$$.name = TOK(n);
+}	;
+ALL    returns 		[Token name]		: n:"all"       {
+$$.name = TOK(n);
+}	;
+//            : ""      ;

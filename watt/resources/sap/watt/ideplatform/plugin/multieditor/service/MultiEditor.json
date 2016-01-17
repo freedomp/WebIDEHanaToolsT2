@@ -1,0 +1,43 @@
+{
+	"name": "sap.watt.common.plugin.multieditor.service.MultiEditor",
+	"description": "Multi Editor interface",
+	"extends" : [
+		"sap.watt.common.service.editor.Editor",
+		"sap.watt.common.service.editor.UndoRedo"
+	],
+	"configurationProperties": {
+		"editors": {
+			"type": [{
+				"name": "string",
+				"service": "sap.watt.common.service.editor.Editor"
+			}],
+			"multiple": false
+		}
+	},
+	"methods": {
+	    "containsEditor": {
+        	"params" : [{
+				"name" : "oEditor",
+				"type" : "sap.watt.common.service.editor.Editor"
+			}],
+			"returns" : "boolean"
+	    },
+	    "getActiveEditor": {
+			"returns" : "sap.watt.common.service.editor.Editor"
+	    },
+	    "getAllEditors": {
+        	"returns" : "[sap.watt.common.service.editor.Editor]"
+	    },
+       "hasDocument": {
+	    	"params" : [{
+	    		"name" : "oDocument",
+	    		"type" : "sap.watt.common.plugin.document.Document"
+    		}],
+        	"returns" : "boolean"
+	    },
+	    "hasDocuments": {
+        	"returns" : "boolean"
+	    }
+	       
+    }
+}

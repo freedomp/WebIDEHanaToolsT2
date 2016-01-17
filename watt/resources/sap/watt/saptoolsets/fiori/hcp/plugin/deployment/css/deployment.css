@@ -1,0 +1,208 @@
+.applicationUrlLink.sapUiLnk {
+    display: block;
+    max-width: 33rem;
+    overflow: hidden;
+    font-size: 14px;
+}
+
+.successfullyDeployedLink.sapUiLnk {
+    font-size: 0.875rem;
+}
+
+.deploymentDialog {
+    max-height: 95vh;
+    display: flex !important;
+    flex-direction: column;
+}
+
+.deploymentDialog .sapUiDlgCont {
+    overflow: auto;
+    max-height: 66vh;
+}
+
+/*
+.deploymentDialogContent {
+    overflow: auto;
+    max-height: 66vh;
+}
+*/
+
+.infoTextRedeployment {
+    height: 3rem !important;
+    line-height: 1rem !important;
+}
+
+.infoUncommittedText {
+    line-height: 1rem;
+    color:#007CC0;
+}
+
+.deletedApplicationText {
+    height: 2.5rem !important;
+    line-height: 1rem !important;
+    padding-top: 0.5rem;
+}
+
+.labelAlign {
+    margin-left: 0.5rem;
+}
+.checkboxAlign {
+    float: left;
+}
+.fontSpecial {
+    font-family: "Segoe UI Light", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 100;
+}
+
+.errorTextDeploymentDialog {
+    padding-left : 0.5rem;
+    padding-bottom : 0.8rem;
+    font-size: 0.875rem;
+    line-height: normal !important;
+    color: #e63333;
+    width: calc(100% - 1rem); /* otherwise the error appears cut on the right */
+}
+
+
+/* Field Validation */
+input.inputError {
+    background-color: #fbdfdf !important;
+    color: black !important;
+    border-color:
+        rgba(229, 41, 41, 0.5)
+        rgba(229, 41, 41, 0.125)
+        rgba(229, 41, 41, 0.125)
+        rgba(229, 41, 41, 0.5) !important;
+}
+
+input.inputError:hover {
+    background-color: #fbdfdf !important;
+    color: black !important;
+    border-color:
+        rgba(229, 41, 41, 0.75)
+        rgba(229, 41, 41, 0.5)
+        rgba(229, 41, 41, 0.5)
+        rgba(229, 41, 41, 0.75) !important;
+}
+
+input.inputError:focus {
+    background-color: white !important;
+    color: black !important;
+    border-color:
+        rgba(229, 41, 41, 0.75)
+        rgba(229, 41, 41, 0.5)
+        rgba(229, 41, 41, 0.5)
+        rgba(229, 41, 41, 0.75) !important;
+}
+
+input.inputConfirmed {
+    background-color: #e0f1e7 !important;
+    color: black !important;
+    border-color:
+        rgba(0, 138, 59, 0.5)
+        rgba(0, 138, 59, 0.25)
+        rgba(0, 138, 59, 0.25)
+        rgba(0, 138, 59, 0.5) !important;
+}
+
+input.inputConfirmed:hover {
+    background-color: #e0f1e7 !important;
+    color: black !important;
+    border-color:
+        rgba(0, 138, 59, 0.75)
+        rgba(0, 138, 59, 0.5)
+        rgba(0, 138, 59, 0.5)
+        rgba(0, 138, 59, 0.75) !important;
+}
+
+input.inputConfirmed:focus {
+    background-color: white !important;
+    color: black !important;
+    border-color:
+        rgba(0, 138, 59, 0.75)
+        rgba(0, 138, 59, 0.5)
+        rgba(0, 138, 59, 0.5)
+        rgba(0, 138, 59, 0.75) !important;
+}
+
+
+.inputError > input {
+    background-color: #fbdfdf !important;
+    color: black !important;
+    border-color:
+        rgba(229, 41, 41, 0.5)
+        rgba(229, 41, 41, 0.125)
+        rgba(229, 41, 41, 0.125)
+        rgba(229, 41, 41, 0.5) !important;
+}
+
+.inputError > form > div > div > div > div > input {
+    background-color: #fbdfdf !important;
+    color: black !important;
+    border-color:
+        rgba(229, 41, 41, 0.5)
+        rgba(229, 41, 41, 0.125)
+        rgba(229, 41, 41, 0.125)
+        rgba(229, 41, 41, 0.5) !important;
+}
+
+.inputError:hover > input {
+    background-color: #fbdfdf !important;
+    color: black !important;
+    border-color:
+        rgba(229, 41, 41, 0.75)
+        rgba(229, 41, 41, 0.5)
+        rgba(229, 41, 41, 0.5)
+        rgba(229, 41, 41, 0.75) !important;
+}
+
+.inputError:focus > input {
+    background-color: white !important;
+    color: black !important;
+    border-color:
+        rgba(229, 41, 41, 0.75)
+        rgba(229, 41, 41, 0.5)
+        rgba(229, 41, 41, 0.5)
+        rgba(229, 41, 41, 0.75) !important;
+}
+
+
+.inputConfirmed > input {
+    background-color: #e0f1e7 !important;
+    color: black !important;
+    border-color:
+        rgba(0, 138, 59, 0.5)
+        rgba(0, 138, 59, 0.25)
+        rgba(0, 138, 59, 0.25)
+        rgba(0, 138, 59, 0.5) !important;
+}
+
+.inputConfirmed > form > div > div > div > div > input{
+    background-color: #e0f1e7 !important;
+    color: black !important;
+    border-color:
+        rgba(0, 138, 59, 0.5)
+        rgba(0, 138, 59, 0.25)
+        rgba(0, 138, 59, 0.25)
+        rgba(0, 138, 59, 0.5) !important;
+}
+
+.inputConfirmed:hover > input {
+    background-color: #e0f1e7 !important;
+    color: black !important;
+    border-color:
+        rgba(0, 138, 59, 0.75)
+        rgba(0, 138, 59, 0.5)
+        rgba(0, 138, 59, 0.5)
+        rgba(0, 138, 59, 0.75) !important;
+}
+
+.inputConfirmed:focus > input {
+    background-color: white !important;
+    color: black !important;
+    border-color:
+        rgba(0, 138, 59, 0.75)
+        rgba(0, 138, 59, 0.5)
+        rgba(0, 138, 59, 0.5)
+        rgba(0, 138, 59, 0.75) !important;
+}

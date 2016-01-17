@@ -1,0 +1,21 @@
+{
+	"preloadCapable": true,
+	"plugins": [
+		"project/plugin/hanawizardsteps",
+		"project/plugin/hanatemplates",
+		"editor/plugin/xsodata",
+		"editor/plugin/hdbdd",
+		"editor/plugin/hdbprocedure",
+		"editor/plugin/hdbfunction",
+		"build/plugin/buildcommon",
+ 		"editor/plugin/hdbcalculationview",
+        "editor/plugin/hdbanalyticprivilege",
+		"editor/plugin/cds",
+		"common/plugin/hanaide"
+	],
+	"includes": [
+		"config_hana_cst.json"
+	],
+
+	"required": true
+}

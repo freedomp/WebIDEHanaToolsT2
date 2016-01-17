@@ -1,0 +1,80 @@
+/* indentions */
+
+.VIndent05 { margin-left: 0.5rem !important; }
+.VIndent1  { margin-left: 1rem   !important; }
+.VIndent15 { margin-left: 1.5rem !important; }
+.VIndent2  { margin-left: 2rem   !important; }
+.VIndent25 { margin-left: 2.5rem !important; }
+.VIndent3  { margin-left: 3rem   !important; }
+.VIndent35 { margin-left: 3.5rem !important; }
+.VIndent4  { margin-left: 4rem   !important; }
+.VIndent45 { margin-left: 4.5rem !important; }
+.VIndent5  { margin-left: 5rem   !important; }
+.VIndent55 { margin-left: 5.5rem !important; }
+.VIndent6  { margin-left: 6rem   !important; }
+
+
+.VSpacing0 { margin: 0 !important; }
+
+.VSpacingBottom0  { margin-bottom: 0rem !important; }
+.VSpacingBottom05 { margin-bottom: 0.5rem !important; }
+.VSpacingBottom1  { margin-bottom: 1rem !important; }
+.VSpacingBottom2  { margin-bottom: 2rem !important; }
+.VSpacingBottom3  { margin-bottom: 3rem !important; }
+.VSpacingBottom4  { margin-bottom: 4rem !important; }
+.VSpacingBottom5  { margin-bottom: 5rem !important; }
+.VSpacingBottom6  { margin-bottom: 6rem !important; }
+
+.VSpacingTop0  { margin-top: 0rem !important; }
+.VSpacingTop05 { margin-top: 0.5rem !important; }
+.VSpacingTop1  { margin-top: 1rem !important; }
+.VSpacingTop2  { margin-top: 2rem !important; }
+.VSpacingTop3  { margin-top: 3rem !important; }
+.VSpacingTop4  { margin-top: 4rem !important; }
+.VSpacingTop5  { margin-top: 5rem !important; }
+.VSpacingTop6  { margin-top: 6rem !important; }
+
+/* horizontal spacings (both sides) */
+
+.VSpacingHorizontal05 { margin: 0 0.5rem; }
+.VSpacingHorizontal1  { margin: 0 1rem; }
+.VSpacingHorizontal15 { margin: 0 1.5rem; }
+.VSpacingHorizontal2  { margin: 0 2rem; }
+.VSpacingHorizontal25 { margin: 0 2.5rem; }
+.VSpacingHorizontal3  { margin: 0 3rem; }
+.VSpacingHorizontal35 { margin: 0 3.5rem; }
+.VSpacingHorizontal4  { margin: 0 4rem; }
+.VSpacingHorizontal45 { margin: 0 4.5rem; }
+.VSpacingHorizontal5  { margin: 0 5rem; }
+.VSpacingHorizontal55 { margin: 0 5.5rem; }
+.VSpacingHorizontal6  { margin: 0 6rem; }
+
+/* vertical spacing (top and bottom) */
+
+.VSpacingVertical05	{ margin: 0.5rem 0; }
+.VSpacingVertical1	{ margin: 1rem 0; }
+.VSpacingVertical15	{ margin: 1.5rem 0; }
+.VSpacingVertical2	{ margin: 2rem 0; }
+.VSpacingVertical25	{ margin: 2.5rem 0; }
+.VSpacingVertical3	{ margin: 3rem 0; }
+.VSpacingVertical35	{ margin: 3.5rem 0; }
+.VSpacingVertical4	{ margin: 4rem 0; }
+.VSpacingVertical45	{ margin: 4.5rem 0; }
+.VSpacingVertical5	{ margin: 5rem 0; }
+.VSpacingVertical55	{ margin: 5.5rem 0; }
+.VSpacingVertical6	{ margin: 6rem 0; }
+
+/* vertical placeholder */
+
+.VSpacer05 { height: 0.5rem; }
+.VSpacer1  { height: 1rem; }
+.VSpacer15 { height: 1.5rem; }
+.VSpacer2  { height: 2rem; }
+.VSpacer25 { height: 2.5rem; }
+.VSpacer3  { height: 3rem; }
+.VSpacer35 { height: 3.5rem; }
+.VSpacer4  { height: 4rem; }
+.VSpacer45 { height: 4.5rem; }
+.VSpacer5  { height: 5rem; }
+.VSpacer55 { height: 5.5rem; }
+.VSpacer6  { height: 6rem; }

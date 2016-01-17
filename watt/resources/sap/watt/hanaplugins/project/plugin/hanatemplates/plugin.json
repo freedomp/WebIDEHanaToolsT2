@@ -1,0 +1,97 @@
+{
+  "name": "sap.watt.hana.project.hanatemplates",
+  "description": "A collection of templates to create HANA DB starter applications.",
+  "i18n" : "sap.watt.hana.project.hanatemplates/i18n/i18n",
+
+  "requires": {
+    "services": [
+      "setting.project",
+      "template",
+      "filesystem.documentProvider",
+      "xs2ServiceStep",
+      "templateCustomizationStep",
+      "chebackend.XS2ServicesDAO"
+    ]
+  },
+
+  "provides" : {
+    "services": {
+      "hanatemplateservice" : {
+        "implements": "sap.watt.hana.project.hanatemplates.service.HanaTemplateService",
+        "module": "sap.watt.hana.project.hanatemplates/service/HanaTemplateService"
+      }
+    },
+    "interfaces": {
+      "sap.watt.hana.project.hanatemplates.service.HanaTemplateService": "sap.watt.hana.project.hanatemplates/service/HanaTemplateService"
+    }
+  },
+  
+  "configures": {
+    "services": {
+      "template:categories" : [
+        {
+          "id" : "HANA.Templates",
+          "name" : "SAP HANA",
+          "description" : "{i18n>Config_category_HANA_DB_project_desc}"
+        }
+      ],
+      "template:templates" : [
+        {
+          "id" : "hanatemplates.mtaproject",
+          "template" : "sap.watt.hana.project.hanatemplates/mtaproject/MTAProjectTemplate",
+          "name" : "{i18n>Config_template_MTA_name}",
+          "description" : "{i18n>Config_template_MTA_desc}",
+          "path" : "hanatemplates/mtaproject",
+          "icon"	:"sap-icon://e-learning",
+          "category" : "HANA.Templates",
+          "requiresNeoApp" : false,
+          "wizardSteps" : ["templateCustomizationStep"],
+          "modelFileName" : "model.json",
+          "modelRoot" : "mtaProject",
+          "templateType" : "project",
+          "targetProjectTypes" : ["mta"],
+          "version" : "1.0.0",
+          "orderPriority" : 20,
+          "coreTemplate" : true
+        },
+        {
+          "id" : "hanatemplates.hanadbproject",
+          "template" : "sap.watt.hana.project.hanatemplates/hanadbproject/HANADBProjectTemplate",
+          "name" : "{i18n>Config_template_hanadbproject_name}",
+          "description" : "{i18n>Config_template_hanadbproject_desc}",
+          "path" : "hanatemplates/hanadbproject",
+          "fileName" : "HANADBProjectTemplate.zip",
+          "icon"	:"sap-icon://e-learning",
+          "category" : "HANA.Templates",
+          "modelFileName" : "model.json",
+          "modelRoot" : "SAPHanaDBProject",
+          "requiresNeoApp" : false,
+          "templateType" : "module",
+          "wizardSteps" : ["templateCustomizationStep"],
+          "supportedProjectTypes" : ["mta"],
+          "targetProjectTypes" : ["sap.hdb"],
+          "version" : "1.0.0",
+          "orderPriority" : 100,
+          "coreTemplate" : true
+        },
+        {
+          "id" : "hanatemplates.ui5project",
+          "template" : "sap.watt.hana.project.hanatemplates/ui5project/UI5ProjectTemplate",
+          "name" : "{i18n>Config_category_UI5_project_name}",
+          "description" : "{i18n>Config_category_UI5_project_desc}",
+          "path" : "hanatemplates/ui5project",
+          "fileName" : "UI5ProjectTemplate.zip",
+          "icon"	:"sap-icon://e-learning",
+          "category" : "HANA.Templates",
+          "requiresNeoApp" : false,
+          "templateType" : "module",
+          "supportedProjectTypes" : ["mta"],
+          "targetProjectTypes" : ["sap.html5"],
+          "version" : "1.0.0",
+          "orderPriority" : 110,
+          "coreTemplate" : true
+     	}
+     ]
+    }
+  }
+}

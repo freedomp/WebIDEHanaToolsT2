@@ -1,0 +1,46 @@
+.tipsAndTricksDialog {
+    top: 25vh !important;
+}
+
+.tipsAndTricksViewTipTitle {
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    color: #0c73b5;
+    padding-bottom: 5px;
+    line-height: 1;
+}
+
+.tipsAndTricksViewTipText {
+    font-family: "Segoe UI","Helvetica Neue",Arial,Helvetica,sans-serif;
+    padding-left: 7px;
+    width: 285px;
+    height: 100%;
+}
+
+.tipsAndTricksDialogCheckBox {
+    /*TODO check for a better way!*/
+    padding-right: 416px;
+}
+
+.tipsAndTricksViewVerticalLayout {
+    padding-left: 20px;
+}
+
+.tipsAndTricksViewShortcutsVerticalLayout {
+    padding-left: 8px;
+    padding-bottom: 10px;
+}
+
+.tipsAndTricksViewShortcutsHorizontalLayout {
+    padding-bottom: 10px;
+}
+
+.tipsAndTricksViewHorizontalLayout {
+    padding: 10px;
+}
+
+.tipsAndTricksViewImage {
+    width: 450px;
+    border: 1px solid #d9d9d9;
+}
+

@@ -1,0 +1,117 @@
+.projectsettingPanel {
+	position: relative;
+	background-color: #F7F7F7;
+}
+
+.projectsettingPanel .titleLabel {
+	color: #333333;
+	font-family: 'Segoe UI Light', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+	font-size: 3rem;
+	font-weight: 100;
+	padding: 16px 16px 8px 16px;
+	height: 3rem !important;
+}
+
+.projectsettingPanel .descriptionLabel {
+	color: #666666;
+	font-family: 'Segoe UI Light', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+	font-size: 1.1875rem;
+	font-weight: 100;
+	padding: 0px 16px 12px 16px;
+}
+
+.projectsettingPanel .pluginList button {
+	font-family: Arial, sans-serif;
+	font-size: 0.875rem;
+}
+
+.projectsettingPanel .pluginList .pluginButton {
+	text-align: left !important;
+	border: none !important;
+}
+
+.projectsettingPanel .pluginList .pluginButton:hover {
+	background-color: #D8E1E3 !important;
+}
+
+.projectsettingPanel .pluginList .selectedPluginButton,
+.projectsettingPanel .pluginList .selectedPluginButton:hover {
+	color: white !important;
+	border: none !important;
+	background-color: #007cc0 !important;
+}
+
+.projectsettingPanel .pluginList .indentPluginButton {
+	padding-left: 36px !important;
+}
+
+.projectsettingPanel .pluginList .sapUiAcdSectionCont {	
+	border-bottom: 0;
+	border-top: 1px solid white;
+	padding: 0;
+	background-color: rgba(255, 255, 255, 0.25);
+}
+
+.projectsettingPanel .pluginList .sapUiAcdSectionHdr {
+	/* expanded header */
+	background-color: transparent;
+	padding: 0.5rem 0;
+}
+
+.projectsettingPanel .pluginList .sapUiAcdSectionHdr:active,
+.projectsettingPanel .pluginList .sapUiAcdSectionColl .sapUiAcdSectionHdr:active {
+	/* header actived*/
+	color: #fff;	/* @sapFlatInvertedText */
+	background-color: #007cc0;	/* @sapFlatBrand */
+}
+
+.projectsettingPanel .pluginList .sapUiAcdSectionColl .sapUiAcdSectionHdr {
+	/* collapsed header */
+	background-color: transparent;
+	color: #000;	/* @sapFlatStandardText */
+}
+
+.projectsettingPanel .pluginList .sapUiAcdSectionHdr {
+	/* expanded header */
+	background-color: transparent;
+	padding: 0.5rem 0;
+}
+
+.projectsettingPanel .pluginList .sapUiAcdSectionLabel {
+	left: 12px;
+	font-family: Arial, sans-serif;
+	font-size: 0.875rem;
+	font-weight: normal !important;
+}
+
+.projectsettingPanel .pluginList .sapUiAcd {
+	height: auto !important;
+}
+
+.projectsettingPanel .pluginList .sapUiAcdSectionMinArrow {
+	position: absolute;
+	right: 8px;
+}
+
+.projectsettingPanel .titlePanelDivider {
+	display: block;
+	height: 1px;
+	background-color: #DDDDDD;
+	border: 0;
+    margin: 0px 16px 0px 16px;
+	width: calc(100% - 32px) !important;
+}
+
+.projectsettingPanel .settingBorderLayout {
+	background-color: white !important;
+}
+
+.projectsettingPanel .buttonPanel {
+	padding: 8px 16px 8px 8px;
+}
+
+.projectsettingPanel .buttonPanel > button {
+	margin: 0px 0px 0px 8px;
+	font-family: Arial, sans-serif;
+	font-size: 0.875rem;
+}

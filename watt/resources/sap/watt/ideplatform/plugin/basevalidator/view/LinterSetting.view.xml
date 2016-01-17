@@ -1,0 +1,62 @@
+<core:View controllerName="sap.watt.ideplatform.plugin.basevalidator.view.LinterSetting"
+	xmlns:commons="sap.ui.commons" xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form"
+	xmlns:ide="sap.watt.ideplatform.plugin.basevalidator.view"
+	xmlns:core="sap.ui.core" xmlns:m="sap.m" width="100%" busyIndicatorDelay="0" 
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<layout:VerticalLayout id="LinterSetting" class="lintersetting">
+		<commons:Label text="{i18n>linter_setting_item3}" class="lintersettingitem">
+			<commons:layoutData>
+				<layout:ResponsiveFlowLayoutData linebreak="true"></layout:ResponsiveFlowLayoutData>
+			</commons:layoutData>
+		</commons:Label>
+		<commons:Label text="{i18n>linter_setting_item2}" class="lintersettingsubitem" visible="false">
+			<commons:layoutData>
+				<layout:ResponsiveFlowLayoutData linebreak="true"></layout:ResponsiveFlowLayoutData>
+			</commons:layoutData>
+		</commons:Label>
+		<layout:VerticalLayout id="LinterSettingPanel2" class="lintersettingsubpanel">
+			<commons:RadioButtonGroup id="LinterSetting_Timing" columns="1" selectedIndex ="{path:'/modelData/trigger', formatter:'.triggerToIndexFormatter'}" class="lintersettingradiobuttongroup" 
+			    enabled="{path:'/modelData/disabledCodeCheck', formatter:'.negativeBooleanFormatter'}" select="onTriggerChange">
+				<commons:layoutData>
+					<layout:ResponsiveFlowLayoutData weight="3"></layout:ResponsiveFlowLayoutData>
+				</commons:layoutData>
+				<commons:items>
+					<core:Item id="LinterSettingPanel_RadioOnSave" text="{i18n>linter_setting_radiobutton_save}" key="onSave"></core:Item>
+					<core:Item id="LinterSettingPanel_RadioOnChange" text="{i18n>linter_setting_radiobutton_change}" key="onChange"></core:Item>
+				</commons:items>
+			</commons:RadioButtonGroup>
+		</layout:VerticalLayout>
+		<layout:HorizontalLayout>
+			<commons:Label text="{i18n>linter_setting_level}" class="lintersettinglevel">
+				<commons:layoutData>
+					<layout:ResponsiveFlowLayoutData linebreak="true"></layout:ResponsiveFlowLayoutData>
+				</commons:layoutData>
+			</commons:Label>
+        	<commons:DropdownBox id="levelSelection" items="{path: '/levelsModel/levels'}" change="onLevelChange">
+        		<commons:items>
+        			<core:ListItem key="{key}" text="{text}" app:filter="{value}" />
+        		</commons:items>
+        	</commons:DropdownBox>
+		</layout:HorizontalLayout>
+		<layout:HorizontalLayout>
+			<commons:Label text="{i18n>linter_setting_info}" class="lintersettinginfo">
+				<commons:layoutData>
+					<layout:ResponsiveFlowLayoutData linebreak="true"></layout:ResponsiveFlowLayoutData>
+				</commons:layoutData>
+			</commons:Label>
+			<commons:Label text="{i18n>linter_setting_info_content}" class="lintersettinginfocontent">
+				<commons:layoutData>
+					<layout:ResponsiveFlowLayoutData linebreak="true"></layout:ResponsiveFlowLayoutData>
+				</commons:layoutData>
+			</commons:Label>
+			<commons:Link text="{i18n>linter_setting_info_link}" target="" class="lintersettinginfolink">
+				<commons:layoutData>
+					<layout:ResponsiveFlowLayoutData linebreak="true"></layout:ResponsiveFlowLayoutData>
+				</commons:layoutData>
+			</commons:Link>
+		</layout:HorizontalLayout>
+		<layout:HorizontalLayout>
+		</layout:HorizontalLayout>
+	</layout:VerticalLayout>
+
+</core:View>

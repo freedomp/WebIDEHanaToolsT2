@@ -1,0 +1,81 @@
+/**
+* The following qunit stubs include commented code that you can use as a starting point for your tests. 
+* For each test, uncomment the code and provide a suitable assert call with the expected result.                   
+*/
+{{#if isController}}
+jQuery.sap.require({
+    modName: "appContext.{{selectedJSFileName}}",
+    type: "controller"
+});
+{{else}}
+jQuery.sap.require({
+    modName: "appContext.{{selectedJSFileName}}"
+});
+{{/if}}
+{{#if isEmptyStub}}
+/* 
+    // Add your tests here
+    test("test1", function() {});
+    
+    test("test2", function() {});
+*/
+{{/if}}
+{{~#each oQunitData.aObjectList}}
+module("{{this.objectName}}Test", {
+    setup: function() {
+    
+    },
+    teardown: function() {
+    
+    }
+});
+{{#each this.aFunctionsList}}
+test("{{this.functionName}}", function() {
+/*  
+    // Instantiate the object to be tested
+    var objectToTest = jQuery.sap.getObject("{{../this.objectName}}");
+    // A placeholder for the actual result
+    var actualResult;
+    {{#each this.aFunctionParams~}}
+    {{~#if @first~}}
+    // Input parameters for the tested function
+    {{~/if}}
+    var {{this.paramerName}};
+    {{~/each}}
+    
+    // Call the tested function
+    if (typeof objectToTest === "function") {
+         actualResult = objectToTest.prototype.{{this.functionName}}({{this.sFunctionParameters}});
+    }
+    else{
+         actualResult = objectToTest.{{this.functionName}}({{this.sFunctionParameters}});
+    }
+    
+    // Assertion calls
+    ok(actualResult);
+*/
+    equal(1, 2, "Test has not been implemented");     
+});
+{{/each~}}
+{{/each~}}
+{{~#each oQunitData.aFunctionsList}}
+test("{{this.functionName}}", function() {
+/*  
+     // A placeholder for the actual result   
+     var actualResult;
+     {{#each this.aFunctionParams~}}
+     {{~#if @first~}}
+     // Input parameters for the tested function
+     {{~/if}}
+     var {{this.paramerName}};
+     {{~/each}}
+     
+     // Call the tested function
+     actualResult = {{this.functionName}}({{this.sFunctionParameters}});
+     
+     // Assertion calls
+     ok(actualResult);
+*/
+     equal(1, 2, "Test has not been implemented");
+});
+{{/each}}

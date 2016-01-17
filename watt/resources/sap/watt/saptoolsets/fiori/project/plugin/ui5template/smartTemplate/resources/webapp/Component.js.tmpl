@@ -1,0 +1,9 @@
+jQuery.sap.declare("{{smartTemplate.parameters.ProjectNamespace.value}}.Component");
+sap.ui.getCore().loadLibrary("sap.ui.generic.app");
+jQuery.sap.require("sap.ui.generic.app.AppComponent");
+
+sap.ui.generic.app.AppComponent.extend("{{smartTemplate.parameters.ProjectNamespace.value}}.Component", {
+	metadata: {
+	     "manifest": "json"
+	}
+});

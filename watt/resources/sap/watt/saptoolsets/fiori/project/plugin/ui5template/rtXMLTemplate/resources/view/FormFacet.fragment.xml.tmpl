@@ -1,0 +1,45 @@
+<core:FragmentDefinition
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  xmlns:form="sap.ui.layout.form"
+  xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1">
+
+  <template:if test="{path: 'facet>Target', formatter: 'sap.ui.model.odata.AnnotationHelper.getNavigationPath'}">
+    <template:then>
+      <form:SimpleForm binding="{path: 'facet>Target', formatter: 'sap.ui.model.odata.AnnotationHelper.getNavigationPath'}">
+        <form:title>
+          <core:Title text="{path: 'facet>Label', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"/>
+        </form:title>
+
+        <template:with path="facet>Target" helper="sap.ui.model.odata.AnnotationHelper.resolvePath" var="target">
+          <template:if test="{target>Data}">
+            <template:then>
+              <template:repeat list="{target>Data}" var="meta">
+                <Label text="{path: 'meta>Label', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"/>
+                <core:Fragment fragmentName="{{rtXMLTemplate.parameters.ProjectNamespace.value}}.view.Field" type="XML"/>
+              </template:repeat>
+            </template:then>
+            <template:else>
+              <template:repeat list="{target>}" var="meta">
+                <template:if test="{meta>Label}">
+                  <Label text="{path: 'meta>Label', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"/>
+                </template:if>
+                <core:Fragment fragmentName="{{rtXMLTemplate.parameters.ProjectNamespace.value}}.view.Field" type="XML"/>
+              </template:repeat>
+            </template:else>
+          </template:if>
+        </template:with>
+      </form:SimpleForm>
+    </template:then>
+    <template:else>
+      <form:SimpleForm>
+        <form:title>
+          <core:Title text="{path: 'facet>Label', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"/>
+        </form:title>
+
+        <Label text="AnnotationPath"/>
+        <Text text="{facet>Target/AnnotationPath}"/>
+      </form:SimpleForm>
+    </template:else>
+  </template:if>
+</core:FragmentDefinition>

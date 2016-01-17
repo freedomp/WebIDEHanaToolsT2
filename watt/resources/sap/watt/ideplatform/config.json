@@ -1,0 +1,48 @@
+{
+
+	"layer" : "IDEPlatform",
+
+	"preloadCapable" : true,
+	
+	"plugins": [
+		"plugin/projectsetting",
+		"plugin/userpreference",
+		"plugin/externalcommands",
+		"plugin/welcomescreen",
+		"plugin/commonrunners",
+		"plugin/template",
+		"plugin/basevalidator",
+		"plugin/beautify",
+		"plugin/generationwizard",
+		"plugin/gitclient",
+		"plugin/aceeditor",
+		"plugin/editor",
+		"plugin/outlinepane",
+		"plugin/indexmanager",
+		"plugin/intellisence",
+		"plugin/multieditor",
+		"plugin/compare",
+		"plugin/libmetaaccess",
+		"plugin/hcpconnectivity",
+		"plugin/imageviewer",
+		"plugin/run",
+		"plugin/runregistry",
+		"plugin/mockdatamodeler",
+		"plugin/chepreview",
+		"plugin/chewebapprunner",
+	  	"plugin/projectType",
+	  	"plugin/runconsole",
+	  	"plugin/preview",
+	  	"plugin/projectmetadata",
+	  	"plugin/ide",
+	  	"plugin/snippet",
+	  	"plugin/openwith"
+	],
+	
+		
+	"pluginExtensions": {
+		"sap.watt.platform.sidebar": "plugin/_sidebar"
+  	},
+	
+	"required": true
+}

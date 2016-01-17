@@ -1,0 +1,52 @@
+.multiEditor .sapUiTabPanel {
+    position: relative;
+    height: calc(100% - 32px);
+}
+
+.multiEditor .sapUiTabPanelHeight {
+    /*bottom: 35px;*/
+    /*top: 0px;*/
+    background: #FDFEFF;
+}
+
+.multiEditor .sapUiTabBarCnt{
+	height: 100%;
+	/*background-color: #f0f4f9;*/
+}
+
+.multiEditor .sapUiTabBar > .sapUiTabBarCnt > li:before {
+    -webkit-transform: perspective(14px) rotateX(-2deg);
+    -webkit-transform-origin: top;
+}
+/*
+.multiEditor .sapUiTabBar > .sapUiTabBarCnt li.sapUiTabSel:before {
+	background-color: #fdfeff;
+	border-right: 1px solid #dadce0;
+	border-left: 1px solid #dadce0;
+}
+
+.multiEditor .sapUiTabBar > .sapUiTabBarCnt > li.sapUiTabBeforeSel:before {
+	border-right: 1px solid #dadce0;
+}
+
+.multiEditor .sapUiTabBar > .sapUiTabBarCnt > li.sapUiTabAfterSel:before {
+	border-left: 1px solid #dadce0;
+}*/
+
+.multiEditor.sapUiTabStrip > .sapUiTabBar {
+    bottom:1px;
+    position:absolute;
+}
+
+.multiEditor .sapUiTabBar > .sapUiTabBarCnt > li {
+    width: 100px;
+}
+
+.multiEditor .sapUiTabBar {
+    width:inherit;
+    font-size : 0.8rem;
+}
+
+.multiEditor .ace_editor {
+	margin-top: 0;
+}

@@ -1,0 +1,6 @@
+<core:View xmlns:commons="sap.ui.commons" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+                         xmlns:sfi="sap.ui.comp.smartfield" xmlns:sfo="sap.ui.comp.smartform" xmlns:table="sap.ui.table"
+                         xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1" xmlns:uxap="sap.uxap" xmlns="sap.m"
+                         controllerName="{{namespace}}.ext.controller.{{filename}}">
+    <Text text="I'm a view added as a dynamic facet extensionpoint"/>
+</core:View>

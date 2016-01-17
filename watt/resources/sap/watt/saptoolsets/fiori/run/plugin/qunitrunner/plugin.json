@@ -1,0 +1,64 @@
+{
+	"name": "sap.watt.saptoolsets.fiori.run.qunitrunner",
+	"description": "Qunit runner plugin",
+	"i18n" : "sap.watt.saptoolsets.fiori.run.qunitrunner/i18n/i18n",
+
+	"requires": {
+		"services": [
+		    "run",
+			"filesystem.documentProvider",
+			"filesearchutil",
+			"choosefilepopup",
+			"log",
+			"usagemonitoring",
+			"ui5versions",
+			"runconfig.filepath",
+			"runconfig.ui5versions",
+			"UI5VersionsUtil" ,
+			"runconfig.resourcemapping",
+			"reuseLibsUtil",
+			"destinationsutil",
+			"runconfig.destinationmapping",
+			"preview"
+		]
+	},
+	"provides": {
+		"services": {
+			"qunitrunner": {
+				"implements": "sap.watt.common.plugin.run.service.runner",
+				"module": "sap.watt.saptoolsets.fiori.run.qunitrunner/service/QunitRunner"
+			}
+		},
+		"interfaces": {
+		
+		}	
+	},
+	
+ 	"configures" : {
+        "services" : {
+            "run:runners": [
+                {
+                    "id" : "qunitrunner",
+                    "service": "@qunitrunner",
+                    "displayName" : "{i18n>lbl_run_test}",
+                    "projectTypesIds" : ["sap.watt.uitools.ide.web"],
+                    "windowTarget" : "web_preview",
+					"fileTypes" : ["*.html"],
+					"appCacheBuster" : false
+                }
+            ],
+            "runconfig.resourcemapping:externalservices": [
+            	{
+            		"service": "@reuseLibsUtil"
+            	}
+            ],
+            "usagemonitoring:reportParams": [{
+				"components": ["runner"],
+				"eventTypes": ["unit_test", "unit_test_config"]
+            }]
+        }
+	},
+	"subscribes": {
+
+	}
+}

@@ -1,0 +1,15 @@
+{
+
+	"layer" : "SAPToolsets",
+
+	"preloadCapable" : true,
+	"includes": [
+
+	],
+
+	"plugins": [
+			"plugin/reportABug"
+		
+	]
+	
+}

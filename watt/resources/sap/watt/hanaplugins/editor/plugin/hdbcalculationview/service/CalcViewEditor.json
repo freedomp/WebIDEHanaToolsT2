@@ -1,0 +1,13 @@
+{
+	"name": "sap.hana.ide.editor.hdbcalculationview.interface.CalcViewEditor",
+	"description": "Calculation View editor interface",
+	"extends": [
+        "sap.watt.common.service.editor.Editor",
+        "sap.watt.common.service.editor.UndoRedo"        
+    ],
+	"methods": {
+		"getModel": {
+			"description": "Provides the model object"
+		}
+	}	
+}

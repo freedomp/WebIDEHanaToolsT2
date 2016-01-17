@@ -1,0 +1,52 @@
+<mvc:View 
+	controllerName="{{2masterdetail.parameters.ApplicationNamespace.value}}.controller.CreateEntity" 
+	xmlns:core="sap.ui.core" 
+	xmlns:f="sap.ui.layout.form"
+	xmlns:footerbar="sap.ushell.ui.footerbar" 
+	xmlns:l="sap.ui.layout" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:semantic="sap.m.semantic"
+	xmlns:smart="sap.ui.comp.smartfield" 
+	xmlns="sap.m">
+<semantic:DetailPage 
+		id="page" navButtonPress="onNavBack"
+		title="{viewModel>/viewTitle}"
+		busy="{viewModel>/busy}">
+		<semantic:content>
+				<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true"
+							  emptySpanL="4" emptySpanM="4" id="newEntitySimpleForm" labelSpanL="3"
+							  labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="2" 
+							  minWidth="1024"
+							  title="{= ${viewModel>/mode} === 'edit'? 'Edit {{2masterdetail.parameters.ObjectCollection.value.entityType}}': 'New {{2masterdetail.parameters.ObjectCollection.value.entityType}}'}">
+					<f:content>  {{#if 2masterdetail.aFormElements }}   {{#each 2masterdetail.aFormElements}}
+							<Label text="{{label}}" required="{{require}}" /> {{#each fields }}  {{#if_eq this "sap.m.Input"}}
+			                <Input name="{{../../name}}" id="{{create_id  ../../name}}"  
+    							 valueLiveUpdate="true"  liveChange="_validateSaveEnablement" 
+    							 enabled="{{{handleEnabledBinding ../../require  ../../creatable  ../../updatable}}}"
+								 value="{ path: '{{../../name}}',
+								 type: '{{../../type}}' {{#if ../../constraints }},
+								 constraints:{  
+{{#isLastItem ../../../constraints}}{{#if $notlast}} {{name}}:{{value}}, 	{{/if}} {{#if $last}} 
+												  {{name}}:{{value}} {{/if}} 	{{/isLastItem}}
+												} {{/if}} 
+			            							  }"  /> 
+							            {{/if_eq}}
+							            {{#if_eq this "sap.m.DateTimeInput"}}
+							        		<DateTimeInput name="{{../../name}}" dateValue="{ path: '{{../../name}}'}"  id="{{create_id  ../../name}}"  type="DateTime" enabled="{{{handleEnabledBinding ../../require  ../../creatable  ../../updatable}}}"  /> 
+							        	{{/if_eq}}
+										{{#if_eq this "sap.m.CheckBox"}}
+											 <CheckBox name="{{../../name}}" selected="{ path: '{{../../name}}'}"  id="{{create_id  ../../name}}"   />  
+										{{/if_eq}}
+								  {{/each}}  {{/each}}  {{/if}}
+					</f:content>
+			</f:SimpleForm>
+		</semantic:content>
+		<semantic:saveAction>
+			<semantic:SaveAction id="save" enabled = "{viewModel>/enableCreate}"  press="onSave"/>
+		</semantic:saveAction>
+		<semantic:cancelAction>
+			<semantic:CancelAction id="cancel" press="onCancel">
+			</semantic:CancelAction>
+		</semantic:cancelAction>
+	</semantic:DetailPage>
+</mvc:View>

@@ -1,0 +1,94 @@
+.hoverVisible{
+   opacity: 0;
+
+}
+                
+.alignRight{
+    text-align:right !important;
+    float: right;
+}
+
+
+.selectedAnnotationMsg {
+    margin-left : 32px;   
+}
+.selecteAnnotationMsgDsbl {
+    color : #cccccc !important;
+}
+.selecteAnnotationFileUploader .sapUiBtn {
+	margin: 0 0 0 0.5rem;
+}
+
+.selecteAnnotationFileUploader .flatControlSmall .sapUiBtn {
+	margin: 0 0 0 0.25rem;
+}
+
+
+.selecteAnnotationFileUploader .flatControlSmall .sapUiTf {
+	font-size: 0.75rem;
+	height: 1.5rem;
+} 
+
+.selecteAnnotationFileUploader .flatControlSmall .sapUiBtn {
+	font-size: 0.75rem;
+	height: 1.5rem;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+
+}
+.selecteAnnotationStepBottomMargin{
+	margin-bottom: 1rem;
+}
+
+
+.selecteAnnotationRepositoryBrowser .sapWattRepositoryBrowser.sapUiTreeTransparent .sapUiTreeCont{
+    background-color: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 0;
+}
+.oMenuButton {
+	font-size: small;
+	color: #007CC0 !important;
+	padding-left : 0px;
+	border-top: solid #CCCCCC 1px;
+	border-bottom: solid #CCCCCC 1px;
+	text-align: -webkit-left;
+}
+
+.oMenuButton > .sapUiBtnIco{
+	font-size: 8px;
+}
+
+.oMenuButton > .sapUiBtnTxt{
+	color: #007CC0 !important;
+	width : 100% !important;
+}
+
+.oMenuButton.sapUiBtnAct:hover{
+	background-color:transparent
+}
+
+.oMenuButton.sapUiBtnStd:hover {
+	background-color:transparent
+}
+
+.errorTextView{
+    background-color:transparent !important;
+}
+
+.oTextView {
+	line-height: 125%;
+}
+
+.sapUiTableTr>td {
+	  border-right: 1px transparent !important;
+	  border-bottom: 1px transparent !important;
+}
+
+.oTable{
+	margin-top: 23px;
+}
+
+.sapUiBtnS.sapUiBtnStd:hover {
+    background-color: #ffffff;
+}

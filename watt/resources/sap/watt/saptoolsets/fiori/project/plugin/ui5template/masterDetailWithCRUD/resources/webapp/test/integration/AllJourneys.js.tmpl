@@ -1,0 +1,39 @@
+jQuery.sap.require("sap.ui.qunit.qunit-css");
+jQuery.sap.require("sap.ui.thirdparty.qunit");
+jQuery.sap.require("sap.ui.qunit.qunit-junit");
+QUnit.config.autostart = false;
+
+// We cannot provide stable mock data out of the template.
+// If you introduce mock data, by adding .json files in your webapp/localService/mockdata folder you have to provide the following minimum data:
+// * At least 3 {{2masterdetail.parameters.ObjectCollection.value.name}} in the list
+{{#if 2masterdetail.parameters.LineItemCollection.value.name}}
+// * All 3 {{2masterdetail.parameters.ObjectCollection.value.name}} have at least one {{2masterdetail.parameters.LineItemCollection.value.name}}
+{{/if}}
+
+sap.ui.require([
+	"sap/ui/test/Opa5",
+	"{{formatNamespace 2masterdetail.parameters.ApplicationNamespace.value}}/test/integration/pages/Common",
+	"sap/ui/test/opaQunit",
+	"{{formatNamespace 2masterdetail.parameters.ApplicationNamespace.value}}/test/integration/pages/App",
+	"{{formatNamespace 2masterdetail.parameters.ApplicationNamespace.value}}/test/integration/pages/Browser",
+	"{{formatNamespace 2masterdetail.parameters.ApplicationNamespace.value}}/test/integration/pages/Master",
+	"{{formatNamespace 2masterdetail.parameters.ApplicationNamespace.value}}/test/integration/pages/Detail",
+	"{{formatNamespace 2masterdetail.parameters.ApplicationNamespace.value}}/test/integration/pages/Create",
+	"{{formatNamespace 2masterdetail.parameters.ApplicationNamespace.value}}/test/integration/pages/NotFound"
+], function (Opa5, Common) {
+	"use strict";
+	Opa5.extendConfig({
+		arrangements: new Common(),
+		viewNamespace: "{{2masterdetail.parameters.ApplicationNamespace.value}}.view."
+	});
+
+	sap.ui.require([
+		"{{formatNamespace 2masterdetail.parameters.ApplicationNamespace.value}}/test/integration/MasterJourney",
+		"{{formatNamespace 2masterdetail.parameters.ApplicationNamespace.value}}/test/integration/NavigationJourney",
+		"{{formatNamespace 2masterdetail.parameters.ApplicationNamespace.value}}/test/integration/NotFoundJourney",
+		"{{formatNamespace 2masterdetail.parameters.ApplicationNamespace.value}}/test/integration/BusyJourney"{{#unless 2masterdetail.environment.nonFLP}},
+		"{{formatNamespace 2masterdetail.parameters.ApplicationNamespace.value}}/test/integration/FLPIntegrationJourney"{{/unless}}
+	], function () {
+		QUnit.start();
+	});
+});

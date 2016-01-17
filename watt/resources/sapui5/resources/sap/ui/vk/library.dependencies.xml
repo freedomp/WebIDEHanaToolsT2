@@ -1,0 +1,402 @@
+<?xml version="1.0" ?>
+<library  version="2.0" name="sap.ui.vk">
+  <module name="sap/ui/vk/BaseNodeProxy.js" size="4137" compressedSize="1260">
+    <description>Provides the BaseNodeProxy class.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/ui/vk/library.js"/>
+      <module name="sap/ui/base/Object.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/CheckEye.js" size="1439" compressedSize="530">
+    <description>Provides control sap.ui.vk.CheckEye.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/ui/commons/CheckBox.js"/>
+      <module name="sap/ui/vk/library.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/ContentResource.js" size="5707" compressedSize="1516">
+    <description>Provides class sap.ui.vk.ContentResource.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/ui/vk/library.js"/>
+      <module name="sap/ui/base/ManagedObject.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/DownloadManager.js" size="6619" compressedSize="2990">
+    <description>Provides the DownloadManager class.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/ui/vk/library.js"/>
+      <module name="sap/ui/base/EventProvider.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/DvlException.js" size="930" compressedSize="338">
+    <description>Provides an exception class for DVL errors.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/ui/base/Exception.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/FlexibleControl.js" size="2017" compressedSize="784">
+    <description>Provides control sap.ui.vk.FlexibleControl.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/ui/core/Control.js"/>
+      <module name="sap/ui/core/EnabledPropagator.js"/>
+      <module name="sap/ui/vk/library.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/FlexibleControlLayoutData.js" size="2170" compressedSize="644">
+    <description>Provides control sap.ui.vk.FlexibleControlLayoutData.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/ui/core/LayoutData.js"/>
+      <module name="sap/ui/vk/library.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/FlexibleControlRenderer.js" size="2634" compressedSize="1213">
+    <description>Provides default renderer for control sap.ui.vk.FlexibleControl</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/GraphicsCore.js" size="20550" compressedSize="6634">
+    <description>Provides the GraphicsCore class.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/ui/vk/library.js"/>
+      <module name="sap/ui/base/EventProvider.js"/>
+      <module name="sap/ve/dvl.js"/>
+      <module name="sap/ui/vk/Scene.js"/>
+      <module name="sap/ui/vk/NodeHierarchy.js"/>
+      <module name="sap/ui/vk/ContentResource.js"/>
+      <module name="sap/ui/vk/DownloadManager.js"/>
+      <module name="sap/ui/vk/ViewStateManager.js"/>
+      <module name="sap/ui/vk/DvlException.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/InputDeviceMouse.js" size="6103" compressedSize="4037">
+    <description>Provides control sap.ui.vk.InputDeviceMouse.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/ui/base/EventProvider.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/InputDevicePointer.js" size="6025" compressedSize="4115">
+    <description>Provides control sap.ui.vk.InputDevicPointer.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/ui/base/EventProvider.js"/>
+      <module name="sap/ui/vk/InputDeviceMouse.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/InputDeviceSAPUI5.js" size="3608" compressedSize="2417">
+    <description>Provides control sap.ui.vk.InputDevicTouch.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/ui/base/EventProvider.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/InputDeviceTouch.js" size="2924" compressedSize="1994">
+    <description>Provides control sap.ui.vk.InputDevicTouch.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/ui/base/EventProvider.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/Loco.js" size="7326" compressedSize="3477">
+    <description>Provides control sap.ui.vk.Loco.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/ui/base/EventProvider.js"/>
+      <module name="sap/ui/vk/InputDevicePointer.js"/>
+      <module name="sap/ui/vk/InputDeviceMouse.js"/>
+      <module name="sap/ui/vk/InputDeviceTouch.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/NativeViewport.js" size="10331" compressedSize="3871">
+    <description>Provides control sap.ui.vk.Viewport.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/ui/vk/library.js"/>
+      <module name="sap/ui/core/Control.js"/>
+      <module name="sap/ui/core/ResizeHandler.js"/>
+      <module name="sap/ui/vk/Loco.js"/>
+      <module name="sap/ui/vk/ViewportHandler.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/NativeViewportRenderer.js" size="904" compressedSize="360">
+    <description>! SAP UI development toolkit for HTML5 (SAPUI5)&#xA;&#xA;        (c) Copyright 2009-2015 SAP SE. All rights reserved</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/NodeHierarchy.js" size="7114" compressedSize="2311">
+    <description>Provides the NodeHierarchy class.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/ui/vk/library.js"/>
+      <module name="sap/ui/base/EventProvider.js"/>
+      <module name="sap/ui/base/ObjectPool.js"/>
+      <module name="sap/ui/vk/BaseNodeProxy.js"/>
+      <module name="sap/ui/vk/NodeProxy.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/NodeProxy.js" size="5692" compressedSize="3221">
+    <description>Provides the NodeProxy class.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/ui/vk/library.js"/>
+      <module name="sap/ui/base/ManagedObject.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/Overlay.js" size="35161" compressedSize="15275">
+    <description>Provides control sap.ui.vk.Overlay.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/ui/vk/library.js"/>
+      <module name="sap/ui/core/Control.js"/>
+      <module name="sap/ui/core/IconPool.js"/>
+      <module name="sap/ui/thirdparty/jqueryui/jquery-ui-widget.js"/>
+      <module name="sap/ui/thirdparty/jqueryui/jquery-ui-core.js"/>
+      <module name="sap/ui/thirdparty/jqueryui/jquery-ui-mouse.js"/>
+      <module name="sap/ui/thirdparty/jqueryui/jquery-ui-draggable.js"/>
+      <module name="sap/ui/vbm/lib/sapvbi.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/OverlayArea.js" size="10600" compressedSize="3842">
+    <description>Provides control sap.ui.vk.OverlayArea.</description>
+    <requires>
+      <module name="sap/ui/vk/library.js"/>
+      <module name="sap/ui/core/Element.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/OverlayRenderer.js" size="1388" compressedSize="383">
+    <description>! SAP UI development toolkit for HTML5 (SAPUI5)&#xA;&#xA;        (c) Copyright 2009-2015 SAP SE. All rights reserved</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/Scene.js" size="2825" compressedSize="1106">
+    <description>Provides the Scene class.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/ui/vk/library.js"/>
+      <module name="sap/ui/base/EventProvider.js"/>
+      <module name="sap/ui/vk/NodeHierarchy.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/SceneTree.js" size="14973" compressedSize="9208">
+    <description>Provides control sap.ui.vk.SceneTree.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/ui/vk/library.js"/>
+      <module name="sap/ui/core/Control.js"/>
+      <module name="sap/ui/table/TreeTable.js"/>
+      <module name="sap/ui/table/Column.js"/>
+      <module name="sap/ui/model/json/JSONModel.js"/>
+      <module name="sap/m/Title.js"/>
+      <module name="sap/ui/vk/CheckEye.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/SceneTreeRenderer.js" size="1096" compressedSize="427">
+    <description>! SAP UI development toolkit for HTML5 (SAPUI5)&#xA;&#xA;        (c) Copyright 2009-2015 SAP SE. All rights reserved</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/StepNavigation.js" size="40190" compressedSize="19884">
+    <description>Provides control sap.ui.vk.StepNavigation.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/ui/vk/library.js"/>
+      <module name="sap/ui/core/Control.js"/>
+      <module name="sap/ui/core/ResizeHandler.js"/>
+      <module name="sap/ui/vk/Loco.js"/>
+      <module name="sap/ui/vk/ViewportHandler.js"/>
+      <module name="sap/ui/core/Popup.js"/>
+      <module name="sap/ui/core/IconPool.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/StepNavigationRenderer.js" size="1881" compressedSize="853">
+    <description>! SAP UI development toolkit for HTML5 (SAPUI5)&#xA;&#xA;        (c) Copyright 2009-2015 SAP SE. All rights reserved</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/Toolbar.js" size="6859" compressedSize="4461">
+    <description>Provides control sap.ui.vk.SceneTree.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/ui/vk/library.js"/>
+      <module name="sap/ui/core/Control.js"/>
+      <module name="sap/ui/model/json/JSONModel.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/ToolbarRenderer.js" size="1096" compressedSize="399">
+    <description>! SAP UI development toolkit for HTML5 (SAPUI5)&#xA;&#xA;        (c) Copyright 2009-2015 SAP SE. All rights reserved</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/TransformationMatrix.js" size="2263" compressedSize="755">
+    <description>Provides data type sap.ui.vk.TransformationMatrix.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/ui/base/DataType.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/ViewStateManager.js" size="13254" compressedSize="6509">
+    <description>Provides the ViewStateManager class.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/ui/vk/library.js"/>
+      <module name="sap/ui/base/ManagedObject.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/Viewer.js" size="30764" compressedSize="16418">
+    <description>Provides control sap.ui.vk.Viewer.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/ui/vk/library.js"/>
+      <module name="sap/ui/core/Control.js"/>
+      <module name="sap/ui/vk/Scene.js"/>
+      <module name="sap/ui/vk/Viewport.js"/>
+      <module name="sap/ui/vk/ContentResource.js"/>
+      <module name="sap/ui/vk/NativeViewport.js"/>
+      <module name="sap/ui/vk/Overlay.js"/>
+      <module name="sap/ui/vk/SceneTree.js"/>
+      <module name="sap/ui/layout/Splitter.js"/>
+      <module name="sap/ui/layout/SplitterLayoutData.js"/>
+      <module name="sap/ui/vk/FlexibleControl.js"/>
+      <module name="sap/ui/vk/FlexibleControlLayoutData.js"/>
+      <module name="sap/ui/vk/StepNavigation.js"/>
+      <module name="sap/ui/vk/Toolbar.js"/>
+      <module name="sap/ui/core/ResizeHandler.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/ViewerRenderer.js" size="1151" compressedSize="481">
+    <description>! SAP UI development toolkit for HTML5 (SAPUI5)&#xA;&#xA;        (c) Copyright 2009-2015 SAP SE. All rights reserved</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/Viewport.js" size="12938" compressedSize="5547">
+    <description>Provides control sap.ui.vk.Viewport.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/ui/vk/library.js"/>
+      <module name="sap/ui/core/Control.js"/>
+      <module name="sap/ui/core/ResizeHandler.js"/>
+      <module name="sap/ui/vk/Loco.js"/>
+      <module name="sap/ui/vk/ViewportHandler.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/ViewportHandler.js" size="6516" compressedSize="4043">
+    <description>Provides control sap.ui.vk.ViewportHandler.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/ui/base/EventProvider.js"/>
+      <module name="sap/ui/core/ResizeHandler.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/ViewportRenderer.js" size="991" compressedSize="354">
+    <description>! SAP UI development toolkit for HTML5 (SAPUI5)&#xA;&#xA;        (c) Copyright 2009-2015 SAP SE. All rights reserved</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle.properties" size="2824">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_ar.properties" size="4299">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_bg.properties" size="5130">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_ca.properties" size="2955">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_cs.properties" size="3098">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_da.properties" size="2854">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_de.properties" size="2898">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_el.properties" size="5060">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_en.properties" size="2785">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_en_US_sappsd.properties" size="5595">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_en_US_saptrc.properties" size="3570">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_es.properties" size="2974">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_et.properties" size="2886">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_fi.properties" size="2961">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_fr.properties" size="3026">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_hi.properties" size="4424">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_hr.properties" size="2933">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_hu.properties" size="3264">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_it.properties" size="2922">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_iw.properties" size="3811">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_ja.properties" size="3551">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_ko.properties" size="3250">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_lt.properties" size="3086">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_lv.properties" size="3104">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_nl.properties" size="2878">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_no.properties" size="2843">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_pl.properties" size="2988">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_pt.properties" size="2989">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_ro.properties" size="2939">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_ru.properties" size="5027">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_sh.properties" size="2907">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_sk.properties" size="3124">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_sl.properties" size="2885">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_sv.properties" size="2852">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_th.properties" size="4883">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_tr.properties" size="3188">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_uk.properties" size="4775">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_vi.properties" size="3574">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_zh_CN.properties" size="3131">
+  </module>
+  <module name="sap/ui/vk/i18n/messagebundle_zh_TW.properties" size="3215">
+  </module>
+  <module name="sap/ui/vk/library.js" size="3215" compressedSize="1525">
+    <description>Initialization Code and shared classes of library sap.suite.ui.generic.template.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/ui/vk/TransformationMatrix.js"/>
+      <module name="sap/ui/vk/DvlException.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vk/manifest.json" size="822">
+  </module>
+</library>

@@ -1,0 +1,35 @@
+{
+    "name": "sap.watt.common.plugin.run.service.run",
+    "extends" : ["sap.watt.common.service.ide.CommandGroupItemProvider", "sap.watt.common.service.ui.Config"],
+    "methods" : {
+        "isAvailable" : {},
+        "isEnabled" : {},
+        "execute" : {},
+        "run" : {},
+        "open" : {},
+        "getRunnersForSelectedProject" : {},
+        "getRunnersWithConfigurations" : {},
+        "getSelectedDocument" : {},
+        "onDocumentDeleted" : {},
+        "isRunConfigurationViewActive" : {}
+    },
+    "configurationProperties" : {
+
+        "runners": {
+            "type" : {
+                "service" : "sap.watt.common.plugin.run.service.runner",
+                "id" : "string",
+                "displayName" : "string",
+                "projectTypes" : "[string]",
+                "fileTypes" : "[string]",
+                "appCacheBuster" : "boolean",
+                "appCacheBusterOffset" : "string"
+            },
+            "multiple" : true
+        },
+        "styles" : {
+            "type" : "object",
+            "multiple" : true
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+
+	"layer" : "SAPToolsets",
+
+	"preloadCapable" : true,
+	"includes": [
+		"../innovation/config.json"
+	],
+
+	"plugins": [
+		"plugin/ui5metadataprovider"
+	],
+	
+	"required": true
+}

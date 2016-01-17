@@ -1,0 +1,125 @@
+/* =============================================== */
+/* CSS for control sap.ui.commons/CheckBox.control */
+/* =============================================== */
+
+.sapUiCb{
+    height: 2rem;
+    line-height: 2rem;
+    vertical-align: middle;
+    position: relative;
+}
+
+.sapUiCb input[type="CheckBox"] {
+    display: none;
+}
+
+.sapUiCb:focus {
+    outline: 1px dotted rgba(0,0,0, 0.25);
+    outline-offset: -1px;
+}
+
+.sapUiCb>label {
+    vertical-align: bottom;
+    line-height: 1.65rem;
+    height: 1.5rem;
+    padding: 0 0.5rem 0 2rem;
+}
+
+.sapUiCb label:before {
+    height: 14px;
+    width: 14px;
+    background-color: white;
+    border: 1px solid #69767F;
+    position: absolute;
+    left: 9px;
+    top: 9px;
+    content: "";
+    box-sizing: border-box;
+}
+
+.sapUiCb.flatControlSmall {
+    height: 1.5rem;
+    line-height: 1.5rem;
+}
+
+.sapUiCb.flatControlSmall label:before {
+    height: 12px;
+    width: 12px;
+    left: 6px;
+    top: 6px;
+}
+
+.sapUiCb.flatControlSmall>label {
+    vertical-align: middle;
+    line-height: 1.5rem;
+    height: 1.5rem;
+    padding: 0 0.5rem 0 1.5rem;
+}
+
+.sapUiCb.sapUiCbChk:after {
+    height: 14px;
+    width: 14px;
+    position: absolute;
+    left: 11px;
+    top: -2px;
+    content: "\e04e";
+    box-sizing: border-box;
+    font-family: "SAP-icons-watt";
+    font-size: 17px;
+    color: #69767F;
+}
+
+.sapUiCb.flatControlSmall.sapUiCbChk:after {
+    left: 8px;
+    top: -2px;
+    font-size: 13px;
+}
+
+.sapUiCb.sapUiCbWarn label:before { border-color: #f0ab00; }
+.sapUiCb.sapUiCbWarn.sapUiCbChk:after { color: #f0ab00; }
+
+.sapUiCb.sapUiCbErr label:before { border-color: #e22525; }
+.sapUiCb.sapUiCbErr.sapUiCbChk:after { color: #e22525; }
+
+.sapUiCb.sapUiCbRo label:before { background: #e5e5e5; }
+
+.sapUiCb.sapUiCbDis label:before { opacity: 0.75; }
+.sapUiCb.sapUiCbDis.sapUiCbChk:after { opacity: 0.5; }
+
+.sapUiCb.sapUiCbDis label { /* text-decoration: line-through; */ color: black; opacity: 0.5; }
+
+html[data-sap-ui-browser*='ie'] .sapUiCb input[type="checkbox"] {
+    padding: 0;
+    margin-bottom: 3px;
+    margin-left: 4px;
+    margin-right: 3px;
+}
+
+html[data-sap-ui-browser='ie10'] .sapUiCb,
+html[data-sap-ui-browser='ie11'] .sapUiCb {
+    margin-top:1px;
+    margin-left:1px;
+}
+
+html[data-sap-ui-browser='ie10'] .sapUiCb:focus,
+html[data-sap-ui-browser='ie11'] .sapUiCb:focus {
+    position: relative;
+    box-sizing: border-box;
+    border: 1px dotted rgba(0, 0, 0, 0.25);
+    outline: 0;
+    top:-1px;
+    left:-1px;
+}
+
+/* removing the dotted outline for IE */
+
+html[data-sap-ui-browser^='ie'] .sapUiCb:focus::after {
+    border: 0px !important;
+}
+
+.sapUiCb.sapUiCbChk:focus::after {
+    content: "\e04e" !important;
+    background: transparent;
+    left: 11px !important;
+    top: -3px !important;
+}

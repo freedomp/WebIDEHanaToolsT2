@@ -1,0 +1,19 @@
+{
+  "preloadCapable": true,
+
+  "includes": [
+    "../ideplatform/che/config.json",
+    "../hanaplugins/config.json",
+    "../nodejs/config.json",
+    "../toolsets/config.json",
+    "../saptoolsets/common/config.json"
+  ],
+
+ "plugins": [
+		"plugin/ide",
+		"../common/plugin/buildregistry"
+	],
+
+  "required": true
+
+}

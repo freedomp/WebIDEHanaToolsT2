@@ -1,0 +1,35 @@
+/* normal tabs */
+
+.VTabs {
+
+}
+
+.VTabs li {
+
+}
+
+.VTabs li.selected {
+
+}
+
+/* simple tabs */
+
+.VTabsMinimalistic {
+
+}
+
+.VTabsMinimalistic li {
+	cursor: pointer;
+	display: inline-block;
+	margin: 0.5rem 0.5rem 0.5rem 0;
+	padding: 0.25rem;
+}
+
+.VTabsMinimalistic li.selected {
+	border-bottom: 1px solid black;
+	cursor: default;
+}
+
+.VTabsContainer {
+
+}

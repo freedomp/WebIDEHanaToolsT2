@@ -1,0 +1,9 @@
+/*global define*/
+define([], function() {
+
+	var UI5_TEMPLATES = {$JSTEMPLATES};
+
+	return {
+		Templates: UI5_TEMPLATES
+	};
+});

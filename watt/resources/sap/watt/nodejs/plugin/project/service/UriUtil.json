@@ -1,0 +1,21 @@
+{
+	"name": "sap.xs.nodejs.project.uriUtil",
+	"description": "An URI utility service",
+
+	"configurationProperties": {},
+
+	"methods": {
+		"createServiceUri": {
+			"description": "Creates a service URI with the given path",
+			"params": [
+				{
+					"name": "path",
+					"type": "string",
+					"description": "The service path without URI prefix, e.g. /builder/... or /project/..."
+				}
+			]
+		}
+	},
+
+	"events": {}
+}

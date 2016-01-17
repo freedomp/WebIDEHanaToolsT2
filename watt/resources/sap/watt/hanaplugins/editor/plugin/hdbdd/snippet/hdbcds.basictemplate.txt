@@ -1,0 +1,7 @@
+namespace {{namespace}};
+context {{fileName}} {
+   type myKeyType: String(60);
+   Entity myEntity {
+       key myID: myKeyType;
+   };
+}

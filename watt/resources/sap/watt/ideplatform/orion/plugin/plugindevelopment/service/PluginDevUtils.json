@@ -1,0 +1,35 @@
+{
+	"name" : "sap.watt.uitools.service.plugindevelopment",
+	"description" : "The Plugin Development Utilities service interface",
+	"methods" : {
+		"isPluginProject" : {
+			"description": "Checks if the given path points to a plugin project",
+				"params" :[{
+					"name" : "sProjectFolderPath",
+					"type" : "string",
+					"description" : "project folder path"
+				}],
+				"returns" : "boolean"
+		},
+		"writePluginToOrion" : {
+			"description": "Writes plugin path to config-dev in Orion and returns the target window",
+				"params" :[
+					{
+						"name" : "oPluginDocumentEntity",
+						"type" : "object",
+						"description" : "plugin document entity object"
+					},
+					{
+						"name" : "oWindow",
+						"type" : "object",
+						"optional" : true,
+						"description" : "target window"
+					}
+				],
+				"returns" : "object"
+		},
+		"closeTargetWindow" : {
+			"description": "Closes the Debug SAP Web IDE instance"
+		}
+	}
+}

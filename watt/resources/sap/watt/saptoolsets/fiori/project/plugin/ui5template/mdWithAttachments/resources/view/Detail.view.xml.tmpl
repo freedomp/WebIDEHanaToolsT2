@@ -1,0 +1,216 @@
+<mvc:View
+	controllerName="{{projectName}}.view.Detail"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns="sap.m">
+	<Page
+		showNavButton="{device>/isPhone}"
+		navButtonPress="onNavBack"
+		class="sapUiFioriObjectPage"
+		title="{i18n>detailTitle}">
+		<content>
+			<ObjectHeader
+				title="{ {{~claimProcessing.parameters.ItemTitle.value.name~}} }"
+{{~#if claimProcessing.parameters.NumericAttribute.value.name}}
+				number="{ {{~claimProcessing.parameters.NumericAttribute.value.name~}} }"
+{{~else}}
+				number=""
+{{~/if}}
+{{~#if claimProcessing.parameters.UnitsAttribute.value.name}}
+				numberUnit="{ {{~claimProcessing.parameters.UnitsAttribute.value.name~}} }">
+{{~else}}
+				numberUnit="">
+{{~/if}}
+{{~#if claimProcessing.parameters.StatusAttribute.value.name}}
+				<statuses id ="statuses">
+                	<ObjectStatus 
+                        id="oStatusId"
+                        state="{ path: '{{claimProcessing.parameters.StatusAttribute.value.name}}',
+                        		 formatter: '{{projectName}}.util.Formatter.convertStatusState' }"
+                        text="{ {{~claimProcessing.parameters.StatusAttribute.value.name~}} }" >
+                	</ObjectStatus>
+				</statuses>
+{{~/if}}
+{{~#if claimProcessing.parameters.Attribute1.value.name}}
+				<ObjectAttribute text="{ {{~claimProcessing.parameters.Attribute1.value.name~}} }">
+                </ObjectAttribute>
+{{~else}}
+				<ObjectAttribute text="">
+					<customData>
+                    	<core:CustomData key="sapDtResourcePath" value="{{claimProcessing.parameters.AppCollection.value.name}}"></core:CustomData>
+                	</customData>
+                </ObjectAttribute>				
+{{~/if}}
+{{~#if claimProcessing.parameters.DateAttribute.value.name}}
+				<ObjectAttribute text="{{claimProcessing.parameters.DateAttribute.value.name}}: {
+						path: '{{claimProcessing.parameters.DateAttribute.value.name}}',
+						formatter: '{{projectName}}.util.Formatter.convertDateTime'
+						}" >
+                </ObjectAttribute>						
+{{~else}}
+				<ObjectAttribute text="">
+                </ObjectAttribute>				
+{{~/if}}
+{{~#if claimProcessing.parameters.Attribute2.value.name}}
+				<ObjectAttribute text="{ {{~claimProcessing.parameters.Attribute2.value.name~}} }">
+                </ObjectAttribute>				
+{{~else}}
+				<ObjectAttribute text="">
+                </ObjectAttribute>				
+{{~/if}}
+			</ObjectHeader>
+			
+			<l:VerticalLayout
+				id="detailFragment"
+				defaultSpan="L12 M12 S12"
+				width="96%">
+				<l:content>
+					<f:SimpleForm 
+						minWidth="1024"
+						maxContainerCols="2"
+						editable="true"
+						layout="ResponsiveGridLayout"
+						labelSpanL="4"
+						labelSpanM="4"
+						emptySpanL="0"
+						emptySpanM="0"
+						columnsL="2"
+						columnsM="2"
+						class="center">
+						<f:content>
+{{~#if claimProcessing.parameters.DateFormAttribute.value.name}}
+							<Label text="{{claimProcessing.parameters.DateFormAttribute.value.name}}" />
+{{~else}}
+							<Label text="" />
+{{~/if}}
+							<Text  id = "dateAttributeText" visible="false">
+								<customData>
+			                    	<core:CustomData key="sapDtResourcePath" value="{{claimProcessing.parameters.AppCollection.value.name}}"></core:CustomData>
+			                	</customData>
+			                </Text>							
+							<DateTimeInput 
+								id = "dateAttributeInputField"
+								type="DateTime" 
+								width = "100%" 
+{{~#if claimProcessing.parameters.DateFormAttribute.value.name}}
+								dateValue="{ {{~claimProcessing.parameters.DateFormAttribute.value.name~}} }" >
+{{~else}}
+								dateValue="" >
+{{~/if}}
+			                </DateTimeInput>	
+{{~#if claimProcessing.parameters.NumberFormAttribute.value.name}} 			
+							<Label text="{{claimProcessing.parameters.NumberFormAttribute.value.name}}" />
+{{~else}}
+							<Label text="" />
+{{~/if}}
+							<Text 
+								id = "numericAttributeText"
+{{~#if claimProcessing.parameters.NumberFormAttribute.value.name}}
+								text ="{ {{~claimProcessing.parameters.NumberFormAttribute.value.name~}} }" visible="false">									
+{{~else}}
+								text ="" visible="false">								
+{{~/if}}
+			                </Text>	
+							<Input
+								id = "numericAttributeInputField"
+{{~#if claimProcessing.parameters.NumberFormAttribute.value.name}}
+								value ="{ {{~claimProcessing.parameters.NumberFormAttribute.value.name~}} }"
+{{~else}}
+								value =""
+{{~/if}}																
+								type="Number"
+								placeholder="Enter a Number ..." >
+			                </Input>								
+{{~#if claimProcessing.parameters.UnitsAttribute.value.name}}
+							<Text id = "unitsAttributeText" text="{ {{~claimProcessing.parameters.UnitsAttribute.value.name~}} }" class="left" visible="false">
+			                </Text>								
+{{~else}}
+							<Text id = "unitsAttributeText" text="" class="left" visible="false">
+			                </Text>								
+{{~/if}}
+{{~#if claimProcessing.parameters.TextFormAttribute.value.name}}
+							<Label text="{{claimProcessing.parameters.TextFormAttribute.value.name}}" />
+{{~else}}
+							<Label text="" />
+{{~/if}}
+							<Text 
+								id = "textAttributeText"
+{{~#if claimProcessing.parameters.TextFormAttribute.value.name}}
+								text = "{ {{~claimProcessing.parameters.TextFormAttribute.value.name~}} }" visible="false">
+{{~else}}
+								text = "" visible="false">
+{{~/if}}
+			                </Text>
+							<Input
+								id = "textAttributeInputField"
+								width = "100%"
+								type="Text"
+{{~#if claimProcessing.parameters.TextFormAttribute.value.name}}
+								value="{ {{~claimProcessing.parameters.TextFormAttribute.value.name~}} }"
+								placeholder="Enter {{claimProcessing.parameters.TextFormAttribute.value.name}}" >
+{{~else}}
+								value=""
+								placeholder="Enter Text" >
+{{~/if}}
+			                </Input>	
+						</f:content>
+					</f:SimpleForm>
+				</l:content>
+			</l:VerticalLayout>
+{{~#if claimProcessing.parameters.AttachmentCollection.value.name}}
+{{~#if claimProcessing.parameters.AttachmentContent.value.name}}
+{{~#if claimProcessing.parameters.AttachmentID.value.name}}
+{{~#if claimProcessing.parameters.AttachmentContentType.value.name}}
+			<Button icon="sap-icon://add" press="handleAddPhoto" type= "Transparent"  class="firstToRight"/>
+			<Button id= "removePhotoButton" icon="sap-icon://less" press="handleRemovePhoto" type= "Transparent" class="secondToRight" enabled="false"/>
+			
+			<l:VerticalLayout
+			    id="detailFragment2"
+				defaultSpan="L12 M12 S12"
+				width="96%">
+				<l:content>
+					<Label text="Images" class="right"/>
+					<Label text=""  />
+					<f:SimpleForm 
+						minWidth="1024"
+						maxContainerCols="2"
+						editable="true"
+						layout="ResponsiveGridLayout"
+						labelSpanL="4"
+						labelSpanM="4"
+						emptySpanL="0"
+						emptySpanM="0"
+						columnsL="2"
+						columnsM="2"
+						class="center">
+		        		<f:content>
+		  					<Carousel id ="attachmentsCarousel" loop="true">
+		    					<pages></pages>
+		    				</Carousel>
+		        		</f:content>
+		    		</f:SimpleForm>
+				</l:content>
+			</l:VerticalLayout>
+{{~/if}}
+{{~/if}}
+{{~/if}}
+{{~/if}}
+		</content>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				{{~#if claimProcessing.parameters.EnableApproveReject.value}}
+					<Button id="approve" type="Accept"  text="Approve" press="onApproveSelect" />
+					<Button id="reject" type="Reject"  text="Reject" press="onRejectSelect" />
+					<Button id="save" text="Save"   press="onSaveSelect" />
+					<Button id="undoReject" text="Undo Reject" visible="false"   press="onUndoReject" />
+					<Button id="undoApprove" text="Undo Approve" visible="false"   press="onUndoApprove" />
+				{{~else}}
+					<Button id="save" text="Save"   press="onSaveSelect" />
+				{{~/if}}
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

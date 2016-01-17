@@ -1,0 +1,19 @@
+{
+    "name": "sap.watt.common.plugin.intellisence.service.Guidance",
+	"extends" : ["sap.watt.common.service.ui.Part"],
+	"description": "The interface for right side guidance pane",	
+	"methods" : {
+		"showHelpTip" : {	
+			"params" : [{
+				"name" : "tips",
+				"type" : "string"
+			}]				
+		},
+		"clearGuidance" : {	
+			"params" : [{
+				"name" : "tips",
+				"type" : "string"
+			}]				
+		}
+	}
+}

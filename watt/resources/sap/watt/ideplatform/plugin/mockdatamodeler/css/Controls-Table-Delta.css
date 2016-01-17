@@ -1,0 +1,7 @@
+.mockDataTable .sapUiTableSelModeMulti .sapUiTableCtrl tr.sapUiTableRowSel>td input{
+    color:#fff;
+}
+.mockDataTable .sapUiTableTbr .sapUiTb, .sapUiTableTbr .sapUiTbCont {
+    height: 33px;
+    padding-left: 0;
+}

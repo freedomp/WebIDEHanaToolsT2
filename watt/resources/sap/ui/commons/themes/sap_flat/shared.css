@@ -1,0 +1,62 @@
+.wattTabPanel .sapUiTabPanel {
+	display: none;
+}
+
+.sapUiShd {
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+}
+
+.wattTabStrip .sapUiUx3NavBar {
+	position : static; 	
+}
+
+.WattTabStripFirstAction.sapUiLbl{
+	text-align: center;
+	height: 32px;
+	left: 50%;
+	margin-left: -150px;
+	position: absolute;
+	top: 48%;
+	width: 300px;
+	font-size: 16px;
+	line-height: 24px;
+	font-family: "Segoe UI Light", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+	font-weight: 100;
+	text-shadow: 0 0 4px @sapFlatMediumBG;
+	overflow: visible;
+	white-space: normal;
+}
+
+.WattTabStripFirstActionTitle.sapUiLbl{
+	left: 50%;
+	margin-left: -250px;
+	position: absolute;
+	top: 90%;
+	width: 500px;
+	font-size: 24px;
+	font-family: "Segoe UI Light", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+	font-weight: 100;
+	text-shadow: 0 0 4px @sapFlatMediumBG;
+	overflow: visible;
+	white-space: normal;
+}
+
+.wizardStepContent div[class*="sapUiRespGrid"] > div[class*="sapUiRespGridSpan"] {
+	text-overflow: ellipsis;
+}
+
+.wizardStepContent .sapUiBtnS > .sapUiBtnTxt {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	width: 90%;
+}
+
+.wizardStepContent .sapUiBtnIcoR {
+	padding-left: 4px;
+}
+
+*:focus {
+	outline: none;
+}

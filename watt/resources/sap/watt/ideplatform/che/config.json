@@ -1,0 +1,17 @@
+{
+	"preloadCapable" : true,
+	
+	"includes": [
+		"../../platform/xs/config.json",
+		"../config.json"
+	],
+
+	"plugins": [
+		"plugin/chewebsockets",
+		"plugin/chebackend",
+		"plugin/mtafoldertoprojectconvertor",
+		"plugin/report"
+	],
+	
+	"required": true
+}

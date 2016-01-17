@@ -1,0 +1,14 @@
+{
+
+	"preloadCapable" : true,
+
+	"plugins": [
+	    "plugin/builder",
+		"plugin/perspective",
+		"plugin/filesystem",
+		"plugin/document",
+		"plugin/platform"
+	],
+	
+	"required": true
+}

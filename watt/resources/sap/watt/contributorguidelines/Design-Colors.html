@@ -1,0 +1,468 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Colors — SAP Web IDE Design Guidelines</title>
+    <meta name="author" content="SAP SE">
+
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="assets/flat.css" type="text/css" />
+    <link rel="stylesheet" href="css/guidelines.css" type="text/css" />
+    <link rel="stylesheet" href="css/Design-Colors.css" type="text/css" />
+
+    <script src="../lib/requirejs/require.js" 
+	        data-main="../core/Global.js"
+	        data-sap-ide-environment-path="../../../../env.json"
+	        data-sap-ide-main="startup"
+	        data-sap-ide-basedir="../../.."></script>
+
+    <script>
+        define("startup", [], function() {
+            Q.all([
+                    sap.watt.includeScript("assets/js/contextSwitch.js"),
+                    sap.watt.includeScript("assets/js/flat.js")])
+            .then(function(){
+                loadTableOfContent("Colors");
+            });
+        });
+    </script>
+
+</head>
+<body>
+
+<div class="VBrandingBar"></div>
+
+<div class="VHeaderBar">
+    <div class="VHeaderBarCnt">
+        <ul class="VFloatRight vInline">
+            <li><img src="assets/images/SAPLogo.png" alt="SAP" id="LogoSAP" /></li>
+        </ul>
+        
+        <ul class="VInline">
+            <li id="ToggleMenuButton" class="VShowSmallInlineBlock"></li>
+            <li>SAP Web IDE<span class="VHideSmallInline"> — Design Guidelines</span></li>
+        </ul>
+    </div>
+</div>
+
+<div class="navigationOffCanvas"></div>
+
+<div class="content Design-Colors">
+
+    <div class="sapUiRespGrid sapUiRespGridHSpace1 sapUiRespGridVSpace0">
+        <div class="sapUiRespGridSpanL10 sapUiRespGridSpanM12 sapUiRespGridSpanS12">
+            <div class="VBanner">
+                <h1 class="VH2 VFontSpecial">Visual Design Foundations</h1>
+                <h2 class="VH1 VFontSpecial">Colors</h2>
+            </div>
+        </div>
+
+        <div class="sapUiRespGridSpanL10 sapUiRespGridSpanM12 sapUiRespGridSpanS12">
+            <p>The color balance of the SAP Web IDE refers to the recommended mixture of color and contrast of any SAP application.</p>
+
+            <p>It creates a visual rhythm throughout the application that helps drawing the user's attention to the most important information and functions. It further promotes a distinct and consistent look and feel throughout the entire integrated development environment.</p>
+
+            <p>The colors scheme of the SAP Web IDE is inspired by  <a href="http://experience.sap.com/fiori-guidelines/FioriDesign/12_Fiori_Design-Colors.html">SAP Fiori</a>. Several major color values have been derived from existing Fiori colors, are re-used, or show up in different contexts, E.g. the SAP Web IDE highlight color is 10% darker than its Fiori equivalent and the main background color of the SAP Web IDE can be found in the Fiori footer bar.</p>
+        </div>
+
+        <div class="sapUiRespGridSpanL8 sapUiRespGridSpanM10 sapUiRespGridSpanS12">
+            <table style="height: 3rem;" class="illustration VSpacingTop1">
+            <tr>
+                <td style="width:  3%; background-color: #007cc0;"></td>
+                <td style="width:  8%; background-color: #009de0;"></td>
+                <td style="width: 17%; background-color: #ccebf9;"></td>
+                <td style="width: 17%; background-color: #e5f5fc;"></td>
+                <td style="width: 27%; background-color: #ffffff;"></td>
+                <td style="width:  3%; background-color: #f7f7f7;"></td>
+                <td style="width:  9%; background-color: #f2f2f2;"></td>
+                <td style="width:  6%; background-color: #e5e5e5;"></td>
+                <td style="width:  1%; background-color: #bfbfbf;"></td>
+                <td style="width:  1%; background-color: #e22525;"></td>
+                <td style="width:  1%; background-color: #008a11;"></td>
+                <td style="width:  1%; background-color: #ab218e;"></td>
+                <td style="width:  1%; background-color: #f27020;"></td>
+                <td style="width:  1%; background-color: #f0ab00;"></td>
+                <td style="width:  1%; background-color: #6c6c6c;"></td>
+                <td style="width:  3%; background-color: #3e464a;"></td>
+                </tr>
+            </table>
+
+            <p class="VLegend">The color scheme for the Fiori visual design</p>
+        </div>
+
+        <div class="sapUiRespGridSpanL8 sapUiRespGridSpanM10 sapUiRespGridSpanS12">
+            <table style="height: 6rem;" class="illustration">
+            <tr>
+                <td style="width:  3%; background-color: #005b8d ;"></td>
+                <td style="width:  8%; background-color: #007cc0;"></td>
+                <td style="width: 13%; background-color: #ccebf9;"></td>
+                <td style="width: 4%; background-color: #e5f5fc;"></td>
+                <td style="width: 17%; background-color: #F7F5F0 ;"></td>
+                <td style="width: 27%; background-color: #ffffff;"></td>
+                <td style="width:  3%; background-color: #f7f7f7;"></td>
+                <td style="width:  9%; background-color: #f2f2f2;"></td>
+                <td style="width:  6%; background-color: #e5e5e5;"></td>
+                <td style="width:  1%; background-color: #bfbfbf;"></td>
+                <td style="width:  1%; background-color: #e22525;"></td>
+                <td style="width:  1%; background-color: #008a11;"></td>
+                <td style="width:  1%; background-color: #ab218e;"></td>
+                <td style="width:  1%; background-color: #f27020;"></td>
+                <td style="width:  1%; background-color: #f0ab00;"></td>
+                <td style="width:  1%; background-color: #6c6c6c;"></td>
+                <td style="width:  2%; background-color: #3e464a;"></td>
+                <td style="width:  1%; background-color: #000000;"></td>
+                </tr>
+            </table>
+
+            <p class="VLegend">The derived color scheme for the SAP Web IDE</p>
+        </div>
+
+
+        <div class="sapUiRespGridSpanL10 sapUiRespGridSpanM12 sapUiRespGridSpanS12">
+            <p>This derivation of color values makes it possible to show two individual visual design languages in one user interface. When shown together, as done in the <a href="">Preview</a> or the <a href="">WYSIWYG editor</a> for example, they are not mixed up, yet look related.</p>
+        </div>
+
+        <div class="sapUiRespGridSpanL10 sapUiRespGridSpanM12 sapUiRespGridSpanS12 VSpacingTop1">
+
+            <h2 class="VH2 VFontSpecial">Highlight and Branding Colors</h2>
+
+            <p>These dark shades of blue do not only emphasize interface elements and structure them&mdash;they also contribute to the serious visual appeal of the SAP Web IDE and its professional users. Both are 10% darker than their Blue Crystal equivalents.</p>
+        </div>
+
+        <div class="sapUiRespGridSpanL8 sapUiRespGridSpanM10 sapUiRespGridSpanS12">
+            <div class="VSpotsCnt VAlignCenter">
+                 <div class="VSpotGroup">
+                    <div class="VSpotGroupHeader">SAP Fiori</div>
+                    <div class="VSpotCnt">
+                        <div class="VSpot" style="background-color: #007cc0;"></div>
+                        <div class="VSpotCaption">Highlight<br />
+                        &nbsp;<br />
+                        @sapUiHighlight<br />
+                        #007CC0<br />
+                        rgb(0, 124, 192)<br />
+                        </div>
+                    </div>
+
+                    <div class="VSpotCnt">
+                        <div class="VSpot" style="background-color: #009de0;"></div>
+                        <div class="VSpotCaption">Brand<br />
+                        &nbsp;<br />
+                        @sapUiBrand<br />
+                        #009DE0<br />
+                        rgb(0, 124, 192)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="VSpotGroup">
+                    <div class="VSpotGroupHeader">SAP Web IDE</div>
+                    <div class="VSpotCnt">
+                        <div class="VSpot VBorder" style="background-color: #005b8d;"></div>
+                        <div class="VSpotCaption">Highlight<br />
+                        (10% darker)<br />
+                        @sapFlatHighlight<br />
+                        #005B8D<br />
+                        rgb(0, 91, 141)
+                        </div>
+                    </div>
+
+                    <div class="VSpotCnt">
+                        <div class="VSpot" style="background-color: #007cc0;"></div>
+                        <div class="VSpotCaption">Brand<br />
+                        (10% darker)<br />
+                        @sapFlatBrand<br />
+                        #007CC0<br />
+                        rgb(105, 118, 127)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sapUiRespGridSpanL10 sapUiRespGridSpanM12 sapUiRespGridSpanS12 VSpacingTop1">
+            <h2 class="VH2 VFontSpecial">Background Colors</h2>
+            
+            <p>For its elements the SAP Web IDE uses a slate gray as background color. It can be used for side bars, tiles, icons and other foreground elements as well. To balance the slate gray and the blue highlight and branding colors, the SAP Web IDE makes use of a very bright beige color. This background counterpart can be used for containers in the editor area, side panes, and tiles.</p>
+        </div>
+
+        <div class="sapUiRespGridSpanL8 sapUiRespGridSpanM10 sapUiRespGridSpanS12">
+            <div class="VSpotsCnt VAlignCenter">
+                 <div class="VSpotGroup">
+
+                    <div class="VSpotCnt">
+                        <div class="VSpot" style="background-color: #69767f;"></div>
+                        <div class="VSpotCaption">Background<br />
+                        @sapFlatBackground<br />
+                        #69767F<br />
+                        rgb(105, 118, 127)<br />
+                        &nbsp;
+                        </div>
+                    </div>
+
+                    <div class="VSpotCnt">
+                        <div class="VSpot" style="background-color: #ffffff;  border: 1px solid #e5e5e5;"></div>
+                        <div class="VSpotCaption">Lightest<br />
+                        @sapFlatLightestBG<br />
+                        #FFFFFF<br />
+                        rgb(255, 255, 255)<br />
+                        &nbsp;
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="VSpotGroup">
+                    <div class="VSpotCnt">
+                        <div class="VSpot" style="background-color: #F7F5F0;"></div>
+                        <div class="VSpotCaption">Brand Support<br />
+                        @sapFlatBrandSupport<br />
+                        #F7F5F0<br />
+                        rgb(247, 245, 240)<br />
+                        &nbsp;
+                        </div>
+                    </div>
+
+                    <div class="VSpotCnt" style="background-color: #ffffff;">
+                        <div class="VSpot VBackgroundHorizon"></div>
+                        <div class="VSpotCaption">Horizon<br />
+                        @sapFlatHorizonBG<br />
+                        #A6E0FF to #eEFEBE2<br />
+                        rgb(255, 255, 255) to rgb(255, 255, 255)
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="sapUiRespGridSpanL10 sapUiRespGridSpanM10 sapUiRespGridSpanS12 VSpacingTop1">
+
+            <h2 class="VH2 VFontSpecial">Accent Colors</h2>
+            
+            <p>Accent colors can be used to distinguish or decorate elements. The majority of colors stem from the  color pallete of the Fiori visual design. The code editor makes heavy use of these colors. They are a vivid contribution to the overall UI and should be used sparingly. As a rule of thumb these colors should occur in the main area and not the side panes or sidebars.</p>
+        </div>
+
+        <div class="sapUiRespGridSpanL8 sapUiRespGridSpanM10 sapUiRespGridSpanS12">
+            <div class="VSpotsCnt VAlignCenter">
+                 <div class="VSpotGroup">
+                    <div class="VSpotCnt">
+                        <div class="VSpot" style="background-color: #f0ab00;"></div>
+                        <div class="VSpotCaption">Accent 1<br />
+                        @sapFlatAccent1<br />
+                        #F0AB00<br />
+                        rgb(240, 171, 0)
+                        </div>
+                    </div>
+
+                    <div class="VSpotCnt">
+                        <div class="VSpot" style="background-color: #f27020;"></div>
+                        <div class="VSpotCaption">Accent 2<br />
+                        @sapFlatAccent2<br />
+                        #F27020 <br />
+                        rgb(242, 112, 32)
+                        </div>
+                    </div>
+
+                    <div class="VSpotCnt">
+                        <div class="VSpot" style="background-color: #e52929;"></div>
+                        <div class="VSpotCaption">Accent 3<br />
+                        @sapFlatAccent3<br />
+                        #E52929 <br />
+                        rgb(229, 41, 41)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="VSpotGroup">
+                    <div class="VSpotCnt">
+                        <div class="VSpot" style="background-color: #ab218e;"></div>
+                        <div class="VSpotCaption">Accent 4<br />
+                        @sapFlatAccent4<br />
+                        #AB218E <br />
+                        rgb(171, 33, 142)
+                        </div>
+                    </div>
+
+                    <div class="VSpotCnt">
+                        <div class="VSpot" style="background-color: #007cc0;"></div>
+                        <div class="VSpotCaption">Accent 5<br />
+                        @sapFlatAccent5<br />
+                        #007CC0 <br />
+                        rgb(0, 124, 192)
+                        </div>
+                    </div>
+
+                    <div class="VSpotCnt">
+                        <div class="VSpot" style="background-color: #008A11;"></div>
+                        <div class="VSpotCaption">Accent 6<br />
+                        @sapFlatAccent6<br />
+                        #008A11 <br />
+                        rgb(0, 138, 17)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="VSpotGroup">
+                    <div class="VSpotCnt">
+                        <div class="VSpot" style="background-color: #004990;"></div>
+                        <div class="VSpotCaption">Accent 7<br />
+                        @sapFlatAccent7<br />
+                        #004990<br />
+                        rgb(0, 73, 144)
+                        </div>
+                    </div>
+
+                    <div class="VSpotCnt">
+                        <div class="VSpot" style="background-color: #009de0;"></div>
+                        <div class="VSpotCaption">Accent 8<br />
+                        @sapFlatAccent8<br />
+                        #009DE0<br />
+                        rgb(0, 157, 224)
+                        </div>
+                    </div>
+
+                    <div class="VSpotCnt">
+                        <div class="VSpot vNoBorder" style="background-color: #d4c9ad;"></div>
+                        <div class="VSpotCaption">Accent 9<br />
+                        @sapFlatAccent9<br />
+                        #D4C9AD<br />
+                        rgb(212, 201, 173)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sapUiRespGridSpanL10 sapUiRespGridSpanM10 sapUiRespGridSpanS12 VSpacingTop1">   
+            <h2 class="VH2 VFontSpecial">Greyscale Colors</h2>
+
+            <p>Greyscale areas play an important role in the user interface of the SAP Web IDE. They minimize the risk of over-stimulation and foster simplicity. White and light grays are mainly used for background areas. The darker grays are used for texts.</p>
+        </div>
+
+        <div class="sapUiRespGridSpanL10 sapUiRespGridSpanM10 sapUiRespGridSpanS12 VSpacingTop1">   
+            <h2 class="VH2 VFontSpecial">Usage</h2>
+
+            <p>Not all colors can be used on every <a href="">functional area</a> of the SAP Web IDE.<br />
+            This table shows the intended ussage:</p>
+        </div>
+
+        <div class="sapUiRespGridSpanL8 sapUiRespGridSpanM10 sapUiRespGridSpanS12">   
+            <table>
+            <tr>
+                <th></th>
+                <th>Menu and Toolbar</th>
+                <th>Panes</th>
+                <th>Editor&nbsp;/ Main Area</th>
+                <th>Sidebars</th>
+                <th>Dialogs&nbsp;/ Overlays</th>
+                <th>Wizard</th>
+                </tr>
+            <tr>
+                <td>Semantic Colors</td>
+                <td class="VColorSuccess">yes</td>
+                <td class="VColorSuccess">yes</td>
+                <td class="VColorSuccess">yes</td>
+                <td class="VColorSuccess">yes</td>
+                <td class="VColorSuccess">yes</td>
+                <td class="VColorSuccess">yes</td>
+                </tr>
+            <tr>
+                <td>Accent Color</td>
+                <td class="VColorError">no</td>
+                <td class="VColorError">no</td>
+                <td class="VColorSuccess">yes</td>
+                <td class="VColorError">no</td>
+                <td class="VColorError">no</td>
+                <td class="VColorWarning">yes*</td>
+                </tr>
+            <tr>
+                <td>Grayscale</td>
+                <td class="VColorError">no</td>
+                <td>black &amp;&nbsp;white</td>
+                <td class="VColorSuccess">yes</td>
+                <td class="VColorError">no</td>
+                <td class="VColorError">no</td>
+                <td class="VColorSuccess">yes</td>
+                </tr>
+            </table>
+
+            <p class="VFontSmall VRight">* on previews and WYSIWYG areas only</p>
+        </div>
+
+        <div class="sapUiRespGridSpanL10 sapUiRespGridSpanM10 sapUiRespGridSpanS12 VSpacingTop1">   
+            <h2 class="VH2 VFontSpecial">Editor Themes</h2>
+
+            <p>The editor of the SAP Web IDE comes in four color themes: Cumulus, Basement, Flower Power, and Morlock. Cumulus is a very bright theme with a bright blue syntax highlighting. Basement and Morlock are both darker; Basement has a reduced luminosity whereas Morlock is the more colorful and vivid theme. Flower Power makes heavy use of the Fiori accent colors and thus is the most vibrant one.
+            Cumulus is shipped as the default editor theme of the SAP Web IDE and fulfills SAP's product standards in regards of contrast.</p>
+        </div>
+
+        <div class="sapUiRespGridSpanL2 sapUiRespGridSpanM10 sapUiRespGridSpanS12 sapUiRespGridBreak">
+            <div class="VImageWrapper vExtraLightBorder">
+                <img src="images/EditorCumulus.png" alt="Cumulus Theme" />
+            </div>
+            <p class="VLegend">Cumulus Theme</p>
+        </div>
+
+        <div class="sapUiRespGridSpanL2 sapUiRespGridSpanM10 sapUiRespGridSpanS12 ">
+            <div class="VImageWrapper vExtraLightBorder">
+                <img src="images/EditorBasement.png" alt="Basement Theme" />
+            </div>
+            <p class="VLegend">Basement Theme</p>         
+        </div>
+
+        <div class="sapUiRespGridSpanL2 sapUiRespGridSpanM10 sapUiRespGridSpanS12">
+            <div class="VImageWrapper vExtraLightBorder">
+                <img src="images/EditorFlowerPower.png" alt="Flower Power Theme" />
+            </div>
+            <p class="VLegend">Flower Power Theme</p>
+        </div>
+
+        <div class="sapUiRespGridSpanL2 sapUiRespGridSpanM10 sapUiRespGridSpanS12">
+            <div class="VImageWrapper vExtraLightBorder">
+                <img src="images/EditorMorlock.png" alt="Morlock Theme" />
+            </div>
+            <p class="VLegend">Morlock Theme</p>
+        </div>
+
+        <div class="sapUiRespGridSpanL10 sapUiRespGridSpanM10 sapUiRespGridSpanS12">   
+            <p>We plan to extend the theming capabilities of the SAP Web IDE from the editor to all the user interface elements. Doing so, not only the editor will become themable, but changes in the theme will have effect on the colors of panes, bars, icons as well.</p>
+        </div>
+
+        <div class="sapUiRespGridSpanL8 sapUiRespGridSpanM10 sapUiRespGridSpanS12 VSpacingTop2">   
+            <h2 class="VH2 VFontSpecial VColorSuccess">Do</h2>
+
+            <ul class="VListBullets VColorSuccess">
+                <li>Use the provided less parameters wherever possible. This helps making the whole UI of the SAP Web IDE ready for theming.</li>
+                <li>Keep the main area (i.e. the editor) colorful.</li>
+                <li>Keep secondary areas (panes, bars etc.) monochromatic.</li>
+            </ul>
+        </div>
+    
+        <div class="sapUiRespGridSpanL8 sapUiRespGridSpanM10 sapUiRespGridSpanS12">   
+            <h2 class="VH2 VFontSpecial VColorError">Don't</h2>
+ 
+            <ul class="VListBullets VColorError">
+                <li>Do not use Accent colors in the toolbars, sidebars, or the side panes.</li>
+                <li>Do not use gradients.</li>
+            </ul>
+        </div>
+
+        <div class="sapUiRespGridSpanL8 sapUiRespGridSpanM10 sapUiRespGridSpanS12 VSpacingTop2">   
+            <h2 class="VH2 VFontSpecial">Related</h2>
+
+            <ul class="VListBullets">
+                <li>Visual Design Foundations &mdash; <a href="">Theming</a></li>
+                <li>Full list of <a href="https://wiki.wdf.sap.corp/wiki/display/webapptoolkit/Colors">colors and parameters</a> in the
+                <a href="https://wiki.wdf.sap.corp/wiki/display/webapptoolkit/">SAP Web IDE project wiki</a></li>
+            </ul>
+        </div>
+
+        <div class="sapUiRespGridSpanL3 sapUiRespGridSpanM6 sapUiRespGridSpanS12 sapUiRespGridBreak">
+            <div class="VSpacer4"></div>
+            <p>Last updated: June 20, 2014</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

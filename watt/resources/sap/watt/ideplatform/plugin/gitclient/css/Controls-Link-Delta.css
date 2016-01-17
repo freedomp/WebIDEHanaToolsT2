@@ -1,0 +1,58 @@
+.gitClientLink .sapUiLnk {
+	color: #007CC0;
+	line-height: normal;
+	text-overflow: ellipsis;
+}
+
+.gitClientLink .sapUiLnk:hover {
+	color: #005b8d; /* original SAP Link color */
+}
+
+.gitClientLink .sapUiLnk:active {
+	color: #005b8d;
+}
+
+.gitClientLink .sapUiLnk:focus {
+    color: #005b8d;
+}
+
+.gitClientLink .sapUiLnk:visited {
+	color: #004990;
+}
+
+.gitClientLink .sapUiLnk.flatControlSmall {
+	font-size: 0.75rem;
+	line-height: normal;
+}
+
+/* Monochrome Versions */
+
+.gitClientLink .sapUiLnk.WebLinkMonochrome,
+.gitClientLink .sapUiLnk.WebLinkMonochrome:visited {
+	color: #333;
+}
+
+.gitClientLink .sapUiLnk.WebLinkMonochrome:hover {
+	color: black;
+}
+
+.gitClientLink .WebLinkMonochrome.sapUiLnk:active {
+	color: #005b8d; /* darken 5 */
+}
+
+/* Light Versions */
+
+.gitClientLink .sapUiLnk.WebLinkLight {
+	text-decoration: none;
+	color: #666;
+}
+
+.gitClientLink .sapUiLnk.WebLinkLight:hover {
+	text-decoration: none;
+	color: #007cc0;
+}
+
+.gitClientLink .sapUiLnk.WebLinkLight:active {
+	text-decoration: none;
+	color: #005b8d;
+}

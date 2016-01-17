@@ -1,0 +1,59 @@
+{
+  "git": {
+    "gitBranches": {
+      "versions": [
+        "all"
+      ]
+    },
+    "gitMultipleBranches": {
+      "versions": [
+        "all"
+      ]
+    },
+    "compare": {
+      "versions": [
+        "all"
+      ]
+    },
+    "ignore": {
+      "versions": [
+        "all"
+      ]
+    },
+    "gitStashSupported": {
+      "versions": [
+        "all"
+      ]
+    },
+    "Gerrit": {
+      "versions": [
+        "all"
+      ]
+    },
+    "DisplayFetchResults": {
+      "versions": [
+        "all"
+      ]
+    },
+    "GitHistory": {
+      "versions": [
+        "all"
+      ]
+    },
+    "Ssh": {
+      "versions": [
+        "all"
+      ]
+    },
+    "initRepositoryCommand": {
+      "versions": [
+        "all"
+      ]
+    },
+    "GitUserAndEmail": {
+      "versions": [
+        "all"
+      ]
+    }
+  }
+}

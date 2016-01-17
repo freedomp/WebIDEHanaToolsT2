@@ -1,0 +1,147 @@
+{
+
+    "datasource" : 
+    {
+        "type" : "odata",
+        "url" : ""
+    },
+
+    "fullScreen" :
+    {
+        "parameters" : 
+        {
+           "ProjectNamespace" :
+                {
+                    "type" : "string",
+                    "value" : "",
+                    "wizard" : 
+                    {
+                        "control" : "TextField",
+                        "required" : true,
+                        "title" : "Project Namespace"
+                    }
+            },
+            "Collection1" :
+                {
+                    "type" : "Entity",
+                    "multiplicity" : "many",
+                    "isRoot" : true,
+                    "binding" : "@datasource.entities",
+                    "value" : "",
+                    "wizard" : 
+                    {
+                        "control" : "ComboBox",
+                        "required" : true,
+                        "title" : "SC Collection"
+                    }
+                    
+            },
+            "Column1" :
+                {
+                    "type" : "string",
+                    "multiplicity" : "one",
+                    "binding" : "@fullScreen.parameters.Collection1.value.elements",
+                    "value" : "",
+                    "wizard" : 
+                    {
+                        "control" : "ComboBox",
+                        "required" : true,
+                        "title" : "SC Column 1"
+                    }
+            },
+            "Column2" :
+                {
+                    "type" : "string",
+                    "multiplicity" : "one",
+                    "binding" : "@fullScreen.parameters.Collection1.value.elements",
+                    "value" : "",
+                    "wizard" : 
+                    {
+                        "control" : "ComboBox",
+                        "required": false,
+                        "title" : "SC Column 2"
+                    }
+            },
+            "Column3" :
+                {
+                    "type" : "string",
+                    "multiplicity" : "one",
+                    "binding" : "@fullScreen.parameters.Collection1.value.elements",
+                    "value" : "",
+                    "wizard" : 
+                    {
+                        "control" : "ComboBox",
+                        "required": false,
+                        "title" : "SC Column 3"
+                    }
+            },
+            "MavenProjectName" :
+            {
+                    "type" : "string",
+                    "value" : "@fullScreen.parameters.ProjectNamespace.value",
+                    "wizard" :
+                    {
+                        "control" : "TextField",
+                        "required" : true,
+                        "title" : "Name"
+                    }
+            },
+            "MavenProjectDescription" :
+            {
+                    "type" : "string",
+                    "value" : "",
+                    "wizard" :
+                    {
+                        "control" : "TextField",
+                        "required" : true,
+                        "title" : "Description"
+                    }
+            },
+            "MavenProjectArtifactId" :
+            {
+                    "type" : "string",
+                    "value" : "@fullScreen.parameters.ProjectNamespace.value",
+                    "wizard" :
+                    {
+                        "control" : "TextField",
+                        "required" : true,
+                        "title" : "Artifact Id"
+                    }
+            },
+            "MavenProjectParentVersion" :
+            {
+                    "type" : "string",
+                    "value" : "1.6.0-SNAPSHOT",
+                    "wizard" :
+                    {
+                        "control" : "TextField",
+                        "required" : true,
+                        "title" : "Parent Version"
+                    }
+            },
+            "ServiceDetails" :
+            {
+                 "serviceName" : ""
+            }
+        },
+        "forms" : [
+            {
+                "title" : "Full Screen App",
+                "groups" : [
+                    {
+                        "title" : "Project Settings",
+                        "parameters": ["@fullScreen.parameters.ProjectNamespace"]
+                    },
+                    {
+                        "title" : "FS Sample Control (SC) Settings",
+                        "parameters": ["@fullScreen.parameters.Collection1","@fullScreen.parameters.Column1","@fullScreen.parameters.Column2","@fullScreen.parameters.Column3"]
+                    },
+                    {
+                        "title" : "Maven Project Settings",
+                        "parameters": ["@fullScreen.parameters.MavenProjectName","@fullScreen.parameters.MavenProjectDescription","@fullScreen.parameters.MavenProjectArtifactId","@fullScreen.parameters.MavenProjectParentVersion"]
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,40 @@
+.sapUiMnuBar {
+	border: none;
+	height: 100%;
+}
+
+.sapUiMnuBarArea {
+	height: 100%;
+	padding: 0;
+}
+
+.sapUiMnuBarItm {
+	border: 0 none !important;
+	color: @menuBarClr;
+	display: table-cell;
+	height: 1.2rem;
+	margin: 0;
+	padding: 0;
+	vertical-align: middle;
+}
+
+.sapUiMnuBarItm:hover {
+	background: @sapFlatHighlight;
+	border: 0;
+	padding: 0;
+	color: @sapFlatInvertedText;
+	margin: 0;
+}
+
+.sapUiMnuBarItm.active {
+	background: @sapFlatHighlight;
+	border: 0;
+	padding: 0;
+	color: @sapFlatInvertedText;
+	margin: 0;
+}
+
+.sapUiMnuBarItm span, .sapUiMnuBarItm span:hover {
+	border: 0 none !important;
+	padding: 0 0.72rem;
+}

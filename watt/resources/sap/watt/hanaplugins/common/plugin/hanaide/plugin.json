@@ -1,0 +1,22 @@
+{
+    "name": "sap.watt.hana.common.plugin.hanaide",
+    "description": "specific prespective and configuration for the hanaide product",
+    "i18n": "sap.watt.hana.common.plugin.hanaide/i18n/i18n.properties",
+
+    "requires": {
+        "services": [
+        	"help"
+        ]
+    },
+
+    "configures": {
+        "services": {
+            "help:url": "{{help_url}}/dps/d/preview/29cd35fa3d054d499464efbb67db68b4/1.18/en-US/frameset.htm"
+        }
+    },
+
+    "subscribes": {
+
+    }
+
+}

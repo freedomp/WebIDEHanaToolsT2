@@ -1,0 +1,74 @@
+# txt_xxx: text
+# tol_xxx : tooltip
+# tit_xxx : title
+# msg_xxx : message box
+
+#plugin.json
+tit_cds_editor = Graphical Editor
+tit_cds_editor_text = Text Editor
+
+tit_columns = Columns
+tit_name = Name
+tit_indices = Indices
+tit_index_properties = Index Properties
+tit_new_cds_file = Create New CDS file
+tit_open_cds_file = Open CDS file 
+tit_root_container = Container
+tit_type = Type
+tit_data_type = Data Type
+tit_length = Length
+tit_scale = Scale
+tit_key = Key
+tit_not_null = Not Null
+tit_default = Default
+tit_cds_file = CDS Artifact
+tit_associations = Associations
+tit_with_context = With Context
+tit_alias = Alias
+tit_select_attr = Select Attributes
+tit_select_key_columns = Select Column(s)
+tit_cardinality = Cardinality
+tit_target_entity = Target Entity
+tit_keys = Association Keys
+tit_on_condition = On Condition
+tit_filter_exp = Filter Expression
+tit_asso_type = Association Type
+tit_on_condition_editor = On Condition Editor
+tol_expand_all = Expand All
+tol_collapse_all = Collapse All
+tit_target_cardinality = Target Cardinality
+tit_src_cardinality = Source Cardinality
+tit_source_columns = Source Entity Columns
+tit_target_columns = Target Entity Columns
+tit_find_n_add = Find and Add
+tit_rename_confirm = Confirm Rename
+tol_add = Add
+tol_remove = Remove
+tol_add_entity = Add Entity
+tol_add_context = Add Context
+tol_delete = Delete
+tol_auto_layout=Auto Layout
+txt_general_prop = General
+txt_index = Index
+txt_full_text_index = Full Text Index
+txt_no_index = No index
+txt_no_columns = No Columns
+txt_create = Create
+txt_cancel = Cancel
+txt_ok = Ok 
+txt_yes = Yes
+txt_managed = Managed
+txt_unmanaged = Unmanaged
+txt_primitive_type = Primitive Type
+txt_structure_type = Structure Type
+txt_other = Other..
+
+msg_col_name_empty = Column name cannot be empty 
+msg_col_name_duplicate = Column with name {0} already exists
+msg_col_name_invalid_char = Column name cannot contain special characters
+msg_column_invalid_empty = Name cannot be empty
+msg_name_exist = Name already exists
+msg_column_invalid_unicode = Unsupported Characters: {0} and space
+msg_create_file_error = Error creating file:
+msg_no_keys_available = No Elements in Selected Target Entity
+msg_rename_warning = {0} is used inside {1}. All references will also be renamed. Continue?

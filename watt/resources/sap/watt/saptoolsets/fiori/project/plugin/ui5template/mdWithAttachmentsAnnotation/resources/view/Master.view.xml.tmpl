@@ -1,0 +1,112 @@
+<mvc:View
+	controllerName="{{projectName}}.view.Master"
+	displayBlock="true"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+	<Page
+		id="page"
+		title="{i18n>masterTitle}">
+		<subHeader>
+			<Bar id="searchBar">
+				<contentMiddle>
+					<SearchField
+						id="searchField"
+						showRefreshButton="{device>/isNoTouch}"
+						placeholder="{i18n>masterSearchPlaceholder}"
+						search="onSearch"
+						tooltip="{i18n>masterSearchTooltip}"
+						width="100%">
+					</SearchField>
+				</contentMiddle>
+			</Bar>
+		</subHeader>
+		<content>
+			<List
+				id="list"
+				items="{/{{claimProcessing.parameters.AppCollection.value.name~}} }"
+				mode="{device>/listMode}"
+				noDataText="{i18n>masterListNoDataText}"
+				select="onSelect"
+				growing="true"
+				growingScrollToLoad="true">
+				<items>
+					<ObjectListItem
+						title="{ {{~claimProcessing.parameters.ItemTitle.value.name~}} }"
+						type="Active"
+						press="onSelect"
+{{~#if claimProcessing.parameters.NumericAttribute.value.name}}
+						number="{ {{~claimProcessing.parameters.NumericAttribute.value.name~}} }"
+{{~else}}
+						number=""
+{{~/if}}
+{{~#if claimProcessing.parameters.UnitsAttribute.value.name}}
+						numberUnit="{ {{~claimProcessing.parameters.UnitsAttribute.value.name~}} }">
+{{~else}}
+						numberUnit="">
+{{~/if}}		
+{{~#if claimProcessing.parameters.StatusAttribute.value.name}}				
+				        <firstStatus>
+				            <ObjectStatus 
+				            id="oMasterStatus"
+				            state="{ path: '{{claimProcessing.parameters.StatusAttribute.value.name}}',
+				            formatter: '{{projectName}}.util.Formatter.convertStatusState' }"
+				            text="{ {{~claimProcessing.parameters.StatusAttribute.value.name~}} }" />
+				        </firstStatus>
+{{~/if}}
+					<attributes>
+{{~#if claimProcessing.parameters.Attribute1.value.name}}
+{{!-- Attribute1 has value, check also DateAttribute: --}}
+{{~#if claimProcessing.parameters.DateAttribute.value.name}}
+						<ObjectAttribute text="{ {{~claimProcessing.parameters.Attribute1.value.name~}} }, {path: '{{claimProcessing.parameters.DateAttribute.value.name}}', formatter: '{{projectName}}.util.Formatter.convertDate'}" >
+                		</ObjectAttribute>
+{{~else}}
+						<ObjectAttribute text="{ {{~claimProcessing.parameters.Attribute1.value.name~}} }" >
+                		</ObjectAttribute>
+{{~/if}}
+{{~else}}
+{{!-- Attribute1 doesn't have value, consider only DateAttribute: --}}
+{{~#if claimProcessing.parameters.DateAttribute.value.name}}
+						<ObjectAttribute text="{path: '{{claimProcessing.parameters.DateAttribute.value.name}}', formatter: '{{projectName}}.util.Formatter.convertDate'}" >
+                		</ObjectAttribute>						
+{{~else}}
+						<ObjectAttribute text="" >
+                		</ObjectAttribute>						
+{{~/if}}
+{{~/if}}
+{{~#if claimProcessing.parameters.Attribute2.value.name}}						
+						<ObjectAttribute text="{ {{~claimProcessing.parameters.Attribute2.value.name~}} }" >
+                		</ObjectAttribute>						
+{{~else}}
+						<ObjectAttribute text="" >
+                		</ObjectAttribute>						
+{{~/if}}
+					</attributes>
+				</ObjectListItem>
+			</items>
+		</List>
+	</content>
+	<footer>
+		<Toolbar>
+	{{~#if smpOffline}}	
+
+			
+					<Label   id="lastUpdatedText" >
+						<layoutData>
+							<ToolbarLayoutData shrinkable="true" maxWidth="350px" />
+						</layoutData>
+					</Label>
+					<ToolbarSpacer/>
+					<Button 
+							id="actionButton" 
+							press="openActionSheet" 
+							icon="sap-icon://action-settings">
+							<layoutData>
+								  <ToolbarLayoutData shrinkable="false" />
+							</layoutData>
+				   </Button>
+	{{~/if}}
+        </Toolbar>
+	</footer>
+	</Page>
+</mvc:View>

@@ -1,0 +1,73 @@
+{
+	"name": "sap.watt.uitools.sapui5clientbuild",
+	"description": "The sapui5clientbuild plugin",
+	"i18n": "sap.watt.uitools.sapui5clientbuild/i18n/i18n",
+
+	"requires": {
+		"services": [
+		    "command",
+			"commandGroup",
+			"document",
+			"filesystem.documentProvider",
+			"setting.project",
+			"selection",
+			"usernotification",
+			"ui5projecthandler",
+			"builder",
+			"projectType",
+			"repositorybrowser",
+			"log",
+			"pluginmanagement",
+			"resource",
+			"beautifier",
+			"git",
+			"projectsetting"
+		]
+	},
+
+	"provides": {
+		"services": {
+			"sapui5ClientBuildConfiguration": {
+              "implements": "sap.watt.common.service.ui.Config",
+              "module" : "sap.watt.uitools.sapui5clientbuild/service/builder/SAPUI5ClientBuildConfiguration"
+            },
+            "sapui5ClientBuild": {
+              "implements": "sap.watt.common.builder.service.BuildService",
+              "module" : "sap.watt.uitools.sapui5clientbuild/service/builder/SAPUI5ClientBuilder"
+            }
+		},
+
+		"interfaces": {
+		}
+	},
+
+	"configures": {
+		"services": {
+			"builder:projectTypes": [
+				{
+					"projectTypeId": "com.watt.common.builder.sapui5clientbuild",
+					"buildService": "sap.watt.uitools.sapui5clientbuild/service/builder/SAPUI5ClientBuilder"
+				}
+			],
+			"projectType:types": [
+				{
+					"id": "com.watt.common.builder.sapui5clientbuild",
+					"displayName": "{i18n>builder_sapui5clientbuild_project_type}",
+					"description": "{i18n>builder_sapui5clientbuild_project_type_descr}",
+					"service": "sap.watt.uitools.sapui5clientbuild/projectType/SAPUI5ClientBuild"
+                }
+            ],
+            "projectsetting:plugins" : [
+                {
+                    "id": "sapui5clientbuildconfiguration", 
+                    "name": "{i18n>builder_sapui5clientbuild_configuration_name}", 
+                    "title": "{i18n>builder_sapui5clientbuild_configuration_title}", 
+                    "service": "@sapui5ClientBuildConfiguration",
+                    "projectTypes": ["com.watt.common.builder.sapui5clientbuild"]
+                }
+            ]
+		}
+	},
+	"subscribes": {
+	}
+}

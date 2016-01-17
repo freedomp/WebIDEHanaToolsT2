@@ -1,0 +1,122 @@
+#RunConsole {
+    height: 100%;
+}
+
+/* Container */
+
+.runConsoleContainer {
+    display: block;
+    background-color: rgb(47, 60, 72);
+    overflow: auto;
+}
+
+/* Header & Footer*/
+
+.runConsoleEdgesColor {
+    border-bottom: 1px solid #3F5161;
+}
+
+/* Title */
+
+.runConsoleTitle {
+    color: #D3D8DE;
+    margin-top: 2px;
+    margin-left: 8px;
+    font-size: 0.86rem;
+}
+
+/* Content */
+
+.runConsoleContent {
+    padding: 8px;
+    color: white;
+    font-family: Arial Monospaced for SAP, monospace;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+/* Footer */
+
+.runConsoleFooter {
+    color: #D3D8DE;
+    font-size: 14px;
+    border-top: 1px solid #3F5161;
+}
+
+/* Application Section */
+
+.runConsoleApplicationSection {
+    margin-top: 5px;
+    margin-left: 4px;
+}
+
+.runConsoleLink {
+    margin-left: 4px;
+    font-size: 0.875rem;
+    color: #FFFFFF;
+}
+
+/* Status Section */
+
+.runConsoleStatusSection {
+    margin-top: 5px;
+}
+
+/* Shut Down Section */
+
+.runConsoleShutDownButton {
+    margin-right: 5px;
+    height: 28px;
+    padding-right: 5px;
+    width: 105px !important;
+    padding: 0;
+    /* background: #3F5161 !important; */
+}
+
+.runConsoleShutDownButton:hover {
+    background: #45596a!important;
+}
+.runConsoleShutDownButton .sapUiBtnIco  {
+    color: #f75b58;
+    margin-bottom: 3px;
+}
+
+.runConsoleShutDownButton .sapUiBtnTxt{
+    color: #FFFFFF;
+}
+
+.runConsoleShutDownText {
+    margin-top: 5px;
+    color: #D3D8DE;
+}
+
+.runConsoleShutDownSection {
+    float: right;
+    margin-top: 2px;
+}
+
+/* Log levels */
+
+.runConsoleContent .info {
+    color: white;
+}
+
+.runConsoleContent .warn {
+    /* TODO set to less value: @sapFlatCriticalText */
+    color: #FBA44D;
+}
+
+.runConsoleContent .error {
+    /* TODO set to less value: @sapFlatNegativeText */
+    color: #f75b58;
+}
+
+.runConsoleContent .debug {
+    color: lightgray;
+}
+
+.selectable {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+}

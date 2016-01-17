@@ -1,0 +1,82 @@
+{
+	"name" : "sap.watt.platform.plugin.librarymetadata.service.LibraryMetadata",
+	"description" : "The Library Metadata interface",
+	"configurationProperties" : {
+		"providers" : {
+			"type" : {
+				"service" : "sap.watt.common.service.ide.LibraryMetadataProvider",
+				"libraries" : "[string]",
+				"isSnapshotSupported" : "boolean"
+			},
+			"multiple" : true
+		}
+	},
+	"methods" : {
+		"getVersions" : {
+			"params" : [
+				{
+					"name" : "sLibraryName",
+					"type" : "string"
+				}
+			],
+		   "returns" : { 
+        		"type" : ["string"],
+                "description" : "supported library versions"
+            }
+		},
+		"getLatestVersion" : {
+			"params" : [
+				{
+					"name" : "sLibraryName",
+					"type" : "string"
+				}
+			],
+		   "returns" : { 
+        		"type" : "string",
+                "description" : "latest library version"
+            }
+		},
+		"hasVersion" : {
+			"params" : [
+				{
+					"name" : "sLibraryName",
+					"type" : "string"
+				},
+				{
+					"name" : "sVersion",
+					"type" : "string"
+				}
+			],
+		   "returns" : { 
+        		"type" : "boolean",
+                "description" : "Indicates if library has metadata for requested version"
+            }
+		},
+		"getMetadata" : {
+			"params" : [
+				{
+					"name" : "sLibraryName",
+					"type" : "string"
+				},
+				{
+					"name" : "sLibraryType",
+					"type" : "string"
+				},
+				{
+					"name" : "sVersion",
+					"type" : "string",
+					"optional" : true
+				}
+			],
+		   "returns" : { 
+        		"type" : {
+        			"library" : "string",
+        			"version" : "string",
+        			"metadata" : "object",
+        			"templates" : "object"
+        		},
+                "description" : "library metadata object of specific version. metadata and templates should be zip objects"
+            }
+		}
+	}
+}

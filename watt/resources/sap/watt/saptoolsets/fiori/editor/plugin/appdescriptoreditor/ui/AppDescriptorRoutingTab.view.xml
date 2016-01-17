@@ -1,0 +1,626 @@
+<mvc:View controllerName="sap.watt.saptoolsets.fiori.editor.plugin.appdescriptoreditor.ui.AppDescriptorRoutingTab"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:appDescriptorUI="sap.watt.saptoolsets.fiori.editor.plugin.appdescriptoreditor.ui" xmlns:core="sap.ui.core"
+	xmlns:form="sap.ui.layout.form" xmlns:layout="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:table="sap.ui.table"
+	xmlns:unified="sap.ui.unified" xmlns="sap.ui.commons">
+	<layout:Grid vSpacing="0" visible="true">
+		<!--contentSettingsGrid-->
+		<layout:Grid class="sapIDEAppDescriptorGrid" vSpacing="0">
+			<layout:content>
+				<!--*****************Default configuration********************-->
+				<form:Form id="defaultConfiguration">
+					<form:formContainers>
+						<form:FormContainer id="appDescriptor-routing-config">
+							<form:layoutData>
+								<layout:GridData span="L12 M12 S12"/>
+							</form:layoutData>
+							<form:title>
+								<core:Title design="Bold" text="{i18n>AppDescriptor_Default_configuration}"></core:Title>
+							</form:title>
+							<form:formElements>
+								<!--View Path-->
+								<form:FormElement>
+									<form:label>
+										<Label text="{i18n>AppDescriptor_View_Path}">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<TextField name="viewPath" change="onRoutingViewPathChange" tooltip="{i18n>AppDescriptor_View_Path_tooltip}"
+											value="{/sap.ui5/properties/routing/properties/config/viewPath/sValue}" width="100%">
+											<layoutData>
+												<layout:GridData span="L6 M6 S6"/>
+											</layoutData>
+										</TextField>
+									</form:fields>
+								</form:FormElement>
+								<!--View Type-->
+								<form:FormElement>
+									<form:label>
+										<Label text="{i18n>AppDescriptor_View_Type}">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<DropdownBox name="viewType" change="onRoutingViewTypeChange" tooltip="{i18n>AppDescriptor_View_Type_tooltip}" items="{/sap.ui5/properties/routing/properties/config/viewType/mConvertedEnum}"
+											selectedKey="{/sap.ui5/properties/routing/properties/config/viewType/sSelectedKey}" width="100%">
+											<items>
+												<core:ListItem key="{key}" text="{text}"></core:ListItem>
+											</items>
+											<layoutData>
+												<layout:GridData span="L6 M6 S6"/>
+											</layoutData>
+										</DropdownBox>
+									</form:fields>
+								</form:FormElement>
+								<!--Control Id-->
+								<form:FormElement>
+									<form:label>
+										<Label text="{i18n>AppDescriptor_Control_Id}">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<TextField name="controlId" change="onRoutingControlIdChange" tooltip="{i18n>AppDescriptor_Control_Id_tooltip}"
+											value="{/sap.ui5/properties/routing/properties/config/controlId/sValue}" width="100%">
+											<layoutData>
+												<layout:GridData span="L6 M6 S6"/>
+											</layoutData>
+										</TextField>
+									</form:fields>
+								</form:FormElement>
+								<!--By Passed Targets-->
+								<form:FormElement>
+									<form:label>
+										<Label text="{i18n>AppDescriptor_By_passed_targets}">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<layout:Grid class="sapIDEAppDescriptorRoutingHorizontal" hSpacing="0" vSpacing="0">
+											<layout:content>
+												<layout:HorizontalLayout allowWrapping="true">
+													<layout:content>
+														<layout:HorizontalLayout allowWrapping="true" class="sapIDERoutingTargets"
+															content="{/sap.ui5/properties/routing/properties/config/bypassed/target/aValues}" id="routingBypassedHorizontalLayout">
+															<layout:content>
+																<Button id="removeByPassedTargets" class="riverControlSmall" tooltip="{i18n>AppDescriptor_By_passed_targets_tooltip}" icon="sap-icon://decline" iconFirst="false" press="onBypassedTargetsRemovePressed" text="{text}"></Button>
+															</layout:content>
+														</layout:HorizontalLayout>
+														<layout:HorizontalLayout allowWrapping="true">
+															<layout:content>
+																<Button id="addByPassedTargets" class="sapIDERoutingAddButton riverControlSmall " icon="sap-icon://add" press="onRoutingBypassAddPress"></Button>
+															</layout:content>
+														</layout:HorizontalLayout>
+													</layout:content>
+													<layout:layoutData>
+														<layout:GridData span="L12 M12 S12"/>
+													</layout:layoutData>
+												</layout:HorizontalLayout>
+											</layout:content>
+											<layout:layoutData>
+												<layout:GridData span="L9 M9 S6"/>
+											</layout:layoutData>
+										</layout:Grid>
+									</form:fields>
+								</form:FormElement>
+								<!--Show More Properties-->
+								<form:FormElement>
+									<Link id="linkMoreProperties" press='onPressMorePropeties' text='{i18n>AppDescriptor_show_more_prop}'
+										visible="{= !${/sap.ui5/properties/routing/properties/config/showMoreProperties/bValue}}"></Link>
+								</form:FormElement>
+								<!--More properties-->
+								<form:FormElement>
+									<layout:Grid hSpacing="0" id="morePropertiesGrid" visible="{/sap.ui5/properties/routing/properties/config/showMoreProperties/bValue}">
+										<layout:content>
+											<!--View Level-->
+											<Label id="viewLevel2" text="{i18n>AppDescriptor_viewLevel}">
+												<layoutData>
+													<layout:GridData linebreak="true" span="L3 M3 S6"/>
+												</layoutData>
+											</Label>
+											<TextField name="viewLevel" change="onViewLevel2Change" tooltip="{i18n>AppDescriptor_viewLevel_tooltip}" value="{ path: '/sap.ui5/properties/routing/properties/config/viewLevel/iValue', type:'sap.ui.model.type.Integer'}" width="100%">
+												<layoutData>
+													<layout:GridData span="L6 M6 S6"/>
+												</layoutData>
+											</TextField>
+											<!--Control Aggregation-->
+											<Label id="controlAggregation2" text="{i18n>AppDescriptor_Control_Aggregation}">
+												<layoutData>
+													<layout:GridData linebreak="true" span="L3 M3 S6"/>
+												</layoutData>
+											</Label>
+											<TextField name="controlAggregation" change="onControlAggregation2Change" tooltip="{i18n>AppDescriptor_Control_Aggregation_tooltip}" value="{/sap.ui5/properties/routing/properties/config/controlAggregation/sValue}"
+												width="100%">
+												<layoutData>
+													<layout:GridData span="L6 M6 S6"/>
+												</layoutData>
+											</TextField>
+											<!--Transition-->
+											<Label id="transition2" text="{i18n>AppDescriptor_transition}">
+												<layoutData>
+													<layout:GridData linebreak="true" span="L3 M3 S6"/>
+												</layoutData>
+											</Label>
+											<DropdownBox name="transition" change="onTransition2Change" tooltip="{i18n>AppDescriptor_Transition_tooltip}" items="{/sap.ui5/properties/routing/properties/config/transition/mConvertedEnum}"
+												selectedKey="{/sap.ui5/properties/routing/properties/config/transition/sSelectedKey}" width="100%">
+												<items>
+													<core:ListItem key="{key}" text="{text}"></core:ListItem>
+												</items>
+												<layoutData>
+													<layout:GridData span="L6 M6 S6"/>
+												</layoutData>
+											</DropdownBox>
+											<!--Target Parent-->
+											<Label id="targetParent2" text="{i18n>AppDescriptor_Target_Parent}">
+												<layoutData>
+													<layout:GridData linebreak="true" span="L3 M3 S6"/>
+												</layoutData>
+											</Label>
+											<TextField name="targetParent" change="onTargetParent2Change" tooltip="{i18n>AppDescriptor_Target_Parent_tooltip}" value="{/sap.ui5/properties/routing/properties/config/targetParent/sValue}" width="100%">
+												<layoutData>
+													<layout:GridData span="L6 M6 S6"/>
+												</layoutData>
+											</TextField>
+											<!--Parent-->
+											<Label id="parent2" text="{i18n>AppDescriptor_parent}">
+												<layoutData>
+													<layout:GridData linebreak="true" span="L3 M3 S6"/>
+												</layoutData>
+											</Label>
+											<TextField name="parent" change="onParent2Change" tooltip="{i18n>AppDescriptor_Parent_tooltip}" value="{/sap.ui5/properties/routing/properties/config/parent/sValue}" width="100%">
+												<layoutData>
+													<layout:GridData span="L6 M6 S6"/>
+												</layoutData>
+											</TextField>
+											<!--Clear Aggregation-->
+											<Label id="clearAggregation2" text="{i18n>AppDescriptor_Clear_Aggregation}">
+												<layoutData>
+													<layout:GridData linebreak="true" span="L3 M3 S6"/>
+												</layoutData>
+											</Label>
+											<DropdownBox name="clearAggregation" change="onClearAggregation2Change" tooltip="{i18n>AppDescriptor_Clear_Aggregation_tooltip}" items="{/sap.ui5/properties/routing/properties/config/clearAggregation/aBoolValues}"
+												selectedKey="{/sap.ui5/properties/routing/properties/config/clearAggregation/sSelectedKey}" width="100%">
+												<items>
+													<core:ListItem key="{key}" text="{text}"></core:ListItem>
+												</items>
+												<layoutData>
+													<layout:GridData span="L3 M3 S6"/>
+												</layoutData>
+											</DropdownBox>
+											<!--Show Less Properties-->
+											<Link id="linkLessProperties" press="onPressLessPropeties" text="{i18n>AppDescriptor_show_less_prop}">
+												<layoutData>
+													<layout:GridData linebreak="true" span="L9 M9 S9"/>
+												</layoutData>
+											</Link>
+										</layout:content>
+										<layout:layoutData>
+											<layout:GridData span="L12 M12 S12"/>
+										</layout:layoutData>
+									</layout:Grid>
+								</form:FormElement>
+							</form:formElements>
+						</form:FormContainer>
+					</form:formContainers>
+					<form:layoutData>
+						<layout:GridData span="L12 M12 S12"/>
+					</form:layoutData>
+					<form:layout>
+						<form:ResponsiveGridLayout></form:ResponsiveGridLayout>
+					</form:layout>
+				</form:Form>
+				<!--*****************Routes********************-->
+				<form:Form id="Routes">
+					<form:formContainers>
+						<form:FormContainer id="appDescriptor-routing-routesContainer">
+							<form:title>
+								<core:Title design="Bold" text="{i18n>AppDescriptor_Routing_Routes}"></core:Title>
+							</form:title>
+							<form:formElements>
+								<form:FormElement>
+									<layout:HorizontalLayout>
+										<layout:content>
+											<Button id="addNewRoute" enabled="true" icon="sap-icon://add" press="onAddRoutePress" 
+												tooltip="{i18n>AppDescriptor_Routing_Add_New_Route}">
+											</Button>
+										</layout:content>
+										<layout:layoutData>
+											<layout:GridData span="L3 M3 S3"/>
+										</layout:layoutData>
+									</layout:HorizontalLayout>
+								<!--	<Button enabled="true" icon="sap-icon://add" press="onAddRoutePress" 
+										tooltip="{i18n>AppDescriptor_Routing_Add_New_Route}">
+										<layoutData>
+											<layout:GridData linebreak="true" span="L1 M1 S1"/>
+										</layoutData>
+									</Button>-->
+								</form:FormElement>
+								<form:FormElement>
+									<!-- main routes grid-->
+									<layout:Grid hSpacing="0" vSpacing="0">
+										<layout:layoutData>
+											<layout:GridData linebreak="true" span="L12 M12 S12"/>
+										</layout:layoutData>
+										<layout:content>
+											<!-- routes header grid-->
+											<layout:Grid class="sapIDERoutingHLayout" hSpacing="0" vSpacing="0.5">
+												<layout:layoutData>
+													<layout:GridData linebreak="true" span="L12 M12 S12"/>
+												</layout:layoutData>
+												<layout:content>
+													<Label design="Bold" text="{i18n>AppDescriptor_Routing_Route_Name}" required="true" tooltip="{i18n>AppDescriptor_Route_Name_tooltip}">
+														<layoutData>
+															<layout:GridData indent="L2 M2 S2" span="L2 M2 S2"/>
+														</layoutData>
+													</Label>
+													<Label design="Bold" text="{i18n>AppDescriptor_Routing_Route_Pattern}" tooltip="{i18n>AppDescriptor_Route_Pattern_tooltip}">
+														<layoutData>
+															<layout:GridData span="L2 M2 S2"/>
+														</layoutData>
+													</Label>
+													<Label design="Bold" text="{i18n>AppDescriptor_Routing_Route_Greedy}" tooltip="{i18n>AppDescriptor_Greedy_tooltip}">
+														<layoutData>
+															<layout:GridData span="L2 M2 S2"/>
+														</layoutData>
+													</Label>
+													<Label design="Bold" text="{i18n>AppDescriptor_Routing_Route_Targets}" tooltip="{i18n>AppDescriptor_Targets_tooltip}">
+														<layoutData>
+															<layout:GridData span="L3 M3 S3"/>
+														</layoutData>
+													</Label>
+												</layout:content>
+											</layout:Grid>
+											<!-- routes body grid-->
+											<layout:Grid content="{manifest>/sap.ui5/routing/routes}" hSpacing="0" id="appDescriptor-routing-routesGrid" vSpacing="0.5">
+												<layout:layoutData>
+													<layout:GridData linebreak="true" span="L12 M12 S12"/>
+												</layout:layoutData>
+												<layout:content>
+													<layout:Grid class="sapIDERoutingHLayout" hSpacing="1" vSpacing="0">
+														<layout:layoutData>
+															<layout:GridData linebreak="true" span="L12 M12 S12"/>
+														</layout:layoutData>
+														<layout:content>
+ 															<layout:HorizontalLayout allowWrapping="false" class="sapIDERoutingSapUiBtn"> 
+ 																<layout:content> 
+																	<Button enabled="true" icon="sap-icon://arrow-top" lite="true" press="onMoveRouteUpPress" 
+																		tooltip="{i18n>AppDescriptor_Routing_Move_Route_Up}">
+																	</Button>
+																	<Button enabled="true" icon="sap-icon://arrow-bottom" lite="true" press="onMoveRouteDownPress" 
+																		tooltip="{i18n>AppDescriptor_Routing_Move_Route_Down}">
+																	</Button>
+																	<Button enabled="true" icon="sap-icon://watt/delete" lite="true" press="onRemoveRoutePress" 
+																		tooltip="{i18n>AppDescriptor_Routing_Remove_Route}">
+																	</Button>
+																</layout:content> 
+																<layout:layoutData> 
+																	<layout:GridData span="L2 M2 S2"/> 
+ 																</layout:layoutData> 
+ 															</layout:HorizontalLayout>
+															<TextField name="routName" value="{manifest>name}" width="100%" change="onRouteNameChange" tooltip="{i18n>AppDescriptor_Route_Name_tooltip}">
+															<!--<TextField required="true" value="{manifest>name}" width="100%">-->
+																<layoutData>
+																	<layout:GridData span="L2 M2 S2"/>
+																</layoutData>
+															</TextField>
+															<TextField name="routPattern" value="{manifest>pattern}" width="100%" tooltip="{i18n>AppDescriptor_Route_Pattern_tooltip}">
+																<layoutData>
+																	<layout:GridData span="L2 M2 S2"/>
+																</layoutData>
+															</TextField>
+															<CheckBox name="routGreedy" checked="{manifest>greedy}" required="false" tooltip="{i18n>AppDescriptor_Greedy_tooltip}">
+																<layoutData>
+																	<layout:GridData span="L1 M1 S1"/>
+																</layoutData>
+															</CheckBox>
+															<layout:Grid class="sapIDEAppDescriptorRoutingHorizontal" hSpacing="0" vSpacing="0">
+																<layout:content>
+																	<layout:HorizontalLayout allowWrapping="true" class="sapIDERoutingTargets">
+																		<layout:content>
+																			<layout:HorizontalLayout allowWrapping="true" content="{manifest>target}">
+																				<layout:content>
+																					<Button class="riverControlSmall" icon="sap-icon://decline" iconFirst="false" press="onRemoveTargetFromRoutePress" text="{manifest>}" tooltip="{i18n>AppDescriptor_Targets_tooltip}"></Button>
+																				</layout:content>
+																			</layout:HorizontalLayout>
+																			<layout:HorizontalLayout allowWrapping="true">
+																				<layout:content>
+																					<Button class="sapIDERoutingAddButton riverControlSmall" icon="sap-icon://add" press="onAddTargetToRoutePress"></Button>
+																				</layout:content>
+																			</layout:HorizontalLayout>
+																		</layout:content>
+																		<layout:layoutData>
+																			<layout:GridData span="L12 M12 S12"/>
+																		</layout:layoutData>
+																	</layout:HorizontalLayout>
+																</layout:content>
+																<layout:layoutData>
+																	<layout:GridData span="L5 M5 S5"/>
+																</layout:layoutData>
+															</layout:Grid>
+														</layout:content>
+													</layout:Grid>
+												</layout:content>
+											</layout:Grid>
+										</layout:content>
+									</layout:Grid>
+								</form:FormElement>
+							</form:formElements>
+						</form:FormContainer>
+					</form:formContainers>
+					<form:layoutData>
+						<layout:GridData linebreak="true" span="L12 M12 S12"/>
+					</form:layoutData>
+					<form:layout>
+						<form:ResponsiveGridLayout></form:ResponsiveGridLayout>
+					</form:layout>
+				</form:Form>
+				<!--*****************Manage Targets********************-->
+				<form:Form id="ManageTargets">
+					<form:title>
+						<core:Title design="Bold" text="Manage Targets"></core:Title>
+					</form:title>
+					<form:formContainers>
+						<form:FormContainer id="appDescriptor-routing-manageTargets">
+							<form:title>
+								<core:Title text=""></core:Title>
+							</form:title>
+							<form:layoutData>
+								<layout:GridData span="L4 M4 S6"/>
+							</form:layoutData>
+							<form:formElements>
+								<form:FormElement>
+									<appDescriptorUI:ListBoxWithAddRemove dialogMetadata="{/sap.ui5/properties/routing/properties/targets/oDialogMetadata}"
+										dialogTitle="{i18n>AppDescriptor_routing_addTarget}" entryChanged="onSAPUI5RoutingTargetsChange" id="manageTargetsList"
+										items="{/sap.ui5/properties/routing/properties/targets/aValues}" select="onSAPUI5RoutingTargetsSelect"
+										selectedKey="{AppDescriptorUI>/sRoutingTargetSelectedKey}" visibleListRows="5">
+										<appDescriptorUI:items>
+											<core:ListItem key="{ parts:['item'], formatter: '.formatRoutingTargetsToText' }"
+												text="{ parts:['item'], formatter: '.formatRoutingTargetsToText' }"></core:ListItem>
+										</appDescriptorUI:items>
+										<appDescriptorUI:layoutData>
+											<layout:GridData span="L12 M12 S12"/>
+										</appDescriptorUI:layoutData>
+									</appDescriptorUI:ListBoxWithAddRemove>
+								</form:FormElement>
+							</form:formElements>
+						</form:FormContainer>
+						<form:FormContainer id="ManageTargetsDetails">
+							<form:title>
+								<core:Title text=""></core:Title>
+							</form:title>
+							<form:layoutData>
+								<layout:GridData span="L8 M8 S6"/>
+							</form:layoutData>
+							<form:formElements>
+								<form:FormElement>
+									<form:label>
+										<Label id="ViewName" required="true" text="{i18n>AppDescriptor_routing_ViewName}" wrapping="false">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<TextField name="targetsViewName" change="onRoutingTargetsViewNameChange" enabled="{/manageTargetsDetails/manageTargetsDetailsEnabled}" required="true"
+											value="{viewName}" width="100%" tooltip="{i18n>AppDescriptor_View_Name_tooltip}">
+											<layoutData>
+												<layout:GridData span="L6 M6 S6"/>
+											</layoutData>
+										</TextField>
+									</form:fields>
+								</form:FormElement>
+								<!--View ID-->
+								<form:FormElement>
+									<form:label>
+										<Label id="ViewID" text="{i18n>AppDescriptor_routing_ViewID}" wrapping="false">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<TextField name="targetsViewId" change="onRoutingTargetsViewIDChange" enabled="{/manageTargetsDetails/manageTargetsDetailsEnabled}" value="{viewId}"
+											width="100%" tooltip="{i18n>AppDescriptor_View_ID_tooltip}">
+											<layoutData>
+												<layout:GridData span="L6 M6 S6"/>
+											</layoutData>
+										</TextField>
+									</form:fields>
+								</form:FormElement>
+								<!--View Level-->
+								<form:FormElement>
+									<form:label>
+										<Label id="ViewLevel" text="{i18n>AppDescriptor_routing_ViewLevel}" wrapping="false">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<TextField name="targetsViewLevel" change="onRoutingTargetsViewLevelChange" enabled="{/manageTargetsDetails/manageTargetsDetailsEnabled}" value="{viewLevel}"
+											width="100%" tooltip="{i18n>AppDescriptor_viewLevel_tooltip}">
+											<layoutData>
+												<layout:GridData span="L6 M6 S6"/>
+											</layoutData>
+										</TextField>
+									</form:fields>
+								</form:FormElement>
+								<!--Control Aggregation-->
+								<form:FormElement>
+									<form:label>
+										<Label id="controlAggregation" text="{i18n>AppDescriptor_routing_ControlAgg}" wrapping="false">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<TextField name="targetsControlAggregation" change="onRoutingTargetsControlAggChange" enabled="{/manageTargetsDetails/manageTargetsDetailsEnabled}"
+											value="{controlAggregation}" width="100%" tooltip="{i18n>AppDescriptor_Control_Aggregation_tooltip}">
+											<layoutData>
+												<layout:GridData span="L6 M6 S6"/>
+											</layoutData>
+										</TextField>
+									</form:fields>
+								</form:FormElement>
+								<!--Control ID-->
+								<form:FormElement>
+									<form:label>
+										<Label id="ControlID" text="{i18n>AppDescriptor_routing_ControlID}" wrapping="false">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<TextField name="targetsControlID" change="onRoutingTargetsControlIDChange" enabled="{/manageTargetsDetails/manageTargetsDetailsEnabled}" value="{controlId}"
+											width="100%" tooltip="{i18n>AppDescriptor_Control_Id_tooltip}">
+											<layoutData>
+												<layout:GridData span="L6 M6 S6"/>
+											</layoutData>
+										</TextField>
+									</form:fields>
+								</form:FormElement>
+								<!--View Path-->
+								<form:FormElement>
+									<form:label>
+										<Label id="ViewPath" text="{i18n>AppDescriptor_routing_ViewPath}" wrapping="false">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<TextField name="targetsViewPath" change="onRoutingTargetsViewPathChange" enabled="{/manageTargetsDetails/manageTargetsDetailsEnabled}" value="{viewPath}"
+											width="100%" tooltip="{i18n>AppDescriptor_View_Path_tooltip}">
+											<layoutData>
+												<layout:GridData span="L6 M6 S6"/>
+											</layoutData>
+										</TextField>
+									</form:fields>
+								</form:FormElement>
+								<!--View Type-->
+								<form:FormElement>
+									<form:label>
+										<Label id="ViewType" text="{i18n>AppDescriptor_routing_ViewType}" wrapping="false">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<DropdownBox name="targetsViewType" change="onRoutingTargetsViewTypeChange" enabled="{/manageTargetsDetails/manageTargetsDetailsEnabled}"
+											items="{/sap.ui5/properties/routing/properties/targets/aViewTypemConvertedEnum}" selectedKey="{ parts:['item'], formatter: '.formatManageTargetsViewType'}" width="100%" tooltip="{i18n>AppDescriptor_View_Type_tooltip}">
+											<items>
+												<core:ListItem key="{key}" text="{text}"></core:ListItem>
+											</items>
+											<layoutData>
+												<layout:GridData span="L6 M6 S6"/>
+											</layoutData>
+										</DropdownBox>
+									</form:fields>
+								</form:FormElement>
+								<!--Transition-->
+								<form:FormElement>
+									<form:label>
+										<Label id="Transition" text="{i18n>AppDescriptor_routing_Transition}" wrapping="false">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<DropdownBox name="targetsTransition" change="onRoutingTargetsTransitionChange" enabled="{/manageTargetsDetails/manageTargetsDetailsEnabled}"
+											items="{/sap.ui5/properties/routing/properties/targets/aTransitionmConvertedEnum}" selectedKey="{ parts:['item'], formatter: '.formatManageTargetsTransition'}" width="100%" tooltip="{i18n>AppDescriptor_Transition_tooltip}">
+											<items>
+												<core:ListItem key="{key}" text="{text}"></core:ListItem>
+											</items>
+											<layoutData>
+												<layout:GridData span="L6 M6 S6"/>
+											</layoutData>
+										</DropdownBox>
+									</form:fields>
+								</form:FormElement>
+								<!--Parent-->
+								<form:FormElement>
+									<form:label>
+										<Label id="Parent" text="Parent" wrapping="false">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<TextField name="targetsParent" change="onRoutingTargetsParentChange" enabled="{/manageTargetsDetails/manageTargetsDetailsEnabled}" value="{parent}" width="100%" tooltip="{i18n>AppDescriptor_Parent_tooltip}">
+											<layoutData>
+												<layout:GridData span="L6 M6 S6"/>
+											</layoutData>
+										</TextField>
+									</form:fields>
+								</form:FormElement>
+								<!--Clear Aggregation-->
+								<form:FormElement>
+									<form:label>
+										<Label id="ClearAgg" text="Clear Aggregation" wrapping="false">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<DropdownBox name="targetsClearAggregation" change="onRoutingTargetsClearAggChange" enabled="{/manageTargetsDetails/manageTargetsDetailsEnabled}"
+											items="{/sap.ui5/properties/routing/properties/targets/aBooleanValues}" selectedKey="{ parts:['item'], formatter: '.formatManageTargetsClearAggregation'}" width="100%" tooltip="{i18n>AppDescriptor_Clear_Aggregation_tooltip}">
+											<items>
+												<core:ListItem key="{key}" text="{text}"></core:ListItem>
+											</items>
+											<layoutData>
+												<layout:GridData span="L6 M6 S6"/>
+											</layoutData>
+										</DropdownBox>
+									</form:fields>
+								</form:FormElement>
+								<!--Target Parent-->
+								<form:FormElement>
+									<form:label>
+										<Label id="TargetParent" text="Target Parent" wrapping="false">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<TextField name="targetsTargetParent" change="onRoutingTargetsTargetParentChange" enabled="{/manageTargetsDetails/manageTargetsDetailsEnabled}" value="{targetParent}"
+											width="100%" tooltip="{i18n>AppDescriptor_Target_Parent_tooltip}">
+											<layoutData>
+												<layout:GridData span="L6 M6 S6"/>
+											</layoutData>
+										</TextField>
+									</form:fields>
+								</form:FormElement>
+							</form:formElements>
+						</form:FormContainer>
+					</form:formContainers>
+					<form:layout>
+						<form:ResponsiveGridLayout></form:ResponsiveGridLayout>
+					</form:layout>
+					<!-- the size of the form in the grid-->
+					<form:layoutData>
+						<layout:GridData span="L12 M12 S12"/>
+					</form:layoutData>
+				</form:Form>
+			</layout:content>
+			<layout:layoutData>
+				<layout:GridData span="L12 M12 S12"/>
+			</layout:layoutData>
+		</layout:Grid>
+	</layout:Grid>
+</mvc:View>

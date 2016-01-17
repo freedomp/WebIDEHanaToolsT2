@@ -1,0 +1,183 @@
+{
+	"name": "sap.watt.saptoolsets.fiori.editor.ui5wysiwygeditor.WYSIWYGEditor",
+	"description": "The w5g editor interface",
+	"extends": [
+		"sap.watt.common.service.editor.Editor",
+		"sap.watt.common.service.editor.UndoRedo",
+		"sap.watt.common.service.selection.UI5ControlProvider"
+	],
+	"configurationProperties": {
+		"contextMenu": {
+			"type": "string",
+			"multiple": false
+		}
+	},
+	"methods": {
+		"iterateOverAllPublicAggregationsOfRootControl": {
+			"description": "Iterates over all controls beginning with the root control of the wysiwyg canvas (e.g. UIArea/View) and calling the callback function for each of them.",
+			"params": [
+				{
+					"name": "fnCallback",
+					"type": "function"
+				},
+				{
+					"name": "fnBreakCondition",
+					"type": "function",
+					"optional": true
+				},
+				{
+					"name": "aFilter",
+					"type": "[string]",
+					"optional": true
+				}
+			],
+			"returns": "object"
+		},
+		"selectUI5Control": {
+			"description": "Selects a given UI5 control inside the wysiwyg canvas",
+			"params": [
+				{
+					"name": "UI5Control",
+					"type": "object"
+				},
+				{
+					"name": "sAggregation",
+					"type": "string",
+					"optional": true
+				}
+			]
+		},
+		"deselectUI5Control": {
+			"description": "Deselects a selected UI5 control inside the wysiwyg canvas",
+			"params": [
+				{
+					"name": "UI5Control",
+					"type": "object",
+					"optional": true
+				}
+			]
+		},
+		"highlightUI5Control": {
+			"description": "Hightlights a given UI5 control inside the wysiwyg canvas",
+			"params": [
+				{
+					"name": "UI5Control",
+					"type": "object"
+				}
+			]
+		},
+		"downplayUI5Control": {
+			"description": "Downplays a given UI5 control inside the wysiwyg canvas",
+			"params": [
+				{
+					"name": "UI5Control",
+					"type": "object"
+				}
+			]
+		},
+		"deleteUI5Control": {
+			"description": "Deletes a given UI5 control inside the wysiwyg canvas",
+			"params": [
+				{
+					"name": "UI5Control",
+					"type": "object",
+					"optional": true
+				}
+			]
+		},
+		"deleteUI5ControlWithValidations": {
+			"description": "calls the deleteUI5Control after checking and raising confirmation dialog",
+			"params": [
+			]
+		},
+		"navigateUI5Control": {
+			"description": "navigate among UI5 controls inside the wysiwyg canvas",
+			"params": [
+				{
+					"name": "sTarget",
+					"type": "string"
+				}
+			]
+		},
+		"goToCode": {
+			"description": "Go to XML representation of the UI5 control currently selected",
+			"params": []
+		},
+		"openInLayoutEditor": {
+			"description": "open fragment or sub view in layout editor from the selected control in the view"
+		},
+		"cut": {
+			"description": "Cut a control"
+		},
+		"copy": {
+			"description": "Copy a control"
+		},
+		"paste": {
+			"description": "Paste a control"
+		},
+		"pasteSibling": {
+			"description": "Paste a control as sibling of selection",
+			"params" : [
+				{
+					"name": "iOffset",
+					"type": "number"
+				}
+			]
+		},
+		"injectElementToAggregation": {
+			"params": [
+				{
+					"name": "sClassName",
+					"type": "string"
+				},
+				{
+					"name": "sAggregationName",
+					"type": "string"
+				}
+			]
+		},
+		"getDesignTime": {
+			"returns": {
+				"type": "object"
+			}
+		},
+		"hasClipboard": {
+			"description": "is there a copied control in the clipboard"
+		},
+		"getScope": {
+			"description": "return the wysiwyg canvas window scope (iframes contentWindow)",
+			"returns": {
+				"type": "object"
+			}
+		},
+		"getXmlManipulator": {
+			"description": "return the wysiwyg XmlManipulator",
+			"returns": {
+				"type": "object"
+			}
+		},
+		"getCurrentSelectedControl": {
+			"description": "return the selected control",
+			"returns": {
+				"type": "object"
+			}
+		},
+		"getRoot": {
+			"description": "return the root view",
+			"returns": {
+				"type": "object"
+			}
+		}
+	},
+	"events": {
+		"bindingChanged": {
+			"description": "Will be fired on data binding changes."
+		},
+		"viewHasChanged": {
+			"description": "Will be fired on any change in WYSIWYG area."
+		},
+		"viewElementSelected": {
+			"description": "Will be fired on selection of control or aggregation in the layout editor"
+		}
+	}
+}

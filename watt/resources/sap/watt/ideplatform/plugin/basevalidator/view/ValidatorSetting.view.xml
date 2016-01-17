@@ -1,0 +1,113 @@
+<core:View controllerName="sap.watt.ideplatform.plugin.basevalidator.view.ValidatorSetting"
+	xmlns:commons="sap.ui.commons" xmlns:layout="sap.ui.layout" xmlns:martix="sap.ui.commons.layout" xmlns:form="sap.ui.layout.form"
+	xmlns:ide="sap.watt.ideplatform.plugin.basevalidator.view" xmlns="sap.ui.table"
+	xmlns:core="sap.ui.core" xmlns:m="sap.m" width="100%" busyIndicatorDelay="0"
+	xmlns:aceEditor="sap.watt.common.plugin.aceeditor.control"
+	height="100%" class="linterprojectsetting">
+
+	<layout:HorizontalLayout allowWrapping="false">
+		<layout:layoutData>
+				<layout:GridData span="L3 M6 S12"/>
+		</layout:layoutData>
+		<commons:Label text="{i18n>proj_active_validator}">
+		</commons:Label>
+		<commons:DropdownBox id="validatorsSelection" items="{path: 'validatorsModel>/validators'}" change="onValidatorChange" tooltip="{i18n>validator_selection_tooltip}">
+			<commons:items>
+				<core:ListItem key="{validatorsModel>serviceID}" text="{validatorsModel>displayName}" />
+			</commons:items>
+		</commons:DropdownBox>
+	</layout:HorizontalLayout>
+
+	<commons:Button id="ResetButton" tooltip="{i18n>proj_validator_setting_resetToolTip}" text="{i18n>button_reset}" press ="onResetConfigurationClicked">
+	</commons:Button>
+
+	<commons:Panel text="{i18n>RulesInformationEditor}" class="javascripRulesPanels" collapsed="true">
+			<aceEditor:Editor id="aceEditorValidatorSettings" height="300px" width="100%">
+			</aceEditor:Editor>
+	</commons:Panel>
+
+	<commons:Panel text="{i18n>JavascriptRulesPanel}"  class="javascripRulesPanels" collapsed="false" height="100%">
+		<layout:Grid class="RulesPathLayout">
+		<layout:content>
+			<commons:Label text="{i18n>proj_validator_setting_ruleslabel}" width="100%">
+    			<commons:layoutData>
+    				<layout:GridData span="L3 M6 S12"/>
+    			</commons:layoutData>
+			</commons:Label>
+			<commons:TextField id="PathToUserRules" value="" editable="false" width="100%" enabled="{enable}">
+    			<commons:layoutData>
+    				<layout:GridData span="L6 M6 S12"  linebreakS="true"/>
+    			</commons:layoutData>
+			</commons:TextField>
+			<commons:Button id="BrowseButton" tooltip="{i18n>proj_validator_setting_rulesbrowselabel}" text="{i18n>button_browse}" press ="onWorkspaseBrowseClicked" class="linterprojectbuttons">
+    			<commons:layoutData>
+    				<layout:GridData span="L2 M8 S6"/>
+    			</commons:layoutData>
+			</commons:Button>
+			<commons:Button id="ClearPath" tooltip="{i18n>proj_validator_setting_rulesclearlabel}" icon="sap-icon://watt/delete" press ="onClearPathClicked" class="linterprojectbuttons">
+				<commons:layoutData>
+					<layout:GridData span="L1 M4 S4" linebreakM="true" linebreakS="true"/>
+				</commons:layoutData>
+			</commons:Button>
+			</layout:content>
+		</layout:Grid>
+		<Table id="ESLintRules" xmlns="sap.ui.table" xmlns:commons="sap.ui.commons" enableGrouping="false">
+			<columns>
+				<Column sortProperty="enable" width="10%">
+					<label>
+						<commons:Label text="{i18n>proj_validator_setting_column_enabled}"></commons:Label>
+					</label>
+					<template>
+						<commons:ToggleButton pressed="{enable}" class="WebSwitch"></commons:ToggleButton>
+					</template>
+				</Column>
+				<Column sortProperty="ruleId" filterProperty="ruleId" width="25%">
+					<label>
+						<commons:Label text="{i18n>proj_validator_setting_column_key}"></commons:Label>
+					</label>
+					<template>
+						<commons:Link text="{ruleId}" href="{helpUrl}" target="_blank"></commons:Link>
+					</template>
+				</Column>
+				<Column sortProperty="severity" filterProperty="severity" width="20%">
+					<label>
+						<commons:Label text="{i18n>proj_validator_setting_column_severity}"></commons:Label>
+					</label>
+					<template>
+						<commons:DropdownBox value="{severity}" editable="{enable}" enabled="{enable}">
+							<commons:items>
+								<core:ListItem text="info"></core:ListItem>
+								<core:ListItem text="warning"></core:ListItem>
+								<core:ListItem text="error"></core:ListItem>
+							</commons:items>
+						</commons:DropdownBox>
+					</template>
+				</Column>
+				<Column sortProperty="category" filterProperty="category" width="20%">
+					<label>
+						<commons:Label text="{i18n>proj_validator_setting_column_category}"></commons:Label>
+					</label>
+					<template>
+						<commons:ComboBox value="{category}" editable="{enable}" enabled="{enable}">
+							<core:ListItem text="Best Practice"></core:ListItem>
+							<core:ListItem text="Node.js"></core:ListItem>
+							<core:ListItem text="Possible Error"></core:ListItem>
+							<core:ListItem text="Strict Mode"></core:ListItem>
+							<core:ListItem text="Stylistic Issue"></core:ListItem>
+							<core:ListItem text="Variable"></core:ListItem>
+						</commons:ComboBox>
+					</template>
+				</Column>
+				<Column width="15%">
+					<label>
+						<commons:Label text="{i18n>proj_validator_setting_column_additionalProperties}"></commons:Label>
+					</label>
+					<template>
+						<commons:TextField id="additionalPropertiesUI" parseError="onParseAdditionalPropertiesFails" validationSuccess="onValidationAdditionalPropertiesSuccess" editable="{enable}" enabled="{enable}"></commons:TextField>
+					</template>
+				</Column>
+			</columns>
+		</Table>
+	</commons:Panel>
+
+</core:View>

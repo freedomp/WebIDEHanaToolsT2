@@ -1,0 +1,9 @@
+{
+    "ExtensionContext":{
+       "Caller" : "CopyObject",
+       "Mode"   : "After",
+       "FileExtensions": ["calculationview","analyticprivilege"]
+    },
+    "libraryPackage"    : "sap.hana.ide.editor.plugin.analytics.base",
+    "libraryName"       : "copyObjService" 
+}

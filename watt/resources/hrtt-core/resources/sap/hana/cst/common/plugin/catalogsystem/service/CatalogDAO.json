@@ -1,0 +1,89 @@
+{
+	"name" : "sap.hana.cst.common.catalogsystem.interface.CatalogDAO",
+	"description" : "The remote catalog service interface",
+	"configurationProperties" : {
+		"filesystemDAO" : {
+			"type" : "sap.watt.common.service.remote.FileDAO",
+			"multiple" : false
+		}
+	},
+	"methods" : {
+        "getRoot": {},
+        "getDocument" : {"description" : ""},
+        "getDocumentFromPath" : {"description" : ""},
+        "createEntityFromPath" : {"description" : ""},
+        "load":{"description": "dao method"},
+		"getObjectDefinition" : { "description" : "" },
+		"getSynonyms" : { "description" : "" },
+		"getSqlObjects" : { "description" : "" },
+		"searchObjectsWithAttribute" : { "description" : "" },
+		"getMandatoryParameters" : { "description" : "" },
+		"getSchemas" : { "description" : "" },
+		"checkExistingSchema" : { "description" : "" },
+		"getCurrentSchema" : { "description" : "" },
+		"getFunctions" : { "description" : "" },
+		"getFunctionParameters" : { "description" : "" },
+		"getRemoteFunctionParameters" : { "description" : "" },
+		"getIndexes" : { "description" : "" },
+		"getTableIndexes" : { "description" : "" },
+		"getIndex" : { "description" : "" },
+		"getProcedures":{ "description" : "" },
+		"searchProcedures":{ "description" : "" },
+		"getProcedureParameters":{ "description" : "" },
+		"getSequences":{ "description" : "" },
+		"getTables":{ "description" : "" },
+		"getVirtualTableRemoteSourceInfo":{ "description" : "" },
+		"getVirtualTableProperties":{ "description" : "" },
+		"getTableMetadata":{ "description" : "" },
+		"getTriggers":{ "description" : "" },
+		"getViews":{ "description" : "" },
+		"getColumnViews":{ "description" : "" },
+		"getViewMetadata":{ "description" : "" },
+		"getColumnViewParameters":{ "description" : "" },
+		"getObjectDependencies":{ "description" : "" },
+		"getColumnsOfTable":{ "description" : "" },
+		"getColumnsOfColumnView":{ "description" : "" },
+
+	    "createSequence":{ "description" : "" },
+	    "createSynonym":{ "description" : "" },
+		"sqlExecute":{ "description" : "" },
+		"save":{ "description" : "" },
+		"sqlMultiExecute":{ "description" : "" },
+		"executeSqlWithInputParameters":{ "description" : "" },
+		"getPrepareStatementParameter":{ "description" : "" },
+		
+		"importObject":{ "description" : "" },
+		"importScanFromServer":{ "description" : "" },
+		"getSystemInfo":{ "description" : "" },
+		"exportObjectOnServer":{ "description" : "" },
+		
+		"getCurrentUser":{ "description" : "" },
+		"getRemoteSourceConfig":{ "description" : "" },
+
+	  	"dropMultiObject":{ "description" : "" },
+	  	"dropObject":{ "description" : "" },
+        "readFileMetadata": {
+			"description" : "Gets the file metadata",
+			"returns": {
+					"type" : {
+						"sETag" : {
+							"type" : "string",
+							"description" : "The ETag of the file"
+							}
+						},
+					"description" : "Metadata (ETag) of the file"
+				}
+		},
+		
+		"copyObject":{"description": ""},
+		"moveObject":{"description": ""},
+		"deleteFile":{"description": ""},
+		"rename":{"description": ""},
+		"sqlExecuteWithLimitOffset":{"description": ""},
+		"updateTable":{"description": ""},
+		"getUnitOfMeasure":{"description": ""},
+		"getCurrency":{"description": ""},
+		"searchObjectsInStaticList":{"description": ""}
+		
+	}
+}

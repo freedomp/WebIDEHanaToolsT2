@@ -1,0 +1,54 @@
+/* ============================================= */
+/* CSS for control sap.ui.comp/SmartTable.control */
+/* ============================================= */
+
+.sapUiCompSmartTable{	
+}
+
+.sapUiCompSmartTableHeader {
+	padding: 0rem;
+}
+
+.sapUiCompSmartTable .sapUiCompSmartTableHeader {
+	margin: 0rem;
+}
+
+.sapUiCompSmartTable .sapUiCompSmartTableToolbar{
+	padding-left: 0.25rem;
+}
+
+.sapUiCompSmartTable .sapUiCompSmartTableToolbarHeight{
+	height: 3rem;
+}
+
+.sapUiSizeCondensed .sapUiCompSmartTable .sapUiCompSmartTableToolbarHeight {
+	height: inherit;
+}
+
+.sapUiCompSmartTable .sapUiAnalyticalTableSum input{
+	border: 0px;
+	background: inherit;
+	pointer-events: none;
+}
+
+.sapUiCompSmartTable .sapUiTableGroupHeader input{
+	border: 0px;
+	background: inherit;
+	pointer-events: none;	
+}
+
+.sapUiCompSmartTable .sapUiAnalyticalTableSum .sapMInputValHelpInner{
+	display: none;
+} 
+
+.sapUiCompSmartTable .sapUiTableGroupHeader .sapMInputValHelpInner{
+	display: none;
+} 
+
+.sapUiCompSmartTable .sapUiAnalyticalTableSum .sapMDP{
+	display: none;
+}
+
+.sapUiCompSmartTable .sapUiTableGroupHeader .sapMDP{
+	display: none;
+}

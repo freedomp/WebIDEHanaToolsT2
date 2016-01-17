@@ -1,0 +1,44 @@
+<mvc:View controllerName="sap.watt.saptoolsets.fiori.editor.plugin.appdescriptoreditor.ui.AppDescriptorEditor"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:appDescriptorUI="sap.watt.saptoolsets.fiori.editor.plugin.appdescriptoreditor.ui" xmlns:core="sap.ui.core"
+	xmlns:form="sap.ui.layout.form" xmlns:layout="sap.ui.layout" xmlns:table="sap.ui.table" xmlns:unified="sap.ui.unified"
+	xmlns="sap.ui.commons">
+	<layout:Grid vSpacing="0">
+		<!--Valid file grid-->
+		<layout:Grid id="tabsGrid" vSpacing="0" visible="{AppDescriptorUI>/bTabGridVisible}">
+			<layout:content>
+				<TabStrip class="barTabs" id="appDescriptorTabStrip" select="OnTabSelect">
+					<tabs>
+						<!--*****************Settings tab********************-->
+						<Tab text="{i18n>AppDescriptor_Settings}"></Tab>
+						<!--*****************Data Source tab********************-->
+						<Tab text="{i18n>AppDescriptor_Data_Sources}" visible="true"></Tab>
+						<!--*****************Routing tab********************-->
+						<Tab text="{i18n>AppDescriptor_Routing}"></Tab>
+						<!--*****************Navigation tab********************-->
+						<Tab text="{i18n>AppDescriptor_Navigation}"></Tab>
+					</tabs>
+					<layoutData>
+						<layout:GridData span="L12 M12 S12"/>
+					</layoutData>
+				</TabStrip>
+			</layout:content>
+			<layout:layoutData>
+				<layout:GridData span="L12 M12 S12"/>
+			</layout:layoutData>
+		</layout:Grid>
+		<!--Error grid-->
+		<layout:Grid id="errorGrid" vSpacing="0" visible="{= !${AppDescriptorUI>/bTabGridVisible}}">
+			<layout:content>
+				<TextView class="icons_label" text="{i18n>AppDescriptor_invalid_file}" textAlign="Center" wrapping="false">
+					<layoutData>
+						<layout:GridData span="L12 M12 S12"/>
+					</layoutData>
+				</TextView>
+			</layout:content>
+			<layout:layoutData>
+				<layout:GridData span="L12 M12 S12"/>
+			</layout:layoutData>
+		</layout:Grid>
+	</layout:Grid>
+</mvc:View>

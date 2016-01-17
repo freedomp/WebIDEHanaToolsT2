@@ -1,0 +1,218 @@
+{
+  "modules" : [
+    {
+      "name" : "sap/ui/fl/Cache.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2014-2015 SAP SE. All rights reserved",
+      "size" : 4679,
+      "compressedSize" : 1189,
+      "required" : ["sap/ui/fl/Utils.js", "jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/fl/Change.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2014-2015 SAP SE. All rights reserved",
+      "size" : 12507,
+      "compressedSize" : 4533,
+      "required" : ["sap/ui/base/EventProvider.js", "sap/ui/fl/Utils.js", "sap/ui/fl/registry/Settings.js", "jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/fl/ChangePersistence.js",
+      "description" : "global Promise",
+      "size" : 7544,
+      "compressedSize" : 2555,
+      "required" : ["sap/ui/fl/Change.js", "sap/ui/fl/Utils.js", "jquery.sap.global.js", "sap/ui/fl/LrepConnector.js", "sap/ui/fl/Cache.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/fl/ChangePersistenceFactory.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2014-2015 SAP SE. All rights reserved",
+      "size" : 2151,
+      "compressedSize" : 635,
+      "required" : ["jquery.sap.global.js", "sap/ui/fl/ChangePersistence.js", "sap/ui/fl/Utils.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/fl/DefaultVariant.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2014-2015 SAP SE. All rights reserved",
+      "size" : 5058,
+      "compressedSize" : 1466,
+      "required" : ["jquery.sap.global.js", "sap/ui/fl/Change.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/fl/FakeLrepConnector.js",
+      "description" : "global Promise",
+      "size" : 4677,
+      "compressedSize" : 1991,
+      "required" : ["jquery.sap.global.js", "sap/ui/thirdparty/URI.js", "sap/ui/fl/Utils.js", "sap/ui/fl/LrepConnector.js", "sap/ui/fl/Cache.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/fl/FlexController.js",
+      "description" : "global Promise",
+      "size" : 15282,
+      "compressedSize" : 4758,
+      "required" : ["jquery.sap.global.js", "sap/ui/fl/Persistence.js", "sap/ui/fl/registry/ChangeRegistry.js", "sap/ui/fl/Utils.js", "sap/ui/fl/Change.js", "sap/ui/fl/registry/Settings.js", "sap/ui/fl/ChangePersistenceFactory.js", "sap/ui/core/mvc/View.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/fl/FlexControllerFactory.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2014-2015 SAP SE. All rights reserved",
+      "size" : 1708,
+      "compressedSize" : 451,
+      "required" : ["jquery.sap.global.js", "sap/ui/fl/FlexController.js", "sap/ui/fl/Utils.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/fl/LrepConnector.js",
+      "description" : "global Promise",
+      "size" : 23965,
+      "compressedSize" : 7659,
+      "required" : ["jquery.sap.global.js", "sap/ui/thirdparty/URI.js", "sap/ui/fl/Utils.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/fl/Persistence.js",
+      "description" : "global Promise",
+      "size" : 19278,
+      "compressedSize" : 7626,
+      "required" : ["sap/ui/fl/Change.js", "sap/ui/fl/DefaultVariant.js", "sap/ui/fl/Utils.js", "jquery.sap.global.js", "sap/ui/fl/LrepConnector.js", "sap/ui/fl/Cache.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/fl/Preprocessor.js",
+      "description" : "Provides object sap.ui.fl.Processor",
+      "size" : 1159,
+      "compressedSize" : 332,
+      "required" : ["jquery.sap.global.js", "sap/ui/base/Object.js", "sap/ui/fl/PreprocessorImpl.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/fl/PreprocessorImpl.js",
+      "description" : "Provides object sap.ui.fl.ProcessorImpl",
+      "size" : 1927,
+      "compressedSize" : 719,
+      "required" : ["jquery.sap.global.js", "sap/ui/core/Component.js", "sap/ui/fl/FlexControllerFactory.js", "sap/ui/fl/Utils.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/fl/Transports.js",
+      "description" : "global Promise",
+      "size" : 3824,
+      "compressedSize" : 1229,
+      "required" : ["sap/ui/fl/LrepConnector.js", "sap/ui/fl/Utils.js", "jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/fl/Utils.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2014-2015 SAP SE. All rights reserved",
+      "size" : 17020,
+      "compressedSize" : 4679,
+      "required" : ["jquery.sap.global.js", "sap/ui/core/Component.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/fl/changeHandler/Base.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2014-2015 SAP SE. All rights reserved",
+      "size" : 3556,
+      "compressedSize" : 963,
+      "required" : ["sap/ui/fl/Utils.js", "jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/fl/changeHandler/HideControl.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2014-2015 SAP SE. All rights reserved",
+      "size" : 1501,
+      "compressedSize" : 517,
+      "required" : ["jquery.sap.global.js", "sap/ui/fl/changeHandler/Base.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/fl/changeHandler/UnhideControl.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2014-2015 SAP SE. All rights reserved",
+      "size" : 1516,
+      "compressedSize" : 516,
+      "required" : ["jquery.sap.global.js", "sap/ui/fl/changeHandler/Base.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/fl/core/EventDelegate.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2014-2015 SAP SE. All rights reserved",
+      "size" : 4038,
+      "compressedSize" : 1441,
+      "required" : ["jquery.sap.global.js", "sap/ui/fl/Utils.js", "sap/ui/base/EventProvider.js", "sap/ui/fl/registry/ChangeRegistry.js", "sap/ui/fl/core/FlexVisualizer.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/fl/core/FlexVisualizer.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2014-2015 SAP SE. All rights reserved",
+      "size" : 884,
+      "compressedSize" : 264,
+      "required" : ["jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/fl/fieldExt/Access.js",
+      "description" : "global Promise",
+      "size" : 7303,
+      "compressedSize" : 2340,
+      "required" : ["jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/fl/library.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)  (c) Copyright 2009-2015 SAP SE. All rights reserved",
+      "size" : 894,
+      "compressedSize" : 544,
+      "required" : ["sap/ui/core/Core.js", "sap/ui/core/library.js", "sap/ui/core/mvc/XMLView.js", "sap/ui/core/mvc/View.js", "jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/fl/manifest.json",
+      "size" : 683,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/fl/registry/ChangeRegistry.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2014-2015 SAP SE. All rights reserved",
+      "size" : 9673,
+      "compressedSize" : 3226,
+      "required" : ["sap/ui/fl/Utils.js", "jquery.sap.global.js", "sap/ui/fl/registry/ChangeRegistryItem.js", "sap/ui/fl/registry/SimpleChanges.js", "sap/ui/fl/registry/ChangeTypeMetadata.js", "sap/ui/fl/registry/Settings.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/fl/registry/ChangeRegistryItem.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2014-2015 SAP SE. All rights reserved",
+      "size" : 2910,
+      "compressedSize" : 1123,
+      "required" : ["sap/ui/fl/Utils.js", "jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/fl/registry/ChangeTypeMetadata.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2014-2015 SAP SE. All rights reserved",
+      "size" : 3585,
+      "compressedSize" : 1124,
+      "required" : ["sap/ui/fl/Utils.js", "jquery.sap.global.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/fl/registry/Settings.js",
+      "description" : "global Error",
+      "size" : 10914,
+      "compressedSize" : 3825,
+      "required" : ["jquery.sap.global.js", "sap/ui/fl/LrepConnector.js", "sap/ui/fl/Cache.js", "sap/ui/fl/Utils.js", "sap/ui/base/EventProvider.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/fl/registry/SimpleChanges.js",
+      "description" : "! SAP UI development toolkit for HTML5 (SAPUI5)\n\n(c) Copyright 2014-2015 SAP SE. All rights reserved",
+      "size" : 874,
+      "compressedSize" : 393,
+      "required" : ["jquery.sap.global.js", "sap/ui/fl/changeHandler/HideControl.js", "sap/ui/fl/changeHandler/UnhideControl.js"],
+      "includes" : []
+    }
+  ]
+}

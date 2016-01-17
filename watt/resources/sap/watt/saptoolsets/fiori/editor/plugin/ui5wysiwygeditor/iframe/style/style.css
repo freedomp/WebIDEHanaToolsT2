@@ -1,0 +1,206 @@
+html {
+	overflow: hidden;
+	height:100%;
+}
+html.sap-phone *, html.sap-tablet * {
+	-webkit-user-select: text;
+	-moz-user-select: text;
+	-ms-user-select: text;
+	user-select: text;
+	-webkit-user-drag: element;
+}
+/*Fix for blue_crystal image background */
+.sapUiBody {
+    background-image: none;
+}
+.sap-desktop ::-webkit-scrollbar {
+    width: 14px;
+    height: 16px;
+    background-color: rgba(247, 247, 247, 0);
+}
+.sap-desktop ::-webkit-scrollbar-thumb {
+    background-color: rgba(230, 230, 230, 0.63);
+}
+.wysiwygShrink {
+	transform: scale(0.93, 0.98);
+	-webkit-transform: scale(0.93, 0.98);
+	-moz-transform: scale(0.93, 0.98);
+	-ms-transform: scale(0.93, 0.98);
+	-o-transform: scale(0.93, 0.98);
+}
+.controlOverlayBadge:before {
+	content: attr(badge-data);
+	pointer-events: none;
+	position: absolute;
+	display: none;
+	box-sizing: border-box;
+	top: 0;
+	left: 0;
+	padding: 4px 2px 2px 2px;
+	height: 14px;
+	line-height: 7px;
+	font-size: 10px;
+	background: #FFFFFF;
+	color: #005B8D;
+	border: #00C9FF solid 1px;
+}
+.controlOverlayBadge.sapUiDtOverlaySelected:before,
+.controlOverlayBadge.widget-overlay-highlighted:before {
+	display: block;
+}
+.widget-overlay-highlighted {
+	box-shadow: 0 0 0 1px #00C9FF inset;
+	opacity: 0.5;
+}
+.sapUiDtOverlaySelected,
+.sapUiDtOverlayDroppable {
+    outline-offset: -1px;
+    outline-color: #00C9FF;
+}
+.controlOverlayForUnsupportedControl.widget-overlay-highlighted,
+.controlOverlayForUnsupportedControl .widget-overlay-highlighted {
+	box-shadow: 0 0 0 1px #999999 inset;
+}
+.controlOverlayForUnsupportedControl.sapUiDtOverlaySelected,
+.controlOverlayForUnsupportedControl .sapUiDtOverlaySelected {
+    outline-color: #999999;
+}
+.controlOverlayForUnsupportedControl.controlOverlayBadge:before,
+.controlOverlayForUnsupportedControl .controlOverlayBadge:before{
+    border-color: #999999;
+    color: #999999;
+}
+.sapUiDtEmptyContainer:not(.sapUiFormResGridCont) {
+    min-height : 48px !important;
+    min-width : 100px !important;
+}
+.sapUiDtEmptyContainer.sapMSegB {
+    padding: 0 !important;
+}
+.sapUiDtEmptyNarrowContainer {
+    min-height:  24px !important;
+    min-width : 100px !important;
+}
+.sapUiDtEmptyBackground {
+    background-size: 20px 20px !important;
+    background-position: 0 0, 10px 10px !important;
+    background-image:
+    linear-gradient(45deg,
+    rgba(238, 238, 238, 0.7) 25%,
+    rgba(247, 247, 247, 0.3) 25%,
+    rgba(247, 247, 247, 0.3) 75%,
+    rgba(238, 238, 238, 0.7) 75%,
+    rgba(238, 238, 238, 0.7)),
+
+    linear-gradient(45deg,
+    rgba(238, 238, 238, 0.7) 25%,
+    rgba(247, 247, 247, 0.3) 25%,
+    rgba(247, 247, 247, 0.3) 75%,
+    rgba(238, 238, 238, 0.7) 75%,
+    rgba(238, 238, 238, 0.7)) !important;
+    outline: 1px solid #eeeeee; /* rgba(238, 238, 238) */
+}
+.sapMTBSpacer {
+    position: relative;
+    margin: 0 8px !important;
+    min-height : 12px !important;
+    border-left: 1px #CCCCCC solid !important;
+    border-right: 1px #CCCCCC solid !important;
+}
+.sapMTBSpacer:after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 0;
+    right: 0;
+    border: #CCCCCC solid;
+    border-width: 1px 0 0 0;
+}
+.sapMPullDownTouch {
+    margin-top: 0 !important;
+}
+.sapMNoImg {
+    visibility: visible !important;
+    position: relative;
+}
+.sapMNoImg:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url("emptyImage.svg") 0 0 #fefefe no-repeat;
+}
+.emptyIcon {
+    min-width: 32px !important;
+    min-height: 32px !important;
+    background: url("emptyIcon.svg") 0 0 no-repeat !important;
+}
+.sapMBar .sapMLabel.sapUiDtEmptyBackground {
+    display: inline-block;
+}
+.sapUiView.sapUiXMLView.sapUiScroll {
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+
+.ui-resizable {
+	position: relative;
+}
+.ui-resizable-handle {
+	position: absolute;
+	height: 4px;
+	width: 4px;
+	border: 1px solid #00C9FF;
+	background: #43DCFF;
+	display: block;
+}
+.ui-resizable-disabled .ui-resizable-handle,
+.ui-resizable-autohide .ui-resizable-handle {
+	display: none;
+}
+.ui-resizable-nw,
+.ui-resizable-n,
+.ui-resizable-ne {
+	top: -3px;
+}
+.ui-resizable-ne,
+.ui-resizable-e,
+.ui-resizable-se {
+	right: -3px;
+}
+.ui-resizable-sw,
+.ui-resizable-s,
+.ui-resizable-se {
+	bottom: -3px;
+}
+.ui-resizable-nw,
+.ui-resizable-w,
+.ui-resizable-sw {
+	left: -3px;
+}
+.ui-resizable-se,
+.ui-resizable-nw {
+	cursor: nw-resize;
+}
+.ui-resizable-sw,
+.ui-resizable-ne {
+	cursor: ne-resize;
+}
+.ui-resizable-n,
+.ui-resizable-s {
+	cursor: n-resize;
+	left: 50%;
+	margin-left: -4px;
+}
+.ui-resizable-e,
+.ui-resizable-w {
+	cursor: e-resize;
+	top: 50%;
+	margin-top: -4px;
+}
+.sapMITBContent{
+    min-height: 100px;
+}

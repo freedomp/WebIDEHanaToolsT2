@@ -1,0 +1,503 @@
+<mvc:View controllerName="sap.watt.saptoolsets.fiori.editor.plugin.appdescriptoreditor.ui.AppDescriptorSettingsTab"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:appDescriptorUI="sap.watt.saptoolsets.fiori.editor.plugin.appdescriptoreditor.ui" xmlns:core="sap.ui.core"
+	xmlns:form="sap.ui.layout.form" xmlns:layout="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:table="sap.ui.table"
+	xmlns:unified="sap.ui.unified" xmlns="sap.ui.commons">
+	<layout:Grid vSpacing="0">
+		<!--contentSettingsGrid-->
+		<layout:Grid class="sapIDEAppDescriptorGrid" vSpacing="0">
+			<layout:content>
+				<form:Form>
+					<form:formContainers>
+						<!--*****************General container********************-->
+						<form:FormContainer id="appDescriptor-settings-general">
+							<form:formElements>
+								<!--ID-->
+								<form:FormElement>
+									<form:label>
+										<Label text="{i18n>AppDescriptor_ID}">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<TextField name="id" change="onGeneralIdChange" placeholder="sap.fiori.appName" required="true" value="{/sap.app/properties/id/sValue}" width="100%" 
+											tooltip="{i18n>AppDescriptor_Settings_ID_tooltip}">
+											<layoutData>
+												<layout:GridData span="L9 M9 S6"/>
+											</layoutData>
+										</TextField>
+									</form:fields>
+								</form:FormElement>
+								<!--Type-->
+								<form:FormElement>
+									<form:label>
+										<Label text="{i18n>AppDescriptor_Type}" wrapping="false">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<DropdownBox name="appDescriptor-general-type" change="onGeneralTypeChange" items="{/sap.app/properties/type/mConvertedEnum}" required="true"
+											selectedKey="{/sap.app/properties/type/sSelectedKey}" width="100%" tooltip="{i18n>AppDescriptor_Settings_Type_tooltip}">
+											<items>
+												<core:ListItem key="{key}" text="{text}"></core:ListItem>
+											</items>
+											<layoutData>
+												<layout:GridData span="L9 M9 S6"/>
+											</layoutData>
+										</DropdownBox>
+									</form:fields>
+								</form:FormElement>
+								<!--Title-->
+								<form:FormElement>
+									<form:label>
+										<Label text="{i18n>AppDescriptor_Title}">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<TextField name="title" change="onGeneralTitleChange" placeholder="\{\{applicationTitle\}\}" required="true" value="{/sap.app/properties/title/sValue}"
+											width="100%" tooltip="{i18n>AppDescriptor_Settings_Title_tooltip}">
+											<layoutData>
+												<layout:GridData span="L9 M9 S6"/>
+											</layoutData>
+										</TextField>
+									</form:fields>
+								</form:FormElement>
+								<!--Description-->
+								<form:FormElement>
+									<form:label>
+										<Label required="true" text="{i18n>AppDescriptor_Description}">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<TextField name="description" change="onGeneralDescriptionChange" placeholder="\{\{applicationDescription\}\}" value="{/sap.app/properties/description/sValue}"
+											width="100%" tooltip="{i18n>AppDescriptor_Settings_Description_tooltip}">
+											<layoutData>
+												<layout:GridData span="L9 M9 S6"/>
+											</layoutData>
+										</TextField>
+									</form:fields>
+								</form:FormElement>
+								<!--Source Template-->
+								<form:FormElement>
+									<form:label>
+										<Label required="true" text="{i18n>AppDescriptor_Source_Template}">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<TextField name="sourceTemplate" change="onGeneralIdChange" editable="false"
+											value="{ parts:['/sap.app/properties/sourceTemplate/properties/id/sValue', '/sap.app/properties/sourceTemplate/properties/version/sValue'], formatter: '.formatCSSResourceToText' }"
+											width="100%" tooltip="{i18n>AppDescriptor_Settings_SourceTemplate_tooltip}">
+											<layoutData>
+												<layout:GridData span="L9 M9 S6"/>
+											</layoutData>
+										</TextField>
+									</form:fields>
+								</form:FormElement>
+								<!--i18n-->
+								<form:FormElement>
+									<form:label>
+										<Label required="true" text="{i18n>AppDescriptor_i18n}">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<TextField name="i18nFilePath" change="onGenerali18nChange" placeholder="i18n/i18n.properties" value="{/sap.app/properties/i18n/sValue}" 
+										width="100%" tooltip="{i18n>AppDescriptor_Settings_i18n_tooltip}">
+											<layoutData>
+												<layout:GridData span="L9 M9 S6"/>
+											</layoutData>
+										</TextField>
+									</form:fields>
+								</form:FormElement>
+								<!--Version-->
+								<form:FormElement>
+									<form:label>
+										<Label text="{i18n>AppDescriptor_Version}" wrapping="false">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<TextField name="appVersion" change="onGeneralVersionChange" placeholder="1.x.x" required="true"
+											value="{/sap.app/properties/applicationVersion/properties/version/sValue}" width="100%" tooltip="{i18n>AppDescriptor_Settings_Version_tooltip}">
+											<layoutData>
+												<layout:GridData span="L9 M9 S6"/>
+											</layoutData>
+										</TextField>
+									</form:fields>
+								</form:FormElement>
+								<!--Tags-->
+								<form:FormElement>
+									<form:label>
+										<Label text="{i18n>AppDescriptor_Tags}">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<appDescriptorUI:ListBoxWithAddRemove id="appDescriptor-settings-Keywords" dialogMetadata="{/sap.app/properties/tags/properties/oDialogMetadata}"
+											dialogTitle="{i18n>AppDescriptor_Add_Tags}" entryChanged="onGeneralTagsChange"
+											items="{/sap.app/properties/tags/properties/keywords/aValues}" select="onGeneralTagsSelect"
+											selectedKey="{/sap.app/properties/tags/properties/keywords/sSelectedKey}" tooltip="{i18n>AppDescriptor_Settings_Tags_tooltip}">
+											<appDescriptorUI:items>
+												<core:ListItem key="{item/text}" text="{item/text}"></core:ListItem>
+											</appDescriptorUI:items>
+										</appDescriptorUI:ListBoxWithAddRemove>
+									</form:fields>
+								</form:FormElement>
+								<!--Ach-->
+								<form:FormElement>
+									<form:label>
+										<Label text="{i18n>AppDescriptor_Ach}" visible="{/sap.app/properties/ach/bVisibility}">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<TextField name="ach" change="onGeneralAchChange" placeholder="AAA-BBB-CCC" required="true" tooltip="{i18n>AppDescriptor_Settings_Ach_tooltip}"
+											value="{/sap.app/properties/ach/sValue}" visible="{/sap.app/properties/ach/bVisibility}" width="100%">
+											<layoutData>
+												<layout:GridData span="L9 M9 S6"/>
+											</layoutData>
+										</TextField>
+									</form:fields>
+								</form:FormElement>
+							</form:formElements>
+							<form:title>
+								<core:Title design="Bold" text="{i18n>AppDescriptor_General}" tooltip="{i18n>AppDescriptor_General_Tooltip}"></core:Title>
+							</form:title>
+						</form:FormContainer>
+						<!--*****************User Interface container********************-->
+						<form:FormContainer id="appDescriptor-settings-userInterface">
+							<form:formElements>
+								<!--Technology-->
+								<form:FormElement>
+									<form:label>
+										<Label required="true" text="{i18n>AppDescriptor_Technology}" wrapping="false">
+											<layoutData>
+												<layout:GridData span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<DropdownBox name="technology" change="onUITechnologyChange" items="{/sap.ui/properties/technology/mConvertedEnum}"
+											selectedKey="{/sap.ui/properties/technology/sSelectedKey}" width="100%" tooltip="{i18n>AppDescriptor_Settings_Technology_tooltip}">
+											<items>
+												<core:ListItem key="{key}" text="{text}"></core:ListItem>
+											</items>
+											<layoutData>
+												<layout:GridData span="L9 M9 S6"/>
+											</layoutData>
+										</DropdownBox>
+									</form:fields>
+								</form:FormElement>
+								<!--Devices-->
+								<form:FormElement>
+									<form:label>
+										<Label required="true" text="{i18n>AppDescriptor_Devices}" tooltip="{i18n>AppDescriptor_Settings_Devices_tooltip}">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<ToggleButton icon="{/sap.ui/properties/deviceTypes/properties/phone/sIcon}" press="onDevicesIphonePress"
+											pressed="{/sap.ui/properties/deviceTypes/properties/phone/bValue}" text="{i18n>AppDescriptor_toggle_phone}" tooltip="{i18n>AppDescriptor_toggle_phone}">
+											<layoutData>
+												<layout:GridData linebreakS="true" span="L3 M3 S4"/>
+											</layoutData>
+										</ToggleButton>
+										<ToggleButton icon="{/sap.ui/properties/deviceTypes/properties/tablet/sIcon}" press="onDevicesTabletPress"
+											pressed="{/sap.ui/properties/deviceTypes/properties/tablet/bValue}" text="{i18n>AppDescriptor_toggle_tablet}" tooltip="{i18n>AppDescriptor_toggle_tablet}">
+											<layoutData>
+												<layout:GridData span="L3 M3 S4"/>
+											</layoutData>
+										</ToggleButton>
+										<ToggleButton icon="{/sap.ui/properties/deviceTypes/properties/desktop/sIcon}" press="onDevicesDesktopPress"
+											pressed="{/sap.ui/properties/deviceTypes/properties/desktop/bValue}" text="{i18n>AppDescriptor_toggle_desktop}" tooltip="{i18n>AppDescriptor_toggle_desktop}">
+											<layoutData>
+												<layout:GridData span="L3 M3 S4"/>
+											</layoutData>
+										</ToggleButton>
+									</form:fields>
+								</form:FormElement>
+								<!--Themes-->
+								<form:FormElement>
+									<form:label>
+										<Label required="true" text="{i18n>AppDescriptor_Themes}" wrapping="false">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<appDescriptorUI:ListBoxWithAddRemove id="appDescriptor-settings-Themes" dialogMetadata="{/sap.ui/properties/supportedThemes/oDialogMetadata}"
+											dialogTitle="{i18n>AppDescriptor_Themes}" entryChanged="onSapUISupportedThemesChange" items="{/sap.ui/properties/supportedThemes/aValues}"
+											select="onUISupportedThemesSelect" selectedKey="{/sap.ui5/properties/supportedThemes/sSelectedKey}" tooltip="{i18n>AppDescriptor_Settings_Supported_Themes_tooltip}">
+											<appDescriptorUI:items>
+												<core:ListItem key="{item/text}" text="{item/text}"></core:ListItem>
+											</appDescriptorUI:items>
+										</appDescriptorUI:ListBoxWithAddRemove>
+									</form:fields>
+								</form:FormElement>
+								<!--Application Icons label-->
+								<form:FormElement>
+									<form:label>
+										<Label class="icons_label" text="{i18n>AppDescriptor_Application_Icons}" tooltip="{i18n>AppDexcriptor_Settings_Application_Icons}">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L4 M4 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+								</form:FormElement>
+								<!--Icon-->
+								<form:FormElement>
+									<form:label>
+										<Label required="true" text="{i18n>AppDescriptor_Icon}">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<ValueHelpField name="appIconMain" class="sapIDEButtonSearchHelp" iconURL="sap-icon://value-help" value="{/sap.ui/properties/icons/properties/icon/sValue}"
+											valueHelpRequest="onIconValueHelpRequest" width="100%" tooltip="{i18n>AppDescriptor_Icon_Main_tooltip}">
+											<layoutData>
+												<layout:GridData span="L9 M9 S6"/>
+											</layoutData>
+										</ValueHelpField>
+									</form:fields>
+								</form:FormElement>
+								<!--Phone-->
+								<form:FormElement>
+									<form:label>
+										<Label required="true" text="{i18n>AppDescriptor_Phone}">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<!--save custom data:" "manifestKey" on each icon field-->
+										<ValueHelpField name="phone" app:manifestKey="phone" change="onUIPhoneChange" class="sapIDEButtonSearchHelp" iconURL="sap-icon://value-help"
+											tooltip="{i18n>AppDescriptor_UI_IphoneTooltip}" value="{/sap.ui/properties/icons/properties/phone/sValue}"
+											valueHelpRequest="onUIPhoneValueHelpRequest" width="100%">
+											<layoutData>
+												<layout:GridData span="L9 M9 S6"/>
+											</layoutData>
+										</ValueHelpField>
+									</form:fields>
+								</form:FormElement>
+								<!--Phone@2-->
+								<form:FormElement>
+									<form:label>
+										<Label required="true" text="{i18n>AppDescriptor_Phone2}">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<ValueHelpField app:manifestKey="phone@2" name="phone@2" change="onUIPhone2Change" class="sapIDEButtonSearchHelp" iconURL="sap-icon://value-help"
+											tooltip="{i18n>AppDescriptor_UI_IphoneTooltip2}" value="{/sap.ui/properties/icons/properties/phone@2/sValue}"
+											valueHelpRequest="onUIPhoneValueHelpRequest" width="100%">
+											<layoutData>
+												<layout:GridData span="L9 M9 S6"/>
+											</layoutData>
+										</ValueHelpField>
+									</form:fields>
+								</form:FormElement>
+								<!--Tablet-->
+								<form:FormElement>
+									<form:label>
+										<Label required="true" text="{i18n>AppDescriptor_Tablet}">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<ValueHelpField name="tablet" app:manifestKey="tablet" change="onUITabletChange" class="sapIDEButtonSearchHelp" iconURL="sap-icon://value-help"
+											tooltip="{i18n>AppDescriptor_UI_IPadsTooltip}" value="{/sap.ui/properties/icons/properties/tablet/sValue}"
+											valueHelpRequest="onUIPhoneValueHelpRequest" width="100%">
+											<layoutData>
+												<layout:GridData span="L9 M9 S6"/>
+											</layoutData>
+										</ValueHelpField>
+									</form:fields>
+								</form:FormElement>
+								<!--Tablet@2-->
+								<form:FormElement>
+									<form:label>
+										<Label required="true" text="{i18n>AppDescriptor_Tablet2}">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<ValueHelpField name="tablet@2" app:manifestKey="tablet@2" change="onUITablet2Change" class="sapIDEButtonSearchHelp" iconURL="sap-icon://value-help"
+											tooltip="{i18n>AppDescriptor_UI_IPadsTooltip2}" value="{/sap.ui/properties/icons/properties/tablet@2/sValue}"
+											valueHelpRequest="onUIPhoneValueHelpRequest" width="100%">
+											<layoutData>
+												<layout:GridData span="L9 M9 S6"/>
+											</layoutData>
+										</ValueHelpField>
+									</form:fields>
+								</form:FormElement>
+								<!--Favorite Icon-->
+								<form:FormElement>
+									<form:label>
+										<Label required="true" text="{i18n>AppDescriptor_FevIcon}">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<TextField name="favorites" change="onUIFevIconChange" tooltip="{i18n>AppDescriptor_UI_FavIconTooltip}"
+											value="{/sap.ui/properties/icons/properties/favIcon/sValue}" width="100%">
+											<layoutData>
+												<layout:GridData span="L9 M9 S6"/>
+											</layoutData>
+										</TextField>
+									</form:fields>
+								</form:FormElement>
+							</form:formElements>
+							<form:title>
+								<core:Title design="Bold" text="{i18n>AppDescriptor_User_Interface}" tooltip="{i18n>AppDescriptor_UI_Tooltip}"></core:Title>
+							</form:title>
+						</form:FormContainer>
+						<!--*****************UI5 container********************-->
+						<form:FormContainer id="appDescriptor-settings-sapui5">
+							<form:formElements>
+								<!--SAPUI5MinVersion-->
+								<form:FormElement>
+									<form:label>
+										<Label text="{i18n>AppDescriptor_Dependencies_Min_SAPUi5_Version}" >
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<TextField name="ui5MinVer" change="onMinUI5VersionChange" placeholder="xx.yy.zz" required="true"
+											value="{/sap.ui5/properties/dependencies/properties/sValue}" width="100%" tooltip="{i18n>AppDescriptor_Dependencies_Min_SAPUi5_Version_Tooltip}">
+											<layoutData>
+												<layout:GridData span="L9 M9 S6"/>
+											</layoutData>
+										</TextField>
+									</form:fields>
+								</form:FormElement>
+								<!-- Resources (js + css)-->
+								<form:FormElement>
+									<form:label>
+										<Label required="true" text="{i18n>AppDescriptor_Resources}" visible="{/sap.app/properties/ach/bVisibility}" wrapping="false">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<appDescriptorUI:ListBoxWithAddRemove id="appDescriptor-settings-Resources" dialogMetadata="{/sap.ui5/properties/resources/properties/oDialogMetadata}"
+											dialogTitle="{i18n>AppDescriptor_Add_Resources}" entryChanged="onMinUI5ResourceChange"
+											items="{/sap.ui5/properties/resources/properties/aValues}" select="onUI5CSSResourceSelect"
+											selectedKey="{/sap.ui5/properties/resources/properties/sSelectedKey}" visible="{/sap.app/properties/ach/bVisibility}"
+											tooltip="{i18n>AppDescriptor_Settings_Resources_tooltip}">
+											<appDescriptorUI:items>
+												<core:ListItem key="{ parts:['item/uri', 'item/id'], formatter: '.formatCSSResourceToText' }"
+													text="{ parts:['item/uri', 'item/id'], formatter: '.formatCSSResourceToText' }"></core:ListItem>
+											</appDescriptorUI:items>
+											<appDescriptorUI:layoutData>
+												<layout:GridData span="L9 M9 S6"/>
+											</appDescriptorUI:layoutData>
+										</appDescriptorUI:ListBoxWithAddRemove>
+									</form:fields>
+								</form:FormElement>
+								<!--Dependencies-->
+								<form:FormElement>
+									<form:label>
+										<Label required="true" text="{i18n>AppDescriptor_Dependencies}" wrapping="false">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<appDescriptorUI:ListBoxWithAddRemove id="appDescriptor-settings-Dependencies" dialogMetadata="{/sap.ui5/properties/dependencies/properties/oDialogMetadata}"
+											dialogTitle="{i18n>AppDescriptor_Add_Dependencies}" entryChanged="onMinUI5DependenciesChanged"
+											items="{/sap.ui5/properties/dependencies/properties/aValues}" select="onUI5CSSResourceSelect"
+											selectedKey="{/sap.ui5/properties/resources/properties/sSelectedKey}" xmlns="sap.ui.commons" tooltip="{i18n>AppDescriptor_Settings_Dependencies_tooltip}">
+											<appDescriptorUI:items>
+												<core:ListItem key="{ parts:['type' , 'item'], formatter: '.formatDependenciesToText' }"
+													text="{ parts:['type', 'item'], formatter: '.formatDependenciesToText' }"></core:ListItem>
+											</appDescriptorUI:items>
+											<appDescriptorUI:layoutData>
+												<layout:GridData span="L9 M9 S6"/>
+											</appDescriptorUI:layoutData>
+										</appDescriptorUI:ListBoxWithAddRemove>
+									</form:fields>
+								</form:FormElement>
+							</form:formElements>
+							<!--contentDensities-->
+							<form:FormElement>
+								<form:label>
+									<Label text="{i18n>AppDescriptor_contentDensities}" tooltip="{i18n>AppDescriptor_Settings_contentDensities_tooltip}">
+										<layoutData>
+											<layout:GridData linebreak="true" span="L3 M3 S6"/>
+										</layoutData>
+									</Label>
+								</form:label>
+								<form:fields>
+									<CheckBox change="onContentDensitiesCompact" checked="{/sap.ui5/properties/contentDensities/compact}"
+										name="compact" text="{i18n>AppDescriptor_contentDensities_compact}" tooltip="{i18n>AppDescriptor_Settings_contentDensities_Compact_tooltip}">
+										<layoutData>
+											<layout:GridData span="L2 M2 S6"/>
+										</layoutData>
+									</CheckBox>
+									<CheckBox change="onContentDensitiesCozy" checked="{/sap.ui5/properties/contentDensities/cozy}"
+										name="cozy" text="{i18n>AppDescriptor_contentDensities_cozy}" tooltip="{i18n>AppDescriptor_Settings_contentDensities_Cozy_tooltip}">
+										<layoutData>
+											<layout:GridData span="L2 M2 S6"/>
+										</layoutData>
+									</CheckBox>
+								</form:fields>
+							</form:FormElement>
+							<form:title>
+								<core:Title design="Bold" text="{i18n>AppDescriptor_Minimal_UI5_Version}" tooltip="{i18n>AppDescriptor_UI5_Tooltip}"></core:Title>
+							</form:title>
+						</form:FormContainer>
+					</form:formContainers>
+					<form:layout>
+						<form:ResponsiveGridLayout></form:ResponsiveGridLayout>
+					</form:layout>
+					<!-- the size of the form in the grid-->
+					<form:layoutData>
+						<layout:GridData span="L12 M12 S12"/>
+					</form:layoutData>
+				</form:Form>
+			</layout:content>
+			<layout:layoutData>
+				<layout:GridData span="L12 M12 S12"/>
+			</layout:layoutData>
+		</layout:Grid>
+	</layout:Grid>
+</mvc:View>

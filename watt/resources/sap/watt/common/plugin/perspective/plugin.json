@@ -1,0 +1,72 @@
+{
+	"name": "sap.watt.common.perspective",
+	"description": "The perspective manages the content area of an ide.",
+	"i18n": "sap.watt.common.perspective/i18n/i18n",
+
+	"requires": {
+		"services": [
+			"focus",
+			"command",
+			"commandGroup",
+			"resource",
+			"usernotification",
+			"preferences",
+			"usagemonitoring"
+		]
+	},
+
+	"provides": {
+		"services": {
+			"perspective": {
+				"implements": "sap.watt.common.service.ui.Perspective",
+				"module": "sap.watt.common.perspective/service/Perspective"
+			}
+		}
+	},
+
+	"configures": {
+		"services": {
+
+			"perspective:styles": [{
+				"uri": "sap.watt.common.perspective/css/perspective.css"
+			}],
+
+			"command:commands": [{
+				"id": "perspective.reset",
+				"label": "{i18n>command_resetToDefault}",
+				"service": "sap.watt.common.perspective/command/ResetToDefault"
+			}, {
+				"id": "perspective.maximizeActiveView",
+				"label": "{i18n>command_maximizeActiveView}",
+				"service": "sap.watt.common.perspective/command/MaximizeActiveView",
+				"enabled": true,
+				"keyBinding": "ctrl+m"
+			}, {
+				"id": "perspective.resetActiveView",
+				"label": "{i18n>command_resetActiveView}",
+				"service": "sap.watt.common.perspective/command/ResetActiveView",
+				"enabled": true,
+				"keyBinding": "alt+r"
+			}],
+
+			"commandGroup:items": [{
+				"parent": "view.perspectives",
+				"command": "perspective.reset",
+				"prio": 20
+			}, {
+				"parent": "view.editor",
+				"command": "perspective.maximizeActiveView",
+				"prio": 20
+			}, {
+				"parent": "view.editor",
+				"command": "perspective.resetActiveView",
+				"prio": 20
+			}],
+			"usagemonitoring:reportParams": [{
+				"components": ["Perspective"],
+				"eventTypes": ["UiPartToggleState"]
+			}]
+
+		}
+	}
+}

@@ -1,0 +1,19 @@
+{
+	"name" : "sap.watt.common.service.ui.WizardPart",
+	"description": "The ui wizard part interface. Base interface for all visual components of wizards (as wizard steps)",
+	"configurationProperties" : {
+		"styles" : {
+			"type" : [{
+				"uri" : "string",
+				"type" : "string"
+			}],
+			"multiple" : false
+		}
+	},
+	"methods" : {
+	    "getContent" : {
+			"decsription" : "Create and return the SAPUI5 control displaying the relevant wizard part (as sap.watt.uitools.plugin.template.ui.wizard.WizardStep)",
+			"returns" : "object"
+		}
+	}
+}

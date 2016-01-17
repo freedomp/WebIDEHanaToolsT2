@@ -1,0 +1,24 @@
+{
+	"name": "sap.xs.nodejs.base",
+	"description": "Nodejs base services",
+	"version": "0.6.0-SNAPSHOT",
+	"scm-revision": "51fca7e06a400bbbd9207d20c9b35da441426560",
+
+	"requires": {
+		"services": [
+			"log"
+		]
+	},
+
+	"provides": {
+		"services" : {
+			"nodeJsBase" : {
+                "module": "sap.xs.nodejs.base/service/BaseService"
+			}
+		}
+	},
+
+    "subscribes": {
+        "core:started": "nodeJsBase:onStarted"
+    }
+}

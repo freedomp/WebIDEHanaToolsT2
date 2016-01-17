@@ -1,0 +1,6 @@
+{
+"version":"2.0",
+"name":"sap.chart.library-preload",
+"dependencies":["sap.ui.core.library-preload","sap.viz.library-preload"],
+"modules":{
+}}

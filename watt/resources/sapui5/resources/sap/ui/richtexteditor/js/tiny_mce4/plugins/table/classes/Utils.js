@@ -1,0 +1,1 @@
+define("tinymce/tableplugin/Utils",["tinymce/Env"],function(E){function g(t,n){return parseInt(t.getAttribute(n)||1,10);}function p(c){if(!E.ie||E.ie>10){c.innerHTML='<br data-mce-bogus="1" />';}}return{getSpanVal:g,paddCell:p};});

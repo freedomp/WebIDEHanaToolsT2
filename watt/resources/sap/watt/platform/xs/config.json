@@ -1,0 +1,14 @@
+{
+	"preloadCapable" : true,
+	
+	"includes": [
+		"../config.json",
+		"../../common/config.json"
+	],
+
+	"plugins": [
+		"plugin/destination"		
+	],
+	
+	"required": true
+}

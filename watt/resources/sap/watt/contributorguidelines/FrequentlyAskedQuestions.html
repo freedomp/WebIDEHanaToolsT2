@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>FAQ — SAP Web IDE Design Guidelines</title>
+    <meta name="author" content="SAP SE">
+
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="assets/flat.css" type="text/css" />
+    <link rel="stylesheet" href="css/guidelines.css" type="text/css" />
+    <link rel="stylesheet" href="css/FrequentlyAskedQustions.css" type="text/css" />
+
+    <script src="../lib/requirejs/require.js" 
+	        data-main="../core/Global.js"
+	        data-sap-ide-environment-path="../../../../env.json"
+	        data-sap-ide-main="startup"
+	        data-sap-ide-basedir="../../.."></script>
+
+    <script>
+        define("startup", [], function() {
+            Q.all([
+                    sap.watt.includeScript("assets/js/contextSwitch.js"),
+                    sap.watt.includeScript("assets/js/flat.js")])
+            .then(function(){
+                loadTableOfContent("Frequently Asked Questions");
+            });
+        });
+    </script>
+
+</head>
+<body>
+
+<div class="VBrandingBar"></div>
+
+<div class="VHeaderBar">
+    <div class="VHeaderBarCnt">
+        <ul class="VFloatRight vInline">
+            <li><img src="assets/images/SAPLogo.png" alt="SAP" id="LogoSAP" /></li>
+        </ul>
+        
+        <ul class="VInline">
+            <li id="ToggleMenuButton" class="VShowSmallInlineBlock"></li>
+            <li>SAP Web IDE<span class="VHideSmallInline"> — Design Guidelines</span></li>
+        </ul>
+    </div>
+</div>
+
+<div class="navigationOffCanvas"></div>
+
+<div class="content Design-Colors">
+
+    <div class="sapUiRespGrid sapUiRespGridHSpace1 sapUiRespGridVSpace1">
+        <div class="sapUiRespGridSpanL10 sapUiRespGridSpanM12 sapUiRespGridSpanS12 sapUiRespGridBreak">
+            <div class="VBanner">
+                <h1 class="VH2 VFontSpecial">Guidelines for SAP Web IDE Contributors</h1>
+                <h2 class="VH1 VFontSpecial">Frequently Asked QuestionsFAQ</h2>
+            </div>
+        </div>
+
+
+        <div class="sapUiRespGridSpanL10 sapUiRespGridSpanM12 sapUiRespGridSpanS12">
+            <h2 class="VH2 VFontSpecial">General</h2>
+
+
+            <h3 class="VH3 VFontSpecial">Some question</h3>
+
+            <p>More soon</p>   
+        </div>
+
+
+        <div class="sapUiRespGridSpanL10 sapUiRespGridSpanM12 sapUiRespGridSpanS12">
+            <h2 class="VH2 VFontSpecial">Plugins</h2>
+
+
+            <h3 class="VH3 VFontSpecial">I would like to integrate my plugin into the SAP Web IDE. How do I proceed?</h3>
+
+            <p>More soon</p>   
+        </div>
+
+
+        <div class="sapUiRespGridSpanL10 sapUiRespGridSpanM12 sapUiRespGridSpanS12">
+            <h2 class="VH2 VFontSpecial">Visual Design</h2>
+
+
+            <h3 class="VH3 VFontSpecial">I have an icon request. How do I proceed?</h3>
+
+            <p>More soon</p>
+            
+            <h3 class="VH3 VFontSpecial">What is the background image all about?</h3>
+
+            <p>More soon</p>
+            
+            <h3 class="VH3 VFontSpecial">Why doesn't the SAP Web IDE use (modern) web fonts?</h3>
+
+            <p>More soon</p>
+
+            <h3 class="VH3 VFontSpecial">Why don’t you use “Blue Crystal”?</h3>
+
+            <p>More soon</p>
+
+            <h3 class="VH3 VFontSpecial">Why is SAP Web IDE so grayish?</h3>
+
+            <p>More soon</p>   
+        </div>
+
+        <div class="sapUiRespGridSpanL3 sapUiRespGridSpanM6 sapUiRespGridSpanS12 sapUiRespGridBreak">
+            <div class="VSpacer4"></div>
+            <p>Last updated: June 23, 2014</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

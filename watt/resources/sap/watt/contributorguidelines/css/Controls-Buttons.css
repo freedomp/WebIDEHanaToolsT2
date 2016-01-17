@@ -1,0 +1,16 @@
+.Control-Buttons table {
+width: 100%;
+}
+
+#VTabsContainer {
+	padding: 0.5rem 0.5rem 3rem 0.5rem;
+}
+
+#ContainerImplementation {
+	display: none;
+}
+
+#ContainerTargetDesign, #ContainerImplementation {
+	min-height: 5rem;
+	padding: 0.5rem 0.5rem 3rem 0.5rem;
+}

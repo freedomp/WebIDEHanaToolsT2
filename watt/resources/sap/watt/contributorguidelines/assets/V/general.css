@@ -1,0 +1,114 @@
+/* rem base */
+
+html {
+	font-size: 16px;
+}
+
+body {
+	background-color: white;
+	font-family: Arial, sans-serif;
+	font-size: 0.875rem;
+	margin: 0;
+	overflow-y: scroll; 
+	padding: 0;
+
+	background-repeat: no-repeat;
+	background-position: left bottom;
+}
+
+/* general html formats */
+
+a {
+	color: #007CC0;
+	text-decoration: underline;
+}
+
+label {
+	cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, h6, p, small {
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+}
+
+/* lists */
+
+ol {
+	padding-left: 2rem;
+}
+
+ul, li {
+	padding: 0;
+	margin: 0;
+}
+
+/* floats */
+
+.VFloatLeft {
+	float: left;
+}
+
+.VFloatRight {
+	float: right;
+}
+
+/* breaks */
+
+.VBreak {
+	clear: both;
+}
+
+.VBreakLeft {
+	clear: left;
+}
+
+.VBbreakRight {
+	clear: right;
+}
+
+/* hiding */
+
+.VHidden {
+	display: none;
+}
+
+.VNotVisible {
+	visibility: hidden;
+}
+
+/* display */
+
+.VBlock {
+	display: block;
+}
+
+.VInlineBlock {
+	display: inline-block;
+}
+
+.VInline, .VInline li {
+	display: inline;
+}
+
+/* scrolling */
+
+.VScrollbar {
+	overflow: scroll; 
+}
+
+.VScrollbarX {
+	overflow-x: scroll; 
+}
+
+.VScrollbarY {
+	overflow-y: scroll; 
+}
+
+html.sap-desktop ::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+}

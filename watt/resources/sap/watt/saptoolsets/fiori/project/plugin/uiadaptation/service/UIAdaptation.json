@@ -1,0 +1,129 @@
+{
+	"name": "sap.watt.saptoolsets.plugin.uiadaptation.UIAdaptation",
+	"description": "The UIAdaptation service interface",
+	"methods": {
+		"createUIAdaptationIndexHTML": {
+			"params": [
+				{
+					"name": "oProjectDocument",
+					"type": "object",
+					"description": "The document object of the project from the workspace that the HTML should be generated into"
+				},
+				{
+					"name": "sComponentName",
+					"type": "string",
+					"description": "The component name of that will be run in the HTML"
+				},
+				{
+					"name": "aScriptsPaths",
+					"type": "object",
+					"description": "Array of strings containing the paths of the script tags that will be generated in the HTML"
+				}
+			]
+		},
+		"createChangesPreviewIndexHTML": {
+			"params": [
+				{
+					"name": "oProjectDocument",
+					"type": "object",
+					"description": "The document object of the project from the workspace that the HTML should be generated into"
+				},
+				{
+					"name": "sComponentName",
+					"type": "string",
+					"description": "The component name of that will be run in the HTML"
+				}
+			]
+		},
+		"previewAppWithChanges": {
+			"params": [
+				{
+					"name": "oProjectDocument",
+					"type": "object",
+					"description": "The document object of the project from the workspace that the HTML should be generated into"
+				},
+				{
+					"name": "oWindow",
+					"type": "object",
+					"description": "The window where the preview should be displayed"
+				}
+			]
+		},
+		"getApplicationComponentName": {
+			"params": [
+				{
+					"name": "oProjectDocument",
+					"type": "object",
+					"description": "The document object of the project from the workspace that the HTML should be generated into"
+				}
+			],
+			"returns": {
+				"type": "string",
+				"description": "The application component name"
+			}
+		},
+		"getVariantForLREPChanges": {
+			"params": [
+				{
+					"name": "oProjectDocument",
+					"type": "object",
+					"description": "The document object of the project from the workspace that the HTML should be generated into"
+				}
+			],
+			"returns": {
+				"type": "string",
+				"description": "The variant value to create the LREP changes with, or null if not defined"
+			}
+		},
+		"getUIAdaptationProjectTypeId": {
+			"params": [],
+			"returns": {
+				"type": "string",
+				"description": "The ID of the UI Adaptation project type"
+			}
+		},
+		"getUIAdaptationIndexHTMLRunnableUrl": {
+			"params": [
+				{
+					"name": "oHTMLDocument",
+					"type": "object",
+					"description": "The document object of the UIAdaptation_index.html file that should be run in the UI Adaptation pane"
+				}
+			],
+			"returns": {
+				"type": "string",
+				"description": "The runnable URL of the HTML file"
+			}
+		},
+		"saveChangeToWorkspace": {
+			"params": [
+				{
+					"name": "projectDocument",
+					"type": "object"
+				},
+				{
+					"name": "oChange",
+					"type": "object"
+				}
+			],
+			"returns": "object"
+		},
+		"loadChangesFromWorkspace": {
+			"params": [
+				{
+					"name": "projectDocument",
+					"type": "object"
+				}
+			],
+			"returns": "object"
+		},
+		"openAdaptUI": {
+			"params": [
+				{
+					"name": "projectDocument",
+					"type": "object"
+				}
+			]
+		}
+	}
+}

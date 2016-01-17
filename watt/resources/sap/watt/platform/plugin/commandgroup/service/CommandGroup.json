@@ -1,0 +1,39 @@
+{
+	"name" : "sap.watt.common.plugin.commandgroup.service.CommandGroup",
+	"description" : "The command group interface",
+	"configurationProperties" : {
+		"groups" : {
+			"type" : {
+				"id" : "string",
+				"label" : "string",
+				"icon" : "string",
+				"service" : "sap.watt.common.service.ide.CommandGroupItemProvider"
+			},
+			"multiple" : true
+		},
+		"items" : {
+			"type" : {
+				"id" : "string",
+				"parent" : "string",
+				"type" : "string",
+				"command" : "string",
+				"group" : "string",
+				"label" : "string",
+				"icon" : "string",
+				"value" : "string",
+				"default" : "boolean",
+				"prio" : "number"
+			},
+			"multiple" : true
+		}
+	},
+	"methods" : {
+		"getGroup" : {
+			"params" : [{
+				"name" : "sGroupId",
+				"type" : "string"
+			}],
+			"returns" : "object"
+		}
+	}
+}

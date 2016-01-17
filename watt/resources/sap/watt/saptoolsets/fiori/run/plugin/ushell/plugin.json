@@ -1,0 +1,28 @@
+{
+	"name": "sap.watt.saptoolsets.fiori.run.ushell",
+	"description": "A plug-in for running applications in the SAP Fiori launchpad environment.",
+	"i18n": "sap.watt.saptoolsets.fiori.run.ushell/i18n/i18n",
+
+	"requires":{
+		"services": [
+			"filesystem.jsonProvider",
+			"filesystem.documentProvider",
+			"selection",
+			"preview",
+			"repositorybrowser"
+		]
+	},
+	"provides": {
+		"services": {
+			"ushellpreview": {
+				"implements": "sap.watt.uitools.plugin.ushell.service.Preview",
+				"module": "sap.watt.saptoolsets.fiori.run.ushell/service/PreviewImpl"
+			}
+		},
+		
+		"interfaces": {
+			"sap.watt.uitools.plugin.ushell.service.Preview": "sap.watt.saptoolsets.fiori.run.ushell/service/Preview"
+		}
+		
+	}
+}

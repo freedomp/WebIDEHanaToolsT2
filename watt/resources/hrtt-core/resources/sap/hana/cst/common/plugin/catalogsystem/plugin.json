@@ -1,0 +1,137 @@
+{
+    "name": "sap.hana.cst.common.catalogsystem",
+    "description": "The catalogsystem Plugin",
+    "module": "sap.hana.cst.common.catalogsystem/Plugin",
+    "i18n": "sap.hana.cst.common.catalogsystem/i18n/i18n.hdbtextbundle",
+
+    "requires": {
+        "services": [
+            "editor",
+            "content",
+            "document",
+            "system",
+            "core",
+            "sqleditorsetting",
+            "ideutils",
+            "log",
+            "sqlparser",
+            "dataprevieweditor",
+            "sqleditor"
+        ]
+    },
+
+    "provides": {
+        "services": {
+            "catalogDAO": {
+                "implements": "sap.hana.cst.common.catalogsystem.interface.CatalogDAO",
+                "module": "sap.hana.cst.common.catalogsystem/service/CatalogDAO"
+            },
+            "catalogsystem.documentProvider": {
+                "implements": "sap.hana.cst.common.catalogsystem.interface.DocumentProvider",
+                "module": "sap.hana.cst.common.catalogsystem/service/DocumentProvider"
+            },
+            "catalogsystem.documentNavigator": {
+                "implements": "sap.hana.cst.common.catalogsystem.interface.DocumentNavigator",
+                "module": "sap.hana.cst.common.catalogsystem/service/DocumentNavigator"
+            },
+            "sqlExecutor": {
+                "implements": "sap.hana.cst.common.catalogsystem.interface.SqlExecutor",
+                "module": "sap.hana.cst.common.catalogsystem/service/SqlExecutor"
+            },
+            "sqlGenerator": {
+                "implements": "sap.hana.cst.common.catalogsystem.interface.SqlGenerator",
+                "module": "sap.hana.cst.common.catalogsystem/service/SqlGenerator"
+            }
+        },
+        "interfaces": {
+            "sap.hana.cst.common.catalogsystem.interface.CatalogDAO": "sap.hana.cst.common.catalogsystem/service/CatalogDAO",
+            "sap.hana.cst.common.catalogsystem.interface.SqlExecutor": "sap.hana.cst.common.catalogsystem/service/SqlExecutor",
+            "sap.hana.cst.common.catalogsystem.interface.SqlGenerator": "sap.hana.cst.common.catalogsystem/service/SqlGenerator",
+            "sap.hana.cst.common.catalogsystem.interface.DocumentProvider": "sap.hana.cst.common.catalogsystem/service/DocumentProvider",
+            "sap.hana.cst.common.catalogsystem.interface.DocumentNavigator": "sap.hana.cst.common.catalogsystem/service/DocumentNavigator"
+        }
+    },
+
+    "configures": {
+        "services": {
+            "document:providers": [{
+                "type": "catalog_general",
+                "documentProvider": "@catalogsystem.documentProvider"
+            },{
+                "type": "root_catalog",
+                "documentProvider": "@catalogsystem.documentProvider"
+            }, {
+                "type": "sql",
+                "documentProvider": "@catalogsystem.documentProvider"
+            }, {
+                "type": "hdi_container",
+                "documentProvider": "@catalogsystem.documentProvider"
+            }, {
+                "type": "schema",
+                "documentProvider": "@catalogsystem.documentProvider"
+            }, {
+                "type": "table",
+                "documentProvider": "@catalogsystem.documentProvider"
+            }, {
+                "type": "table_type",
+                "documentProvider": "@catalogsystem.documentProvider"
+            }, {
+                "type": "view",
+                "documentProvider": "@catalogsystem.documentProvider"
+            }, {
+                "type": "column_view",
+                "documentProvider": "@catalogsystem.documentProvider"
+            }, {
+                "type": "procedure",
+                "documentProvider": "@catalogsystem.documentProvider"
+            }, {
+                "type": "function",
+                "documentProvider": "@catalogsystem.documentProvider"
+            }, {
+                "type": "index",
+                "documentProvider": "@catalogsystem.documentProvider"
+            }, {
+                "type": "synonym",
+                "documentProvider": "@catalogsystem.documentProvider"
+            }, {
+                "type": "trigger",
+                "documentProvider": "@catalogsystem.documentProvider"
+            }, {
+                "type": "sequence",
+                "documentProvider": "@catalogsystem.documentProvider"
+            }],
+            
+            "catalogsystem.documentProvider:allowedFileExtensions": [
+                "root_catalog",
+                "hdi_container",
+                "schema",
+                "sql",
+                "contentedit-sql",
+                "contentview-procedure",
+                "contentview-function",
+                "contentview-trigger",
+                "metadataview-procedure",
+                "metadataview-sequence",
+                "metadataview-synonym",
+                "metadataview-index",
+                "metadataview-function",
+                "metadataview-trigger",
+                "metadataview-table",
+                "metadataview-table_type",
+                "metadataview-view",
+                "metadataview-column_view",
+                "remotefolder",
+                "remoteobject",
+                "datapreview",
+                "param"
+            ],
+            
+            "catalogsystem.documentProvider:dao": "@catalogDAO",
+            "sqlExecutor:dao": "@catalogDAO"
+        }
+    },
+
+    "subscribes": {
+        "core:started": "onAfterCoreStarted"
+    }
+}

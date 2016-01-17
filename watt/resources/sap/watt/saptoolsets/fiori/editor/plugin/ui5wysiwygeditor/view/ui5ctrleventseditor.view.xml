@@ -1,0 +1,9 @@
+<core:View class="w5gPropPanel" controllerName="sap.watt.saptoolsets.fiori.editor.plugin.ui5wysiwygeditor.view.ui5ctrleventseditor"
+           xmlns="sap.watt.saptoolsets.fiori.editor.plugin.ui5wysiwygeditor.control.events" xmlns:core="sap.ui.core">
+    <EventsEditorForm
+            id="eventseditor"
+            title="{titleModel>/title}"
+            message="{titleModel>/message}"
+            deprecated="{titleModel>/deprecated}"
+            />
+</core:View>

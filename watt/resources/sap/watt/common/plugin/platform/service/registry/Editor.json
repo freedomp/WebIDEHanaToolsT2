@@ -1,0 +1,54 @@
+{
+	"name" : "sap.watt.common.service.registry.Editor",
+	"description" : "The edtior registry service interface",
+	"configurationProperties" : {
+		"editors" : {
+			"type" : {
+				"fileExtension" : "[string]",
+				"service" : "sap.watt.common.service.editor.Editor",
+				"name": "string",
+				"id": "string"
+			},
+			"multiple" : true
+		},
+		"defaultEditors" : {
+			"type" : "object",
+			"multiple" : true
+		}
+	},
+	"methods" : {
+		"getDefaultEditor" : {
+			"params" : [{
+				"name" : "oDocument",
+				"type" : "object"
+			}],
+			"returns" : "object"
+		},
+
+        "getSpecificEditor" : {
+            "params" : [{
+                "name" : "oDocument",
+                "type" : "object"
+            },{
+                "name" : "sEditorId",
+                "type" : "string"
+            }],
+            "returns" : "object"
+        },
+        
+        "getAllEditors" : {
+			"params" : [{
+				"name" : "oDocument",
+				"type" : "object"
+			}],
+			"returns" : "[object]"
+		},
+
+		"getIntellisence" : {
+			"returns" : "object"
+		},
+		"getContentStatus" : {
+			"returns" : "object" 
+		}
+	}
+}

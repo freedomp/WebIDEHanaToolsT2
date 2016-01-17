@@ -1,0 +1,121 @@
+<mvc:View
+		controllerName="{{2masterdetail.parameters.ApplicationNamespace.value}}.controller.Detail"
+		xmlns="sap.m"
+		xmlns:mvc="sap.ui.core.mvc"
+		xmlns:semantic="sap.m.semantic"{{#unless 2masterdetail.parameters.nonFLP}}
+		xmlns:footerbar="sap.ushell.ui.footerbar">{{/unless}}
+
+	<semantic:DetailPage
+			id="page"
+			navButtonPress="onNavBack"
+			showNavButton="{device>/system/phone}"
+			title="{i18n>detailTitle}"
+			busy="{detailView>/busy}"
+			busyIndicatorDelay="{detailView>/delay}">
+
+		<semantic:content>
+			<ObjectHeader
+					id="objectHeader"
+					title="{{#addCurlyBrackets}}{{2masterdetail.parameters.Object_Identifier.value.name}}{{/addCurlyBrackets}}"
+{{#if 2masterdetail.parameters.Object_Number.value.name}}
+					number="{
+								path: '{{2masterdetail.parameters.Object_Number.value.name}}',
+								formatter: '.formatter.currencyValue'
+					}"
+{{/if}}
+{{#if 2masterdetail.parameters.Object_UnitOfMeasure.value.name}}
+					numberUnit="{{#addCurlyBrackets}}{{2masterdetail.parameters.Object_UnitOfMeasure.value.name}}{{/addCurlyBrackets}}"{{/if}}>
+			</ObjectHeader>
+			<IconTabBar
+					id="iconTabBar"
+					class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter
+							id="iconTabBarFilter1"
+							icon="sap-icon://hint"
+							tooltip="{i18n>detailIconTabBarInfo}">
+					</IconTabFilter>
+					<IconTabFilter
+							id="iconTabBarFilter2"
+							icon="sap-icon://attachment"
+							tooltip="{i18n>detailIconTabBarAttachments}">
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+{{#if 2masterdetail.parameters.LineItemCollection.value.name }}
+			<Table
+					id="lineItemsList"
+					width="auto"
+					items="{{#addCurlyBrackets}}{{2masterdetail.parameters.LineItemCollection.value.name}}{{/addCurlyBrackets}}"
+					updateFinished="onListUpdateFinished"
+					noDataText="{i18n>detailLineItemTableNoDataText}"
+					busyIndicatorDelay="{detailView>/lineItemTableDelay}"
+					class="sapUiResponsiveMargin">
+				<headerToolbar>
+					<Toolbar id="lineItemsToolbar">
+						<Title
+								id="lineItemsHeader"
+								text="{detailView>/lineItemListTitle}"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="{i18n>detailLineItemTableIDColumn}"/>
+					</Column>
+					<Column
+							minScreenWidth="Tablet"
+							demandPopin="true"
+							hAlign="Right">
+						<Text text="{i18n>detailLineItemTableUnitNumberColumn}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<ObjectIdentifier
+									title="{{#addCurlyBrackets}}{{2masterdetail.parameters.LineItem_Identifier.value.name}}{{/addCurlyBrackets}}"
+									text="{{#addCurlyBrackets}}{{2masterdetail.parameters.LineItemCollection_Key.value.name}}{{/addCurlyBrackets}}"/>
+							<ObjectNumber
+{{#if 2masterdetail.parameters.LineItem_Number.value.name }}
+								number="{
+									path: '{{2masterdetail.parameters.LineItem_Number.value.name}}',
+									formatter: '.formatter.currencyValue'
+								}"
+{{/if}}
+{{#if 2masterdetail.parameters.LineItem_UnitOfMeasure.value.name }}
+								unit="{{#addCurlyBrackets}}{{2masterdetail.parameters.LineItem_UnitOfMeasure.value.name }}{{/addCurlyBrackets}}"{{/if}}/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>{{/if}}
+		</semantic:content>
+		<semantic:editAction>
+			<semantic:EditAction id="edit" press="onEdit"/>
+		</semantic:editAction>
+		<semantic:customFooterContent>
+			<Button enabled="true" id="deleteButton" press="onDelete" text="Delete"/>
+		</semantic:customFooterContent>
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction
+					id="shareEmail"
+					press="onShareEmailPress"/>
+		</semantic:sendEmailAction>
+
+		{{#unless 2masterdetail.environment.nonFLP}}
+		<semantic:shareInJamAction>
+			<semantic:ShareInJamAction
+					id="shareInJam"
+					visible="{FLP>/isShareInJamActive}"
+					press="onShareInJamPress"/>
+		</semantic:shareInJamAction>
+
+		<semantic:saveAsTileAction>
+			<footerbar:AddBookmarkButton
+					id="shareTile"
+					title="{detailView>/saveAsTileTitle}"/>
+		</semantic:saveAsTileAction>
+		{{/unless}}
+
+	</semantic:DetailPage>
+
+</mvc:View>

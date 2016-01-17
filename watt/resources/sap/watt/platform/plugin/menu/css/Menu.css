@@ -1,0 +1,17 @@
+/* show and align shortcut texts in menu items */
+.sapUiMnuItmSCut {
+	display: inline-table;
+	position: relative;
+	float: right;
+	right: -20px; /* compensate space for submenu disclosure triangles */
+	color: #7a7a7a;
+	font-weight: normal;
+
+  /* Avoid line breaks in IE if shortcut is empty: http://stackoverflow.com/a/27508184 
+  (https://support.wdf.sap.corp/sap/support/message/1580096752) */
+  min-height: 1px;
+}
+
+.sapUiMnuItmL, .sapUiMnuItmTxt {
+	float: left;
+}

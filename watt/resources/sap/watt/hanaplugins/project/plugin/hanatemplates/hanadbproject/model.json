@@ -1,0 +1,34 @@
+{
+	"SAPHanaDBProject":
+	{
+		"parameters" :
+		{
+			"namespace" :
+			{
+				"type" : "string",
+				"value" : "",
+				"wizard" :
+				{
+					"control" : "TextField",
+					"required" : false,
+					"title" : "hanadbproject_namespace_title",
+					"regExp" : "^[a-zA-Z_][\\w]*(\\.[a-zA-Z_][\\w]*)*$",
+					"regExpErrMsg" : "nameSpace_model_parameters_name_validationError"
+				}
+			}
+		},
+		"forms" : [
+			{
+				"title" : "SAP HANA DB Sample App",
+				"groups" : [
+					{
+						"title": "hanadbproject_model_form_group_title",
+						"parameters": [
+							"@SAPHanaDBProject.parameters.namespace"
+                          ]
+					}
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,93 @@
+<mvc:View controllerName="sap.apf.modeler.ui.controller.applicationList"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<App xmlns="sap.m" id="applicationList" height="100%" width="100%"
+		backgroundRepeat="false" backgroundOpacity="1">
+		<Page id="idAppPage" showNavButton="true" enableScrolling="false" navButtonType="Back"
+		navButtonPress="handleNavBack">
+			<content>
+				<VBox xmlns="sap.m" id="idAppLayout" visible="true">
+					<items>
+						<Label xmlns="sap.m" id="idAppTitle" design="Standard"
+							visible="true" textAlign="Begin" textDirection="Inherit"
+							required="false">
+						</Label>
+						<Toolbar id="idApplicationToolbar">
+							<content>
+								<Label id="idAppNumberTitle"></Label>
+								<Label id="idNoOfConfig" text="{/appCount}"></Label>
+								<ToolbarSpacer />
+								<Icon xmlns="sap.ui.core" id="idNewButton" src="sap-icon://add"
+									color="black" visible="true" decorative="true" press="addNewApplication">
+								</Icon>
+							</content>
+						</Toolbar>
+						<ScrollContainer id="idAppListScrollContainer"
+							width="100%" horizontal="true" vertical="true">
+
+							<Table id="idApplicationTable" inset="false" items="{/tableData}"
+								rememberSelections="true" mode="None" select="handleListItemSelect"
+								itemPress="handleListItemPress">
+
+								<columns>
+									<Column>
+										<Label id="idDescriptionLabel" />
+									</Column>
+									<Column>
+										<Label id="idSemanticObjectLabel" />
+									</Column>
+									<Column demandPopin="true" hAlign="Right" vAlign="Middle">
+										<Label text="" />
+									</Column>
+								</columns>
+
+								<items>
+									<ColumnListItem type="Navigation" vAlign="Middle">
+										<cells>
+											<Input xmlns="sap.m" id="idAppDescription" value="{description}"
+												enabled="true" visible="true" editable="false" liveChange="onLiveChange" />
+											<Input xmlns="sap.m" id="idSemanticObject" value="{semanticObject}"
+												enabled="true" visible="true" editable="false" liveChange="onLiveChange" />
+											<Icon xmlns="sap.ui.core" id="idDeleteIcon" src="sap-icon://sys-cancel"
+												visible="false" color="#cc1919" press="handleDeletePress"></Icon>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</ScrollContainer>
+					</items>
+				</VBox>
+
+			</content>
+			<footer>
+				<Bar xmlns="sap.m" id="idFooterBarMain" enableFlexBox="false"
+					translucent="false" design="Auto" visible="true">
+
+					<contentRight>
+
+						<Button xmlns="sap.m" id="idEditButton" type="Default"
+							enabled="true" visible="true" press="enableEditMode">
+
+						</Button>
+
+						<Button xmlns="sap.m" id="idSaveButton" type="Default"
+							enabled="false" visible="false" press="handleSavePress">
+
+						</Button>
+						<Button xmlns="sap.m" id="idCancelButton" type="Default"
+							enabled="true" visible="false" press="handleCancelPress">
+
+						</Button>
+						<Button xmlns="sap.m" id="idImportButton" type="Default"
+							enabled="true" visible="true" press="handleImportButtonPress">
+
+						</Button>
+						<Button xmlns="sap.m" id="idTextCleanupButton" type="Default"
+							enabled="false" visible="false" press="handleTextCleanUpPress">
+
+						</Button>
+					</contentRight>
+				</Bar>
+			</footer>
+		</Page>
+	</App>
+</mvc:View>

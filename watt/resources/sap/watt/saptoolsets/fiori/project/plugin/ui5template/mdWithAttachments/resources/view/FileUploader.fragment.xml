@@ -1,0 +1,21 @@
+<core:FragmentDefinition
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+  <Dialog
+    title="Select a File"
+    contentWidth="auto"
+    afterOpen="onAfterDialogOpen"
+    class="sapUiPopupWithPadding" >
+    <content>
+      <core:HTML  content='&lt;input type="file" id="fileInput" &gt;&lt;/input&gt;'>
+      </core:HTML>
+    </content>
+    <beginButton>
+   	  <Button id="okDialogButton" text="Ok" app:dialogType="FileUploader" press="onDialogCloseButton" enabled="false" />
+    </beginButton>
+    <endButton>
+      <Button text="Cancel" app:dialogType="FileUploader" press="onCancelButtonPress" />
+    </endButton>
+  </Dialog>
+</core:FragmentDefinition>

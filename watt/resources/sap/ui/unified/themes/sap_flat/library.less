@@ -1,0 +1,243 @@
+/* NOTE: This file was generated as an optimized version of "library.source.less" for the Theme Designer. */
+
+/*!
+ * SAP UI development toolkit for HTML5 (SAPUI5)
+ *
+ * (c) Copyright 2009-2016 SAP SE. All rights reserved
+ */
+
+@import "../base/library.less";
+@import (less) "../../../../../sap/ui/core/themes/sap_flat/global.css";
+/* START "shared.css" */
+
+/* END "shared.css" */
+
+
+/* START "Menu.css" */
+.sapUiMnu {
+	background-color: @sapFlatLightestBG;
+	box-shadow: 0 2px 6px -3px fade(@sapFlatDarkestBG, 75%);
+	border: none;
+	color: @sapFlatStandardText;
+	padding: 0 1rem;
+	border: none;
+	padding: 0;
+}
+
+.sapUiMnuLst {
+	padding: 0;
+	margin: 0;
+	color: @sapFlatStandardText;
+	font-size: 12px;
+	font-family: Arial,Helvetica,sans-serif;
+}
+
+.sapUiMnuDiv {
+	height: 1px;
+}
+
+.sapUiMnuDiv > hr {
+	left: 0;
+	right: 0;
+	margin: 0;
+	border-top: 1px solid @sapFlatMediumBorder;
+}
+
+.sapUiMnuItm {
+	padding: 0 2rem 0 1rem;
+	height: 25px;
+	line-height: 25px;
+	color: @sapFlatStandardText;
+}
+
+.sapUiMnuItm.sapUiMnuItmHov{
+	background-color: @sapFlatHighlight;
+	color: @sapFlatInvertedText;
+}
+
+.sapUiMnuItm:active {
+	background-color: darken(@sapFlatHighlight, 5%);
+	color: @sapFlatInvertedText;
+}
+
+.sapUiMnuItm.sapUiMnuItmDsbl,
+.sapUiMnuItm.sapUiMnuTfItm.sapUiMnuItmDsbl > .sapUiMnuItmTxt > label,
+.sapUiMnuItm.sapUiMnuTfItm.sapUiMnuItmDsbl.sapUiMnuItmHov > .sapUiMnuItmTxt > label {
+	color: fade(@sapFlatStandardText, 50%);
+}
+
+.sapUiMnuItm.sapUiMnuItmDsbl.sapUiMnuItmHov {
+	color: fade(@sapFlatStandardText, 50%);
+	background-color: lighten(@sapFlatLightBG, 1%);
+}
+
+.sapUiMnuItm .sapUiMnuItmSbMnu > div {
+	background-image: none;
+}
+
+.sapUiMnuItm .sapUiMnuItmSbMnu > div:after {
+	content: "";
+}
+
+.sapUiMnuItm .sapUiMnuItmSbMnu > div:before {
+	content: "\e00c";
+	color: black;
+	font-family: "SAP-icons-watt";
+	font-size: .5rem;
+	line-height: 1.5rem;
+}
+
+.sapUiMnuItm:active .sapUiMnuItmSbMnu > div:before {
+	color: black;
+}
+
+.sapUiMnuItm.sapUiMnuItmHov .sapUiMnuItmSbMnu > div:before {
+	color: white;
+}
+
+/*Navigationbar menu*/
+
+.sapWattNavigationMenu.sapUiMnu {
+	background: @sapFlatMediumBG;
+	box-shadow: none;
+	padding: 0;
+}
+
+.sapWattNavigationMenu .sapUiMnuItm {
+	padding: 0 2rem 0 0;
+}
+
+
+.sapWattNavigationMenu .sapUiIcon{
+	display: none;
+}
+
+.sapWattNavigationMenu .sapUiMnuItm[id$="selected"] {
+	background: @sapFlatMediumBG;
+	color: black;
+	font-weight: bold;
+}
+
+.sapWattNavigationMenu .sapUiMnuItm.sapUiMnuItmHov {
+	background: @sapFlatHighlight;
+	color: @sapFlatInvertedText;
+}
+
+.sapWattNavigationMenu .sapUiMnuItm[id$="selected"].sapUiMnuItm.sapUiMnuItmHov {
+	background: @sapFlatHighlight;
+	color: @sapFlatInvertedText;
+}
+
+/*Context menu*/
+.sapWattContextMenu.sapUiMnu {
+	box-shadow: 0 0 8px -2px fade(@sapFlatDarkestBG, 75%);
+}
+/* END "Menu.css" */
+
+/* START "MenuBar.css" */
+.sapUiMnuBar {
+	border: none;
+	height: 100%;
+}
+
+.sapUiMnuBarArea {
+	height: 100%;
+	padding: 0;
+}
+
+.sapUiMnuBarItm {
+	border: 0 none !important;
+	color: @menuBarClr;
+	display: table-cell;
+	height: 1.2rem;
+	margin: 0;
+	padding: 0;
+	vertical-align: middle;
+}
+
+.sapUiMnuBarItm:hover {
+	background: @sapFlatHighlight;
+	border: 0;
+	padding: 0;
+	color: @sapFlatInvertedText;
+	margin: 0;
+}
+
+.sapUiMnuBarItm.active {
+	background: @sapFlatHighlight;
+	border: 0;
+	padding: 0;
+	color: @sapFlatInvertedText;
+	margin: 0;
+}
+
+.sapUiMnuBarItm span, .sapUiMnuBarItm span:hover {
+	border: 0 none !important;
+	padding: 0 0.72rem;
+}
+/* END "MenuBar.css" */
+
+/* START "MenuButton.css" */
+/* ===================================================== */
+/* Gold Reflection for sap.ui.commons/MenuButton.control */
+/* ===================================================== */
+
+.sapUiMenuButton{
+	position: relative;
+}
+
+.sapUiMenuButton.sapUiBtnS{
+	padding-right: 15px;
+}
+
+.sapUiTb.sapUiTbStandalone .sapUiTbInner .sapUiMenuButton.watt_toolbar_menubutton_text {
+	width: auto;
+	padding: 0 0.5rem;
+	font-size: 14px;
+	color: #333;
+}
+
+.sapUiTb.sapUiTbStandalone .sapUiTbInner .sapUiMenuButton.watt_toolbar_menubutton_text:active {
+	color: white;
+}
+ 
+.sapUiMenuButtonIco {
+	width: 5px;
+	height: 5px;
+	margin-left: 6px;
+	background-image: url("img/menubutton/Menu_Regular.png");
+	background-repeat: no-repeat;
+	bottom: 4px;
+	right: 3px;
+	position: absolute;
+	opacity: 0.5;
+}
+
+.sapUiMenuButtonIco:active {
+	background-image: url("img/menubutton/Menu_Hover.png");
+	opacity: 1;
+}	
+
+.sapUiTb.sapUiTbStandalone .sapUiTbInner button.watt_toolbar_menubutton_split{
+	width: 10px;
+}
+
+.sapUiBtnLite > .sapUiMenuButtonIco{
+	right: 4px;
+}
+
+.sapUiBtnS.sapUiBtnAccept > .sapUiMenuButtonIco,
+.sapUiBtnS.sapUiBtnReject > .sapUiMenuButtonIco,
+.sapUiBtnS.sapUiBtnAct > .sapUiMenuButtonIco,
+.sapUiBtnS.sapUiBtnStd:active > .sapUiMenuButtonIco,
+.sapUiBtnS.sapUiBtnStd:focus > .sapUiMenuButtonIco,
+.sapUiBtnS.sapUiBtnStd:hover > .sapUiMenuButtonIco{
+	/*background-image: url("img/menubutton/Menu_Hover.png");*/
+}
+
+.sapUiBtnDsbl.sapUiMenuButton > .sapUiMenuButtonIco {
+	background-image: url("img/menubutton/Menu_Disabled.png");
+}
+
+/* END "MenuButton.css" */
+

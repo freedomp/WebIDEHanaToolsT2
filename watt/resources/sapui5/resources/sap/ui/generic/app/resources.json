@@ -1,0 +1,130 @@
+{
+	"resources":[
+		{
+			"name": ".library"
+		},
+		{
+			"name": "AppComponent-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "AppComponent.js"
+		},
+		{
+			"name": "ApplicationController-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ApplicationController.js"
+		},
+		{
+			"name": "library-all-dbg.js",
+			"isDebug":true,
+			"merged":true
+		},
+		{
+			"name": "library-all.js",
+			"merged":true
+		},
+		{
+			"name": "library-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "library-preload.json",
+			"merged":true
+		},
+		{
+			"name": "library.dependencies.json"
+		},
+		{
+			"name": "library.dependencies.xml"
+		},
+		{
+			"name": "library.js"
+		},
+		{
+			"name": "manifest.json"
+		},
+		{
+			"name": "messagebundle.properties"
+		},
+		{
+			"name": "navigation/NavigationController-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "navigation/NavigationController.js"
+		},
+		{
+			"name": "navigation/service/NavError-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "navigation/service/NavError.js"
+		},
+		{
+			"name": "navigation/service/NavigationHandler-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "navigation/service/NavigationHandler.js"
+		},
+		{
+			"name": "navigation/service/SelectionVariant-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "navigation/service/SelectionVariant.js"
+		},
+		{
+			"name": "transaction/BaseController-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "transaction/BaseController.js"
+		},
+		{
+			"name": "transaction/DraftContext-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "transaction/DraftContext.js"
+		},
+		{
+			"name": "transaction/DraftController-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "transaction/DraftController.js"
+		},
+		{
+			"name": "transaction/TransactionController-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "transaction/TransactionController.js"
+		},
+		{
+			"name": "util/DraftUtil-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "util/DraftUtil.js"
+		},
+		{
+			"name": "util/ModelUtil-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "util/ModelUtil.js"
+		},
+		{
+			"name": "util/Queue-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "util/Queue.js"
+		}
+	]
+}

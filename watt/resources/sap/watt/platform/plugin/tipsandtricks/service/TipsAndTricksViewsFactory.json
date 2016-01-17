@@ -1,0 +1,19 @@
+{
+	"name" : "sap.watt.platform.tipsandtricks.service.TipsAndTricksViewsFactory",
+	"description" : "Supplies a factory for different views that are suitable to be the content of the tips and tricks dialog",
+
+	"methods" : {
+		"buildShortcutView" : {
+			"description": "Build a shortcut view suitable for the tips and tricks dialog, such a view contains an image, a title, a shortcut, and an explanation about the tip",
+			"params" : []
+		},
+		"buildSimpleTipView" : {
+			"description": "Build a simple tip view suitable for the tips and tricks dialog, such a view contains an image, a title, and an explanation about the tip",
+			"params" : []
+		}
+	},
+
+	"events" : {
+	}
+}
+

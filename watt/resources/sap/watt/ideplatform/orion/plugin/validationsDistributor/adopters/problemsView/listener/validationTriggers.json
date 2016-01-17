@@ -1,0 +1,15 @@
+{
+	"name": "sap.watt.common.plugin.validationsDistributor.adopters.problemsView.listener.validationTriggers",
+	"description": "Listeners for starting validation flows",
+	"methods": {
+		"analyse": {},
+		"onClientValidationChanged": {},
+		"onDocumentSelected": {},
+		"onDocumentDeleted": {}
+	},
+	"events": {
+		"issuesUpdate": {
+			"description": "fired whenever any issues flow is finished"
+		}
+	}
+}

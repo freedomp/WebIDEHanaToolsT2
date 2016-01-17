@@ -1,0 +1,79 @@
+{
+	"name": "sap.watt.platform.filefilter",
+	"description": "The File Filter Plugin",
+	"i18n" : "sap.watt.platform.filefilter/i18n/i18n",
+	
+	"requires" : {
+		"services" : [
+			"document",
+			"preferences",
+			"command",
+			"commandGroup",
+			"log",
+			"filesystem.documentProvider"
+		]	
+	},
+	
+	"provides" : {
+		"services": {
+			"filefilter" : {
+				"implements" : "sap.watt.platform.filefilter.FileFilter",
+				"module" : "sap.watt.platform.filefilter/service/FileFilter"
+			},
+			"_filefilter.hide": {
+				"implements": "sap.watt.platform.filefilter.FileFilterHide",
+				"module": "sap.watt.platform.filefilter/service/FileFilterHide"
+			}
+		},
+		
+		"interfaces": {
+			"sap.watt.platform.filefilter.FileFilter" : "sap.watt.platform.filefilter/service/FileFilter",
+			"sap.watt.platform.filefilter.FileFilterHide": "sap.watt.platform.filefilter/service/FileFilterHide"
+		}
+	},
+	
+	"configures" : {
+		"services" : {
+			"filesystem.documentProvider:fileFilterHandler" : {
+                "service" : "@filefilter"
+            },
+			"command:commands" : [{
+				"id" : "filefilter.showHiddenFiles", 
+   				"label" : "{i18n>command_show_hidden_files}", 
+   				"type" : "action", 
+   				"enabled" : true,
+				"service" : "sap.watt.platform.filefilter/command/ShowHiddenFiles" 
+   			},
+   			{
+				"id" : "filefilter.hideFiles", 
+   				"label" : "{i18n>command_hide_files}", 
+   				"type" : "action", 
+   				"enabled" : true,
+				"service" : "sap.watt.platform.filefilter/command/HideFiles" 
+   			}],
+   			"commandGroup:groups": [{ 
+   				"id" : "view.fileFilter"
+   			}],
+			"commandGroup:items" : [
+				{ 
+					"parent" : "view", "type":"inline", "group" : "view.fileFilter", "prio": 20
+				},
+				{
+					"parent": "view.fileFilter",
+					"command": "filefilter.hideFiles",
+					"prio": 10 
+				},
+				{
+					"parent": "view.fileFilter",
+					"command": "filefilter.showHiddenFiles",
+					"prio": 20 
+			}]
+		}	
+	},
+	
+	"subscribes": {
+		"document:deleted": "_filefilter.hide:deleteFilters",
+		"document:created": "_filefilter.hide:addFilters",
+        "projectType:projectTypesUpdated":"_filefilter.hide:onUpdateProjectTypes"
+	}
+}

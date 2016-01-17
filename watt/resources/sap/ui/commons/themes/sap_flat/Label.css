@@ -1,0 +1,42 @@
+/* ======================================================= */
+/* CSS for control sap.ui.commons.Label.control            */
+/* Flat                                                    */
+/* ======================================================= */
+
+/* Normal Size */
+.sapUiLbl {
+	height: 2rem;
+	line-height: 2rem;
+	text-align: right;
+	padding: 0 0.5rem; 
+	vertical-align: top;
+}
+
+/* Small Size*/
+.sapUiLbl.flatControlSmall {
+	padding: 0 0.25rem;
+	font-size: 0.75rem;
+	line-height: 1.5rem;
+	height: 1.5rem;
+}
+
+/* label in the Grid */
+.sapUiLbl.flatLabelInGrid {
+    text-overflow: ellipsis;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    white-space: nowrap;
+}
+
+/* 'Required'-sign always black */
+.sapUiLbl.sapUiLblReqEnd:after,
+.sapUiLbl.sapUiLblReqBeg:before {
+	color: black;
+}
+
+/* focused Label */
+.sapUiLbl:focus{
+	outline: 1px solid rgba(0,0,0,0.5);
+	outline-offset: -1px;
+}

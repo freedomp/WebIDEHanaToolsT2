@@ -1,0 +1,1538 @@
+{
+	"resources":[
+		{
+			"name": ".library"
+		},
+		{
+			"name": ".theming"
+		},
+		{
+			"name": "Inbox-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "Inbox.control"
+		},
+		{
+			"name": "Inbox.js"
+		},
+		{
+			"name": "InboxConfiguration-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "InboxConfiguration.js"
+		},
+		{
+			"name": "InboxConstants-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "InboxConstants.js"
+		},
+		{
+			"name": "InboxDataManager-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "InboxDataManager.js"
+		},
+		{
+			"name": "InboxFilters-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "InboxFilters.js"
+		},
+		{
+			"name": "InboxFormattedTextView-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "InboxFormattedTextView.js"
+		},
+		{
+			"name": "InboxLaunchPad-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "InboxLaunchPad.control"
+		},
+		{
+			"name": "InboxLaunchPad.js"
+		},
+		{
+			"name": "InboxLaunchPadRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "InboxLaunchPadRenderer.js"
+		},
+		{
+			"name": "InboxLink-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "InboxLink.js"
+		},
+		{
+			"name": "InboxPrimaryFilterEnum-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "InboxPrimaryFilterEnum.js"
+		},
+		{
+			"name": "InboxPrimaryFilters-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "InboxPrimaryFilters.js"
+		},
+		{
+			"name": "InboxRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "InboxRenderer.js"
+		},
+		{
+			"name": "InboxSecondaryFilterPathEnum-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "InboxSecondaryFilterPathEnum.js"
+		},
+		{
+			"name": "InboxSecondaryFilterValuesEnum-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "InboxSecondaryFilterValuesEnum.js"
+		},
+		{
+			"name": "InboxSecondaryFilters-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "InboxSecondaryFilters.js"
+		},
+		{
+			"name": "InboxSplitApp-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "InboxSplitApp.control"
+		},
+		{
+			"name": "InboxSplitApp.js"
+		},
+		{
+			"name": "InboxSplitAppRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "InboxSplitAppRenderer.js"
+		},
+		{
+			"name": "InboxTaskCategoryFilterList-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "InboxTaskCategoryFilterList.js"
+		},
+		{
+			"name": "InboxTaskDescription-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "InboxTaskDescription.js"
+		},
+		{
+			"name": "InboxTile-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "InboxTile.js"
+		},
+		{
+			"name": "InboxToggleTextView-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "InboxToggleTextView.js"
+		},
+		{
+			"name": "InboxUtils-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "InboxUtils.js"
+		},
+		{
+			"name": "SubstitutionRulesManager-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "SubstitutionRulesManager.control"
+		},
+		{
+			"name": "SubstitutionRulesManager.js"
+		},
+		{
+			"name": "SubstitutionRulesManagerConstants-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "SubstitutionRulesManagerConstants.js"
+		},
+		{
+			"name": "SubstitutionRulesManagerRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "SubstitutionRulesManagerRenderer.js"
+		},
+		{
+			"name": "SubstitutionRulesManagerUtils-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "SubstitutionRulesManagerUtils.js"
+		},
+		{
+			"name": "TCMMetadata-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "TCMMetadata.js"
+		},
+		{
+			"name": "TaskInitialFilters-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "TaskInitialFilters.js"
+		},
+		{
+			"name": "composite/InboxAddAttachmentTile-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "composite/InboxAddAttachmentTile.control"
+		},
+		{
+			"name": "composite/InboxAddAttachmentTile.js"
+		},
+		{
+			"name": "composite/InboxAddAttachmentTileRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "composite/InboxAddAttachmentTileRenderer.js"
+		},
+		{
+			"name": "composite/InboxAttachmentFileUploader-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "composite/InboxAttachmentFileUploader.js"
+		},
+		{
+			"name": "composite/InboxAttachmentTile-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "composite/InboxAttachmentTile.control"
+		},
+		{
+			"name": "composite/InboxAttachmentTile.js"
+		},
+		{
+			"name": "composite/InboxAttachmentTileRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "composite/InboxAttachmentTileRenderer.js"
+		},
+		{
+			"name": "composite/InboxAttachmentsTileContainer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "composite/InboxAttachmentsTileContainer.control"
+		},
+		{
+			"name": "composite/InboxAttachmentsTileContainer.js"
+		},
+		{
+			"name": "composite/InboxAttachmentsTileContainerRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "composite/InboxAttachmentsTileContainerRenderer.js"
+		},
+		{
+			"name": "composite/InboxBusyIndicator-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "composite/InboxBusyIndicator.control"
+		},
+		{
+			"name": "composite/InboxBusyIndicator.js"
+		},
+		{
+			"name": "composite/InboxBusyIndicatorRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "composite/InboxBusyIndicatorRenderer.js"
+		},
+		{
+			"name": "composite/InboxComment-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "composite/InboxComment.control"
+		},
+		{
+			"name": "composite/InboxComment.js"
+		},
+		{
+			"name": "composite/InboxCommentRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "composite/InboxCommentRenderer.js"
+		},
+		{
+			"name": "composite/InboxTaskComments-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "composite/InboxTaskComments.control"
+		},
+		{
+			"name": "composite/InboxTaskComments.js"
+		},
+		{
+			"name": "composite/InboxTaskCommentsRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "composite/InboxTaskCommentsRenderer.js"
+		},
+		{
+			"name": "composite/InboxTaskTitleControl-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "composite/InboxTaskTitleControl.control"
+		},
+		{
+			"name": "composite/InboxTaskTitleControl.js"
+		},
+		{
+			"name": "composite/InboxTaskTitleControlRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "composite/InboxTaskTitleControlRenderer.js"
+		},
+		{
+			"name": "composite/InboxUploadAttachmentTile-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "composite/InboxUploadAttachmentTile.control"
+		},
+		{
+			"name": "composite/InboxUploadAttachmentTile.js"
+		},
+		{
+			"name": "composite/InboxUploadAttachmentTileRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "composite/InboxUploadAttachmentTileRenderer.js"
+		},
+		{
+			"name": "controller/InboxController-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "controller/InboxController.js"
+		},
+		{
+			"name": "controller/InboxControllerAsync-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "controller/InboxControllerAsync.js"
+		},
+		{
+			"name": "controller/InboxControllerFactory-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "controller/InboxControllerFactory.js"
+		},
+		{
+			"name": "library-all-dbg.js",
+			"isDebug":true,
+			"merged":true
+		},
+		{
+			"name": "library-all.js",
+			"merged":true
+		},
+		{
+			"name": "library-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "library-preload.json",
+			"merged":true
+		},
+		{
+			"name": "library.dependencies.json"
+		},
+		{
+			"name": "library.dependencies.xml"
+		},
+		{
+			"name": "library.js"
+		},
+		{
+			"name": "library.properties"
+		},
+		{
+			"name": "library.templates.xml"
+		},
+		{
+			"name": "manifest.json"
+		},
+		{
+			"name": "messagebundle.properties",
+			"raw":"messagebundle.properties",
+			"locale":""
+		},
+		{
+			"name": "messagebundle_ar.properties",
+			"raw":"messagebundle.properties",
+			"locale":"ar"
+		},
+		{
+			"name": "messagebundle_bg.properties",
+			"raw":"messagebundle.properties",
+			"locale":"bg"
+		},
+		{
+			"name": "messagebundle_ca.properties",
+			"raw":"messagebundle.properties",
+			"locale":"ca"
+		},
+		{
+			"name": "messagebundle_cs.properties",
+			"raw":"messagebundle.properties",
+			"locale":"cs"
+		},
+		{
+			"name": "messagebundle_da.properties",
+			"raw":"messagebundle.properties",
+			"locale":"da"
+		},
+		{
+			"name": "messagebundle_de.properties",
+			"raw":"messagebundle.properties",
+			"locale":"de"
+		},
+		{
+			"name": "messagebundle_el.properties",
+			"raw":"messagebundle.properties",
+			"locale":"el"
+		},
+		{
+			"name": "messagebundle_en.properties",
+			"raw":"messagebundle.properties",
+			"locale":"en"
+		},
+		{
+			"name": "messagebundle_en_US_sappsd.properties",
+			"raw":"messagebundle.properties",
+			"locale":"en_US_sappsd"
+		},
+		{
+			"name": "messagebundle_en_US_saptrc.properties",
+			"raw":"messagebundle.properties",
+			"locale":"en_US_saptrc"
+		},
+		{
+			"name": "messagebundle_es.properties",
+			"raw":"messagebundle.properties",
+			"locale":"es"
+		},
+		{
+			"name": "messagebundle_et.properties",
+			"raw":"messagebundle.properties",
+			"locale":"et"
+		},
+		{
+			"name": "messagebundle_fi.properties",
+			"raw":"messagebundle.properties",
+			"locale":"fi"
+		},
+		{
+			"name": "messagebundle_fr.properties",
+			"raw":"messagebundle.properties",
+			"locale":"fr"
+		},
+		{
+			"name": "messagebundle_hi.properties",
+			"raw":"messagebundle.properties",
+			"locale":"hi"
+		},
+		{
+			"name": "messagebundle_hr.properties",
+			"raw":"messagebundle.properties",
+			"locale":"hr"
+		},
+		{
+			"name": "messagebundle_hu.properties",
+			"raw":"messagebundle.properties",
+			"locale":"hu"
+		},
+		{
+			"name": "messagebundle_it.properties",
+			"raw":"messagebundle.properties",
+			"locale":"it"
+		},
+		{
+			"name": "messagebundle_iw.properties",
+			"raw":"messagebundle.properties",
+			"locale":"iw"
+		},
+		{
+			"name": "messagebundle_ja.properties",
+			"raw":"messagebundle.properties",
+			"locale":"ja"
+		},
+		{
+			"name": "messagebundle_ko.properties",
+			"raw":"messagebundle.properties",
+			"locale":"ko"
+		},
+		{
+			"name": "messagebundle_lt.properties",
+			"raw":"messagebundle.properties",
+			"locale":"lt"
+		},
+		{
+			"name": "messagebundle_lv.properties",
+			"raw":"messagebundle.properties",
+			"locale":"lv"
+		},
+		{
+			"name": "messagebundle_nl.properties",
+			"raw":"messagebundle.properties",
+			"locale":"nl"
+		},
+		{
+			"name": "messagebundle_no.properties",
+			"raw":"messagebundle.properties",
+			"locale":"no"
+		},
+		{
+			"name": "messagebundle_pl.properties",
+			"raw":"messagebundle.properties",
+			"locale":"pl"
+		},
+		{
+			"name": "messagebundle_pt.properties",
+			"raw":"messagebundle.properties",
+			"locale":"pt"
+		},
+		{
+			"name": "messagebundle_ro.properties",
+			"raw":"messagebundle.properties",
+			"locale":"ro"
+		},
+		{
+			"name": "messagebundle_ru.properties",
+			"raw":"messagebundle.properties",
+			"locale":"ru"
+		},
+		{
+			"name": "messagebundle_sh.properties",
+			"raw":"messagebundle.properties",
+			"locale":"sh"
+		},
+		{
+			"name": "messagebundle_sk.properties",
+			"raw":"messagebundle.properties",
+			"locale":"sk"
+		},
+		{
+			"name": "messagebundle_sl.properties",
+			"raw":"messagebundle.properties",
+			"locale":"sl"
+		},
+		{
+			"name": "messagebundle_sv.properties",
+			"raw":"messagebundle.properties",
+			"locale":"sv"
+		},
+		{
+			"name": "messagebundle_th.properties",
+			"raw":"messagebundle.properties",
+			"locale":"th"
+		},
+		{
+			"name": "messagebundle_tr.properties",
+			"raw":"messagebundle.properties",
+			"locale":"tr"
+		},
+		{
+			"name": "messagebundle_uk.properties",
+			"raw":"messagebundle.properties",
+			"locale":"uk"
+		},
+		{
+			"name": "messagebundle_vi.properties",
+			"raw":"messagebundle.properties",
+			"locale":"vi"
+		},
+		{
+			"name": "messagebundle_zh_CN.properties",
+			"raw":"messagebundle_zh.properties",
+			"locale":"CN"
+		},
+		{
+			"name": "messagebundle_zh_TW.properties",
+			"raw":"messagebundle_zh.properties",
+			"locale":"TW"
+		},
+		{
+			"name": "splitapp/DetailViewPage-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "splitapp/DetailViewPage.js"
+		},
+		{
+			"name": "splitapp/MasterPage-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "splitapp/MasterPage.js"
+		},
+		{
+			"name": "splitapp/MasterPageController-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "splitapp/MasterPageController.js"
+		},
+		{
+			"name": "splitapp/TaskExecutionUIPage-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "splitapp/TaskExecutionUIPage.js"
+		},
+		{
+			"name": "tcm/TCMModel-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "tcm/TCMModel.js"
+		},
+		{
+			"name": "tcm/fI/TCMFunctionImport-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "tcm/fI/TCMFunctionImport.js"
+		},
+		{
+			"name": "tcm/fI/TCMFunctionImportMetaData-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "tcm/fI/TCMFunctionImportMetaData.js"
+		},
+		{
+			"name": "themes/base/.theming",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/Inbox.css",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/InboxAddAttachmentTile.css",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/InboxAttachmentTile.css",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/InboxAttachmentsTileContainer.css",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/InboxBusyIndicator.css",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/InboxComment.css",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/InboxLaunchPad.css",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/InboxSplitApp.css",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/InboxTaskComments.css",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/InboxTaskTitleControl.css",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/InboxUploadAttachmentTile.css",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/IndexLayout.css",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/SubstitutionRulesManager.css",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/Info.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/alert.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/attachment.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/claim_action.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/close_button.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/close_hover.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/comments.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/comments/person_placeholder_48.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/comments/person_placeholder_grey_512.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/complete_action.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/completed_status.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/custom_attributes.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/delete.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/delete_blue.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/drilldown_filter_selected.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/drilldown_filter_unselected.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/error.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/forwardTask.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/high_priority.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/inprocess_status.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/loading_ani.gif",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/low_priority.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/medium_priority.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/next.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/notification.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/previous.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/ready_status.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/refresh.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/refresh_ani.gif",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/release_action.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/reserved_status.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/rr_view_alert.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/rr_view_notification.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/rr_view_selected.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/rr_view_todo.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/rr_view_unselected.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/sap_logo.gif",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/settings_button_hover.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/settings_button_regular.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/sort_asc.gif",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/sort_desc.gif",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/success.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/table_view_selected.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/table_view_unselected.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/task.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/taskInitiator_default.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/todo.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/very_high_priority.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img-RTL/warning.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/Info.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/alert.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/attachment.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/claim_action.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/close_button.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/close_hover.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/comments.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/comments/person_placeholder_48.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/comments/person_placeholder_grey_512.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/complete_action.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/completed_status.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/custom_attributes.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/delete.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/delete_blue.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/drilldown_filter_selected.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/drilldown_filter_unselected.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/error.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/forwardTask.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/high_priority.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/inprocess_status.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/loading_ani.gif",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/low_priority.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/medium_priority.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/next.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/notification.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/previous.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/ready_status.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/refresh.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/refresh_ani.gif",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/release_action.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/reserved_status.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/rr_view_alert.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/rr_view_notification.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/rr_view_selected.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/rr_view_todo.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/rr_view_unselected.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/sap_logo.gif",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/settings_button_hover.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/settings_button_regular.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/sort_asc.gif",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/sort_desc.gif",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/success.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/table_view_selected.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/table_view_unselected.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/task.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/taskInitiator_default.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/todo.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/very_high_priority.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/img/warning.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library-RTL-dbg.css",
+			"isDebug":true,
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library-RTL.css",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library-dbg.css",
+			"isDebug":true,
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library-parameters.json",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library.css",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library.source.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/shared.css",
+			"theme":"base"
+		},
+		{
+			"name": "themes/sap_bluecrystal/.theming",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/Inbox.css",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/SubstitutionRulesManager.css",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library-RTL-dbg.css",
+			"isDebug":true,
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library-RTL.css",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library-dbg.css",
+			"isDebug":true,
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library-parameters.json",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library.css",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library.less",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library.source.less",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_goldreflection/.theming",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/Inbox.css",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/InboxComment.css",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/InboxTaskComments.css",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/SubstitutionRulesManager.css",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/img-RTL/Line_Comments.png",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/img-RTL/Triangle_Comments.png",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/img/Line_Comments.png",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/img/Triangle_Comments.png",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/library-RTL-dbg.css",
+			"isDebug":true,
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/library-RTL.css",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/library-dbg.css",
+			"isDebug":true,
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/library-parameters.json",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/library.css",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/library.less",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/library.source.less",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_hcb/.theming",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/Inbox.css",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/InboxComment.css",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/InboxTaskComments.css",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/SubstitutionRulesManager.css",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img-RTL/Info.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img-RTL/alert.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img-RTL/attachment.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img-RTL/claim_action.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img-RTL/comments.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img-RTL/complete_action.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img-RTL/custom_attributes.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img-RTL/delete.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img-RTL/drilldown_filter_unselected.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img-RTL/error.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img-RTL/next.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img-RTL/notification.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img-RTL/previous.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img-RTL/refresh.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img-RTL/refresh_ani.gif",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img-RTL/release_action.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img-RTL/rr_view_alert.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img-RTL/rr_view_notification.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img-RTL/rr_view_todo.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img-RTL/rr_view_unselected.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img-RTL/settings_button_regular.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img-RTL/sort_asc.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img-RTL/sort_desc.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img-RTL/success.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img-RTL/table_view_unselected.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img-RTL/task.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img-RTL/taskInitiator_default.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img-RTL/todo.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img-RTL/warning.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img/Info.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img/alert.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img/attachment.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img/claim_action.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img/comments.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img/complete_action.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img/custom_attributes.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img/delete.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img/drilldown_filter_unselected.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img/error.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img/next.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img/notification.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img/previous.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img/refresh.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img/refresh_ani.gif",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img/release_action.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img/rr_view_alert.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img/rr_view_notification.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img/rr_view_todo.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img/rr_view_unselected.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img/settings_button_regular.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img/sort_asc.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img/sort_desc.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img/success.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img/table_view_unselected.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img/task.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img/taskInitiator_default.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img/todo.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/img/warning.png",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-RTL-dbg.css",
+			"isDebug":true,
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-RTL.css",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-dbg.css",
+			"isDebug":true,
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-parameters.json",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library.css",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library.less",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library.source.less",
+			"theme":"sap_hcb"
+		}
+	]
+}

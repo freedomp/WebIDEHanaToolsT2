@@ -1,0 +1,11 @@
+.content {
+	padding: 5px 0 1rem 0;
+}
+
+.content:first-child .VH2.VFontSpecial {
+	padding-top: 3rem;	
+}
+
+.content .VH1.VFontSpecial:first-child {
+	padding-bottom: 0;	
+}

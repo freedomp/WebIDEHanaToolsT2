@@ -1,0 +1,4 @@
+.sapMVBox > .sapMFlexItem,
+.sapMHBox > .sapMFlexItem {
+	 padding: 3px;
+ }

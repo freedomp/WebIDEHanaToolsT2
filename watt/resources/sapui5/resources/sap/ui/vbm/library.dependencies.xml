@@ -1,0 +1,471 @@
+<?xml version="1.0" ?>
+<library  version="2.0" name="sap.ui.vbm">
+  <module name="sap/ui/vbm/AnalyticMap.js" size="28296" compressedSize="10833">
+    <description>Provides control sap.ui.vbm.AnalyticMap.</description>
+    <requires>
+      <module name="sap/ui/core/theming/Parameters.js"/>
+      <module name="sap/ui/vbm/GeoMap.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/AnalyticMapRenderer.js" size="821" compressedSize="275">
+    <description>! SAP UI development toolkit for HTML5 (SAPUI5) (c) Copyright 2009-2012 SAP AG. All rights reserved</description>
+    <requires>
+      <module name="sap/ui/vbm/GeoMapRenderer.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/Area.js" size="4750" compressedSize="1326">
+    <description>Provides control sap.ui.vbm.Area.</description>
+    <requires>
+      <module name="sap/ui/vbm/VoBase.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/Areas.js" size="8783" compressedSize="3962">
+    <description>Provides control sap.ui.vbm.Areas.</description>
+    <requires>
+      <module name="sap/ui/vbm/VoAggregation.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/Box.js" size="3356" compressedSize="1094">
+    <description>Provides control sap.ui.vbm.Box.</description>
+    <requires>
+      <module name="sap/ui/vbm/VoBase.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/Boxes.js" size="7548" compressedSize="3216">
+    <description>Provides control sap.ui.vbm.Boxes.</description>
+    <requires>
+      <module name="sap/ui/vbm/VoAggregation.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/Circle.js" size="2845" compressedSize="1069">
+    <description>Provides control sap.ui.vbm.Circle.</description>
+    <requires>
+      <module name="sap/ui/vbm/VoBase.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/Circles.js" size="7845" compressedSize="3311">
+    <description>Provides control sap.ui.vbm.Circles.</description>
+    <requires>
+      <module name="sap/ui/vbm/VoAggregation.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/Cluster.js" size="5102" compressedSize="1709">
+    <description>Provides control sap.ui.vbm.Cluster.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="sap/ui/core/Control.js"/>
+      <module name="sap/ui/core/IconPool.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/ClusterBase.js" size="7558" compressedSize="2769">
+    <description>Provides control sap.ui.vbm.ClusterBase.</description>
+    <requires>
+      <module name="sap/ui/core/Element.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/ClusterDistance.js" size="2341" compressedSize="546">
+    <description>Provides control sap.ui.vbm.ClusterDistance.</description>
+    <requires>
+      <module name="sap/ui/vbm/ClusterBase.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/ClusterGrid.js" size="3692" compressedSize="1100">
+    <description>Provides control sap.ui.vbm.ClusterGrid.</description>
+    <requires>
+      <module name="sap/ui/vbm/ClusterBase.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/ClusterRenderer.js" size="4678" compressedSize="2989">
+    <description>! SAP UI development toolkit for HTML5 (SAPUI5) (c) Copyright 2009-2012 SAP AG. All rights reserved</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/ClusterTree.js" size="2202" compressedSize="566">
+    <description>Provides control sap.ui.vbm.ClusterTree.</description>
+    <requires>
+      <module name="sap/ui/vbm/ClusterBase.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/Container.js" size="4268" compressedSize="1476">
+    <description>Provides control sap.ui.vbm.Container.</description>
+    <requires>
+      <module name="sap/ui/vbm/VoBase.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/Containers.js" size="6434" compressedSize="2518">
+    <description>Provides control sap.ui.vbm.Containers.</description>
+    <requires>
+      <module name="sap/ui/vbm/VoAggregation.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/DragSource.js" size="1252" compressedSize="339">
+    <description>Provides control sap.ui.vbm.DragSource.</description>
+    <requires>
+      <module name="sap/ui/core/Element.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/DropTarget.js" size="1252" compressedSize="339">
+    <description>Provides control sap.ui.vbm.DropTarget.</description>
+    <requires>
+      <module name="sap/ui/core/Element.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/Feature.js" size="3199" compressedSize="731">
+    <description>Provides control sap.ui.vbm.Feature.</description>
+    <requires>
+      <module name="sap/ui/core/Element.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/FeatureCollection.js" size="18865" compressedSize="6341">
+    <description>Provides control sap.ui.vbm.FeatureCollection.</description>
+    <requires>
+      <module name="sap/ui/core/theming/Parameters.js"/>
+      <module name="sap/ui/core/Element.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/GeoCircle.js" size="3412" compressedSize="1191">
+    <description>Provides control sap.ui.vbm.GeoCircle.</description>
+    <requires>
+      <module name="sap/ui/vbm/VoBase.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/GeoCircles.js" size="8055" compressedSize="3407">
+    <description>Provides control sap.ui.vbm.GeoCircles.</description>
+    <requires>
+      <module name="sap/ui/vbm/VoAggregation.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/GeoMap.js" size="51364" compressedSize="24593">
+    <description>Provides control sap.ui.vbm.GeoMap.</description>
+    <requires>
+      <module name="sap/ui/vbm/VBI.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/GeoMapRenderer.js" size="938" compressedSize="303">
+    <description>! SAP UI development toolkit for HTML5 (SAPUI5) (c) Copyright 2009-2012 SAP AG. All rights reserved</description>
+    <requires>
+      <module name="sap/ui/vbm/VBIRenderer.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/Legend.js" size="5878" compressedSize="2420">
+    <description>Provides control sap.ui.vbm.Legend.</description>
+    <requires>
+      <module name="sap/ui/core/Element.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/LegendItem.js" size="2462" compressedSize="690">
+    <description>Provides control sap.ui.vbm.LegendItem.</description>
+    <requires>
+      <module name="sap/ui/core/Element.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/Pie.js" size="3365" compressedSize="1026">
+    <description>Provides control sap.ui.vbm.Pie.</description>
+    <requires>
+      <module name="sap/ui/vbm/VoBase.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/PieItem.js" size="1515" compressedSize="405">
+    <description>Provides control sap.ui.vbm.PieItem.</description>
+    <requires>
+      <module name="sap/ui/core/Element.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/Pies.js" size="7227" compressedSize="2985">
+    <description>Provides control sap.ui.vbm.Pies.</description>
+    <requires>
+      <module name="sap/ui/vbm/VoAggregation.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/Region.js" size="2101" compressedSize="563">
+    <description>Provides control sap.ui.vbm.Region.</description>
+    <requires>
+      <module name="sap/ui/core/Element.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/Resource.js" size="2333" compressedSize="439">
+    <description>Provides control sap.ui.vbm.Resource.</description>
+    <requires>
+      <module name="sap/ui/core/Element.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/Route.js" size="8997" compressedSize="3247" requiresTopLevelScope="true" exposedGlobals="cross,dot,radians,degrees,calcGeodesicRoute">
+    <description>Provides control sap.ui.vbm.Route.</description>
+    <requires>
+      <module name="sap/ui/vbm/VoBase.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/Routes.js" size="10845" compressedSize="4594">
+    <description>Provides control sap.ui.vbm.Routes.</description>
+    <requires>
+      <module name="sap/ui/vbm/VoAggregation.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/Spot.js" size="8335" compressedSize="2835">
+    <description>Provides control sap.ui.vbm.Spot.</description>
+    <requires>
+      <module name="sap/ui/core/theming/Parameters.js"/>
+      <module name="sap/ui/vbm/VoBase.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/Spots.js" size="11978" compressedSize="5031">
+    <description>Provides control sap.ui.vbm.Spots.</description>
+    <requires>
+      <module name="sap/ui/vbm/VoAggregation.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/VBI.js" size="24085" compressedSize="7682">
+    <description>Provides control sap.ui.vbm.VBI.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="sap/ui/core/Control.js"/>
+      <module name="sap/ui/core/IconPool.js"/>
+      <module name="sap/ui/thirdparty/jqueryui/jquery-ui-widget.js"/>
+      <module name="sap/ui/thirdparty/jqueryui/jquery-ui-core.js"/>
+      <module name="sap/ui/thirdparty/jqueryui/jquery-ui-mouse.js"/>
+      <module name="sap/ui/thirdparty/jqueryui/jquery-ui-draggable.js"/>
+      <module name="sap/ui/vbm/lib/sapvbi.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/VBIRenderer.js" size="2417" compressedSize="1067">
+    <description>! SAP UI development toolkit for HTML5 (SAPUI5) (c) Copyright 2009-2012 SAP AG. All rights reserved</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/VoAggregation.js" size="18622" compressedSize="8167">
+    <description>Provides control sap.ui.vbm.VoAggregation.</description>
+    <requires>
+      <module name="sap/ui/core/Element.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/VoBase.js" size="14672" compressedSize="4228">
+    <description>Provides control sap.ui.vbm.VoBase.</description>
+    <requires>
+      <module name="sap/ui/core/theming/Parameters.js"/>
+      <module name="sap/ui/core/Element.js"/>
+      <module name="sap/ui/vbm/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle.properties" size="598">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_ar.properties" size="785">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_bg.properties" size="1014">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_ca.properties" size="511">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_cs.properties" size="563">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_da.properties" size="487">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_de.properties" size="516">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_el.properties" size="876">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_en.properties" size="479">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_es.properties" size="511">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_et.properties" size="492">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_fi.properties" size="508">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_fr.properties" size="536">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_hi.properties" size="918">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_hr.properties" size="514">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_hu.properties" size="582">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_it.properties" size="508">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_iw.properties" size="791">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_ja.properties" size="616">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_ko.properties" size="601">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_lt.properties" size="581">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_lv.properties" size="571">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_nl.properties" size="501">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_no.properties" size="502">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_pl.properties" size="556">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_pt.properties" size="512">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_ro.properties" size="521">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_ru.properties" size="1003">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_sh.properties" size="515">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_sk.properties" size="594">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_sl.properties" size="521">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_sv.properties" size="518">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_th.properties" size="817">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_tr.properties" size="586">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_uk.properties" size="1039">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_vi.properties" size="668">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_zh_CN.properties" size="538">
+  </module>
+  <module name="sap/ui/vbm/i18n/messagebundle_zh_TW.properties" size="544">
+  </module>
+  <module name="sap/ui/vbm/lib/proj4js-compressed.js" size="68695" compressedSize="68459" requiresTopLevelScope="true" exposedGlobals="Proj4js,phi4z,e4fn" raw="true">
+  </module>
+  <module name="sap/ui/vbm/lib/sapactions.js" size="6273" compressedSize="2104" raw="true">
+  </module>
+  <module name="sap/ui/vbm/lib/sapautomations.js" size="10939" compressedSize="4930" raw="true">
+  </module>
+  <module name="sap/ui/vbm/lib/sapconfig.js" size="1279" compressedSize="395" raw="true">
+  </module>
+  <module name="sap/ui/vbm/lib/sapdataprovider.js" size="67135" compressedSize="26067" raw="true">
+  </module>
+  <module name="sap/ui/vbm/lib/sapevents.js" size="70692" compressedSize="30719" raw="true">
+  </module>
+  <module name="sap/ui/vbm/lib/sapgeolocation.js" size="2740" compressedSize="1188" raw="true">
+  </module>
+  <module name="sap/ui/vbm/lib/sapgeomath.js" size="11394" compressedSize="3360" raw="true">
+  </module>
+  <module name="sap/ui/vbm/lib/sapgeotool.js" size="6954" compressedSize="1762" raw="true">
+  </module>
+  <module name="sap/ui/vbm/lib/sapheatmap.js" size="16015" compressedSize="10752" raw="true">
+  </module>
+  <module name="sap/ui/vbm/lib/saplabels.js" size="17467" compressedSize="8376" raw="true">
+  </module>
+  <module name="sap/ui/vbm/lib/sapmaplayer.js" size="8013" compressedSize="3217" raw="true">
+  </module>
+  <module name="sap/ui/vbm/lib/sapmapmanager.js" size="17612" compressedSize="6582" raw="true">
+  </module>
+  <module name="sap/ui/vbm/lib/sapmapprovider.js" size="12432" compressedSize="5118" raw="true">
+  </module>
+  <module name="sap/ui/vbm/lib/sapnavigation.js" size="20701" compressedSize="15008" raw="true">
+  </module>
+  <module name="sap/ui/vbm/lib/sapparsing.js" size="8680" compressedSize="4702" raw="true">
+  </module>
+  <module name="sap/ui/vbm/lib/sappositioning.js" size="13268" compressedSize="4961" raw="true">
+  </module>
+  <module name="sap/ui/vbm/lib/sapprojection.js" size="1512" compressedSize="709" raw="true">
+  </module>
+  <module name="sap/ui/vbm/lib/sapresources.js" size="6639" compressedSize="4199" raw="true">
+  </module>
+  <module name="sap/ui/vbm/lib/sapscale.js" size="8225" compressedSize="3839" raw="true">
+  </module>
+  <module name="sap/ui/vbm/lib/sapscene.js" size="123457" compressedSize="56781" raw="true">
+  </module>
+  <module name="sap/ui/vbm/lib/saputilities.js" size="58030" compressedSize="26421" raw="true">
+  </module>
+  <module name="sap/ui/vbm/lib/sapvbcluster.js" size="71405" compressedSize="32099" raw="true">
+  </module>
+  <module name="sap/ui/vbm/lib/sapvbi.js" size="8526" compressedSize="3432">
+    <requires>
+      <module name="sap/ui/core/IconPool.js"/>
+      <module name="sap/ui/core/theming/Parameters.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/lib/sapvbicontext.js" size="10468" compressedSize="4357" raw="true">
+  </module>
+  <module name="sap/ui/vbm/lib/sapvbmenu.js" size="5160" compressedSize="2574" raw="true">
+  </module>
+  <module name="sap/ui/vbm/lib/sapvobase.js" size="195583" compressedSize="88218" raw="true">
+  </module>
+  <module name="sap/ui/vbm/lib/sapvoutils.js" size="24902" compressedSize="11477" raw="true">
+  </module>
+  <module name="sap/ui/vbm/lib/sapwindow.js" size="35606" compressedSize="15854" raw="true">
+  </module>
+  <module name="sap/ui/vbm/library.js" size="4379" compressedSize="1566">
+    <description>Initialization Code and shared classes of library sap.ui.vbm.</description>
+    <requires>
+      <module name="sap/ui/unified/library.js"/>
+      <module name="sap/ui/commons/library.js"/>
+      <module name="sap/ui/core/Core.js"/>
+      <module name="sap/ui/core/library.js"/>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/vbm/manifest.json" size="838">
+  </module>
+</library>

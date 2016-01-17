@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<!-- Copyright (c) 2013 SAP SE, All Rights Reserved -->
+<html style="width: 100%; height: 100%;">
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta charset="utf-8"/>
+	<title>Application Preview</title>
+	<link rel="stylesheet" type="text/css" href="../css/wrapper.css">
+	<style type="text/css">
+		@font-face {
+			font-family: 'SAP-icons';
+			src: url('../fonts/SAP-icons.eot');
+			src: url('../fonts/SAP-icons.eot?#iefix') format('embedded-opentype'),
+				url('../fonts/SAP-icons.ttf') format('truetype');
+			font-weight: normal;
+			font-style: normal;
+		}
+		@font-face {
+			font-family: 'SAP-icons-watt';
+			font-style: 'normal';
+			font-weight: 'normal';
+			src: url('../fonts/SAP-icons-watt.ttf');
+		}
+	</style>
+
+	<script src='../../../../lib/q/q.js'></script>
+	<script src='../../../../lib/jquery/jquery-1.10.2.js'></script>
+	<script src='Wrapper.js'></script>
+</head>
+
+<body id="body" class="sapUiBody" style="width: 100%; height: 100%; margin:0;">
+<div id="container">
+	<nav id="topbar">
+		<ul id="menu">
+			<li id="custDevice">
+				<div id="custDevice" class="menu-item">
+					<div id="disp" class="label">
+						<span class="type i18n">preview_custom</span>
+						<span class="desc">480 × 800</span>
+					</div>
+					<div id="edit" class="label">
+						<input id="inputWidth" size="1" value="480"></input>
+						<input id="inputHeight" size="1" value="800"></input>
+					</div>
+				</div>
+				<span id="custButton" title="preview_edit" class="icon i18n"></span>
+			</li>
+		</ul>
+		<ul id="btn1" class="buttons" style="right: 0;">
+			<li id="shareBtn" title="preview_qr" class="disable i18n"><span class="icon watticon">&#57363;</span></li>
+		</ul>
+		<ul id="languages" style="right: 3rem;"></ul>
+		<ul id="btn2" class="buttons" style="right: 10rem;">
+			<li id="reloadBtn"><span class="icon">&#57360;</span><span title="preview_refresh" class="i18n">preview_refresh</span></li>
+			<li id="rotateBtn" class="disable"><span class="icon">&#57663;</span><span title="preview_switch_orientation" class="i18n">preview_orientation</span></li>
+		</ul>
+	</nav>
+	<div id="content">
+		<div id="scrollContainer">
+			<div id="device">
+				<div id="screen">
+					<iframe id="display"></iframe>
+				</div>
+				<!-- <div id="home" title="Re-load content"></div>  -->
+			</div>
+		</div>
+		<div id="share" style="display:none;">
+			<div id="qrCode"></div>
+			<div id="viaEmail">
+				<span style="font-size:11px;" class="i18n">preview_share_via_email</span>
+				<input id="link" readonly></input>
+				<a  id="sharelink" href="mailto:" class="i18n">preview_send_email</a>
+			</div>
+		</div>
+		<ul id="messages"></ul>
+	</div>
+</div>
+</body>
+<script>
+(function() {
+	new Wrapper().init();
+})();
+</script>
+
+</html>

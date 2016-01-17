@@ -1,0 +1,138 @@
+{
+	"name": "sap.watt.common.basevalidator.BaseValidator",
+	"description": "The BaseValidator interface",
+	"configurationProperties" : {
+		"validator" : {
+			"type" : {
+				"validatorName":"string",
+				"fileExtension" : "[string]",
+				"syncExec":"boolean",
+				"service" : "sap.watt.common.plugin.platform.service.editor.Validator",
+				"displayConfigurationService" : "sap.watt.common.plugin.platform.service.editor.DisplayValidatorConfiguration"
+			},
+			"multiple" : true
+		},
+		"maxLineLength": {
+			"type": "number",
+			"multiple": false
+		}
+	},
+	"methods": {
+		"getProjectsValidatorsConfiguration": {
+			"returns" : "object"
+		},
+		"validate" : {
+			"params":[
+				{
+					"name" : "documentsArray",
+					"type" : "[object]",
+					"description" : "an array of documents- files or folders to validate"
+				}
+			]
+		},
+		"getCurrentValidatorServiceProxyById": {
+			"params":[
+				{
+					"name":"serviceID",
+					"type":"string",
+					"description":"service identifier"
+				}
+			],
+			"returns":"object",
+			"description":"gets proxy object to concrete validator service"
+		},
+		"getCurrentValidatorServiceProxyByExtension": {
+			"params":[
+				{
+					"name":"fileExtension",
+					"type":"string",
+					"description":"file extension"
+				},
+				{
+					"name":"projectDoc",
+					"type":"object",
+					"description":"current project"
+				}
+			],
+			"returns":"object",
+			"description":"gets proxy object to concrete validator service"
+		},
+		"getProjectValidationConfiguration": {
+			"params" : [
+				{
+					"name":"serviceID",
+					"type":"string",
+					"description":"service identifier"
+				}
+			],
+			"returns":"object",
+			"description":"returns project configurations for the service"
+		},
+		"getValidatorsList" : {
+			"params" : [
+				{
+					"name" : "fileExtension",
+					"type" : "string"
+				},
+				{
+					"name":"projectDoc",
+					"type":"object",
+					"description":"current project"
+				}
+			],
+			"returns":"string",
+			"description":"return the list of all avalable validators for specific file extension"
+		},
+		"onSelectionChanged" : {
+			"description" : "Handler for selection:changed event",
+			"params" : [
+				{
+					"name" : "oEvent",
+					"type" : "object"
+				}
+			]
+		},
+		"onDocumentChanged" : {
+			"description" : "Handler for document:changed event",
+			"params" : [
+				{
+					"name" : "oEvent",
+					"type" : "object"
+				}
+			]
+		},
+		"onDocumentSaved" : {
+			"description" : "Handler for document:saved event",
+			"params" : [
+				{
+					"name" : "oEvent",
+					"type" : "object"
+				}
+			]
+		},
+		"getRulesConfigurationTemplate" : {
+			"returns" : "object",
+			"description" : "gets template of the rules configuraion"
+		},
+		"validatorConfigurationsChangeHandler" : {
+			"description" : "handles cases where configuration was saved through project settings",
+			"params":[
+				{
+					"name":"projectPath",
+					"type":"string",
+					"description":"current project path"
+				}
+			],
+			"description" : "handles cases where configuration was saved through project settings"
+		},
+		"getIssuesWrappedForProblems" : {
+			"returns" : "object",
+			"description" : "prepering the issues received by concrete validators to be problems by wrapping them"
+		}
+	},
+	"events": {
+		"issuesOnSingleFileUpdate": {
+			"description": "fired whenever any validation is finished"
+		}
+	}
+}

@@ -1,0 +1,39 @@
+/*!
+ * ${copyright}
+ */
+
+sap.ui.define(['jquery.sap.global','{{controlPath}}Renderer'],
+
+	function(jQuery,{{renderObject}}Renderer) {
+	"use strict";
+
+	/**
+	 * {{reuselibrarycomponent.parameters.ComponentName.value}} renderer.
+	 * @namespace
+	 */
+	var {{reuselibrarycomponent.parameters.ComponentName.value}}Renderer = {};
+
+	/**
+	 * Renders the HTML for the given control, using the provided
+	 * {@link sap.ui.core.RenderManager}.
+	 *
+	 * @param {sap.ui.core.RenderManager} oRm
+	 *            the RenderManager that can be used for writing to
+	 *            the Render-Output-Buffer
+	 * @param {{reuselibrarycomponent.selectedLibraryObject.controlName}} oControl
+	 *            the control to be rendered
+	 */
+   {{reuselibrarycomponent.parameters.ComponentName.value}}Renderer.render = function(oRm, oControl) {
+       
+         if (!oControl.getVisible()) {
+            return;
+        }
+
+		oRm.addClass("sapRULT{{reuselibrarycomponent.parameters.ComponentName.value}}");
+	  
+		{{renderObject}}Renderer.render(oRm, oControl);
+	};
+
+	return {{reuselibrarycomponent.parameters.ComponentName.value}}Renderer;
+
+}, /* bExport= */ true);

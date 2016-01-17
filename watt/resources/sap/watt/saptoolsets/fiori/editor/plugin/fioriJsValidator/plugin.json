@@ -1,0 +1,41 @@
+{
+	"name": "sap.watt.saptoolsets.fiori.editor.fioriJsValidator",
+	"description": "Javascript validator for Fiori projects",
+	"i18n": "sap.watt.saptoolsets.fiori.editor.fioriJsValidator/i18n/i18n",
+
+	"requires": {
+		"services": [
+			"basevalidator",
+			"filesystem.documentProvider",
+			"log"
+		]
+	},
+	"provides": {
+		"services": {
+			"fioriJsValidator": {
+				"implements": "sap.watt.saptoolsets.fiori.editor.fioriJsValidator.service.JSValidator",
+				"module": "sap.watt.saptoolsets.fiori.editor.fioriJsValidator/service/JSValidator"
+			},
+			"fioriJsDisplayValidatorConfiguration": {
+				"implements": "sap.watt.saptoolsets.fiori.editor.fioriJsValidator.service.JSDisplayValidatorConfiguration",
+				"module": "sap.watt.saptoolsets.fiori.editor.fioriJsValidator/service/JSDisplayValidatorConfiguration"
+			}
+		},
+		"interfaces": {
+			"sap.watt.saptoolsets.fiori.editor.fioriJsValidator.service.JSValidator": "sap.watt.saptoolsets.fiori.editor.fioriJsValidator/service/JSValidator",
+			"sap.watt.saptoolsets.fiori.editor.fioriJsValidator.service.JSDisplayValidatorConfiguration": "sap.watt.saptoolsets.fiori.editor.fioriJsValidator/service/JSDisplayValidatorConfiguration"
+		}
+	},
+	"configures": {
+		"services": {
+			"basevalidator:validator": [{
+				"validatorName": "{i18n>fiori_js_validator_name}",
+				"fileExtension": ["js"],
+				"syncExec": false,
+				"service": "@fioriJsValidator",
+				"displayConfigurationService": "@fioriJsDisplayValidatorConfiguration"
+			}]
+		}
+	},
+	"subscribes": {}
+}

@@ -1,0 +1,22 @@
+/* ================================================ */
+/* CSS for control sap.ui.commons/TextView.control  */
+/* ================================================ */
+
+
+.sapUiTv {
+	font-size: 0.875rem;
+	height: auto;
+	line-height: 1.5rem;
+	vertical-align: top;
+}
+
+.sapUiTv.flatControlSmall {
+	font-size: 0.75rem;
+	height: auto;
+	line-height: 1.25rem;
+}
+
+.sapUiTvH5 {
+	font-size: @sapGroupFontSize;
+	color: @BaseFontClr;
+}

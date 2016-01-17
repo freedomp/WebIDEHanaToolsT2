@@ -1,0 +1,145 @@
+{
+	"name" : "sap.watt.common.service.ui.Content",
+	"description" : "The content interface",
+	"extends" : ["sap.watt.common.service.ui.Part", "sap.watt.common.service.selection.Provider","sap.watt.common.service.selection.TypedSelectionProvider"],
+	"configurationProperties" : {
+		"editorProvider" : {
+			"type" : "sap.watt.common.service.registry.Editor",
+			"multiple" : false
+		},
+		"contextMenu" : {
+			"type" : "string",
+			"multiple" : false
+		},
+		"decorator" : {
+			"type" : "sap.watt.common.service.ui.ContentDecorator",
+			"multiple" : false
+		},
+		"startScreenText" : {
+			"type" : "string",
+			"multiple" : false
+		},
+		"startScreenProductNameText" : {
+			"type" : "string",
+			"multiple" : false
+		}
+	},
+    "events" : {
+        "tabSelected" : {
+        	"params" : [
+                {
+                    "name" : "indexSelected",
+                    "type" : "number",
+                    "description" : "Index of the selected tab"
+                }                
+            ]
+            
+        },
+       "tabClosed" : {
+        	"params" : [
+                {
+                    "name" : "indexClosed",
+                    "type" : "number",
+                    "description" : "Index of the closed tab"
+                },
+                {
+                    "name" : "document",
+                    "type" : "object",
+                    "description" : "Document object attached to the tab"
+                }
+            ]            
+        },
+        "tabDoubleClicked" :{
+        	"params" : [
+        		{
+        			"name" : "maximized",
+        			"type" : "boolean",
+        			"description" : "Whether the tab was maximized or minimized"
+        		}
+        	]
+        },
+		"beforeShow" :{
+			"params" : [
+				{
+					"name" : "document",
+					"type" : "object",
+					"description" : "Document object attached to the tab"
+				},
+				{
+					"name" : "editor",
+					"type" : "object",
+					"description" : "Editor object shown in the tab"
+				}
+			]
+		},
+        "finishedRendering" : {}
+	},
+	"methods" : {
+	
+		"showIfOpen" : { 
+   			"params" : [{ 
+			   "name" : "oDocument", 
+   				"type" : "object" 
+			}]
+		},  
+	
+		"open" : {
+			"params" : [{
+				"name" : "oDocument",
+				"type" : "object"
+			},
+			{
+				"name" : "oEditor",
+				"type" : "object"
+			}]
+		},
+		"getEditorProvider" : {
+			"returns" : "sap.watt.common.service.registry.Editor"
+		},
+		"getCurrentEditor" : {},
+		"getCurrentDocument" : {},
+		"getDocuments" : {
+			"params" : [{
+				"name" : "bOnlyTheDirty",
+				"type" : "boolean",
+				"description": "if undefined or false return all documents, if true return only the dirty documents",
+				"optional" : true
+			}],
+			"returns" : "[object]"
+	     },
+		"getDocumentCount" : {},
+		"close" : {
+			"params" : [{
+				"name" : "oDocument",
+				"type" : "object"
+			},
+			{
+				"name" : "oEditor",
+				"type" : "object"
+			}]
+		},
+		"closeAll" : {},
+		"closeOthers" : {},
+		"save" : {},
+		"saveAll" : {},
+		"undo" : {},
+		"redo" : {},
+		"hasUndo" : {},
+		"hasRedo" : {},
+		"isDirty" : {},
+		"isCurrentDocumentDirty" : {},
+		"hasDocuments" : {},
+		"isClickedTabSelected" : {},
+		"refresh" : {},
+		"startAutoSave" : {},
+		"stopAutoSave" : {},
+		"refreshTab" : {},
+	  	"setTabIcon" : {},
+	  	"navigateToLastEdit" : {},
+	  	"navigateBack" : {},
+		"navigateForward" : {},
+		"hasNavigateToLastEdit" : {},
+		"hasNavigateBack" : {},
+		"hasNavigateForward" : {}
+	}
+}

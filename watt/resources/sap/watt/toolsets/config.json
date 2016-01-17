@@ -1,0 +1,17 @@
+{
+
+	"layer" : "Toolsets",
+
+	"preloadCapable" : true,
+
+	"plugins": [
+		"plugin/css",
+		"plugin/xml",
+		"plugin/javascript",
+		"plugin/json",
+		"plugin/tmplintellisence",
+		"plugin/i18n"
+	],
+	
+	"required": true
+}

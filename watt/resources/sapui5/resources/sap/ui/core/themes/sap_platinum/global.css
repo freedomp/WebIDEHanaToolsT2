@@ -1,0 +1,90 @@
+/* Global CSS for 'sap_platinum' theme */
+
+// Semantic Theming Mapping
+@sapUiHighlight: #7AC3E9;
+@sapUiContentDisabledTextColor: #7B8694;
+@sapUiFieldBorderColor: #96A8C3;
+@sapUiFieldFocusBorderColor: @sapUiHighlight;
+@sapUiFieldReadOnlyBackground: #E5EAF3;
+@sapUiFieldWarningColor: #878664;
+@sapUiFieldWarningBackground: #FFF2CA;
+@sapUiFieldInvalidColor: #CC0000;
+@sapUiFieldInvalidBackground: #FFDDD9;
+@sapUiFieldSuccessBackground: #B5E7A8;
+@sapUiListHeaderBorderColor: #96A8C3;
+@sapUiListHighlightColor: #96A8C3;
+@sapUiListHoverBackground: #CBE2F1;
+
+// central colors
+// Brand Colors
+/* @sapUiHighlight: #7AC3E9; */
+
+// Base Colors
+@sapUiBase: black;
+@sapUiBaseBG: white;
+@sapUiBaseBorder: #96A8C3;
+@sapUiBaseText: #000000;
+@sapUiBaseLine: #96A8C3;
+
+// Background Colors
+// Grayscale Backgrounds
+@sapUiExtraLightBG: #FFFFFF;
+@sapUiLightBG: #F5F7F9;
+@sapUiMediumBG: #E5EAF3;
+@sapUiDarkBG: #BCC8DA;
+@sapUiDeepBG: #000000;
+
+// Button Background Colors
+@sapUiButtonStandardBG: transparent;
+@sapUiButtonEmphasizedBG: @sapUiButtonStandardBG;
+@sapUiButtonNegativeBG: @sapUiButtonStandardBG;
+@sapUiButtonPositiveBG: @sapUiButtonStandardBG;
+
+// Semantic Background Colors
+@sapUiErrorBG: #FFDDD9;
+@sapUiWarningBG: #FFF2CA;
+@sapUiReadOnlyBG: #E5EAF3;
+
+// Link
+@sapUiLink: #006699;
+
+// Semantic Text Colors
+@sapUiNegativeText: #CC0000;
+
+// Semantic Border Colors
+@sapUiErrorBorder: #CC0000;
+@sapUiWarningBorder: #878664;
+
+// Table Colors
+@sapUiTableRowBG: @sapUiLightBG;
+@sapUiTableRowAlternatingBG: @sapUiWhite;
+@sapUiTableRowHoverBG: #CBE2F1;
+
+/* ---------------------------------------------------------------------------------------- */
+
+
+@sapUiTextDisabled: #7B8694;
+@sapUiTextTitle: #4F5C72;
+@sapUiTextSelection: @sapUiText;
+
+@sapUiLineHeight: 21px;
+
+@sapUiFontFamily:Tahoma,Arial,Helvetica,sans-serif;
+@sapUiFontSize: 11px; // supposed to be 8.5pt, but that changes pixes size depending on screen resolution 
+@sapUiFontLargeSize: 12px;// supposed to be 10pt, but that changes pixes size depending on screen resolution 
+@sapUiFontSmallSize: 10px;// supposed to be 7.5pt, but that changes pixes size depending on screen resolution 
+@sapUiFontHeader1Size: @sapUiFontLargeSize;//in Platinum only 3 sizes of text are defined, so the headings looks similar
+@sapUiFontHeader2Size: @sapUiFontSize;
+@sapUiFontHeader3Size: @sapUiFontSize;
+@sapUiFontHeader4Size: @sapUiFontSmallSize;
+@sapUiFontHeader5Size: @sapUiFontSmallSize;
+@sapUiFontHeader6Size: @sapUiFontSmallSize;
+
+// SOME important control-specific parameters... 
+@sapUiLinkVisited: @sapUiLink;
+@sapUiLinkActive: @sapUiLink;
+@sapUiLinkHover: @sapUiLink; // #009DEC; 
+
+@sapUiButtonDisabledBackground: rgba(0,0,0,0); /* transparent; */
+@sapUiButtonHoverBackground: rgba(0,0,0,0); /* transparent; */
+@sapUiButtonActiveBackground: rgba(0,0,0,0); /* transparent; */

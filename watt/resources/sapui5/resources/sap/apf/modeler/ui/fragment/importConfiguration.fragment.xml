@@ -1,0 +1,31 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog xmlns="sap.m" id="idImportConfigDialog" showHeader="true"
+		type="Standard" afterOpen="addAcceptAttribute" contentWidth="700px">
+		<VBox>
+			<HBox>
+				<Label xmlns="sap.m" id="idJsonFileLabel" />
+				<FileUploader xmlns="sap.ui.unified" id="idJsonFileUploader"
+					 width="374px" fileType="json" typeMissmatch="handleTypeMissmatchForJSONFile"
+					uploadComplete="handleJSONFileUploadComplete" sameFilenameAllowed="true"></FileUploader>
+			</HBox>
+			<HBox>
+				<Label xmlns="sap.m" id="idTextFileLabel" />
+				<FileUploader xmlns="sap.ui.unified" id="idTextFileUploader"
+					width="374px" fileType="properties" typeMissmatch="handleTypeMissmatchForPropertiesFile"
+					uploadComplete="handleTextFileUploadComplete" sameFilenameAllowed="true"></FileUploader>
+			</HBox>
+		</VBox>
+		<beginButton>
+			<Button xmlns="sap.m" id="idUploadOfConfig" type="Default"
+				width="" enabled="true" visible="true" press="handleUploadOfConfig">
+			</Button>
+		</beginButton>
+		<endButton>
+			<Button xmlns="sap.m" id="idCancelImportOfConfig" type="Default"
+				width="" enabled="true" visible="true" press="closeImportConfigDialog">
+			</Button>
+		</endButton>
+	</Dialog>
+	
+</core:FragmentDefinition>

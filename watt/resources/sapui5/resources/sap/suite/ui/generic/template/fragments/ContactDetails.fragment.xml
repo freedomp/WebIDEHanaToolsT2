@@ -1,0 +1,51 @@
+<core:FragmentDefinition xmlns:build="sap.build" xmlns:core="sap.ui.core"
+						 xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1" xmlns="sap.m">
+	<QuickView class="sapSmartTemplatesObjectPageContactsQuickView">
+		<QuickViewPage header="{i18n>CONTACT_INFO}"
+					   icon="{= ${contact>photo} ? ${path: 'contact>photo', formatter: 'sap.ui.model.odata.AnnotationHelper.format'} : 'sap-icon://person-placeholder'}"
+					   title="{path: 'contact>fn', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"
+					   description="{path: 'contact>role', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}">
+			<QuickViewGroup heading="{i18n>CONTACT_DETAILS}">
+
+				<template:if test="{contact>title}">
+					<QuickViewGroupElement label="{i18n>CONTACT_JOB_TITLE}" type="text"
+										   value="{path: 'contact>title', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"/>
+				</template:if>
+
+				<template:if test="{contact>org}">
+					<QuickViewGroupElement label="{i18n>CONTACT_DEPARTMENT}" type="text"
+										   value="{path: 'contact>org', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"/>
+				</template:if>
+
+				<template:repeat list="{contact>email}" var="email">
+					<template:if test="{= ${email>type/EnumMember}.indexOf('ContactInformationType/work')>=0}">
+						<QuickViewGroupElement label="{i18n>CONTACT_EMAIL}" type="email"
+											   value="{path: 'email>address', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"/>
+					</template:if>
+				</template:repeat>
+
+				<template:repeat list="{contact>tel}" var="tel">
+					<template:if test="{= ${tel>type/EnumMember}.indexOf('PhoneType/work')>=0}">
+						<QuickViewGroupElement label="{i18n>CONTACT_PHONE}" type="phone"
+											   value="{= ${path: 'tel>uri', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}.replace('tel:','')}"/>
+					</template:if>
+				</template:repeat>
+
+				<template:repeat list="{contact>tel}" var="tel">
+					<template:if test="{= ${tel>type/EnumMember}.indexOf('PhoneType/cell')>=0}">
+						<QuickViewGroupElement label="{i18n>CONTACT_MOBILE}" type="mobile"
+											   value="{= ${path: 'tel>uri', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}.replace('tel:','')}"/>
+					</template:if>
+				</template:repeat>
+
+				<template:repeat list="{contact>tel}" var="tel">
+					<template:if test="{= ${tel>type/EnumMember}.indexOf('PhoneType/fax')>=0}">
+						<QuickViewGroupElement label="{i18n>CONTACT_FAX}" type="text"
+											   value="{= ${path: 'tel>uri', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}.replace('tel:','')}"/>
+					</template:if>
+				</template:repeat>
+
+			</QuickViewGroup>
+		</QuickViewPage>
+	</QuickView>
+</core:FragmentDefinition>

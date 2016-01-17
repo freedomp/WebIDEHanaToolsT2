@@ -1,0 +1,32 @@
+.serviceCatalogFileUploaderTextField .sapUiTf {
+	/* to align with file uploader */
+	vertical-align: top;
+}
+
+.serviceCatalogFileUploaderTextField .sapUiTfFoc, .serviceCatalogFileUploaderTextField .sapUiTfBrd.sapUiTfFoc {
+	border: 1px solid rgba(0,0,0, 0.5);
+}
+
+.sapUiTf.flatControlSmall {
+	height: 1.5rem;
+	font-size: 0.75rem;
+}
+
+.serviceCatalogFileUploaderTextField .sapUiTfDsbl {
+	border-color: rgb(204, 204, 204)
+		rgba(204, 204, 204, 0.5)
+		rgba(204, 204, 204, 0.5)
+		rgb(204, 204, 204);
+	background-color: #f2f2f2;
+	color: black;
+}
+
+.serviceCatalogFileUploaderTextField .sapUiTfRo {
+	border-color: rgb(204, 204, 204)
+		rgba(204, 204, 204, 0.5)
+		rgba(204, 204, 204, 0.5)
+		rgb(204, 204, 204);
+	background-color: white;
+	color: #333;
+	border-style: dashed;
+}

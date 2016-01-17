@@ -1,0 +1,21 @@
+{
+	"name" : "sap.watt.common.welcomescreen.service.WelcomeScreen",
+	"description": "The main service of the welcome screen",
+	"extends" : ["sap.watt.common.service.ui.Part", "sap.watt.common.service.selection.Provider","sap.watt.common.service.selection.TypedSelectionProvider"],
+	"methods" : {
+		"getBasicContainer" : {
+			"params" : [
+				{
+					"name" : "sId",
+					"type": "string"
+				}],
+			"returns" : "object"
+		}
+	},
+	"events": {
+		"welcomePerspectiveNotVisibleOnStartup" : {
+			"params": [],
+			"description": "Fired when the welcome screen is not open on the startup of Web-IDE"
+		}
+	}
+}

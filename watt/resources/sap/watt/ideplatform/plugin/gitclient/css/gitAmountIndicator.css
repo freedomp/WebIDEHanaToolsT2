@@ -1,0 +1,11 @@
+.gitAmountIndicator {
+	direction: inherit;
+	text-align: left;
+	background: white;
+	vertical-align: top;
+	height: 1.25rem;
+	line-height: 1.25rem;
+	border-radius: 1.25rem;
+	padding: 0 0.75rem;
+	margin-top: 6px;
+}

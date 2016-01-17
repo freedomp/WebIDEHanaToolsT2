@@ -1,0 +1,4013 @@
+//based on /SAPDevelop/HDB/git/sys/src/cds/compiler/parses/CDS.grnd
+//commit f14d9a9d6bd88908aa17566061c1d1f276b5deea
+//Author: Hans-Joachim Both <h.both@sap.com>
+//Date:   Sep 29, 2015 3:07 PM
+//
+//    CDS Compiler: CREATE VIEW ... WITH STRUCTURED PRIVILEGE CHECK
+
+
+options {
+    maxSuspiciousMatches = 2;
+    sloppyNames           = true;
+    warningLevel          = 1;
+}
+
+
+// any keyword wildcard
+TOK_DEF(_C("#ANYKW#"), NUM_ANYKW)
+// any literal wildcard
+TOK_DEF(_C("#ANYLIT#"), NUM_ANYLIT)
+// whitespace stuff
+TOK_DEF(_C("#EOF#"), NUM_EOF)
+TOK_DEF(_C("#NL#"), NUM_NL)
+TOK_DEF(_C("#COMMENT1#"), NUM_COMMENT1)
+TOK_DEF(_C("#COMMENT2#"), NUM_COMMENT2)
+// for obscure reasons, the tokens above shall not be changed!
+TOK_DEF(_C("."), DOT)
+TOK_DEF(_C(".."), DDOT_OP)
+TOK_DEF(_C(","), COMMA)
+TOK_DEF(_C(":"), NUM_COLON)
+TOK_DEF(_C("::"), DCOLON)
+TOK_DEF(_C(";"), SEMICOLON)
+TOK_DEF(_C("@"), AT)
+TOK_DEF(_C("("), LPAREN)
+TOK_DEF(_C(")"), RPAREN)
+TOK_DEF(_C("{"), LCURLY)
+TOK_DEF(_C("}"), RCURLY)
+TOK_DEF(_C("="), EQ_OP)
+TOK_DEF(_C("<"), LT_OP)
+TOK_DEF(_C(">"), GT_OP)
+TOK_DEF(_C("<="), LE_OP)
+TOK_DEF(_C(">="), GE_OP)
+TOK_DEF(_C("<>"), NE_OP)
+TOK_DEF(_C("=>"), NAMED_PARAM_ASSIGN_OP)
+TOK_DEF(_C("||"), CONCAT_OP)
+TOK_DEF(_C("["), NUM_LBRACK)
+TOK_DEF(_C("]"), NUM_RBRACK)
+TOK_DEF(_C("#STR_CONST#"), NUM_STR_CONST)
+TOK_DEF(_C("#INT_CONST#"), NUM_INT_CONST)
+TOK_DEF(_C("#REAL_CONST#"), NUM_REAL_CONST)
+TOK_DEF(_C("#DATE_CONST#"), NUM_DATE_CONST)
+TOK_DEF(_C("#TIME_CONST#"), NUM_TIME_CONST)
+TOK_DEF(_C("#TIMESTAMP_CONST#"), NUM_TIMESTAMP_CONST)
+TOK_DEF(_C("#BINARY_CONST#"), NUM_BINARY_CONST)
+TOK_DEF(_C("*"), NUM_STAR)
+TOK_DEF(_C("?"), NUM_QUESTION)
+TOK_DEF(_C("+"), NUM_PLUS)
+TOK_DEF(_C("-"), MINUS_OP)
+TOK_DEF(_C("/"), DIV_OP)
+TOK_DEF(_C("$"), NUM_DOLLAR)
+
+// ID is the end of reserved keywords list
+// THE ID
+TOK_DEF(_C("#ID#"), NUM_ID)
+
+target JsResolver {
+	language = JavaScript;
+	generatedResolver = "CdsDdlParserResolver.js";
+	generatedPad = "CdsDdlParserJs.pad";
+}
+
+@JsResolver::header {{{
+
+/*eslint-disable */
+define(
+["hanaddl/hanaddlNonUi","rndrt/rnd","commonddl/commonddlNonUi"], //dependencies
+function (hanaddl,rnd,commonddl) {
+
+var Token = rnd.Token;
+var BaseCdsDdlParser = hanaddl.BaseCdsDdlParser;
+var IAstFactory = commonddl.IAstFactory;
+
+  function CdsDdlParserResolver(byte_code, scanner) {
+        BaseCdsDdlParser.call(this,byte_code, scanner);
+        this.m_start_attr = new rnd.NullFrame();
+    }
+    CdsDdlParserResolver.prototype = Object.create(BaseCdsDdlParser.prototype);
+
+}}}
+
+////////////////////////////////////////
+// Main logic
+////////////////////////////////////////
+
+Colon :
+    ":" | #COLON_FOLLOWED_BY_ID# ;
+
+
+// take care of re-naming this rule name; its name is referenced in VersionsFactory#setErrorRecoveryHook
+START
+@init {RESOLVER.initializeParser();}
+:
+    ( START2 | NEVER_MATCH_RULE )+  %COMMIT
+;
+
+// take care of re-naming this rule name; its name is referenced in VersionsFactory#setErrorRecoveryHook
+NEVER_MATCH_RULE: //introduced for error recovery -> word completion should work when statements are invalid
+   	#ID# "never" "match" "this" "rule" ";" %COMMIT
+;
+
+// take care of re-naming this rule name; its name is referenced in VersionsFactory#setErrorRecoveryHook
+START2:
+	<
+		NamespaceDeclaration ?
+	    InPackageDeclaration[RESOLVER.compilationUnit.getStatements()] ?
+    >
+	UsingDirectiveList		[RESOLVER.compilationUnit.getStatements()] ?
+
+    TopLevelDeclaration // runtime has here "*" - not needed on client because START rule has already "+"
+
+    %COMMIT
+;
+
+//start rule for syntax coloring (no AST creation)
+// support also element declarations as part of start rule
+START_SYNTAX_COLORING
+options{ startrule = "TRUE"; }
+:
+	(
+		EXPECT ND UPON ( "@" )  // both "START2 and "AnnotatedElementDeclaration" may start with an "@"
+		START2 |
+		AnnotatedElementDeclaration[null] |
+		NEVER_MATCH_RULE |
+		(
+			"}" ";" // for end of type/entitiy declaration (damage repairer goes only back to last ";" -> therefore rest could be "};" -> strategy is to parse as less as possible (for performance reasons)
+		)
+	)+  %COMMIT
+;
+
+
+NamespaceDeclaration returns [INamespaceDeclaration cdecl]
+@init{ IPathDeclaration path = null; }
+:
+    "namespace"					{path = RESOLVER.createPathDeclaration();}
+    id_1 = IdWrapper
+    NamespacePath[path,id_1]	{cdecl = RESOLVER.createNamespace(path);
+								 RESOLVER.setRootNamespace(cdecl);}
+
+    ";"							{RESOLVER.viewparser_setStartEndTokenIndex(cdecl, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());}
+    %COMMIT
+;
+
+InPackageDeclaration[var parent]
+@init{ var inPackageDecl = RESOLVER.startRule("InPackageDeclaration"); }
+:
+	"in" "package"		{inPackageDecl.linkToParent(parent);}
+
+	path = UsingPath	{inPackageDecl.attachChild(path, "namePath");}
+
+	";"					{inPackageDecl.endRule();}
+	%COMMIT
+;
+
+UsingDirectiveList[var parentStatements]:
+    (
+        directive = UsingDirective        {parentStatements.push(directive);}
+    )+
+;
+
+//this rule name is used in DdlErrorRecoveryHook
+UsingDirective returns [IUsingDirective res]
+:
+	"using"
+	path = UsingPath
+	( "as" alias = IdWrapper )?
+	";"
+								{
+									res = RESOLVER.createUsingDirective(path,alias);
+									RESOLVER.viewparser_setStartEndTokenIndex(res, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());
+								}
+	%COMMIT
+;
+
+// This is (probably) the only place where a path can have an optional namespace. It might make
+// the RND parser unhappy because the decision can only be made when the :: is seen or the path ends .
+UsingPath returns [IPathExpression res]
+:
+	path1 = PathWithNamespace	{res = path1;}
+  |	path2 = PathSimple			{res = path2;}
+;
+
+// One file contains just one single top-level declaration
+// take care of re-naming this rule name; its name is referenced in VersionsFactory#setErrorRecoveryHook
+TopLevelDeclaration
+:
+	annotations = _PreAnnotations
+
+    (
+    	"define" ?
+	    (
+	    	MainArtifactDefinition		[annotations, RESOLVER.compilationUnit.getStatements()]
+	      |	AccessPolicyDeclaration		[annotations, RESOLVER.compilationUnit.getStatements()]
+	      |	ExtensionPackageDefinition	[             RESOLVER.compilationUnit.getStatements()]		// TODO? annotations for ExtensionPackage
+	    )
+      |
+    	ExtendStatement					[annotations, RESOLVER.compilationUnit.getStatements()]
+    )
+;
+
+ExtensionPackageDefinition[var parent]
+@init { var extensionPackageDefinition = RESOLVER.startRule("ExtensionPackageDefinition"); }
+    :
+    "extension" lit = "package"		{extensionPackageDefinition.linkToParent(parent);}
+    name = DefId					{extensionPackageDefinition.attachChild( RESOLVER.tokenAndValue(TOK(lit),name), "packageName" ); }
+    (
+        "depends" lit = "on"		{var depends = RESOLVER.startArrayRule("DependsOnPaths");}
+        							{extensionPackageDefinition.attachChild( RESOLVER.tokenAndValue(TOK(lit), depends), "dependsOnPaths" );}
+
+             first = UsingPath 		{depends.attachChild(first);}
+        ( "," next = UsingPath 		{depends.attachChild(next);}
+        )*
+
+        							{depends.endRule();}
+    )?
+    ";"
+    								{extensionPackageDefinition.endRule();}
+;
+
+ExtendStatement[var annotations, var parentStatements]
+@init { int startIndex = RESOLVER.getNextTokenIndex(); }
+:
+    "extend"
+    (
+      (
+        lit = "context"							extend = __createExtend[startIndex, TOK(lit), "ContextExtend", commonddl.ContextDeclarationImpl, annotations, parentStatements]
+
+      	p = PathSimple							{extend.setNamePath(p);}
+
+        lit = "with"
+        MainArtifactList[extend.getStatements()]
+      )
+    |
+      (
+      	( lit = "entity"						extend = __createExtend[startIndex, TOK(lit), "EntityExtend", commonddl.EntityDeclarationImpl, annotations, parentStatements]
+		| lit = "type"							extend = __createExtend[startIndex, TOK(lit), "TypeExtend",   commonddl.TypeDeclarationImpl,   annotations, parentStatements]
+		)
+
+      	p = PathSimple			      			{extend.setNamePath(p);}
+
+        lit = "with"
+        ElementDefExtList[extend]
+      )
+    )
+    ";" ?
+    											{extend.endRule();}
+    %COMMIT
+;
+
+// A grammar macro!! :-)
+__createExtend[int startIndex, var introTok, var ruleName, var baseClass, var annotations, var parentStatements] returns [var res]
+@init { var extend = RESOLVER.startRule(ruleName, baseClass); }
+:
+	{extend.isExtend = true;}
+	{extend.setStartTokenIndex(startIndex);}
+	{extend.setNameToken(introTok);}
+	{RESOLVER.addAnnotations(extend,annotations);}
+	{extend.linkToParent(parentStatements);}
+
+	{res = extend;}
+;
+
+
+MainArtifactList [var parentStatements]
+options{ recovery = "NOT_USED"; }
+:
+    "{"
+    %COMMIT
+	(
+	    annotations = _PreAnnotations
+
+        (
+            "define"?	MainArtifactDefinition	[annotations, parentStatements]
+          |				ExtendStatement			[annotations, parentStatements]
+        )
+    ) *
+    "}"
+;
+
+_PreAnnotations returns [var res]
+:
+	{res = RESOLVER.createPreAnnotationList();}
+	( annotation = PreAnnotation {RESOLVER.collectPreAnnotation(res, annotation);} ) *
+;
+
+
+// take care of re-naming this rule name; its name is referenced in VersionsFactory#setErrorRecoveryHook
+ContextDeclaration [List<IPreAnnotation> annots,List<IDdlStatement> parentStmts] returns [IContextDeclaration res]
+:
+    "context"
+    id = QualifiedDefId
+											{
+												res = RESOLVER.createContext(id);
+												RESOLVER.viewparser_setStartEndTokenIndex(res, this.getFirstTokenIndex(), -1);
+												RESOLVER.addAnnotations(res,annots);
+												if (parentStmts != null) {
+													parentStmts.push(res);
+												}
+											}
+	MainArtifactList[res.getStatements()]
+    ";"?									{RESOLVER.viewparser_setEndTokenIndex(res, RESOLVER.getLastMatchedTokenIndex());}
+    %COMMIT
+;
+
+// take care of re-naming this rule name; its name is referenced in VersionsFactory#setErrorRecoveryHook
+MainArtifactDefinition [ List<IPreAnnotation> annotations, var parentStatements]
+:
+    (
+		ContextDeclaration   [annotations, parentStatements]
+      |	TypeDeclaration      [annotations, parentStatements]
+      |	EntityDeclaration    [annotations, parentStatements]
+      |	ViewDeclaration      [annotations, parentStatements]
+      |	ConstDeclaration     [annotations, parentStatements]
+	  |	AnnotationDeclaration[annotations, parentStatements]
+    )
+    %COMMIT  //!!! maybe not needed
+;
+
+//This rulename is used in code completion logic. Consider this when you change.
+AccessPolicyDeclaration	[List<IPreAnnotation> annots,List<IDdlStatement> parentStmts]
+@init{ IAccessPolicyDeclaration res = null;	}
+:
+    "accesspolicy"
+    id = QualifiedDefId
+								{
+									res = RESOLVER.createAccessPolicy(id);
+									parentStmts.push(res);
+									RESOLVER.viewparser_setStartEndTokenIndex(res,this.getFirstTokenIndex(),-1);
+									RESOLVER.addAnnotations(res,annots);
+								}
+    "{"
+    AccessPolicyComponentDeclaration[res]*
+    "}"
+    ";"?						{RESOLVER.viewparser_setEndTokenIndex(res,RESOLVER.getLastMatchedTokenIndex());}
+    %COMMIT
+;
+
+//This rulename is used in code completion logic. Consider this when you change.
+AccessPolicyComponentDeclaration[IAccessPolicyDeclaration parent]
+:
+   	%COMMIT
+	annotations = _PreAnnotations
+
+    "define" ?
+    (
+    	RoleDeclaration  [annotations, parent]
+      |	AspectDeclaration[annotations, parent, null]
+    )
+;
+
+RoleDeclaration	[List<IPreAnnotation> preAnnotations, IStatementContainer statementContainer]
+@init{ IRoleDeclaration role = null;	}
+:
+    "role"
+    id = QualifiedDefId
+							{
+								role = RESOLVER.createRole(id);
+								RESOLVER.viewparser_setStartEndTokenIndex(role,this.getFirstTokenIndex(),-1);
+								RESOLVER.addAnnotations(role,preAnnotations);
+								if (statementContainer != null) {
+									statementContainer.getStatements().push(role);
+								}
+							}
+    "{"
+	RuleDeclaration[role]* //backend uses "+". Let's be more tolerant on the client.
+    "}"
+    ";"?					{RESOLVER.viewparser_setEndTokenIndex(role,RESOLVER.getLastMatchedTokenIndex());}
+    %COMMIT
+;
+
+RuleDeclaration[IRoleDeclaration role]
+@init{ int startIndex = RESOLVER.getNextTokenIndex(); }
+:
+	"grant"
+	(
+			rule = RuleSubquery[role,startIndex]
+		|	incl = RuleIncludedRole[role]
+	)
+	|
+	(
+		"define" ?
+		a_decl = AspectDeclaration[null,null,role]
+	)
+;
+
+RuleIncludedRole[IRoleDeclaration parent]
+@init{ IIncludedRole includedRole = null; }
+:
+	role = PathSimple
+						{
+							includedRole = RESOLVER.createIncludedRole(role);
+							if (parent != null) {
+								parent.getEntries().push(includedRole);
+							}
+						}
+	";"					{RESOLVER.viewparser_setStartEndTokenIndex(includedRole, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());}
+	%COMMIT
+;
+
+//This rulename is used in code completion logic. Consider this when you change.
+RuleSubquery[IRoleDeclaration parent,int startIndex]
+@init{ IRuleDeclaration rule = null; }
+:
+									{
+										rule = RESOLVER.createRule();
+										RESOLVER.viewparser_setStartEndTokenIndex(rule, startIndex, -1);
+										if (parent != null) {
+											parent.getEntries().push(rule);
+										}
+									}
+    RuleFromClause[rule]
+    where = WhereClause[null]		{rule.setWhere(where);}
+    ";"
+	{RESOLVER.viewparser_setStartEndTokenIndex(rule,startIndex, RESOLVER.getLastMatchedTokenIndex());}
+    %COMMIT
+;
+
+//This rulename is used in code completion logic. Consider this when you change.
+RuleFromClause [IRuleDeclaration rule]
+@init{ IRuleFromClause from = null;	}
+:
+	// both variant are semantically the same. It's only syntactic sugar!
+	(
+		sel1="select"  // later on other SQL commands like "INSERT" may follow
+		on="on"				{from = RESOLVER.createPrefixRuleFromClause(TOK(sel1),TOK(on));
+							 rule.setFrom(from);}
+		path1 = QLPath		{from.setDataSource( RESOLVER.viewparser_tableDatasource(path1) );}
+	)
+	|
+	(
+		path2 = QLPath
+		"."
+		sel2="select"  // later on other SQL commands like "INSERT" may follow
+							{
+								from = RESOLVER.createPostfixRuleFromClause(TOK(sel2));
+								rule.setFrom(from);
+								from.setDataSource( RESOLVER.viewparser_tableDatasource(path2) );
+							}
+	)
+;
+
+//This rulename is used in code completion logic. Consider this when you change.
+AspectDeclaration [List<IPreAnnotation> preAnnotations, IStatementContainer statementContainer,IRoleDeclaration role]
+@init{ IAspectDeclaration aspect = null; }
+:
+	"aspect"
+    id = QualifiedDefId
+										{
+											aspect = RESOLVER.createAspect(id);
+											RESOLVER.viewparser_setStartEndTokenIndex(aspect, this.getFirstTokenIndex(), -1);
+											RESOLVER.addAnnotations(aspect,preAnnotations);
+											if (statementContainer != null) {
+												statementContainer.getStatements().push(aspect);
+											}else if (role != null) {
+												role.getEntries().push(aspect);
+											}
+										}
+    "as"
+	QLSubqueryElementary[aspect,null]
+    ";"									{RESOLVER.viewparser_setEndTokenIndex(aspect,RESOLVER.getLastMatchedTokenIndex());}
+    %COMMIT
+;
+
+// take care of re-naming this rule name; its name is referenced in VersionsFactory#setErrorRecoveryHook
+EntityDeclaration [List<IPreAnnotation> annots,List<IDdlStatement> parentStmts] returns [IEntityDeclaration res]
+@init{ var temporary = false; }
+:
+   ( temp = "temporary" {temporary=true;} )?
+
+    "entity"
+    id = QualifiedDefId
+    "{"
+    %COMMIT
+											{
+												res = RESOLVER.createEntity(id);
+												if(temporary) {
+													res.temporary = TOK(temp);
+												}
+												if (parentStmts != null) {
+													parentStmts.push(res);
+												}
+												RESOLVER.viewparser_setStartEndTokenIndex(res, this.getFirstTokenIndex(),-1);
+												RESOLVER.addAnnotations(res,annots);
+											}
+	AnnotatedElementDeclarationLoop[res]
+
+	IndexDefinition[res]*
+
+	( SeriesDefinition[res] ";"? )?
+
+	"}"
+
+    TechnicalConfiguration[res]?
+
+    ";"?									{RESOLVER.viewparser_setEndTokenIndex(res,RESOLVER.getLastMatchedTokenIndex());}
+    %COMMIT
+;
+
+TechnicalConfiguration [var parentNode]
+@init { var technicalConfiguration   = RESOLVER.startRule("TechnicalConfiguration");
+		var indexDefinitions         = RESOLVER.startArrayRule("IndexDefinitions",         technicalConfiguration);
+		var fulltextIndexDefinitions = RESOLVER.startArrayRule("FulltextIndexDefinitions", technicalConfiguration);
+		var fuzzyIndexDefinitions    = RESOLVER.startArrayRule("FuzzyIndexDefinitions",    technicalConfiguration);
+}
+:
+    "technical" "configuration"
+    "{"
+															{technicalConfiguration.linkToParent(parentNode);}
+	%COMMIT
+
+    <
+        StoreDefinition         [technicalConfiguration]?
+        IndexDefinition         [indexDefinitions]*
+        FulltextIndexDefinition [fulltextIndexDefinitions]*
+		FuzzyIndexDefinition    [fuzzyIndexDefinitions]*
+    	PartitionDefinition     [technicalConfiguration]?
+        TableGroupDefinition    [technicalConfiguration]?
+        TableUnloadDefinition   [technicalConfiguration]?
+    >
+															{indexDefinitions.endRule();}
+															{fulltextIndexDefinitions.endRule();}
+															{fuzzyIndexDefinitions.endRule();}
+
+    "}"														{technicalConfiguration.endRule();}
+;
+
+StoreDefinition [var parent]
+@init { var storeDefinition = RESOLVER.startRule("StoreDefinition"); }
+:
+	(
+    	"row"       rowStore = "store" ";"	{storeDefinition.rowStore    = TOK(rowStore);}
+      |	"column" columnStore = "store" ";" 	{storeDefinition.columnStore = TOK(columnStore);}
+    )
+    {storeDefinition.linkToParent(parent);}
+
+    {storeDefinition.endRule();}
+;
+
+IndexDefinition [var parentNode]
+@init {	var indexDefinition = RESOLVER.startRule("IndexDefinition");
+		var onPaths = null; }
+:
+	( unique = "unique"		{indexDefinition.unique = TOK(unique);}
+	)?
+
+	index = "index"			{indexDefinition.linkToParent(parentNode);}
+
+	name = DefId			{indexDefinition.attachChild( RESOLVER.tokenAndValue(TOK(index),name), "index");}
+
+	"on" "("				{onPaths = RESOLVER.startArrayRule("onPathWithOrders", indexDefinition, true);}
+
+	      p = PathWithOrder {onPaths.attachChild(p);}
+	( "," p = PathWithOrder {onPaths.attachChild(p);} )*
+
+							{onPaths.endRule();}
+	")"
+
+	order = OptAscDesc		{indexDefinition.order = order;}
+
+	";"						{indexDefinition.endRule();}
+	%COMMIT
+;
+
+PathWithOrder returns [var res]
+:
+	// TODO: currently just a simple ID, no path, no order
+	id1=IdWrapper			{res = id1;}
+;
+
+FulltextIndexDefinition[var parent]
+@init {	var fulltextIndexDefinition = RESOLVER.startRule("FulltextIndexDefinition");
+		var params = null; }
+:
+    "fulltext" "index"						{fulltextIndexDefinition.linkToParent(parent);}
+
+   	name = IdWrapper						{fulltextIndexDefinition.name = name;}
+
+    on = "on" "(" column = PathSimple ")"	{fulltextIndexDefinition.attachChild( RESOLVER.tokenAndValue(TOK(on),column), "onColumn" );}
+
+											{params = RESOLVER.startArrayRule("FulltextIndexParameters", fulltextIndexDefinition);}
+    FulltextIndexParameters[params]*
+											{params.endRule();}
+
+    ";"
+    										{fulltextIndexDefinition.endRule();}
+;
+
+FulltextIndexParameters [var parent]
+// Even if the grammar rule defines it as plural, this rule actually defines a choice of a single parameter.
+// Thus we model it in AST as singular.
+@init { var param = RESOLVER.startRule("FulltextIndexParameter");
+		var detectionArgs = null;
+		var tav = RESOLVER.prepareTokenAndValue(param, parent);
+		}
+:
+	(
+	  (
+		"language"!
+		( lex = "column"!     {tav.setToken(TOK(lex), "languageColumn");}	pval = PathSimple		{tav.setValue(pval);}
+		| det = "detection"! "("
+			{tav.setToken(TOK(det), "languageDetection");}
+			{detectionArgs = RESOLVER.startArrayRule("detectionArguments");}
+			{tav.setValue(detectionArgs);}
+
+				  l = StringLiteralWrapper {detectionArgs.attachChild(l);}
+			( "," l = StringLiteralWrapper {detectionArgs.attachChild(l);} )*
+
+			")"
+			{detectionArgs.endRule();}
+		)
+	  )
+      |
+      ( "mime"! lex = "type"!
+      	( ()               {tav.setToken(TOK(lex), "mimeType");}        sval = StringLiteralWrapper	{tav.setValue(sval);}
+        | lex = "column"   {tav.setToken(TOK(lex), "mimeTypeColumn");}  pval = PathSimple			{tav.setValue(pval);}
+        )
+      )
+      |	"fuzzy" "search" lex = "index" 	{tav.setToken(TOK(lex), "fuzzySearchIndex");}fval = FTI_ON_OFF			{tav.setValue(fval);}
+      |	"phrase" "index" lex = "ratio" 	{tav.setToken(TOK(lex), "phraseIndexRatio");}nval = NumberLiteral		{tav.setValue(nval);}
+      |	lex = "configuration"          	{tav.setToken(TOK(lex), "configuration");}   sval = StringLiteralWrapper{tav.setValue(sval);}
+      |	"search" lex = "only"          	{tav.setToken(TOK(lex), "searchOnly");}      fval = FTI_ON_OFF			{tav.setValue(fval);}
+      |	"fast" lex = "preprocess"      	{tav.setToken(TOK(lex), "fastPreprocess");}  fval = FTI_ON_OFF			{tav.setValue(fval);}
+      |	"token" lex = "separators"     	{tav.setToken(TOK(lex), "tokenSeparators");} sval = StringLiteralWrapper{tav.setValue(sval);}
+      |
+      ( "text"!
+        (	lex = "analysis"!        	{tav.setToken(TOK(lex), "textAnalysis");}    fval = FTI_ON_OFF			{tav.setValue(fval);}
+      	|	tm = "mining"!
+			(
+				()					  	{tav.setToken(TOK(tm),  "textMining");}              tmTok = FTI_ON_OFF         	{tav.setValue(tmTok);}
+			  |	tmc = "configuration"!	{tav.setToken(TOK(tmc), "textMiningConfiguration");} tmCfg = StringLiteralWrapper	{tav.setValue(tmCfg);} // TODO? remove textMining property above if value is null
+			)
+        )
+      )
+   	  | FullTextChangeTracking[param] {param.linkToParent(parent);}
+    )
+
+    {param.endRule();}
+;
+
+FullTextChangeTracking [var parent]
+@init { var tracking = RESOLVER.startRule("FullTextChangeTracking");
+		var tav = RESOLVER.prepareTokenAndValue(tracking, parent);
+		}
+:
+	(
+		( ( lex = "sync"  | lex = "synchronous" )  {tracking.synchronous = TOK(lex); tracking.linkToParent(parent);} )
+	  | ( ( lex = "async" |	lex = "asynchronous" ) {tav.setToken(TOK(lex), "asynchronous");} asyncSpec = AsyncSpec {tav.setValue(asyncSpec);} )
+    )
+	{tracking.endRule();}
+;
+
+AsyncSpec returns [var res]
+@init { var asyncSpec = RESOLVER.startRule("AsyncSpec"); }
+:
+    (
+	    flush = "flush"								{asyncSpec.flush = TOK(flush);}
+	    											{res = asyncSpec;}
+		(
+	    	queue = "queue"							{asyncSpec.queue = TOK(queue);}
+	    )?
+
+	    (
+			every = "every"
+			n = IntLiteralWrapper "minutes"			{asyncSpec.attachChild( RESOLVER.tokenAndValue(TOK(every),n), "everyMinutes" );}
+
+			(
+				"or" after1 = "after"
+				m1 = IntLiteralWrapper "documents"	{asyncSpec.attachChild( RESOLVER.tokenAndValue(TOK(after1),m1), "orAfterDocuments" );}
+			)?
+	    |
+			after2 = "after"
+			m2 = IntLiteralWrapper "documents"		{asyncSpec.attachChild( RESOLVER.tokenAndValue(TOK(after2),m2), "afterDocuments" );}
+	    )
+	)?
+												    {asyncSpec.endRule();}
+;
+
+FTI_ON_OFF returns [var res]
+:
+	 on = "on"  {res=TOK(on);}
+  |	off = "off" {res=TOK(off);}
+;
+
+FuzzyIndexDefinition [var parent]
+@init { var fuzzyIndexDefinition = RESOLVER.startRule("FuzzyIndexDefinition");}
+:
+    "fuzzy"! "search"! "index"!												{fuzzyIndexDefinition.linkToParent(parent);}
+
+    indexOn = "on"! "(" column = PathSimple ")"								{fuzzyIndexDefinition.attachChild( RESOLVER.tokenAndValue(TOK(indexOn), column), "onColumn" );}
+
+    (
+        "fuzzy"! "search"! mode = "mode"! ( l1 = StringLiteralWrapper  )?	{fuzzyIndexDefinition.attachChild( RESOLVER.tokenAndValue(TOK(mode), l1), "searchMode" );}
+    )?
+
+    ";"																		{fuzzyIndexDefinition.endRule();}
+;
+
+SeriesDefinition [var parentNode]
+@init { var seriesDefinition = RESOLVER.startRule("SeriesDefinition"); }
+:
+	"series"! "("
+	{seriesDefinition.linkToParent(parentNode);}
+
+	<		// in HANA, seq of subclauses do not matter
+	    EXPECT ND UPON ("NO")       // backtracking already resolved with LA(2)
+		(
+			"series"! seriesKey = "key"! "(" keyList = KeyList ")"
+			{seriesDefinition.attachChild( RESOLVER.tokenAndValue(TOK(seriesKey),keyList), "seriesKey" );}
+		)?
+		(
+			"not"! notEquidistant = "equidistant"!
+			{seriesDefinition.notEquidistant = TOK(notEquidistant);}
+		|
+			"equidistant"!
+			(
+				"increment"!	equidistantIncrementBy = "by"!
+				seriesDistance = SeriesDistance
+				{seriesDefinition.attachChild( RESOLVER.tokenAndValue(TOK(equidistantIncrementBy),seriesDistance), "equidistantIncrement" );}
+				(
+					"missing"!
+					"elements"!
+					(
+						missingElementsAllowed = "allowed"!
+						{seriesDefinition.equidistantIncrement.missingElementsAllowed = TOK(missingElementsAllowed); }
+					|
+						"not"! missingElementsNotAllowed = "allowed"!	// is default anyway
+						{seriesDefinition.equidistantIncrement.missingElementsNotAllowed = TOK(missingElementsNotAllowed); }
+					)
+				)?
+			|
+				piecewise = "piecewise"!
+				{seriesDefinition.equidistantPiecewise = TOK(piecewise);}
+			)
+		)?
+
+		(
+			"no"! noMinValue = "minvalue"!			// is default
+			{seriesDefinition.noMinValue = TOK(noMinValue);}
+		|
+			minValueLexem = "minvalue"! minValue = NumberConst
+			{seriesDefinition.attachChild( RESOLVER.tokenAndValue(TOK(minValueLexem),minValue), "minValue" );}
+		)?
+
+		(
+			"no" noMaxValue = "maxvalue"!         // is default
+			{seriesDefinition.noMaxValue = TOK(noMaxValue);}
+		|
+			maxValueLexem = "maxvalue"! maxValue = NumberConst
+			{seriesDefinition.attachChild( RESOLVER.tokenAndValue(TOK(maxValueLexem),maxValue), "maxValue" );}
+		)?
+
+		(
+			"period"! "for"! periodForSeriesLexem = "series"!
+			"("	periodForSeries = SeriesPeriod ")"
+			{seriesDefinition.attachChild( RESOLVER.tokenAndValue(TOK(periodForSeriesLexem),periodForSeries), "periodForSeries" );}
+		)?						// the only required subclause, tested in semantic checl for better error message
+
+		(
+			"alternate"! "period"! "for"! alternatePeriodForSeriesLexem = "series"!
+			"(" alternatePeriodForSeries = KeyList ")"
+			{seriesDefinition.attachChild( RESOLVER.tokenAndValue(TOK(alternatePeriodForSeriesLexem),alternatePeriodForSeries), "alternatePeriodForSeries" );}
+		)?
+	>
+	")"
+
+	{seriesDefinition.endRule();}
+;
+
+KeyList returns [var res]
+@init { var keyList = RESOLVER.startArrayRule("KeyList"); }
+:
+	      id1 = IdWrapper {keyList.attachChild(id1);}
+	( "," idn = IdWrapper {keyList.attachChild(idn);} )*
+
+	{res = keyList;}
+
+	{keyList.endRule();}
+;
+
+SeriesDistance returns [var res]
+@init { var distance = RESOLVER.startRule("SeriesDistance"); }
+:
+	(
+		num = DistanceNumber	{distance.number = num;}
+	|
+		"interval" val = SeriesIntervalConstValue
+		(
+			    year = "year"   {distance.attachChild( RESOLVER.tokenAndValue(TOK(year),  val), "yearInterval"   );}
+		  |	   month = "month"  {distance.attachChild( RESOLVER.tokenAndValue(TOK(month), val), "monthInterval"  );}
+		  |	     day = "day"    {distance.attachChild( RESOLVER.tokenAndValue(TOK(day),   val), "dayInterval"    );}
+		  |	    hour = "hour"   {distance.attachChild( RESOLVER.tokenAndValue(TOK(hour),  val), "hourInterval"   );}
+		  |	  minute = "minute" {distance.attachChild( RESOLVER.tokenAndValue(TOK(minute),val), "minuteInterval" );}
+		  |	  second = "second" {distance.attachChild( RESOLVER.tokenAndValue(TOK(second),val), "secondInterval" );}
+		)
+	)
+								{res = distance;}
+								{distance.endRule();}
+;
+
+TableUnloadDefinition [var parent]
+@init { var definition = RESOLVER.startRule("TableUnloadDefinition"); }
+:
+	"unload" prioLex = "priority" prioVal = IntLiteralWrapper ";"
+	{definition.attachChild( RESOLVER.tokenAndValue(TOK(prioLex),prioVal), "unloadPriority" );}
+
+	{definition.linkToParent(parent);}
+	{definition.endRule();}
+;
+
+TableGroupDefinition [var parent]
+@init {	var definition = RESOLVER.startRule("TableGroupDefinition");
+		var specs = RESOLVER.startArrayRule("TableGroupSpecs", definition); }
+:
+    TableGroupSpec[specs]+ ";"
+
+	{specs.endRule();}
+	{definition.endRule();}
+;
+
+TableGroupSpec [var parent]
+@init {	var spec = RESOLVER.startRule("TableGroupSpec");
+       	var tok = null;
+       	var attribute = null;}
+:
+    "group"							{spec.linkToParent(parent);}
+    (
+                name = "name"		{attribute = "groupName";    tok=TOK(name);}
+        |       type = "type"		{attribute = "groupType";    tok=TOK(type);}
+        |    subtype = "subtype"	{attribute = "groupSubtype"; tok=TOK(subtype);}
+    )
+    id = IdWrapper					{spec.attachChild( RESOLVER.tokenAndValue(tok,id), attribute );}
+
+									{spec.endRule();}
+;
+
+/*
+ * Devitation from qp_gram.y:
+ * Check for allowed combinations in semantic analysis:
+ * 1st Level      2nd Level
+ * ------------------------
+ * Hash           Hash
+ * Hash           Range
+ * Range          Range
+ * RoundRobin     Range
+ */
+PartitionDefinition[var parent]
+@init { var partitionDefinition = RESOLVER.startRule("PartitionDefinition"); }
+:
+    "partition" "by"								{partitionDefinition.linkToParent(parent);}
+
+          PartitionScheme[partitionDefinition]
+    ( "," PartitionScheme[partitionDefinition] )?
+
+    ";"												{partitionDefinition.endRule();}
+;
+
+PartitionScheme [var parent]
+@init { var partitionScheme = RESOLVER.startRule("PartitionScheme"); }
+:
+	(
+	      HashPartition      [partitionScheme]
+	    | RangePartition     [partitionScheme]
+	    | RoundRobinPartition[partitionScheme]
+    )
+    												{partitionScheme.linkToParent(parent);}
+    												{partitionScheme.endRule();}
+;
+
+HashPartition [var parent]
+@init { var hashPartition = RESOLVER.startRule("HashPartition"); }
+:
+    "hash"											{hashPartition.linkToParent(parent);}
+
+    "(" PartitionExpressions[hashPartition] ")"
+
+    "partitions" num = NumberPartitions				{hashPartition.numberOfPartitions = num;}
+
+													{hashPartition.endRule();}
+;
+
+/*
+ * Semantic check alerts if expression list contains more then one expression
+ * for Range partition
+ */
+RangePartition [var parent]
+@init { var rangePartition = RESOLVER.startRule("RangePartition"); }
+:
+    "range"											{rangePartition.linkToParent(parent);}
+
+    "(" PartitionExpressions[rangePartition] ")"
+
+    "(" PartitionRanges[rangePartition]
+    (
+       "," "partition" others = "others"			{rangePartition.partitionOthers = TOK(others);}
+    )?
+    ")"												{rangePartition.endRule();}
+;
+
+RoundRobinPartition [var parent]
+@init { var roundRobinPartition = RESOLVER.startRule("RoundRobinPartition"); }
+:
+    "roundrobin"							{roundRobinPartition.linkToParent(parent);}
+    "partitions" num = NumberPartitions		{roundRobinPartition.numberOfPartitions = num;}
+											{roundRobinPartition.endRule();}
+;
+
+PartitionRanges [var parent]
+@init { var partitionRanges = RESOLVER.startArrayRule("PartitionRanges", parent, true); }
+:
+          RangeSpec[partitionRanges]
+    ( "," RangeSpec[partitionRanges] )*
+
+	{partitionRanges.endRule();}
+;
+
+RangeSpec [var parent]
+@init { var rangeSpec = RESOLVER.startRule("RangeSpec"); }
+:
+    "partition"													{rangeSpec.linkToParent(parent);}
+
+    (
+        lowerValue = RangeValue "<="							{rangeSpec.atLeast = lowerValue;}
+        "values"
+        "<" upperValue = RangeValue								{rangeSpec.below = upperValue;}
+    |
+        ("value" | "values") "=" exactlyValue = RangeValue		{rangeSpec.exactly = exactlyValue;}
+    )
+																{rangeSpec.endRule();}
+;
+
+RangeValue returns [var res]
+:
+	ilit = IntLiteralWrapper    {res = ilit;}
+  | slit = StringLiteralWrapper {res = slit;}
+  | rlit = RealLiteral          {res = rlit;}
+  | dlit = DateLiteral          {res = dlit;}
+  |	blit = BooleanLiteral       {res = blit;}
+;
+
+PartitionExpressions [var parent]
+@init { var expressions = RESOLVER.startArrayRule("PartitionExpressions", parent, true); }
+:
+          PartitionExpression[expressions]
+    ( "," PartitionExpression[expressions] )*
+
+	{expressions.endRule();}
+ ;
+
+PartitionExpression [var parent]
+@init { var expression = RESOLVER.startRule("PartitionExpression");}
+:
+    (
+        simplePath = PathSimple                      	{expression.attachChild( simplePath, "simplePath" );} //cds_path_expr
+      | ytok = "year"  "(" yearPath  = PathSimple ")"	{expression.attachChild( RESOLVER.tokenAndValue(TOK(ytok),yearPath),  "yearPath"  );}
+      | mtok = "month" "(" monthPath = PathSimple ")"	{expression.attachChild( RESOLVER.tokenAndValue(TOK(mtok),monthPath), "monthPath" );}
+    )
+    {expression.linkToParent(parent);}
+
+    {expression.endRule();}
+;
+
+NumberPartitions returns [var res]
+:
+	         ilit = IntLiteralWrapper         {res = ilit;}
+  |   num_servers = "get_num_servers" "(" ")" {res = TOK(num_servers);}
+;
+
+// Numbers with arbitrary syntax restrictions (according to pTime grammar)
+
+NumberConst returns [var res]
+:
+	  dist = DistanceNumber {res = dist;}
+  |   strLit = #STR_CONST#  {res = TOK(strLit);}
+;
+
+DistanceNumber returns [var res]
+@init { var distanceNumber = RESOLVER.startRule("DistanceNumber");}
+:
+	(	%CCIGNORE  plus  = "+" {distanceNumber.sign=TOK(plus);}
+	|	%CCIGNORE  minus = "-" {distanceNumber.sign=TOK(minus);}
+	)?
+
+	(
+		intLit  = #INT_CONST#	{distanceNumber.value=intLit;}
+	|	realLit = #REAL_CONST#	{distanceNumber.value=realLit;}
+	)
+
+	{res = distanceNumber;}
+
+	{distanceNumber.endRule();}
+;
+
+SeriesIntervalConstValue returns [var res]
+:
+		res = #INT_CONST#
+	|	res = #REAL_CONST#
+	|	res = #STR_CONST#
+;
+
+SeriesPeriod returns [var res]
+@init { var seriesPeriod = RESOLVER.startRule("SeriesPeriod");}
+:
+    (
+        nl = "null"				{seriesPeriod.first=TOK(nl);}
+        ","
+        id0 = IdWrapper			{seriesPeriod.second=id0;}
+    |
+        id1 = IdWrapper			{seriesPeriod.first=id1;}
+
+        (
+            ","
+            ( nl2 = "null"		{seriesPeriod.second=TOK(nl2);}
+          |   id2 = IdWrapper	{seriesPeriod.second=id2;}   )
+        )?
+    )
+								{res = seriesPeriod;}
+								{seriesPeriod.endRule();}
+;
+
+AnnotatedElementDeclarationLoop [IEntityDeclaration res]
+:
+	%COMMIT //needed for error recovery
+	(
+        AnnotatedElementDeclaration[res]
+    ) *  //changed to "optional" to also get an AST for empty entities
+;
+
+
+// take care of re-naming this rule name; its name is referenced in VersionsFactory#setErrorRecoveryHook
+ViewDeclaration [List<IPreAnnotation> annots,List<IDdlStatement> parentStmts] returns [IViewDefinition res]
+:
+    "view"
+    id = QualifiedDefId
+    {
+		res = RESOLVER.viewparser_startDefineView();
+		res.setNamePath(id);
+		RESOLVER.viewparser_setStartEndTokenIndex(res,this.getFirstTokenIndex(),-1);
+		RESOLVER.addAnnotations(res,annots);
+		if (parentStmts != null) {
+			parentStmts.push(res);
+		}
+	}
+    ParameterDeclarationList[res]?
+    "as"
+	QLSelectStmtNoOption[res]
+
+    ( "with" "structured" "privilege" check = "check"     {res.withStructuredPrivilegeCheck = TOK(check);} )?
+
+    ";"   // Temporary SP5 restriction: Semicolon is "optional" according spec
+
+    {RESOLVER.viewparser_setEndTokenIndex(res,RESOLVER.getLastMatchedTokenIndex());}
+    %COMMIT
+;
+
+ParameterDeclarationList [var parentNode]
+@init { var parameterDeclarationList = RESOLVER.startArrayRule("ParameterDeclarationList"); }
+:
+    "with" "parameters"											{parameterDeclarationList.linkToParent(parentNode);}
+
+          ParameterDeclaration[parameterDeclarationList]
+    ( "," ParameterDeclaration[parameterDeclarationList] )*
+																{parameterDeclarationList.endRule();}
+;
+
+ParameterDeclaration [var parent]
+@init { var parameterDeclaration = RESOLVER.startRule("ParameterDeclaration"); }
+:
+    id = DefId									{parameterDeclaration.attachChild(id,"id");}
+    											{parameterDeclaration.linkToParent(parent);}
+
+    type = TypeSpec								{parameterDeclaration.attachChild(type,"type");}
+
+    DefaultClause[parameterDeclaration] ?
+    											{parameterDeclaration.endRule();}
+;
+
+AnnotatedElementDeclaration [IComponentDeclaration parent]
+:
+    annotations = _PreAnnotations
+
+    ElementDeclaration[parent, annotations]
+;
+
+// TODO: complete: expressions on ComponentDecl
+ElementDeclaration [IComponentDeclaration parent, List<IPreAnnotation> annotations]
+:
+    modifiers:ElementModifier?
+    element:"element" ?
+    id = DefId
+    (
+		type = TypeSpec[parent,id]
+		{
+			RESOLVER.addAnnotations(type,annotations);
+			RESOLVER.initializeElement(type, id, modifiers.keyToken, null, TOK(element), null);
+		}
+		(
+			<
+				Nullability[type] ?
+				DefaultClause[type] ?
+			>
+		|
+			"="  expr = Expression
+		)
+    |
+		"="  expr2 = Expression
+    )
+    ";"
+    {RESOLVER.viewparser_setStartEndTokenIndex(type, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());}
+    %COMMIT
+;
+
+Nullability [IElementDeclaration parentElement]
+:
+	(
+		no:NOT	{RESOLVER.setNotToken(parentElement,no.name);}
+	) ?
+	nu:NULL		{RESOLVER.setNullableToken(parentElement,nu.name);}
+;
+
+DefaultClause [IElementDeclaration parentElement]
+:
+	"default"
+	(
+			expr = Expression			{RESOLVER.viewparser_setElementDefault(parentElement,expr);}
+		|
+			//Christoph W.: EnumId should be handled inside Expressions later on. If this changes, we have to change the error recovery accordingly.
+			enumVal = EnumIdWrapper		{RESOLVER.viewparser_setElementDefaultToken(parentElement,enumVal);}
+	)
+;
+
+
+ElementModifier returns [Token keyToken]
+:
+	key:"key"		{keyToken = TOK(key);}
+;
+
+ConstDeclaration [List<IPreAnnotation> annots,List<IDdlStatement> parentStmts] returns [IConstDeclaration res]
+:
+    "const"
+    id = QualifiedDefId
+									{
+										res = RESOLVER.createConst(id);
+										if (parentStmts != null) {
+											parentStmts.push(res);
+										}
+										RESOLVER.addAnnotations(res,annots);
+										RESOLVER.viewparser_setStartEndTokenIndex(res,this.getFirstTokenIndex(),-1);
+									}
+    TypeSpec[res,null]?
+    // Semantic check currently allows only literals and unary '+' and '-' expressions here
+    "=" expr = ConstValue			{RESOLVER.viewparser_setConstValue(res,expr);}
+    ";"								{RESOLVER.viewparser_setEndTokenIndex(res, RESOLVER.getLastMatchedTokenIndex());}
+    %COMMIT
+;
+
+ConstValue returns [IExpression res]:
+	exp = Expression	{res = exp;}
+;
+
+EnumValueDeclaration returns [IEnumerationValue res]
+:
+    id = DefId
+							{
+								res = IAstFactory.eINSTANCE.createEnumerationValue();
+								res.setSymbol(id);
+								RESOLVER.viewparser_setStartEndTokenIndex(res, this.getFirstTokenIndex() ,-1);
+							}
+    "=" expr = Expression
+							{
+								if (expr instanceof commonddl.LiteralExpressionImpl) {
+									res.setLiteral(expr);
+								}
+							}
+    ";"						{RESOLVER.viewparser_setEndTokenIndex(res, RESOLVER.getLastMatchedTokenIndex());}
+    %COMMIT
+;
+
+TypeDeclaration [List<IPreAnnotation> annots,List<IDdlStatement> parentStmts] returns [ITypeDeclaration res]
+@init{ var table = false; }
+:
+    (
+        "type"
+    |
+        "table" tableType = "type" {table=true;}
+    )
+ 	id = QualifiedDefId
+	{
+		res = RESOLVER.createType(id);
+		if(table) {
+			res.tableType = TOK(tableType);
+		}
+		if (parentStmts != null) {
+			parentStmts.push(res);
+		}
+		RESOLVER.viewparser_setStartEndTokenIndex(res, this.getFirstTokenIndex(), -1);
+		RESOLVER.addAnnotations(res,annots);
+	}
+
+	(
+		EXPECT ND UPON ( '{' )
+		(
+			StructuredType[res]  // in the backend this is contaied in typeSpec. But it's only allowed in TypeDeclarations and AnnotationDeclaration not at the other usages of TypeSpec
+			";"?
+		|
+			typespec = TypeSpec[res,null]
+			";"
+		)
+	)
+	{RESOLVER.viewparser_setEndTokenIndex(res, RESOLVER.getLastMatchedTokenIndex());}
+	%COMMIT
+;
+
+ElementDefExtList[IComponentDeclaration parent]
+:
+    "{"
+    %COMMIT
+    (
+	    annotations = _PreAnnotations
+
+        ElementDeclaration[parent,annotations]
+
+        %COMMIT
+    )*
+    "}"
+;
+
+// take care of re-naming this rule name; its name is referenced in VersionsFactory#setErrorRecoveryHook
+StructuredType [IComponentDeclaration parent] :
+    "{"
+    %COMMIT
+    StructuredTypeComponent[parent]
+    "}"
+;
+
+StructuredTypeComponent [IComponentDeclaration parent] :
+	(
+		typecomponent = AnnotatedTypeComponentDeclaration[parent]  //backend uses AnnotatedElementDeclaration. and disables "Nullability" in a semantic check
+		// TODO: check if block below redundant
+		{
+			if (parent != null) {
+				RESOLVER.addTypeElement(parent,typecomponent.decl);
+			}
+		}
+		%COMMIT
+	) *
+;
+
+
+AnnotatedTypeComponentDeclaration [IComponentDeclaration parent] returns [IElementDeclaration decl,List<IPreAnnotation> annotations]
+    :
+    annotations = _PreAnnotations
+
+    typeCompDecl = TypeComponentDeclaration[parent]
+    {
+		decl = typeCompDecl;
+		RESOLVER.addAnnotations(decl,annotations);
+	}
+    %COMMIT
+;
+
+TypeComponentDeclaration[IComponentDeclaration parent ] returns [IElementDeclaration res]
+:
+	element:"element" ?
+    id = DefId
+    typespec = TypeSpec[parent,id]
+    {
+		res = typespec;
+		RESOLVER.initializeTypeComponent(res, id, TOK(element));
+	}
+    DefaultClause[res] ?
+    ";"
+    {RESOLVER.viewparser_setStartEndTokenIndex(res, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());}
+    %COMMIT
+;
+
+// take care of re-naming this rule name; its name is referenced in VersionsFactory#setErrorRecoveryHook
+// There's a copy of this rule "AnnotationTypeSpec" that is used in AnnotationDefinition.
+// It needed to be copied because the AST for Annotations is completely different - putting both into one rule
+// would be to complicated. Nobody would understand it afterwards
+TypeSpec [IComponentDeclaration parent,Token nameToken] returns [IElementDeclaration res]
+@init{ int startIndex; }
+:
+    (
+	    Colon												{startIndex = RESOLVER.getNextTokenIndex();}
+
+	    (
+	        tto = TypeTypeOf[parent,nameToken]				{res = tto;
+	        												 RESOLVER.viewparser_setStartEndTokenIndex(res,startIndex,-1);}
+	    |
+			// we have to support "array of" inside type declarations which then can be used inside annotation definitions.
+			// array of inside entities are not allowed. We therefore don't propose array of in coco.
+			arr = TypeArray[parent,nameToken]				{res = arr;}
+
+    	|
+	        typename = TypeNamedOrEnum[parent,nameToken]	{res = typename;
+	        												 RESOLVER.viewparser_setStartEndTokenIndex(res,startIndex,-1);}
+	    |
+	        typeassoc = TypeAssoc[parent,nameToken]			{res = typeassoc;}
+	    )
+	)
+	|
+	// Mail from SW:
+	//	Was geht mich mein Geschwaetz von gestern an ?
+	//	Wir erlauben zu SP09 anonyme Substrukturen in entities und types.
+	(
+															{
+																if (nameToken != null) {
+																	var attribute = RESOLVER.createAttribute(null);
+																	attribute.setNameToken(nameToken);
+																	parent.getElements().push(attribute);
+																	parent = RESOLVER.createAndSetAnonymousTypeDeclaration(attribute);
+																	res = attribute;
+																}
+															}
+		comp_list = StructuredType[parent]
+    )
+;
+
+// There's a copy of this rule "AnnotationTypeSpecNoColon" that is used in AnnotationDefinition.
+// It needed to be copied because the AST for Annotations is completely different - putting both into one rule
+// would be to complicated. Nobody would understand it afterwards
+
+TypeSpecNoColon [IComponentDeclaration parent,Token nameToken] returns [IElementDeclaration res]
+:
+    (
+        tto = TypeTypeOf[parent,nameToken]				{res = tto;
+        												 RESOLVER.viewparser_setStartEndTokenIndex(res, this.getFirstTokenIndex(), -1);}
+   	  |
+        typename = TypeNamedOrEnum[parent,nameToken]	{res = typename;
+        												 RESOLVER.viewparser_setStartEndTokenIndex(res, this.getFirstTokenIndex(), -1);}
+// is inhibited by a semantic check in backend, therefore we don't take it for the frontend grammar
+// 	  |
+//      typeassoc = TypeAssoc[parent,nameToken] { res = typeassoc; }
+	)
+  |
+	(
+														{
+															if (nameToken != null) {
+																var attribute = RESOLVER.createAttribute(null);
+																attribute.setNameToken(nameToken);
+																parent.getElements().push(attribute);
+																parent = RESOLVER.createAndSetAnonymousTypeDeclaration(attribute);
+																res = attribute;
+															}
+														}
+		StructuredType[parent]
+    )
+;
+
+TypeTypeOf [IComponentDeclaration parent,Token nameToken] returns [IAttributeDeclaration res]
+:
+    "type" "of" id = PathSimple
+									{
+										res = RESOLVER.createAttributeTypeOf(id);
+										if (nameToken != null) {
+											res.setNameToken(nameToken);
+										}
+										if (parent != null) {
+											parent.getElements().push(res);
+										}
+									}
+;
+
+// There's a copy of this rule "AnnotationTypeArray" that is used in AnnotationDefinition.
+// It needed to be copied because the AST for Annotations is completely different - putting both into one rule
+// would be to complicated. Nobody would understand it afterwards
+
+TypeArray [IComponentDeclaration parent,Token def] returns [IElementDeclaration res]
+:
+	// %CCIGNORE so that "array of" keyword is not proposed because backend doesn't support "array of" inside entity; only in type and annotation supported.
+    %CCIGNORE a:"array" %CCIGNORE o:"of" sub = TypeSpecNoColon[parent, def]
+    {
+		res = sub;
+		if (res != null) {
+			res.setArrayToken(TOK(a));
+			res.setArrayOfToken(TOK(o));
+		}
+	}
+;
+
+// There's a copy of this rule "AnnotationTypeNamedOrEnum" that is used in AnnotationDefinition.
+// It needed to be copied because the AST for Annotations is completely different - putting both into one rule
+// would be to complicated. Nobody would understand it afterwards
+
+TypeNamedOrEnum [IComponentDeclaration parent,Token nameToken] returns [IAttributeDeclaration res]
+@init{
+	int startIndex;
+	IEnumerationDeclaration enumeration = null;
+}
+:
+    named = TypeNamed[parent,nameToken]
+    {res = named;}
+    (
+    	{
+			startIndex = RESOLVER.getNextTokenIndex();
+			enumeration = IAstFactory.eINSTANCE.createEnumerationDeclaration();
+			res.setEnumerationDeclaration(enumeration);
+		}
+        "enum" "{"
+        %COMMIT
+        (
+            val_decl = EnumValueDeclaration
+            {enumeration.getValues().push(val_decl);}
+        )+
+        "}"
+        {RESOLVER.viewparser_setStartEndTokenIndex(enumeration,startIndex, RESOLVER.getLastMatchedTokenIndex());}
+    )?
+;
+
+// There's a copy of this rule "AnnotationTypeNamed" that is used in AnnotationDefinition.
+// It needed to be copied because the AST for Annotations is completely different - putting both into one rule
+// would be to complicated. Nobody would understand it afterwards
+TypeNamed [IComponentDeclaration parent,Token nameToken] returns [IAttributeDeclaration res]:
+    id = TypeName
+    {
+		res = RESOLVER.createAttribute(id);
+		if (nameToken != null) {
+			res.setNameToken(nameToken);
+		}
+		if (parent != null) {
+			parent.getElements().push(res);
+		}
+	}
+    (
+        "("
+        p1 = IntLiteralWrapper
+        {res.setLengthToken(p1);}
+        (
+            ","
+            p2 = IntLiteralWrapper
+            {res.setDecimalsToken(p2);}
+        )?
+        ")"
+    )?
+;
+
+//this rule name is used in BaseCdsDdlParser. Keep this in mind when re-name-ing or delete-ing this rule
+TypeName returns [IPathExpression res]
+:
+	id = PathSimple		{res = id;}
+;
+
+
+AssociationForeignKeys [IAssociationDeclaration res]:
+	"{"
+		AssociationForeignKeyElement [res]
+	"}"
+;
+
+AssociationForeignKeyElement [IAssociationDeclaration res]
+@init {	int startIndex=0; }
+:
+	(
+		{startIndex = RESOLVER.getNextTokenIndex();}
+	    k1 = PathWithAlias
+	    {RESOLVER.viewparser_setStartEndTokenIndex( RESOLVER.addKey(res, k1.expr, k1.alias), startIndex, RESOLVER.getLastMatchedTokenIndex());}
+	    (
+	    	","
+	        {startIndex = RESOLVER.getNextTokenIndex();}
+	        kn = PathWithAlias
+	        {RESOLVER.viewparser_setStartEndTokenIndex( RESOLVER.addKey(res, kn.expr, kn.alias), startIndex, RESOLVER.getLastMatchedTokenIndex());}
+	     )*
+	 )?
+;
+
+AssociationTo [IComponentDeclaration parent,Token def,IViewSelect select] returns [IAssociationDeclaration res]
+@init{ int startTargetIndex; }
+:
+    "association"
+						{
+							res = RESOLVER.createAssociation();
+							RESOLVER.viewparser_setStartEndTokenIndex(res,-1,-1);
+							if (def != null) {
+								res.setNameToken(def);
+							}
+							if (parent != null) {
+								parent.getElements().push(res);
+							}else if (select != null) {
+								RESOLVER.addAssociation(select,res);
+							}
+						}
+    Cardinality[res] ?
+    "to"				{startTargetIndex = RESOLVER.getNextTokenIndex();}
+    target:PathSimple
+						{
+							RESOLVER.viewparser_setStartEndTokenIndex(target, startTargetIndex, RESOLVER.getLastMatchedTokenIndex());
+							res.setTargetEntityPath(target);
+						}
+;
+
+AssocForeignKeyOrJoinCondition[IAssociationDeclaration assoc]
+:
+    (
+    	AssociationForeignKeys[assoc]
+	  |
+		AssociationOnCondition[assoc]
+    )?
+;
+
+AssociationOnCondition [IAssociationDeclaration decl]
+:
+	"on"
+	cond = Condition	{if (decl != null) decl.setOnExpression(cond);}
+;
+
+TypeAssoc [IComponentDeclaration parent,Token def] returns [IAssociationDeclaration res]
+:
+    assocTo = AssociationTo[parent, def, null]	{res = assocTo;}
+    AssocForeignKeyOrJoinCondition[assocTo]
+;
+
+Cardinality [IAssociationDeclaration res]
+@init {	Token srcMaxStar;
+		Token maxStar;}
+:
+    "["
+    (
+        () // epsilon production,  "[]" means "[0..*]"
+    |
+
+        //here we have backtracking, but performance is
+        //not critical at this point, so prefer clear grammar
+        //
+        // source, maximum
+        ( EXPECT ND UPON ( #INT_CONST# , "*" )
+            (
+               srcMax:IntLiteralWrapper
+               |
+               srcStar:"*" {srcMaxStar = TOK(srcStar);}
+            )
+            ","
+        )?
+        // target, minimum
+        ( EXPECT ND UPON ( #INT_CONST# )
+        	min:IntLiteralWrapper
+        	"." "."
+        )?
+        // target, maximum
+		(
+            max1:IntLiteralWrapper
+            |
+            star:"*" {maxStar = TOK(star);}
+        )
+        {RESOLVER.setCardinality(res,srcMax,srcMaxStar,min,max1,maxStar);}
+    )
+    "]"
+;
+
+////////////////////////////////////////////
+// Composed identifiers in defining context
+////////////////////////////////////////////
+
+//this rule name is used in DdlErrorRecoveryHook
+NamespacePath [IPathDeclaration path, Token firstId]
+:
+	{RESOLVER.addEntry(path,RESOLVER.createPathEntry(firstId));}
+	(
+		"."
+		id_n = IdWrapper
+		{
+			if (id_n != null) {
+				RESOLVER.addEntry(path,RESOLVER.createPathEntry(id_n));
+			}
+		}
+	) *
+;
+
+QualifiedDefId returns [IPathDeclaration res] // TODO: remove this rule (and AST structure)
+:
+    id_1 = IdWrapper
+    {
+		res = RESOLVER.createPathDeclaration();
+		RESOLVER.addEntry(res,RESOLVER.createPathEntry(id_1));
+	}
+    (
+        (
+            "."
+            id_n = IdWrapper	{if (id_n != null) {RESOLVER.addEntry(res,RESOLVER.createPathEntry(id_n));}}
+        ) *
+
+		"::"
+		defid = DefId			{if (defid != null) {RESOLVER.addEntry(res,RESOLVER.createPathEntry(defid));}}
+    )?
+;
+
+// Paris change start
+QuotedId returns [Token res]
+:
+    "\""
+    id = #ID#    {res = TOK(id);}
+    "\""
+;
+// Paris change end
+
+IdWrapper returns [Token res]
+:
+	    id = #ID#		{res = TOK(id);}
+	|
+        %CCIGNORE
+        idq = QuotedId	{res = idq;}
+;
+
+/* Not taken, as the difference in the backend grammar is only inside the user defined actions. So we can use "IdWrapper" in the client's grammar
+IdWrapperNoAutoQuote:
+    (
+        id = #ID#
+    )
+    |
+    (
+        %CCIGNORE
+        q_id = QuotedId
+    )
+; */
+
+/*			// the client scanner does not distinguish between "normal" identifiers and "pseudo" identifiers (starting with a "$" char)
+PseudoIdWrapper returns [Token res]
+:
+	id = #PSEUDO_ID#	{res = TOK(id);}
+;
+*/
+
+ScopedIdWrapper returns [Token res] :
+	#COLON_FOLLOWED_BY_ID#
+	id = IdWrapper
+	{res = id;}
+;
+
+
+EnumIdWrapper returns [Token res]
+:
+    id = #ENUM_ID#    					{res = TOK(id);}
+;
+
+IntLiteralWrapper returns [Token res]
+:
+    intLit = #INT_CONST#				{res = TOK(intLit);}
+;
+
+StringLiteralWrapper returns [Token res]
+:
+    strLit = #STR_CONST#				{res = TOK(strLit);}
+;
+
+RealLiteral returns [Token res]
+:
+    realLit = #REAL_CONST#				{res = TOK(realLit);}
+;
+
+BinaryLiteral returns [Token res]
+:
+    binaryLit = #BINARY_CONST#			{res = TOK(binaryLit);}
+;
+
+DateLiteral returns [Token res]
+:
+    dateLit = #DATE_CONST#				{res = TOK(dateLit);}
+;
+
+TimeLiteral returns [Token res]
+:
+    timeLit = #TIME_CONST#				{res = TOK(timeLit);}
+;
+
+TimeStampLiteral returns [Token res]
+:
+    timeStampLit = #TIMESTAMP_CONST#	{res = TOK(timeStampLit);}
+;
+
+NullLiteral returns [Token res]
+:
+    nullLit = NULL						{res = nullLit.name;}
+	|
+    unLit = "unknown"!					{res = TOK(unLit);}
+;
+
+BooleanLiteral returns [Token res] :
+    ( lit = "true"! | lit = "false"! )
+    {res = TOK(lit);}
+;
+
+////////////////////////////////////////////
+// Identifier in defining context
+////////////////////////////////////////////
+
+DefId returns [Token res]
+:
+    id1 = IdWrapper		{res = id1;}
+;
+
+
+////////////////////////////////////////////
+// Annotations
+////////////////////////////////////////////
+
+
+// take care of re-naming this rule name; its name is referenced in VersionsFactory#setErrorRecoveryHook
+AnnotationValue [Object container]
+:
+//  not needed in the frontend, as the EnumId is already handled by the AnnotationConstantId rule and the scanner
+//  (
+//      AnnotationEnumId
+//  )
+//  |
+    (
+    	refToConst = PathSimple
+    	{
+			var value = null;
+			var entries = refToConst.getEntries();
+			if (entries.length == 1) {
+				var id = entries[ 0 ].getNameToken();
+				value = RESOLVER.addAnnotationValue(container,id);
+			}else if (entries.length >= 1) {
+				value = RESOLVER.addAnnotationPathValue(container,refToConst);
+			}
+			if (value != null) {
+				RESOLVER.viewparser_setStartEndTokenIndex(value, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());
+			}
+		}
+    )
+    |
+    (
+        lit_val = AnnotationLiteral
+        {
+			var av = RESOLVER.addAnnotationValue(container, lit_val);
+			RESOLVER.viewparser_setStartEndTokenIndex(av, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());
+		}
+    )
+    |
+        RecordValue[container]
+    |
+        ArrayValue[container]
+
+;
+
+RecordValue [Object container] returns [IAnnotationRecordValue record]
+:
+    "{"
+    {
+		record = RESOLVER.createAnnotationRecordValue();
+		RESOLVER.addAnnotationRecordValue(container,record);
+	}
+    RecordComponent[record]
+    (
+        ","
+        RecordComponent[record]
+    ) *
+    "}"
+    {RESOLVER.viewparser_setStartEndTokenIndex(record, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());}
+;
+
+PreAnnotation returns [IPreAnnotation res]
+:
+    "@"
+	{res = RESOLVER.createPreAnnotation();}
+
+    AnnotationPath[res] //backend uses PathGeneric here
+    (
+        Colon
+        AnnotationValue[res]
+    )?
+    {RESOLVER.viewparser_setStartEndTokenIndex(res, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());}
+;
+
+RecordComponent [IAnnotationRecordValue container] returns [IAnnotationNameValuePair res]
+:
+	{
+		res = RESOLVER.createAnnotationNameValuePair();
+		RESOLVER.addAnnotationNameValuePair(container,res);
+	}
+
+	AnnotationPath[res] //backend uses PathGeneric here
+    (
+    	Colon
+    	AnnotationValue[res]
+    )?
+    {RESOLVER.viewparser_setStartEndTokenIndex(res, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());}
+;
+
+ArrayValue [Object container] returns [IAnnotationArrayValue array]
+:
+    "["
+    {
+		array = RESOLVER.createAnnotationArrayValue();
+		RESOLVER.addAnnotationArrayValue(container,array);
+	}
+    (
+	    AnnotationValue[array]
+	    (
+	        ","
+	        AnnotationValue[array]
+	    ) *
+	)?
+    "]"
+    {RESOLVER.viewparser_setStartEndTokenIndex(array, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());}
+;
+
+//backend uses PathGeneric here
+AnnotationPath [IAnnotationNameValuePair nameValuePair]
+:
+    id_1 = AnnotationId
+    {RESOLVER.addAnnotationPath(nameValuePair,id_1);}
+    (
+        dot = "."
+        {RESOLVER.addAnnotationPath(nameValuePair,TOK(dot));}
+        id_n = AnnotationId
+    	{RESOLVER.addAnnotationPath(nameValuePair,id_n);}
+    )*
+;
+
+// Annotation can contain any tokens, even reserved SQL keyword
+//
+// for example 'order' in
+//  @Catalog.index:[ { name:'Index1', unique:false, order:#DESC, elementNames:['ELT1', 'ELT2' ] } ]
+//
+AnnotationId returns [Token res]:
+    id = #ID# // runtime is using "UnreservedId" = matches #ID# and reserved keyword -> but desingtime is accepting everything -> intended behavior!!
+    {res = TOK(id);}
+;
+
+// not needed see above
+//AnnotationEnumId:
+//    id = #ENUM_ID#
+//;
+
+// backend direclty uses "Literal" here. But the client's "Literal" rule does not allow negative integers.
+AnnotationLiteral returns [Token res]:
+        str_val = StringLiteralWrapper		{res = str_val;}
+    |
+    (
+    	( %CCIGNORE "-" )?
+	    (
+				int_val = IntLiteralWrapper	{res = int_val;}
+		    |   real_lit = RealLiteral		{res = real_lit;}
+	    )
+    )
+    |	binary_lit = BinaryLiteral			{res = binary_lit;}
+    |	date_lit = DateLiteral				{res = date_lit;}
+    |	time_lit = TimeLiteral				{res = time_lit;}
+    |	timestamp_lit = TimeStampLiteral	{res = timestamp_lit;}
+    |	null_lit = NullLiteral        		{res = null_lit;}		// FIXME: NullLiteral NULL not yet supported in SemanticCheck
+;
+
+//UnreservedIdWrapper rule not used at designtime;
+//UnreservedId        rule not used at designtime; please use #ID# instead
+//////////////////////////////////////////////////
+// for the name of cds_named_value, we may use any tokens, even reserved SQL keyword
+// UnreservedId may be used wherever all IDs are allowed
+
+//QL: rule not taken because runtime colleagues are using it only for testing purposes of SELECT stmt (test and compare the ptime AST)
+//Start_Condition not taken
+//Start_Expression not taken
+
+/******************************************************************************
+ *
+ * SELECT FROM <path> { <elementlist> } ...
+ *
+ ******************************************************************************/
+
+QLSelectStmtNoOption [ISelectContainer parent]
+:
+	QLSubqueryComplex[parent,null]
+;
+
+QLSubqueryWithParens [ISelectContainer parent,IViewSelectSet parentSelectSet] returns [ISelect selectStmt]
+:
+    "("
+	sq1 = QLSubqueryComplex[parent,parentSelectSet]
+	{selectStmt = sq1.selectStmt;}
+    ")"
+    {RESOLVER.viewparser_setStartEndTokenIndex(selectStmt, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());
+}
+;
+
+QLSubqueryComplex [ISelectContainer parent,IViewSelectSet parentSelectSet]   returns [ISelect selectStmt]
+:
+    sq = QLSubquerySet[parent,parentSelectSet]
+    {selectStmt = sq.select;}
+    OrderByClause[selectStmt]
+    {RESOLVER.viewparser_setStartEndTokenIndex(selectStmt, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());}
+;
+
+QLSubquerySet [ISelectContainer parent,IViewSelectSet parentSelectSet] returns [ISelect select]
+@init{ IViewSelectSet tempSelectSet = null; }
+:
+	(
+		(
+			sq1a = QLSubqueryElementary[parent,parentSelectSet]
+			{select = sq1a.selectStmt;}
+		)
+		|
+		(
+			sq1b = QLSubqueryWithParens[parent,parentSelectSet]
+			{select = sq1b.selectStmt;}
+		)
+	)
+	(
+		set = SetOperator
+		(
+			(
+				{
+					tempSelectSet = RESOLVER.createViewSelectSet(set.operator,set.all,set.distinct,select,null);
+					if (select != null) {
+						RESOLVER.viewparser_setStartEndTokenIndex(tempSelectSet, select.getStartTokenIndex(), -1);
+					}
+					if (parent != null) {
+						parent.setSelectSet(tempSelectSet);
+					}
+					if (parentSelectSet != null) {
+						parentSelectSet.setRight(tempSelectSet);
+						parentSelectSet = null;
+					}
+				}
+				sq2a = QLSubqueryElementary[null,tempSelectSet]
+				{select = tempSelectSet;}
+			)
+			|
+			(
+				{
+					tempSelectSet = RESOLVER.createViewSelectSet(set.operator,set.all,set.distinct,select,null);
+					if (select != null) {
+						RESOLVER.viewparser_setStartEndTokenIndex(tempSelectSet, select.getStartTokenIndex(), -1);
+					}
+					if (parent != null) {
+						parent.setSelectSet(tempSelectSet);
+					}
+					if (parentSelectSet != null) {
+						parentSelectSet.setRight(tempSelectSet);
+						parentSelectSet = null;
+					}
+				}
+				sq2b = QLSubqueryWithParens[null,tempSelectSet]
+				{select = tempSelectSet;}
+			)
+		)
+		{
+			if (parent != null) {
+				parent.setSelectSet(select);
+			}
+		}
+	    {RESOLVER.viewparser_setStartEndTokenIndex(select, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());} // TODO? start token index always beginning of rule, though this is star'red
+	)*
+;
+
+
+QLSubqueryElementary [ISelectContainer parent,IViewSelectSet parentSelectSet] returns [IViewSelect selectStmt]
+:
+    "select"
+    {
+		selectStmt = RESOLVER.viewparser_startSelect();
+		if (parent != null) {
+			parent.setSelect(selectStmt);
+		}
+		if (parentSelectSet != null) {
+			parentSelectSet.setRight(selectStmt);
+		}
+		RESOLVER.viewparser_setStartEndTokenIndex(selectStmt, this.getFirstTokenIndex(),-1);
+	}
+
+    from   = FromClause            [selectStmt]
+	adhoc  = AdhocDeclarationBlock [selectStmt]
+	optAllDistinct
+    select = QLSelectClause        [selectStmt, null]
+    where  = WhereClause           [selectStmt]
+    group  = GroupByClause         [selectStmt]
+    having = HavingClause          [selectStmt]
+    {RESOLVER.viewparser_setEndTokenIndex(selectStmt,RESOLVER.getLastMatchedTokenIndex());}
+;
+
+AdhocDeclarationBlock [IViewSelect select] :
+    (
+        "mixin" "{"
+        (
+            elem = AdhocElementDeclaration[select]
+        )*
+        "}" "into"
+    )?
+;
+
+AdhocElementDeclaration [IViewSelect select]
+@init{ int startIndex = 0; }
+:
+    "element"?
+    id = DefId
+    (
+        (
+            //type = TypeSpec[null, null]  // backend simply uses TypeSpec, but this is too broad. It's only allowed to define associations here. We simply use "Colon AssociationTo" here.
+            Colon
+            {startIndex =  RESOLVER.getNextTokenIndex();}
+            assocTo = AssociationTo[null,null,select]
+            {
+                assocTo.setNameToken(id);
+                assocTo.setNamePath(null);
+                RESOLVER.viewparser_setStartTokenIndex(assocTo, startIndex);
+            }
+            AssociationOnCondition[assocTo]
+            (
+                "="  expr = Expression
+            )?
+        )
+    |
+        (
+            "="  expr2 = Expression
+        )
+    )
+    ";"
+    {RESOLVER.viewparser_setStartEndTokenIndex( assocTo, startIndex, RESOLVER.getLastMatchedTokenIndex());}
+    %COMMIT
+;
+
+QLSelectClause [IViewSelect select,ISelectList list] returns [ISelectList res]
+@init{ int startIndex = RESOLVER.getNextTokenIndex(); }
+:
+	"{"
+	(
+		{
+			if (list != null) {
+				res = list;
+			}else{
+				res = RESOLVER.viewparser_startSelectList0();
+				RESOLVER.viewparser_selectlist(select,res);
+				RESOLVER.viewparser_setStartEndTokenIndex(res, startIndex,-1);
+			}
+		}
+		QLSelectList[res]
+	)?
+	"}"
+	{RESOLVER.viewparser_setStartEndTokenIndex(res, startIndex, RESOLVER.getLastMatchedTokenIndex());}
+;
+
+QLSelectList [ISelectList list] :
+
+	AnnotatedQLSelectItem[list]
+	(
+		","
+		%COMMIT  // do a commit for performance reasons after each select list entry
+		p2=AnnotatedQLSelectItem[list]
+	)*
+;
+
+//this rule name is used in DdlErrorRecoveryHook
+AnnotatedQLSelectItem [ISelectList list] returns [List<IPreAnnotation> annotations]
+:
+
+    annotations = _PreAnnotations
+
+    QLSelectItem[annotations,list]
+;
+
+QLSelectItem [List<IPreAnnotation> preAnnotations,ISelectList list] returns [ISelectListEntry res]
+:
+    p1 = ExprSelectItem       [preAnnotations,list]	{res = p1.entry;}
+  |
+    p2 = QLPathListSelectItem [preAnnotations,list]	{res = p2.entry;}
+;
+
+QLPathListSelectItemAlias [ISelectListEntry entry] // this rule exists only on client. It was introduced for better code completion support; don't propose entity/view elements for alias id.
+:
+ 	(
+    	("as")?
+        alias1 = IdWrapper
+        {
+			if (entry != null) {
+				RESOLVER.viewparser_alias(entry,alias1);
+			}
+		}
+	)
+;
+
+
+QLPathListSelectItem [List<IPreAnnotation> preAnnotations,ISelectList list] returns [ISelectListEntry entry]  // AM: Does the return val really need a NULL default? I don't think so.
+	@init{
+		INestedSelectListPathEntry nestedEntry = null;
+		Token flattenKeyword = null;
+		int startIndex = RESOLVER.getNextTokenIndex();
+	}
+:
+	(
+		(
+			pathExp = QLPath
+			{RESOLVER.viewparser_setStartEndTokenIndex(pathExp, startIndex, RESOLVER.getLastMatchedTokenIndex());}
+			{
+				entry = RESOLVER.viewparser_selectListEntry(pathExp);
+				RESOLVER.addAnnotations(entry,preAnnotations);
+				RESOLVER.viewparser_addSelectListEntry(list,entry);
+			}
+			(
+				(
+					QLPathListSelectItemAlias[entry]
+				)
+				|
+				(
+					f = "."  // prefix notation: a.b.{c,d} meens: a.b.c, a.b.d
+					{flattenKeyword = TOK(f);}
+				)
+			)?
+			(
+				{
+					var nestedList = IAstFactory.eINSTANCE.createSelectList();
+					if (flattenKeyword != null) {
+						nestedEntry = IAstFactory.eINSTANCE.createNestedFlattenedSelectListPathEntry();
+						nestedEntry.setFlattenKeyword(flattenKeyword);
+					}else{
+						nestedEntry = IAstFactory.eINSTANCE.createNestedSelectListPathEntry();
+					}
+					nestedEntry.setSelectList(nestedList);
+					pathExp.getPathEntries().push(nestedEntry);
+				}
+				%CCIGNORE p2 = QLSelectClause[null,nestedEntry.getSelectList()]
+			)
+		)
+		|
+		(
+			{
+				var nestedList = IAstFactory.eINSTANCE.createSelectList();
+				nestedEntry = IAstFactory.eINSTANCE.createNestedSelectListPathEntry();
+				nestedEntry.setSelectList(nestedList);
+				var pExp = RESOLVER.createPathExpression();
+				pExp.getPathEntries().push(nestedEntry);
+				entry = RESOLVER.viewparser_selectListEntry(pExp);
+				RESOLVER.addAnnotations(entry,preAnnotations);
+				RESOLVER.viewparser_addSelectListEntry(list,entry);
+			}
+			%CCIGNORE p3 = QLSelectClause[null,nestedEntry.getSelectList()]
+			QLPathListSelectItemAlias[entry]?
+		)
+	)
+
+	{RESOLVER.viewparser_setStartEndTokenIndex(entry, startIndex, RESOLVER.getLastMatchedTokenIndex());}
+;
+
+QLPath returns [IPathExpression res]
+@init{ IPathEntry entry = null;	}
+:
+	{
+		res = RESOLVER.createPathExpression();
+		RESOLVER.viewparser_setStartTokenIndex(res, this.getFirstTokenIndex());
+	}
+	(
+		(
+			(
+				id1=IdWrapper
+				{
+					entry = RESOLVER.createPathEntry(id1);
+					RESOLVER.addEntry(res, entry);
+				}
+				(
+					f1=Filter[entry]
+				)?
+			)
+			|
+/*			idps1=PseudoIdWrapper
+			{addEntry(res,createPathEntry(idps1));}
+			|
+*/
+			idsc1=ScopedIdWrapper
+			{RESOLVER.addEntry(res,RESOLVER.createPathEntry(idsc1));}
+		)
+	)
+	(
+		"."
+		id2=IdWrapper
+		{
+			entry = RESOLVER.createPathEntry(id2);
+			RESOLVER.addEntry(res,entry);
+		}
+		(
+			f2=Filter[entry]
+		)?
+	)*
+	{RESOLVER.viewparser_setEndTokenIndex(res,RESOLVER.getLastMatchedTokenIndex());}
+;
+
+Filter[IPathEntry entry]
+:
+	"["
+	(
+        (
+            %CCIGNORE "-"
+        ) ?
+        IntLiteralWrapper // runtime supports only "1" - rest is disabled in semantic check
+        Colon
+    ) ?
+	c=Condition
+	{RESOLVER.setFilter(entry,c);}
+	"]"
+
+;
+
+//this rule name is used in DdlErrorRecoveryHook
+PathGeneric [IPathExpression path] :
+    id1=IdWrapper
+    { RESOLVER.addEntry(path,RESOLVER.createPathEntry(id1)); }
+
+    (   "."  id2=IdWrapper
+        { RESOLVER.addEntry(path,RESOLVER.createPathEntry(id2)); }
+    )*
+;
+
+PathSimple returns [IPathExpression res] :
+	{res = RESOLVER.createPathExpression();}
+	{res.typeName = "PathSimple";}
+
+	PathGeneric[res]
+;
+
+PathWithNamespace returns[ IPathExpression res] :
+	{res = RESOLVER.createPathExpression();}
+	{res.typeName = "PathWithNamespace";}
+
+	id_1 = IdWrapper
+	NamespacePath[res,id_1]
+	{RESOLVER.markLastNamespacePathEntry(res);}
+
+	"::"
+	PathGeneric[res]
+;
+
+PathWithAlias returns [IPathExpression expr, Token alias]
+:
+    path = PathSimple			{ expr = path; }
+
+    (	"as" id = IdWrapper		{ alias = id; }    )?
+;
+
+SetOperator returns [Token operator, Token all, Token distinct]
+:
+		union:"union"				{operator = TOK(union);}
+      	(
+      		( a:"all"				{all = TOK(a);} )
+      	  |
+      		( dist="distinct"		{distinct = TOK(dist);} 	)?
+      	)
+    |
+    		int1:"intersect"		{operator = TOK(int1);}
+    	(	dist="distinct"			{distinct = TOK(dist);}    	)?
+    |
+    		exc:"except"			{operator = TOK(exc);}
+    	(	dist="distinct"			{distinct = TOK(dist);}    	)?
+    |
+    		minus:"minus"			{operator = TOK(minus);}
+    	(	dist="distinct"			{distinct = TOK(dist);}    	)?
+;
+
+ExprSelectItem [List<IPreAnnotation> preAnnotations,ISelectList list] returns [ISelectListEntry entry]
+:
+  (
+		(
+			"key"
+	        alias2 = ExprAliasEnforced
+	        {
+		        entry = RESOLVER.viewparser_selectListEntry(alias2.expr);
+		        RESOLVER.addAnnotations(entry,preAnnotations);
+		        RESOLVER.viewparser_addSelectListEntry(list,entry);
+
+		        RESOLVER.viewparser_alias(entry,alias2.alias);
+		    }
+		)
+		|
+		(
+		    alias = ExprAlias
+		    {
+		        entry = RESOLVER.viewparser_selectListEntry(alias.expr);
+		        RESOLVER.addAnnotations(entry,preAnnotations);
+		        RESOLVER.viewparser_addSelectListEntry(list,entry);
+
+		        RESOLVER.viewparser_alias(entry,alias.alias);
+		    }
+		)
+	)
+    {RESOLVER.viewparser_setStartEndTokenIndex(entry, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());}
+;
+
+FromClause [IViewSelect select]
+@init { var fromAdapter = null; }
+:
+    "from"
+    {
+    	var sel = select;
+    	fromAdapter = {
+    		setRef : function(res) {
+    			sel.setFrom(res);
+    		},
+    		getRef : function() {
+    			return sel.getFrom();
+    		}
+    	};
+    }
+
+    // allow empty FROM clause in order to produce precise error message in semantic check
+    (
+    	TablePathList[fromAdapter]
+    ) //? we don't allow empty from clause in the client grammar, error recovery will not work if this is optional
+;
+
+// TODO: this rule should be redefined to avoid backtracking (see QualifiedDefId)!
+TablePathList[var resAdapter]
+:
+    TableOrJoin[resAdapter]
+
+    //after discussion with Steffen Weinstock
+    // define view v as select from table1, table2, .... where table1.id = table2.id
+    // this is the old way how to define an inner join; on condition is then specified in the where clause
+    // we will not support this kind of statement
+    //
+    // ( "," TableOrJoin ) *
+
+    {RESOLVER.viewparser_setStartEndTokenIndex(resAdapter.getRef(), this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());}
+;
+
+Table[var resAdapter]
+:
+		TablePath[resAdapter]
+	|
+		'(' TableOrJoin[resAdapter] ')'
+;
+
+TableOrJoin[var resAdapter]
+@init { var join = null;
+		var rightAdapter = null;}
+:
+    Table[resAdapter]
+
+    (
+        (
+            jt = JoinType ?
+
+            "join"						{	join = IAstFactory.eINSTANCE.createJoinDataSource();
+            								RESOLVER.viewparser_setStartEndTokenIndex(join, RESOLVER.getNextTokenIndex()-1, -1);
+             							 	join.setLeft(resAdapter.getRef());
+             							 	join.setJoinEnum( jt || commonddl.JoinEnum.LEFT );
+             							 	resAdapter.setRef(join);
+
+											var j = join;
+											rightAdapter = {
+												setRef : function(res) {
+													j.setRight(res);
+												},
+												getRef : function() {
+													return j.getRight();
+												}
+											};
+										}
+            TableOrJoin[rightAdapter]
+			"on"
+			cond = Condition			{join.setOn(cond);}
+										{join.setEndTokenIndex(RESOLVER.getNextTokenIndex());}
+        )
+        |
+        (
+            "cross" "join"
+            rightTable2 = Table		// TODO: AST
+        )
+    )*
+;
+
+JoinType returns [var res]
+:
+   		"inner"					{res=commonddl.JoinEnum.INNER;}
+
+    |   outer = OuterJoinType	{res=outer;}
+    	"outer" ?
+;
+
+OuterJoinType returns [var res]
+:
+		"left"					{res=commonddl.JoinEnum.LEFT;}
+    |   "right"					{res=commonddl.JoinEnum.RIGHT;}
+    |   "full"					{res=commonddl.JoinEnum.FULL;}
+;
+
+TablePathAlias returns [Token res]
+:
+	(
+        "as"?
+        alias = IdWrapper		{res = alias;}
+    )?
+;
+
+TablePath[var resAdapter]
+:
+    path = QLPath
+    // backend also allowed PathWithNamespace as alternative to QLPath. But this is only for "AdHoc-QL" (e.g. in the SQL console). For DDL it's inhibited in a semantic check. Therefore not relevant for the frontend grammar.
+
+	alias = TablePathAlias
+
+    {
+		var res = RESOLVER.viewparser_tableDatasource(path);
+		if (alias != null) {
+			res.setAliasToken(alias);
+		}
+    	RESOLVER.viewparser_setStartEndTokenIndex(res, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());
+    	resAdapter.setRef(res);
+	}
+;
+
+WhereClause [IViewSelect select] returns [IExpressionContainer res]
+:
+    (
+        "where"
+        cond = Condition
+        {
+			res = RESOLVER.createExpressionContainer(cond);
+			if (select != null) {
+				select.setWhere(res);
+			}
+			RESOLVER.viewparser_setStartEndTokenIndex(res, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());
+		}
+    )?
+;
+
+/* Note: For now, we don't support the more complex forms of GROUP: grouping_sets, rollup_expression, cube_expression */
+GroupByClause [IViewSelect select] returns [IGroupBy res]
+:
+    (
+        "group" "by"
+        (
+            list:ExpressionList
+            {
+				var groupBy = RESOLVER.viewparser_groupBy1(list);
+				RESOLVER.viewparser_setStartEndTokenIndex(groupBy, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());
+				select.setGroupBy(groupBy);
+			}
+        )
+    )?
+;
+
+HavingClause [IViewSelect select] returns [IExpressionContainer res]
+:
+    (
+        "having"
+        cond = Condition
+        {
+			var cont = RESOLVER.createExpressionContainer(cond);
+			RESOLVER.viewparser_setStartEndTokenIndex(cont, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());
+			select.setHaving(cont);
+		}
+    )?
+;
+
+OrderByClause [ISelect select]
+:
+    (
+        "order"
+        {RESOLVER.viewparser_setEndTokenIndex(select,-1);}
+        "by"
+        order = SortSpecList
+        {
+			var orderBy = RESOLVER.viewparser_createOrderBy(order);
+			RESOLVER.viewparser_setStartEndTokenIndex(orderBy, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());
+			if (select != null) {
+				select.setOrderBy(orderBy);
+				RESOLVER.viewparser_setEndTokenIndex(select, RESOLVER.getLastMatchedTokenIndex());
+			}
+		}
+    )?
+;
+
+SortSpecList returns [List<IOrderByEntry> res]
+:
+								{res = [];}
+    		spec = SortSpec		{res.push(spec);}
+    ( "," 	spec = SortSpec		{res.push(spec);}	)*
+;
+
+SortSpec returns[IOrderByEntry res]
+:
+    expr = Expression
+    order = OptAscDesc
+    nfl = OptNullsFirstLast
+    {
+		res = RESOLVER.viewparser_createOrderByEntry(expr);
+		res.setOrderSequenceToken(order);
+		res.setNullsToken(nfl.nulls);
+		res.setNullsFirstLastToken(nfl.firstLast);
+	}
+
+    {RESOLVER.viewparser_setStartEndTokenIndex(res, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());}
+;
+
+OptAscDesc returns [Token res] :
+    ( ( lex="asc" | lex="desc" ){res = TOK(lex);} )?
+;
+
+OptNullsFirstLast returns [Token nulls,Token firstLast]:
+	(
+	    n:"nulls"	                 {nulls = TOK(n);}
+
+	    ( lex="first" | lex="last" ) {firstLast = TOK(lex);}
+	)?
+;
+
+Condition returns [IExpression res]
+:
+    condAnd = ConditionAnd
+    {res = condAnd;}
+    (
+       	"or"
+        right = ConditionAnd
+        {
+		if (res == null) {
+			res = RESOLVER.viewparser_orExpression(condAnd,right);
+		} else res = RESOLVER.viewparser_orExpression(res,right);
+	}
+    )*
+
+    {RESOLVER.viewparser_setStartEndTokenIndex(res, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());}
+;
+
+ConditionAnd returns [IExpression res]
+:
+    condTerm = ConditionTerm
+    {res = condTerm;}
+    (
+        "and"
+        right = ConditionTerm
+        {res = RESOLVER.viewparser_andExpression(res,right);}
+    )*
+
+    {RESOLVER.viewparser_setStartEndTokenIndex(res, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());}
+;
+
+ConditionTerm returns [IExpression res]
+:
+	(
+	        NOT cond1 = ConditionTerm			{res = RESOLVER.viewparser_notExpression(cond1);}
+	    |
+	        "(" cond2 = Condition				{res = cond2;}
+	        ")"
+	    |
+	        pred = PredicateLeftIsExpression	{res = pred;}
+    )
+
+    {RESOLVER.viewparser_setStartEndTokenIndex(res, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());}
+;
+
+PredicateLeftIsExpression returns [IExpression res]
+@init{ boolean negated=false; }
+:
+    (
+    	left = Expression
+    	|
+    	AspectExpression
+    )
+
+    (
+            comp = ComparisonPredicate[left]				{res = comp;}
+        |
+            nullPred = NullPredicate[left]					{res = nullPred;}
+        |
+            ( NOT {negated = true;} )?
+            (
+                    range = RangePredicate[left, negated]	{res = negated ? RESOLVER.viewparser_notExpression(range) : range;}
+                |
+                    like = LikePredicate[left, negated]		{res = negated ? RESOLVER.viewparser_notExpression(like) : like;}
+                |
+                    inP = InPredicate[left, negated]		{res = negated ? RESOLVER.viewparser_notExpression(inP) : inP;}
+            )
+    )
+
+    {RESOLVER.viewparser_setStartEndTokenIndex(res, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());}
+;
+
+ComparisonPredicate [IExpression left] returns [IExpression res]
+:
+    (
+        "="
+      |	"<>"
+      |	">"
+      |	">="
+      |	"<"
+      |	"<="
+    )
+
+    (
+    	right = Expression
+    	|
+    	AspectExpression
+    )
+    {res = RESOLVER.viewparser_compExpression(TOK_AT(this.getFirstTokenIndex()), left, right);}
+;
+
+RangePredicate [IExpression expr1, boolean negated] returns [IExpression res]
+:
+    "between"
+    expr2 = Expression
+	"and"
+	expr3 = Expression
+						{res = RESOLVER.viewparser_betweenExpression(expr1,expr2,expr3);}
+						{RESOLVER.viewparser_setStartEndTokenIndex(res, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());}
+;
+
+LikePredicate [IExpression expr1, boolean negated] returns [IExpression res]
+@init{ Token escapeToken = null; }
+:
+    like = "like"
+    (
+    	expr2 = Expression
+    	|
+    	AspectExpression
+    )
+    (
+        "escape"
+        expr3 = Expression		{escapeToken = expr3.getTokenToken();}
+    )?
+								{res = RESOLVER.viewparser_likeExpression(TOK(like),expr1,expr2,escapeToken);
+								 RESOLVER.viewparser_setStartEndTokenIndex(res, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());}
+;
+
+NullPredicate [IExpression expr] returns [IExpression res]
+@init { boolean isNot = false; }
+:
+    "is"
+    ( NOT	{isNot = true;} )?
+    NULL	{res = RESOLVER.viewparser_nullExpression(expr,isNot);}
+;
+
+//This rulename is used in code completion logic. Consider this when you change.
+InPredicate [IExpression left, boolean negated] returns [IExpression res]
+@init { IInExpression inExpression = null; }
+:
+    "in"
+    (
+    	(
+		    "(" list:ExpressionList ")"		{res = RESOLVER.viewparser_inExpression(left,list);}
+		)
+		|
+		(
+											{
+												res = inExpression = IAstFactory.eINSTANCE.createInExpression();
+												inExpression.setLeft(left);
+											}
+			(
+					expr:Expression			{inExpression.getIns().push(expr);}
+				|
+					AspectExpression
+			)
+		)
+	)
+;
+
+ExpressionList returns [List<IExpression> res]
+:
+								{res = [];}
+
+    		expr = Expression	{res.push(expr);}
+    ( "," 	expr = Expression	{res.push(expr);} )*
+;
+
+
+Expression returns [IExpression res]
+:
+    // still lacking CASE stuff, so just delegating
+    exprConcat = ExprConcat		{res = exprConcat;}
+
+    {RESOLVER.viewparser_setStartEndTokenIndex(res, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());}
+;
+
+ExprConcat returns [IExpression res]
+:
+    exprSum1 = ExprSum						{res = exprSum1;}
+    (
+        op:#PIPE_PIPE# exprSum2 = ExprSum	{res = RESOLVER.viewparser_createConcatenationExpression(res,exprSum2,TOK(op));}
+    )*
+
+    {RESOLVER.viewparser_setStartEndTokenIndex(res, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());}
+;
+
+ExprSum returns [IExpression res]
+:
+    exprFactor1 = ExprFactor						{res = exprFactor1;}
+    (
+            opPlus:"+"  exprFactor2 = ExprFactor	{res = RESOLVER.viewparser_createConcatenationExpression(res, exprFactor2, TOK(opPlus));}
+        |
+            opMinus:"-" exprFactor3 = ExprFactor	{res = RESOLVER.viewparser_createConcatenationExpression(res, exprFactor3, TOK(opMinus));}
+    )*
+
+    {RESOLVER.viewparser_setStartEndTokenIndex(res, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());}
+;
+
+ExprFactor returns [IExpression res]
+:
+    exprTerm1 = ExprTerm						{res = exprTerm1;}
+    (
+            opMul:"*" exprTerm2 = ExprTerm		{res = RESOLVER.viewparser_createConcatenationExpression(res,exprTerm2,TOK(opMul));}
+        |
+            opDiv:"/" exprTerm3 = ExprTerm		{res = RESOLVER.viewparser_createConcatenationExpression(res,exprTerm3,TOK(opDiv));}
+    )*
+;
+
+ExprTerm returns [IExpression res]
+@init{ IExpressionsContainerExpression exprCont = null; }
+:
+	(
+		(
+			col = QLPath {res = col;}
+			(
+				"."
+				{
+					exprCont = RESOLVER.createExpressionsContainerExpression();
+					res = exprCont;
+					RESOLVER.addExpression(exprCont,col);   // TODO: bug? always adding initial 'col' ??
+				}
+				gisFunction1 = GisObjectiveFunction[exprCont]
+			)*
+		)
+		|	opPlus:"+" exprTerm1 = ExprTerm					{res = RESOLVER.viewparser_createConcatenationExpression(null, exprTerm1, TOK(opPlus));}
+		|	opMinus:"-" exprTerm2 = ExprTerm				{res = RESOLVER.viewparser_createConcatenationExpression(null, exprTerm2, TOK(opMinus));}
+		|	"(" exprTerm3 = Expression ")"					{res = exprTerm3;}
+		|	literal = Literal								{res = RESOLVER.viewparser_iliteral(literal);}
+		|	agg = Agg										{res = agg;}
+		|	func = Func										{res = func;}
+		|	userDefinedFunc = UserDefinedFunction			{res = userDefinedFunc;}
+		|	namedArgFunc = NamedArgFunc						{res = namedArgFunc;}
+		|
+		(
+			{
+				exprCont = RESOLVER.createExpressionsContainerExpression();
+				res = exprCont;
+			}
+			(
+				gisFunction2 = GisNotSpatialFunction[exprCont]
+			  |	gisFunction3 = GisGeometryConstructor[exprCont]
+			  |	gisFunction4 = GisGeneralConstructor[exprCont]
+			  |	gisFunction5 = GisUnionAggregationFunction[exprCont]
+			)
+
+			(
+			"."
+				gisFunction6 = GisObjectiveFunction[exprCont]
+			)*
+		)
+		|	session_user_function = SessionUserFunction		{res = session_user_function;}
+		|	caseExpr = CaseExpression						{res = caseExpr;}
+	)
+	{RESOLVER.viewparser_setStartEndTokenIndex(res, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());}
+;
+
+AspectExpression // TODO: AST? and consume
+:
+	"aspect"
+	QLPathStartRule
+;
+
+// this rule is made as startRule for error recovery. This rule is not called as start rule from parser. RND_TOOL generates vm program counter index for beginning of rule when option startRule is set. This PC index is needed for the error recovery logic (see BaseCdsDdlParser#recoverToStartOfRule)
+QLPathStartRule
+options{startrule = "TRUE";}
+:
+	QLPath
+;
+
+
+CaseExpression returns [IExpression res]
+:
+    "case"!
+    (
+        	// simple case
+            expr1    = Expression				{res = RESOLVER.createSimpleCaseExpression(expr1);}
+            WhenExpressionThenList[res]
+        |
+        	// searched case
+												{res = RESOLVER.createSearchedCaseExpression();}
+            WhenConditionThenList[res]
+    )
+    (
+        "else"!
+        optElse = Expression					{RESOLVER.addElseExpression(res, optElse);}
+    )?
+    "end"!
+												{RESOLVER.viewparser_setStartEndTokenIndex(res, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());}
+;
+
+WhenExpressionThenList [IExpression caseExpr]
+:
+    WhenExpressionThen[caseExpr]+
+;
+
+WhenConditionThenList [IExpression caseExpr]
+:
+    WhenConditionThen[caseExpr]+
+;
+
+WhenExpressionThen [IExpression caseExpr]
+:
+    "when"
+    expr1 = Expression
+    "then"
+    expr2 = Expression
+    {
+		var caseWhen = RESOLVER.addAndReturnNewCaseWhenExpression( caseExpr, expr1, expr2);
+		RESOLVER.viewparser_setStartEndTokenIndex(caseWhen, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());
+	}
+;
+
+WhenConditionThen[IExpression caseExpr]
+:
+    "when"
+    cond1 = Condition
+    "then"
+    expr1 = Expression
+    {
+		var caseWhen = RESOLVER.addAndReturnNewCaseWhenExpression( caseExpr, cond1, expr1);
+		RESOLVER.viewparser_setStartEndTokenIndex(caseWhen, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());
+	}
+;
+
+NumberLiteral returns [var res]
+:
+        int_lit = IntLiteralWrapper	{res = int_lit;}
+    |   real_lit = RealLiteral		{res = real_lit;}
+;
+
+Literal returns [Token res] :
+        int_val = IntLiteralWrapper			{res = int_val;}
+    |	string_lit = StringLiteralWrapper	{res = string_lit;}
+    |	real_lit = RealLiteral				{res = real_lit;}
+    |	binary_lit = BinaryLiteral			{res = binary_lit;}
+    |	date_lit = DateLiteral				{res = date_lit;}
+    |	time_lit = TimeLiteral				{res = time_lit;}
+    |	timestamp_lit = TimeStampLiteral	{res = timestamp_lit;}
+    |	null_lit = NullLiteral				{res = null_lit;}	// FIXME: NullLiteral NULL not yet supported in SemanticCheck
+    |	bool_lit = BooleanLiteral			{res = bool_lit;}
+;
+
+ExprAlias returns [IExpression expr,Token alias]
+:
+    e = Expression			{expr = e;}
+
+    (
+        "as" ?
+        id = IdWrapper		{alias = id;}
+    )?
+;
+
+ExprAliasEnforced returns [IExpression expr,Token alias]
+:
+    e = Expression		{expr = e;}
+    "as"!
+    id = IdWrapper		{alias = id;}
+;
+
+// Aggregate function
+Agg returns [IExpression res]
+:
+    agg_name = AggName
+    "("
+    (
+	        st:'*'						{res = RESOLVER.viewparser_stdFunctionExpression(agg_name, RESOLVER.viewparser_iliteral(TOK(st)));}
+        |
+        	agg_all = OptAll
+        	agg_expr = Expression		{
+											res = RESOLVER.viewparser_stdFunctionExpression(agg_name,agg_expr);
+											res.setAllToken(agg_all);
+										}
+        |
+        	d:"distinct"
+        	agg_expr2 = Expression		{
+											res = RESOLVER.viewparser_stdFunctionExpression(agg_name,agg_expr2);
+											res.setDistinctToken(TOK(d));
+										}
+    )
+    ")"
+    {RESOLVER.viewparser_setStartEndTokenIndex(res, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());}
+;
+
+AggName returns [Token res]:
+	(
+		"count"!
+	  | "min"!
+	  | "max"!
+	  | "sum"!
+	  | "avg"!
+	  | "stddev"!
+	  | "var"!
+	)
+	{res = TOK_AT(this.getFirstTokenIndex());}
+;
+
+optAllDistinct:
+    (
+    	"all"
+      |	"distinct"
+    )?
+;
+
+OptAll returns [Token res]:
+    () 			{res = null;}
+    | a:"all"	{res = TOK(a);}
+;
+
+// Built-in function with named argument
+NamedArgFunc returns[IFuncWithNamedParamExpression res]
+:
+    func_name = NamedArgumentFuncName
+    {res = RESOLVER.viewparser_funcWithNamedParamExpression(func_name);}
+    "("
+    (
+        expr = NamedArgument[res]
+        (
+            "," NamedArgumentList[res]
+        )?
+    )?
+    ")"
+    {RESOLVER.viewparser_setStartEndTokenIndex(res, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());}
+;
+
+NamedArgument[IFuncWithNamedParamExpression funcExpr]
+@init{ IFuncParam funcParam = null;	}
+:
+    proc_param_name = IdWrapper
+    {funcParam = RESOLVER.viewparser_addFuncParam(funcExpr, proc_param_name);}
+    "=>"
+    expr1 = Expression
+    {funcParam.setExpression(expr1);}
+    {RESOLVER.viewparser_setStartEndTokenIndex(funcParam, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());}
+;
+
+NamedArgumentList[IFuncWithNamedParamExpression funcExpr]
+:
+	expr = NamedArgument[funcExpr]
+	(
+		","
+		expr_n = NamedArgument[funcExpr]
+	)*
+;
+
+GisNotSpatialFunction[IExpressionsContainerExpression container]
+	@init{
+		int startIndex = RESOLVER.getNextTokenIndex();
+		IFuncExpression func = null;
+	}
+:
+	gisFunctionName = GisNotSpatialFunctionName
+	{
+		func = RESOLVER.viewparser_funcExpression(gisFunctionName);
+		RESOLVER.viewparser_setStartTokenIndex(func,startIndex);
+		RESOLVER.addExpression(container,func);
+	}
+	"("
+	(
+		expr = Expression
+		{RESOLVER.viewparser_addFuncExprParameter(func,expr);}
+		(
+			"," list = ExpressionList
+			{
+				for (var exCount = 0;exCount < list.length;exCount++) {
+					RESOLVER.viewparser_addFuncExprParameter(func, list[exCount] );
+				}
+			}
+		)?
+	)?
+	")"
+	{RESOLVER.viewparser_setStartEndTokenIndex(func,startIndex, RESOLVER.getLastMatchedTokenIndex());}
+;
+
+GisGeometryConstructor[IExpressionsContainerExpression container]
+	@init{
+		int startIndex = RESOLVER.getNextTokenIndex();
+		IConstructorFuncExpression func = null;
+	}
+:
+	n = "new"
+	gisFunctionName = GisGeometryConstructorName
+	{
+		func = RESOLVER.createConstructorFuncExpression(gisFunctionName);
+		func.setNewKeyword(TOK(n));
+		RESOLVER.viewparser_setStartTokenIndex(func,startIndex);
+		RESOLVER.addExpression(container,func);
+	}
+	"("
+	(
+		expr = Expression
+		{RESOLVER.addFuncExprParameter(func,expr);}
+		(
+			"," list = ExpressionList
+			{
+				for (var exCount = 0;exCount < list.length;exCount++) {
+					RESOLVER.addFuncExprParameter(func, list[exCount] );
+				}
+			}
+		)?
+	)?
+	")"
+	{RESOLVER.viewparser_setStartEndTokenIndex(func,startIndex, RESOLVER.getLastMatchedTokenIndex());}
+;
+
+GisGeneralConstructor[IExpressionsContainerExpression container]
+	@init{
+		int startIndex = RESOLVER.getNextTokenIndex();
+		IFuncExpression func = null;
+	}
+:
+	gisFunctionName = GisGeneralConstructorName
+	{
+		func = RESOLVER.viewparser_funcExpression(gisFunctionName);
+		RESOLVER.viewparser_setStartTokenIndex(func,startIndex);
+		RESOLVER.addExpression(container,func);
+	}
+	"("
+	(
+		expr = Expression
+		{RESOLVER.viewparser_addFuncExprParameter(func,expr);}
+		(
+			"," list = ExpressionList
+			{
+				for (var exCount = 0;exCount < list.length;exCount++) {
+					RESOLVER.viewparser_addFuncExprParameter(func, list[exCount] );
+				}
+			}
+		)?
+	)?
+	")"
+	{RESOLVER.viewparser_setStartEndTokenIndex(func,startIndex, RESOLVER.getLastMatchedTokenIndex());}
+;
+
+GisObjectiveFunction
+	[IExpressionsContainerExpression container]
+	@init{
+		int startIndex = RESOLVER.getNextTokenIndex();
+		IFuncExpression func = null;
+		IFuncWithNamedParamExpression funcWithNamedParams = null;
+	}
+:
+	(
+		(
+			gisFunctionName = GisObjectiveFunctionName
+			{
+				func = RESOLVER.viewparser_funcExpression(gisFunctionName);
+				RESOLVER.viewparser_setStartTokenIndex(func,startIndex);
+				RESOLVER.addExpression(container,func);
+			}
+			"("
+			(
+				expr = Expression
+				{RESOLVER.viewparser_addFuncExprParameter(func,expr);}
+				(
+					"," list = ExpressionList
+					{
+						for (var exCount = 0;exCount < list.length;exCount++) {
+							RESOLVER.viewparser_addFuncExprParameter(func, list[exCount] );
+						}
+					}
+				)?
+			)?
+			")"
+			{RESOLVER.viewparser_setStartEndTokenIndex(func,startIndex, RESOLVER.getLastMatchedTokenIndex());}
+		)
+		|
+		(
+			gisNamedParameterFunctionName = GisObjectiveNamedParameterFunctionName
+			{
+				funcWithNamedParams = RESOLVER.viewparser_funcWithNamedParamExpression(gisNamedParameterFunctionName);
+				RESOLVER.viewparser_setStartTokenIndex(funcWithNamedParams,startIndex);
+				RESOLVER.addExpression(container,funcWithNamedParams);
+			}
+			"("
+			(
+				arg = NamedArgument[funcWithNamedParams]
+				(
+				"," NamedArgumentList[funcWithNamedParams]
+				)?
+			)?
+			")"
+			{RESOLVER.viewparser_setStartEndTokenIndex(funcWithNamedParams,startIndex, RESOLVER.getLastMatchedTokenIndex());}
+		)
+	)
+;
+
+
+GisNotSpatialFunctionName
+	returns [Token res]
+:
+	(
+		// SQL-style functions (GFT_NOT_SPATIAL_FUNC)
+		"to_geometry"
+	|	"to_point"
+		// TO_POINTZ
+	)
+	{res = TOK_AT(this.getFirstTokenIndex());}
+;
+
+GisGeometryConstructorName
+	returns [Token res]
+:
+	(
+		// constructors that require the NEW keyword (GFT_GEOMETRY_CONSTRUCTOR)
+		"st_geometry"
+	|	"st_point"
+		// ST_POINTZ
+		// ST_POINTM
+		// ST_POINTZM
+	|	"st_polygon"
+	|	"st_multipolygon"
+	|	"st_linestring"
+	|	"st_circularstring"
+	|	"st_rectangle"
+	|	"st_multipoint"
+	|	"st_multilinestring"
+	|	"st_geometrycollection"
+	)
+	{res = TOK_AT(this.getFirstTokenIndex());}
+;
+
+GisGeneralConstructorName returns [Token res]
+:
+	(
+		// constructor-like functions without new (GFT_GENERAL_CONSTRUCTOR)
+		"st_geomfromwkb"
+	|	"st_geomfromewkb"
+	|	"st_pointfromwkb"
+	|	"st_fromtext" // is also a objective function call
+	|	"st_geomfromewkt"
+	|	"st_geomfromtext"
+	|	"st_geomfromwkt"
+	)
+	{res = TOK_AT(this.getFirstTokenIndex());}
+;
+
+GisObjectiveFunctionName returns [Token res]
+:
+	name = GisObjectiveFunctionNameToken	{res = name;}
+;
+
+GisObjectiveFunctionNameToken returns [Token res]
+:
+	(
+		// member-style functions (GFT_OBJECTIVE_FUNC_CALL)
+		"st_contains"
+	|	"st_equals"
+	|	"st_within"
+	|	"st_intersectsrect"
+	|	"st_intersects"
+	|	"st_intersectsfilter"
+	|	"st_convexhull"
+	|	"st_intersection"
+	|	"st_buffer"
+	|	"st_orderingequals"
+	|	"st_touches"
+	|	"st_crosses"
+	|	"st_overlaps"
+	|	"st_covers"
+	|	"st_coveredby"
+	|	"st_disjoint"
+	|	"st_withindistance"
+	|	"st_distance"
+	|	"st_area"
+	|	"st_length"
+	|	"st_snaptogrid"
+	|	"st_envelope"
+	|	"st_centroid"
+	|	"st_pointonsurface"
+	|	"st_startpoint"
+	|	"st_endpoint"
+	|	"st_pointn"
+	|	"st_isclosed"
+	|	"st_isring"
+	|	"st_isvalid"
+	|	"st_difference"
+	|	"st_union"
+	|	"st_astext"
+	|	"st_aswkt"
+	|	"st_asewkt"
+	|	"st_asbinary"
+	|	"st_aswkb"
+	|	"st_asewkb"
+	|	"st_asgeojson"
+	|	"st_x"
+	|	"st_y"
+	|	"st_z"
+	|	"st_m"
+	|	"st_xmin"
+	|	"st_xmax"
+	|	"st_ymin"
+	|	"st_ymax"
+	|	"st_zmin"
+	|	"st_zmax"
+	|	"st_mmin"
+	|	"st_mmax"
+	|	"st_is3d"
+	|	"st_ismeasured"
+	|	"st_hasz"
+	|	"st_hasm"
+	|	"st_srid"
+	|	"st_geometrytype"
+	|	"st_dimension"
+	|	"st_numpoints"
+	|	"st_isempty"
+	|	"st_relate"
+	|	"st_boundary"
+	|	"st_exteriorring"
+	|	"st_interiorringn"
+	|	"st_issimple"
+	|	"st_numinteriorrings"
+	|	"st_numinteriorring"
+	|	"st_symdifference"
+	|	"st_geometryn"
+	|	"st_numgeometries"
+	)
+	{res = TOK_AT(this.getFirstTokenIndex());}
+;
+
+GisObjectiveNamedParameterFunctionName returns [Token res]
+:
+	"st_assvg"		{res = TOK_AT(this.getFirstTokenIndex());}
+;
+
+GisUnionAggregationFunction[IExpressionsContainerExpression container]
+@init{ IFuncExpression func = null;	}
+:
+	fname = GisUnionAggregationFunctionName
+	{
+		func = RESOLVER.viewparser_funcExpression(fname);
+		RESOLVER.viewparser_setStartTokenIndex(func,this.getFirstTokenIndex());
+		RESOLVER.addExpression(container,func);
+	}
+	"("
+	path = QLPath
+	{RESOLVER.viewparser_addFuncExprParameter(func,path);}
+	")"
+	{RESOLVER.viewparser_setEndTokenIndex(func,RESOLVER.getLastMatchedTokenIndex());}
+;
+
+GisUnionAggregationFunctionName	returns [Token res]
+:
+	"st_unionaggr"	{res = TOK_AT(this.getFirstTokenIndex());}
+;
+
+// Special case: ptime models SESSION_USER as a qp_udf, although it is actually a builtin function without
+// parentheses and should thus appear under 'ConstishFuncName', but that would yield a qp_func ... sigh
+SessionUserFunction	returns [IFuncExpression res]
+:
+	"session_user"	{res = RESOLVER.viewparser_funcExpression(TOK_AT(this.getFirstTokenIndex()));}
+;
+
+// Built-in function
+Func returns [IExpression res]
+:
+(
+		// Function that looks like a constant (no parentheses, no parameters, like FOO)
+		constish_func_name = ConstishFuncName    {res = RESOLVER.viewparser_funcExpression(constish_func_name);}
+  |
+	(
+		// Simple function that looks like ordinary functions do: FOO(params)
+		simple_func_name = SimpleFuncName
+		"("
+		{res = RESOLVER.viewparser_funcExpression(simple_func_name);}
+		(
+			expr = Expression
+			{RESOLVER.viewparser_addFuncExprParameter(res,expr);}
+			(
+				"," list:ExpressionList
+				{
+					for (var exCount = 0;exCount < list.length;exCount++) {
+						RESOLVER.viewparser_addFuncExprParameter(res, list[exCount] );
+					}
+				}
+			)?
+		)?
+		")"
+	)
+  |		trim_function        = TrimFunction      {res = trim_function;}
+  |		extract_function     = ExtractFunction   {res = extract_function;}
+  |		cast_function        = CastFunction      {res = cast_function;}
+  |		day_of_week_function = DayOfWeekFunction {res = day_of_week_function;}
+  |		left_function        = LeftFunction      {res = left_function;}
+  |		right_function       = RightFunction     {res = right_function;}
+  |		day_name_function    = DayNameFunction   {res = day_name_function;}
+  |		month_name_function  = MonthNameFunction {res = month_name_function;}
+  |		                       SeriesFunction //{ res = series_function; }   // TODO?
+  |                            RoundFunction
+)
+	{
+		if (res != null) {
+			RESOLVER.viewparser_setStartEndTokenIndex(res, this.getFirstTokenIndex(), RESOLVER.getLastMatchedTokenIndex());
+		}
+	}
+;
+
+UserDefinedFunction
+	returns [IFuncExpression res]
+:
+	udfFunctionName = UserDefinedFunctionName
+	{res = RESOLVER.viewparser_funcExpression(udfFunctionName);}
+	"("
+	(
+		expr = Expression
+		{RESOLVER.viewparser_addFuncExprParameter(res,expr);}
+		(
+			"," list = ExpressionList
+			{
+				for (var exCount = 0;exCount < list.length;exCount++) {
+					RESOLVER.viewparser_addFuncExprParameter(res, list[exCount] );
+				}
+			}
+		)?
+	)?
+	")"
+;
+
+UserDefinedFunctionName	returns [Token res]
+:
+	// Actually, these are by no means user-defined, but ptime treats them this way, so we do the same
+	(
+		"dayofyear"
+	|	"week"
+	|	"to_alphanum"
+	|	"to_fixedchar"
+	|	"add_workdays"
+	|	"isoweek"
+	|	"localtoutc"
+	|	"nano100_between"
+	|	"quarter"
+	|	"utctolocal"
+	|	"workdays_between"
+	|	"bitset"
+	|	"bitunset"
+	|	"rand"
+	|	"uminus"
+	|	"bintostr"
+	|	"strtobin"
+	|	"hash_sha256"
+	|	"bitcount"
+	|	"bitnot"
+	|	"bitor"
+	|	"bitxor"
+	|	"current_update_transaction"
+	|	"current_update_statement_sequence"
+	|	"to_boolean"
+    |   "dayname"
+    |	"monthname"
+    |	"left"
+    |	"right"
+    )
+	{res = TOK_AT(this.getFirstTokenIndex());}
+;
+
+NamedArgumentFuncName returns [Token res]:
+	(
+		"convert_currency"!
+	|	"convert_unit"!
+	)
+	{res = TOK_AT(this.getFirstTokenIndex());}
+;
+
+// Name of simple function that looks like ordinary functions do: FOO(params)
+SimpleFuncName returns [Token res]:
+ // The extremely simple ones where Function name matches QPC_FUNC enum, with args
+(
+      "abs"!
+    | "acos"!
+    | "add_days"!
+    | "add_months"!
+    | "add_seconds"!
+    | "add_years"!
+    | "ascii"!
+    | "asin"!
+    | "atan"!
+    | "atan2"!
+// These functions are not documented anywhere, so we do not support them (yet?)
+//  | "bind_bigint"
+//  | "bind_char"
+//  | "bind_decimal"
+//  | "bind_double"
+//  | "bind_nchar"
+//  | "bind_real"
+    | "bintohex"!
+    | "bitand"!
+    | "ceil"!
+    | "coalesce"!
+    | "concat"!
+    | "cos"!
+    | "cosh"!
+    | "cot"!
+    | "days_between"!
+    | "exp"!
+    | "floor"!
+    | "greatest"!
+    | "hasanyprivileges"!
+    | "hassystemprivilege"!
+    | "hextobin"!
+    | "ifnull"!
+    | "isauthorized"!
+    | "last_day"!
+    | "least"!
+    | "length"!
+    | "ln"!
+    | "locate"!
+    | "log"!
+    | "lower"!
+    | "lpad"!
+// This function is internally implemented as a CASE statement (see ptime::qo_Func::toExpression)
+// We don't support that yet
+//  | "map"
+    | "mod"!
+    | "next_day"!
+    | "nullif"!
+    | "power"!
+    | "replace"!
+    | "round"!
+    | "rpad"!
+    | "seconds_between"!
+    | "session_context"!
+    | "sign"!
+    | "sin"!
+    | "sinh"!
+    | "sqrt"!
+    | "substr"!
+    | "substr_after"!
+    | "substr_before"!
+    | "tan"!
+    | "tanh"!
+    | "to_bigint"!
+    | "to_binary"!
+    | "to_blob"!
+/* This function is implemented as an UDF by ptime (although it has a QPC_FUNC enum ... whatever, we
+ do the same) */
+/*  | "to_boolean" */
+    | "to_char"!
+    | "to_clob"!
+    | "to_date"!
+    | "to_dats"!
+    | "to_decimal"!
+    | "to_double"!
+    | "to_int"!
+    | "to_integer"!
+    | "to_nchar"!
+    | "to_nclob"!
+    | "to_nvarchar"!
+    | "to_number"!
+    | "to_real"!
+    | "to_seconddate"!
+    | "to_smalldecimal"!
+    | "to_smallint"!
+    | "to_time"!
+    | "to_timestamp"!
+    | "to_tinyint"!
+    | "to_varbinary"!
+    | "to_varchar"!
+    | "unicode"!
+    | "upper"!
+    | "weekday"!
+ // The ones where the function name does not match QPC_FUNC code, with args
+    | "char"!
+ // This function is related to grouping sets, which are not supported yet
+ // | "grouping"
+    | "nchar"!
+ // The ones where the function is actually an alias of another function, with args
+    | "instr"!
+    | "lcase"!
+    | "substring"!
+    | "ucase"!
+ // The ones where the function name does match QPC_FUNC code, no args
+ // This function is related to grouping sets, which are not supported yet
+ // | "grouping_filter"
+ // This function is not documented anywhere, so we do not support it (yet?)
+ // | "istotal"
+ // The ones where the function name does match QPC_FUNC code, no args
+    | "curdate"!
+    | "current_database"!
+    | "curtime"!
+    | "database"!
+    | "now"!
+ // This function is not documentres = QPC_FUNC_ACOS;ed anywhere, so we do not support it (yet?)
+ // | "olymp"
+    | "user"!
+ // The ones from the TRIM family that do not require extra magic
+    | "ltrim"!
+    | "rtrim"!
+ // the ones from the extract family that are just aliases
+    | "year"!
+    | "month"!
+    | "dayofmonth"!
+    | "hour"!
+    | "minute"!
+    | "second"!
+)
+{res = TOK_AT(this.getFirstTokenIndex());}
+;
+
+// Name of function that looks like a constant (no parentheses, no parameters, like FOO)
+ConstishFuncName returns [Token res]:
+	(
+	/* The ones that have no parentheses but are actually aliases of a no-args function with parentheses */
+	"current_date"
+  | "current_schema"
+  | "current_time"
+  | "current_timestamp"
+  | "current_user"
+	/* The ones that have no parentheses and need to be rendered without parentheses */
+  | "current_connection"
+  | "current_transaction_isolation_level"
+  | "current_utcdate"
+  | "current_utctime"
+  | "current_utctimestamp"
+  | "sysuuid"
+	)
+	{res = TOK_AT(this.getFirstTokenIndex());}
+;
+
+// A TRIM function (with extra keywords between the arguments and lots of ugly optionality)
+TrimFunction
+	returns [ITrimFunctionExpression res]
+:
+	{res = IAstFactory.eINSTANCE.createTrimFunctionExpression();}
+	t = "trim" {res.setName(TOK(t));}
+	"("
+	(
+		(
+			// TRIM ({LEADING|TRILING|BOTH} FROM str)
+			// TRIM ({LEADING|TRILING|BOTH} char FROM str)
+			// => {LTRIM|RTRIM|TRIM_BOTH}(str[, char])
+			trim_position = TrimPosition {res.setTrimPosition(trim_position);}
+			(
+				remString1 = Expression {res.setRemoveString(remString1);}
+			)?
+			f1 = "from"! {res.setFromKeyword(TOK(f1));}
+			expr1 = Expression {RESOLVER.viewparser_addFuncExprParameter(res,expr1);}
+		)
+		|
+		(
+			// TRIM (str)
+			// TRIM (char FROM str)
+			// => TRIM_BOTH(str[, char])
+			expr2 = Expression
+			(
+				(
+					{RESOLVER.viewparser_addFuncExprParameter(res,expr2);}
+				)
+				|
+
+				(
+					{res.setRemoveString(expr2);}
+					f2 = "from"! {res.setFromKeyword(TOK(f2));}
+					expr3 = Expression {RESOLVER.viewparser_addFuncExprParameter(res,expr3);}
+				)
+			)
+		)
+	)
+	")"
+;
+
+TrimPosition returns [Token res]
+:
+	(
+	  "leading"
+	| "trailing"
+	| "both"
+	)
+	{res = TOK_AT(this.getFirstTokenIndex());}
+;
+
+// An EXTRACT function (with extra keywords between the arguments)
+ExtractFunction	returns [IExtractFunctionExpression res]
+:
+	{res = IAstFactory.eINSTANCE.createExtractFunctionExpression();}
+	e = "extract" {res.setName(TOK(e));}
+	"("
+		extract_spec = ExtractSpec {res.setUnit(extract_spec);}
+		f = "from" {res.setFromKeyword(TOK(f));}
+		expr = Expression {RESOLVER.viewparser_addFuncExprParameter(res,expr);}
+	")"
+;
+
+ExtractSpec	returns [Token res]
+:
+	(
+		  "year"
+		| "month"
+		| "day"
+		| "hour"
+		| "minute"
+		| "second"
+	)
+	{res = TOK_AT(this.getFirstTokenIndex());}
+;
+
+// A CAST function (with extra keywords and optional type parameters)
+CastFunction
+	returns [ICastExpression res]
+:
+	"cast"
+	"("
+	expr = Expression
+	{res = RESOLVER.createCastExpression(expr,null,null,null,null);}
+	"as"
+	(
+		(
+			// No type parameters: CAST(foo AS INT) => TO_INT(foo)
+			cast_type_without_params = CastTypeWithoutParams
+			{res.setTypeName(cast_type_without_params);}
+		)
+		|
+		(
+			// Optional type parameters that are simply passed on:
+			// CAST(foo as DECIMAL) => TO_DECIMAL(foo)
+			// CAST(foo as VARBINARY(17)) => TO_VARBINARY(foo, 17)
+			// CAST(foo as DECIMAL(5, 2)) => TO_DECIMAL_CHECK(foo, 5, 2)
+			cast_type_with_optional_params = CastTypeWithOptionalParams
+			{res.setTypeName(cast_type_with_optional_params);}
+			(
+				"("
+				//<<<< Backend uses ExpressionList here, but only allows two expression in a semantic check
+				length = Expression
+				{res.setLengthExpression(length);}
+				(
+					","
+					decimals = Expression
+					{res.setDecimalsExpression(decimals);}
+				)?
+				//>>>>
+				")"
+			)?
+		)
+		|
+		(
+			// Single optional length parameter that results in a SUBSTRING wrapper
+			// CAST(foo as NVARCHAR) => TO_NVARCHAR(foo)
+			// CAST(foo as NVARCHAR(17)) => SUBSTRING(TO_NVARCHAR(foo), 0, 17)
+			cast_type_with_optional_length_param = CastTypeWithOptionalLengthParam
+			{res.setTypeName(cast_type_with_optional_length_param);}
+			(
+				"("
+				length_expr = Expression
+				{res.setLengthExpression(length_expr);}
+				")"
+			)?
+		)
+	)
+	")"
+;
+
+CastTypeWithoutParams returns [Token res]
+:
+	(
+		  "bigint"
+		| "binary"
+		| "boolean"
+		| "blob"
+		| "clob"
+		| "date"
+		| "smalldecimal"
+		| "double"
+		| "int"
+		| "integer"
+		| "nclob"
+		| "real"
+		| "smallint"
+		| "seconddate"
+		| "daydate"
+		| "longdate"
+		| "secondtime"
+		| "time"
+		| "timestamp"
+		| "tinyint"
+	)
+	{res = TOK_AT(this.getFirstTokenIndex());}
+;
+
+CastTypeWithOptionalParams returns [Token res]
+:
+	(
+		  "decimal"
+		| "varbinary"
+		| "alphanum"
+	)
+	{res = TOK_AT(this.getFirstTokenIndex());}
+;
+
+CastTypeWithOptionalLengthParam	returns [Token res]
+:
+	(
+		  "char"
+		| "nchar"
+		| "nvarchar"
+		| "varchar"
+	)
+	{res = TOK_AT(this.getFirstTokenIndex());}
+;
+
+// Functions that are transmogrified into more complex expressions by the parser
+// (which might not be the most transparent way to do it - but this is what HANA does internally)
+
+// DAYOFWEEK(expr) => TO_BIGINT(MOD(WEEKDAY(expr) + 1, 7) + 1)
+DayOfWeekFunction returns [IFuncExpression res]
+:
+	day = "dayofweek"		{res = RESOLVER.viewparser_funcExpression((TOK(day)));}
+	"("
+	expr = Expression		{RESOLVER.viewparser_addFuncExprParameter(res,expr);}
+	")"
+;
+
+// LEFT(expr, n) => SUBSTR(expr, 1, n)
+LeftFunction returns [IFuncExpression res]
+:
+	left = "left"			{res = RESOLVER.viewparser_funcExpression((TOK(left)));}
+	"("
+	expr1 = Expression		{RESOLVER.viewparser_addFuncExprParameter(res,expr1);}
+	","
+	expr2 = Expression		{RESOLVER.viewparser_addFuncExprParameter(res,expr2);}
+	")"
+;
+
+// RIGHT(expr, n) => SUBSTR(expr, LENGTH(expr) - (n + 1))
+RightFunction returns [IFuncExpression res]
+:
+	right = "right"			{res = RESOLVER.viewparser_funcExpression((TOK(right)));}
+	"("
+	expr1 = Expression		{RESOLVER.viewparser_addFuncExprParameter(res,expr1);}
+	","
+	expr2 = Expression		{RESOLVER.viewparser_addFuncExprParameter(res,expr2);}
+	")"
+;
+
+// DAYNAME(expr) => TO_CHAR(TO_DATE(expr), 'DAY')
+DayNameFunction	returns [IFuncExpression res]
+:
+	day = "dayname"			{res = RESOLVER.viewparser_funcExpression((TOK(day)));}
+	"("
+	expr = Expression		{RESOLVER.viewparser_addFuncExprParameter(res,expr);}
+	")"
+;
+
+// MONTHNAME(expr) => TO_CHAR(TO_DATE(expr), 'MONTH')
+MonthNameFunction returns [IFuncExpression res]
+:
+	month = "monthname"		{res = RESOLVER.viewparser_funcExpression((TOK(month)));}
+	"("
+	expr = Expression		{RESOLVER.viewparser_addFuncExprParameter(res,expr);}
+	")"
+;
+
+// A ROUND function (can have keywords or strings as optional third argument)
+// TODO: AST
+RoundFunction:
+    "round"! "(" Expression
+    (
+        "," Expression
+        (
+            ","
+            (
+	                RoundingMode
+	            |
+	                StringLiteralWrapper
+	        )
+        )?
+    )?
+    ")"
+;
+
+// TODO: AST
+SeriesFunction
+:
+	//   series_function_name '(' expr ',' series_reference ',' expr_list ')'
+	// | series_function_name '(' expr ',' series_reference ')'
+	series_function_name = SeriesFunctionName
+	"("
+	expr = Expression
+	","
+	literal = Expression
+	(
+        ","
+        (
+            (
+                minValue = Expression
+                ","
+                maxValue = Expression
+                (
+                    ","
+                    rm1 = RoundingMode
+                )?
+            )
+            |
+            (
+                rm2 = RoundingMode
+            )
+        )
+    )?
+	")"
+;
+
+SeriesFunctionName returns [Token res]
+:
+	(
+        "series_element_to_period"!
+    |	"series_period_to_element"!
+    |	"series_round"!
+    )
+    {res = TOK_AT(this.getFirstTokenIndex());}
+;
+
+RoundingMode returns [Token res]
+:
+	(
+		"round_half_up"
+	|	"round_half_down"
+	|	"round_half_even"
+	|	"round_up"
+	|	"round_down"
+	|	"round_ceiling"
+	|	"round_floor"
+	)
+	{res = TOK_AT(this.getFirstTokenIndex());}
+;
+////////////////////////////////////////
+// Annotation Definitions (only client)
+//
+// TODO: typeSpec, enumClause and defaultClause are now defined two times in the grammar.
+//  Please fix this flaw when runtime colleagues also introduced annotationDefinitions in their grammar.
+//
+////////////////////////////////////////
+
+DDL_ENUM      : 'enum' ;
+DDL_COLON     : ":";
+
+/* This rule is used to parse the Annotations that can be used in DDL Sources
+   Currently this is not possible for the user to define his own annotations  */
+annotationDefintions
+options{ startrule = "TRUE"; }
+:
+	defs=annotationDefintionsWithAnnotation
+;
+
+annotationDefintionsWithAnnotation
+:
+	{RESOLVER.compilationUnit = IAstFactory.eINSTANCE.createCompilationUnit();}
+	(
+		annotations = _PreAnnotations
+
+		definition = AnnotationDeclaration[null,null]
+ 		{
+ 			// TODO: assert AnnoDecl always returns result, same for _PreAnnos
+			if (definition != null && annotations != null) {
+				RESOLVER.addAnnotations(definition.anno,annotations);
+			}
+		}
+	)*
+;
+
+AnnotationDeclaration[List<IPreAnnotation> annots,List<IDdlStatement> parentStmts] returns [IAnnotationDeclaration anno]
+:
+	"annotation"
+	name=QualifiedDefId
+	{
+		anno = RESOLVER.createAnnotationDeclarationWithPath(name);
+		if (parentStmts != null) {
+			parentStmts.push(anno);
+		}else{
+			RESOLVER.viewparser_setDDLStmt(anno);
+		}
+		if (annots != null) {
+			RESOLVER.addAnnotations(anno,annots);
+		}
+		RESOLVER.viewparser_setStartEndTokenIndex(anno,this.getFirstTokenIndex(),-1);
+	}
+	type = annotationTypeSpec[anno]
+   	{RESOLVER.viewparser_setEndTokenIndex(anno,RESOLVER.getLastMatchedTokenIndex());}
+   	 %COMMIT
+;
+
+arrayCardinality[IElementDeclaration element]:
+	start:"["
+	(
+		//min
+        min:IntLiteralWrapper
+    	"." "." //TODO replace with one ".." token
+    	//max
+        (
+            max1:IntLiteralWrapper
+            |
+            max2:"*"
+        )
+	)?
+	end:"]"
+	{
+		if (element != null) {
+			var max = max1!=null ? max1 : TOK(max2);
+			RESOLVER.setArrayCardinality(element,TOK(start),min,max,TOK(end));
+		}
+	}
+;
+
+annotationTypeSpec[IElementDeclaration element]
+:
+		DDL_COLON
+		(
+			AnnotationTypeArray      [element]
+		  |	AnnotationTypeNamedOrEnum[element]
+		  |	AnnotationTypeTypeOf     [element]
+		)
+	|
+		type2 = annotationStructuredType[element, null]
+;
+
+AnnotationTypeTypeOf[IElementDeclaration element]
+:
+    "type" "of" id = PathSimple    {element.setTypeOfPath(id);}
+	";" %COMMIT
+;
+
+AnnotationTypeNamedOrEnum[IElementDeclaration element]
+:
+	AnnotationTypeNamed[element]
+
+	(
+		enumeration = annotationEnumClause[element, null]  // TODO: enumeration?
+	)?
+
+	//backend does not allow default yet, but we allow it on the client to be able to provide defaults in Annotation Code completion
+	AnnotationDefaultClause[element] ?
+
+	";" %COMMIT
+;
+
+// the only reason for copy-ing this rule is the %CCIGNORE. Delete this rule, once Annotations "officially" support the definition of Default Values.
+AnnotationDefaultClause [IElementDeclaration res]
+:
+	%CCIGNORE "default"
+	(
+			expr = Expression		        {RESOLVER.viewparser_setElementDefault(res,expr);}
+		|
+			//Christoph W.: EnumId should be handled inside Expressions later on. If this changes, we have to change the error recovery accordingly.
+			enumVal = EnumIdWrapper	        {RESOLVER.viewparser_setElementDefaultToken(res,enumVal);}
+	)
+;
+
+AnnotationTypeNamed [IElementDeclaration element]
+:
+	typeName=AnnotationTypeName				{element.setTypeIdPath(typeName);}
+	(
+		"("
+				val = IntLiteralWrapper		{RESOLVER.setLength(element,val);}
+		( ","	val = IntLiteralWrapper		{RESOLVER.setDecimals(element,val);}	)?
+		")"
+	)?
+;
+
+AnnotationTypeSpecNoColon [IElementDeclaration element]
+:
+	annotationStructuredType [element, null]
+  |	AnnotationTypeNamedOrEnum[element]
+;
+
+AnnotationTypeArray [IElementDeclaration element]
+:
+	lit = "array"						{element.setArrayToken  (TOK(lit));}
+	lit = "of"							{element.setArrayOfToken(TOK(lit));}
+	AnnotationTypeSpecNoColon[element]
+;
+
+//this rule name is used in BaseCdsDdlParser. Keep this in mind when re-name-ing or delete-ing this rule
+AnnotationTypeName returns [IPathExpression res]
+:
+	typeName=TypeName	{res = typeName;}
+;
+
+annotationEnumClause [IElementDeclaration element, IEnumerationValue val] returns [IEnumerationDeclaration enumeration]
+:
+	DDL_ENUM							{enumeration = RESOLVER.createAndSetEnumerationDeclaration(element);}
+	"{"
+	(
+										{
+											val = RESOLVER.createAndSetEnumerationValue(enumeration);
+											RESOLVER.viewparser_setStartEndTokenIndex(val,RESOLVER.getNextTokenIndex(), -1);
+										}
+		symbol = IdWrapper				{val.setSymbol(symbol);}
+
+		( "=" lit = AnnotationLiteral	{val.setLiteral(RESOLVER.viewparser_cliteral(lit));}	)  // in the backend this is mandatory
+										{
+											if (val.getLiteral() == null) {
+												var implicitSymbol = RESOLVER.viewparser_cliteral(symbol);
+												val.setLiteral(implicitSymbol);
+											}
+										}
+		";"								{RESOLVER.viewparser_setEndTokenIndex(val,RESOLVER.getLastMatchedTokenIndex());}
+	)*
+	"}"
+;
+
+annotationStructuredType [IElementDeclaration element, IAnonymousTypeDeclaration type]
+:
+	"{"											{
+													type = RESOLVER.createAndSetAnonymousTypeDeclaration(element);
+													RESOLVER.viewparser_setStartEndTokenIndex(type, this.getFirstTokenIndex(), -1);
+												}
+	(
+												{
+													element = RESOLVER.createAndSetAttributeDeclaration(type);
+													RESOLVER.viewparser_setStartEndTokenIndex(element, RESOLVER.getNextTokenIndex(), -1);
+												}
+		name = IdWrapper						{element.setNameToken(name);}
+		type = annotationTypeSpec[element]		{RESOLVER.viewparser_setEndTokenIndex(element, RESOLVER.getLastMatchedTokenIndex());}
+	)*
+	"}"
+ 	";"?										{RESOLVER.viewparser_setEndTokenIndex(type,RESOLVER.getLastMatchedTokenIndex());}
+;
+
+
+////////////////////////////////////////
+// Preliminary keyword handling
+////////////////////////////////////////
+
+// take care of re-naming this rule name; its name is referenced in VersionsFactory#setErrorRecoveryHook
+VIEW          								: "view"           							;
+
+NOT  returns 		[Token name]      		: n:"not"				{name = TOK(n);}	;
+NULL returns 		[Token name]    		: %CCIGNORE n:"null"!	{name = TOK(n);}	;

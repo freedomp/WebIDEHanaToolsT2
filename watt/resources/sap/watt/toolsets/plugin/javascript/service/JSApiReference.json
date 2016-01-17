@@ -1,0 +1,19 @@
+{
+	"name" : "sap.watt.common.plugin.javascript.service.JSApiReference",
+	"description" : "The jsapireference interface",
+	"methods" : {
+		"getHelpProposal" : {
+			"params" : [
+				{
+					"name" : "proposal",
+					"type" : "object"
+				},
+				{
+					"name" : "rootUrl",
+					"type" : "string"
+				}
+			],
+			"returns": "object"
+		}
+	}
+}

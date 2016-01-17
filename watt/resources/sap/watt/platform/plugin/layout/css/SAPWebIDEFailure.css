@@ -1,0 +1,39 @@
+div {
+	text-align: center; 
+	overflow-x: auto; 
+	overflow-y: auto; 
+	color:#333; 
+
+}
+div.img1{
+	padding-top:100px;
+    text-align: center;
+}
+div.txt1{
+    font-family:"Segoe UI Light",arial;	
+    margin-bottom: 10px;
+    font-weight: bold;
+	font-size: 2.4rem;
+	
+}
+div.txt_container{
+		
+	font-family:"Segoe UI Light",arial;
+	width:600px;
+    margin:auto;
+    text-align: center;    
+    margin-bottom: 10px;
+    line-height: 1.4rem;
+
+}
+div.txt2{
+	overflow:hidden;
+	margin-top:20px;
+	font-size: 1.7rem;
+}
+
+div.txt3{
+	overflow:hidden;
+	margin-top:15px;
+	font-size: 1.1rem;
+}

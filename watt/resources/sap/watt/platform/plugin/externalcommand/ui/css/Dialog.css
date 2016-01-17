@@ -1,0 +1,12 @@
+.TextArea{
+    border-style:none;
+    background-color:transparent;
+    font-style: italic;
+}
+.commandHeadingLabel{
+    font-size: medium;
+}
+.HorizontalDivider{
+     padding-bottom: 15px;
+}
+

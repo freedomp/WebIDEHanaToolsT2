@@ -1,0 +1,81 @@
+{
+    "name": "sap.hana.ide.editor.editors.xsjob",
+    "description": "The XS Job Editor Plugin",
+    "i18n" : "sap.hana.ide.editor.editors.xsjob/i18n/i18n.hdbtextbundle",
+    "version": "0.6.0-SNAPSHOT",
+    "scm-revision": "51fca7e06a400bbbd9207d20c9b35da441426560",
+
+    "requires": {
+        "services": [
+            "layout",
+            "perspective",
+            "document",
+            "editor",
+            "commandGroup",
+            "system",
+            "command",
+            "content",
+            "menuBar",
+            "selection",
+            "log",
+            "console",
+            "repositorybrowser",
+            "filesystem.documentProvider",
+            "aceeditor",
+            "snippet"
+        ]
+    },
+
+    "provides": {
+		"services": {
+
+			"xsjobsnippethandler": {
+				"implements": "sap.hana.ide.editor.editors.xsjob.service.snippet.XsJobSnippetHandler",
+				"module": "sap.hana.ide.editor.editors.xsjob/service/snippethandler/XsJobSnippetHandler"
+			}
+		},
+        "interfaces": {
+            "sap.hana.ide.editor.editors.xsjob.service.snippet.XsJobSnippetHandler": "sap.hana.ide.editor.editors.xsjob/service/snippethandler/XsJobSnippetHandler"
+        }
+    },
+
+    "configures": {
+
+        "services": {
+
+            "command:commands": [{
+                "id": "editor.dynamic.maintainJobDetails",
+                "service": "sap.hana.ide.editor.editors.xsjob/command/MaintainDetails",
+                "label": "Maintain Details",
+                "windowTarget": "_blank",
+                "icon": "/sap/hana/ide/common/images/creds.gif"
+            }],
+
+            "commandGroup:items": [{
+                "parent": "editor.dynamic",
+                "command": "editor.dynamic.maintainJobDetails",
+                "prio": 30
+            }],
+            "aceeditor:modes": [{
+                "type": "xsjob",
+                "description": "{i18n>xsjob_xmsg}",
+                "extension": "xsjob",
+                "path": "sap.hana.ide.editor.editors.xsjob/mode/mode-xsjob.js"
+            }],
+            "snippet:snippets" : [{
+            	"fileExtension" : "xsjob",
+            	"snippets" : [{
+            		"id" : "xsjob",
+            		"filePath" : "sap.hana.ide.editor.editors.xsjob/snippet/xsjob.basic.txt",
+            		"title" : "{i18n>xsjob_xmsg}",
+            		"preSnippetInsertionHandler" : "@xsjobsnippethandler"
+            	}]
+            }]
+        }
+
+    },
+
+    "subscribes": {
+
+    }
+}

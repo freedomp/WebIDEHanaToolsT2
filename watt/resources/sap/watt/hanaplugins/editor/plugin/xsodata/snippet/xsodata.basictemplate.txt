@@ -1,0 +1,39 @@
+// To define an XS OData service, you can use the following syntax.
+// In the example below Aggregation, Modification and Association are defined.
+
+service  { 
+
+// Aggregation example: A view with ID Amount, Month, and Year columns created in {{package_path}} package.
+// Call http://host:port/package/file.xsodata/MyView?$select=Year,Amount
+
+   "{{package_path}}::my_view"             // Table or View  
+   as "MyView"                             // Optional entity alias     
+   with ( "ID","Year","Amount")            // Optional list of exposed columns
+   key  ("ID")                             // Optional key relevant for view
+   aggregates always (SUM of "Amount");    // Additional aggregation per column are MIN, MAX, AVG
+        
+
+// Modification exit example: A customer table and jsexit.xsjslib created in {{package_path}} package.
+// Update and create are performed by jsexit.xsjslib functions instead of direct XSOData modifications,
+// and delete is forbidden
+
+   "{{package_path}}::customer" as "Customer"
+// Use either "using" or "events" definition
+   create  
+       using "{{package_path}}:jsexit.xsjslib::create_instead"             
+   update   
+       events ( before  "{{package_path}}:jsexit.xsjslib::update_before",		// Alternatively use stored procedure 
+                after "{{package_path}}:jsexit.xsjslib::update_after"   )  		// Alternatively use stored procedure 
+   delete forbidden;
+
+// Association example: Customer and order tables created in {{package_path}} package.
+// Navigation from a customer to his orders is through the "Customer_Orders" association based on customer ID
+// Call http://host:port/package/file.xsodata/Customers(<key>)/HisOrders
+
+    "{{package_path}}::customer"
+	 as "Customers" 
+  	 navigates ("Customer_Orders" as "HisOrders");
+	"{{package_path}}::order" as "Orders"; 
+    association "Customer_Orders" principal "Customers"("ID") multiplicity "1"
+    dependent "Orders"("CustomerID") multiplicity "*";
+}  

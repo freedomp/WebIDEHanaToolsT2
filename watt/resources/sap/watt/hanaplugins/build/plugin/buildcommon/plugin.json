@@ -1,0 +1,79 @@
+{
+  "name": "sap.watt.hana.build.buildcommon",
+  "description": "a common build plugin for hana on Devx-DI ",
+  "i18n": "sap.watt.hana.build.buildcommon/i18n/i18n",
+  "requires": {
+    "services": [
+      "command",
+      "commandGroup",
+      "builder",
+      "selection",
+      "buildRegistry",
+      "filesystem.documentProvider",
+      "console"
+    ]
+  },
+  "provides" : {
+    "services": {
+      "commonDiBuild": {
+        "implements": "sap.watt.common.builder.service.BuildService",
+        "module": "sap.watt.hana.build.buildcommon/service/CommonDIBuilderService"
+      }
+    }
+  },
+    "configures": {
+      "services": {
+        "command:commands": [
+          {
+            "id": "builder.hana",
+            "label": "{i18n>command_build}",
+            "service": "sap.watt.hana.build.buildcommon/command/CommonDIBuildCommand",
+            "available": true
+          }
+        ],
+        "commandGroup:groups": [
+          {
+            "id": "build"
+          },
+          {
+            "id": "build.builds"
+          }
+        ],
+        "commandGroup:items": [
+          {
+            "parent": "build",
+            "type": "inline",
+            "group": "build.builds",
+            "label": "{i18n>commandGroup_build}",
+            "prio": 20
+          },
+          {
+            "parent": "applicationMenu",
+            "type": "menu",
+            "group": "build",
+            "label": "{i18n>commandGroup_build}",
+            "prio": 25
+          },
+          {
+            "parent": "build.builds",
+            "command": "builder.hana",
+            "prio": 20
+          }
+        ],
+        "builder:projectTypes": [
+          {
+            "projectTypeId": "sap.hdb",
+            "buildService": "@commonDiBuild"
+          },
+          {
+            "projectTypeId": "sap.html5",
+            "buildService": "@commonDiBuild"
+          },
+          {
+            "projectTypeId": "mta",
+            "buildService": "@commonDiBuild"
+          }
+        ]
+      }
+    }
+  }

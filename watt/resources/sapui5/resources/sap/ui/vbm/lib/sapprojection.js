@@ -1,0 +1,3 @@
+
+VBI.LinearProjection=function(t){"use strict";var p={};p.vbiclass="Projection/Linear";p.m_nXYRatio=2;p.m_nXMin=-2;p.m_nXMax=2;p.m_nGeometrySize=4;p.m_nUCSMin=-0.5;p.m_nUCSMax=1.5;p.m_bIsIsogonal=true;p.LonLatToUCS=function(l,u){var x=u[0];var y=u[1];u[0]=x*(0.5+l[0]/Math.PI);u[1]=y*(0.5-l[1]/Math.PI);return u;};p.UCSToLonLat=function(u,l){l[0]=Math.PI*(p.m_nUCSMin+u[0]/2);l[1]=-Math.PI*(u[1]/2);return l;};return p;};
+VBI.MercatorProjection=function(t){"use strict";var p={};p.vbiclass="Projection/Mercator";p.m_nXYRatio=1;p.m_nXMin=-1;p.m_nXMax=1;p.m_nGeometrySize=2;p.m_nUCSMin=0;p.m_nUCSMax=1;p.m_bIsIsogonal=true;p.LonLatToUCS=VBI.MathLib.LonLatToUCS;p.UCSToLonLat=VBI.MathLib.UCSToLonLat;return p;};

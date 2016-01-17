@@ -1,0 +1,304 @@
+/* ================================================= */
+/* CSS for control sap.watt.platform.plugin.repositorybrowser		     */
+/* Flat												 */
+/* ================================================= */
+
+.sapWattRepositoryBrowser {
+
+	.sapUiTreeFixedHeight .sapUiTreeHeader {
+		width: calc(~"100% - 0.5rem"); 
+	}
+	
+	.sapUiTreeCont {
+		background-color: @sapFlatBrandSupport;
+		top: 0;
+		padding: 0;
+	}
+	
+	.sapUiTreeTbCont {
+		float: left;
+		line-height: auto;
+	}
+	
+	.sapUiTreeList {
+	    list-style-position: inside;
+	    margin: 0;
+		padding-left: 0;
+		padding-right: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+	
+	.sapUiTreeNode {
+		background-image: none;
+		border: none;
+	}
+	
+	.sapUiTreeChildrenNodes{
+		padding: 0;
+	}
+	
+	.sapUiTreeNodeCutted {
+		text-decoration: line-through;
+	}
+
+	.sapUiTreeNode:before, .sapUiTreeNodeCollapsed:before, .sapUiTreeNodeExpanded:before {
+		color:@RepoBrowserTreeNodeClr;
+		display: inline-block;
+		font-family: "SAP-icons-watt";
+		font-size: 16px;
+		margin: 0 4px;
+		position: absolute;
+		text-align: center;
+		top: -2px;
+		width: 16px;
+	}
+	
+	.sapUiTreeNode:before {
+		content: "\e03A";
+	}
+
+	.sapUiTreeNodeCollapsed:before {
+		content: "\e03F";
+		padding: 0 0 0 1px;
+	}
+
+	.sapUiTreeNodeExpanded:before {
+		content: "\e03C";
+	}
+
+	.sapUiTreeNodeCollapsed.sapUiTreeNodePluginProject:before {
+		content: "\e059";
+	}
+
+	.sapUiTreeNodeExpanded.sapUiTreeNodePluginProject:before {
+		content: "\e05A";
+	}
+
+
+
+	.wattTreeFile:before {
+		content: "\e03D";
+		color: #5B5B5B;
+		font-size: 13px;
+
+	}
+	
+	/*.wattTreeFile .sapUiTreeNodeContent:before {*/
+		/*font-family: "SAP-icons-watt";*/
+		/*content: "\e03D";*/
+		/*color: #69767f;*/
+		/*position: absolute;*/
+		/*left: -23px;*/
+		/*font-size: 16px;*/
+		/*top: -2px;*/
+	/*}*/
+	
+	
+	.sapUiTreeNodeSelected.sapUiTreeNode:before {
+		color: white;
+	}
+	
+	.sapUiTreeNodeSelected.wattTreeFile .sapUiTreeNodeContent:before {
+		display: none;
+	}
+	
+
+	.sapUiTreeNodeContent {
+		width: calc(~"100% - 28px");
+		margin-left: 28px;
+		top: 0px;
+		left: 0;
+	}
+	
+	#tree-CollapseAll:after {
+		content: "Collapse";
+		font-size: 10px;
+		font-family: Arial, sans-serif;
+	}
+	
+	#tree-ExpandAll:after {
+		content: "Expand";
+		font-size: 10px;
+		font-family: Arial, sans-serif;
+	}
+	
+	#tree-CollapseAll:hover, 
+	#tree-ExpandAll:hover {
+		background-color: transparent;
+	}
+	
+	#tree-CollapseAll:focus, 
+	#tree-ExpandAll:focus {
+		outline: 1px solid rgba(0,0,0, 0.5);
+	}
+	
+	#tree-CollapseAll.sapUiBtnAct, #tree-ExpandAll.sapUiBtnAct {
+		outline: 1px solid rgba(0,0,0, 0.5);
+		outline-offset: -1px;
+		border: none !important;
+		background: transparent;
+	} 
+	
+	
+	#tree-CollapseAll img, #tree-ExpandAll img {
+		display: none;
+	}
+	
+	/* public */
+	
+/* 	.wattTreeFilePublic:before { */
+/* 		color: #008a11; */
+/* 	} */
+	
+/* 	.wattTreeFilePublicUpdate:before { */
+/* 		color: #008a11; */
+/* 	} */
+	
+/* 	.wattTreeFilePublicDisabled:before { */
+/* 		color: #008a11; */
+/* 		opacity: 0.5; */
+/* 	} */
+	
+/* 	.wattTreeFilePublicUpdate .sapUiTreeNodeContent:after { */
+/* 		content: "updated!"; */
+/* 		color: #008a11; */
+/* 		margin-left: 0.25rem; */
+/* 		font-size: 0.75rem; */
+/* 	} */
+	
+/* 	.wattTreeFilePublicDisabled .sapUiTreeNodeContent:after { */
+/* 		content: "disconnected"; */
+/* 		color: #e22525; */
+/* 		margin-left: 0.25rem; */
+/* 		font-size: 0.75rem; */
+/* 	} */
+	
+/* 	.wattTreeFolderPublic:before { */
+/* 		color: #008a11; */
+/* 	} */
+	
+	.wattTreeFolderPublic span:before {
+		content: "";
+		position: absolute;
+		background: @sapFlatPositive;
+		width: 7px;
+		height: 7px;
+		left: -26px;
+		top: 13px;
+		border: 1px solid @sapFlatBrandSupport;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	
+	.wattTreeFilePublic span:after {
+		content: "";
+		position: absolute;
+		background: @sapFlatPositive;
+		width: 6px;
+		height: 6px;
+		left: -22px;
+		top: 10px;
+		border: 0px solid @sapFlatBrandSupport;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	
+	
+	
+	/* top bar */
+	
+	#tree-TBCont .sapUiBtnS {
+		height: 2rem;
+		line-height: 2rem;
+		vertical-align: middle;
+		font-size: 10px;
+		padding: 0 0.5rem;
+	}
+}
+
+.sapWattRepositoryBrowser.sapUiTreeTransparent .sapUiTreeCont {
+	background-color: @RepoBrowserBG;
+}
+
+/****************** tree node decorations: ***********************/
+
+.wattTreeFile .sapUiTreeNodeDecoratorBottomLeft{
+	left: 5px;
+	bottom: 4px;
+}
+.wattTreeFile .sapUiTreeNodeDecoratorBottomRight{
+	left: 15px;
+	bottom: 4px;
+}
+.wattTreeFile .sapUiTreeNodeDecoratorTopLeft{
+	left: 5px;
+	bottom: 16px;
+}
+.wattTreeFile .sapUiTreeNodeDecoratorTopRight{
+	left: 15px;
+	bottom: 16px;
+}
+
+.sapUiTreeNodeDecoratorSpan span:before{
+	padding-left: inherit;
+	height : 0px;
+}
+
+.sapUiTreeNodeDecoratorBottomLeftOnly{
+	position: absolute;
+	width : 5px;
+	height : 5px;
+	border: 1px solid white;
+	margin-left: 2px;
+	bottom: 4px;
+}
+
+.sapUiTreeNodeDecoratorBottomRightOnly{
+	position: absolute;
+	width : 5px;
+	height : 5px;
+	border: 1px solid white;
+	margin-left: 16px;
+	bottom: 4px;
+}
+.sapUiTreeNodeDecoratorTopLeftOnly{
+	position: absolute;
+	width : 5px;
+	height : 5px;
+	border: 1px solid white;
+	margin-left: 2px;
+	bottom: 14px;
+}
+
+.sapUiTreeNodeDecoratorTopRightOnly{
+	position: absolute;
+	width : 5px;
+	height : 5px;
+	border: 1px solid white;
+	margin-left: 16px;
+	bottom: 14px;
+}
+
+.wattTreeFile .sapUiTreeNodeDecoratorBottomLeftOnly{
+	margin-left: 4px;
+	bottom: 3px;
+}
+
+ .wattTreeFile .sapUiTreeNodeDecoratorBottomRightOnly{
+	margin-left: 14px;
+	bottom: 3px;
+ }
+ 
+ .wattTreeFile .sapUiTreeNodeDecoratorTopLeftOnly{
+	margin-left: 4px;
+	bottom: 17px;
+}
+ 
+ .wattTreeFile .sapUiTreeNodeDecoratorTopRightOnly{
+	margin-left: 14px;
+	bottom: 17px;
+}
+

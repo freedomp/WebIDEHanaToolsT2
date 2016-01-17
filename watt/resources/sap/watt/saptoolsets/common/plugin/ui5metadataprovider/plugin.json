@@ -1,0 +1,40 @@
+{
+	"name": "sap.watt.saptoolsets.common.ui5metadataprovider",
+	"description": "The UI5 Metadata Provider Plugin",
+	
+	"requires": {
+		"services": [
+			"librarymetadata"
+		]
+	},
+	
+	"provides": {
+		"services": {
+			"ui5metadataprovider": {
+				"implements": "sap.watt.saptoolsets.common.plugin.ui5metadataprovider.service.UI5MetadataProvider",
+				"module":  "sap.watt.saptoolsets.common.ui5metadataprovider/service/UI5MetadataProvider"
+			}
+		},
+		
+		"interfaces": {
+			"sap.watt.saptoolsets.common.plugin.ui5metadataprovider.service.UI5MetadataProvider": "sap.watt.saptoolsets.common.ui5metadataprovider/service/UI5MetadataProvider"
+		}
+	},
+	
+
+	
+	"configures": {
+		"services": {
+			"ui5metadataprovider:libInfo": {
+				"name": "sapui5",
+				"versions": ["1.18.9",  "1.20.7", "1.22.3", "1.22.9", "1.24.5", "1.26.8", "1.28.6", "1.29.1"],
+				"metadataLocation": "sap.watt.saptoolsets.common.ui5metadataprovider/service/metadata/{type}/{version}.zip",
+				"templatesLocation": "sap.watt.saptoolsets.common.ui5metadataprovider/service/templates/{type}/{version}.zip"
+			},
+			"librarymetadata:providers": [{
+				"service": "@ui5metadataprovider",
+				"libraries": ["sapui5"]
+			}]
+		}
+	}
+}

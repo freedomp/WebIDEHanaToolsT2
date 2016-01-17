@@ -1,0 +1,248 @@
+<mvc:View controllerName="sap.watt.saptoolsets.fiori.editor.plugin.appdescriptoreditor.ui.AppDescriptorDataSourcesTab"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:appDescriptorUI="sap.watt.saptoolsets.fiori.editor.plugin.appdescriptoreditor.ui" xmlns:core="sap.ui.core"
+	xmlns:form="sap.ui.layout.form" xmlns:layout="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:table="sap.ui.table"
+	xmlns:unified="sap.ui.unified" xmlns="sap.ui.commons">
+	<layout:Grid vSpacing="0" visible="true">
+		<!--contentSettingsGrid-->
+		<layout:Grid class="sapIDEAppDescriptorGrid" vSpacing="0">
+			<layout:content>
+				<!--*****************Default configuration********************-->
+				<form:Form>
+					<form:formContainers>
+						<form:FormContainer id="odataServices">
+							<form:formElements>
+								<!--Services-->
+								<form:FormElement>
+									<form:label>
+										<Label text="{i18n>AppDescriptor_DataSources_label}">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L12 M12 S12"/>
+											</layoutData>
+										</Label>
+									</form:label>
+								</form:FormElement>
+								<!--Services list-->
+								<form:FormElement>
+									<form:fields>
+										<appDescriptorUI:ListBoxWithAddRemove id="odataServicesList" dialogMetadata="{/sap.app/properties/dataSources/oDialogMetadata}"
+										dialogTitle="{i18n>AppDescriptor_DataSources_addDataSource}" entryChanged="onDataSourcesChange" 
+										items="{/sap.app/properties/dataSources/aValues}" select="onDataSourcesSelect"
+										selectedKey="{AppDescriptorUI>/sDataSourcesSelectedKey}" visibleListRows="5">
+										<appDescriptorUI:items>
+											<core:ListItem key="{ parts:['item'], formatter: '.formatDataSourcesServicesText' }"
+												text="{ parts:['item'], formatter: '.formatDataSourcesServicesText' }"></core:ListItem>
+										</appDescriptorUI:items>
+										<appDescriptorUI:layoutData>
+											<layout:GridData span="L12 M12 S12"/>
+										</appDescriptorUI:layoutData>
+									</appDescriptorUI:ListBoxWithAddRemove>
+									</form:fields>
+								</form:FormElement>
+							</form:formElements>
+							<form:title>
+								<core:Title design="Bold" text=""></core:Title>
+							</form:title>
+							<form:layoutData>
+								<layout:GridData span="L6 M6 S6"/>
+							</form:layoutData>
+						</form:FormContainer>
+						<form:FormContainer id="odataServicesDetails">
+							<form:formElements>
+								<!--Empty label-->
+								<form:FormElement>
+									<form:label>
+										<Label text="">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L12 M12 S12"/>
+											</layoutData>
+										</Label>
+									</form:label>
+								</form:FormElement>
+								<!--URI-->
+								<form:FormElement>
+									<form:label>
+										<Label text="{i18n>AppDescriptor_DataSources_URI}">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<TextField name="odataUri" change="onDataSourcesURIChange" required="true" value="{ parts:['item'], formatter: '.formatDataSourcesServicesUri'}"
+											enabled="{/sap.app/properties/dataSources/bOdataServiceSelected}" width="100%" tooltip="{i18n>AppDescriptor_DataSources_URI_Tooltip}">
+											<layoutData>
+												<layout:GridData span="L9 M9 S6"/>
+											</layoutData>
+										</TextField>
+									</form:fields>
+								</form:FormElement>
+								<!--Local URI-->
+								<form:FormElement>
+									<form:label>
+										<Label text="{i18n>AppDescriptor_DataSources_local_URI}">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<TextField name="odataLocalUri" change="onDataSourcesLocalURIChange" value="{ parts:['item'], formatter: '.formatDataSourcesServicesLocalUri'}"
+											enabled="{/sap.app/properties/dataSources/bOdataServiceSelected}" width="100%" tooltip="{i18n>AppDescriptor_DataSources_Local_URI_Tooltip}">
+											<layoutData>
+												<layout:GridData span="L9 M9 S6"/>
+											</layoutData>
+										</TextField>
+									</form:fields>
+								</form:FormElement>
+								<!--OData Version-->
+								<form:FormElement>
+									<form:label>
+										<Label text="{i18n>AppDescriptor_DataSources_odata_version}">
+											<layoutData>
+												<layout:GridData linebreak="true" span="L3 M3 S6"/>
+											</layoutData>
+										</Label>
+									</form:label>
+									<form:fields>
+										<DropdownBox name="odataVersion" change="onDataSourcesODataVersionChange" items="{/sap.app/properties/dataSources/aOdataVersionConvertedEnum}" enabled="{/sap.app/properties/dataSources/bOdataServiceSelected}"
+											selectedKey="{settings/odataVersion}" width="100%" tooltip="{i18n>AppDescriptor_DataSources_Odata_Version_Tooltip}">
+											<items>
+												<core:ListItem key="{key}" text="{text}"></core:ListItem>
+											</items>
+											<layoutData>
+												<layout:GridData span="L9 M9 S6"/>
+											</layoutData>
+										</DropdownBox>
+									</form:fields>
+								</form:FormElement>
+							</form:formElements>
+							<form:title>
+								<core:Title design="Bold" text=""></core:Title>
+							</form:title>
+							<form:layoutData>
+								<layout:GridData span="L6 M6 S6"/>
+							</form:layoutData>
+						</form:FormContainer>
+					</form:formContainers>
+					<form:layoutData>
+						<layout:GridData span="L12 M12 S12"/>
+					</form:layoutData>
+					<form:layout>
+						<form:ResponsiveGridLayout></form:ResponsiveGridLayout>
+					</form:layout>
+					<form:title>
+						<core:Title design="Bold" text="{i18n>AppDescriptor_DataSources_Services}" tooltip=""></core:Title>
+					</form:title>
+				</form:Form>
+				<!--*****************Annotations********************-->
+				<form:Form>
+					<form:formContainers>
+						<form:FormContainer>
+							<form:title>
+								<core:Title design="Bold" text="{i18n>AppDescriptor_DataSources_Annotations}"></core:Title>
+							</form:title>
+							<form:formElements>
+								<form:FormElement>
+									<layout:HorizontalLayout>
+										<layout:content>
+											<Button icon="sap-icon://add" press="onAddAnnotPress" tooltip="{i18n>AppDescriptor_Annot_Add_New_Annot}" enabled="{/sap.app/properties/dataSources/bOdataServiceSelected}"></Button>
+										</layout:content>
+										<layout:layoutData>
+											<layout:GridData span="L3 M3 S3"/>
+										</layout:layoutData>
+									</layout:HorizontalLayout>
+								</form:FormElement>
+								<form:FormElement>
+									<!-- main annotations grid-->
+									<layout:Grid hSpacing="0" vSpacing="0">
+										<layout:layoutData>
+											<layout:GridData linebreak="true" span="L12 M12 S12"/>
+										</layout:layoutData>
+										<layout:content>
+											<!-- annotations header grid-->
+											<layout:Grid hSpacing="0.5" vSpacing="0.5">
+												<layout:layoutData>
+													<layout:GridData linebreak="true" span="L12 M12 S12"/>
+												</layout:layoutData>
+												<layout:content>
+													<Label design="Bold" required="true" text="{i18n>AppDescriptor_DataSources_AnnotationName}" tooltip="{i18n>AppDescriptor_DataSources_Name_Tooltip}">
+														<layoutData>
+															<layout:GridData span="L2 M2 S2"/>
+														</layoutData>
+													</Label>
+													<Label design="Bold" text="{i18n>AppDescriptor_DataSources_URI}" tooltip="{i18n>AppDescriptor_DataSources_URI_Tooltip}">
+														<layoutData>
+															<layout:GridData span="L2 M2 S2"/>
+														</layoutData>
+													</Label>
+													<Label design="Bold" text="{i18n>AppDescriptor_DataSources_local_URI}" tooltip="{i18n>AppDescriptor_DataSources_Local_URI_Tooltip}">
+														<layoutData>
+															<layout:GridData span="L2 M2 S2"/>
+														</layoutData>
+													</Label>
+												</layout:content>
+											</layout:Grid>
+											<!-- annotations body grid-->
+											<layout:Grid content="{/sap.app/properties/dataSources/aAnnotValues}" id="appDescriptor-dataSource-annotationContainer" hSpacing="0" vSpacing="0.5">
+												<layout:layoutData>
+													<layout:GridData linebreak="true" span="L12 M12 S12"/>
+												</layout:layoutData>
+												<layout:content>
+													<layout:Grid hSpacing="1" vSpacing="0">
+														<layout:layoutData>
+															<layout:GridData linebreak="true" span="L12 M12 S12"/>
+														</layout:layoutData>
+														<layout:content>
+															<TextField change="onAnnotNameChange" value="{name}" width="100%" enabled="{/sap.app/properties/dataSources/bOdataServiceSelected}" tooltip="{i18n>AppDescriptor_DataSources_Name_Tooltip}">
+																<layoutData>
+																	<layout:GridData span="L2 M2 S2"/>
+																</layoutData>
+															</TextField>
+															<TextField change="onAnnotUriChange" value="{uri}" width="100%" enabled="{/sap.app/properties/dataSources/bOdataServiceSelected}" tooltip="{i18n>AppDescriptor_DataSources_URI_Tooltip}">
+																<layoutData>
+																	<layout:GridData span="L2 M2 S2"/>
+																</layoutData>
+															</TextField>
+															<TextField change="onAnnotLocalUriChange" value="{settings/localUri}" width="100%" enabled="{/sap.app/properties/dataSources/bOdataServiceSelected}" tooltip="{i18n>AppDescriptor_DataSources_Local_URI_Tooltip}">
+																<layoutData>
+																	<layout:GridData span="L2 M2 S2"/>
+																</layoutData>
+															</TextField>
+															<layout:HorizontalLayout allowWrapping="false">
+																<layout:content>
+																	<Button enabled="{/sap.app/properties/dataSources/bOdataServiceSelected}" icon="sap-icon://arrow-top" lite="true" press="onMoveAnnotUpPress"
+																		tooltip="{i18n>AppDescriptor_Annot_Move_Annot_Up}"></Button>
+																	<Button enabled="{/sap.app/properties/dataSources/bOdataServiceSelected}" icon="sap-icon://arrow-bottom" lite="true" press="onMoveAnnotDownPress"
+																		tooltip="{i18n>AppDescriptor_Annot_Move_Annot_Down}"></Button>
+																	<Button enabled="{/sap.app/properties/dataSources/bOdataServiceSelected}" icon="sap-icon://watt/delete" lite="true" press="onRemoveAnnotPress"
+																		tooltip="{i18n>AppDescriptor_Annot_Remove_Annot}"></Button>
+																</layout:content>
+																<layout:layoutData>
+																	<layout:GridData span="L2 M2 S2"/>
+																</layout:layoutData>
+															</layout:HorizontalLayout>
+														</layout:content>
+													</layout:Grid>
+												</layout:content>
+											</layout:Grid>
+										</layout:content>
+									</layout:Grid>
+								</form:FormElement>
+							</form:formElements>
+						</form:FormContainer>
+					</form:formContainers>
+					<form:layoutData>
+						<layout:GridData linebreak="true" span="L12 M12 S12"/>
+					</form:layoutData>
+					<form:layout>
+						<form:ResponsiveGridLayout></form:ResponsiveGridLayout>
+					</form:layout>
+				</form:Form>
+			</layout:content>
+			<layout:layoutData>
+				<layout:GridData span="L12 M12 S12"/>
+			</layout:layoutData>
+		</layout:Grid>
+	</layout:Grid>
+</mvc:View>

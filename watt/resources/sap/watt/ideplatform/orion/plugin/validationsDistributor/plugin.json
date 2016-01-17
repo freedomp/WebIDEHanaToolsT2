@@ -1,0 +1,55 @@
+{
+	"name": "sap.watt.ideplatform.orion.validationsDistributor",
+	"description": "The validationsDistributor contains converters for different validations clients, to convert validation issues",
+	"i18n": "sap.watt.ideplatform.orion.validationsDistributor/i18n/i18n",
+	"module": "sap.watt.ideplatform.orion.validationsDistributor/Plugin",
+	"requires": {
+		"services": [
+			"basevalidator",
+			"document",
+			"editor",
+			"problems",
+			"codeValidationDAO",
+			"log",
+			"usagemonitoring",
+			"selection",
+			"repositorybrowser",
+			"filesystem.documentProvider",
+			"problemsView",
+			"usagemonitoring"
+		]
+	},
+	"provides": {
+		"services": {
+			"problemsViewValidation": {
+				"implements": "sap.watt.common.plugin.validationsDistributor.adopters.ProblemProvider",
+				"module": "sap.watt.ideplatform.orion.validationsDistributor/adopters/problemsView/codeValidator"
+			},
+			"validationTriggers": {
+				"implements": "sap.watt.common.plugin.validationsDistributor.adopters.problemsView.listener.validationTriggers",
+				"module": "sap.watt.ideplatform.orion.validationsDistributor/adopters/problemsView/listener/validationTriggers"
+			}
+		},
+		"interfaces": {
+			"sap.watt.common.plugin.validationsDistributor.adopters.ProblemProvider": "sap.watt.ideplatform.orion.validationsDistributor/adopters/ProblemsProvider",
+			"sap.watt.common.plugin.validationsDistributor.adopters.problemsView.listener.validationTriggers": "sap.watt.ideplatform.orion.validationsDistributor/adopters/problemsView/listener/validationTriggers"
+		}
+	},
+	"configures": {
+		"services": {
+			"usagemonitoring:reportParams": [
+				{
+					"components": ["ProblemsView"],
+					"eventTypes": ["NavigateToIssue", "Analyse", "AnalyseMultipleProjects"]
+				}
+			]
+		}
+	},
+	"subscribes": {
+		"validationTriggers:issuesUpdate": "problemsViewValidation:onProblemsUpdate",
+		"selection:changed": "validationTriggers:onDocumentSelected",
+		"document:deleted": "validationTriggers:onDocumentDeleted",
+		"basevalidator:issuesOnSingleFileUpdate": "validationTriggers:onClientValidationChanged",
+		"problemsView:problemsViewVisibilityChanged": "validationTriggers:onProblemsViewVisibilityChanged"
+	}
+}

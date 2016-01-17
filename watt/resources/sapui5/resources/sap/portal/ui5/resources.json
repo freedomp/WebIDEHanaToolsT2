@@ -1,0 +1,297 @@
+{
+	"resources":[
+		{
+			"name": ".library"
+		},
+		{
+			"name": ".theming"
+		},
+		{
+			"name": "core/Collection-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "core/Collection.js"
+		},
+		{
+			"name": "core/Component-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "core/Component.js"
+		},
+		{
+			"name": "core/ComponentCollection-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "core/ComponentCollection.js"
+		},
+		{
+			"name": "core/ComponentManager-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "core/ComponentManager.js"
+		},
+		{
+			"name": "core/DynamicView-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "core/DynamicView.js"
+		},
+		{
+			"name": "core/LayoutData-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "core/LayoutData.js"
+		},
+		{
+			"name": "core/LayoutInterface-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "core/LayoutInterface.js"
+		},
+		{
+			"name": "core/Object-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "core/Object.js"
+		},
+		{
+			"name": "core/ObjectMetadata-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "core/ObjectMetadata.js"
+		},
+		{
+			"name": "core/ObservablePropertiesMixin-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "core/ObservablePropertiesMixin.js"
+		},
+		{
+			"name": "core/PropertyObserver-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "core/PropertyObserver.js"
+		},
+		{
+			"name": "core/UI5ControlView-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "core/UI5ControlView.js"
+		},
+		{
+			"name": "core/View-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "core/View.js"
+		},
+		{
+			"name": "externals/es3shims/objectgetprototypeof-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "externals/es3shims/objectgetprototypeof.js"
+		},
+		{
+			"name": "externals/es5shims/arrayprototypeindexof-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "externals/es5shims/arrayprototypeindexof.js"
+		},
+		{
+			"name": "externals/es5shims/arrayprototypelastindexof-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "externals/es5shims/arrayprototypelastindexof.js"
+		},
+		{
+			"name": "externals/es5shims/functionprototypebind-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "externals/es5shims/functionprototypebind.js"
+		},
+		{
+			"name": "externals/es5shims/windowprototypegetcomputedstyle-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "externals/es5shims/windowprototypegetcomputedstyle.js"
+		},
+		{
+			"name": "library-all-dbg.js",
+			"isDebug":true,
+			"merged":true
+		},
+		{
+			"name": "library-all.js",
+			"merged":true
+		},
+		{
+			"name": "library-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "library-preload.json",
+			"merged":true
+		},
+		{
+			"name": "library.dependencies.json"
+		},
+		{
+			"name": "library.dependencies.xml"
+		},
+		{
+			"name": "library.js"
+		},
+		{
+			"name": "library.properties"
+		},
+		{
+			"name": "library.templates.xml"
+		},
+		{
+			"name": "manifest.json"
+		},
+		{
+			"name": "themes/base/.theming",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/Example.css",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library-RTL-dbg.css",
+			"isDebug":true,
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library-RTL.css",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library-dbg.css",
+			"isDebug":true,
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library-parameters.json",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library.css",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library.source.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/shared.css",
+			"theme":"base"
+		},
+		{
+			"name": "themes/sap_goldreflection/.theming",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/Example.css",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/library-RTL-dbg.css",
+			"isDebug":true,
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/library-RTL.css",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/library-dbg.css",
+			"isDebug":true,
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/library-parameters.json",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/library.css",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/library.less",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/library.source.less",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/shared.css",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_hcb/.theming",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/Example.css",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-RTL-dbg.css",
+			"isDebug":true,
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-RTL.css",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-dbg.css",
+			"isDebug":true,
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-parameters.json",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library.css",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library.less",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library.source.less",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/shared.css",
+			"theme":"sap_hcb"
+		}
+	]
+}

@@ -1,0 +1,44 @@
+.sapUiFormTitle {
+   color: #416b8e;
+   font-family: "Segoe UI", "Helvetica Neue", Arial, Helvetica, sans-serif;
+   font-weight:bold;
+   font-size: 13px;
+   line-height: 2rem;
+   border:none;
+}
+
+/* small */
+
+.sapUiSimpleForm.flatControlSmall .sapUiFormTitle {
+	font-family: Arial, sans-serif;
+	font-size: 0.75rem;
+	text-transform: uppercase;
+	line-height: 1.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.sapUiSimpleForm.flatControlSmall .sapUiLbl,
+.sapUiSimpleForm.flatControlSmall .sapUiTf, .sapUiSimpleForm.flatControlSmall .sapUiTfBrd,
+.sapUiSimpleForm.flatControlSmall .sapUiRb {
+	font-size: 0.75rem;
+	height: 1.5rem;
+	line-height: 1.5rem;
+} 
+
+.sapUiSimpleForm.flatControlSmall .sapUiRb input[type="radio"] + label:before {
+	height: 12px;
+	vertical-align: top;
+	width: 12px;
+	margin: 5px;	
+}
+
+.sapUiSimpleForm.flatControlSmall .sapUiRb input[type="radio"]:checked + label:before {
+	font-size: 14px;
+	line-height: 11px;
+}
+
+.sapUiSimpleForm.flatControlSmall .sapUiBtn {
+	font-size: 0.75rem;
+	height: 1.5rem;
+	line-height: 1.5rem;
+}

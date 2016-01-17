@@ -1,0 +1,36 @@
+/*!
+ * ${copyright}
+ */
+
+// Provides control {{reuselibrarycomponent.selectedLibraryObject.controlName}}.
+sap.ui.define(['jquery.sap.global', './../library'],
+	function(jQuery, library) {
+	"use strict";
+
+	/**
+	 * Constructor for a new {{reuselibrarycomponent.parameters.ComponentName.value}} {{reuselibrarycomponent.selectedLibraryObject.controlName}}.
+	 *
+	 * @param {string} [sId] id for the new control, generated automatically if no id is given
+	 * @param {object} [mSettings] initial settings for the new control
+	 *
+	 * @class
+	 * Some class description goes here.
+	 * @extends  {{reuselibrarycomponent.selectedLibraryObject.controlName}}
+	 *
+	 * @author SAP SE
+	 * @version ${version}
+	 *
+	 * @constructor
+	 * @public
+	 * @alias {{reuselibrarycomponent.LibraryNamespace}}.controls.{{reuselibrarycomponent.parameters.ComponentName.value}}
+	 * @ui5-metamodel This control/element also will be described in the UI5 (legacy) designtime metamodel
+	 */
+	var  o{{reuselibrarycomponent.parameters.ComponentName.value}} = {{reuselibrarycomponent.selectedLibraryObject.controlName}}.extend("{{reuselibrarycomponent.LibraryNamespace}}.controls.{{reuselibrarycomponent.parameters.ComponentName.value}}", { metadata : {
+
+		library : "{{reuselibrarycomponent.LibraryNamespace}}",
+		properties : {}
+	}});
+
+	return  o{{reuselibrarycomponent.parameters.ComponentName.value}};
+
+}, /* bExport= */ true);

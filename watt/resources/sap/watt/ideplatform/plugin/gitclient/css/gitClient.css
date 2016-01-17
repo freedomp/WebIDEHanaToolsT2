@@ -1,0 +1,495 @@
+.gitTopMargin{
+	margin-top: 0.75rem;
+}
+
+.gitBottomMargin{
+	margin-bottom: 1rem;
+}
+
+.gitRightMargin{
+	margin-right: 0.5rem;
+	
+}
+
+.gitLeftMargin{
+	margin-right: 0.25rem;
+	
+}
+
+.gitBottomPadding{
+	padding-bottom: 0.25rem;
+}
+
+.gitPadding{
+	padding-right: 0.5rem;
+	padding-left: 0.5rem;
+	height: 1.5rem;
+}
+
+.gitBackgroundColorWhite{
+	background-color: #ffffff;
+}
+
+.gitPaneColoring{
+	position: absolute;
+}
+
+.gitPaneColoring.gitfilesearch {
+    position: relative;
+	height: 100%;
+}
+
+.gitPaneColoring.gitfilesearch .sapUiPanelHdr {
+    background-color: transparent;
+    height: 0;
+}
+
+.gitPaneColoring.gitfilesearch header h5 {
+	display: inline;
+}
+
+.gitPaneTextSizing{
+	font-size: 0.75rem;
+}
+
+.gitMarginBottonWithGrid0Spacing{	
+    margin-bottom: 1rem;	
+}
+
+.gitPaneTextSizing >div span{
+	font-size: 0.75rem;
+	margin-bottom: 0;
+}
+
+.gitPaneControllerSpacing{
+	margin-bottom: 4px !important;
+}
+
+.gitPaneChangeIdLabel{
+    height: 100%;
+    padding-bottom: 0.5rem;
+}
+
+.gitPaneChangeIdLabel.sapUiLbl{
+    margin-top: 0.5rem;
+    line-height: 1rem;
+}
+.gitPaneChangeIdLabel.sapUiLblNowrap{
+    overflow: visible;
+    white-space: normal;
+}
+
+.gitPaneButtonEnhancments{
+	/*
+	   			
+	*/
+}
+
+.gitCloneDialogForm H4.sapUiFormTitleH4{
+	font-weight: normal;
+	border-bottom: 1px solid
+}
+
+.gitPaneToolbar{
+	height: 2rem;
+}
+
+.gitPaneStageAll{
+	padding-top: 0.3rem;
+}
+
+.gitPaneTableHover LABEL:HOVER{
+	 cursor: pointer; 
+	 cursor: hand; 
+}
+
+
+.gitCheckoutConflictsLabel.sapUiLbl{
+	display: inline;
+	margin-bottom: 1rem;
+	line-height: 1.5rem;
+	font-size: medium;
+}
+
+.gitCheckoutConflictsTable{
+	margin-top: 1rem;
+}
+
+.gitPaneIconButtons:hover{
+	background-color: transparent !important;
+}
+
+.gitPaneHorizontalCenter.sapUiHLayout{
+	text-align: center;	
+	margin: 0 auto;
+	width: auto;
+}
+
+.gitPaneHorizontalRight.sapUiHLayout{
+	text-align: right;	
+	margin: 0 auto;
+	width: auto;
+}
+
+.gitPaneHorizontalLeft.sapUiHLayout{
+	text-align: left;	
+	margin: 0 auto;
+	width: auto;
+}
+
+.gitPaneOuterHorizontalLayout.sapUiHLayout{
+    display: block;
+}
+
+.gitPaneInnerrHorizontalLayout.sapUiHLayout{
+    display: inline-block;
+}
+
+/* .sapUiBtnAct{ */
+/* 	background-color: transparent; */
+/* } */
+
+.gitFloatRight {
+	float: right;
+	margin-top : 1em;
+}
+
+.gitUserError{
+	color: #e22525 !important;
+}
+
+.gitLogHorizontalLayoutHeight{
+    height: 1.5rem;
+}
+
+.gitLogHorizontalFlex{
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+
+.gitLogHorizontalOverflow{
+    text-overflow: ellipsis;
+    overflow: hidden
+}
+
+.gitLogHorizontalLayoutWidth{
+    width: 100%;
+}
+
+.gitLogHorizontalLayoutHeight.sapUiHLayout{
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+.gitLogHorizontalLayoutHeight .sapUiLblNowrap {
+    overflow: visible;
+    text-overflow: initial;
+    display:table;
+}
+
+.gitLogDetailsMessageLabel.sapUiLbl{
+    margin: 0.5rem 0 0.75rem 0;
+    height: 100%;
+    white-space: pre;
+    line-height: 1rem;
+}
+
+.gitLogLabelHeight.sapUiLbl{
+    line-height: 1.5rem;
+    height  : 1.5rem;
+}
+
+.gitLogMarginBottomSmall{
+    margin-bottom: 4px;
+}
+
+.gitLogMarginLeft{
+    margin-left: 0.5rem;
+}
+
+.gitLogTagIcon{
+    font-size: 1.2rem;
+    color: #007CC0;
+}
+
+.gitLogTagTextLabelHeight.sapUiLbl{
+    height  : 100% !important;
+}
+
+.gitLogTagIconRtt {
+  -webkit-box-shadow: 3px 3px 3px 0 #ccc;  
+  -moz-box-shadow:    3px 3px 3px 0 #ccc;  
+  box-shadow:         3px 3px 3px 0 #ccc;
+}
+
+.gitLogTagIconRtt .sapUiRttSep { 
+  background-color: #007CC0;
+}
+
+.gitLogTagIconRtt .sapUiRttText {
+  font-family: Arial regular;
+  font-size: 0.875rem;
+}
+  
+.gitLogTagIconRtt .sapUiRttTitle {  
+  font-weight: normal;
+  font-family: Segoe UI light;
+  font-size: 0.875rem;
+}
+.gitLogPaddingZero{
+    padding: 0rem;
+}
+
+.gitLogAmoundIndicator.gitAmountIndicator {
+    margin-top: 2px;
+}
+
+/* Field Validation */ 
+input.inputError {
+    background-color: #fbdfdf !important;
+    color: black !important;
+    border-color:
+        rgba(229, 41, 41, 0.5)
+        rgba(229, 41, 41, 0.125)
+        rgba(229, 41, 41, 0.125)
+        rgba(229, 41, 41, 0.5) !important;
+}
+
+input.inputError:hover {
+    background-color: #fbdfdf !important;
+    color: black !important;
+    border-color:
+        rgba(229, 41, 41, 0.75)
+        rgba(229, 41, 41, 0.5)
+        rgba(229, 41, 41, 0.5)
+        rgba(229, 41, 41, 0.75) !important;
+}
+
+input.inputError:focus {
+    background-color: white !important;
+    color: black !important;
+    border-color:
+        rgba(229, 41, 41, 0.75)
+        rgba(229, 41, 41, 0.5)
+        rgba(229, 41, 41, 0.5)
+        rgba(229, 41, 41, 0.75) !important;
+}
+
+input.inputConfirmed {
+    background-color: #e0f1e7 !important;
+    color: black !important;
+    border-color:
+        rgba(0, 138, 59, 0.5)
+        rgba(0, 138, 59, 0.25) 
+        rgba(0, 138, 59, 0.25) 
+        rgba(0, 138, 59, 0.5) !important;
+}
+
+input.inputConfirmed:hover {
+    background-color: #e0f1e7 !important;
+    color: black !important;
+    border-color:
+        rgba(0, 138, 59, 0.75)
+        rgba(0, 138, 59, 0.5) 
+        rgba(0, 138, 59, 0.5) 
+        rgba(0, 138, 59, 0.75) !important;
+}
+
+input.inputConfirmed:focus {
+    background-color: white !important;
+    color: black !important;
+    border-color:
+        rgba(0, 138, 59, 0.75)
+        rgba(0, 138, 59, 0.5) 
+        rgba(0, 138, 59, 0.5) 
+        rgba(0, 138, 59, 0.75) !important;
+}
+
+
+.inputError > input {
+    background-color: #fbdfdf !important;
+    color: black !important;
+    border-color:
+        rgba(229, 41, 41, 0.5)
+        rgba(229, 41, 41, 0.125)
+        rgba(229, 41, 41, 0.125)
+        rgba(229, 41, 41, 0.5) !important;
+}
+
+.inputError > form > div > div > div > div > input {
+    background-color: #fbdfdf !important;
+    color: black !important;
+    border-color:
+        rgba(229, 41, 41, 0.5)
+        rgba(229, 41, 41, 0.125)
+        rgba(229, 41, 41, 0.125)
+        rgba(229, 41, 41, 0.5) !important;
+}
+
+.inputError:hover > input {
+    background-color: #fbdfdf !important;
+    color: black !important;
+    border-color:
+        rgba(229, 41, 41, 0.75)
+        rgba(229, 41, 41, 0.5)
+        rgba(229, 41, 41, 0.5)
+        rgba(229, 41, 41, 0.75) !important;
+}
+
+.inputError:focus > input {
+    background-color: white !important;
+    color: black !important;
+    border-color:
+        rgba(229, 41, 41, 0.75)
+        rgba(229, 41, 41, 0.5)
+        rgba(229, 41, 41, 0.5)
+        rgba(229, 41, 41, 0.75) !important;
+}
+
+
+.inputConfirmed > input {
+    background-color: #e0f1e7 !important;
+    color: black !important;
+    border-color:
+        rgba(0, 138, 59, 0.5)
+        rgba(0, 138, 59, 0.25) 
+        rgba(0, 138, 59, 0.25) 
+        rgba(0, 138, 59, 0.5) !important;
+}
+
+.inputConfirmed > form > div > div > div > div > input{
+    background-color: #e0f1e7 !important;
+    color: black !important;
+    border-color:
+        rgba(0, 138, 59, 0.5)
+        rgba(0, 138, 59, 0.25) 
+        rgba(0, 138, 59, 0.25) 
+        rgba(0, 138, 59, 0.5) !important;
+}
+
+.inputConfirmed:hover > input {
+    background-color: #e0f1e7 !important;
+    color: black !important;
+    border-color:
+        rgba(0, 138, 59, 0.75)
+        rgba(0, 138, 59, 0.5) 
+        rgba(0, 138, 59, 0.5) 
+        rgba(0, 138, 59, 0.75) !important;
+}
+
+.inputConfirmed:focus > input {
+    background-color: white !important;
+    color: black !important;
+    border-color:
+        rgba(0, 138, 59, 0.75)
+        rgba(0, 138, 59, 0.5) 
+        rgba(0, 138, 59, 0.5) 
+        rgba(0, 138, 59, 0.75) !important;
+}
+
+/* git for the rde repo browser */
+
+.sapWattRepositoryBrowser .rdeRepositoryBrowserPrefixGitCommitted,
+.sapWattRepositoryBrowser .rdeRepositoryBrowserPrefixGitModified,
+.sapWattRepositoryBrowser .rdeRepositoryBrowserPrefixGitDeleted,
+.sapWattRepositoryBrowser .rdeRepositoryBrowserPrefixGitModifiedStaged,
+.sapWattRepositoryBrowser .rdeRepositoryBrowserPrefixGitStagedInitial,
+.sapWattRepositoryBrowser .rdeRepositoryBrowserPrefixGitStagedUntracked,
+.sapWattRepositoryBrowser .rdeRepositoryBrowserPrefixGitConflict {
+    display: inline-block;
+    font-size: inherit;
+    padding-right: 0.25rem;
+}
+
+.sapWattRepositoryBrowser .sapUiTreeNodeSelected
+.rdeRepositoryBrowserPrefixGitCommitted:after {
+	background-color: white;
+	border-color: white;
+}
+
+.sapWattRepositoryBrowser .rdeRepositoryBrowserPrefixGitCommitted:after {
+	content: " ";
+	position: relative;
+    border: 1px solid rgb(0, 138, 17);
+    height: 0.25rem;
+    width: 0.25rem;
+    border-radius: 50%;
+    display: block;
+    top: -2px;
+    background-color: rgb(0, 138, 17);
+}
+
+.sapWattRepositoryBrowser .rdeRepositoryBrowserPrefixGitModified:after {
+	content: "*";
+	color: rgb(171, 33, 142);
+}
+
+.sapWattRepositoryBrowser .rdeRepositoryBrowserPrefixGitDeleted:after {
+	content: "-";
+	color: rgb(226,37,37);
+}
+
+.sapWattRepositoryBrowser .rdeRepositoryBrowserPrefixGitModifiedStaged:after {
+	content: "**";
+	color: rgb(171, 33, 142);
+}
+
+.sapWattRepositoryBrowser .rdeRepositoryBrowserPrefixGitStagedInitial:after {
+	content: "+";
+	color: rgb(0, 138, 17);
+}
+
+.sapWattRepositoryBrowser .rdeRepositoryBrowserPrefixGitStagedUntracked:after {
+	content: "+";
+	color: rgb(14, 14, 14);
+}
+
+.sapWattRepositoryBrowser .rdeRepositoryBrowserPrefixGitConflict:after {
+	content: "›‹";
+	color: rgb(229, 41, 41);
+}
+
+/* git repoisitory information */
+
+.sapWattRepositoryBrowser .rdeRepositoryBrowserSuffixRepo {
+	color: #969696;
+	font: italic;
+	font-size: 0.75rem;
+	padding-left: 0.25rem;
+}
+
+.gitLogLabelSelectable{
+    -webkit-user-select: initial;
+    -moz-user-select: element;
+    -ms-user-select: element;
+    user-select: initial;
+}
+
+/* colors for selection */
+
+.sapWattRepositoryBrowser .sapUiTreeNodeSelected .rdeRepositoryBrowserPrefixGitModified:after,
+.sapWattRepositoryBrowser .sapUiTreeNodeSelected .rdeRepositoryBrowserPrefixGitDeleted:after,
+.sapWattRepositoryBrowser .sapUiTreeNodeSelected .rdeRepositoryBrowserPrefixGitModifiedStaged:after,
+.sapWattRepositoryBrowser .sapUiTreeNodeSelected .rdeRepositoryBrowserPrefixGitStagedInitial:after,
+.sapWattRepositoryBrowser .sapUiTreeNodeSelected .rdeRepositoryBrowserPrefixGitStagedUntracked:after,
+.sapWattRepositoryBrowser .sapUiTreeNodeSelected .rdeRepositoryBrowserPrefixGitConflict:after,
+.sapWattRepositoryBrowser .sapUiTreeNodeSelected .rdeRepositoryBrowserPrefixGitConflict {
+ 	color: white;
+ }
+
+ /* git stash dialog styles */
+ .stashDialog{
+    height : 100%
+ }
+ 
+  /* git ignoreSystemFiles dialog styles */
+ .ignoreSystemFilesDialog{
+    height : 100%
+ }

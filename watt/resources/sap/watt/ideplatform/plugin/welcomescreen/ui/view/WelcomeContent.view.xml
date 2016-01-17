@@ -1,0 +1,16 @@
+<core:View class="welcomeCenterPerspective" controllerName="sap.watt.ideplatform.plugin.welcomescreen.view.WelcomeContent" 
+			xmlns="sap.watt.ideplatform.plugin.welcomescreen.controls"
+			xmlns:core="sap.ui.core"
+			xmlns:commons="sap.ui.commons"
+			xmlns:layout="sap.ui.layout"
+			xmlns:html="http://www.w3.org/1999/xhtml">
+	
+    <layout:Grid id="welcomeMainGrid" class="welcomeScreen" >
+        <layout:Grid id="welcomeMainSection" width="100%" > 
+        </layout:Grid>
+        
+        <layout:Grid id="welcomeSubSection" width="100%" >
+        </layout:Grid>
+    </layout:Grid>
+	
+</core:View>

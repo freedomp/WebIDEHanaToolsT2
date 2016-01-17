@@ -1,0 +1,17 @@
+.outlineTree .sapUiTreeNodeContent{
+	font-size : small;	
+}
+
+.outlineOptions{
+	font-size : small;
+}
+
+.outlineComponent{
+	padding-left : 8px;
+	padding-right : 8px;
+}
+
+.outlineContainer{
+  width: 100%;
+  height: 100%;
+}

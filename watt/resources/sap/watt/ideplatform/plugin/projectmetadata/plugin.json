@@ -1,0 +1,24 @@
+{
+	"name": "sap.watt.ideplatform.projectmetadata",
+	"description": "The project metdata plugin",
+	"i18n": "sap.watt.ideplatform.projectmetadata/i18n/i18n",
+
+	"requires": {
+		"services": [
+			"projectType"
+		]
+	},
+
+	"provides": {
+		"services": {
+			"projectmetadata": {
+				"implements": "sap.watt.ideplatform.plugin.projectmetadata.service.ProjectMetadata",
+				"module": "sap.watt.ideplatform.projectmetadata/service/ProjectMetadata"
+			}
+		},
+		
+		"interfaces": {
+			"sap.watt.ideplatform.plugin.projectmetadata.service.ProjectMetadata": "sap.watt.ideplatform.projectmetadata/service/ProjectMetadata"
+		}
+	}
+}

@@ -1,0 +1,27 @@
+{
+	"name" : "sap.watt.ideplatform.plugin.projectmetadata.service.projectmetadata",
+	"description" : "The project metadata service",
+	"configurationProperties" : {
+		"providers" : {
+			"type" : {
+				"provider" : "sap.watt.common.service.ide.ProjectMetadataProvider",
+				"projectType" : "string"
+			},
+			"multiple" : true
+		}
+		
+    },
+    
+	"methods" : {
+		"getDependencies": {
+			"params": [{
+				"name": "oDocument",
+				"type": "sap.watt.common.plugin.document.Document"
+			}],
+			"returns": {
+				"type": "[object]"
+			}
+		}
+    }
+        
+}

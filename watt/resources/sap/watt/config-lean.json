@@ -1,0 +1,41 @@
+{
+
+	"preloadCapable" : true,
+
+	"plugins": [
+		"platform/plugin/clipboard",
+		"platform/plugin/log",
+		"platform/plugin/command",
+		"platform/plugin/commandgroup",
+		"platform/plugin/layout",
+		"platform/plugin/console",
+		"platform/plugin/resource",
+		"platform/plugin/content",
+		"platform/plugin/toprightpane",
+		"platform/plugin/decoration",
+		"platform/plugin/filefilter",
+	  	"platform/plugin/focus",
+	  	"platform/plugin/setting",
+	  	"platform/plugin/menu",
+		"platform/plugin/progress",
+		"platform/plugin/selection",
+	  	"platform/plugin/usernotification",
+	  	"platform/plugin/displayinformation",
+		"platform/hcp/plugin/destination",
+		"platform/plugin/usernotificationbar",
+		"platform/plugin/tipsandtricks",
+		"toolsets/plugin/xml",
+		"common/plugin/filesystem",
+		"platform/plugin/usagemonitoring",
+		"common/plugin/document",
+		"common/plugin/platform",
+		"ideplatform/plugin/multieditor",
+		"ideplatform/plugin/aceeditor",
+		"ideplatform/plugin/editor",
+		"ideplatform/plugin/projectType",
+		"ideplatform/plugin/intellisence",
+		"ideplatform/plugin/beautify"
+	],
+
+	"required": true
+}

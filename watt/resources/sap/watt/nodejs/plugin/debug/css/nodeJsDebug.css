@@ -1,0 +1,134 @@
+.nodeJsDebugView {
+  height: 100%;
+}
+.nodeJsDebugView .sapUiTvH5 {
+  font-family: "Segoe UI Light", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.3rem;
+  font-weight: lighter;
+  margin: 0 0 0 0.5rem;
+  padding-top: 0.25rem;
+}
+.nodeJsDebugView .sapUiTvH6 {
+  font-family: "Segoe UI Light", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.875rem;
+  height: 2rem;
+  line-height: 2rem;
+  padding-right: 0.5rem;
+}
+.nodeJsDebugViewTargetName {
+  color: #008A11;
+  font-weight: 400;
+  font-style: italic;
+}
+.nodeJsDebugView .sapUiTvH3 {
+  font-size: 0.95rem;
+  font-weight: normal;
+}
+.nodeJsDebugView .sapUiPanelTitle {
+  padding: 0 0 0 0.5rem;
+}
+.nodeJsDebugView .sapUiPanelHdr {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  height: 1rem;
+  line-height: 1rem;
+}
+.nodeJsDebugView .sapUiPanelCont {
+  border-color: #cccccc;
+  margin: 0;
+}
+.nodeJsDebugView .sapUiRrNoData, .sapUiTableCtrlEmpty {
+  font-size: 0.875rem;
+  font-weight: lighter;
+  font-style: italic;
+  margin: 0 0 0 0.5rem;
+}
+.nodeJsDebugView .sapUiBtn {
+  font-size: 1.3rem;
+  width: 2.5rem;
+  background-color: transparent;
+}
+.nodeJsDebugView .sapUiBtnS.sapUiBtnStd:hover {
+  color: #333333;
+  background-color: transparent;
+  font-size: 1.5rem;
+}
+.nodeJsDebugView .sapUiSegmentedButton>span>.sapUiBtnS.sapUiBtnStd:focus, .sapUiSegmentedButton>span>.sapUiBtnS.sapUiBtnStd.sapUiBtnStdFocus {
+  outline: 0
+}
+.nodeJsDebugView .sapUiBtnS.sapUiBtnStd {
+  color: #69767f;
+}
+.nodeJsDebugView .sapUiBtnS.sapUiBtnAct {
+  color: #333333;
+  font-size: 1.3rem;
+  background-color: transparent;
+}
+.nodeJsDebugView .sapUiBtnDsbl {
+  color: #cccccc;
+}
+.nodeJsDebugView .sapUiTreeNode {
+  font-size: 0.875rem;
+  font-weight: lighter;
+  height: 1.3rem;
+}
+.nodeJsDebugView .sapUiTreeList {
+  padding-left: 6px;
+}
+.nodeJsDebugViewTableLabel {
+  height: 1.5rem;
+  line-height: 1.5rem;
+}
+.nodeJsDebugView .sapUiTableCell {
+  font-size: 0.875rem;
+  font-weight: lighter;
+  padding: 0 0 0 0;
+}
+.nodeJsDebugView .sapUiCb {
+  height: 1.5rem;
+  line-height: 1.5rem;
+}
+.nodeJsDebugView .sapUiCb>label {
+  padding: 0 0 0 2rem;
+}
+.nodeJsDebugView .sapUiCb label:before {
+  top: 4px;
+}
+.nodeJsDebugView .sapUiTableTr {
+  height: 1.3rem;
+}
+.nodeJsDebugView .sapUiTreeCont {
+  background-color: transparent;
+}
+.nodeJsDebugView .sapUiTfErr {
+  background-color: #fad9d9;
+}
+.nodeJsDebugView .sapUiTfWarn {
+  background-color: #ffecbf;
+}
+.nodeJsDebugView .sapUiTf {
+  border: none;
+}
+.nodeJsDebugAttachView .sapUiPanelCont {
+  background-color: transparent;
+}
+.nodeJsDebugAttachView .sapUiLbl, .sapUiCb > label, .sapUiLnk {
+  /* can't use inherit here since .sapUiMlt (MatrixLayout) overrides */
+  font-size: 0.875rem;
+}
+.ace_gutter-cell.nodejs-breakpoint {
+  border-radius: 0 20px 20px 0;
+  box-shadow: 0 0 0 1px #005b8d inset;
+  background-color: #e5f2f9;
+}
+.ace_gutter-cell.nodejs-breakpoint-disabled {
+  border-radius: 0 20px 20px 0;
+  box-shadow: 0 0 0 1px gray inset;
+  background-color: #e5e5e5;
+}
+.nodejs-execution-line {
+  background-color: #e5f2f9;
+  outline: 1px solid #005b8d;
+  position: absolute;
+}

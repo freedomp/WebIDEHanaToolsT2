@@ -1,0 +1,33 @@
+.spacerTop {
+	margin-top: 2rem;
+}
+
+.right {
+	margin-left : 20px;
+}
+
+.alignToRight {
+    position: absolute !important;
+    right: 20px !important;
+}
+
+.firstToRight {
+    /*position: absolute !important;*/
+    position: relative !important;
+    float: right !important;
+    top: 35px !important; 
+    right: 5px !important;
+}
+
+.secondToRight {
+    /*position: absolute !important;*/
+    float: right !important;
+    position: relative !important;
+    top: 35px !important; 
+    right: 5px !important;
+}
+
+
+.widthForSmallResolution .sap-tablet .sapMDialog, .sap-desktop .sapMDialog {
+    min-width: 18rem;
+}

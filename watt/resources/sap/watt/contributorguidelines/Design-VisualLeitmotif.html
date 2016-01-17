@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Visual Leitmotif — SAP Web IDE Design Guidelines</title>
+    <meta name="author" content="SAP SE">
+
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="assets/flat.css" type="text/css" />
+    <link rel="stylesheet" href="css/guidelines.css" type="text/css" />
+    <link rel="stylesheet" href="css/Design-VisualLeitmotif.css" type="text/css" />
+
+    <script src="../lib/requirejs/require.js" 
+	        data-main="../core/Global.js"
+	        data-sap-ide-environment-path="../../../../env.json"
+	        data-sap-ide-main="startup"
+	        data-sap-ide-basedir="../../.."></script>
+
+    <script>
+        define("startup", [], function() {
+            Q.all([
+                    sap.watt.includeScript("assets/js/contextSwitch.js"),
+                    sap.watt.includeScript("assets/js/flat.js")])
+            .then(function(){
+                loadTableOfContent("Visual Leitmotif");
+            });
+        });
+    </script>
+    
+</head>
+<body>
+
+<div class="VBrandingBar"></div>
+
+<div class="VHeaderBar">
+    <div class="VHeaderBarCnt">
+        <ul class="VFloatRight vInline">
+            <li><img src="assets/images/SAPLogo.png" alt="SAP" id="LogoSAP" /></li>
+        </ul>
+        
+        <ul class="VInline">
+            <li id="ToggleMenuButton" class="VShowSmallInlineBlock"></li>
+            <li>SAP Web IDE<span class="VHideSmallInline"> — Design Guidelines</span></li>
+        </ul>
+    </div>
+</div>
+
+<div class="navigationOffCanvas"></div>
+
+<div class="content Design-Colors">
+
+    <div class="sapUiRespGrid sapUiRespGridHSpace1 sapUiRespGridVSpace1">
+        <div class="sapUiRespGridSpanL10 sapUiRespGridSpanM12 sapUiRespGridSpanS12 sapUiRespGridBreak">
+            <div class="VBanner">
+                <h1 class="VH2 VFontSpecial">Visual Design Foundations</h1>
+                <h2 class="VH1 VFontSpecial">Visual Leitmotif</h2>
+            </div>
+        </div>
+
+        <div class="sapUiRespGridSpanL10 sapUiRespGridSpanM12 sapUiRespGridSpanS12">
+            <h3 class="VH2 VFontSpecial">The Organic Tree</h3>
+            <p>The "Organic Tree" is a generative illustration that serves as the visual leitmotif of the SAP Web IDE. Its most prominent occurrence is the background image of the editor&mdash;but is also quoted throughout the SAP Web IDE.</p>
+        </div>
+
+        <div class="sapUiRespGridSpanL8 sapUiRespGridSpanM12 sapUiRespGridSpanS12 VBackgroundHorizon">
+            <div id="BlueHorizonBG1"></div> 
+        </div>
+
+        <div class="sapUiRespGridSpanL5 sapUiRespGridSpanM8 sapUiRespGridSpanS8 VBackgroundHorizon">
+            <div id="BlueHorizonBG2"></div> 
+        </div>
+
+        <div class="sapUiRespGridSpanL3 sapUiRespGridSpanM4 sapUiRespGridSpanS4 VBackgroundHorizon">
+            <div id="BlueHorizonBG3"></div> 
+        </div>
+
+        <div class="sapUiRespGridSpanL10 sapUiRespGridSpanM12 sapUiRespGridSpanS12 VSpacingTop1">
+            <p>The "Organic Tree" in the background of the editor area makes use of the user-specific workspace and its data to generate an individual illustration of the repository browser tree: each project in the repository browser is rendered as a representational tree, its sub-folders as branches, and its files as abstract fruits.</p>
+
+            <p>The “Organic Tree” also indicates errors, warnings and shared files by means of different colors. It is personal, revealing and beautiful. Over time, not only projects and their folder structures grow in size and complexity, but due to the generative nature of the illustration, also the dynamic background image. By means of the "Organic Tree" users of the Web Application Toolkit now literally can see their projects (i.e. their "garden" of Fiori apps) prosper.</p>
+        </div>
+
+        <div class="sapUiRespGridSpanL10 sapUiRespGridSpanM12 sapUiRespGridSpanS12">
+            <h2 class="VH2 VFontSpecial">Usage</h2>
+            <p>Other quotations are the <a href="">Blue Hero Header</a> and the <a href="">homepage</a>.</p>
+        </div>
+
+        
+        <div class="sapUiRespGridSpanL10 sapUiRespGridSpanM6 sapUiRespGridSpanS12 sapUiRespGridBreak">
+            <div class="VSpacer4"></div>
+            <p>Last updated: June 23, 2014</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

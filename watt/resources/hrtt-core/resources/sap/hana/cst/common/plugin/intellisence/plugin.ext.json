@@ -1,0 +1,22 @@
+{	
+	"name" : "sap.hana.cst.common.intellisence",
+	"provides" : {
+		"services": 
+			{
+    			"intellisence":{
+    			    "implements": "sap.watt.common.plugin.intellisence.service.Intellisence",
+                    "module": "sap.hana.cst.common.intellisence/service/IntellisenceImpl"
+    			},
+    			"intellisence.config": {
+    				"implements": "sap.watt.common.plugin.intellisence.service.Config",
+    				"module" : "sap.hana.cst.common.intellisence/service/Config"
+    			}
+			}
+	},
+    "configures": {
+
+        "services": {
+            "intellisence:iconRoot": "/sap/hana/cst/common/images/"
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+  "preloadCapable" : true,
+
+	"plugins": [
+
+		"plugin/base",
+		"plugin/debug",
+		"plugin/project",
+		"plugin/xsjs",
+		"plugin/xsjslib",
+		"plugin/xshttpdest",
+		"plugin/xsjob"
+	],
+
+	"required": true
+}

@@ -1,0 +1,3264 @@
+{
+	"resources":[
+		{
+			"name": ".library"
+		},
+		{
+			"name": ".theming"
+		},
+		{
+			"name": "library-all-dbg.js",
+			"isDebug":true,
+			"merged":true
+		},
+		{
+			"name": "library-all.js",
+			"merged":true
+		},
+		{
+			"name": "library-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "library-preload.json",
+			"merged":true
+		},
+		{
+			"name": "library.dependencies.json"
+		},
+		{
+			"name": "library.dependencies.xml"
+		},
+		{
+			"name": "library.js"
+		},
+		{
+			"name": "library.templates.xml"
+		},
+		{
+			"name": "libs/canvg-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "libs/canvg.js"
+		},
+		{
+			"name": "libs/rgbcolor-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "libs/rgbcolor.js"
+		},
+		{
+			"name": "libs/sap-common-globalization-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "libs/sap-common-globalization.js"
+		},
+		{
+			"name": "libs/sap-viz-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "libs/sap-viz-info-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "libs/sap-viz-info.js"
+		},
+		{
+			"name": "libs/sap-viz.js"
+		},
+		{
+			"name": "libs/sap.viz.javafx.patch-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "libs/sap.viz.javafx.patch.js"
+		},
+		{
+			"name": "manifest.json"
+		},
+		{
+			"name": "resources/chart/langs/language-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language.js"
+		},
+		{
+			"name": "resources/chart/langs/language_ar-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_ar.js"
+		},
+		{
+			"name": "resources/chart/langs/language_bg-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_bg.js"
+		},
+		{
+			"name": "resources/chart/langs/language_ca-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_ca.js"
+		},
+		{
+			"name": "resources/chart/langs/language_cs-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_cs.js"
+		},
+		{
+			"name": "resources/chart/langs/language_da-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_da.js"
+		},
+		{
+			"name": "resources/chart/langs/language_de-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_de.js"
+		},
+		{
+			"name": "resources/chart/langs/language_el-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_el.js"
+		},
+		{
+			"name": "resources/chart/langs/language_en-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_en.js"
+		},
+		{
+			"name": "resources/chart/langs/language_es-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_es.js"
+		},
+		{
+			"name": "resources/chart/langs/language_et-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_et.js"
+		},
+		{
+			"name": "resources/chart/langs/language_fi-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_fi.js"
+		},
+		{
+			"name": "resources/chart/langs/language_fr-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_fr.js"
+		},
+		{
+			"name": "resources/chart/langs/language_hi-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_hi.js"
+		},
+		{
+			"name": "resources/chart/langs/language_hr-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_hr.js"
+		},
+		{
+			"name": "resources/chart/langs/language_hu-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_hu.js"
+		},
+		{
+			"name": "resources/chart/langs/language_it-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_it.js"
+		},
+		{
+			"name": "resources/chart/langs/language_iw-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_iw.js"
+		},
+		{
+			"name": "resources/chart/langs/language_ja-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_ja.js"
+		},
+		{
+			"name": "resources/chart/langs/language_ko-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_ko.js"
+		},
+		{
+			"name": "resources/chart/langs/language_lt-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_lt.js"
+		},
+		{
+			"name": "resources/chart/langs/language_lv-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_lv.js"
+		},
+		{
+			"name": "resources/chart/langs/language_nl-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_nl.js"
+		},
+		{
+			"name": "resources/chart/langs/language_no-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_no.js"
+		},
+		{
+			"name": "resources/chart/langs/language_pl-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_pl.js"
+		},
+		{
+			"name": "resources/chart/langs/language_pt-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_pt.js"
+		},
+		{
+			"name": "resources/chart/langs/language_ro-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_ro.js"
+		},
+		{
+			"name": "resources/chart/langs/language_ru-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_ru.js"
+		},
+		{
+			"name": "resources/chart/langs/language_sh-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_sh.js"
+		},
+		{
+			"name": "resources/chart/langs/language_sk-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_sk.js"
+		},
+		{
+			"name": "resources/chart/langs/language_sl-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_sl.js"
+		},
+		{
+			"name": "resources/chart/langs/language_sv-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_sv.js"
+		},
+		{
+			"name": "resources/chart/langs/language_th-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_th.js"
+		},
+		{
+			"name": "resources/chart/langs/language_tr-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_tr.js"
+		},
+		{
+			"name": "resources/chart/langs/language_uk-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_uk.js"
+		},
+		{
+			"name": "resources/chart/langs/language_vi-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_vi.js"
+		},
+		{
+			"name": "resources/chart/langs/language_zh_CN-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_zh_CN.js"
+		},
+		{
+			"name": "resources/chart/langs/language_zh_TW-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/langs/language_zh_TW.js"
+		},
+		{
+			"name": "resources/chart/templates/standard_fiori/template-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/chart/templates/standard_fiori/template.js"
+		},
+		{
+			"name": "resources/framework/langs/language-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language.js"
+		},
+		{
+			"name": "resources/framework/langs/language_ar-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_ar.js"
+		},
+		{
+			"name": "resources/framework/langs/language_bg-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_bg.js"
+		},
+		{
+			"name": "resources/framework/langs/language_ca-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_ca.js"
+		},
+		{
+			"name": "resources/framework/langs/language_cs-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_cs.js"
+		},
+		{
+			"name": "resources/framework/langs/language_da-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_da.js"
+		},
+		{
+			"name": "resources/framework/langs/language_de-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_de.js"
+		},
+		{
+			"name": "resources/framework/langs/language_el-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_el.js"
+		},
+		{
+			"name": "resources/framework/langs/language_en-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_en.js"
+		},
+		{
+			"name": "resources/framework/langs/language_es-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_es.js"
+		},
+		{
+			"name": "resources/framework/langs/language_et-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_et.js"
+		},
+		{
+			"name": "resources/framework/langs/language_fi-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_fi.js"
+		},
+		{
+			"name": "resources/framework/langs/language_fr-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_fr.js"
+		},
+		{
+			"name": "resources/framework/langs/language_hi-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_hi.js"
+		},
+		{
+			"name": "resources/framework/langs/language_hr-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_hr.js"
+		},
+		{
+			"name": "resources/framework/langs/language_hu-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_hu.js"
+		},
+		{
+			"name": "resources/framework/langs/language_it-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_it.js"
+		},
+		{
+			"name": "resources/framework/langs/language_iw-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_iw.js"
+		},
+		{
+			"name": "resources/framework/langs/language_ja-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_ja.js"
+		},
+		{
+			"name": "resources/framework/langs/language_ko-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_ko.js"
+		},
+		{
+			"name": "resources/framework/langs/language_lt-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_lt.js"
+		},
+		{
+			"name": "resources/framework/langs/language_lv-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_lv.js"
+		},
+		{
+			"name": "resources/framework/langs/language_nl-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_nl.js"
+		},
+		{
+			"name": "resources/framework/langs/language_no-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_no.js"
+		},
+		{
+			"name": "resources/framework/langs/language_pl-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_pl.js"
+		},
+		{
+			"name": "resources/framework/langs/language_pt-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_pt.js"
+		},
+		{
+			"name": "resources/framework/langs/language_ro-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_ro.js"
+		},
+		{
+			"name": "resources/framework/langs/language_ru-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_ru.js"
+		},
+		{
+			"name": "resources/framework/langs/language_sh-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_sh.js"
+		},
+		{
+			"name": "resources/framework/langs/language_sk-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_sk.js"
+		},
+		{
+			"name": "resources/framework/langs/language_sl-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_sl.js"
+		},
+		{
+			"name": "resources/framework/langs/language_sv-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_sv.js"
+		},
+		{
+			"name": "resources/framework/langs/language_th-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_th.js"
+		},
+		{
+			"name": "resources/framework/langs/language_tr-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_tr.js"
+		},
+		{
+			"name": "resources/framework/langs/language_uk-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_uk.js"
+		},
+		{
+			"name": "resources/framework/langs/language_vi-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_vi.js"
+		},
+		{
+			"name": "resources/framework/langs/language_zh_CN-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_zh_CN.js"
+		},
+		{
+			"name": "resources/framework/langs/language_zh_TW-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "resources/framework/langs/language_zh_TW.js"
+		},
+		{
+			"name": "themes/base/.theming",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library-RTL-dbg.css",
+			"isDebug":true,
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library-RTL.css",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library-dbg.css",
+			"isDebug":true,
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library-parameters.json",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library.css",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library.source.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/shared.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/sap_goldreflection/.theming",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/library-RTL-dbg.css",
+			"isDebug":true,
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/library-RTL.css",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/library-dbg.css",
+			"isDebug":true,
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/library-parameters.json",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/library.css",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/library.less",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/library.source.less",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/shared.less",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_hcb/.theming",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-RTL-dbg.css",
+			"isDebug":true,
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-RTL.css",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-dbg.css",
+			"isDebug":true,
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-parameters.json",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library.css",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library.less",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library.source.less",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/shared.less",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_platinum/.theming",
+			"theme":"sap_platinum"
+		},
+		{
+			"name": "themes/sap_platinum/library-RTL-dbg.css",
+			"isDebug":true,
+			"theme":"sap_platinum"
+		},
+		{
+			"name": "themes/sap_platinum/library-RTL.css",
+			"theme":"sap_platinum"
+		},
+		{
+			"name": "themes/sap_platinum/library-dbg.css",
+			"isDebug":true,
+			"theme":"sap_platinum"
+		},
+		{
+			"name": "themes/sap_platinum/library-parameters.json",
+			"theme":"sap_platinum"
+		},
+		{
+			"name": "themes/sap_platinum/library.css",
+			"theme":"sap_platinum"
+		},
+		{
+			"name": "themes/sap_platinum/library.less",
+			"theme":"sap_platinum"
+		},
+		{
+			"name": "themes/sap_platinum/library.source.less",
+			"theme":"sap_platinum"
+		},
+		{
+			"name": "themes/sap_platinum/shared.less",
+			"theme":"sap_platinum"
+		},
+		{
+			"name": "ui5/Area-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/Area.control"
+		},
+		{
+			"name": "ui5/Area.js"
+		},
+		{
+			"name": "ui5/Area100-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/Area100.control"
+		},
+		{
+			"name": "ui5/Area100.js"
+		},
+		{
+			"name": "ui5/Area100Renderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/Area100Renderer.js"
+		},
+		{
+			"name": "ui5/AreaRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/AreaRenderer.js"
+		},
+		{
+			"name": "ui5/Bar-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/Bar.control"
+		},
+		{
+			"name": "ui5/Bar.js"
+		},
+		{
+			"name": "ui5/BarRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/BarRenderer.js"
+		},
+		{
+			"name": "ui5/Bubble-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/Bubble.control"
+		},
+		{
+			"name": "ui5/Bubble.js"
+		},
+		{
+			"name": "ui5/BubbleRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/BubbleRenderer.js"
+		},
+		{
+			"name": "ui5/Bullet-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/Bullet.control"
+		},
+		{
+			"name": "ui5/Bullet.js"
+		},
+		{
+			"name": "ui5/BulletRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/BulletRenderer.js"
+		},
+		{
+			"name": "ui5/Column-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/Column.control"
+		},
+		{
+			"name": "ui5/Column.js"
+		},
+		{
+			"name": "ui5/ColumnRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/ColumnRenderer.js"
+		},
+		{
+			"name": "ui5/Combination-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/Combination.control"
+		},
+		{
+			"name": "ui5/Combination.js"
+		},
+		{
+			"name": "ui5/CombinationRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/CombinationRenderer.js"
+		},
+		{
+			"name": "ui5/Donut-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/Donut.control"
+		},
+		{
+			"name": "ui5/Donut.js"
+		},
+		{
+			"name": "ui5/DonutRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/DonutRenderer.js"
+		},
+		{
+			"name": "ui5/DualBar-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/DualBar.control"
+		},
+		{
+			"name": "ui5/DualBar.js"
+		},
+		{
+			"name": "ui5/DualBarRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/DualBarRenderer.js"
+		},
+		{
+			"name": "ui5/DualColumn-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/DualColumn.control"
+		},
+		{
+			"name": "ui5/DualColumn.js"
+		},
+		{
+			"name": "ui5/DualColumnRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/DualColumnRenderer.js"
+		},
+		{
+			"name": "ui5/DualCombination-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/DualCombination.control"
+		},
+		{
+			"name": "ui5/DualCombination.js"
+		},
+		{
+			"name": "ui5/DualCombinationRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/DualCombinationRenderer.js"
+		},
+		{
+			"name": "ui5/DualLine-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/DualLine.control"
+		},
+		{
+			"name": "ui5/DualLine.js"
+		},
+		{
+			"name": "ui5/DualLineRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/DualLineRenderer.js"
+		},
+		{
+			"name": "ui5/DualStackedColumn-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/DualStackedColumn.control"
+		},
+		{
+			"name": "ui5/DualStackedColumn.js"
+		},
+		{
+			"name": "ui5/DualStackedColumn100-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/DualStackedColumn100.control"
+		},
+		{
+			"name": "ui5/DualStackedColumn100.js"
+		},
+		{
+			"name": "ui5/DualStackedColumn100Renderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/DualStackedColumn100Renderer.js"
+		},
+		{
+			"name": "ui5/DualStackedColumnRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/DualStackedColumnRenderer.js"
+		},
+		{
+			"name": "ui5/Heatmap-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/Heatmap.control"
+		},
+		{
+			"name": "ui5/Heatmap.js"
+		},
+		{
+			"name": "ui5/HeatmapRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/HeatmapRenderer.js"
+		},
+		{
+			"name": "ui5/HorizontalArea-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/HorizontalArea.control"
+		},
+		{
+			"name": "ui5/HorizontalArea.js"
+		},
+		{
+			"name": "ui5/HorizontalArea100-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/HorizontalArea100.control"
+		},
+		{
+			"name": "ui5/HorizontalArea100.js"
+		},
+		{
+			"name": "ui5/HorizontalArea100Renderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/HorizontalArea100Renderer.js"
+		},
+		{
+			"name": "ui5/HorizontalAreaRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/HorizontalAreaRenderer.js"
+		},
+		{
+			"name": "ui5/Line-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/Line.control"
+		},
+		{
+			"name": "ui5/Line.js"
+		},
+		{
+			"name": "ui5/LineRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/LineRenderer.js"
+		},
+		{
+			"name": "ui5/Pie-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/Pie.control"
+		},
+		{
+			"name": "ui5/Pie.js"
+		},
+		{
+			"name": "ui5/PieRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/PieRenderer.js"
+		},
+		{
+			"name": "ui5/Scatter-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/Scatter.control"
+		},
+		{
+			"name": "ui5/Scatter.js"
+		},
+		{
+			"name": "ui5/ScatterRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/ScatterRenderer.js"
+		},
+		{
+			"name": "ui5/StackedColumn-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/StackedColumn.control"
+		},
+		{
+			"name": "ui5/StackedColumn.js"
+		},
+		{
+			"name": "ui5/StackedColumn100-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/StackedColumn100.control"
+		},
+		{
+			"name": "ui5/StackedColumn100.js"
+		},
+		{
+			"name": "ui5/StackedColumn100Renderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/StackedColumn100Renderer.js"
+		},
+		{
+			"name": "ui5/StackedColumnRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/StackedColumnRenderer.js"
+		},
+		{
+			"name": "ui5/TimeBubble-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/TimeBubble.control"
+		},
+		{
+			"name": "ui5/TimeBubble.js"
+		},
+		{
+			"name": "ui5/TimeBubbleRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/TimeBubbleRenderer.js"
+		},
+		{
+			"name": "ui5/Treemap-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/Treemap.control"
+		},
+		{
+			"name": "ui5/Treemap.js"
+		},
+		{
+			"name": "ui5/TreemapRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/TreemapRenderer.js"
+		},
+		{
+			"name": "ui5/VizContainer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/VizContainer.control"
+		},
+		{
+			"name": "ui5/VizContainer.js"
+		},
+		{
+			"name": "ui5/VizContainerRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/VizContainerRenderer.js"
+		},
+		{
+			"name": "ui5/api/env/Format-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/api/env/Format.js"
+		},
+		{
+			"name": "ui5/container/libs/common/assets/UVB_SharedSprite.png"
+		},
+		{
+			"name": "ui5/container/libs/common/assets/UVB_SharedSprite2.png"
+		},
+		{
+			"name": "ui5/container/libs/common/assets/UVB_VxtabSprite.png"
+		},
+		{
+			"name": "ui5/container/libs/common/libs/RaphaelJS/license.txt"
+		},
+		{
+			"name": "ui5/container/libs/common/libs/rgbcolor/rgbcolor_static-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/container/libs/common/libs/rgbcolor/rgbcolor_static.js"
+		},
+		{
+			"name": "ui5/container/libs/controls/switchbar/assets/UVB_ChartSwitchSprite.png"
+		},
+		{
+			"name": "ui5/container/libs/css/sap.viz.controls.css"
+		},
+		{
+			"name": "ui5/container/libs/locale/language_ar-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/container/libs/locale/language_ar.js"
+		},
+		{
+			"name": "ui5/container/libs/locale/language_cs-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/container/libs/locale/language_cs.js"
+		},
+		{
+			"name": "ui5/container/libs/locale/language_da-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/container/libs/locale/language_da.js"
+		},
+		{
+			"name": "ui5/container/libs/locale/language_de-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/container/libs/locale/language_de.js"
+		},
+		{
+			"name": "ui5/container/libs/locale/language_en-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/container/libs/locale/language_en.js"
+		},
+		{
+			"name": "ui5/container/libs/locale/language_es-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/container/libs/locale/language_es.js"
+		},
+		{
+			"name": "ui5/container/libs/locale/language_fi-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/container/libs/locale/language_fi.js"
+		},
+		{
+			"name": "ui5/container/libs/locale/language_fr-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/container/libs/locale/language_fr.js"
+		},
+		{
+			"name": "ui5/container/libs/locale/language_he-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/container/libs/locale/language_he.js"
+		},
+		{
+			"name": "ui5/container/libs/locale/language_hu-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/container/libs/locale/language_hu.js"
+		},
+		{
+			"name": "ui5/container/libs/locale/language_is-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/container/libs/locale/language_is.js"
+		},
+		{
+			"name": "ui5/container/libs/locale/language_it-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/container/libs/locale/language_it.js"
+		},
+		{
+			"name": "ui5/container/libs/locale/language_ja-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/container/libs/locale/language_ja.js"
+		},
+		{
+			"name": "ui5/container/libs/locale/language_ko-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/container/libs/locale/language_ko.js"
+		},
+		{
+			"name": "ui5/container/libs/locale/language_nb-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/container/libs/locale/language_nb.js"
+		},
+		{
+			"name": "ui5/container/libs/locale/language_nl-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/container/libs/locale/language_nl.js"
+		},
+		{
+			"name": "ui5/container/libs/locale/language_pl-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/container/libs/locale/language_pl.js"
+		},
+		{
+			"name": "ui5/container/libs/locale/language_pt-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/container/libs/locale/language_pt.js"
+		},
+		{
+			"name": "ui5/container/libs/locale/language_ro-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/container/libs/locale/language_ro.js"
+		},
+		{
+			"name": "ui5/container/libs/locale/language_ru-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/container/libs/locale/language_ru.js"
+		},
+		{
+			"name": "ui5/container/libs/locale/language_sk-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/container/libs/locale/language_sk.js"
+		},
+		{
+			"name": "ui5/container/libs/locale/language_sl-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/container/libs/locale/language_sl.js"
+		},
+		{
+			"name": "ui5/container/libs/locale/language_sv-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/container/libs/locale/language_sv.js"
+		},
+		{
+			"name": "ui5/container/libs/locale/language_th-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/container/libs/locale/language_th.js"
+		},
+		{
+			"name": "ui5/container/libs/locale/language_tr-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/container/libs/locale/language_tr.js"
+		},
+		{
+			"name": "ui5/container/libs/locale/language_zh_CN-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/container/libs/locale/language_zh_CN.js"
+		},
+		{
+			"name": "ui5/container/libs/locale/language_zh_TW-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/container/libs/locale/language_zh_TW.js"
+		},
+		{
+			"name": "ui5/container/libs/sap-viz-controls-vizcontainer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/container/libs/sap-viz-controls-vizcontainer.js"
+		},
+		{
+			"name": "ui5/controls/Popover-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/Popover.control"
+		},
+		{
+			"name": "ui5/controls/Popover.js"
+		},
+		{
+			"name": "ui5/controls/PopoverRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/PopoverRenderer.js"
+		},
+		{
+			"name": "ui5/controls/ResponsiveLegend-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/ResponsiveLegend.js"
+		},
+		{
+			"name": "ui5/controls/VizFrame-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/VizFrame.control"
+		},
+		{
+			"name": "ui5/controls/VizFrame.js"
+		},
+		{
+			"name": "ui5/controls/VizFrameRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/VizFrameRenderer.js"
+		},
+		{
+			"name": "ui5/controls/chartpopover/ChartPopover-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/chartpopover/ChartPopover.js"
+		},
+		{
+			"name": "ui5/controls/chartpopover/ContentPanel-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/chartpopover/ContentPanel.js"
+		},
+		{
+			"name": "ui5/controls/chartpopover/HeaderBar-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/chartpopover/HeaderBar.js"
+		},
+		{
+			"name": "ui5/controls/chartpopover/ShapeMarker-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/chartpopover/ShapeMarker.js"
+		},
+		{
+			"name": "ui5/controls/chartpopover/SubActionItemsPage-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/chartpopover/SubActionItemsPage.js"
+		},
+		{
+			"name": "ui5/controls/common/BaseControl-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/common/BaseControl.control"
+		},
+		{
+			"name": "ui5/controls/common/BaseControl.js"
+		},
+		{
+			"name": "ui5/controls/common/BaseControlRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/common/BaseControlRenderer.js"
+		},
+		{
+			"name": "ui5/controls/common/feeds/AnalysisObject-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/common/feeds/AnalysisObject.control"
+		},
+		{
+			"name": "ui5/controls/common/feeds/AnalysisObject.js"
+		},
+		{
+			"name": "ui5/controls/common/feeds/FeedItem-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/common/feeds/FeedItem.control"
+		},
+		{
+			"name": "ui5/controls/common/feeds/FeedItem.js"
+		},
+		{
+			"name": "ui5/controls/common/helpers/DefaultPropertiesHelper-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/common/helpers/DefaultPropertiesHelper.js"
+		},
+		{
+			"name": "ui5/controls/common/helpers/VizControlsHelper-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/common/helpers/VizControlsHelper.js"
+		},
+		{
+			"name": "ui5/controls/common/helpers/VizFrameOptionsHelper-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/common/helpers/VizFrameOptionsHelper.js"
+		},
+		{
+			"name": "ui5/controls/css/controls.css"
+		},
+		{
+			"name": "ui5/controls/libs/resources/locale/language_de-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/resources/locale/language_de.js"
+		},
+		{
+			"name": "ui5/controls/libs/resources/locale/language_en-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/resources/locale/language_en.js"
+		},
+		{
+			"name": "ui5/controls/libs/resources/locale/language_es-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/resources/locale/language_es.js"
+		},
+		{
+			"name": "ui5/controls/libs/resources/locale/language_fr-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/resources/locale/language_fr.js"
+		},
+		{
+			"name": "ui5/controls/libs/resources/locale/language_hu-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/resources/locale/language_hu.js"
+		},
+		{
+			"name": "ui5/controls/libs/resources/locale/language_ja-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/resources/locale/language_ja.js"
+		},
+		{
+			"name": "ui5/controls/libs/resources/locale/language_ko-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/resources/locale/language_ko.js"
+		},
+		{
+			"name": "ui5/controls/libs/resources/locale/language_pl-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/resources/locale/language_pl.js"
+		},
+		{
+			"name": "ui5/controls/libs/resources/locale/language_pt-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/resources/locale/language_pt.js"
+		},
+		{
+			"name": "ui5/controls/libs/resources/locale/language_ru-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/resources/locale/language_ru.js"
+		},
+		{
+			"name": "ui5/controls/libs/resources/locale/language_zh_CN-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/resources/locale/language_zh_CN.js"
+		},
+		{
+			"name": "ui5/controls/libs/resources/locale/language_zh_TW-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/resources/locale/language_zh_TW.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_ar-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_ar.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_bg-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_bg.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_ca-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_ca.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_cs-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_cs.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_da-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_da.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_de-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_de.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_el-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_el.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_en-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_en.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_es-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_es.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_et-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_et.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_fi-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_fi.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_fr-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_fr.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_hi-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_hi.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_hr-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_hr.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_hu-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_hu.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_it-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_it.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_iw-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_iw.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_ja-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_ja.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_ko-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_ko.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_lt-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_lt.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_lv-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_lv.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_nl-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_nl.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_no-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_no.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_pl-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_pl.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_pt-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_pt.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_ro-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_ro.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_ru-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_ru.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_sh-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_sh.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_sk-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_sk.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_sl-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_sl.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_sv-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_sv.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_th-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_th.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_tr-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_tr.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_uk-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_uk.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_vi-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_vi.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_zh_CN-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_zh_CN.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_zh_TW-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/resources/locale/language_zh_TW.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/sap-viz-vizframe-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizframe/sap-viz-vizframe.js"
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizservices/sap-viz-vizservices-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/controls/libs/sap-viz-vizservices/sap-viz-vizservices.js"
+		},
+		{
+			"name": "ui5/core/BaseChart-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/core/BaseChart.control"
+		},
+		{
+			"name": "ui5/core/BaseChart.js"
+		},
+		{
+			"name": "ui5/core/BaseChartMetadata-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/core/BaseChartMetadata.js"
+		},
+		{
+			"name": "ui5/core/BaseChartRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/core/BaseChartRenderer.js"
+		},
+		{
+			"name": "ui5/core/BaseStructuredType-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/core/BaseStructuredType.control"
+		},
+		{
+			"name": "ui5/core/BaseStructuredType.js"
+		},
+		{
+			"name": "ui5/data/CustomDataset-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/data/CustomDataset.control"
+		},
+		{
+			"name": "ui5/data/CustomDataset.js"
+		},
+		{
+			"name": "ui5/data/Dataset-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/data/Dataset.control"
+		},
+		{
+			"name": "ui5/data/Dataset.js"
+		},
+		{
+			"name": "ui5/data/DimensionDefinition-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/data/DimensionDefinition.control"
+		},
+		{
+			"name": "ui5/data/DimensionDefinition.js"
+		},
+		{
+			"name": "ui5/data/FlattenedDataset-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/data/FlattenedDataset.control"
+		},
+		{
+			"name": "ui5/data/FlattenedDataset.js"
+		},
+		{
+			"name": "ui5/data/MeasureDefinition-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/data/MeasureDefinition.control"
+		},
+		{
+			"name": "ui5/data/MeasureDefinition.js"
+		},
+		{
+			"name": "ui5/data/transformers/ModelToCrosstable-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/data/transformers/ModelToCrosstable.js"
+		},
+		{
+			"name": "ui5/data/transformers/ModelToDataset-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/data/transformers/ModelToDataset.js"
+		},
+		{
+			"name": "ui5/data/transformers/ModelToFlattable-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/data/transformers/ModelToFlattable.js"
+		},
+		{
+			"name": "ui5/format/ChartFormatter-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/format/ChartFormatter.js"
+		},
+		{
+			"name": "ui5/messages/messagebundle.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":""
+		},
+		{
+			"name": "ui5/messages/messagebundle_ar.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"ar"
+		},
+		{
+			"name": "ui5/messages/messagebundle_bg.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"bg"
+		},
+		{
+			"name": "ui5/messages/messagebundle_ca.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"ca"
+		},
+		{
+			"name": "ui5/messages/messagebundle_cs.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"cs"
+		},
+		{
+			"name": "ui5/messages/messagebundle_da.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"da"
+		},
+		{
+			"name": "ui5/messages/messagebundle_de.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"de"
+		},
+		{
+			"name": "ui5/messages/messagebundle_el.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"el"
+		},
+		{
+			"name": "ui5/messages/messagebundle_en.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"en"
+		},
+		{
+			"name": "ui5/messages/messagebundle_en_US_sappsd.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"en_US_sappsd"
+		},
+		{
+			"name": "ui5/messages/messagebundle_en_US_saptrc.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"en_US_saptrc"
+		},
+		{
+			"name": "ui5/messages/messagebundle_es.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"es"
+		},
+		{
+			"name": "ui5/messages/messagebundle_et.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"et"
+		},
+		{
+			"name": "ui5/messages/messagebundle_fi.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"fi"
+		},
+		{
+			"name": "ui5/messages/messagebundle_fr.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"fr"
+		},
+		{
+			"name": "ui5/messages/messagebundle_hi.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"hi"
+		},
+		{
+			"name": "ui5/messages/messagebundle_hr.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"hr"
+		},
+		{
+			"name": "ui5/messages/messagebundle_hu.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"hu"
+		},
+		{
+			"name": "ui5/messages/messagebundle_it.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"it"
+		},
+		{
+			"name": "ui5/messages/messagebundle_iw.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"iw"
+		},
+		{
+			"name": "ui5/messages/messagebundle_ja.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"ja"
+		},
+		{
+			"name": "ui5/messages/messagebundle_ko.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"ko"
+		},
+		{
+			"name": "ui5/messages/messagebundle_lt.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"lt"
+		},
+		{
+			"name": "ui5/messages/messagebundle_lv.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"lv"
+		},
+		{
+			"name": "ui5/messages/messagebundle_nl.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"nl"
+		},
+		{
+			"name": "ui5/messages/messagebundle_no.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"no"
+		},
+		{
+			"name": "ui5/messages/messagebundle_pl.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"pl"
+		},
+		{
+			"name": "ui5/messages/messagebundle_pt.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"pt"
+		},
+		{
+			"name": "ui5/messages/messagebundle_ro.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"ro"
+		},
+		{
+			"name": "ui5/messages/messagebundle_ru.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"ru"
+		},
+		{
+			"name": "ui5/messages/messagebundle_sh.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"sh"
+		},
+		{
+			"name": "ui5/messages/messagebundle_sk.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"sk"
+		},
+		{
+			"name": "ui5/messages/messagebundle_sl.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"sl"
+		},
+		{
+			"name": "ui5/messages/messagebundle_sv.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"sv"
+		},
+		{
+			"name": "ui5/messages/messagebundle_th.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"th"
+		},
+		{
+			"name": "ui5/messages/messagebundle_tr.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"tr"
+		},
+		{
+			"name": "ui5/messages/messagebundle_uk.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"uk"
+		},
+		{
+			"name": "ui5/messages/messagebundle_vi.properties",
+			"raw":"ui5/messages/messagebundle.properties",
+			"locale":"vi"
+		},
+		{
+			"name": "ui5/messages/messagebundle_zh_CN.properties",
+			"raw":"ui5/messages/messagebundle_zh.properties",
+			"locale":"CN"
+		},
+		{
+			"name": "ui5/messages/messagebundle_zh_TW.properties",
+			"raw":"ui5/messages/messagebundle_zh.properties",
+			"locale":"TW"
+		},
+		{
+			"name": "ui5/theming/Util-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/theming/Util.js"
+		},
+		{
+			"name": "ui5/types/Area-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Area.control"
+		},
+		{
+			"name": "ui5/types/Area.js"
+		},
+		{
+			"name": "ui5/types/Area_animation-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Area_animation.control"
+		},
+		{
+			"name": "ui5/types/Area_animation.js"
+		},
+		{
+			"name": "ui5/types/Area_drawingEffect.type"
+		},
+		{
+			"name": "ui5/types/Area_hoverline-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Area_hoverline.control"
+		},
+		{
+			"name": "ui5/types/Area_hoverline.js"
+		},
+		{
+			"name": "ui5/types/Area_marker-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Area_marker.control"
+		},
+		{
+			"name": "ui5/types/Area_marker.js"
+		},
+		{
+			"name": "ui5/types/Area_marker_shape.type"
+		},
+		{
+			"name": "ui5/types/Area_mode.type"
+		},
+		{
+			"name": "ui5/types/Area_orientation.type"
+		},
+		{
+			"name": "ui5/types/Area_tooltip-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Area_tooltip.control"
+		},
+		{
+			"name": "ui5/types/Area_tooltip.js"
+		},
+		{
+			"name": "ui5/types/Axis-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Axis.control"
+		},
+		{
+			"name": "ui5/types/Axis.js"
+		},
+		{
+			"name": "ui5/types/Axis_axisTick-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Axis_axisTick.control"
+		},
+		{
+			"name": "ui5/types/Axis_axisTick.js"
+		},
+		{
+			"name": "ui5/types/Axis_axisline-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Axis_axisline.control"
+		},
+		{
+			"name": "ui5/types/Axis_axisline.js"
+		},
+		{
+			"name": "ui5/types/Axis_gridline-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Axis_gridline.control"
+		},
+		{
+			"name": "ui5/types/Axis_gridline.js"
+		},
+		{
+			"name": "ui5/types/Axis_gridline_type.type"
+		},
+		{
+			"name": "ui5/types/Axis_indicator-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Axis_indicator.control"
+		},
+		{
+			"name": "ui5/types/Axis_indicator.js"
+		},
+		{
+			"name": "ui5/types/Axis_label-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Axis_label.control"
+		},
+		{
+			"name": "ui5/types/Axis_label.js"
+		},
+		{
+			"name": "ui5/types/Axis_label_unitFormatType.type"
+		},
+		{
+			"name": "ui5/types/Axis_layoutInfo-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Axis_layoutInfo.control"
+		},
+		{
+			"name": "ui5/types/Axis_layoutInfo.js"
+		},
+		{
+			"name": "ui5/types/Axis_position.type"
+		},
+		{
+			"name": "ui5/types/Axis_scale-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Axis_scale.control"
+		},
+		{
+			"name": "ui5/types/Axis_scale.js"
+		},
+		{
+			"name": "ui5/types/Axis_title-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Axis_title.control"
+		},
+		{
+			"name": "ui5/types/Axis_title.js"
+		},
+		{
+			"name": "ui5/types/Axis_type.type"
+		},
+		{
+			"name": "ui5/types/Background-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Background.control"
+		},
+		{
+			"name": "ui5/types/Background.js"
+		},
+		{
+			"name": "ui5/types/Background_border-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Background_border.control"
+		},
+		{
+			"name": "ui5/types/Background_border.js"
+		},
+		{
+			"name": "ui5/types/Background_border_bottom-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Background_border_bottom.control"
+		},
+		{
+			"name": "ui5/types/Background_border_bottom.js"
+		},
+		{
+			"name": "ui5/types/Background_border_left-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Background_border_left.control"
+		},
+		{
+			"name": "ui5/types/Background_border_left.js"
+		},
+		{
+			"name": "ui5/types/Background_border_right-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Background_border_right.control"
+		},
+		{
+			"name": "ui5/types/Background_border_right.js"
+		},
+		{
+			"name": "ui5/types/Background_border_top-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Background_border_top.control"
+		},
+		{
+			"name": "ui5/types/Background_border_top.js"
+		},
+		{
+			"name": "ui5/types/Background_direction.type"
+		},
+		{
+			"name": "ui5/types/Background_drawingEffect.type"
+		},
+		{
+			"name": "ui5/types/Bar-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Bar.control"
+		},
+		{
+			"name": "ui5/types/Bar.js"
+		},
+		{
+			"name": "ui5/types/Bar_animation-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Bar_animation.control"
+		},
+		{
+			"name": "ui5/types/Bar_animation.js"
+		},
+		{
+			"name": "ui5/types/Bar_drawingEffect.type"
+		},
+		{
+			"name": "ui5/types/Bar_orientation.type"
+		},
+		{
+			"name": "ui5/types/Bar_tooltip-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Bar_tooltip.control"
+		},
+		{
+			"name": "ui5/types/Bar_tooltip.js"
+		},
+		{
+			"name": "ui5/types/Bubble-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Bubble.control"
+		},
+		{
+			"name": "ui5/types/Bubble.js"
+		},
+		{
+			"name": "ui5/types/Bubble_animation-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Bubble_animation.control"
+		},
+		{
+			"name": "ui5/types/Bubble_animation.js"
+		},
+		{
+			"name": "ui5/types/Bubble_axisTooltip-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Bubble_axisTooltip.control"
+		},
+		{
+			"name": "ui5/types/Bubble_axisTooltip.js"
+		},
+		{
+			"name": "ui5/types/Bubble_drawingEffect.type"
+		},
+		{
+			"name": "ui5/types/Bubble_hoverline-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Bubble_hoverline.control"
+		},
+		{
+			"name": "ui5/types/Bubble_hoverline.js"
+		},
+		{
+			"name": "ui5/types/Bullet-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Bullet.control"
+		},
+		{
+			"name": "ui5/types/Bullet.js"
+		},
+		{
+			"name": "ui5/types/Bullet_drawingEffect.type"
+		},
+		{
+			"name": "ui5/types/Bullet_orientation.type"
+		},
+		{
+			"name": "ui5/types/Bullet_tooltip-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Bullet_tooltip.control"
+		},
+		{
+			"name": "ui5/types/Bullet_tooltip.js"
+		},
+		{
+			"name": "ui5/types/Combination-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Combination.control"
+		},
+		{
+			"name": "ui5/types/Combination.js"
+		},
+		{
+			"name": "ui5/types/Combination_animation-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Combination_animation.control"
+		},
+		{
+			"name": "ui5/types/Combination_animation.js"
+		},
+		{
+			"name": "ui5/types/Combination_bar-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Combination_bar.control"
+		},
+		{
+			"name": "ui5/types/Combination_bar.js"
+		},
+		{
+			"name": "ui5/types/Combination_dataShape-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Combination_dataShape.control"
+		},
+		{
+			"name": "ui5/types/Combination_dataShape.js"
+		},
+		{
+			"name": "ui5/types/Combination_drawingEffect.type"
+		},
+		{
+			"name": "ui5/types/Combination_line-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Combination_line.control"
+		},
+		{
+			"name": "ui5/types/Combination_line.js"
+		},
+		{
+			"name": "ui5/types/Combination_line_marker-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Combination_line_marker.control"
+		},
+		{
+			"name": "ui5/types/Combination_line_marker.js"
+		},
+		{
+			"name": "ui5/types/Combination_orientation.type"
+		},
+		{
+			"name": "ui5/types/Combination_tooltip-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Combination_tooltip.control"
+		},
+		{
+			"name": "ui5/types/Combination_tooltip.js"
+		},
+		{
+			"name": "ui5/types/Datalabel-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Datalabel.control"
+		},
+		{
+			"name": "ui5/types/Datalabel.js"
+		},
+		{
+			"name": "ui5/types/Datalabel_orientation.type"
+		},
+		{
+			"name": "ui5/types/Datalabel_outsidePosition.type"
+		},
+		{
+			"name": "ui5/types/Datalabel_paintingMode.type"
+		},
+		{
+			"name": "ui5/types/Datalabel_position.type"
+		},
+		{
+			"name": "ui5/types/Datatransform-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Datatransform.control"
+		},
+		{
+			"name": "ui5/types/Datatransform.js"
+		},
+		{
+			"name": "ui5/types/Datatransform_autoBinning-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Datatransform_autoBinning.control"
+		},
+		{
+			"name": "ui5/types/Datatransform_autoBinning.js"
+		},
+		{
+			"name": "ui5/types/Datatransform_dataSampling-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Datatransform_dataSampling.control"
+		},
+		{
+			"name": "ui5/types/Datatransform_dataSampling.js"
+		},
+		{
+			"name": "ui5/types/Datatransform_dataSampling_grid-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Datatransform_dataSampling_grid.control"
+		},
+		{
+			"name": "ui5/types/Datatransform_dataSampling_grid.js"
+		},
+		{
+			"name": "ui5/types/Heatmap-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Heatmap.control"
+		},
+		{
+			"name": "ui5/types/Heatmap.js"
+		},
+		{
+			"name": "ui5/types/Heatmap_animation-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Heatmap_animation.control"
+		},
+		{
+			"name": "ui5/types/Heatmap_animation.js"
+		},
+		{
+			"name": "ui5/types/Heatmap_border-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Heatmap_border.control"
+		},
+		{
+			"name": "ui5/types/Heatmap_border.js"
+		},
+		{
+			"name": "ui5/types/Heatmap_tooltip-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Heatmap_tooltip.control"
+		},
+		{
+			"name": "ui5/types/Heatmap_tooltip.js"
+		},
+		{
+			"name": "ui5/types/Legend-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Legend.control"
+		},
+		{
+			"name": "ui5/types/Legend.js"
+		},
+		{
+			"name": "ui5/types/Legend_layout-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Legend_layout.control"
+		},
+		{
+			"name": "ui5/types/Legend_layout.js"
+		},
+		{
+			"name": "ui5/types/Legend_layout_position.type"
+		},
+		{
+			"name": "ui5/types/Line-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Line.control"
+		},
+		{
+			"name": "ui5/types/Line.js"
+		},
+		{
+			"name": "ui5/types/Line_animation-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Line_animation.control"
+		},
+		{
+			"name": "ui5/types/Line_animation.js"
+		},
+		{
+			"name": "ui5/types/Line_drawingEffect.type"
+		},
+		{
+			"name": "ui5/types/Line_hoverline-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Line_hoverline.control"
+		},
+		{
+			"name": "ui5/types/Line_hoverline.js"
+		},
+		{
+			"name": "ui5/types/Line_marker-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Line_marker.control"
+		},
+		{
+			"name": "ui5/types/Line_marker.js"
+		},
+		{
+			"name": "ui5/types/Line_marker_shape.type"
+		},
+		{
+			"name": "ui5/types/Line_orientation.type"
+		},
+		{
+			"name": "ui5/types/Line_tooltip-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Line_tooltip.control"
+		},
+		{
+			"name": "ui5/types/Line_tooltip.js"
+		},
+		{
+			"name": "ui5/types/Pie-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Pie.control"
+		},
+		{
+			"name": "ui5/types/Pie.js"
+		},
+		{
+			"name": "ui5/types/Pie_animation-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Pie_animation.control"
+		},
+		{
+			"name": "ui5/types/Pie_animation.js"
+		},
+		{
+			"name": "ui5/types/Pie_drawingEffect.type"
+		},
+		{
+			"name": "ui5/types/Pie_tooltip-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Pie_tooltip.control"
+		},
+		{
+			"name": "ui5/types/Pie_tooltip.js"
+		},
+		{
+			"name": "ui5/types/Pie_valign.type"
+		},
+		{
+			"name": "ui5/types/RootContainer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/RootContainer.control"
+		},
+		{
+			"name": "ui5/types/RootContainer.js"
+		},
+		{
+			"name": "ui5/types/RootContainer_layout-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/RootContainer_layout.control"
+		},
+		{
+			"name": "ui5/types/RootContainer_layout.js"
+		},
+		{
+			"name": "ui5/types/Scatter-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Scatter.control"
+		},
+		{
+			"name": "ui5/types/Scatter.js"
+		},
+		{
+			"name": "ui5/types/Scatter_animation-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Scatter_animation.control"
+		},
+		{
+			"name": "ui5/types/Scatter_animation.js"
+		},
+		{
+			"name": "ui5/types/Scatter_axisTooltip-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Scatter_axisTooltip.control"
+		},
+		{
+			"name": "ui5/types/Scatter_axisTooltip.js"
+		},
+		{
+			"name": "ui5/types/Scatter_drawingEffect.type"
+		},
+		{
+			"name": "ui5/types/Scatter_hoverline-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Scatter_hoverline.control"
+		},
+		{
+			"name": "ui5/types/Scatter_hoverline.js"
+		},
+		{
+			"name": "ui5/types/StackedVerticalBar-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/StackedVerticalBar.control"
+		},
+		{
+			"name": "ui5/types/StackedVerticalBar.js"
+		},
+		{
+			"name": "ui5/types/StackedVerticalBar_animation-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/StackedVerticalBar_animation.control"
+		},
+		{
+			"name": "ui5/types/StackedVerticalBar_animation.js"
+		},
+		{
+			"name": "ui5/types/StackedVerticalBar_drawingEffect.type"
+		},
+		{
+			"name": "ui5/types/StackedVerticalBar_mode.type"
+		},
+		{
+			"name": "ui5/types/StackedVerticalBar_orientation.type"
+		},
+		{
+			"name": "ui5/types/StackedVerticalBar_tooltip-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/StackedVerticalBar_tooltip.control"
+		},
+		{
+			"name": "ui5/types/StackedVerticalBar_tooltip.js"
+		},
+		{
+			"name": "ui5/types/Title-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Title.control"
+		},
+		{
+			"name": "ui5/types/Title.js"
+		},
+		{
+			"name": "ui5/types/Title_alignment.type"
+		},
+		{
+			"name": "ui5/types/Title_layout-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Title_layout.control"
+		},
+		{
+			"name": "ui5/types/Title_layout.js"
+		},
+		{
+			"name": "ui5/types/Tooltip-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Tooltip.control"
+		},
+		{
+			"name": "ui5/types/Tooltip.js"
+		},
+		{
+			"name": "ui5/types/Tooltip_background-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Tooltip_background.control"
+		},
+		{
+			"name": "ui5/types/Tooltip_background.js"
+		},
+		{
+			"name": "ui5/types/Tooltip_bodyDimensionLabel-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Tooltip_bodyDimensionLabel.control"
+		},
+		{
+			"name": "ui5/types/Tooltip_bodyDimensionLabel.js"
+		},
+		{
+			"name": "ui5/types/Tooltip_bodyDimensionValue-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Tooltip_bodyDimensionValue.control"
+		},
+		{
+			"name": "ui5/types/Tooltip_bodyDimensionValue.js"
+		},
+		{
+			"name": "ui5/types/Tooltip_bodyMeasureLabel-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Tooltip_bodyMeasureLabel.control"
+		},
+		{
+			"name": "ui5/types/Tooltip_bodyMeasureLabel.js"
+		},
+		{
+			"name": "ui5/types/Tooltip_bodyMeasureValue-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Tooltip_bodyMeasureValue.control"
+		},
+		{
+			"name": "ui5/types/Tooltip_bodyMeasureValue.js"
+		},
+		{
+			"name": "ui5/types/Tooltip_closeButton-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Tooltip_closeButton.control"
+		},
+		{
+			"name": "ui5/types/Tooltip_closeButton.js"
+		},
+		{
+			"name": "ui5/types/Tooltip_drawingEffect.type"
+		},
+		{
+			"name": "ui5/types/Tooltip_footerLabel-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Tooltip_footerLabel.control"
+		},
+		{
+			"name": "ui5/types/Tooltip_footerLabel.js"
+		},
+		{
+			"name": "ui5/types/Tooltip_separationLine-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Tooltip_separationLine.control"
+		},
+		{
+			"name": "ui5/types/Tooltip_separationLine.js"
+		},
+		{
+			"name": "ui5/types/Treemap-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Treemap.control"
+		},
+		{
+			"name": "ui5/types/Treemap.js"
+		},
+		{
+			"name": "ui5/types/Treemap_animation-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Treemap_animation.control"
+		},
+		{
+			"name": "ui5/types/Treemap_animation.js"
+		},
+		{
+			"name": "ui5/types/Treemap_border-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Treemap_border.control"
+		},
+		{
+			"name": "ui5/types/Treemap_border.js"
+		},
+		{
+			"name": "ui5/types/Treemap_tooltip-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/Treemap_tooltip.control"
+		},
+		{
+			"name": "ui5/types/Treemap_tooltip.js"
+		},
+		{
+			"name": "ui5/types/VerticalBar-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/VerticalBar.control"
+		},
+		{
+			"name": "ui5/types/VerticalBar.js"
+		},
+		{
+			"name": "ui5/types/VerticalBar_animation-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/VerticalBar_animation.control"
+		},
+		{
+			"name": "ui5/types/VerticalBar_animation.js"
+		},
+		{
+			"name": "ui5/types/VerticalBar_drawingEffect.type"
+		},
+		{
+			"name": "ui5/types/VerticalBar_orientation.type"
+		},
+		{
+			"name": "ui5/types/VerticalBar_tooltip-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/VerticalBar_tooltip.control"
+		},
+		{
+			"name": "ui5/types/VerticalBar_tooltip.js"
+		},
+		{
+			"name": "ui5/types/XYContainer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/XYContainer.control"
+		},
+		{
+			"name": "ui5/types/XYContainer.js"
+		},
+		{
+			"name": "ui5/types/controller/Interaction-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/controller/Interaction.control"
+		},
+		{
+			"name": "ui5/types/controller/Interaction.js"
+		},
+		{
+			"name": "ui5/types/controller/Interaction_pan-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/controller/Interaction_pan.control"
+		},
+		{
+			"name": "ui5/types/controller/Interaction_pan.js"
+		},
+		{
+			"name": "ui5/types/controller/Interaction_pan_orientation.type"
+		},
+		{
+			"name": "ui5/types/controller/Interaction_selectability-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/controller/Interaction_selectability.control"
+		},
+		{
+			"name": "ui5/types/controller/Interaction_selectability.js"
+		},
+		{
+			"name": "ui5/types/controller/Interaction_selectability_mode.type"
+		},
+		{
+			"name": "ui5/types/layout/Dock-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/layout/Dock.control"
+		},
+		{
+			"name": "ui5/types/layout/Dock.js"
+		},
+		{
+			"name": "ui5/types/layout/Stack-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/layout/Stack.control"
+		},
+		{
+			"name": "ui5/types/layout/Stack.js"
+		},
+		{
+			"name": "ui5/types/legend/Common-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/legend/Common.control"
+		},
+		{
+			"name": "ui5/types/legend/Common.js"
+		},
+		{
+			"name": "ui5/types/legend/Common_alignment.type"
+		},
+		{
+			"name": "ui5/types/legend/Common_drawingEffect.type"
+		},
+		{
+			"name": "ui5/types/legend/Common_position.type"
+		},
+		{
+			"name": "ui5/types/legend/Common_title-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ui5/types/legend/Common_title.control"
+		},
+		{
+			"name": "ui5/types/legend/Common_title.js"
+		},
+		{
+			"name": "ui5/types/legend/Common_type.type"
+		}
+	]
+}

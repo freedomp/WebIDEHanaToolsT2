@@ -1,0 +1,117 @@
+.categoriesDropdownBox{
+	margin-top: 1px;
+}
+
+.dialogBody {
+	font-family: Arial, sans-serif;
+	font-size: 0.875rem;
+	color: black !important;
+}
+
+.dialogBodySmall {
+	font-family: Arial, sans-serif;
+	font-size: 0.775rem;
+	color: black !important;
+}
+
+.dialogH1 {
+	font-size: 3rem;
+	line-height: 4.5rem;
+	color: black !important;
+	height: inherit;
+}
+
+.dialogH2 {
+	color: #666;
+	font-size: 1.75rem;
+	line-height: 3rem;
+	height: inherit;
+}
+
+.dialogHeader {
+	padding: 0 2rem 1rem 2rem;
+	background-color: #F2F2F2;
+}
+
+.dialogBorderedGrid {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	border: 1px grey solid !important;
+	margin: 2px !important;
+	padding: 5px !important;
+}
+
+.dialogFontSpecial {
+	font-family: "Segoe UI Light", "Segoe UI", "Helvetica Neue", Arial, sans-serif !important;
+	font-weight: 100 !important;
+}
+
+.dialogH3 {
+	font-size: 1rem;
+	line-height: 1.5rem;
+	color: black !important;
+}
+
+.sapUiSegmentedButton > span > .sapUiBtnS:hover {
+	background-color: #00659c !important;
+}
+
+.sapUiSegmentedButton > span > .sapUiBtnS.sapUiSegButtonSelected {
+	background-color: #00659c !important;
+}
+.dataSetTileDivider {
+	border-color: grey !important;
+}
+
+.dataSetTile {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	border: 1px black solid !important;
+	background-color: white !important;
+	padding: 5px;
+	margin: 5px;
+ }
+ 
+ .buttonWithIconFont {
+	vertical-align: left !important;
+	text-align: left !important; 
+	height: 100%;	
+	color: black !important; 
+ 	font-size:  1rem !important; 
+ 	font-family: SAP-icons !important; 
+ 	font-weight: normal;
+    font-style: normal;
+    padding: 0px 3px !important;
+	margin: 0px 3px !important;
+}
+
+.buttonWithIconFont:hover {  
+ 	background-color: transparent !important;
+}
+
+.dataSetSmallTileTextSection {
+	margin: 1px 7px 1px 7px;
+}
+
+.dataSetTileTitleText {
+	font-family: "Segoe UI Light", "Segoe UI", "Helvetica Neue", Arial, sans-serif !important;
+	font-size: 0.875rem !important;
+	font-weight: 100 !important;
+	color: black !important;
+}
+
+.dataSetSmallTileText {
+	font-family: Arial, sans-serif;
+	font-size: 0.775rem;
+	color: black !important;
+}
+
+.dataSetSmallTileText_wrapping {
+	font-family: Arial, sans-serif;
+	font-size: 0.775rem;
+	color: black !important;
+	height: 80px !important;
+	line-height: 1rem;
+}
+
+

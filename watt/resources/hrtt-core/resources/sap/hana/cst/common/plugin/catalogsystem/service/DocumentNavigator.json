@@ -1,0 +1,19 @@
+{
+    "name": "sap.hana.cst.common.catalogsystem.interface.DocumentNavigator",
+    "description": "The interface for document navigator which allow to find and open a particular document for a variety of artifacts in catalog",
+
+    "methods": {
+        "openRemoteSourceMetadata": {},
+        "openNewRemoteSource": {},
+        
+        "getMetadataDocument": {},
+        "navigate": {},
+        "navigateWithCategory": {},
+        "openProcedure": {},
+        "openFunction": {},
+        "openNewSynonym": {},
+        "openMetadata": {},
+        "openNewSequence": {},
+        "openSequence": {}
+    }
+}

@@ -1,0 +1,41 @@
+/*!
+* ${copyright}
+*/
+
+/**
+* Initialization Code and shared classes of library {{reuselibrary.LibraryNamespace}}.
+*/
+sap.ui.define(['jquery.sap.global', 
+                'sap/ui/core/library'], // library dependency
+                function(jQuery) {
+
+                "use strict";
+
+                /**
+                * {{reuselibrary.parameters.LibraryDescription.value}}
+                *
+                * @namespace
+                * @name {{reuselibrary.LibraryNamespace}}
+                * @author SAP SE
+                * @version ${version}
+                * @public
+                */
+                
+                // delegate further initialization of this library to the Core
+                sap.ui.getCore().initLibrary({
+                                name : "{{reuselibrary.LibraryNamespace}}",
+                                version: "${version}",
+                                dependencies : ["sap.ui.core"],
+                                {{#if isTheme}}
+                                {{else}}
+                                	noLibraryCSS: true,
+                              	{{/if}}
+                                types: [],
+                                interfaces: [],
+                                controls: [],
+                                elements: []
+                });
+                
+                return {{reuselibrary.LibraryNamespace}};
+
+}, /* bExport= */ false);

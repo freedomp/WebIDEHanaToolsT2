@@ -1,0 +1,151 @@
+
+
+.rdeCompare .sapUiBtnS.sapUiBtnNorm {
+    color: #000000;
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: #999999;
+    border-radius: 2px;
+}
+
+
+.rdeCompare .sapUiBtn.flatControlSmall {
+	height: 1.5rem;
+	font-size: 0.75rem;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+}
+
+.rdeCompare .sapUiBtn {
+	border: 0;
+	border-bottom: 1px solid;
+	border-color: #333;
+	border-rad
+}
+
+.rdeCompare .sapUiBtn.flatButtonLarge {
+	height: 3rem;
+	padding-left: 3rem;
+	padding-right: 3rem;
+}
+
+.rdeCompare .sapUiBtnEmph {
+	font-weight: bold;
+}
+
+.rdeCompare .sapUiBtnS.sapUiBtnNorm.sapUiBtnEmph {
+	/* color: #333;
+	font-weight: normal;
+	overflow: normal;
+	position: relative;
+	margin-left: 4px;
+	z-index: 100; */
+
+	background-color: #005B8D;
+	color: white;
+	font-weight: normal;
+}
+
+.rdeCompare .sapUiBtn.sapUiBtnS.sapUiBtnNorm.sapUiBtnEmph:hover {
+	background-color: #005787; /* darken 1.25% */
+	color: white;
+}
+
+.rdeCompare .sapUiBtn.sapUiBtnS.sapUiBtnNorm.sapUiBtnEmph:active {
+	background-color: #005380; /* darken 2.5% */
+	color: white;
+}
+
+.rdeCompare .sapUiBtnS.sapUiBtnNorm.sapUiBtnEmph {
+	/* color: #333;
+	font-weight: normal;
+	overflow: normal;
+	position: relative;
+	margin-left: 4px;
+	z-index: 100; */
+
+	background-color: #005B8D;
+	color: white;
+	font-weight: normal;
+}
+
+.rdeCompare .sapUiBtn.sapUiBtnS.sapUiBtnNorm.sapUiBtnEmph:focus,
+.rdeCompare .sapUiBtn.sapUiBtnS.sapUiBtnNorm.sapUiBtnEmph:hover {
+	background-color: #005B8D;
+}
+
+/*
+.sapUiBtnS.sapUiBtnNorm.sapUiBtnEmph:after {
+	background-color: transparent;
+	border: 1px solid #e5e5e5;
+	bottom: -4px;
+	content: "";
+	left: -3px;
+	padding: 1px;
+	position: absolute;
+	right: -3px;
+	top: -3px;
+	z-index: 10000;
+}
+*/
+
+
+
+.rdeCompare .sapUiBtnS.sapUiBtnNorm.sapUiBtnAccept.sapUiBtnStd,
+.rdeCompare .sapUiBtnS.sapUiBtnNorm.sapUiBtnAccept.sapUiBtnStd:focus,
+.rdeCompare .sapUiBtnS.sapUiBtnNorm.sapUiBtnAccept.sapUiBtnStd:hover,
+.rdeCompare .sapUiBtnS.sapUiBtnNorm.sapUiBtnAccept.sapUiBtnStd:active {
+	border-color: #333;
+
+}
+
+.rdeCompare .sapUiBtnS.sapUiBtnNorm.sapUiBtnReject.sapUiBtnStd,
+.rdeCompare .sapUiBtnS.sapUiBtnNorm.sapUiBtnReject.sapUiBtnStd:focus,
+.rdeCompare .sapUiBtnS.sapUiBtnNorm.sapUiBtnReject.sapUiBtnStd:hover,
+.rdeCompare .sapUiBtnS.sapUiBtnNorm.sapUiBtnReject.sapUiBtnStd:active {
+	border-color: #333;
+}
+
+.rdeCompare .sapUiBtnS.sapUiBtnNorm.sapUiBtnReject.sapUiBtnAct {
+	color: white;
+}
+
+.rdeCompare .sapUiBtnS.sapUiBtnNorm.sapUiBtnStd.sapUiToggleBtn.sapUiToggleBtnPressed {
+	background-color: #005B8D;
+}
+
+/* lite */
+
+.rdeCompare .sapUiBt.sapUiBtnS.sapUiBtnlite {
+    border: none;
+}
+
+
+.rdeCompare .sapUiBtn.sapUiBtnLite:hover {
+    background-color: rgba(0, 91, 141, 0.1);
+}
+
+.rdeCompare .sapUiBtn.sapUiBtnAct.sapUiBtnLite {
+    background-color: rgba(0, 91, 141, 1);
+    color: white;
+}
+
+
+/* new */
+
+.rdeCompare .sapUiBtn.sapUiToggleBtnPressed,
+.rdeCompare .sapUiBtnLite.sapUiToggleBtnPressed:hover {
+    color: rgb(171, 33, 142);
+}
+
+.rdeCompare .sapUiBtn.sapUiToggleBtn.sapUiBtnAct,
+.rdeCompare .sapUiBtn.sapUiToggleBtn.sapUiBtnAct {
+    background: rgba(0, 91, 141, 1);
+    color: white;
+} 
+
+
+.rdeCompare .sapUiBtn {
+    border: none;
+    margin: 0.25rem 0 0.25rem 0;
+}

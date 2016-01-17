@@ -1,0 +1,248 @@
+<core:View
+		xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+		xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core"
+		controllerName="sap.suite.ui.generic.template.ObjectPage.view.Details"
+		xmlns:uxap="sap.uxap" xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+		xmlns:sfi="sap.ui.comp.smartfield"
+        xmlns:build="sap.build">
+
+	<Page showHeader="false" showNavButton="false" showFooter="{ui>/editable}" class="sapSmartTemplatesObjectPage" build:metadata="#pattern:ObjectPage">
+		<content>
+			<uxap:ObjectPageLayout id="objectPage" enableLazyLoading="false" showHeaderContent="{= !${ui>/editable}}">
+				<uxap:headerTitle>
+					<uxap:ObjectPageHeader headerDesign="Dark"
+										   objectTitle="{path: 'meta>com.sap.vocabularies.UI.v1.HeaderInfo/Title/Value', formatter: 'sap.suite.ui.generic.template.js.AnnotationHelper.formatWithExpandSimple'}"
+										   objectSubtitle="{= ${meta>com.sap.vocabularies.UI.v1.HeaderInfo/Description/Value} ? ${path: 'meta>com.sap.vocabularies.UI.v1.HeaderInfo/Description/Value', formatter: 'sap.suite.ui.generic.template.js.AnnotationHelper.formatWithExpandSimple'} : ''}"
+										   objectImageURI="{= ${meta>com.sap.vocabularies.UI.v1.HeaderInfo/ImageUrl} ? ${path: 'meta>com.sap.vocabularies.UI.v1.HeaderInfo/ImageUrl', formatter: 'sap.suite.ui.generic.template.js.AnnotationHelper.formatWithExpandSimple'} : (${meta>com.sap.vocabularies.UI.v1.HeaderInfo/TypeImageUrl} ? ${path: 'meta>com.sap.vocabularies.UI.v1.HeaderInfo/TypeImageUrl', formatter: 'sap.suite.ui.generic.template.js.AnnotationHelper.formatWithExpandSimple'} : '') }"
+										   objectImageShape="Circle"
+										   showPlaceholder="false"
+										   markLocked="{= ${HasDraftEntity} &amp;&amp; ${IsActiveEntity}}"
+										   markLockedPress="onPressDraftInfo"
+                                           build:metadata="#pattern:Header;prop:objectTitle:Title;prop:objectSubtitle:Description;prop:imageSource:ImageSource:{path: 'meta>com.sap.vocabularies.UI.v1.HeaderInfo/ImageUrl', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}">
+
+						<uxap:actions>
+							<template:repeat list="{meta>com.sap.vocabularies.UI.v1.Identification}" var="dataField">
+								<template:if test="{= ${dataField>RecordType} === 'com.sap.vocabularies.UI.v1.DataFieldForAction' &amp;&amp; ${dataField>com.sap.vocabularies.UI.v1.Importance/EnumMember} === 'com.sap.vocabularies.UI.v1.ImportanceType/High' }">
+									<Button id="action::{path: 'dataField>', formatter: 'sap.suite.ui.generic.template.js.AnnotationHelper.getStableIdPartFromDataField'}"
+											text="{path: 'dataField>Label', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"
+											press="onCallAction" enabled="{ui>/enabled}" visible="{= !${ui>/editable}}"
+                                            build:metadata="#pattern:ActionButton;staticProp:text:Label;">
+										<customData>
+											<core:CustomData key="Type" value="{dataField>RecordType}"/>
+											<template:if test="{= ${dataField>SemanticObject}}">
+												<core:CustomData key="SemanticObject"
+																 value="{path: 'dataField>SemanticObject', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"/>
+											</template:if>
+											<core:CustomData key="Action"
+															 value="{path: 'dataField>Action', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"/>
+											<core:CustomData key="Label"
+															 value="{path: 'dataField>Label', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"/>
+										</customData>
+									</Button>
+								</template:if>
+							</template:repeat>
+
+							<template:if test="{= !${parameter>/isDraftEnabled} || ${entitySet>com.sap.vocabularies.Common.v1.DraftRoot}}">
+								<Button id="edit"
+										text="{i18n>EDIT}" type="Emphasized" enabled="{ui>/enabled}"
+										press="onEdit"
+										visible="{= !(${entitySet>Org.OData.Capabilities.V1.UpdateRestrictions/Updatable/Bool} === 'false') ? '{= !${ui>/editable}}' : 'false'}"/>
+							</template:if>
+
+							<template:if test="{= !${parameter>/isDraftEnabled} || ${entitySet>com.sap.vocabularies.Common.v1.DraftRoot}}">
+							    <Button id="delete"
+										text="{i18n>DELETE}" enabled="{ui>/enabled}"
+								    	press="onDelete"
+								    	visible="{= !(${entitySet>Org.OData.Capabilities.V1.DeleteRestrictions/Deletable/Bool} === 'false') ? '{= !${ui>/editable}}' : 'false' }">
+								    <customData>
+									    <core:CustomData value="Bottom"/>
+								    </customData>
+							    </Button>
+							</template:if>
+							<template:if test="{parameter>/settings/showRelatedApps}">
+								<Button id="relatedApps"
+										text="{i18n>RELATED_APPS}" press="onRelatedApps" visible="{admin>/HasShell}" />
+							</template:if>
+							<template:repeat list="{meta>com.sap.vocabularies.UI.v1.Identification}" var="dataField">
+								<template:if test="{= ${dataField>RecordType} === 'com.sap.vocabularies.UI.v1.DataFieldForAction' &amp;&amp; ${dataField>com.sap.vocabularies.UI.v1.Importance/EnumMember} !== 'com.sap.vocabularies.UI.v1.ImportanceType/High' }">
+									<Button id="action::{path: 'dataField>', formatter: 'sap.suite.ui.generic.template.js.AnnotationHelper.getStableIdPartFromDataField'}"
+											text="{path: 'dataField>Label', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"
+											press="onCallAction" enabled="{ui>/enabled}" visible="{= !${ui>/editable}}"
+											build:metadata="#pattern:ActionButton;staticProp:text:Label;condition:datafield>RecordType:com.sap.vocabularies.UI.v1.DataFieldForAction">
+										<customData>
+											<core:CustomData key="Type" value="{dataField>RecordType}"/>
+											<template:if test="{= ${dataField>SemanticObject}}">
+												<core:CustomData key="SemanticObject"
+																 value="{path: 'dataField>SemanticObject', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"/>
+											</template:if>
+											<core:CustomData key="Action"
+															 value="{path: 'dataField>Action', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"/>
+											<core:CustomData key="Label"
+															 value="{path: 'dataField>Label', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"/>
+										</customData>
+									</Button>
+								</template:if>
+							</template:repeat>
+						</uxap:actions>
+
+						<uxap:navigationBar>
+							<Bar>
+								<contentLeft>
+									<Button id="back" icon="sap-icon://nav-back" press="onBack" customData:popoverBelow="true"
+											tooltip="{i18n>BACK}"></Button>
+								</contentLeft>
+								<contentMiddle>
+									<Text id="objectTypeName" text="{path: 'meta>com.sap.vocabularies.UI.v1.HeaderInfo/TypeName', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"
+                                          build:metadata="#pattern:Header;prop:text:HeaderBarText"/>
+								</contentMiddle>
+							</Bar>
+						</uxap:navigationBar>
+					</uxap:ObjectPageHeader>
+				</uxap:headerTitle>
+				<uxap:headerContent>
+					<template:if test="{meta>com.sap.vocabularies.UI.v1.HeaderInfo/ImageUrl}" build:metadata="#ignore">
+						<template:then build:metadata="#ignore" >
+							<Image id="objectImage" src="{path: 'meta>com.sap.vocabularies.UI.v1.HeaderInfo/ImageUrl', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"
+								   class="sapSmartTemplatesObjectPageHeaderImage"
+								   build:metadata="#pattern:Header;prop:src:ImageSource"/>
+						</template:then>
+						<template:elseif test="{meta>com.sap.vocabularies.UI.v1.HeaderInfo/TypeImageUrl}">
+							<Image id="objectTypeImage" src="{path: 'meta>com.sap.vocabularies.UI.v1.HeaderInfo/TypeImageUrl', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"
+								   class="sapSmartTemplatesObjectPageHeaderImage"/>
+						</template:elseif>
+					</template:if>
+					<template:repeat
+							list="{path:'meta>', filters: {path: '@sapui.name', operator: 'StartsWith', value1: 'com.sap.vocabularies.UI.v1.DataPoint'}}"
+							var="dataPoint">
+						<l:VerticalLayout id="dataPoint::{path: 'dataPoint>', formatter: 'sap.suite.ui.generic.template.js.AnnotationHelper.getStableIdPartFromDataPoint'}"
+										  class="sapSmartTemplatesObjectPageDataPoint" build:metadata="#pattern:Header>>KPI;">
+							<Text id="dataPoint::{path: 'dataPoint>', formatter: 'sap.suite.ui.generic.template.js.AnnotationHelper.getStableIdPartFromDataPoint'}::Label"
+								  text="{path: 'dataPoint>Title', formatter: 'sap.suite.ui.generic.template.js.AnnotationHelper.formatWithExpandSimple'}"
+								  build:metadata="#pattern:Header>>KPI;staticProp:text:Title;condition:dataPoint>RecordType:com.sap.vocabularies.UI.v1.DataPoint"/>
+							<sfi:SmartField id="dataPoint::{path: 'dataPoint>', formatter: 'sap.suite.ui.generic.template.js.AnnotationHelper.getStableIdPartFromDataPoint'}::Value"
+											editable="false" uomEditable="false" enabled="true"
+											value="{parts: [{path: 'dataPoint>Value'}, {path: 'entitySet>'}], formatter: 'sap.suite.ui.generic.template.js.AnnotationHelper.formatWithExpand'}"
+											build:metadata="#pattern:Header>>KPI;prop:value:Value;prop:currency:Currency:{dataPoint>Value@@Org.OData.Measures.V1.ISOCurrency}"/>
+						</l:VerticalLayout>
+					</template:repeat>
+				</uxap:headerContent>
+				<uxap:sections>
+					<template:if test="{meta>com.sap.vocabularies.UI.v1.Facets}" build:metadata="#ignore">
+						<template:with path="parameter>/manifest/sap.ui5/extends/extensions/sap.ui.viewExtensions" var="manifestViewExtensions">
+							<template:with path="meta>com.sap.vocabularies.UI.v1.Facets" var="facets">
+								<template:repeat list="{facets>}" var="facet">
+									<template:if test="{= !(${facet>Target} &amp;&amp; ${facet>Target/AnnotationPath}.indexOf('com.sap.vocabularies.UI.v1.Contacts') >= 0) }">
+										<template:if
+											test="{parts: [{path: 'entitySet>name'}, {path: 'facet>'}, {path: 'manifestViewExtensions>'}], formatter: 'sap.suite.ui.generic.template.js.AnnotationHelper.extensionPointBeforeFacetExists'}"
+											build:metadata="#ignore">
+											<uxap:ObjectPageSection
+												title="{parts: [{path: 'entitySet>name'}, {path: 'facet>'}, {path: 'manifestViewExtensions>'}], formatter: 'sap.suite.ui.generic.template.js.AnnotationHelper.getExtensionPointBeforeFacetTitle'}"
+												visible="{= !${parameter>/isDraftEnabled} &amp;&amp; ${path: 'facet>Target/AnnotationPath', formatter: 'sap.suite.ui.generic.template.js.AnnotationHelper.isSelf'} === false ? '{= !${ui>/createMode} ? true : false }' : true}"
+												build:metadata="#pattern:Section;staticProp:title:Title">
+												<uxap:subSections>
+													<uxap:ObjectPageSubSection title=" ">
+														<core:ExtensionPoint name="BeforeFacet|{entitySet>name}|{path: 'facet>', formatter: 'sap.suite.ui.generic.template.js.AnnotationHelper.getStableIdPartFromFacet'}" />
+													</uxap:ObjectPageSubSection>
+												</uxap:subSections>
+											</uxap:ObjectPageSection>
+										</template:if>
+
+										<uxap:ObjectPageSection id="{path: 'facet>', formatter: 'sap.suite.ui.generic.template.js.AnnotationHelper.getStableIdPartFromFacet'}::Section"
+																title="{path: 'facet>Label', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"
+																visible="{= !${parameter>/isDraftEnabled} &amp;&amp; ${path: 'facet>Target/AnnotationPath', formatter: 'sap.suite.ui.generic.template.js.AnnotationHelper.isSelf'} === false ? '{= !${ui>/createMode} ? true : false }' : true}"
+																build:metadata="#pattern:Section;staticProp:title:Title">
+											<uxap:subSections>
+												<uxap:ObjectPageSubSection title=" ">
+													<core:ExtensionPoint name="ReplaceFacet|{entitySet>name}|{path: 'facet>', formatter: 'sap.suite.ui.generic.template.js.AnnotationHelper.getStableIdPartFromFacet'}">
+														<core:Fragment fragmentName="sap.suite.ui.generic.template.fragments.Facet" type="XML"/>
+													</core:ExtensionPoint>
+												</uxap:ObjectPageSubSection>
+											</uxap:subSections>
+										</uxap:ObjectPageSection>
+
+										<template:if
+											test="{parts: [{path: 'entitySet>name'}, {path: 'facet>'}, {path: 'manifestViewExtensions>'}], formatter: 'sap.suite.ui.generic.template.js.AnnotationHelper.extensionPointAfterFacetExists'}"
+											build:metadata="#ignore">
+											<uxap:ObjectPageSection
+												title="{parts: [{path: 'entitySet>name'}, {path: 'facet>'}, {path: 'manifestViewExtensions>'}], formatter: 'sap.suite.ui.generic.template.js.AnnotationHelper.getExtensionPointAfterFacetTitle'}"
+												visible="{= !${parameter>/isDraftEnabled} &amp;&amp; ${path: 'facet>Target/AnnotationPath', formatter: 'sap.suite.ui.generic.template.js.AnnotationHelper.isSelf'} === false ? '{= !${ui>/createMode} ? true : false }' : true}"
+												build:metadata="#pattern:Section;staticProp:title:Title">
+												<uxap:subSections>
+													<uxap:ObjectPageSubSection title=" ">
+														<core:ExtensionPoint name="AfterFacet|{entitySet>name}|{path: 'facet>', formatter: 'sap.suite.ui.generic.template.js.AnnotationHelper.getStableIdPartFromFacet'}" />
+													</uxap:ObjectPageSubSection>
+												</uxap:subSections>
+											</uxap:ObjectPageSection>
+										</template:if>
+									</template:if>
+								</template:repeat>
+							</template:with>
+						</template:with>
+					</template:if>
+				</uxap:sections>
+			</uxap:ObjectPageLayout>
+		</content>
+		<footer>
+			<Bar>
+				<contentLeft>
+					<Button id="showMessages"
+							text="{model: 'message', path : '/', formatter : '.showMessagesButtonText'}"
+							press="onShowMessages" type="Emphasized" icon="sap-icon://alert"
+							visible="{model: 'message', path : '/', formatter : '.showMessagesButton'}"/>
+					<Label id="draftStatus" text="{model: 'ui', path : '/draftStatus'}" class="sapSmartTemplatesObjectDraftStatus"/>
+				</contentLeft>
+				<contentRight>
+					<template:repeat list="{meta>com.sap.vocabularies.UI.v1.Identification}" var="dataField">
+						<template:if test="{= ${dataField>RecordType} === 'com.sap.vocabularies.UI.v1.DataFieldForAction'}">
+							<Button id="footerAction::{path: 'dataField>', formatter: 'sap.suite.ui.generic.template.js.AnnotationHelper.getStableIdPartFromDataField'}"
+									text="{path: 'dataField>Label', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"
+									press="onCallAction" enabled="{ui>/enabled}">
+								<customData>
+									<core:CustomData key="Type" value="{dataField>RecordType}"/>
+									<template:if test="{= ${dataField>SemanticObject}}">
+										<core:CustomData key="SemanticObject"
+														 value="{path: 'dataField>SemanticObject', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"/>
+									</template:if>
+									<core:CustomData key="Action"
+													 value="{path: 'dataField>Action', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"/>
+									<core:CustomData key="Label"
+													 value="{path: 'dataField>Label', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"/>
+								</customData>
+							</Button>
+						</template:if>
+					</template:repeat>
+					<template:if test="{entitySet>com.sap.vocabularies.Common.v1.DraftRoot}">
+						<template:then>
+							<Button id="activate"
+									text="{i18n>SAVE}" type="Emphasized"
+									enabled="{ui>/enabled}"
+									press="onActivate"
+									visible="{ui>/editable}"/>
+							<!--
+							<Button text="{i18n>CONTINUE_LATER}" press="onContinueLater" enabled="{ui>/enabled}"
+									visible="{ui>/editable}"/>
+							-->
+							<Button id="discard"
+									text="{i18n>CANCEL}" press="onDiscardDraft" enabled="{ui>/enabled}"
+									visible="{ui>/editable}"/>
+						</template:then>
+						<template:else>
+							<Button id="footerDelete"
+									text="{i18n>DELETE}" enabled="{ui>/enabled}"
+	    							press="onDelete"
+	    							visible="{= !(${entitySet>Org.OData.Capabilities.V1.DeleteRestrictions/Deletable/Bool} === 'false')}"/>
+	    				</template:else>
+					</template:if>
+					<template:if test="{= !${parameter>/isDraftEnabled}}">
+						<Button id="save"
+								text="{i18n>SAVE}" type="Emphasized" press="onSave"
+								visible="{ui>/editable}"/>
+						<Button id="cancel"
+								text="{i18n>CANCEL}" press="onCancel"
+								visible="{ui>/editable}"/>
+					</template:if>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</core:View>

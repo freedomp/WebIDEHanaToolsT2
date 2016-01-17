@@ -1,0 +1,69 @@
+{
+	"name": "sap.watt.ideplatform.mockdatamodeler",
+	"description": "The Mock Data Editor Plugin",
+	"i18n": "sap.watt.ideplatform.mockdatamodeler/i18n/i18n",
+	"requires": {
+		"services": [
+			"command",
+			"commandGroup",
+			"repositorybrowser",
+			"filesystem.documentProvider",
+			"selection",
+			"usernotification",
+			"odataProvider",
+			"beautifier",
+			"resource",
+			"setting.project",
+			"usagemonitoring"
+		]
+	},
+
+	"provides": {
+		"services": {
+			"mockdata": {
+				"implements": "sap.watt.common.plugin.mockdatamodeler.service.MockDataModeler",
+				"module": "sap.watt.ideplatform.mockdatamodeler/service/MockDataModeler"
+			}
+		},
+
+		"interfaces": {
+			"sap.watt.common.plugin.mockdatamodeler.service.MockDataModeler": "sap.watt.ideplatform.mockdatamodeler/service/MockDataModeler"
+		}
+	},
+
+	"configures": {
+		"services": {
+			"command:commands": [{
+				"id": "mockdatamodeler.editmockdata",
+				"service": "sap.watt.ideplatform.mockdatamodeler/command/EditMockData",
+				"label": "{i18n>COMMAND_EDITMOCKDATA}",
+				"type": "action",
+				"enabled": true
+			}],
+			"commandGroup:items": [{
+					"parent": "repositoryBrowserContextMenu",
+					"command": "mockdatamodeler.editmockdata",
+					"prio": "15"
+				}
+
+			],
+			"usagemonitoring:reportParams": [{
+				"components": ["mockDataEditor"],
+				"eventTypes": ["saved", "opened"]
+			}],
+			"mockdata:styles": [
+				 {
+				"uri": "sap.watt.ideplatform.mockdatamodeler/css/Controls-Table-Delta.css"
+			},{
+				"uri": "sap.watt.ideplatform.mockdatamodeler/css/Error-Message-Color.css"
+			}, {
+				"uri": "sap.watt.ideplatform.mockdatamodeler/css/Controls-Switch-Delta.css"
+			}, {
+				"uri": "sap.watt.ideplatform.mockdatamodeler/css/Controls-DatePicker-Delta.css"
+			}]
+		}
+	},
+
+	"subscribes": {}
+
+}

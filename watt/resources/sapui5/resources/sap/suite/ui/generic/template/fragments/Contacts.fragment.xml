@@ -1,0 +1,36 @@
+<core:FragmentDefinition xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+						 xmlns="sap.m" xmlns:build="sap.build" xmlns:core="sap.ui.core">
+	<template:with path="facet>Target" var="target">
+		<template:with path="target>"
+					   helper="sap.ui.model.odata.AnnotationHelper.resolvePath" var="contact">
+			<VBox>
+				<List id="{path: 'facet>', formatter: 'sap.suite.ui.generic.template.js.AnnotationHelper.getStableIdPartFromFacet'}::ContactsList"
+					  items="{path: 'target>', formatter: 'sap.ui.model.odata.AnnotationHelper.getNavigationPath'}"
+					  growing="true" growingThreshold="12" class="sapSmartTemplatesObjectPageContactsList">
+					<CustomListItem class="sapSmartTemplatesObjectPageContactsListItem">
+						<HBox>
+							<template:if test="{contact>photo}">
+								<template:then>
+									<Image src="{path: 'contact>photo', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"
+										   width="3rem" height="3rem" densityAware="false" class="sapUiSmallMarginTopBottom"/>
+								</template:then>
+								<template:else>
+									<core:Icon size="2rem"
+											   src="person-placeholder"
+											   class="sapUiSmallMarginTopBottom sapSmartTemplatesObjectPageContactsImage"/>
+								</template:else>
+							</template:if>
+							<VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
+								<Link text="{path: 'contact>fn', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"
+									  press="onContactDetails" class="sapSmartTemplatesObjectPageContactsListContactTitle"/>
+								<Text text="{path: 'contact>role', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"
+									  class="sapSmartTemplatesObjectPageContactsListContactSubTitle"/>
+							</VBox>
+						</HBox>
+					</CustomListItem>
+				</List>
+				<core:Fragment fragmentName="sap.suite.ui.generic.template.fragments.ContactDetails" type="XML"/>
+			</VBox>
+		</template:with>
+	</template:with>
+</core:FragmentDefinition>

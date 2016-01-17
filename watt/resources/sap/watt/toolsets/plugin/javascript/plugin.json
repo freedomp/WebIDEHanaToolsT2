@@ -1,0 +1,351 @@
+{
+	"name": "sap.watt.toolsets.javascript",
+	"description": "The Javascript services",
+	"i18n" : "sap.watt.toolsets.javascript/i18n/i18n",
+
+	"requires": {
+		"services": [
+			"command",
+			"commandGroup",
+			"selection",
+			"perspective",
+			"content",
+			"log",
+			"resource",
+			"document",
+			"outlinePane",
+			"focus",
+			"aceeditor",
+			"basevalidator",
+			"indexmanager",
+			"intellisence",
+			"intellisence.libmetadataprovider",
+			"filesystem.documentProvider",
+			"repositorybrowser",
+			"console",
+			"setting.project",
+			"projectsetting",
+			"beautifierProcessor",
+			"progress",
+			"usernotification",
+			"usagemonitoring"
+		]
+	},
+
+	"provides": {
+		"services" : {
+			"jsOutline" : {
+				"implements": "sap.watt.common.javascript.JSOutline",
+				"module" : "sap.watt.toolsets.javascript/service/JSOutline"
+			},
+			"jsASTManager" :{
+				"implements": "sap.watt.common.javascript.JSAstManager",
+				"module" : "sap.watt.toolsets.javascript/service/JSAstManager"
+			},
+			"jscodecompletion": {
+				"implements": "sap.watt.common.plugin.javascript.service.JSCodeCompletion",
+				"module": "sap.watt.toolsets.javascript/service/JSCodeCompletionImpl"
+			},
+			"jsapireference": {
+				"implements": "sap.watt.common.plugin.javascript.service.JSApiReference",
+				"module": "sap.watt.toolsets.javascript/service/JSApiReferenceImpl"
+			},
+			"jsValidator" :{
+				"implements": "sap.watt.common.javascript.JSValidator",
+				"module" : "sap.watt.toolsets.javascript/service/JSValidator"
+			},
+			"jsDisplayValidatorConfiguration" :{
+				"implements": "sap.watt.common.javascript.JSDisplayValidatorConfiguration",
+				"module" : "sap.watt.toolsets.javascript/service/JSDisplayValidatorConfiguration"
+			},
+			"jsdefinition" : {
+				"implements": "sap.watt.common.plugin.javascript.service.JSDefinition",
+				"module": "sap.watt.toolsets.javascript/service/JSDefinitionImpl"
+			},
+			"jsdocgen" : {
+				"implements": "sap.watt.common.plugin.javascript.service.JSDocGen",
+				"module": "sap.watt.toolsets.javascript/service/JSDocGenImpl"
+			},
+			"beautifier":{
+				"implements": "sap.watt.common.javascript.ExtendedBeautifier",
+				"module": "sap.watt.toolsets.javascript/service/JSBeautifierImpl"
+			},
+			"beautifier.config": {
+				"implements": "sap.watt.common.service.ui.Config",
+				"module" : "sap.watt.toolsets.javascript/service/Config"
+			}
+		},
+		"interfaces" : {
+			"sap.watt.common.javascript.JSOutline" : "sap.watt.toolsets.javascript/service/JSOutline",
+			"sap.watt.common.javascript.JSAstManager" : "sap.watt.toolsets.javascript/service/JSAstManager",
+			"sap.watt.common.plugin.javascript.service.JSCodeCompletion": "sap.watt.toolsets.javascript/service/JSCodeCompletion",
+			"sap.watt.common.plugin.javascript.service.JSApiReference": "sap.watt.toolsets.javascript/service/JSApiReference",
+			"sap.watt.common.javascript.JSValidator" : "sap.watt.toolsets.javascript/service/JSValidator",
+			"sap.watt.common.javascript.JSDisplayValidatorConfiguration" : "sap.watt.toolsets.javascript/service/JSDisplayValidatorConfiguration",
+			"sap.watt.common.plugin.javascript.service.JSDefinition": "sap.watt.toolsets.javascript/service/JSDefinition",
+			"sap.watt.common.plugin.javascript.service.JSDocGen": "sap.watt.toolsets.javascript/service/JSDocGen",
+			"sap.watt.common.javascript.ExtendedBeautifier" : "sap.watt.toolsets.javascript/service/ExtendedBeautifier"
+		}
+	},
+
+	"configures" : {
+		"services": {
+			"usagemonitoring:reportParams": [{
+				"components": ["editor"],
+				"eventTypes": ["navigate_definition", "get_outline_content"]
+			}],
+			"jsOutline:styles" : [
+				{
+					"uri" : "sap.watt.toolsets.javascript/css/jsoutline.css"
+				}
+			],
+			"outlinePane:outlines":[
+				{
+					"editor" :"sap.watt.common.plugin.aceeditor.service.Editor",
+					"service" : "@jsOutline"
+				}
+			],
+			"intellisence:libraries": [
+				{
+					"id": "js",
+					"name": "sapui5",
+					"version": "1.18.9",
+					"libIndexFile": "sap.watt.toolsets.javascript/service/indexFiles/ui5/1.18.9.zip",
+					"libTemplate": "sap.watt.toolsets.javascript/service/template/ui5/1.18.9.zip",
+					"help": "https://sapui5.hana.ondemand.com/sdk/#docs/api/symbols/",
+					"helpService": "@jsapireference"
+				},
+				{
+					"id": "js",
+					"name": "sapui5",
+					"version": "1.20.7",
+					"libIndexFile": "sap.watt.toolsets.javascript/service/indexFiles/ui5/1.20.7.zip",
+					"libTemplate": "sap.watt.toolsets.javascript/service/template/ui5/1.20.7.zip",
+					"help": "https://sapui5.hana.ondemand.com/sdk/#docs/api/symbols/",
+					"helpService": "@jsapireference"
+				},
+				{
+					"id": "js",
+					"name": "sapui5",
+					"version": "1.22.3",
+					"libIndexFile": "sap.watt.toolsets.javascript/service/indexFiles/ui5/1.22.3.zip",
+					"libTemplate": "sap.watt.toolsets.javascript/service/template/ui5/1.22.3.zip",
+					"help": "https://sapui5.hana.ondemand.com/sdk/#docs/api/symbols/",
+					"helpService": "@jsapireference"
+				},
+				{
+					"id": "js",
+					"name": "sapui5",
+					"version": "1.22.9",
+					"libIndexFile": "sap.watt.toolsets.javascript/service/indexFiles/ui5/1.22.9.zip",
+					"libTemplate": "sap.watt.toolsets.javascript/service/template/ui5/1.22.9.zip",
+					"help": "https://sapui5.hana.ondemand.com/sdk/#docs/api/symbols/",
+					"helpService": "@jsapireference"
+				},
+				{
+					"id": "js",
+					"name": "sapui5",
+					"version": "1.24.5",
+					"libIndexFile": "sap.watt.toolsets.javascript/service/indexFiles/ui5/1.24.5.zip",
+					"libTemplate": "sap.watt.toolsets.javascript/service/template/ui5/1.24.5.zip",
+					"help": "https://sapui5.hana.ondemand.com/sdk/#docs/api/symbols/",
+					"helpService": "@jsapireference"
+				},
+				{
+					"id": "js",
+					"name": "sapui5",
+					"version": "1.26.8",
+					"libIndexFile": "sap.watt.toolsets.javascript/service/indexFiles/ui5/1.26.8.zip",
+					"libTemplate": "sap.watt.toolsets.javascript/service/template/ui5/1.26.8.zip",
+					"help": "https://sapui5.hana.ondemand.com/sdk/#docs/api/symbols/",
+					"helpService": "@jsapireference"
+				},
+				{
+					"id": "js",
+					"name": "sapui5",
+					"version": "1.28.6",
+					"libIndexFile": "sap.watt.toolsets.javascript/service/indexFiles/ui5/1.28.6.zip",
+					"libTemplate": "sap.watt.toolsets.javascript/service/template/ui5/1.26.8.zip",
+					"help": "https://sapui5.hana.ondemand.com/sdk/#docs/api/symbols/",
+					"helpService": "@jsapireference"
+				},
+				{
+					"id": "js",
+					"name": "sapui5",
+					"version": "1.29.1",
+					"libIndexFile": "sap.watt.toolsets.javascript/service/indexFiles/ui5/1.29.1.zip",
+					"libTemplate": "sap.watt.toolsets.javascript/service/template/ui5/1.29.1.zip",
+					"help": "https://sapui5.hana.ondemand.com/sdk/#docs/api/symbols/",
+					"helpService": "@jsapireference"
+				},
+				{
+					"id": "js",
+					"name": "sapui5",
+					"version": "1.32.4",
+					"libIndexFile": "sap.watt.toolsets.javascript/service/indexFiles/ui5/1.32.4.zip",
+					"libTemplate": "sap.watt.toolsets.javascript/service/template/ui5/1.32.4.zip",
+					"help": "https://sapui5.hana.ondemand.com/sdk/#docs/api/symbols/",
+					"helpService": "@jsapireference"
+				}
+			],
+			"intellisence:codeCompletion":[
+				{
+					"fileExtension":"js",
+					"service":"@jscodecompletion"
+				}
+			],
+			"command:commands": [
+
+				{
+					"id" : "javascript.gotodefinition",
+					"label": "{i18n>command_gotodefinition}",
+					"service" : "sap.watt.toolsets.javascript/command/GotoDefinition",
+					"keyBinding":"mod+alt+g",
+					"type" : "action"
+				},
+				{
+					"id" : "javascript.jsdoccommentGenerator",
+					"label": "{i18n>jsdoc_comment_gen}",
+					"service" : "sap.watt.toolsets.javascript/command/JSDocCommentGenerator",
+					"type" : "action",
+					"keyBinding": "mod+alt+j"
+				}
+			],
+
+			"commandGroup:groups": [
+				{ "id" : "jsContextMenu"},
+				{ "id" : "jsGutterContextMenu"},
+				{ "id" : "jsCommentContextMenu"},
+				{ "id" : "jsGotoDefinition"}
+			],
+
+			"commandGroup:items" : [
+				{
+					"parent":"jsContextMenu",
+					"group":"commonContextMenu",
+					"type":"inline",
+					"prio" : 0
+				},
+				{
+					"parent":"jsContextMenu",
+					"group":"jsCommentContextMenu",
+					"type":"inline",
+					"prio" : 20
+				},
+
+				{
+					"parent":"jsContextMenu",
+					"group":"jsGotoDefinition",
+					"type":"inline",
+					"prio" : 40
+				},
+				{
+					"parent":"jsCommentContextMenu",
+					"command":"editor.linecomment",
+					"prio" : 20
+				},
+				{
+					"parent":"jsCommentContextMenu",
+					"command":"editor.blockcomment",
+					"prio" : 30
+				},
+				{
+					"parent":"jsCommentContextMenu",
+					"command":"editor.todo",
+					"prio" : 40
+				},
+				{
+					"parent":"jsCommentContextMenu",
+					"command":"javascript.jsdoccommentGenerator",
+					"prio" : 50
+				},
+				{
+					"parent":"edit.editor.comment",
+					"command":"javascript.jsdoccommentGenerator",
+					"prio" : 140
+				},
+				{
+					"parent":"jsGotoDefinition",
+					"command":"javascript.gotodefinition",
+					"prio" : 10
+				},
+				{
+					"parent":"edit.gotodefinition",
+					"command":"javascript.gotodefinition",
+					"prio" : 140
+				},
+				{
+					"parent":"jsGutterContextMenu",
+					"group":"commonGutterContextMenu",
+					"type":"inline",
+					"prio" : 0
+				}
+			],
+
+			"aceeditor:editorContextMenu":[
+				{
+					"extension" : "js",
+					"menuGroup" : "jsContextMenu"
+				}
+			],
+
+			"aceeditor:editorGutterContextMenu":[
+				{
+					"extension" : "js",
+					"menuGroup" : "jsGutterContextMenu"
+				}
+
+			],
+			"basevalidator:validator" : [
+				{
+					"validatorName":  "{i18n>Javascript_validator_combobox}",
+					"fileExtension": ["js", "xsjs", "xsjslib"],
+					"syncExec": false,
+					"service": "@jsValidator",
+					"displayConfigurationService" : "@jsDisplayValidatorConfiguration"
+				}
+			],
+
+			"beautifierProcessor:beautifier" : [
+				{
+					"service": "@beautifier",
+					"name": "{i18n>Javascript_beautify_title}",
+					"fileExtensions": ["js", "json", "xsjs", "xsjslib"]
+				}
+			],
+
+			"projectsetting:plugins" : [
+				{
+					"group" : "{i18n>beautify_title}",
+					"id": "beautifier",
+					"name" : "{i18n>Javascript_beautify_title}",
+					"title" : "{i18n>Javascript_beautify_title}",
+					"description" : "{i18n>beautify_description}",
+					"service": "@beautifier.config"
+				}
+			],
+
+			"intellisence.libmetadataprovider:packageSet" : [{
+				"id" : "sapui5",
+				"type" : "js",
+				"packages" : ["sap.ui.core", "sap.ui.commons", "sap.m", "sap.me", "sap.ui.layout", "sap.ui.unified", "sap.ushell",
+					"sap.ca.ui", "sap.viz", "sap.ui.comp", "sap.ui.table", "sap.ui.ux3", "sap.ui.richtexteditor", "sap.uxap",
+					"sap.suite.ui.commons"]
+			}],
+
+			"jsdefinition:supportedFileExtensions" : ["js"],
+			"jsOutline:supportedFileExtensions" : ["js"],
+			"indexmanager:summaryFromMetaProvider" : "@jscodecompletion"
+
+		}
+	},
+
+	"subscribes": {
+		"core:allPluginsStarted" : "jscodecompletion:onAllPluginsStarted",
+		"selection:changed" : "jsdefinition:onSelectionChanged",
+		"document:deleted" : "jscodecompletion:onDeleted",
+		"document:saved" : "jscodecompletion:onSaved",
+		"content:tabClosed" : "jscodecompletion:onTabClosed"
+	}
+
+}

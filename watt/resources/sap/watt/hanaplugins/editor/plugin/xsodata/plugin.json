@@ -1,0 +1,92 @@
+{
+    "name": "sap.watt.hana.editor.xsodata",
+    "description": "The XSOData Editor Plugin",
+    "module": "sap.watt.hana.editor.xsodata/Plugin",
+    "i18n" : "sap.watt.hana.editor.xsodata/i18n/i18n.hdbtextbundle",
+
+    "requires": {
+        "services": [
+            "log",          
+            "intellisence",
+            "basevalidator",
+            "snippet",
+            "aceeditor",
+            "selection"
+        ]
+    },
+
+    "provides": {
+		"services": {
+			"xsodatacodecompletion": {
+				"implements": "sap.watt.hana.editor.xsodata.service.XSODataCodeCompletion",
+				"module": "sap.watt.hana.editor.xsodata/service/codecompletion/XSODataCodeCompletion"
+			},
+			"xsodatavalidator": {
+				"implements": "sap.watt.hana.editor.xsodata.service.XSODataValidator",
+				"module": "sap.watt.hana.editor.xsodata/service/validator/XSODataValidator"
+			},
+			"xsodatasnippethandler": {
+				"implements": "sap.watt.hana.editor.xsodata.service.snippet.XSODataSnippetHandler",
+				"module": "sap.watt.hana.editor.xsodata/service/snippethandler/XSODataSnippetHandler"
+			}
+		},
+        "interfaces": {
+            "sap.watt.hana.editor.xsodata.service.XSODataCodeCompletion": "sap.watt.hana.editor.xsodata/service/codecompletion/XSODataCodeCompletion",
+            "sap.watt.hana.editor.xsodata.service.XSODataValidator": "sap.watt.hana.editor.xsodata/service/validator/XSODataValidator",
+            "sap.watt.hana.editor.xsodata.service.snippet.XSODataSnippetHandler": "sap.watt.hana.editor.xsodata/service/snippethandler/XSODataSnippetHandler"
+        }
+    },
+    
+    "configures": {
+    
+        "services": {
+            "aceeditor:modes": [
+                {
+                    "type": "xsodata",
+                    "description": "SAP HANA XSOdata service definition",
+                    "extension": "xsodata",
+                    "path": "sap.watt.hana.editor.xsodata/mode/mode-xsodata.js"
+                }
+            ],
+            "intellisence:codeCompletion":[
+                {
+                    "fileExtension":"xsodata",
+                    "service":"@xsodatacodecompletion"
+                }
+			],
+			"intellisence:categoryIcon": [
+				{
+					"type":"xsodatatype",
+					"path":"sap.watt.hana.editor.xsodata/image/type.png",
+					"pathSelected":"sap.watt.hana.editor.xsodata/image/type.png",
+					"isExternal": true
+				}
+			],
+            "basevalidator:validator" : [
+			 {
+				"validatorName":  "xsoadata validator",
+				"fileExtension": ["xsodata"],
+				"syncExec": false,
+				"service": "@xsodatavalidator"
+			 }],
+			 "snippet:snippets" : [
+			 {
+			 	"fileExtension" : "xsodata",
+			 	"snippets" : [
+				 	{
+					 	"id" : "xsodata",
+						"filePath" : "sap.watt.hana.editor.xsodata/snippet/xsodata.basictemplate.txt",
+						"title" : "{i18n>xsodataSnippet}",
+						"preSnippetInsertionHandler" : "@xsodatasnippethandler"
+					}
+				]
+			 }]
+        }
+
+    },
+
+    "subscribes": {    
+       "core:started": "initialize"
+    }
+
+}

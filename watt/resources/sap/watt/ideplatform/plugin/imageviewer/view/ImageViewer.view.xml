@@ -1,0 +1,13 @@
+<core:View height="100%"
+	width="100%" 
+	controllerName="sap.watt.ideplatform.plugin.imageviewer.view.ImageViewer"
+	xmlns:core="sap.ui.core"
+	xmlns:commons="sap.ui.commons"
+	xmlns:layout="sap.ui.commons.layout"
+	xmlns:ide="sap.watt.ideplatform.plugin.imageviewer.view" 
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	class="sapWattImageViewer">
+	<html:div class="sapWattImageViewerContainer">
+		<commons:Image id="ImageViewerImage" class="sapWattImageViewerImage"></commons:Image>
+	</html:div>	
+</core:View>

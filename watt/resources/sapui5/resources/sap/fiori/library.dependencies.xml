@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<library  version="2.0" name="sap.fiori">
+  <module name="sap/fiori/core-ext-dbg.js" size="137" compressedSize="115" excludeFromAllInOne="true" raw="true">
+  </module>
+  <module name="sap/fiori/core-ext-light-dbg.js" size="137" compressedSize="115" excludeFromAllInOne="true" raw="true">
+  </module>
+  <module name="sap/fiori/library.js" size="1293" compressedSize="637">
+    <description>Initialization Code and shared classes of library sap.fiori.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/ui/core/Core.js"/>
+      <module name="sap/ui/core/library.js"/>
+      <module name="jquery.sap.resources.js"/>
+    </requires>
+  </module>
+  <module name="sap/fiori/manifest.json" size="813">
+  </module>
+</library>

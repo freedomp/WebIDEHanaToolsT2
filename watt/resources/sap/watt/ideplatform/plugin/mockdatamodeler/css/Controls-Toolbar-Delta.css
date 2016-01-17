@@ -1,0 +1,93 @@
+.mockDataTable div.globalToolbar.sapUiTb[class*='sapUiTbDesign'] .sapUiTbCont {
+    background: #eeeeee;
+}
+
+/* resets */
+
+.mockDataTable div.sapUiTb[class*='sapUiTbDesign'],
+.mockDataTable div.sapUiTb[class*='sapUiTbDesign'] .sapUiTbContLeft.sapUiTbCont,
+.mockDataTable div.sapUiTb[class*='sapUiTbDesign'] .sapUiTbInnerRight {
+    /*height: 2rem !important;*/
+    padding: 0;
+}
+
+.mockDataTable  div.sapUiTb[class*='sapUiTbDesign'] .sapUiTbInner>*,.mockDataTable .sapUiTbInnerRight>* {
+    margin: 0;
+}
+
+.mockDataTable div.sapUiTb[class*='sapUiTbDesign'] .sapUiTbInner button,
+.mockDataTable div.sapUiTb[class*='sapUiTbDesign'] .sapUiTbInnerRight button {
+    background-color: transparent;
+    color: black;
+    cursor: pointer;
+    height: 1.5rem;
+    padding: 0;
+    width: auto;
+    padding: 0 0.5rem;
+    position: relative;
+}
+
+.mockDataTable div.sapUiTb[class*='sapUiTbDesign'] .sapUiTbInner .sapUiBtnLite:hover,
+.mockDataTable div.sapUiTb[class*='sapUiTbDesign'] .sapUiTbInnerRight .sapUiBtnLite:hover {
+    background-color: rgba(0, 91, 141, 0.1);
+    color: black;
+}
+
+.mockDataTable div.sapUiTb[class*='sapUiTbDesign'] .sapUiBtn.sapUiToggleBtnPressed,
+.mockDataTable div.sapUiTb[class*='sapUiTbDesign'] .sapUiBtnLite.sapUiToggleBtnPressed:hover {
+    color: rgb(171, 33, 142);
+}
+
+.mockDataTable div.sapUiTb[class*='sapUiTbDesign'] .sapUiTbCont .sapUiBtn.sapUiBtnAct,
+.mockDataTable div.sapUiTb[class*='sapUiTbDesign'] .sapUiTbInnerRight .sapUiBtn.sapUiBtnAct {
+    background: rgba(0, 91, 141, 1);
+    color: white;
+} 
+
+.mockDataTable div.sapUiTb[class*='sapUiTbDesign'] .sapUiTbInnerRight {
+    padding: 0;
+}
+
+/* small */
+
+.mockDataTable .sapUiTb.flatControlSmall .sapUiTbCont.sapUiTbContLeft,
+.mockDataTable .sapUiTb.flatControlSmall .sapUiTbInnerRight {
+    height: 1.5rem;
+}
+
+.mockDataTable .sapUiTb.flatControlSmall .sapUiTbCont.sapUiTbContLeft .sapUiBtn,
+.mockDataTable .sapUiTb.flatControlSmall .sapUiTbInnerRight .sapUiBtn {
+    height: 1.5rem;
+    font-size: 0.75rem;
+}
+
+/* pverflow */
+
+.mockDataTable .sapUiTbOB {
+    background-image: none;
+    height: 1.5rem;
+    width: 1.5rem;
+    right: -1rem;
+    border-radius: 50%;
+    border: 1px solid #666;
+    box-sizing: border-box;
+    top: 4px;
+}
+
+.mockDataTable .sapUiTbOB:after {
+    background-image: none;
+    height: 1rem;
+    width: 1rem;
+    right: -8px;
+    border: 1px solid #666;
+    box-sizing: border-box;
+    top: 8px;
+    text-align: center;
+    line-height: 0.75rem;
+    font-weight: bold;
+}
+
+
+.mockDataTable .sapUiTableTbr{
+	height: 1.5rem;
+}

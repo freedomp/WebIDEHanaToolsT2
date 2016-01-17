@@ -1,0 +1,25 @@
+<core:View class="wattContentView" controllerName="sap.watt.platform.plugin.content.view.Content" 
+			xmlns="sap.watt.platform.plugin.content.control"
+			xmlns:core="sap.ui.core"
+			xmlns:commons="sap.ui.commons"
+			xmlns:layout="sap.ui.layout"
+			xmlns:html="http://www.w3.org/1999/xhtml">
+
+	<html:span class="wattTabStrip">
+		<NavigationBar 
+			id="tabStripNavBar" 
+			class="tabStripNavBar"
+			tabSelect="onTabSelected" 
+			tabClose="onTabClose" 
+			beforeTabClose="onBeforeTabClose" 
+			tabContextMenu="onTabContextMenu" 
+			tabDoubleClicked="onTabDoubleClicked"
+		>
+		</NavigationBar>
+	</html:span>
+	<html:div id="editorArea" class="wattEditorArea">
+		<html:div id="wattContentInitialArea" class="wattContentInitialArea">
+		</html:div>
+	</html:div>
+
+</core:View>

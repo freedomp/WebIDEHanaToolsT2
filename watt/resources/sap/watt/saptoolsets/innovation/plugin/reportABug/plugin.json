@@ -1,0 +1,54 @@
+{
+	"name": "sap.watt.saptoolsets.innovation.reportABug",
+	"description": "The Report a Bug Plugin",
+	"i18n" : "sap.watt.saptoolsets.innovation.reportABug/i18n/i18n",
+
+	"provides" : {
+		"services": {
+			"reportABugMenuItem" : {
+				"implements": "sap.watt.common.service.ui.Feedback",
+				"module": "sap.watt.saptoolsets.innovation.reportABug/service/ReportABugMenuItem"
+			},
+			"reportABug" : {
+				"implements": "sap.watt.saptoolsets.innovation.reportABug.service.ReportABug",
+				"module": "sap.watt.saptoolsets.innovation.reportABug/service/ReportABug"
+			}
+		},
+
+		"interfaces": {
+			"sap.watt.saptoolsets.innovation.reportABug.service.ReportABug": "sap.watt.saptoolsets.innovation.reportABug/service/ReportABug"
+		}
+	},
+
+	"requires": {
+		"services": [
+			"toprightpane",
+			"resource",
+			"command",
+			"commandGroup",
+			"usernotification",
+			"log",
+			"system"
+		]
+	},
+	
+	"configures": {
+	
+		"services": {
+			"reportABugMenuItem:styles" : [
+				{
+					"uri" : "sap.watt.saptoolsets.innovation.reportABug/css/report.css"
+				}
+			],
+			"toprightpane:items": [
+			    {
+                    "service" : "@reportABugMenuItem",
+                    "prio" : "20"
+				}
+			]
+		}
+	},
+	"subscribes": {
+		"core:allPluginsStarted": "reportABug:initPlugin"
+	}
+}

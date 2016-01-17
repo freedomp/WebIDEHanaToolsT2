@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<library xmlns="http://www.sap.com/sap.ui.library.xsd">
+    <name>{{reuselibrary.LibraryNamespace}}</name>
+    <vendor>SAP SE</vendor>
+    <version>${version}</version>
+    <copyright>${copyright}</copyright>
+    <title>>\{{title}}</title>
+    <documentation>{{reuselibrary.parameters.LibraryDescription.value}}</documentation>
+	<appData>
+	    <manifest xmlns="http://www.sap.com/ui5/buildext/manifest" >
+	        <i18n> messagebundle.properties</i18n>
+	        <offline>false</offline>
+	        <deviceTypes desktop="true" phone="true" tablet="true" />
+	        <supportedTheme>sap_hcb</supportedTheme>
+	        <supportedTheme>sap_bluecrystal</supportedTheme>
+	        {{#if isTheme}}
+	        	<contentDensities cozy="{{reuselibrary.parameters.ContentDensitiesCozy.value.value}}" compact="{{reuselibrary.parameters.ContentDensitiesCompact.value.value}}" />
+	        {{/if}}
+	        <sap.fiori>
+	            <registrationId>{{reuselibrary.parameters.SapFioriRegistrationID.value}}</registrationId>
+	            <archeType>reusecomponent</archeType>
+	        </sap.fiori>
+	        <sap.platform.abap>
+	            <uri>{{reuselibrary.SapPlatfromAbapURI}}</uri>
+	        </sap.platform.abap>
+	        <sap.platform.hcp>
+	            <uri></uri>
+	        </sap.platform.hcp>
+	    </manifest>
+	    <ownership xmlns="http://www.sap.com/ui5/buildext/ownership">
+	        <component>{{reuselibrary.parameters.ApplicationComponentHierarchy.value}}</component>
+	    </ownership>
+  </appData>
+
+	<dependencies>
+		<dependency>
+			<libraryName>sap.ui.core</libraryName>
+		</dependency>
+	</dependencies>
+</library>

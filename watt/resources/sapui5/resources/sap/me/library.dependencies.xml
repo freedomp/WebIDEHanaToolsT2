@@ -1,0 +1,112 @@
+<?xml version="1.0" ?>
+<library  version="2.0" name="sap.me">
+  <module name="sap/me/Calendar.js" size="26313" compressedSize="12497">
+    <description>Provides control sap.me.Calendar.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/me/CalendarDate.js"/>
+      <module name="sap/me/library.js"/>
+      <module name="sap/ui/core/Control.js"/>
+      <module name="sap/ui/core/LocaleData.js"/>
+      <module name="sap/ui/core/IconPool.js"/>
+      <module name="sap/ui/core/date/UniversalDate.js"/>
+    </requires>
+  </module>
+  <module name="sap/me/CalendarDate.js" size="8151" compressedSize="2421">
+    <description>! SAP UI development toolkit for HTML5 (SAPUI5)&#xA;&#xA;        (c) Copyright 2009-2015 SAP SE. All rights reserved</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/ui/core/date/UniversalDate.js"/>
+    </requires>
+  </module>
+  <module name="sap/me/CalendarLegend.js" size="8241" compressedSize="4764">
+    <description>Provides control sap.me.CalendarLegend.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/me/library.js"/>
+      <module name="sap/ui/core/Control.js"/>
+      <module name="sap/ui/core/IconPool.js"/>
+      <module name="sap/ui/core/theming/Parameters.js"/>
+    </requires>
+  </module>
+  <module name="sap/me/CalendarLegendRenderer.js" size="2916" compressedSize="1473">
+    <description>! SAP UI development toolkit for HTML5 (SAPUI5)&#xA;&#xA;        (c) Copyright 2009-2015 SAP SE. All rights reserved</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/me/CalendarRenderer.js" size="11967" compressedSize="4192">
+    <description>! SAP UI development toolkit for HTML5 (SAPUI5)&#xA;&#xA;        (c) Copyright 2009-2015 SAP SE. All rights reserved</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/me/CalendarDate.js"/>
+      <module name="sap/ui/core/LocaleData.js"/>
+      <module name="sap/ui/core/format/DateFormat.js"/>
+      <module name="sap/ui/core/date/UniversalDate.js"/>
+    </requires>
+  </module>
+  <module name="sap/me/OverlapCalendar.js" size="22002" compressedSize="9794">
+    <description>Provides control sap.me.OverlapCalendar.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/me/Calendar.js"/>
+      <module name="sap/me/library.js"/>
+      <module name="sap/ui/core/Control.js"/>
+      <module name="sap/ui/core/theming/Parameters.js"/>
+    </requires>
+  </module>
+  <module name="sap/me/OverlapCalendarEvent.js" size="2341" compressedSize="925">
+    <description>Provides control sap.me.OverlapCalendarEvent.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/me/library.js"/>
+      <module name="sap/ui/core/Element.js"/>
+    </requires>
+  </module>
+  <module name="sap/me/OverlapCalendarRenderer.js" size="4182" compressedSize="2240">
+    <description>! SAP UI development toolkit for HTML5 (SAPUI5)&#xA;&#xA;        (c) Copyright 2009-2015 SAP SE. All rights reserved</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/me/ProgressIndicator.js" size="7025" compressedSize="3096">
+    <description>Provides control sap.me.ProgressIndicator.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/me/library.js"/>
+      <module name="sap/ui/core/Control.js"/>
+    </requires>
+  </module>
+  <module name="sap/me/ProgressIndicatorRenderer.js" size="4144" compressedSize="2079">
+    <description>Provides default renderer for control sap.ui.commons.ProgressIndicator</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/me/TabContainer.js" size="8822" compressedSize="5051">
+    <description>Provides control sap.me.TabContainer.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/me/library.js"/>
+      <module name="sap/ui/core/Control.js"/>
+      <module name="sap/ui/core/IconPool.js"/>
+      <module name="sap/ui/core/theming/Parameters.js"/>
+    </requires>
+  </module>
+  <module name="sap/me/TabContainerRenderer.js" size="3518" compressedSize="1885">
+    <description>! SAP UI development toolkit for HTML5 (SAPUI5)&#xA;&#xA;        (c) Copyright 2009-2015 SAP SE. All rights reserved</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+    </requires>
+  </module>
+  <module name="sap/me/library.js" size="2931" compressedSize="880">
+    <description>Initialization Code and shared classes of library sap.me.</description>
+    <requires>
+      <module name="jquery.sap.global.js"/>
+      <module name="sap/ui/core/Core.js"/>
+      <module name="sap/ui/core/library.js"/>
+    </requires>
+  </module>
+  <module name="sap/me/manifest.json" size="811">
+  </module>
+</library>

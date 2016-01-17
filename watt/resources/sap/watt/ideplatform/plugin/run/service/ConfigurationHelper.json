@@ -1,0 +1,8 @@
+{
+    "name": "sap.watt.common.plugin.run.service.configurationhelper",
+    "methods" : {
+    	"getAllPersistedConfigurations" : {},
+    	"createConfiguration" : {},
+        "writeConfigurationsToFile" : {}
+    }
+}

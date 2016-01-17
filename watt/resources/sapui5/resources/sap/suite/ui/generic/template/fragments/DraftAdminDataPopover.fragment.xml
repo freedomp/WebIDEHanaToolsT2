@@ -1,0 +1,40 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:sfi="sap.ui.comp.smartfield">
+	<!--Popover class="sapUiContentPadding" showHeader="true" title="{i18n>LOCKED_OBJECT_POPOVER_TITLE}"-->
+	<Popover title="{parts: [{path: 'admin>/IsActiveEntity'}, {path: 'admin>/HasDraftEntity'}, {path : 'InProcessByUser'}], formatter: '.formatDraftLockText' }"
+			 showHeader="true"
+			 contentWidth="15.625rem"
+			 class="sapSmartTemplatesListReportPopover sapUiContentPadding">
+		<endButton>
+				<Button icon="sap-icon://decline" press="closeDraftAdminPopover" />
+		</endButton>
+
+		<VBox class="sapUiContentPadding">
+			<VBox visible="{= !${admin>/IsActiveEntity} === true &amp;&amp; !${LastChangeDateTime}}">
+				<Text text="{i18n>LOCKED_OBJECT_POPOVER_NO_DATA_TEXT}"></Text>
+			</VBox>
+
+			<VBox visible="{= ${admin>/IsActiveEntity} === true  &amp;&amp; ${InProcessByUser} === ''}">
+				<Text text="{parts: [{path: 'i18n>UNSAVED_OBJECT_POPOVER_TEXT'},
+										{path: 'LastChangedByUser'},
+										{path: 'LastChangeDateTime', type: 'sap.ui.model.type.DateTime'},
+										{path: 'i18n>LOCKED_OBJECT_POPOVER_NO_DATA_TEXT'}], formatter:'.formatText'}">
+				</Text>
+				<VBox visible="{= !!${LastChangeDateTime}}" class="sapUiSmallMarginTop"></VBox>
+			</VBox>
+
+			<VBox visible="{= ${admin>/IsActiveEntity} === true  &amp;&amp; !!${InProcessByUser}}">
+				<Text text="{parts: [{path: 'i18n>LOCKED_OBJECT_POPOVER_TEXT'},
+										{path: 'InProcessByUser'},
+										{path: 'LastChangeDateTime', type: 'sap.ui.model.type.DateTime'},
+										{path: 'i18n>LOCKED_OBJECT_POPOVER_NO_DATA_TEXT'}], formatter:'.formatText'}">
+				</Text>
+				<VBox visible="{= !!${LastChangeDateTime}}" class="sapUiSmallMarginTop"></VBox>
+			</VBox>
+			<Text visible="{= !!${LastChangeDateTime}}"
+				  text="{parts: [{path: 'i18n>LOCKED_OBJECT_POPOVER_CHANGED_AT'},
+				  				 {path: 'LastChangeDateTime', type: 'sap.ui.model.type.DateTime'}], formatter:'.formatText'}">
+			</Text>
+		</VBox>
+	</Popover>
+</core:FragmentDefinition>

@@ -1,0 +1,9 @@
+
+/* ============================================= */
+/* CSS for control sap.ui.comp/SmartFilterBar.control */
+/* ============================================= */
+
+.sapUiCompSmartFilterBar{
+  color: @sapUiTextColor;
+  border: 1px solid blue;
+}

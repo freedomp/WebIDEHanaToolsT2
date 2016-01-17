@@ -1,0 +1,176 @@
+{
+  "name": "sap.xs.nodejs.debug",
+  "module": "sap.xs.nodejs.debug/Plugin",
+  "description": "Node.js Debugger",
+  "i18n": "sap.xs.nodejs.debug/i18n/i18n",
+  "version": "0.6.0-SNAPSHOT",
+  "scm-revision": "51fca7e06a400bbbd9207d20c9b35da441426560",
+
+  "requires": {
+    "services": [
+      "log",
+      "command",
+      "commandGroup",
+      "contextMenu",
+      "perspective",
+      "selection",
+      "content",
+      "resource",
+      "aceeditor",
+      "document",
+      "editor",
+      "nodejsLauncher",
+      "nodeJsBase",
+      "messageBus",
+      "progress",
+      "usernotification",
+			"preferences"
+    ]
+  },
+  "provides": {
+    "services": {
+      "nodeJsDebug": {
+        "implements": "sap.xs.nodejs.debug.NodeJsDebugPart",
+        "module": "sap.xs.nodejs.debug/service/NodeJsDebugPart"
+      },
+      "nodeJsDebugProcessor": {
+        "implements": "sap.xs.nodejs.debug.DebugProcessor",
+        "module": "sap.xs.nodejs.debug/service/NodeJsDebugProcessor"
+      }
+    },
+    "interfaces": {
+      "sap.xs.nodejs.debug.NodeJsDebugPart": "sap.xs.nodejs.debug/service/NodeJsDebugPart",
+      "sap.xs.nodejs.debug.DebugProcessor": "sap.xs.nodejs.debug/service/DebugProcessor"
+    }
+  },
+  "configures": {
+    "services": {
+      "nodeJsDebug:styles": [{
+        "uri": "sap.xs.nodejs.debug/css/nodeJsDebug.css"
+      }],
+      "command:commands": [{
+        "id": "sap.xs.nodejs.debug.toggle",
+        "label": "{i18n>command_debugNodeJs_xmit}",
+        "keyBinding": "mod+shift+o",
+        "service": {
+          "implements": "sap.watt.common.service.ide.AbstractUIPartToggler",
+          "module": "sap.watt.common.perspective/command/AbstractUIPartToggler",
+          "configuration": {
+            "id": "sap.xs.nodejs.debug.toggle",
+            "service": "@nodeJsDebug",
+            "perspective": "development"
+          }
+        },
+        "icon": "sap-icon://debug/debugger",
+        "available": true,
+        "type": "boolean",
+        "value": false
+      }, {
+        "id": "sap.xs.nodejs.debug.suspend",
+        "label": "{i18n>command_suspend_xmit}",
+        "type": "action",
+        "icon": "sap-icon://debug/suspend",
+        "service": "sap.xs.nodejs.debug/command/Suspend",
+        "keyBinding": "f8"
+      }, {
+        "id": "sap.xs.nodejs.debug.resume",
+        "label": "{i18n>command_resume_xmit}",
+        "type": "action",
+        "icon": "sap-icon://debug/resume",
+        "service": "sap.xs.nodejs.debug/command/Resume",
+        "keyBinding": "f8"
+      }, {
+        "id": "sap.xs.nodejs.debug.stepOver",
+        "label": "{i18n>command_stepOver_xmit}",
+        "type": "action",
+        "icon": "sap-icon://debug/stepover",
+        "available": true,
+        "service": "sap.xs.nodejs.debug/command/StepOver",
+        "keyBinding": "f10"
+      }, {
+        "id": "sap.xs.nodejs.debug.stepInto",
+        "label": "{i18n>command_stepInto_xmit}",
+        "type": "action",
+        "icon": "sap-icon://debug/stepinto",
+        "available": true,
+        "service": "sap.xs.nodejs.debug/command/StepInto",
+        "keyBinding": "f11"
+      }, {
+        "id": "sap.xs.nodejs.debug.stepOut",
+        "label": "{i18n>command_stepOut_xmit}",
+        "type": "action",
+        "icon": "sap-icon://debug/stepout",
+        "available": true,
+        "service": "sap.xs.nodejs.debug/command/StepOut",
+        "keyBinding": "shift+f11"
+      }, {
+        "id": "sap.xs.nodejs.debug.breakpoint.open",
+        "label": "Open",
+        "type": "action",
+        "available": true,
+        "service": "sap.xs.nodejs.debug/command/breakpoint/Open"
+      }],
+      "commandGroup:groups": [{
+        "id": "run.debug",
+        "label": "{i18n>command_debugNodeJs_xmit}"
+      }, {
+        "id": "sap.xs.nodejs.debug.breakpoint"
+      }],
+
+      "commandGroup:items": [{
+        "parent": "view.otherPanes",
+        "type": "action",
+        "command": "sap.xs.nodejs.debug.toggle",
+        "prio": 100
+      }, {
+        "parent": "applicationRightSidebar",
+        "command": "sap.xs.nodejs.debug.toggle",
+        "prio": 100
+      }, {
+        "parent": "run",
+        "type": "menu",
+        "group": "run.debug",
+        "prio": 10
+      }, {
+        "parent": "run.debug",
+        "command": "sap.xs.nodejs.debug.suspend",
+        "prio": 10
+      }, {
+        "parent": "run.debug",
+        "command": "sap.xs.nodejs.debug.resume",
+        "prio": 10
+      }, {
+        "parent": "run.debug",
+        "command": "sap.xs.nodejs.debug.stepOver",
+        "prio": 20
+      }, {
+        "parent": "run.debug",
+        "command": "sap.xs.nodejs.debug.stepInto",
+        "prio": 30
+      }, {
+        "parent": "run.debug",
+        "command": "sap.xs.nodejs.debug.stepOut",
+        "prio": 40
+      }, {
+        "parent": "sap.xs.nodejs.debug.breakpoint",
+        "command": "sap.xs.nodejs.debug.breakpoint.open",
+        "prio": 10
+      }],
+
+      "perspective:views": [{
+        "id": "nodeJsDebug",
+        "service": "@nodeJsDebug",
+        "area": "right",
+        "visible": "false",
+        "cssclass": "nodeJsDebugView"
+      }]
+    }
+  },
+
+  "subscribes": {
+    "core:started": "initialize",
+    "aceeditor:rendered": "nodeJsDebug:_onEditorRendered",
+    "content:tabClosed": "nodeJsDebug:_onTabClosed",
+    "selection:changed": "nodeJsDebug:_onSetSelection"
+  }
+}

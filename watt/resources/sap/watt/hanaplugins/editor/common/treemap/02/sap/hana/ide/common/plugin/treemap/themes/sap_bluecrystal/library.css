@@ -1,0 +1,14 @@
+.webuiMapping .sapUiTableTr>td{
+	/*border-bottom: none;*/
+	
+}
+
+.webuiMapping .webuiGraphicalArea .sapUiBorderLayoutCenter{
+	border : none;
+}
+
+/*
+.webuiMapping .sapUiTableCtrl tr.rowSelected>td, .webuiMapping .sapUiTableCtrl tr.rowSelected>td:hover{
+	background-color: pink;
+}
+*/

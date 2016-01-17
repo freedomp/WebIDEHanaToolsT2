@@ -1,0 +1,35 @@
+{
+	"name": "fiorixmlanalysis",
+	"description": "",
+	"i18n" : "fiorixmlanalysis/i18n/i18n",
+
+	"requires": {
+		"services": [
+			"basevalidator",
+			"document",
+			"projectmetadata",
+			"librarymetadata"
+		]
+	},
+	"provides": {
+		"services" : {
+			"fioriXmlAnalysis" :{
+				"implements": "sap.watt.common.service.editor.Validator",
+				"module" : "fiorixmlanalysis/service/XmlAnalysis"
+			}
+		}
+	},
+	"configures": {
+		"services": {
+			"basevalidator:validator" : [
+				{
+					"validatorName": "{i18n>label.validator.name}",
+					"fileExtension": ["xml"],
+					"syncExec": true,
+					"service": "@fioriXmlAnalysis"
+				}
+			]
+		}
+	},
+	"subscribes": {}
+}

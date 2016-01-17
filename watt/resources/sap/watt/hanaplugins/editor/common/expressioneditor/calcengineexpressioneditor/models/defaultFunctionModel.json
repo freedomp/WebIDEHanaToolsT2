@@ -1,0 +1,351 @@
+{
+    "functions": {
+        "label": "Functions",
+        "data": [{
+            "id": "ConversionFunctions",
+            "label": "Conversion Functions",
+            "children": [{
+                "id": "int",
+                "label": "int()",
+                "valuehelp": "int(arg)",
+                "nodetype" : "function"
+            }, {
+                "id": "float",
+                "label": "float()",
+                "valuehelp": "float(arg)",
+                "nodetype" : "function"
+            },
+            {
+                "id": "sdfloat",
+                "label": "sdfloat()",
+                "valuehelp": "sdfloat(arg)",
+                "nodetype" : "function"
+            },
+            {
+                "id": "decfloat",
+                "label": "decfloat()",
+                "valuehelp": "decfloat(arg)",
+                "nodetype" : "function"
+            },
+            {
+                "id": "double",
+                "label": "double()",
+                "valuehelp": "float(arg)",
+                "nodetype" : "function"
+            }, {
+                "id": "fixed",
+                "label": "fixed()",
+                "valuehelp": "fixed(arg, int, int)",
+                "nodetype" : "function"
+            },
+            {
+                "id": "string",
+                "label": "string()",
+                "valuehelp": "string(arg)",
+                "nodetype" : "function"
+            },
+            {
+                "id": "raw",
+                "label": "raw()",
+                "valuehelp": "raw(arg)",
+                "nodetype" : "function"
+            },
+            {
+                "id": "date",
+                "label": "date()",
+                "valuehelp": "date(string)",
+                "nodetype" : "function"
+            },
+            {
+                "id": "longdate",
+                "label": "longdate()",
+                "valuehelp": "longdate(string)",
+                "nodetype" : "function"
+            },
+            {
+                "id": "daydate",
+                "label": "daydate()",
+                "valuehelp": "daydate(string)",
+                "nodetype" : "function"
+            },
+            {
+                "id": "time",
+                "label": "time()",
+                "valuehelp": "time(string)",
+                "nodetype" : "function"
+            },
+            {
+                "id": "secondtime",
+                "label": "secondtime()",
+                "valuehelp": "secondtime(string)",
+                "nodetype" : "function"
+            },
+             {
+                "id": "seconddate",
+                "label": "seconddate()",
+                "valuehelp": "seconddate(string)",
+                "nodetype" : "function"
+            },
+            {
+                "id": "lob",
+                "label": "lob()",
+                "valuehelp": "lob(string)",
+                "nodetype" : "function"
+            },
+            {
+                "id": "format",
+                "label": "format()",
+                "valuehelp": "format(dateTimeString,stringFormatInfo)",
+                "nodetype" : "function"
+            }
+            ]
+        }, {
+            "id": "StringFunctions",
+            "label": "String Functions",
+            "children": [{
+                "id": "strlen",
+                "label": "strlen()",
+                "valuehelp": "strlen(string)",
+                "nodetype" : "function"
+            }, {
+                "id": "midstr",
+                "label": "midstr()",
+                 "valuehelp": "midstr(string, int)",
+                 "nodetype" : "function"
+            }, {
+                "id": "leftstr",
+                "label": "leftstr()",
+                "valuehelp": "leftstr(string, int)",
+                "nodetype" : "function"
+            }, {
+                "id": "rightstr",
+                "label": "rightstr()",
+                "valuehelp": "rightstr(string, int)",
+                "nodetype" : "function"
+            }, {
+                "id": "instr",
+                "label": "instr()",
+                "valuehelp": "instr(string, string)",
+                "nodetype" : "function"
+            }, {
+                "id": "hextoraw",
+                "label": "hextoraw()",
+                "valuehelp": "hextoraw(string)",
+                "nodetype" : "function"
+            }, {
+                "id": "rawtohex",
+                "label": "rawtohex()",
+                "valuehelp": "rawtohex(string)",
+                "nodetype" : "function"
+            }, {
+                "id": "ltrim",
+                "label": "ltrim()",
+                "valuehelp": "ltrim(string)",
+                "nodetype" : "function"
+            }, {
+                "id": "rtrim",
+                "label": "rtrim()",
+                "valuehelp": "rtrim(string)",
+                "nodetype" : "function"
+            }, {
+                "id": "trim",
+                "label": "trim()",
+                "valuehelp": "trim(string)",
+                "nodetype" : "function"
+            }, {
+                "id": "lpad",
+                "label": "lpad()",
+                "valuehelp": "lpad(string, int)",
+                "nodetype" : "function"
+            }, {
+                "id": "rpad",
+                "label": "rpad()",
+                "valuehelp": "rpad(string, int)",
+                "nodetype" : "function"
+            }, {
+                "id": "replace",
+                "label": "replace()",
+                "valuehelp": "replace(string, string, string)",
+                "nodetype" : "function"
+            },
+            {
+                "id" : "midstru",
+                "label" : "midstru()",
+                "valuehelp" : "midstru(string,int)",
+                "nodetype" : "function"
+            },
+            {
+                "id" : "upper",
+                "label" : "upper()",
+                "valuehelp" : "upper(string)",
+                "nodetype" : "function"
+            },
+            {
+                "id" : "lower",
+                "label" : "lower()",
+                "valuehelp" : "lower(string)",
+                "nodetype" : "function"
+            },
+            {
+                "id" : "rightstru",
+                "label" : "rightstru()",
+                "valuehelp" : "rightstru(string,int)",
+                "nodetype" : "function"
+            },
+            {
+                "id" : "chars",
+                "label" : "chars()",
+                "valuehelp" : "chars(string)",
+                "nodetype" : "function"
+            },
+            {
+                "id" : "charpos",
+                "label" : "charpos()",
+                "valuehelp" : "charpos(string,int)",
+                "nodetype" : "function"
+            }
+            ]
+        }, {
+            "id": "MathematicalFunctions",
+            "label": "Mathematical Functions",
+            "children": [{
+                "id": "sign",
+                "label": "sign()",
+                "valuehelp": "sign(double)",
+                "nodetype" : "function"
+            }, {
+                "id": "abs",
+                "label": "abs()",
+                "valuehelp": "abs(int)",
+                "nodetype" : "function"
+            }, {
+                "id": "round",
+                "label": "round()",
+                "valuehelp": "round(double, int)",
+                "nodetype" : "function"
+            }, {
+                "id": "rounddown",
+                "label": "rounddown()",
+                "valuehelp": "rounddown(double, int)",
+                "nodetype" : "function"
+            },
+            {
+                "id" : "sqladd",
+                "label" : "sqladd()",
+                "valuehelp" : "sqladd()",
+                "nodetype" : "function"
+            }
+            ]
+        },
+        {
+            "id" : "DateFunctions",
+            "label" : "Date Functions",
+            "children" : [{
+                "id" : "utctolocal",
+                "label" : "utctolocal()",
+                "valuehelp" : "utctolocal(datearg,timezonearg)",
+                "nodetype" : "function"
+            },
+            {
+                "id" : "localtoutc",
+                "label" : "localtoutc()",
+                "valuehelp" : "localtoutc(datearg,timezonearg)",
+                "nodetype" : "function"
+            },
+            {
+                "id" : "utcnow",
+                "label" : "utcnow()",
+                "valuehelp" : "utcnow()",
+                "nodetype" : "function"
+            },
+            {
+                "id" : "weekday",
+                "label" : "weekday()",
+                "valuehelp" : "weekday(date)",
+                "nodetype" : "function"
+            },
+            {
+                "id" : "now",
+                "label" : "now()",
+                "valuehelp" : "now()",
+                "nodetype" : "function"
+            },
+            {
+                "id" : "daysbetween",
+                "label" : "daysbetween()",
+                "valuehelp" : "daysbetween(date1,date2)",
+                "nodetype" : "function"
+            },
+            {
+                "id" : "secondsbetween",
+                "label" : "secondsbetween()",
+                "valuehelp" : "secondsbetween(seconddate1,seconddate2)",
+                "nodetype" : "function"
+            },
+            {
+                "id" : "component",
+                "label" : "component()",
+                "valuehelp" : "component(date,int)",
+                "nodetype" : "function"
+            },
+            {
+                "id" : "addseconds",
+                "label" : "addseconds()",
+                "valuehelp" : "addseconds(date,int)",
+                "nodetype" : "function"
+            },
+            {
+                "id" : "adddays",
+                "label" : "adddays()",
+                "valuehelp" : "adddays(date,int)",
+                "nodetype" : "function"
+            },
+            {
+                "id" : "quarter",
+                "label" : "quarter()",
+                "valuehelp" : "quarter(date)",
+                "nodetype" : "function"
+            }
+            ]
+        },
+        {
+            "id": "MiscFunctions",
+            "label": "Misc Functions",
+            "children": [{
+                "id": "if",
+                "label": "if()",
+                "valuehelp": "if(int, arg1, arg2)",
+                "nodetype" : "function"
+            }, {
+                "id": "in",
+                "label": "in()",
+                "valuehelp": "in(arg1, arg2)",
+                "nodetype" : "function"
+            }, {
+                "id": "case",
+                "label": "case()",
+                "valuehelp": "case(arg1, default)",
+                "nodetype" : "function"
+            }, {
+                "id": "isnull",
+                "label": "isnull()",
+                "valuehelp": "isnull(arg)",
+                "nodetype" : "function"
+            },
+            {
+                "id" : "min",
+                "label" : "min()",
+                "valuehelp" : "min(arg1,arg2,arg3)",
+                "nodetype" : "function"
+            },
+            {
+                "id" : "max",
+                "label" : "max()",
+                "valuehelp" : "max(arg1,arg2,arg3)",
+                "nodetype" : "function"
+            }
+            ]
+        }]
+    }
+
+}

@@ -1,0 +1,191 @@
+/* turn of user-select in general, if necessary, turn on for specific areas */
+*:not(input) {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none; 
+	user-select: none;
+}
+/* turn of dragging of images in general, if necessary, turn on for specific images: only works in chrome/safari */
+img {
+	-webkit-user-drag: none;
+}
+
+body {
+
+	margin: 0;
+	padding: 0;
+
+}
+
+
+progress[value] {
+  /* Reset the default appearance */
+  	-webkit-appearance: none;
+  	-moz-appearance: none;
+   	appearance: none;
+	display: inline-block;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	height: 2px;
+	width: 30%;
+	border: none;
+  	
+}
+
+progress[value]::-webkit-progress-bar {
+	background: #e5e5e5;
+}
+
+progress[value]::-webkit-progress-value {
+	background: #007cc0;
+	width: 20%;
+}
+
+progress[value]::-moz-progress-bar {
+	background: #007cc0;
+	width: 20%;
+}
+
+#loading .lbl{
+	font-family:"Segoe UI Light",arial;
+	text-align:center;
+	position:fixed;
+	top: 52%;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	font-size:20px;
+}
+#loading .txt1{
+	font-size:32px;
+}
+
+#menubar {
+	-webkit-box-flex: 2;
+	-moz-box-flex: 2;
+	-ms-flex: 2;
+	box-flex: 2;	
+}
+
+.userNotificationBarMessage {
+	max-width: 240px;
+}
+
+.userNotificationBarActionBtn {
+	max-width: 60px;
+}
+
+.toolbarGit{
+	height: 0px;
+}
+
+.center {
+	position: fixed;
+	top: 35px;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background-color:gray;
+}
+
+.toprightpane{
+}
+.footer{
+    background-color: #d3d8de;
+    position: absolute;
+    height: 10px;
+    width: 100%;
+    bottom: 0;
+    z-index: 20;
+}
+
+.rightpane {
+	display: none;
+	position: fixed;
+	background-color: white;
+	top: 67px;
+	right: 0;
+	bottom: 0;
+	height: 100%;
+	width: 300px;
+	border-left: 5px solid #ddd;
+	height: 100%;
+}
+/* shows in the left side */
+.rightpaneImage {
+	margin-top: 0.2rem;
+	margin-left: 0.5rem;
+	position: absolute;
+	left: 0;
+	height: 16px
+}
+
+.rightpane.rightPaneVisible{
+	display: block;	
+}
+
+.maximized {
+	position: absolute !important;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	z-index: 50;
+}
+
+.centerGit {
+	position: fixed;
+	top: 35px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	background-color: white;
+}
+
+
+/******************************************************************
+	About Dialog
+*******************************************************************/
+
+#AboutDialog .sapUiMboxCont{
+	margin-left:0px
+}
+
+#AboutDialog .sapUiDlgCont *{
+	-webkit-user-select: text;
+	-moz-user-select: text;
+	-ms-user-select: text;
+	user-select: text;
+}
+
+/******************************************************************
+	ORION Git Client Styles
+*******************************************************************/
+.explorerGit{
+	width: 0px;
+}
+
+.sapUiTree.sapUiTreeFixedHeight {
+	position: relative;
+}
+.sapUiTreeCont.sapUiTreeContScroll {
+	height: 100%;
+}
+
+.translationwizard .sapUiTf {
+	-webkit-user-select: text;
+	-moz-user-select: text;
+}
+
+[id$=tools\.userpreference] {
+	position: absolute;
+}
+
+.privacyLink.sapUiLnk {
+	font-size: inherit;
+}

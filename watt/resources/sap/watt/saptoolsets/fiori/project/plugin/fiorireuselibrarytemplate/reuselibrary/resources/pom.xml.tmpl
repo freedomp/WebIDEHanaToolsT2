@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<!--**************************************************************************
+	* POM SECTION: Maven Model Version Settings
+	***************************************************************************-->
+
+	<modelVersion>4.0.0</modelVersion>
+	
+	
+	<!--************************************************************************
+	* POM SECTION: Parent POM Settings
+	*************************************************************************-->
+
+	<parent>
+		<groupId>com.sap.fiori</groupId>
+		<artifactId>fiori-reuselib-pom</artifactId>
+		<version>1.7.0-SNAPSHOT</version>
+		<relativePath></relativePath>
+	</parent>
+
+
+	<!--**************************************************************************
+	* POM SECTION: Maven Settings
+	***************************************************************************-->
+
+	<groupId>com.sap.fiori</groupId>
+	<artifactId>{{projectName}}</artifactId>
+	<packaging>jar</packaging>
+	<version>{{reuselibrary.parameters.LibraryVersion.value}}</version>
+    
+
+	<!--**************************************************************************
+	* POM SECTION: Project Settings
+	***************************************************************************-->
+
+	<name>${project.artifactId}</name>
+	<description>{{reuselibrary.parameters.LibraryDescription.value}}</description>
+
+
+	<!--**************************************************************************
+	* POM SECTION: Properties Settings
+	***************************************************************************-->
+
+	<properties>
+
+		<!-- name of the UI library -->
+		 <sap.ui5.library.name>{{reuselibrary.LibraryNamespace}}</sap.ui5.library.name>
+
+	</properties>
+
+
+	<!--**************************************************************************
+	* POM SECTION: Build Settings
+	***************************************************************************-->
+
+	<build>
+	
+		<plugins>
+			
+			<!-- mark as translation relevant -->
+			<plugin>
+				<groupId>com.sap.ldi</groupId>
+				<artifactId>translation-plugin</artifactId>
+				<configuration>
+					<translationArea>{{reuselibrary.parameters.TranslationArea.value}}</translationArea>
+					<translationDomain>{{reuselibrary.translationDomain}}</translationDomain>
+					<translationDeveloper>{{reuselibrary.parameters.TranslationDeveloper.value}}</translationDeveloper>
+					<translationCollection>{{reuselibrary.parameters.TranslationCollection.value}}</translationCollection>
+				</configuration>
+			</plugin>
+
+		</plugins>
+
+	</build>
+
+
+	<!--**************************************************************************
+	* POM SECTION: Dependency Settings
+	***************************************************************************-->
+
+	<dependencies>
+
+        <!-- 
+            Other wrapper projects referenced by this one.
+            A dependency is needed if a metamodel dependency exists. 
+        -->
+        
+	</dependencies>
+
+</project>

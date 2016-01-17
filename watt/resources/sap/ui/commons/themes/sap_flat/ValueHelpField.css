@@ -1,0 +1,30 @@
+/* =============================================== */
+/* CSS for control sap.ui.commons/ValueHelpField.control */
+/* Overwrites some of the attributes                */
+/* =============================================== */
+
+.sapUiTfCombo > .sapUiTfValueHelpIcon {
+    border: none;
+    display: inline;
+    font-size: 0;
+    position: absolute;
+    right: 0;
+    line-height: 100%;
+    padding: 1px 2px 3px 2px;
+}
+.sapUiTfCombo > span.sapUiTfValueHelpIcon {
+    display: inline-block;
+    font-size: 16px;
+    text-align: center;
+    color: #333333;
+    cursor: default;
+}
+.sapUiTfCombo > .sapUiTfValueHelpRegularIcon:hover, .sapUiTfCombo > span.sapUiTfValueHelpIcon:hover {
+    background-color: #BFBFBF;
+    color: #ffffff;
+}
+.sapUiTfCombo > .sapUiTfValueHelpDsblIcon,
+.sapUiTfCombo.sapUiTfDsbl > span.sapUiTfValueHelpIcon {
+    opacity: .3;
+    filter: alpha(opacity=30);
+}

@@ -1,0 +1,14 @@
+<core:View height="100%"
+	controllerName="sap.watt.ideplatform.plugin.outlinepane.view.OutlinePane"
+	xmlns="sap.ui.commons" xmlns:layout="sap.ui.commons.layout" xmlns:core="sap.ui.core"
+	xmlns:commons="sap.ui.commons" xmlns:ide="sap.watt.ideplatform.plugin.outlinepane.view"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+
+	<layout:VerticalLayout class="sapWattRightPanelTitle">
+		<commons:Label text="Outline" />
+	</layout:VerticalLayout>
+	<layout:VerticalLayout id="outlinePaneContent"
+		class="sapWattOutlinePaneContent">
+	</layout:VerticalLayout>
+
+</core:View>

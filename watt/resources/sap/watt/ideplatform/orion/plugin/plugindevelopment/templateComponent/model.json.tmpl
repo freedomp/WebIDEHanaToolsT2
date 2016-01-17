@@ -1,0 +1,35 @@
+{	
+	"datasource" : 
+	{
+		"type" : "odata",
+		"url" : ""
+	},
+    "{{template.technicalname}}":
+    {
+        "parameters" : 
+        {
+			"SampleTextField" :
+            {
+           		"type" : "string",
+                "value" : "",
+                "wizard" : 
+                {
+                	"control" : "TextField",
+                	"required" : false,
+                	"title" : "{{template.technicalname}}_model_field_title"
+                }                    
+            }
+        },
+        "forms" : [
+            {
+                "title" : "{{template.technicalname}}_model_form_title",
+                "groups" : [
+                { 
+                    "title": "Sample",
+                    "parameters": ["@{{template.technicalname}}.parameters.SampleTextField"]                    
+                }    
+                ]
+            }
+        ]
+    }
+}

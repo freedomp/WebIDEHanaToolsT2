@@ -1,0 +1,44 @@
+{
+	"name" : "sap.watt.common.service.ui.Menu",
+	"description" : "The menu interface",
+	"configurationProperties" : {
+		"group" : {
+			"type" : "string",
+			"multiple" : false
+		}
+	},
+	"methods" : {
+		"createMenu" : {
+			"params" : [
+				{
+					"name" : "oGroup",
+					"type": "object"
+				},
+				{
+					"name" : "sStyle",
+					"type": "string"	
+				}
+			]
+		},
+		"populate" : {
+			"params" : [
+				{
+					"name" : "oMenu",
+					"type": "object"
+				},
+				{
+					"name" : "oGroup",
+					"type": "object"	
+				},
+				{
+					"name" : "mOptions",
+					"type": {
+						"bFilter" : "boolean",
+						"sParentId" : "string",
+						"fnVisitor" : "function"
+					}
+				}
+			]
+		}
+	}
+}

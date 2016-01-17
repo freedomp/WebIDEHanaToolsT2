@@ -1,0 +1,20 @@
+{
+	"name": "sap.watt.common.service.remote.CodeValidationDAO",
+	"description": "Interface for remote code validation",
+	"methods": {
+		"validateWorkspaceContent": {
+			"returns": {
+				"type" : "object",
+				"description" : "validation results on files in the workspace"
+			}
+		},
+	  "codeValidationResponseStatus": {
+		"returns": {
+		  "type": "[object]",
+		  "description" : "array of possible status values, specifying the integrity of data returned in the response"
+
+		}
+	  }
+	}
+}
+

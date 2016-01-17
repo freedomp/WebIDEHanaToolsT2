@@ -1,0 +1,11 @@
+/*!
+ * Copyright (c) 2009-2014 SAP SE, All Rights Reserved
+ */
+jQuery.sap.declare("sap.ushell.components.factsheet.controls.PictureTile");jQuery.sap.require("sap.ushell.library");jQuery.sap.require("sap.m.CustomTile");sap.m.CustomTile.extend("sap.ushell.components.factsheet.controls.PictureTile",{metadata:{deprecated:true,library:"sap.ushell",properties:{"height":{type:"sap.ui.core.CSSSize",group:"Dimension",defaultValue:'32px'},"width":{type:"sap.ui.core.CSSSize",group:"Dimension",defaultValue:'32px'}},associations:{"tileContent":{type:"sap.ushell.components.factsheet.controls.PictureViewerItem",multiple:false}},events:{"pictureDelete":{}}}});sap.ushell.components.factsheet.controls.PictureTile.M_EVENTS={'pictureDelete':'pictureDelete'};
+sap.ushell.components.factsheet.controls.PictureTile.prototype.init=function(t){this._oDeletePictureButton=new sap.m.Button({icon:"sap-icon://sys-cancel",press:jQuery.proxy(this._deletePictureRequestHandler,this),type:sap.m.ButtonType.Transparent}).addStyleClass("sapCaUiPTDeleteButton");if(!sap.ui.Device.system.desktop){this.attachPress(this._tilePressedHandler);this.attachBrowserEvent("swipe",jQuery.proxy(this._tileSwipedHandler,this));this._oDeletePictureButton.addStyleClass("hide");}};
+sap.ushell.components.factsheet.controls.PictureTile.prototype.setTileContent=function(t){this.setContent(null);if(t){var i=t.getImage();this.setContent(i);}else{this.setContent(null);}this.setAssociation("tileContent",t);};
+sap.ushell.components.factsheet.controls.PictureTile.prototype.setSize=function(w,h){this._width=w;this._height=h;var $=this.$();if($){$.css({width:w+"px",height:h+"px"});jQuery.sap.byId(this.getId()+"-wrapper").addClass("sapCaUiPTWrapper");}};
+sap.ushell.components.factsheet.controls.PictureTile.prototype._tilePressedHandler=function(e){this.switchVisibility();};
+sap.ushell.components.factsheet.controls.PictureTile.prototype.switchVisibility=function(v){var $=this._oDeletePictureButton.$();if(v===undefined){$.toggleClass("hide");}else{$.toggleClass("hide",!v);}};
+sap.ushell.components.factsheet.controls.PictureTile.prototype._tileSwipedHandler=function(e){var $=this._oDeletePictureButton.$();if($&&!$.hasClass("hide")){$.addClass("hide");}};
+sap.ushell.components.factsheet.controls.PictureTile.prototype._deletePictureRequestHandler=function(){this.firePictureDelete();};

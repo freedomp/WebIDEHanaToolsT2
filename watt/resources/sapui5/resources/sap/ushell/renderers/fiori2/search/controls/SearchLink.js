@@ -1,0 +1,1 @@
+(function(){"use strict";jQuery.sap.require('sap.ushell.renderers.fiori2.search.SearchHelper');var s=sap.ushell.renderers.fiori2.search.SearchHelper;sap.m.Link.extend('sap.ushell.renderers.fiori2.search.controls.SearchLink',{renderer:'sap.m.LinkRenderer',onAfterRendering:function(){var d=this.getDomRef();s.boldTagUnescaperByText(d);}});})();

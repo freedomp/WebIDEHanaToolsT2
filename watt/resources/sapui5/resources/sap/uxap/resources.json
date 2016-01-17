@@ -1,0 +1,667 @@
+{
+	"resources":[
+		{
+			"name": ".library"
+		},
+		{
+			"name": ".theming"
+		},
+		{
+			"name": "AnchorBar-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "AnchorBar.js"
+		},
+		{
+			"name": "AnchorBarRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "AnchorBarRenderer.js"
+		},
+		{
+			"name": "BlockBase-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "BlockBase.js"
+		},
+		{
+			"name": "BlockBaseMetadata-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "BlockBaseMetadata.js"
+		},
+		{
+			"name": "BlockBaseRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "BlockBaseRenderer.js"
+		},
+		{
+			"name": "BreadCrumbs-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "BreadCrumbs.js"
+		},
+		{
+			"name": "BreadCrumbsRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "BreadCrumbsRenderer.js"
+		},
+		{
+			"name": "HierarchicalSelect-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "HierarchicalSelect.js"
+		},
+		{
+			"name": "HierarchicalSelectRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "HierarchicalSelectRenderer.js"
+		},
+		{
+			"name": "LazyLoading-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "LazyLoading.js"
+		},
+		{
+			"name": "ModelMapping-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ModelMapping.js"
+		},
+		{
+			"name": "ObjectPageHeader-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ObjectPageHeader.js"
+		},
+		{
+			"name": "ObjectPageHeaderActionButton-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ObjectPageHeaderActionButton.js"
+		},
+		{
+			"name": "ObjectPageHeaderActionButtonRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ObjectPageHeaderActionButtonRenderer.js"
+		},
+		{
+			"name": "ObjectPageHeaderContent-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ObjectPageHeaderContent.js"
+		},
+		{
+			"name": "ObjectPageHeaderContentRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ObjectPageHeaderContentRenderer.js"
+		},
+		{
+			"name": "ObjectPageHeaderLayoutData-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ObjectPageHeaderLayoutData.js"
+		},
+		{
+			"name": "ObjectPageHeaderRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ObjectPageHeaderRenderer.js"
+		},
+		{
+			"name": "ObjectPageLayout-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ObjectPageLayout.js"
+		},
+		{
+			"name": "ObjectPageLayoutABHelper-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ObjectPageLayoutABHelper.js"
+		},
+		{
+			"name": "ObjectPageLayoutITBHelper-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ObjectPageLayoutITBHelper.js"
+		},
+		{
+			"name": "ObjectPageLayoutRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ObjectPageLayoutRenderer.js"
+		},
+		{
+			"name": "ObjectPageSection-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ObjectPageSection.js"
+		},
+		{
+			"name": "ObjectPageSectionBase-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ObjectPageSectionBase.js"
+		},
+		{
+			"name": "ObjectPageSectionRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ObjectPageSectionRenderer.js"
+		},
+		{
+			"name": "ObjectPageSubSection-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ObjectPageSubSection.js"
+		},
+		{
+			"name": "ObjectPageSubSectionRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ObjectPageSubSectionRenderer.js"
+		},
+		{
+			"name": "component/Component-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "component/Component.js"
+		},
+		{
+			"name": "component/ObjectPageComponentContainer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "component/ObjectPageComponentContainer.js"
+		},
+		{
+			"name": "component/ObjectPageLayoutUXDrivenFactory-dbg.controller.js",
+			"isDebug":true
+		},
+		{
+			"name": "component/ObjectPageLayoutUXDrivenFactory.controller.js"
+		},
+		{
+			"name": "component/ObjectPageLayoutUXDrivenFactory.view.xml"
+		},
+		{
+			"name": "i18n/i18n.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":""
+		},
+		{
+			"name": "i18n/i18n_ar.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"ar"
+		},
+		{
+			"name": "i18n/i18n_bg.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"bg"
+		},
+		{
+			"name": "i18n/i18n_ca.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"ca"
+		},
+		{
+			"name": "i18n/i18n_cs.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"cs"
+		},
+		{
+			"name": "i18n/i18n_da.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"da"
+		},
+		{
+			"name": "i18n/i18n_de.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"de"
+		},
+		{
+			"name": "i18n/i18n_el.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"el"
+		},
+		{
+			"name": "i18n/i18n_en.properties",
+			"raw":"i18n/i18n_en.properties",
+			"locale":""
+		},
+		{
+			"name": "i18n/i18n_en_US.properties",
+			"raw":"i18n/i18n_en.properties",
+			"locale":"US"
+		},
+		{
+			"name": "i18n/i18n_en_US_sappsd.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"en_US_sappsd"
+		},
+		{
+			"name": "i18n/i18n_en_US_saptrc.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"en_US_saptrc"
+		},
+		{
+			"name": "i18n/i18n_es.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"es"
+		},
+		{
+			"name": "i18n/i18n_et.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"et"
+		},
+		{
+			"name": "i18n/i18n_fi.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"fi"
+		},
+		{
+			"name": "i18n/i18n_fr.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"fr"
+		},
+		{
+			"name": "i18n/i18n_hi.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"hi"
+		},
+		{
+			"name": "i18n/i18n_hr.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"hr"
+		},
+		{
+			"name": "i18n/i18n_hu.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"hu"
+		},
+		{
+			"name": "i18n/i18n_it.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"it"
+		},
+		{
+			"name": "i18n/i18n_iw.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"iw"
+		},
+		{
+			"name": "i18n/i18n_ja.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"ja"
+		},
+		{
+			"name": "i18n/i18n_ko.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"ko"
+		},
+		{
+			"name": "i18n/i18n_lt.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"lt"
+		},
+		{
+			"name": "i18n/i18n_lv.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"lv"
+		},
+		{
+			"name": "i18n/i18n_nl.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"nl"
+		},
+		{
+			"name": "i18n/i18n_no.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"no"
+		},
+		{
+			"name": "i18n/i18n_pl.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"pl"
+		},
+		{
+			"name": "i18n/i18n_pt.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"pt"
+		},
+		{
+			"name": "i18n/i18n_ro.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"ro"
+		},
+		{
+			"name": "i18n/i18n_ru.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"ru"
+		},
+		{
+			"name": "i18n/i18n_sh.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"sh"
+		},
+		{
+			"name": "i18n/i18n_sk.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"sk"
+		},
+		{
+			"name": "i18n/i18n_sl.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"sl"
+		},
+		{
+			"name": "i18n/i18n_sv.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"sv"
+		},
+		{
+			"name": "i18n/i18n_th.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"th"
+		},
+		{
+			"name": "i18n/i18n_tr.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"tr"
+		},
+		{
+			"name": "i18n/i18n_uk.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"uk"
+		},
+		{
+			"name": "i18n/i18n_vi.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"vi"
+		},
+		{
+			"name": "i18n/i18n_zh_CN.properties",
+			"raw":"i18n/i18n_zh.properties",
+			"locale":"CN"
+		},
+		{
+			"name": "i18n/i18n_zh_TW.properties",
+			"raw":"i18n/i18n_zh.properties",
+			"locale":"TW"
+		},
+		{
+			"name": "library-all-dbg.js",
+			"isDebug":true,
+			"merged":true
+		},
+		{
+			"name": "library-all.js",
+			"merged":true
+		},
+		{
+			"name": "library-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "library-preload.json",
+			"merged":true
+		},
+		{
+			"name": "library.dependencies.json"
+		},
+		{
+			"name": "library.dependencies.xml"
+		},
+		{
+			"name": "library.js"
+		},
+		{
+			"name": "manifest.json"
+		},
+		{
+			"name": "themes/base/.theming",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/AnchorBar.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/BlockBase.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/BreadCrumbs.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/HierarchicalSelect.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/ObjectPageHeader.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/ObjectPageHeaderContent.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/ObjectPageLayout.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/ObjectPageSection.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/ObjectPageSubSection.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library-RTL-dbg.css",
+			"isDebug":true,
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library-RTL.css",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library-dbg.css",
+			"isDebug":true,
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library-parameters.json",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library.css",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library.source.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/sap_bluecrystal/.theming",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/AnchorBar.less",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/BreadCrumbs.less",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/HierarchicalSelect.less",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/IconTabBar.less",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/ObjectPageHeader.less",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/ObjectPageHeaderContent.less",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/ObjectPageLayout.less",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/ObjectPageSection.less",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/ObjectPageSubSection.less",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/darkBackground.png",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library-RTL-dbg.css",
+			"isDebug":true,
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library-RTL.css",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library-dbg.css",
+			"isDebug":true,
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library-parameters.json",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library.css",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library.less",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library.source.less",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_hcb/.theming",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/AnchorBar.less",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/BreadCrumbs.less",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/HierarchicalSelect.less",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/IconTabBar.less",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/ObjectPageHeader.less",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/ObjectPageLayout.less",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/ObjectPageSection.less",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/ObjectPageSubSection.less",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-RTL-dbg.css",
+			"isDebug":true,
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-RTL.css",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-dbg.css",
+			"isDebug":true,
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-parameters.json",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library.css",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library.less",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library.source.less",
+			"theme":"sap_hcb"
+		}
+	]
+}

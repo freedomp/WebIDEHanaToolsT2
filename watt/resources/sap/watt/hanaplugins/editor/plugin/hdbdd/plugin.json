@@ -1,0 +1,119 @@
+{
+    "name": "sap.watt.hana.editor.hdbdd",
+    "description": "The CDS Editor Plugin",
+    "module": "sap.watt.hana.editor.hdbdd/Plugin",
+    "i18n": "sap.watt.hana.editor.hdbdd/i18n/i18n",
+    "requires": {
+        "services": [
+            "aceeditor",
+            "commandGroup",
+            "command",
+            "content",
+            "document",
+            "editor",
+            "filesystem.documentProvider",
+            "intellisence",
+            "outlinePane",
+            "preferences",
+            "selection",
+            "snippet"
+        ]
+    },
+    "provides": {
+        "services": {
+            "hdbddcodecompletion": {
+                "implements": ["sap.watt.common.service.editor.CodeCompletion", "sap.watt.common.service.editor.PrefixCalculation"],
+                "module": "sap.watt.hana.editor.hdbdd/codecompletion/DdlCodeCompletionImpl"
+            },
+			"cdssnippethandler": {
+				"implements": "sap.watt.hana.editor.hdbdd.service.snippet.CdsSnippetHandler",
+				"module": "sap.watt.hana.editor.hdbdd/service/snippethandler/CdsSnippetHandler"
+			}
+        },
+        "interfaces": {
+            "sap.watt.hana.editor.hdbdd.service.snippet.CdsSnippetHandler": "sap.watt.hana.editor.hdbdd/service/snippethandler/CdsSnippetHandler"
+        }
+    },
+    "configures": {
+        "services": {
+            "intellisence:codeCompletion": [
+                {
+                    "fileExtension": "hdbcds",
+                    "service": "@hdbddcodecompletion"
+                }
+            ],
+            "intellisence:categoryIcon": [
+                {
+                    "type":"hdbdd",
+                    "path":         "../../../../hanaplugins/editor/plugin/hdbdd/images/ddl_obj.gif",
+                    "pathSelected": "../../../../hanaplugins/editor/plugin/hdbdd/images/ddl_obj.gif"
+                },
+                {
+                    "type":"hdbddType",
+                    "path":         "../../../../hanaplugins/editor/plugin/hdbdd/images/TypeDeclaration.gif",
+                    "pathSelected": "../../../../hanaplugins/editor/plugin/hdbdd/images/TypeDeclaration.gif"
+                },
+                {
+                    "type":"hdbddAnnotation",
+                    "path":         "../../../../hanaplugins/editor/plugin/hdbdd/images/Annotation.gif",
+                    "pathSelected": "../../../../hanaplugins/editor/plugin/hdbdd/images/Annotation.gif"
+                },
+                {
+                    "type":"hdbddTable",
+                    "path":         "../../../../hanaplugins/editor/plugin/hdbdd/images/column_table.gif",
+                    "pathSelected": "../../../../hanaplugins/editor/plugin/hdbdd/images/column_table.gif"
+                },
+                {
+                    "type":"hdbddView",
+                    "path":         "../../../../hanaplugins/editor/plugin/hdbdd/images/View.gif",
+                    "pathSelected": "../../../../hanaplugins/editor/plugin/hdbdd/images/View.gif"
+                },
+                {
+                    "type":"hdbddLoading",
+                    "path":         "../../../../hanaplugins/editor/plugin/hdbdd/images/throbber.gif",
+                    "pathSelected": "../../../../hanaplugins/editor/plugin/hdbdd/images/throbber.gif"
+                },
+                {
+                    "type":"hdbddEntity",
+                    "path":         "../../../../hanaplugins/editor/plugin/hdbdd/images/EntityDeclaration.gif",
+                    "pathSelected": "../../../../hanaplugins/editor/plugin/hdbdd/images/EntityDeclaration.gif"
+                },
+                {
+                    "type":"hdbddElement",
+                    "path":         "../../../../hanaplugins/editor/plugin/hdbdd/images/Column.png",
+                    "pathSelected": "../../../../hanaplugins/editor/plugin/hdbdd/images/Column.png"
+                },
+                {
+                    "type":"hdbddContext",
+                    "path":         "../../../../hanaplugins/editor/plugin/hdbdd/images/ContextDeclaration.gif",
+                    "pathSelected": "../../../../hanaplugins/editor/plugin/hdbdd/images/ContextDeclaration.gif"
+                }
+            ],
+            "aceeditor:modes": [
+                {
+                    "type": "hdbcds",
+                    "description": "HDB CDS",
+                    "extension": "hdbcds",
+                    "path": "sap.watt.hana.editor.hdbdd/mode/mode-hdbcds.js"
+                }
+            ],
+	        "snippet:snippets" : [
+	            {
+	                "fileExtension" : "hdbcds",
+	                "snippets" : [
+	                    {
+	                        "id" : "hdbcds",
+	                        "filePath" : "sap.watt.hana.editor.hdbdd/snippet/hdbcds.basictemplate.txt",
+	                        "title" : "{i18n>hdbcdsSnippet}",
+	                        "preSnippetInsertionHandler" : "@cdssnippethandler"
+	                    }
+	                ]
+	            }
+	        ]
+        }
+    },
+    "subscribes": {
+        "core:started": "initialize",
+        "content:tabClosed": "tabClosed"
+    }
+}

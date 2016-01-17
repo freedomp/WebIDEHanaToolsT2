@@ -1,0 +1,443 @@
+{
+	"resources":[
+		{
+			"name": ".library"
+		},
+		{
+			"name": ".theming"
+		},
+		{
+			"name": "ApplicationFacade-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ApplicationFacade.js"
+		},
+		{
+			"name": "ComponentBase-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ComponentBase.js"
+		},
+		{
+			"name": "ConfigurationBase-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "ConfigurationBase.js"
+		},
+		{
+			"name": "Startup-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "Startup.js"
+		},
+		{
+			"name": "app/Application-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "app/Application.js"
+		},
+		{
+			"name": "app/ApplicationImplementation-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "app/ApplicationImplementation.js"
+		},
+		{
+			"name": "app/BarOverflow-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "app/BarOverflow.js"
+		},
+		{
+			"name": "app/BarOverflowLayoutData-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "app/BarOverflowLayoutData.js"
+		},
+		{
+			"name": "app/ButtonListHelper-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "app/ButtonListHelper.js"
+		},
+		{
+			"name": "app/CommonHeaderFooterHelper-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "app/CommonHeaderFooterHelper.js"
+		},
+		{
+			"name": "app/ConnectionManager-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "app/ConnectionManager.js"
+		},
+		{
+			"name": "app/DetailHeaderFooterHelper-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "app/DetailHeaderFooterHelper.js"
+		},
+		{
+			"name": "app/FullScreenHeaderFooterHelper-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "app/FullScreenHeaderFooterHelper.js"
+		},
+		{
+			"name": "app/MasterHeaderFooterHelper-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "app/MasterHeaderFooterHelper.js"
+		},
+		{
+			"name": "controller/BaseDetailController-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "controller/BaseDetailController.js"
+		},
+		{
+			"name": "controller/BaseFullscreenController-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "controller/BaseFullscreenController.js"
+		},
+		{
+			"name": "controller/BaseMasterController-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "controller/BaseMasterController.js"
+		},
+		{
+			"name": "controller/ScfldMasterController-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "controller/ScfldMasterController.js"
+		},
+		{
+			"name": "css/flower.css"
+		},
+		{
+			"name": "css/scfld.css"
+		},
+		{
+			"name": "i18n/i18n.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":""
+		},
+		{
+			"name": "i18n/i18n_ar.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"ar"
+		},
+		{
+			"name": "i18n/i18n_bg.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"bg"
+		},
+		{
+			"name": "i18n/i18n_ca.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"ca"
+		},
+		{
+			"name": "i18n/i18n_cs.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"cs"
+		},
+		{
+			"name": "i18n/i18n_da.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"da"
+		},
+		{
+			"name": "i18n/i18n_de.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"de"
+		},
+		{
+			"name": "i18n/i18n_el.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"el"
+		},
+		{
+			"name": "i18n/i18n_en.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"en"
+		},
+		{
+			"name": "i18n/i18n_en_US_sappsd.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"en_US_sappsd"
+		},
+		{
+			"name": "i18n/i18n_en_US_saptrc.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"en_US_saptrc"
+		},
+		{
+			"name": "i18n/i18n_es.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"es"
+		},
+		{
+			"name": "i18n/i18n_et.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"et"
+		},
+		{
+			"name": "i18n/i18n_fi.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"fi"
+		},
+		{
+			"name": "i18n/i18n_fr.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"fr"
+		},
+		{
+			"name": "i18n/i18n_hi.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"hi"
+		},
+		{
+			"name": "i18n/i18n_hr.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"hr"
+		},
+		{
+			"name": "i18n/i18n_hu.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"hu"
+		},
+		{
+			"name": "i18n/i18n_it.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"it"
+		},
+		{
+			"name": "i18n/i18n_iw.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"iw"
+		},
+		{
+			"name": "i18n/i18n_ja.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"ja"
+		},
+		{
+			"name": "i18n/i18n_ko.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"ko"
+		},
+		{
+			"name": "i18n/i18n_lt.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"lt"
+		},
+		{
+			"name": "i18n/i18n_lv.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"lv"
+		},
+		{
+			"name": "i18n/i18n_nl.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"nl"
+		},
+		{
+			"name": "i18n/i18n_no.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"no"
+		},
+		{
+			"name": "i18n/i18n_pl.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"pl"
+		},
+		{
+			"name": "i18n/i18n_pt.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"pt"
+		},
+		{
+			"name": "i18n/i18n_ro.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"ro"
+		},
+		{
+			"name": "i18n/i18n_ru.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"ru"
+		},
+		{
+			"name": "i18n/i18n_sh.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"sh"
+		},
+		{
+			"name": "i18n/i18n_sk.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"sk"
+		},
+		{
+			"name": "i18n/i18n_sl.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"sl"
+		},
+		{
+			"name": "i18n/i18n_sv.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"sv"
+		},
+		{
+			"name": "i18n/i18n_th.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"th"
+		},
+		{
+			"name": "i18n/i18n_tr.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"tr"
+		},
+		{
+			"name": "i18n/i18n_uk.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"uk"
+		},
+		{
+			"name": "i18n/i18n_vi.properties",
+			"raw":"i18n/i18n.properties",
+			"locale":"vi"
+		},
+		{
+			"name": "i18n/i18n_zh_CN.properties",
+			"raw":"i18n/i18n_zh.properties",
+			"locale":"CN"
+		},
+		{
+			"name": "i18n/i18n_zh_TW.properties",
+			"raw":"i18n/i18n_zh.properties",
+			"locale":"TW"
+		},
+		{
+			"name": "img/apple-touch-startup-image-1496x2048.png"
+		},
+		{
+			"name": "img/apple-touch-startup-image-1536x2008.png"
+		},
+		{
+			"name": "img/apple-touch-startup-image-320x460.png"
+		},
+		{
+			"name": "img/apple-touch-startup-image-640x1096.png"
+		},
+		{
+			"name": "img/apple-touch-startup-image-640x920.png"
+		},
+		{
+			"name": "img/apple-touch-startup-image-748x1024.png"
+		},
+		{
+			"name": "img/apple-touch-startup-image-768x1004.png"
+		},
+		{
+			"name": "library-all-dbg.js",
+			"isDebug":true,
+			"merged":true
+		},
+		{
+			"name": "library-all.js",
+			"merged":true
+		},
+		{
+			"name": "library-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "library-preload.json",
+			"merged":true
+		},
+		{
+			"name": "library.dependencies.json"
+		},
+		{
+			"name": "library.dependencies.xml"
+		},
+		{
+			"name": "library.js"
+		},
+		{
+			"name": "library.properties"
+		},
+		{
+			"name": "library.templates.xml"
+		},
+		{
+			"name": "manifest.json"
+		},
+		{
+			"name": "view/App-dbg.controller.js",
+			"isDebug":true
+		},
+		{
+			"name": "view/App.controller.js"
+		},
+		{
+			"name": "view/App.view.xml"
+		},
+		{
+			"name": "view/MainSplitContainer-dbg.controller.js",
+			"isDebug":true
+		},
+		{
+			"name": "view/MainSplitContainer.controller.js"
+		},
+		{
+			"name": "view/MainSplitContainer.view.xml"
+		},
+		{
+			"name": "view/S2.view.scaffold.xml"
+		},
+		{
+			"name": "view/S3.view.scaffold.xml"
+		},
+		{
+			"name": "view/SplitView.view.scaffold.xml"
+		},
+		{
+			"name": "view/empty-dbg.controller.js",
+			"isDebug":true
+		},
+		{
+			"name": "view/empty.controller.js"
+		},
+		{
+			"name": "view/empty.view.xml"
+		},
+		{
+			"name": "view/s1.view.scaffold.xml"
+		},
+		{
+			"name": "view/template.xml"
+		}
+	]
+}

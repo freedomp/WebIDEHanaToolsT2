@@ -1,0 +1,17 @@
+
+/* ============================================= */
+/* CSS for control sap.ui.comp.navpopover/NavigationPopover.control */
+/* ============================================= */
+
+
+.navpopoversmallheader .sapUiRLContainer .sapUiFormTitle {
+	margin-bottom: 0rem;
+}
+
+.navpopoversmallheader .sapUiRLContainerCont {
+	height: 0rem;
+}
+
+.navigationPopover .sapUiFormTitle{
+	white-space: normal;	
+}

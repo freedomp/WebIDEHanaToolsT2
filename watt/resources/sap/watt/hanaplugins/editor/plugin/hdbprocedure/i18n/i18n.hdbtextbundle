@@ -1,0 +1,56 @@
+# description
+# __ldi.translation.uuid=be65ef1d-bc80-45d7-ad6b-abefad63231a
+
+#XMSG
+editorSyntaxCheck_syntaxCheckFailed = Technical error. Contact your system administrator. Error occurred during syntax check.  
+#XMSG
+serviceCodeCompletion_cocoFailed = Technical error. Contact your system administrator. Error occurred during automatic code assist. 
+#XMSG
+technicalError = Technical error. Contact your system administrator.
+
+//The following warning/info messages shall be changed/removed, it is just an initial proposal
+#XMSG
+syntaxCheckAnnotationInfoMessage = Syntax info message
+#XMSG
+syntaxCheckAnnotationWarningMessage = Syntax warning message
+#XMSG
+syntaxCheckAnnotationErrorMessage = Syntax error. \"%1\" is incorrect or misplaced.
+#XMSG
+syntaxCheckAnnotationEOFErrorMessage = Syntax error. Insert \"END;\" to complete the service.
+
+#XBUT
+button_create = Create
+#XBUT
+button_cancel = Cancel
+#XCAP
+createFileDialog_createfile = New Procedure
+#XFLD
+createFileDialog_filename = File name*
+#XTXT
+createFileDialog_filename2 = File name*
+#XTOL
+createFileDialog_insertfilename = Insert file name
+#XMSG
+createFileDialog_errormsg = Could not create file
+#XTOL
+dialog_insertfoldername = Insert package name
+
+
+# Command
+command_create = Procedure
+command_invoke_procedure = Invoke Procedure
+command_invoke_procedure_with_ui = Invoke Procedure With UI
+
+
+# Dialog Search
+txt_search_title = Search schema
+txt_search_field_label = Search string
+txt_matching_label = Matching item(s)
+txt_result_label = item(s) match
+txt_waiting_label = Searching...
+txt_number_char_input_required = Required number character input
+txt_search_hint = Type ** to search all
+txt_ok = OK
+txt_cancel = Cancel
+
+createFileDialog_schemaname = Schema

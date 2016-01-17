@@ -1,0 +1,97 @@
+{
+    "_version": "1.1.0", 
+   
+    "sap.app": { 
+        "_version": "1.1.0", 
+        "id": "{{reuselibrary.LibraryNamespace}}", 
+        "type": "library", 
+        "embeds": [], 
+        "i18n": "messagebundle.properties",
+        "applicationVersion": { 
+            "version": "{{reuselibrary.parameters.LibraryVersion.value}}" 
+        },
+        "title": "\{{title}}",
+        "description": "\{{description}}",
+        "ach": "{{reuselibrary.parameters.ApplicationComponentHierarchy.value}}", 
+        "resources": "resources.json",
+        "offline": false 
+    },
+    "sap.ui": { 
+        "_version": "1.1.0", 
+   
+        "technology": "UI5", 
+        "deviceTypes": { 
+            "desktop": true, 
+            "tablet": true, 
+            "phone": false 
+        },
+        "supportedThemes": [ 
+            "sap_hcb",
+            "sap_bluecrystal"
+        ]
+    },
+   
+    "sap.ui5": {
+		"_version": "1.1.0",
+
+		"dependencies": {
+		{{~#if mode.internal}}
+            "minUI5Version": "${sap.ui5.dist.version}",
+		{{~else}}
+            "minUI5Version": "1.30.0",
+		{{~/if}}
+			"libs": {
+                "sap.ui.core": {
+				{{~#if mode.internal}}
+					"minUI5Version": "${sap.ui5.dist.version}"
+				{{~else}}
+					"minUI5Version": "1.30.0"
+				{{~/if}}	
+                 },
+                "sap.ui.commons" : {
+				{{~#if mode.internal}}
+					"minUI5Version": "${sap.ui5.dist.version}"
+				{{~else}}
+					"minUI5Version": "1.30.0"
+				{{~/if}}
+                }
+			}
+		},
+		
+		{{#if isTheme}}
+		 "contentDensities": { 
+			"compact": {{reuselibrary.parameters.ContentDensitiesCompact.value.value}},
+            "cozy": {{reuselibrary.parameters.ContentDensitiesCozy.value.value}}
+		}
+		{{else}}
+		 "contentDensities": { 
+			"compact": true,
+            "cozy": false
+		}
+		{{/if}}
+	
+	},
+   	{{#if isSapPlatfromAbapURI}}
+    "sap.platform.abap": { 
+        "_version": "1.1.0", 
+        "uri": "{{reuselibrary.SapPlatfromAbapURI}}" 
+    },
+    {{/if}}
+   
+    "sap.platform.hcp": { 
+        "_version": "1.1.0", 
+        "uri": "" 
+    },
+   
+    "sap.fiori": { 
+        "_version": "1.1.0",
+         {{#if isSapFioriRegistrationID}}
+        "registrationIds": ["{{reuselibrary.parameters.SapFioriRegistrationID.value}}"], 
+        {{else}}
+         "registrationIds": [], 
+        {{/if}}
+        "archeType": "reusecomponent"
+    }
+  
+  
+}

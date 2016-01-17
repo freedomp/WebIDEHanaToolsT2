@@ -1,0 +1,16 @@
+{
+	"name": "sap.watt.saptoolsets.common.plugin.ui5metadataprovider.service.UI5MetadataProvider",
+	"description": "The UI5 metadata provider interface",
+	"extends": ["sap.watt.common.service.ide.LibraryMetadataProvider"],
+	"configurationProperties": {
+		"libInfo": {
+			"type": {
+				"name": "string",
+				"versions": "[string]",
+				"metadataLocation": "string",
+				"templatesLocation": "string"
+			},
+			"multiple": false
+		}
+	}
+}

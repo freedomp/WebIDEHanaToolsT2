@@ -1,0 +1,92 @@
+{
+	"name": "sap.watt.ideplatform.basevalidator",
+	"description": "The base editor's validator",
+	"i18n" : "sap.watt.ideplatform.basevalidator/i18n/i18n",
+
+	"requires": {
+		"services": [
+			"command",
+			"document",
+			"filesystem.documentProvider",
+			"console",
+			"log",
+			"resource",
+			"selection",
+			"preferences",
+			"userpreference",
+			"usernotification",
+			"projectsetting",
+		  	"content",
+			"repositorybrowser",
+			"repositoryBrowserFactory",
+			"setting.project",
+			"beautifierProcessor",
+			"projectType"
+		]
+	},
+
+	"provides": {
+		"services" : {
+			"basevalidator" : {
+				"implements": "sap.watt.common.basevalidator.BaseValidator",
+				"module" : "sap.watt.ideplatform.basevalidator/service/BaseValidator"
+			},
+			"validatorprojectsettingsconfig" :{
+			    "implements": "sap.watt.common.service.ui.Config",
+			    "module" : "sap.watt.ideplatform.basevalidator/service/ValidatorProjectSettingConfig"
+			},
+			"validatorusersettings" :{
+			    "implements": "sap.watt.common.basevalidator.validatorusersettings",
+			    "module" : "sap.watt.ideplatform.basevalidator/service/ValidatorUserSettings"
+			}
+		},
+		"interfaces" : {
+			"sap.watt.common.basevalidator.BaseValidator" : "sap.watt.ideplatform.basevalidator/service/BaseValidator",
+			"sap.watt.common.basevalidator.validatorusersettings" : "sap.watt.ideplatform.basevalidator/service/ValidatorUserSettings",
+			"sap.watt.common.basevalidator.validatorSchema" : "sap.watt.ideplatform.basevalidator/service/validatorSchema"
+		}
+	},
+	"configures":{
+		"services":{
+        	"userpreference:plugins" : [
+        		{
+        			"id" : "validator.setting",
+        			"name" : "{i18n>dlg_linting_title}",
+        			"title" : "{i18n>dlg_linting_title}",
+        			"description" : "",
+        			"service" : "sap.watt.ideplatform.basevalidator/service/ValidatorUserSettingConfig"
+        		}
+        	],
+			"basevalidator:maxLineLength": 5000,
+			"validatorusersettings:lintingSetting": {
+				"version" : "1",
+				"node" : "sap.watt.ideplatform.plugin.linter"
+        	},
+        	"projectsetting:plugins" : [
+				{
+					"group" : "{i18n>proj_group_name}",
+					"id": "esLintSetting",
+					"name" : "{i18n>proj_validator_setting_header}",
+					"title" : "{i18n>proj_validator_title}",
+					"description" : "{i18n>proj_validator_setting_desc}",
+					"service": "sap.watt.ideplatform.basevalidator/service/ValidatorProjectSettingConfig"
+				},
+			  	{
+					"group" : "{i18n>proj_group_name}",
+					"id": "XmlValidatorSettings",
+					"name" : "{i18n>xml_validator_setting_header}",
+					"title" : "{i18n>xml_validator_title}",
+				  	"description" : "{i18n>xml_validator_setting_desc}",
+					"service": "sap.watt.ideplatform.basevalidator/service/XmlValidatorProjectSettingConfig"
+				}
+			]
+        }
+    },
+
+	"subscribes": {
+	    "document:saved" : "basevalidator:onDocumentSaved",
+		"document:changed" : "basevalidator:onDocumentChanged",
+		"selection:changed": "basevalidator:onSelectionChanged"
+	}
+
+}

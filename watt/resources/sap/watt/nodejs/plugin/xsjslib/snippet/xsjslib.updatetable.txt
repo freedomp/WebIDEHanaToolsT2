@@ -1,0 +1,9 @@
+var connection = $.hdb.getConnection();
+connection.executeUpdate('INSERT INTO "DB_EXAMPLE"."ICECREAM" VALUES (?,?,?)','STRAWBERRY', 2.50, 64.18);
+connection.executeUpdate('UPDATE "DB_EXAMPLE"."CASH" SET INCOME=?', 64.18);
+connection.executeUpdate('DELETE FROM "DB_EXAMPLE"."ICECREAM" WHERE FLAVOR = ?', 'STRAWBERRY');
+
+//Batch Insert
+var argsArray = [["MINT", 3.50, 34.5], ["VANILLA", 2.50, 23.6], ["CHERRY", 4.50, 67.9]];
+connection.executeUpdate('INSERT INTO "DB_EXAMPLE"."ICECREAM" VALUES (?,?,?)', argsArray)
+connection.commit();

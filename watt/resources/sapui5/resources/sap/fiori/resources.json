@@ -1,0 +1,364 @@
+{
+	"resources":[
+		{
+			"name": ".library"
+		},
+		{
+			"name": ".theming"
+		},
+		{
+			"name": "core-ext-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "core-ext-light-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "core-ext-light.js"
+		},
+		{
+			"name": "core-ext.js"
+		},
+		{
+			"name": "core-min-0-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "core-min-0.js"
+		},
+		{
+			"name": "core-min-1.js"
+		},
+		{
+			"name": "core-min-2.js"
+		},
+		{
+			"name": "core-min-3.js"
+		},
+		{
+			"name": "core-min-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "core-min.js"
+		},
+		{
+			"name": "flp-controls.js"
+		},
+		{
+			"name": "library-all.js",
+			"merged":true
+		},
+		{
+			"name": "library-preload.json",
+			"merged":true
+		},
+		{
+			"name": "library.dependencies.json"
+		},
+		{
+			"name": "library.dependencies.xml"
+		},
+		{
+			"name": "library.js"
+		},
+		{
+			"name": "manifest.json"
+		},
+		{
+			"name": "messagebundle-preload.js"
+		},
+		{
+			"name": "messagebundle-preload_ar.js"
+		},
+		{
+			"name": "messagebundle-preload_bg.js"
+		},
+		{
+			"name": "messagebundle-preload_ca.js"
+		},
+		{
+			"name": "messagebundle-preload_cs.js"
+		},
+		{
+			"name": "messagebundle-preload_da.js"
+		},
+		{
+			"name": "messagebundle-preload_de.js"
+		},
+		{
+			"name": "messagebundle-preload_el.js"
+		},
+		{
+			"name": "messagebundle-preload_en.js"
+		},
+		{
+			"name": "messagebundle-preload_en_US_sappsd.js"
+		},
+		{
+			"name": "messagebundle-preload_en_US_saptrc.js"
+		},
+		{
+			"name": "messagebundle-preload_es.js"
+		},
+		{
+			"name": "messagebundle-preload_et.js"
+		},
+		{
+			"name": "messagebundle-preload_fi.js"
+		},
+		{
+			"name": "messagebundle-preload_fr.js"
+		},
+		{
+			"name": "messagebundle-preload_hi.js"
+		},
+		{
+			"name": "messagebundle-preload_hr.js"
+		},
+		{
+			"name": "messagebundle-preload_hu.js"
+		},
+		{
+			"name": "messagebundle-preload_it.js"
+		},
+		{
+			"name": "messagebundle-preload_iw.js"
+		},
+		{
+			"name": "messagebundle-preload_ja.js"
+		},
+		{
+			"name": "messagebundle-preload_ko.js"
+		},
+		{
+			"name": "messagebundle-preload_lt.js"
+		},
+		{
+			"name": "messagebundle-preload_lv.js"
+		},
+		{
+			"name": "messagebundle-preload_nl.js"
+		},
+		{
+			"name": "messagebundle-preload_no.js"
+		},
+		{
+			"name": "messagebundle-preload_pl.js"
+		},
+		{
+			"name": "messagebundle-preload_pt.js"
+		},
+		{
+			"name": "messagebundle-preload_ro.js"
+		},
+		{
+			"name": "messagebundle-preload_ru.js"
+		},
+		{
+			"name": "messagebundle-preload_sh.js"
+		},
+		{
+			"name": "messagebundle-preload_sk.js"
+		},
+		{
+			"name": "messagebundle-preload_sl.js"
+		},
+		{
+			"name": "messagebundle-preload_sv.js"
+		},
+		{
+			"name": "messagebundle-preload_th.js"
+		},
+		{
+			"name": "messagebundle-preload_tr.js"
+		},
+		{
+			"name": "messagebundle-preload_uk.js"
+		},
+		{
+			"name": "messagebundle-preload_vi.js"
+		},
+		{
+			"name": "messagebundle-preload_zh_CN.js"
+		},
+		{
+			"name": "messagebundle-preload_zh_TW.js"
+		},
+		{
+			"name": "themes/base/.theming",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library-RTL-dbg.css",
+			"isDebug":true,
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library-RTL.css",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library-dbg.css",
+			"isDebug":true,
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library-parameters.json",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library.css",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library.source.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/sap_bluecrystal/.theming",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library-RTL-dbg.css",
+			"isDebug":true,
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library-RTL.css",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library-RTL_ie9-dbg.css",
+			"isDebug":true,
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library-RTL_ie9.css",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library-RTL_ie9_1-dbg.css",
+			"isDebug":true,
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library-RTL_ie9_1.css",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library-dbg.css",
+			"isDebug":true,
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library-parameters.json",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library.css",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library.less",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library.source.less",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library_ie9-dbg.css",
+			"isDebug":true,
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library_ie9.css",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library_ie9_1-dbg.css",
+			"isDebug":true,
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library_ie9_1.css",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_hcb/.theming",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-RTL-dbg.css",
+			"isDebug":true,
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-RTL.css",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-RTL_ie9-dbg.css",
+			"isDebug":true,
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-RTL_ie9.css",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-RTL_ie9_1-dbg.css",
+			"isDebug":true,
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-RTL_ie9_1.css",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-dbg.css",
+			"isDebug":true,
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-parameters.json",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library.css",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library.less",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library.source.less",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library_ie9-dbg.css",
+			"isDebug":true,
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library_ie9.css",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library_ie9_1-dbg.css",
+			"isDebug":true,
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library_ie9_1.css",
+			"theme":"sap_hcb"
+		}
+	]
+}

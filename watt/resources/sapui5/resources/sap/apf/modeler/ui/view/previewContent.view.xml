@@ -1,0 +1,74 @@
+<mvc:View controllerName="sap.apf.modeler.ui.controller.previewContent"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<HBox id="idChartHolder" displayInline="false" direction="Row"
+		fitContainer="false" renderType="Div" justifyContent="Start"
+		alignItems="Stretch">
+		<items>
+			<VBox xmlns="sap.m" id="idThumbnail" height="" width="33%"
+				displayInline="false" direction="Column" fitContainer="false"
+				renderType="Div" justifyContent="Center" alignItems="Center">
+				<items>
+					<VBox xmlns="sap.m" id="idChartLayout" visible="true" height=""
+						width="200px" displayInline="false" direction="Column"
+						fitContainer="false" renderType="Div" justifyContent="Start"
+						alignItems="Stretch">
+						<items>
+							<VBox xmlns="sap.m" id="idThumbnailLayout" visible="true"
+								height="130px" width="" displayInline="false" direction="Column"
+								fitContainer="false" renderType="Div" justifyContent="Start"
+								alignItems="Stretch">
+								<items>
+									<FlexBox xmlns="sap.m" id="idTopLayout" visible="true"
+										height="" width="" displayInline="false" direction="Row"
+										fitContainer="false" renderType="Div" justifyContent="SpaceBetween"
+										alignItems="Start">
+										<items>
+											<Text xmlns="sap.m" id="idLeftUpperCornerText"
+												textDirection="Inherit" visible="true" wrapping="true"
+												textAlign="Left" width="" maxLines="2">
+											</Text>
+											<Text xmlns="sap.m" id="idRightUpperCornerText"
+												textDirection="Inherit" visible="true" wrapping="true"
+												textAlign="Right" width="" maxLines="2">
+											</Text>
+										</items> <!-- sap.ui.core.Control -->
+									</FlexBox>
+									<VBox xmlns="sap.m" id="idThumbnailChartLayout" height="80px"
+										width="" displayInline="false" direction="Column"
+										fitContainer="false" renderType="Div" justifyContent="Center"
+										alignItems="Center">
+										<items></items> <!-- sap.ui.core.Control -->
+									</VBox>
+									<FlexBox xmlns="sap.m" id="idBottomLayout" visible="true"
+										height="" width="" displayInline="false" direction="Row"
+										fitContainer="false" renderType="Div" justifyContent="SpaceBetween"
+										alignItems="Start">
+										<items>
+											<Text xmlns="sap.m" id="idLeftLowerCornerText"
+												textDirection="Inherit" visible="true" wrapping="true"
+												textAlign="Left" width="" maxLines="2">
+											</Text>
+											<Text xmlns="sap.m" id="idRightLowerCornerText"
+												textDirection="Inherit" visible="true" wrapping="true"
+												textAlign="Right" width="" maxLines="2">
+											</Text>
+										</items> <!-- sap.ui.core.Control -->
+									</FlexBox>
+								</items> <!-- sap.ui.core.Control -->
+							</VBox>
+							<Text xmlns="sap.m" id="idStepTitleText"
+								textDirection="Inherit" visible="true" wrapping="true"
+								textAlign="Center" width="200px">
+							</Text>
+						</items> <!-- sap.ui.core.Control -->
+					</VBox>
+				</items> <!-- sap.ui.core.Control -->
+			</VBox>
+			<VBox xmlns="sap.m" id="idMainChart" height="" width="67%"
+				displayInline="false" direction="Column" fitContainer="false"
+				renderType="Div" justifyContent="Center" alignItems="Center">
+				<items></items> <!-- sap.ui.core.Control -->
+			</VBox>
+		</items> <!-- sap.ui.core.Control -->
+	</HBox>
+</mvc:View>

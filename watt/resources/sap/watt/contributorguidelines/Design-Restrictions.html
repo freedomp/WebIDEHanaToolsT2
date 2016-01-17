@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Restrictions — SAP Web IDE Design Guidelines</title>
+    <meta name="author" content="SAP SE">
+
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="assets/flat.css" type="text/css" />
+    <link rel="stylesheet" href="css/guidelines.css" type="text/css" />
+    <link rel="stylesheet" href="css/Design-Restrictions.css" type="text/css" />
+
+    <script src="../lib/requirejs/require.js" 
+	        data-main="../core/Global.js"
+	        data-sap-ide-environment-path="../../../../env.json"
+	        data-sap-ide-main="startup"
+	        data-sap-ide-basedir="../../.."></script>
+
+    <script>
+        define("startup", [], function() {
+            Q.all([
+                    sap.watt.includeScript("assets/js/contextSwitch.js"),
+                    sap.watt.includeScript("assets/js/flat.js")])
+            .then(function(){
+                loadTableOfContent("Restrictions");
+            });
+        });
+    </script>
+
+</head>
+<body>
+
+<div class="VBrandingBar"></div>
+
+<div class="VHeaderBar">
+    <div class="VHeaderBarCnt">
+        <ul class="VFloatRight vInline">
+            <li><img src="assets/images/SAPLogo.png" alt="SAP" id="LogoSAP" /></li>
+        </ul>
+        
+        <ul class="VInline">
+            <li id="ToggleMenuButton" class="VShowSmallInlineBlock"></li>
+            <li>SAP Web IDE<span class="VHideSmallInline"> — Design Guidelines</span></li>
+        </ul>
+    </div>
+</div>
+
+<div class="navigationOffCanvas"></div>
+
+<div class="content Design-Colors">
+
+    <div class="sapUiRespGrid sapUiRespGridHSpace1 sapUiRespGridVSpace1">
+        <div class="sapUiRespGridSpanL10 sapUiRespGridSpanM12 sapUiRespGridSpanS12 sapUiRespGridBreak">
+            <div class="VBanner">
+                <h1 class="VH2 VFontSpecial">Visual Design Foundations</h1>
+                <h2 class="VH1 VFontSpecial VAnimationPulse VColorError">Restrictions</h2>
+            </div>
+        </div>
+
+        <div class="sapUiRespGridSpanL9 sapUiRespGridSpanM12 sapUiRespGridSpanS12 sapUiRespGridBreakL">
+            <p>As described in the <a href="Design-Principles.html">Design Principles</a> the Flat theme of the SAP Web IDE is flat and light, minimalistic and clutter-free. Its minimalism comes at its cost and one has to be careful not to be tempted to show one’s own feature in the <em>best</em> possible light by means of eye candy, or the powerful styling features of&nbsp;CSS3.</p>
+        </div>
+
+        <div class="sapUiRespGridSpanL4 sapUiRespGridSpanM12 sapUiRespGridSpanS12">
+            <h3 class="VH2 VFontSpecial">Use drop shadows and similar effects sparingly</h3>
+            <p>The only elements that use a drop-shadow are pop-ups, dialogs, menu drop downs and WYSIWYG preview&mdash;elements that actually overlay the background area. These elements must not overlay each other. All of them use the same drop shadow style with 1&nbsp;pixel spacing to the bottom and a spread of&nbsp;2&nbsp;pixels.</p>
+        </div>
+
+        <div class="sapUiRespGridSpanL4 sapUiRespGridSpanM12 sapUiRespGridSpanS12 sapUiRespGridIndentL1">
+            <h3 class="VH2 VFontSpecial">Do not make use of gradients</h3>
+            <p>The only exception is the background image where a huge gradient is used to draw an abstract depiction of a horizon line with the <a href="">Organic&nbsp;Trees</a>.</p>
+        </div>
+
+        <div class="sapUiRespGridSpanL4 sapUiRespGridSpanM12 sapUiRespGridSpanS12 sapUiRespGridIndentL1">
+            <h3 class="VH2 VFontSpecial">Avoid bold font weights</h3>
+            <p>Due to the flat and light design approach of the SAP Web IDE, the use of bold fonts is exceptional.</p>
+        </div>
+
+        <div class="sapUiRespGridSpanL4 sapUiRespGridSpanM12 sapUiRespGridSpanS12 ">
+            <h3 class="VH2 VFontSpecial">Animate only when meaningful</h3>
+            <p>The SAP Web IDE hardly makes use of animations, fading, or CSS transforms.
+            Animations for the menu (fading) or the menu (rotating and zooming) have been intentionally removed.</p>
+        </div>
+
+        <div class="sapUiRespGridSpanL4 sapUiRespGridSpanM12 sapUiRespGridSpanS12 sapUiRespGridIndentL1">
+            <h3 class="VH2 VFontSpecial">Avoid borders and underlines</h3>
+            <p>Different areas are not differentiated by means of margings, borders, or drop shadows but by different color backgrounds. This not only de-clutters the user interfaces, in sum it also provides screen real estate for more important elements.</p>
+        </div>
+
+        <div class="sapUiRespGridSpanL3 sapUiRespGridSpanM6 sapUiRespGridSpanS12 sapUiRespGridBreak">
+            <div class="VSpacer4"></div>
+            <p>Last updated: June 26, 2014</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

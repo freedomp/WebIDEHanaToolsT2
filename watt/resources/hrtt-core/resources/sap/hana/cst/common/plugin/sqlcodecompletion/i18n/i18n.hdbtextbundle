@@ -1,0 +1,6 @@
+msg_binding = The service \"{0}\" will be bound to SAP HANA Runtime Tools Service. After that, you could get suggestions from HANA database.
+tit_hrrt = SAP HANA Runtime Tools Service
+tit_always_doent_binding = Always doesn't bind to SAP HANA Runtime Tools Service.
+lb_yes = Yes
+lb_no = No
+lb_ok = OK

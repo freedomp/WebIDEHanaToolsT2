@@ -1,0 +1,79 @@
+.labelproperty{
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 15px;
+}
+.sapUiTf:not(.sapUiTfInner) {
+	width: 100% !important;
+}
+
+.buttonPropert {
+    margin-top: 20px;
+    margin-left: 15px;
+}
+.labelProperty{
+    margin-top: 20px !important; 
+}
+.labelProperty td {
+	text-align: right;
+	padding-right: 15px !important;
+}
+.propertypane {
+	border-color: silver;
+}
+.impactEditor {
+	height: 100% !important;
+	width: 100% !important;
+	background-color: white;
+}
+.impactEditor >.sapUiLayoutAbsPos {
+	height: 100% !important;
+	width: 100% !important;
+}
+table >tbody > tr {
+	height: 25px !important;
+}
+.impacttoolbar {
+	background-color: #f2f2f2;
+	width: 100% !important;
+}
+.impactEditorContainer {
+	height: 100% !important;
+	width: 100% !important;
+}
+.impactEditorContainer>.sapuiVltCell:nth-of-type(1) {
+	height: 100% !important;
+	width: 100% !important;
+}
+.impactEditorMainVerticalLayout >.svgPageLimitLayer>.svgFixedLayer {
+	width: 100% !important;
+}
+.impactEditorMainVerticalLayout {
+	height: 100% !important;
+	width: 100% !important;
+}
+.impactEditorMainVerticalLayout {
+	height: 100% !important;
+	width: 100% !important;
+	background-color: rgb(242, 242, 242);
+}
+.impactEditorMainVerticalLayout>.sapuiVltCell:nth-of-type(1) {
+	height: 30px;
+	background: #EFEFEF;
+}
+.impactEditorMainVerticalLayout>.sapuiVltCell:nth-of-type(2) {
+	height: -moz-calc(100% - 30px);
+	height: calc(100% - 30px);
+	height: -webkit-calc(100% - 30px);
+	height: -o-calc(100% - 30px);
+}
+.impactPropertyTooltip{
+    position:absolute;
+    z-index:10;
+    background-color:white;
+    /*min-height:150px;*/
+    min-width:150px;
+    padding:5px;
+    border: 1px solid #C0C0C0;
+    box-shadow: 2px 2px 5px #888888;
+    font-size:12px;
+}

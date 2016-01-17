@@ -1,0 +1,35 @@
+.projectsettingPanel .projectTypeConfig {
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.projectsettingPanel .projectTypeConfig label{
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    color: #333333;
+}
+
+.projectsettingPanel .projectTypeConfigCheckBox label{
+    padding-left: 3px;
+}
+
+.projectsettingPanel .projectTypeConfigform{
+	padding: 18px 16px 20px 16px;
+}
+
+ .rdeGit.sapUiBtn {
+	height: 1.5rem;
+	font-size: 0.75rem;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+}
+
+.hdiServiceIconButtons:hover{
+	background-color: transparent !important;
+}
+
+.hdiServicePadding{
+	padding-right: 0.5rem;
+	padding-left: 0.5rem;
+	height: 1.5rem;
+}

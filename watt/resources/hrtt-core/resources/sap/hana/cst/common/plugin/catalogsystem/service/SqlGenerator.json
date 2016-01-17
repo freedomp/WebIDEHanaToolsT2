@@ -1,0 +1,17 @@
+{
+    "name": "sap.hana.cst.common.catalogsystem.interface.SqlGenerator",
+    "description": "The interface allows to generate Sql statement",
+
+    "methods": {
+        "generateInvokeProcedure": {},
+        "generateInvokeProcedureWithPlaceholder": {},
+        "generateInvokeFunction": {},
+        "generateInsertStatement": {},
+        "generateSelectStatement": {},
+        "generateSelectStatementForColumnView":{},
+        "generateObjectDefinition": {}
+    },
+    
+    "events": {
+    }
+}

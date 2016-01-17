@@ -1,0 +1,4 @@
+.widget-droparea-sortable-items > .sapUiDtEmptyContainer .sapMITBHead {
+    height : 48px !important;
+    min-width: 100px;
+}

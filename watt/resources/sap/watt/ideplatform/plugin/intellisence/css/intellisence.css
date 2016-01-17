@@ -1,0 +1,111 @@
+/****code completion related ****/
+.ace_autocomplete_popup {
+	color: black; /* @sapFlatStandardText */
+	background: white; /*  @sapFlatLightestBG */
+	border: none;
+	listStyleType: none;
+	padding: 0 0 1px 0;
+	position: fixed;
+	z-Index: 9;
+	overflow-y: auto;
+	overflow-x: auto;
+	height: auto;
+	width: auto;
+	min-Width: 180px;
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    cursor: default;
+	z-index: 999;
+	-ms-user-select:none;
+	font-size:12px;
+	line-height:1.5rem;
+}
+
+.ace_autocomplete_popup .unselectable 
+{
+	color: gray;
+}
+
+.ace_autocomplete_popup .selectable-item {
+	height: 1.5rem;
+	padding: 0 10px 0 0;	
+	-moz-padding-end:20px;	
+}
+.ace_autocomplete_popup .selectable-item .intellisense_description {
+	font-size: 11px;
+	color: black; /* @sapFlatStandardText */
+	padding: 0.75rem;
+	line-height:24px;
+}
+
+.ace_autocomplete_popup .selectable-item.ace_autocomplete_selected {
+  background: rgb(0, 91, 141); /* @sapFlatHighlight */  
+}
+
+.ace_autocomplete_popup .selectable-item.ace_autocomplete_selected .intellisense_description {
+    color: white; /*  @sapFlatLightestBG */
+}
+
+.ace_autocomplete_popup ::-webkit-scrollbar, .ace_autocomplete_popup ::-moz-scrollbar {
+	background-color: #f2f2f2;
+	width: 8px;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	height: 8px;
+}
+
+.ace_autocomplete_popup ::-webkit-scrollbar-thumb, .ace_autocomplete_popup::-moz-scrollbar-thumb{
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	background-color: #ccc;
+}
+
+.ace_autocomplete_popup li img
+{
+    vertical-align:middle;
+	padding:4px 0 4px 4px;
+	width: 16px;
+	height: 16px;
+}
+
+.ace_marker-layer .acmark
+{
+    position: absolute;
+    z-index: 5;
+	border:1px solid gray;
+}
+
+.ace_autocomplete_hint
+{
+	padding :0px;
+	position :fixed;
+	z-Index : 9;
+	overflow : hidden;
+	width : auto;
+	height : auto;
+	font-style :italic;
+	color:gray;
+	pointer-events: none;
+}
+
+.ace_autocomplete_hint .description
+{	
+	overflow : hidden;
+	text-overflow:ellipsis;
+}
+.ace_autocomplete_hint .arrows
+{
+	width:9px;
+	height:14px;
+	background-color:transparent;
+	background-image:url(../images/cc_arrows.png);
+	background-repeat:no-repeat;
+	background-position:0% 0%;
+	display:inline-block;
+	margin:0px 0px 1px 2px;	
+}
+
+.ace_autocomplete_hint  span
+{
+	float:left;
+	vertical-align:top;
+}

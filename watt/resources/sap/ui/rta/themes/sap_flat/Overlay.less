@@ -1,0 +1,70 @@
+/******************************************************************
+	Style of the RTA Overlays
+*******************************************************************/
+
+@sapUiRtaActiveBG : fade(@sapUiHighlight, 10%);
+@sapUiRtaFocus : fade(@sapUiHighlight, 70%);
+@sapRtaBaseBG : white;
+@sapUiRtaHoverBG : fade(darken(@sapRtaBaseBG, 100%), 10.8%);
+@sapUiRtaActiveHoverBG : fade(@sapUiHighlight, 20%);
+
+.sapUiRtaOverlayHover {
+	background: @sapUiRtaHoverBG;
+	-webkit-transition: background 0.1s cubic-bezier(1,.01,1,0);
+	-moz-transition: background 0.1s cubic-bezier(1,.01,1,0);
+	-o-transition: background 0.1s cubic-bezier(1,.01,1,0);
+	transition: background 0.1s cubic-bezier(1,.01,1,0);
+}
+
+.sapUiDtOverlaySelected {
+	background: @sapUiRtaActiveBG;
+	&.sapUiRtaOverlayHover {
+		background: @sapUiRtaActiveHoverBG;
+	}
+	outline: auto @sapUiRtaFocus 0px;
+	&:focus {
+		outline-width: 5px;
+	}
+}
+
+.sapUiDtOverlayDroppable {
+	outline : none;
+
+	&:after {
+		content: " ";
+		pointer-events: none;
+		position: absolute;
+		top: 1px;
+		bottom: 1px;
+		left: 1px;
+		right: 1px;
+		border: 1px dashed @sapUiHighlight;
+	}
+
+	>.sapUiDtOverlayDraggable {
+		background: @sapUiRtaActiveBG;
+		outline: 1px solid white;
+		outline-offset: -1px;		
+	}
+
+	.sapUiRtaOverlayPlaceholder {
+		background: darken(@sapRtaBaseBG, 2%);
+	}
+}
+
+.sapUiDtDragGhost {
+	background: @sapUiRtaActiveBG;
+}
+
+.sapUiRtaEditLabel{
+	outline: 1px solid rgba(150,150,150,1);
+	outline-offset: 2px;
+	top: -3px;
+	padding-top: 1px;
+}
+
+.sapUiRtaEditTitle{
+	outline: 1px solid rgba(150,150,150,1);
+	outline-offset: 2px;
+	top: 3px;
+}

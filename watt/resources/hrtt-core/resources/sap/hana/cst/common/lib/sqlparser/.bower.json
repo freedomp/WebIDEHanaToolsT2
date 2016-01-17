@@ -1,0 +1,40 @@
+{
+  "name": "sqlparser-js",
+  "description": "SQL parser implementation in JavaScript.",
+  "keywords": [
+    "SQL",
+    "parser"
+  ],
+  "authors": [
+    "SAP SE"
+  ],
+  "main": [
+    "parser/sqlparser.js"
+  ],
+  "ignore": [
+    "*/",
+    "/*.*",
+    "!bower.json",
+    "!parser",
+    "!tool-support"
+  ],
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.wdf.sap.corp/sqlparser-js/sqlparser-js.git"
+  },
+  "devDependencies": {
+    "requirejs": "~2.1.8",
+    "qunit": "~1.18.0",
+    "blanket": "~1.1.7"
+  },
+  "_release": "hana-11.1.1",
+  "_resolution": {
+    "type": "tag",
+    "tag": "hana-11.1.1",
+    "commit": "0c9115525fff0cde099a3f9a18cece081ce483dc"
+  },
+  "_source": "https://github.wdf.sap.corp/sqlparser-js/sqlparser-js.git",
+  "_target": "hana-11.1.1",
+  "_originalSource": "https://github.wdf.sap.corp/sqlparser-js/sqlparser-js.git"
+}

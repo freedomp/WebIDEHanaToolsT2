@@ -1,0 +1,10 @@
+{
+	"preloadCapable": true,
+
+	"plugins": [
+		"/sap/hana/cst/common/plugin/sqlcodecompletion",
+		"/sap/hana/cst/common/plugin/xs2ctrlsystem"
+	],
+
+	"required": true
+}

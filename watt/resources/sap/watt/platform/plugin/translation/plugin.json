@@ -1,0 +1,64 @@
+{
+	
+	"name": "sap.watt.platform.translation",
+	"description": "The Term and Translation Service Plugin",
+    "i18n" : "sap.watt.platform.translation/i18n/i18n",
+	
+	"requires": {
+		"services": [
+			"command",
+			"commandGroup",
+			"menu",
+			"setting.project",
+			"filesystem.documentProvider",
+			"selection",
+			"resource",
+			"log",
+		  	"document"
+		]
+	},
+	
+	"configures": {
+
+		"services": {
+		
+			"translation:styles" : [
+				{
+					"uri" : "sap.watt.platform.translation/ui/style.css"
+				}
+			],			
+			"command:commands" : [
+				{
+					"id" : "translation.showTerm",
+					"service" : "sap.watt.platform.translation/command/ShowTerm",
+					"available" : true,
+					"enabled" : true
+				}
+			]
+		}
+	},
+
+	"provides": {
+		"services" : {
+			"translation": {
+				"implements": "sap.watt.common.plugin.translation.service.Translation",
+				"module": "sap.watt.platform.translation/service/TranslationImpl"
+			},
+			"languages": {
+			    "implements" : "sap.watt.common.service.ui.Config",
+			    "module" : "sap.watt.platform.translation/service/TranslationSettings"
+			}
+		},
+		
+		"interfaces": {
+			"sap.watt.common.plugin.translation.service.Translation": "sap.watt.platform.translation/service/Translation"
+		}
+		
+	},
+	
+	"subscribes": {
+		"generation:generated": "translation:onAfterGenerate"
+	}
+	
+	
+}

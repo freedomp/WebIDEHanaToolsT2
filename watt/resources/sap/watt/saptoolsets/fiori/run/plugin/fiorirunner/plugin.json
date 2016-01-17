@@ -1,0 +1,71 @@
+{
+	"name": "sap.watt.saptoolsets.fiori.run.fiorirunner",
+	"description": "Fiori runner plugin",
+	"i18n" : "sap.watt.saptoolsets.fiori.run.fiorirunner/i18n/i18n",
+
+	"requires": {
+		"services": [
+		    "run",
+			"filesystem.documentProvider",
+			"setting.project",
+			"appparams",
+			"filesearchutil",
+			"choosefilepopup",
+			"ushellsandboxpreview",
+			"preview" ,
+			"runnerrunutil",
+			"inputvalidatorutil",
+			"log",
+			"usagemonitoring",
+			"runconfig.filepath",
+			"runconfig.ui5versions",
+			"runconfig.withmock",
+			"runconfig.preview",
+			"UI5VersionsUtil" ,
+			"runconfig.resourcemapping",
+			"runconfig.urlparameters",
+			"destinationsutil",
+			"runconfig.destinationmapping",
+			"reuseLibsUtil"
+		]
+	}, 
+	"provides": {
+		"services": {
+			"FioriRunner": {
+				"implements": "sap.watt.common.plugin.run.service.runner",
+				"module": "sap.watt.saptoolsets.fiori.run.fiorirunner/service/FioriRunner"
+			}
+		},
+		"interfaces": {
+		
+		}	
+	},
+	
+ 	"configures" : {
+        "services" : {
+            "run:runners": [
+                {
+                    "id" : "fiorirunner",
+                    "service": "@FioriRunner",
+                    "displayName" : "{i18n>lbl_run_sap_fiori_app}",
+                    "projectTypesIds" : ["sap.watt.uitools.ide.fiori"],
+                    "windowTarget" : "fiori_preview",
+					"fileTypes" : ["Component.js", "*fiorisandboxconfig*.json"],
+					"appCacheBusterOffset" : "../../../../"
+                }
+            ],
+            "runconfig.resourcemapping:externalservices": [
+            	{
+            		"service": "@reuseLibsUtil"
+            	}
+            ],
+            "usagemonitoring:reportParams": [{
+				"components": ["runner"],
+				"eventTypes": ["fiori_sandbox", "fiori_sandbox_config"]
+            }]
+        }
+	},
+	"subscribes": {
+	
+	}
+}

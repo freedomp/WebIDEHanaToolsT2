@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>TestSuite for ...</title>
+</head>
+<body>
+	<script language="javascript">
+		/**
+		 * Add test pages to this test suite function.
+		 * Please order alphabetically
+		 */ 
+		function suite() {
+			var suite = new top.jsUnitTestSuite();
+			var contextPath = "/" + window.location.pathname.split("/")[1];
+			suite.addTestPage(contextPath
+							+ "/test-resources/test-files/opa/testsuite_opa.qunit.html");
+			return suite;
+		}
+		
+	</script>
+</body>
+</html>

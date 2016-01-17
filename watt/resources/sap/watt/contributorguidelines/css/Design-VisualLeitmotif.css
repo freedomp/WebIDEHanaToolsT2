@@ -1,0 +1,22 @@
+#BlueHorizonBG1 {
+	background-image: url(../images/OrganicTrees.png);
+	background-position: left bottom;
+	background-repeat: repeat-x;
+	background-size: auto 300px;
+	height: 300px;
+}
+
+#BlueHorizonBG2 {
+	background-image: url(../images/OrganicTrees.png);
+	background-position: right bottom;
+	background-repeat: repeat-x;
+	background-size: auto 300px;
+	height: 300px;
+}
+
+#BlueHorizonBG3 {
+	background-image: url(../images/OrganicTrees.png);
+	background-position: left bottom;
+	background-repeat: repeat-x;
+	height: 300px;
+}

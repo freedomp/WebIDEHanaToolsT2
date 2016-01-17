@@ -1,0 +1,24 @@
+{
+    "name": "sap.hana.cst.common.catalogsystem.interface.SqlExecutor",
+    "description": "The interface allows to execute and prepare Sql statement",
+
+    "configurationProperties": {
+        "dao": {
+            "type": "sap.hana.cst.common.plugin.catalogsystem.service.CatalogDAO",
+            "multiple": false
+        }
+    },
+    
+    "methods": {
+        "execute": {},
+        "executeWithInputParameters": {},
+        "prepare": {},
+        "getCurrentSchema": {},
+        "getParams": {},
+        "setParams": {},
+        "removeParams": {}
+    },
+    
+    "events": {
+    }
+}

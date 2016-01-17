@@ -1,0 +1,1627 @@
+.calcviewEditorView .sapUiLayoutAbsPos {
+    height: 100%;
+}
+ 
+.calcViewEditor {
+    height: 100% !important;
+               width: 100% !important;
+               background-color: rgb(242, 242, 242);
+}
+ 
+.calcViewEditor>.sapuiVltCell:nth-of-type(2) {
+               height: 30px;
+    background: #EFEFEF;
+}
+.sapUiTableSelModeMulti .sapUiTableCtrl tr.sapUiTableRowSel > td { 
+       background-color: #E6F2F9 !important;
+}
+.calcviewEditorView .sapUiTfCombo .sapUiTfComboIcon:hover::after { 
+  background-color: #116EF9
+}
+.calcviewEditorView .sapUiTableRowSel{
+	background-color: #E6F2F9 !ismportant; 
+}
+ .sapUiLbxStd > ul > .sapUiLbxISel > span, .sapUiLbxStd > ul > .sapUiLbxISel{
+	color: black;
+    background-color: #E6F2F9;
+}
+.sapUiTfComboIcon {
+       background: none !important
+}
+.sapUiTableCtrl tr.sapUiTableRowHvr {
+  background: #F0F0F0;
+}
+.sapUiTableSelModeMulti .sapUiTableCtrl tr.sapUiTableRowSel > td {
+   /*
+	background-color: #107dc2 !important;
+	*/ 
+}
+ 
+.calcViewEditor>.sapuiVltCell:nth-of-type(3) {
+    height: -moz-calc(100% - 30px);
+               height: calc(100% - 30px);
+    height: -webkit-calc(100% - 30px);
+               height: -o-calc(100% - 30px);       
+}
+ 
+.calcViewEditor>.sapuiVltCell:nth-of-type(3)>div {
+    border: 0 !important;
+}
+ 
+.svgRoot {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+ 
+.calcViewDiagramTools, .calcViewDiagramTools td {
+    height: 32px;
+    background: #EFEFEF;
+}
+ 
+.calcViewDiagram, .calcViewDiagram td {
+    height: 100%;
+}
+ 
+.calcViewDiagram>td>div {
+    border: 0 !important;
+}
+.headerWidth{
+    width:40%;
+}
+.secondPaneNav{
+    display: inline-block;
+    overflow: hidden;
+    height:100%;
+    background-image: url(/sap/ui5/1/resources/sap/ui/core/themes/sap_bluecrystal/img/bg_white_transparent.png), linear-gradient(to bottom, rgba(255, 255, 255, .9) 0, rgba(255, 255, 255, .8) 100%);
+}
+ 
+.secondPaneNav>.sapuiVltCell:nth-of-type(1) {
+               height:35px;
+}
+.secondPaneNav>.sapuiVltCell:nth-of-type(2) {
+               height:35px;
+}
+.secondPaneNav>.sapuiVltCell:nth-of-type(3) {
+    background: white;
+               height: -moz-calc(100% - 70px);
+               height: calc(100% - 70px);
+    height: -webkit-calc(100% - 70px);
+               height: -o-calc(100% - 70px);       
+}
+ 
+.secondPaneNavScript{
+    display: inline-block;
+    overflow: auto;
+    height:100%;
+    background-image: url(/sap/ui5/1/resources/sap/ui/core/themes/sap_bluecrystal/img/bg_white_transparent.png), linear-gradient(to bottom, rgba(255, 255, 255, .9) 0, rgba(255, 255, 255, .8) 100%);
+}
+ 
+.secondPaneNavScript>.sapuiVltCell:nth-of-type(1) {
+               height:35px;
+}
+ 
+.secondPaneNavScript>.sapuiVltCell:nth-of-type(2) {
+    background: white;
+               height: -moz-calc(100% - 35px);
+               height: calc(100% - 35px);
+    height: -webkit-calc(100% - 35px);
+               height: -o-calc(100% - 35px);       
+}
+ 
+.propertyCustom {
+    display: inline-block;
+    overflow: hidden;
+    border: 1px solid rgb(193,193,193);
+    height: 100%;
+}
+.propertyCustom>.sapuiVltCell:nth-of-type(1) {
+   background-color:#EFEFEF !important;
+   border-bottom: 1px solid rgb(193,193,193);
+   height: 30px;
+}
+.propertyCustom>.sapuiVltCell:nth-of-type(2) {
+    overflow: auto;
+    padding-top: 5px;
+    height: calc(100% - 30px) ;
+    height: -webkit-calc(100% - 30px) ;
+               height: -moz-calc(100% - 30px) ;
+               height: -o-calc(100% - 30px) ;
+}
+.propertyCustom .sapUiTf {
+     margin-left: 0px;
+     border-color:#c0c0c0;
+}
+.propertyCustom>.sapuiVltCell:nth-of-type(2) .sapUiLbl {
+     margin-left: 25px;
+}
+ 
+.propertyMainLayoutspl .sapUiTable {
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    color: #666666;
+    width:100%;
+}
+ 
+.joinPropertyCustom {
+    display: inline-block;
+    overflow: hidden;
+    border: 1px solid rgb(193,193,193);
+    height: 100%
+}
+.joinPropertyCustom>.sapuiVltCell:nth-of-type(1) {
+   background-color:#EFEFEF !important;
+   border-bottom: 1px solid rgb(193,193,193);
+   height: 30px;
+}
+ 
+.joinPropertyCustom>.sapuiVltCell:nth-of-type(2) {
+    overflow: auto;
+    padding-top: 10px;
+    height: calc(100% - 30px) ;
+    height: -webkit-calc(100% - 30px) ;
+               height: -moz-calc(100% - 30px) ;
+               height: -o-calc(100% - 30px) ;
+}
+ 
+.valueHelpCustom .sapUiTreeTransparent {
+background-color: transparent;
+border: 1px solid #bfbfbf;
+padding-left: 8px;
+}
+ 
+.columnsViewsTable{
+height:100%;  
+}
+ 
+.columnsViewsTable .sapUiTableCnt{
+     height:100%; 
+}
+ 
+.customSAPUiLabel{
+    font-weight: bold;
+    padding-left: 10px;
+}
+ 
+.splitercss .sapUiVlt {
+    display: inline-block;
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+}
+.customTable> .sapUiLblIco {
+    vertical-align: sub;
+    margin: 3px 0 0 0;
+    padding-right: 4px;
+}
+.customTable>.sapUiTableCol
+.customTable>.sapUiLbl,
+/*.sapUiTableCell>.sapUiTf, */
+.customTable>.sapUiTableCell>.sapUiSearchField,
+.customTable>.sapUiTableCell>.sapUiSearchField>.sapUiTfCombo,
+.customTable>.sapUiTableCell>.sapUiTfCombo {
+    height: 2rem;
+    line-height: 2rem;
+    font-weight: bold;
+    font-size: small;
+}
+.customTable> .sapUiTableCell {
+    height: 30px;
+    font-size: small;
+    vertical-align: auto;
+    text-align: left;
+}
+.customTable> .sapUiTableCCnt {
+    position: relative;
+    border-left-style: outset;
+    border-right-style: inset;
+}
+ 
+.customTable> .sapUiTv {
+    height: 2rem;
+    line-height: 2rem;
+    font-size: small;
+}
+ 
+.customTable> .sapUiTableCtrlEmptyMsg {
+    position: relative;
+    top: 50%;
+    margin-top: -0.5em;
+    font-size: small;
+}
+ 
+.customWidth {
+    display: block;
+    width: 25%;
+    position: relative;
+    height: 85% !important;
+}
+ 
+.listHeight {
+    position: relative;
+    height: 37px;
+    background-color:#C3DBC2;
+}
+.masterPageBackground{
+    background-color:#DFE0CF;
+    overflow:scroll;
+}
+.detailPageBackground{
+    overflow:scroll;
+     background-color:#5b8ac0;
+}
+.layoutHeight{
+    height:85% !important;
+}
+.layoutMargin{
+   background-color:#bed1e6;
+   margin-left:20px;
+   margin-top:20px;
+   margin-bottom:20px;
+   border-radius:10px;
+}
+.layoutWithoutTopMargin{
+   background-color:#bed1e6;
+   margin-left:20px;
+   margin-top:10px;
+   margin-bottom:20px;
+   border-radius:10px;
+}
+.backGroundColor{
+    background-color:#5b8ac0;
+}
+.headerLabel{
+    padding-left:22px;
+    color:#FFF;
+    font-size:15px;
+}
+.layoutBackground{
+    background-color:#9CC;
+}
+.innerLayoutBackground{
+   border:1px;
+   border-style:double;
+   border-color:#93b2d6;
+}
+.classList li:nth-child(odd){
+   background : #f1d3e1 !important;
+}
+ 
+.classList li:nth-child(even){
+   background : #fff !important;
+}
+.whiteBackground,.headerHeight{
+    background-color:#FFF;
+}
+.headerHeight{
+    height:30px;
+}
+ 
+/*
+* BEGIN styles for typed object table
+*/
+.calcviewTypedObjectTable td {
+    border-right-style: none;
+}
+/*
+* END styles for typed object table
+*/
+ 
+/*
+* BEGIN styles for EditorLayout control
+*/
+.editorLayoutNoFirstPane .editorLayoutCollapsedLeft {
+    display: none;
+}
+ 
+.editorLayoutNoSecondPane .editorLayoutCollapsedLeft {
+    display: none;
+}
+ 
+.editorLayoutButton {
+    width: 36px;
+    display: inline-block;
+    overflow: hidden;
+    border-style: solid;
+    border-width: 2px 2px 2px 2px;
+    border-color: #EFEFEF;
+    padding: 1em 0 1em 0;
+    margin: 0;
+    color: #666666;
+    background-color: #EFEFEF;
+    font-size: 0.875rem;
+}
+ 
+.editorLayoutButton .sapUiIcon {
+    margin-top: 4px;
+    font-size: 0.875rem;
+}
+ 
+.editorLayoutButtonPressed {
+    border-style: inset;
+    background-color: #ccc;
+}
+ 
+.editorLayoutButton:focus {
+    outline-color: #ccc;
+    outline-style: dotted;
+    outline-width: 1px;
+    outline-offset: 0;
+}
+ 
+.editorLayoutButton:hover {
+    background-color: rgb(232, 232, 232);
+}
+ 
+.editorLayoutButtonInner {
+    border-style: none;
+    display: inline-block;
+    white-space: nowrap;
+    line-height: 32px; /* align baseline of button text with label */
+    -o-transform: translate(0,100%) rotate(-90deg);
+    -o-transform-origin: 0 0;
+    -webkit-transform: translate(0,100%) rotate(-90deg);
+    -webkit-transform-origin: 0 0;
+    -moz-transform: translate(0,100%) rotate(-90deg);
+    -moz-transform-origin: 0 0;
+    -ms-transform: translate(0,100%) rotate(-90deg);
+    -ms-transform-origin: 0 0;
+    transform: translate(0,100%) rotate(-90deg);
+    transform-origin: 0 0;
+}
+ 
+.editorLayoutButtonInner:before {
+    content: "";
+    float: left;
+    margin-top: 100%;
+}
+ 
+.editorLayoutLabel {
+    width: 36px;
+    display: inline-block;
+    overflow: hidden;
+    padding: 1em 0 1em 0;
+    margin: 0;
+    color: #666666;
+    background-color: #EFEFEF;
+    font-size: 0.875rem;
+}
+ 
+.editorLayoutLabelInner {
+    border-style: none;
+    display: inline-block;
+    white-space: nowrap;
+    line-height: 36px;
+    -o-transform: translate(0,100%) rotate(-90deg);
+    -o-transform-origin: 0 0;
+    -webkit-transform: translate(0,100%) rotate(-90deg);
+    -webkit-transform-origin: 0 0;
+    -moz-transform: translate(0,100%) rotate(-90deg);
+    -moz-transform-origin: 0 0;
+    -ms-transform: translate(0,100%) rotate(-90deg);
+    -ms-transform-origin: 0 0;
+    transform: translate(0,100%) rotate(-90deg);
+    transform-origin: 0 0;
+}
+ 
+.editorLayoutLabelInner:before {
+    content: "";
+    float: left;
+    margin-top: 100%;
+}
+ 
+.editorLayoutCollapsedLeft {
+    width: 36px;
+    background-color: #EFEFEF;
+}
+ 
+.editorLayoutCollapsedRight {
+    width: 36px;
+    background-color: #EFEFEF;
+}
+ 
+.editorLayoutExpandButton {
+    height: 28px;
+    width: 36px;
+    display: inline-block;
+    overflow: hidden;
+    border-style: solid;
+    border-width: 2px 2px 2px 2px;
+    border-color: #EFEFEF;
+    color: #666666;
+    background-color: #EFEFEF;
+    font-size: 0.875rem;
+}
+ 
+.editorLayoutExpandButton:hover {
+    background-color: rgb(232, 232, 232);
+}
+ 
+/* prevent shrink of first pane height in case the content height of the second pane exceeds the splitter size
+   see, http://stackoverflow.com/a/17139363 */
+.editorLayoutContent>.sapUiSplitter {
+    position: relative;
+}
+.editorLayoutContent>.sapUiSplitter>.sapUiVSplitterSecondPane {
+    position: absolute;
+}
+/*
+* END styles for EditorLayout control
+*/
+ 
+/*
+* BEGIN styles for script editor quick panel
+*/
+.calcviewScriptEditorLayout>.sapUiLayoutAbsPos:nth-of-type(1) {
+    z-index: 8;
+}
+/* collapse button */
+.calcviewScriptEditorLayout>.sapUiLayoutAbsPos:nth-of-type(2) {
+    z-index: 9;
+}
+/* exapnd button */
+.calcviewScriptEditorLayout>.sapUiLayoutAbsPos:nth-of-type(3) {
+    z-index: 9;
+}
+ 
+.calcviewScriptEditorQuickPanel {
+    top: 8px;
+    right: 0;
+    position: absolute;
+    height: calc(100% - 24px);
+    width: 250px;
+    background-color: rgb(204, 204, 204);
+    background-color: rgba(204, 204, 204, 0.5);
+    padding: 4px 0 4px 0;
+}
+ 
+.calcviewScriptEditorQuickPanelShown {
+    -webkit-animation: showQuickPanel 0.2s forwards;
+    -moz-animation: showQuickPanel 0.2s forwards;
+    animation: showQuickPanel 0.2s forwards;
+}
+ 
+.calcviewScriptEditorQuickPanelHidden {
+    -webkit-animation: hideQuickPanel 0.2s forwards;
+    -moz-animation: hideQuickPanel 0.2s forwards;
+    animation: hideQuickPanel 0.2s forwards;
+}
+ 
+@-moz-keyframes hideQuickPanel {
+    0%   {right: 0;}
+    100% {right: -300px;}
+}
+ 
+@-webkit-keyframes hideQuickPanel {
+    0%   {right: 0;}
+    100%  {right: -300px;}
+}
+ 
+@keyframes hideQuickPanel {
+    0%   {right: 0;}
+    100% {right: -300px;}
+}
+ 
+@-moz-keyframes showQuickPanel {
+    0%   {right: -300px;}
+    100%  {right: 0;}
+}
+ 
+@-webkit-keyframes showQuickPanel {
+    0%   {right: -300px;}
+    100%  {right: 0;}
+}
+ 
+@keyframes showQuickPanel {
+    0%   {right: -300px;}
+    100%  {right: 0;}
+}
+ 
+.calcviewScriptEditorQuickPanelColl {
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    top: calc(50% - 12px);
+    right: 250px;
+    background-color: #ccc;
+}
+ 
+.calcviewScriptEditorQuickPanelExp {
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    top: calc(50% - 12px);
+    right: 0;
+    background-color: #ccc;
+}
+ 
+.calcviewScriptEditorQuickPanel>.sapUiVltCell {
+    height: 100%;
+}
+ 
+.calcviewScriptEditorQuickPanelScr {
+    background-color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.5);
+}
+ 
+.calcviewScriptEditorQuickPanelButtonHidden {
+    display: none;
+}
+/*
+* END styles for script editor quick panel
+*/
+ 
+.customProperties>.sapUiTfDsbl {
+    border-color: #dedede;
+    background-color: #f9f9f9;
+}
+ 
+.customProperties .sapUiCb>label {
+    color: rgb(112, 104, 104);
+}
+ 
+.customProperties .sapUiLbl {
+    color: rgb(112, 104, 104);
+    text-align: right;
+}
+ 
+.customProperties .sapUiTvH5 {
+font-size: 14px;
+color: rgb(112, 104, 104);
+background-color: rgb(245,247,245);
+}
+ 
+.customProperties .sapUiPanelCont {
+border-top-width: 0;
+margin-left: 30px;
+}
+ 
+.customProperties .sapUiTfRo {
+    font-weight: bold;
+}
+ 
+.customProperties .sapUiCb {
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+}
+ 
+.customProperties .sapUiTreeCont {
+border: none;
+top: 0;
+color: black;
+}
+ 
+.inValid{
+    border-color:rgb(150,0,0);
+}
+.buttonHeight{
+    height:80%;
+    margin-top:1%;
+}
+.textBoxHeight{
+    height:30px;
+}
+.marginFields{
+    margin-left:0px;
+}
+.paddingBottom{
+    padding-bottom:5px;
+}
+.labelFloat{
+    float:right;
+}
+.paddingLeft{
+    padding-left:5px;
+}
+.paddingRight{
+    padding-right:5px;
+}
+.toolBarHeight{
+    height:1% !important;
+}
+.parameterHeaderStyle{
+    background-color:rgb(245,247,245);
+    border-bottom:1px solid rgb(167,189,214);
+    text-transform:uppercase;
+}
+.parameterExpressionHeaderStyle{
+    background-color:rgb(245,247,245);
+    border-bottom:1px solid rgb(167,189,214);
+}
+.panelHeaderStyle{
+    background-color:rgb(245,247,245);
+    border-bottom:1px solid rgb(167,189,214);
+   /* text-transform:uppercase;*/
+}
+.parameterToolbarStyle{
+    background-color:#EFEFEF !important;
+    border:1px solid rgb(193,193,193);
+/*    border-top:1px solid rgb(193,193,193);*/
+    border-bottom: 0;
+    height: 36px !important;
+}
+.detailsHeaderStyle{
+    background-color:white;
+    padding-top: 5px;
+}
+.scrollOverFlow{
+    overflow:scroll;
+    display:inline-block;
+    position:relative;
+}
+.inputBorder{
+    border: 1px solid rgb(191,191,191);
+}
+ 
+.customSapUiUx3NavBar {
+               height: 100%;
+}
+ 
+.customSapUiUx3NavBar .sapUiUx3NavBarList {
+               height: 100%;
+}
+ 
+.customSapUiUx3NavBar .sapUiUx3NavBarList>li {
+               height: 100%;
+}
+ 
+.customSapUiUx3NavBar .sapUiUx3NavBarItemSel>a {
+               padding: 3px 9px 10px;
+               border-bottom: 4px solid rgba(58, 66, 168, 0);
+               border-color: #000000 transparent #007cc0;
+}
+ 
+.currencyHeader{
+    margin-top: 10px;
+}
+ 
+.currencyText{
+    margin-left: 0px;
+    border-color: #b1b1b1;
+}
+ 
+ 
+.currencyBrowseButton {
+   width: 60%;
+}
+ 
+.currencyBrowseButton>tbody>tr>td.sapUiMltCell:nth-of-type(1).sapUiMltPadRight{
+  padding: 0 0px 5px 0;
+}
+ 
+.currencySemanticCombo>tbody>tr>td.sapUiMltCell:nth-of-type(1).sapUiMltPadRight{
+  padding: 0 4px 0px 0;
+}
+ 
+.currencyHeaderBack{
+    float: right;
+}
+.currencyPropertyHeader{
+    background-color: rgb(245,247,245);
+    height: 30px;
+}
+ 
+.currencyHeaderLabel{
+   text-align: center !important;
+}
+.setHeight{
+    height:650px !important;
+}
+ 
+.mappingPane {
+    display: inline-block;
+    overflow: hidden;
+    height:100%;
+    position: static !important;
+}
+.mappingPane>.sapUiHSplitterFirstPane {
+    overflow: hidden !important;
+    height: 100%;
+}
+ 
+.mappingPane>.sapUiHSplitterSecondPane {
+   overflow: hidden !important;
+}
+ 
+.columnsPane>.sapUiHSplitterFirstPane {
+    overflow: hidden !important;
+}
+.columnsPane>.sapUiHSplitterSecondPane {
+    overflow: hidden !important;
+}
+.columnsPane>.sapUiHSplitterFirstPane>.sapUiVlt {
+    width: 100%;
+}
+.columnsPane>.sapUiHSplitterSecondPane>.sapUiVlt {
+    width: 100%;
+}
+.columnsPaneTab {
+    display: inline-block;
+    overflow: hidden;
+    border: 1px solid rgb(193,193,193);
+    height: 100%
+}
+.columnsPaneTab>.sapuiVltCell:nth-of-type(1) {
+   background-color:#EFEFEF !important;
+   border-bottom: 1px solid rgb(193,193,193);
+   height: 30px;
+}
+ 
+.columnsPaneTab>.sapuiVltCell:nth-of-type(2) {
+    overflow: hidden;
+    height: calc(100% - 30px) ;
+    height: -webkit-calc(100% - 30px) ;
+               height: -moz-calc(100% - 30px) ;
+               height: -o-calc(100% - 30px) ;
+}
+ 
+.joinPane>.sapUiHSplitterFirstPane {
+    overflow: hidden !important;
+}
+.joinPane>.sapUiHSplitterSecondPane {
+    overflow: hidden !important;
+}
+ 
+.joinViewer {
+    width: 100%;
+    height: 100%;
+    background: white;
+}
+ 
+.joinViewer>.sapuiVltCell:nth-of-type(1) {
+   background-color:#EFEFEF !important;
+   border-bottom: 1px solid rgb(193,193,193);
+   height: 29px;
+}
+ 
+.joinViewer>.sapuiVltCell:nth-of-type(2) {
+    overflow: auto;
+    height: calc(100% - 29px)!important ;
+    height: -webkit-calc(100% - 29px) !important ;
+               height: -moz-calc(100% - 29px)!important ;
+               height: -o-calc(100% - 29px)!important ;
+    border-left: 1px solid rgb(193,193,193);
+    border-right: 1px solid rgb(193,193,193);
+    border-bottom: 1px solid rgb(193,193,193);
+}
+ 
+/*
+* BEGIN styles for Join Editor
+*/
+.joinViewer text{
+  pointer-events:none
+}
+.joinViewer .entity {
+               fill: black;
+               stroke-width: .5;
+               stroke: grey;
+}
+.joinViewer .entityheader {
+               fill: #EFEFEF;
+               /*cursor: move !important;*/
+}
+.joinViewer .entityheadertext {
+    fill: black;
+               font-size: 12px;
+               /*stroke: black;*/
+               font-weight: bold;
+    /*cursor: move !important;*/
+}
+.joinViewer .element {
+               fill: white;
+               cursor: default !important;
+}
+.joinViewer .elementtext {
+    stroke: transparent;
+               font-size: 12px;
+               fill: black;
+               cursor: default !important;
+}
+.joinViewer .joinline {
+               stroke: grey;
+               stroke-width: 2;
+}
+.joinViewer .selected {
+    stroke: rgb(250,182,81);
+    stroke-width: 2;
+}
+.joinViewer .selected text{
+    stroke: transparent;
+    stroke-width: default;
+}
+.joinViewer div.tooltip {
+  line-height : 2;
+  position: absolute;        
+  text-align: left;
+  padding: 12px;
+  font: 12px sans-serif;    
+  background: lightsteelblue;        
+  border: 0;                                                                     
+  border-radius: 8px;
+  pointer-events: none !important;            
+}
+ 
+.context-menu-item {
+    padding: 2px 2px 2px 24px;
+    background-color: #EEE;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default !important;
+     min-height: 18px;
+    background-repeat: no-repeat;
+    background-position: 4px 2px;
+    /*background-image: url(Table.png);*/
+}
+ 
+.context-menu-list {
+    cursor: default !important;
+    margin: 0;
+    padding: 0;
+    min-width: 120px;
+    max-width: 250px;
+    display: inline-block;
+    position: absolute;
+    list-style-type: none;
+    border: 1px solid #DDD;
+    background: #EEE;
+    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    -ms-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    -o-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+ 
+.context-menu-list ol,ul{
+    list-style: none;
+}
+ 
+/*
+* END styles for Join Editor
+*/
+.dialogImg{
+    padding-right: 10px;
+}
+.radioButtonStyle{
+    font-size: 12px;
+    font-weight: bold;
+    color: rgb(112,104,104);
+}
+ 
+.currencyCheckBox>tbody>tr>td.sapUiMltCell.sapUiMltPadRight{
+    padding-left: 60px;
+}  
+.toolbarBackGround{
+    background-color:rgb(230,230,230) !important;
+}
+.iconComboBox>.sapUiTf{
+    /*color: transparent !important;*/
+    display: none !important;
+}
+.tabStripLabel{
+    font-size: 20px;
+    line-height: 30px;
+    margin-left: 8px;
+    font-family: 'Segoe UI','Helvetica Neue',arial,sans-serif;
+}
+ 
+.masterDetailsMainDiv {
+    height: 100% !important;
+}
+ 
+.masterDetailsMainDiv>.sapuiVltCell:nth-of-type(1) {
+    height: 29px; 
+}
+ 
+.masterDetailsMainDiv>.sapuiVltCell:nth-of-type(2) {
+    height: -moz-calc(100% - 29px);
+               height: calc(100% - 29px);
+    height: -webkit-calc(100% - 29px);
+               height: -o-calc(100% - 29px);       
+}
+ 
+.masterDetailsSplitter {
+    height: 100% !important;
+}
+ 
+.masterDetailsSplitter>.sapUiVSplitterSecondPane {
+    overflow: hidden !important;
+}
+ 
+.detailsMainDiv {
+    height: 100% !important;
+    border: 1px solid #D5D5D5;
+}
+ 
+.detailsMainDiv>.sapuiVltCell:nth-of-type(1) {
+    height: 32px;
+    border-bottom: 1px solid #D5D5D5;
+}
+ 
+.detailsMainDiv>.sapuiVltCell:nth-of-type(2) {
+    height: -moz-calc(100% - 32px);
+               height: calc(100% - 32px);
+    height: -webkit-calc(100% - 32px);
+               height: -o-calc(100% - 32px);       
+               overflow: auto;
+}
+ 
+.sematicsValueHelpButton {
+   
+    width: 24px !important;
+   
+    padding: 0;
+}
+ 
+.detailsExpressionEditor {
+     border: 1px solid #D5D5D5;
+}
+ 
+.backButton {
+   margin: 4px 0 0 4px;
+}
+ 
+.expressionEditorHeader>.sapUiMltPadRight {
+    padding-top: 5px;
+    padding-left: 5px;
+}
+.propertiesLinkLabel{
+    font-weight: bold;
+    padding-left: 10px;
+    cursor: pointer;
+}
+.currencyTextField{
+    border-color: #b1b1b1;
+}
+.counterProperties {
+margin-left: 0 !important;
+}
+.noMarginLeft {
+margin-left: 0 !important;
+}
+ 
+.defaultSchemaValueHelpButton {
+    width: 24px;
+    height: 24px;
+/*     margin-left: -18px; */
+    padding: 0;
+}
+ 
+.viewPropertiesPane>.sapUiHSplitterFirstPane {
+    overflow: hidden !important;
+}
+.viewPropertiesPane>.sapUiHSplitterSecondPane {
+    overflow: hidden !important;
+}
+ 
+.viewPropertiesLayout {
+    height: 100%;
+}
+ 
+.viewPropertiesLayout>.sapuiVltCell:nth-of-type(1) {
+   background-color:#EFEFEF !important;
+   height: 28px;
+}
+ 
+.viewPropertiesLayout>.sapuiVltCell:nth-of-type(2) {
+      overflow: auto;
+     padding-top: 10px;
+     margin-top: 13px;
+    height: calc(100% - 28px) ;
+    height: -webkit-calc(100% - 28px) ;
+               height: -moz-calc(100% - 28px) ;
+               height: -o-calc(100% - 28px) ;
+}
+ 
+.viewPropertiesHeaderStyle{
+    background-color:rgb(245,247,245);
+    border-bottom:1px solid rgb(167,189,214);
+    text-transform:uppercase;
+/*     padding-bottom: 0px;  */
+/*     padding-left: 10px; */
+}
+.borderIconCombo{
+    border:1px solid #bfbfbf ! important;
+}
+.marginLeft{
+    margin-left: 0px !important;
+}
+ 
+.calculationViewMessageToast{
+               -webkit-box-sizing:border-box;
+               -moz-box-sizing:border-box;
+               box-sizing:border-box;
+               pointer-events:none;
+               position:absolute;
+               max-width:100%;
+               font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+               font-weight:normal;
+               word-wrap:break-word;
+               text-align:center;
+               text-decoration:none;
+               text-overflow:ellipsis;overflow:hidden;
+               background: #FCF8E3;
+               border: 2px solid #FAEBCC;
+               color: black;
+               padding: 10px;
+}
+ 
+.textAreaBorder {
+    border: 1px solid #bfbfbf !important;
+}
+ 
+.labelPaddingBottom{
+    padding-bottom: 55px;
+}
+.expressionHeight{
+  height:100% ;
+}
+.noPaddingRight{
+    padding-right:0;
+}
+/*hid ing next and prev button */
+.hideNextPrevBtn .sapUiCrslPrevBtn,.hideNextPrevBtn .sapUiCrslNextBtn{
+    display:none !important;
+}
+.marginLs{
+   margin-left: 0px;
+}
+.navigProxy:after{
+  width: 100%;
+  height: 100%;
+  /* margin: .125em 0 0 .5em; */
+  /* border: .25em solid white; */
+  /* border-radius: .438em; */
+  content: "";
+  padding-left: 18px;
+  background-image: url('/sap/hana/ide/editor/plugin/analytics/images/proxy/error.gif');
+  background-repeat: no-repeat;
+  margin-left: 0px;
+  margin: 0px;
+  border: 0;
+ 
+}
+.error-msg {
+               font-family: Arial, sans-serif;
+               font-size: 12px;
+               margin: .5em 0;
+               display: block;
+               color: #dd4b39;
+               line-height: 17px;
+}
+.calcViewEditorMain .sapUiTableTr{
+    height: 26px !important;
+}
+.calcViewEditorMain .sapUiTableRowHdr{
+    height: 26px !important;
+}
+.calcViewEditorMain .sapUiTableColHdrCnt {
+     min-height: 2rem !important;
+}
+.calcViewEditorMain{
+     width: 100%;
+}
+ 
+/* tooltip */
+.calcViewTTError {
+    color: red;   
+}
+ 
+.calcViewTT {
+    word-spacing: 0.25em;
+    word-wrap: initial;
+}
+ 
+.calcViewTTdataType, .calcViewTTschemaName, .calcViewTTpackageName {
+    font-style: italic;
+    color: gray;
+}
+ 
+.calcViewTTdescription {
+    font-style: italic;
+}
+ 
+/* AddColumnsFromDialog */
+ 
+.calcViewAddColumnsFromHidden {
+    display: none;
+}
+ 
+.calcViewAddColumnsFromDlgTableTitle {
+    font-size: medium;
+    font-weight: bold;
+    color: #666666;
+}
+.calcViewAddColumnsFromDlgButtonBar {
+   width: 100%;
+}
+.calcViewAddColumnsFromDlgButtonBar .sapUiVltCell {
+   text-align: center;
+}
+ 
+/* end AddColumnsFromDialog */
+ 
+.dataSourceTable>.sapUiTableCnt>.sapUiTableColHdrCnt>.sapUiTableColHdrFixed>.sapUiTableColHdr{
+    width: 100% !important;
+}
+.dataSourceTable>.sapUiTableCnt>.sapUiTableColHdrCnt>.sapUiTableColHdrScr>.sapUiTableColHdr{
+    width: 100% !important;
+}
+.tableProperties>.sapuiVltCell:nth-of-type(2) {
+                 padding : 20px 32px 20px 32px !important;
+}
+.joinPropertiesLayout{
+    width : 100% !important;
+}
+.joinPropertiesLayout>.sapuiVltCell>.joinValidationStatus{
+    text-align : center !important;
+}
+.valueHelpMargin{
+    margin-left:5px;
+    /*border: 1px groove !important;*/
+}
+.inputValueHelpMargin{
+      width:80% !important;
+      margin-left:0;
+}
+ 
+.calcViewContextMenu{
+    position: absolute;
+    z-index: 10;
+    background-color: white;
+    min-width: 150px;
+    /* padding: 15px; */
+    border: 1px solid #C0C0C0;
+    box-shadow: 2px 2px 5px #888888;
+    /* font-size: 12px; */
+}
+.calcViewContextMenuItem{
+    /* margin-bottom: -1px;*/
+    /*border: 1px solid #C0C0C0;*/
+    font: -webkit-small-control;
+    padding: 3px;
+    padding-left: 10px;
+}
+.calcViewContextMenuItem:hover{
+    background-color: #F0F0F0
+}
+.propertyTooltip{
+    position:absolute;
+    z-index:10;
+    background-color:white;
+    /*min-height:150px;*/
+    min-width:150px;
+    padding:5px;
+    border: 1px solid #C0C0C0;
+    box-shadow: 2px 2px 5px #888888;
+    font-size:12px;
+}
+ 
+.propertyTooltip .tHeader {
+    font-weight:bold;            
+    /*margin-right:5px;
+    margin-bottom:10px;*/
+}
+ 
+.propertyTooltip .tUnderline{
+    width: 100%;
+    display: inline-block;
+    border-bottom: 1px solid rgba(220,220,220,1);
+}
+ 
+.propertyTooltip .tPropName {
+    display:inline-block;
+    min-width:100px;
+    font-weight:bold;
+}
+ 
+.propertyTooltip > div {
+    margin-bottom:4px;
+}
+ 
+.propertyTooltip .text {
+}
+ 
+.calcViewTableInDialog tbody > tr {
+  height: 1rem !important;  
+}
+.sapUiDlg  {
+	background-color:white !important;
+}
+.calcViewTableInDialog .sapUiTableSelModeSingle .sapUiTableRowHdr.sapUiTableRowSel, .calcViewTableInDialog  .sapUiTableSelModeSingle .sapUiTableCtrl tr.sapUiTableRowSel{
+  color: black !important;
+}
+.calcViewTableInDialog .sapUiTableColHdrCnt {
+     min-height: 2rem !important;
+}
+.procedure_padding{
+    padding-right: 3px;
+    margin-top: 3px;
+}
+.commentField{
+   background-color: #F3F781;
+   border-style: none;
+   outline-style: none;
+   border:none !important;
+   margin: 0px;
+   padding: 0px;
+}
+ 
+.commentPopup{
+   background-color: #F3F781;
+  }
+.viewCommentImage{
+    position: relative;
+    left: 70%;
+}
+.navigation{
+       visibility: hidden;
+}
+.navigationBIcon{
+    opacity: 1;
+    filter: none;
+     cursor: pointer;
+}
+.navigationFIcon{
+    opacity: 0.5 !important;
+   
+ }
+.rankNodeDeatils{
+     height:100% !important;
+     overflow:scroll;
+}
+.engineAggre{
+     background: none;
+     border: none;
+}
+/* for mapping toolbar spacing */
+  .webuiMessage  .sapUiTableHdr{
+              height: 40px !important;
+}
+.calcviewEditorView .sapUiTb{
+     height: 40px !important;
+}
+/* remove icon in mapping control */
+#WEB_IDE_REPLACE_Mapping .webuiMinMaxIcon{
+              display:none;
+}
+ .OutputToolPopup .sapUiUx3TPArrow {
+     left:280px  !important;
+}
+  #WebIDE_OutputToolPopup .sapUiTree {
+              border:none;
+}
+/*for swap icon  in join property pane*/
+.swapIconBtn .sapUiBtnIco {
+   transform: rotate(90deg);
+}
+ 
+.WarningHead >.sapuiVltCell:nth-of-type(1){
+     height : 70px;
+}
+.warningToolBar{
+       width: 100%;
+       padding: 5px;
+/*background-image : linear-gradient(to bottom,#fcf8e3 0,#f8efc0 100%);*/
+    background-image :linear-gradient(-90deg, white 2%, #E8F2FB 100%);
+/*  border-radius: 10px;*/
+  height: 24px;
+  padding: 5px;
+  border: 2px solid lightsteelblue;
+  border-radius: 4px;
+}
+ .warningHeader{
+     width:100%;
+}
+ 
+ .warningToolBar .sapUiTvH5 {
+     font-size:12px;
+  margin-top: 1px;
+  color: lightslategrey;  
+ }
+.commentButton{
+    top: 3px;
+    right: 8px;   
+    float: right;
+    display: block;
+    width: 60px;
+    height: 20px;
+    background-repeat: no-repeat;
+    outline: none;
+    margin-right: 4px;
+}
+.commentLay .sapUiUx3TPContent{
+    margin-left: 5px;
+    margin-right: 3px;
+    margin-top:0px;
+    margin-bottom:0px;
+   
+ }
+ .highlight{
+         background-color: green !important;
+}
+.searchBox{
+     width:170px !important;
+}
+.searchLayout{
+    border: 1px solid #908989;
+    background: #DDDDDD;
+    height:35Px;
+     display: inline-block
+}
+  .searchLayout td{
+     padding: 5px 0px!important;
+                              float: left !important;
+  }
+  .searchLayoutDisplay{
+      display:none;
+  }
+  [data-colortype="highlight"] {
+    background-color: yellow  !important; 
+    border-style: solid !important;
+    border-width: 1px !important;
+               border-color:skyblue !important;
+}
+[data-focus="focus"] {
+    border-width: 2px !important;
+               border-color:skyblue !important;
+               background-color:orange !important;
+}
+[data-lineage="lineage"] {
+    border-width: 2px !important;
+               border-color:skyblue !important;
+               background-color:orange !important;
+}
+.countView{
+        margin-left: 5px;
+}
+.cc_exchange img{
+        float: right;
+    margin-left: 3px;
+    margin-top: 0px;
+}
+.searchLayout  tr td:nth-child(4) {
+   display: inline-block
+}
+.searchLayout  tr td:nth-child(5) {
+   display: inline-block
+}
+.searchLayout  tr td:nth-child(6) {
+   display: inline-block
+}
+.searchLayout td{
+       margin-top:-4px ;
+}
+.searchLayout button{
+       border-bottom: 0px !important;
+}
+.lineageLayout{
+    border-color:skyblue !important;
+    border-radius:5px !important;
+    border-color:grey !important;
+    border: 1px solid #908989;
+    background: skyblue;
+    height:25Px;
+    display: inline-block
+}
+.lineageClear{
+    background-color:skyblue !important;
+    border-color:skyblue !important;
+    margin-top: -3px !important;
+    height: 9px;
+}
+  .lineageLayout span{
+    margin-top:-2px !important;
+    margin-top: -3px;
+}
+  .lineageLayout td{
+     padding: 5px 0px!important; 
+  }
+  .lineageDisplay{
+      display: none !important;
+  }
+ 
+  /*start - style added for graphscripteditor*/
+    .calcviewScriptEditorLayout{
+  	 border: solid 1px silver;  	
+  }
+  
+  /* fix for columun cell in detailscolumnpane secion */
+  .sapUiTf, .sapUiTfBack, .sapUiTfBrd, .sapUiTfStd {
+     /*  text-align: center !important; */
+  }  
+   /* 
+    alternate way of implementation
+    .sapUiTableCell > input {
+        text-align :center !important;
+    }*/
+    
+   /*  .sapUiTableCell > .sapUiTfStd {
+        text-align :center !important;
+    } */
+  
+  /* fix for column header in detailscolumnpane section */
+   .sapUiTableColHdrFixed {
+     text-align:center !important;   
+  }
+  .sapUiTableCol .sapUiLbl{
+    text-align : center !important;
+  }
+  
+  /* Hiding third columns and rows from detailscolumnpane */
+  	.dummyColumn .sapUiTableCtrlCnt{
+       visibility : hidden;
+	}
+  
+    .graphScriptEditorComboboxLayout{
+        margin-top: 2px;
+        padding-left:45px;
+    }
+   
+    .graphParentComboboxLayout{
+        background-color:#EFEFEF;
+        border: solid 1px silver;
+    }
+  
+   /*end - style added for graphscripteditor*/
+ 
+ .MultiComboboxPopup {
+    background: white;
+    width: 179px;
+    padding: 5px;
+               border-style:solid !important;
+               border-width: 1px !important;
+               border-color: silver !important;
+               border-top-color: white !important;
+}
+ .FindDialogTitle  .sapUiDlgCont{
+margin-top: 35px !important;
+padding-left: 10px !important;
+              
+}
+.FindDialogTitle  .sapUiDlgFooter{
+margin-bottom:5px;
+margin-right: -8px;
+margin-right: 3px;
+}
+.OutputToolPopup .sapUiTreeList{
+              margin-top:35px !important;
+}
+ .RestrictedColumnButtonBorder {
+              border-style: solid !important;
+              border-width: 1px !important;
+              border-color: black !important;
+               color: black !important;
+}
+.linkMapping{
+   text-decoration: none;
+   color: inherit;
+   font-size:12px
+}
+  .expressionButton{
+              margin-left: -30px !important;
+}
+   
+    #cmb11{
+        padding-left:5px;
+        margin-left: 6px;
+        margin-bottom: 4px;
+    }
+   
+   .calcviewEditorView .sapUiTbCont{
+               height: 30px !important;
+               padding : 2px 0px 0px 10px !important;
+    }
+    .calcviewEditorView .sapUiTbContLeft.sapUiTbCont{
+               height: 33px !important;
+               padding-top: 4px !important;
+               }
+ 
+.calcTableProperties .commentImage{
+     padding-left:18px !important;
+    }
+   .calcviewEditorView  .sapUiTableCCnt  table{
+border-collapse:collapse;
+border-left:1px solid silver;
+}
+.calcviewEditorView  .sapUiTableCCnt  td{
+border-left:1px solid silver;
+}
+.calcviewEditorView  .sapUiTableCCnt .sapUiTableRowHdr{
+	  height: 29px !important;
+	  width:24px;
+	  background-color:white;
+	 border-right:1px solid silver;
+}
+.calcviewEditorView  .sapUiTableCCnt .sapUiTableRowHdr:hover{
+	background-color:#F1F0EE
+	
+}
+.calcviewEditorView  .sapUiTableSelModeSingle .sapUiTableRowHdr.sapUiTableRowSel, .sapUiTableSelModeSingle .sapUiTableCtrl tr.sapUiTableRowSel{
+	background-color: #E6F2F9	
+}
+.calcviewEditorView  .sapUiTableCCnt [src="/watt/resources/sap/watt/hanaplugins/editor/plugin/hdbcalculationview/images/Note_grayscale.png"] {
+	padding-left:15px
+}
+.calcviewEditorView  .sapUiLnk:hover {
+	color:black !important;
+	text-decoration:underline;
+}
+.calcviewEditorView  .sapUiTableCCnt [src="/watt/resources/sap/watt/hanaplugins/editor/plugin/hdbcalculationview/images/Note.png"] {
+	padding-left:15px
+}
+.calcviewEditorView  .sapUiLnk{
+	color: blue !important;		
+}
+.calcviewEditorView .sapUiLblNowrap{
+color:black !important;	
+}
+.calcviewEditorView .sapUiUx3NavBarBack,
+.calcviewEditorView .sapUiUx3NavBarForward{
+	color:black !important;
+}
+.calcviewEditorView .sapUiDlgHdrBtns  >a{
+	margin-top: 13px !important;
+    margin-right: 8px !important;
+       background-image: url("/watt/resources/sap/watt/hanaplugins/editor/plugin/hdbcalculationview/images/dlg-close.png") !important;
+    display: block !important;
+	visibility: visible !important;
+	}
+ .sapUiDlgCloseBtn:hover,.sapUiDlgCloseBtn:focus {
+		background-color: #007cc0 !important;
+		background-image: url("/watt/resources/sap/watt/hanaplugins/editor/plugin/hdbcalculationview/images/dlg-close-hov.png") !important;
+		}
+	
+.calcviewEditorView	.sapUiTfValueHelpIcon {
+	margin-top:8px !important
+	}
+.calcviewEditorView	.sapUiTfValueHelpIcon:hover {	
+	background-color:  blue !important
+	}
+	.sapUiUx3TPContent .sapUiTreeNode:hover{
+		background-color:  #E6F2F9 !important
+	}
+	.calcviewEditorView.sapUiTableGroupIconOpen,.sapUiTableTreeIconNodeOpen{
+	 background-image: url("/watt/resources/sap/watt/hanaplugins/editor/plugin/hdbcalculationview/images//ico12_open_minus.gif");
+	}
+	.calcviewEditorView.sapUiTableGroupIconClosed,.sapUiTableTreeIconNodeClosed{
+	 background-image: url("/watt/resources/sap/watt/hanaplugins/editor/plugin/hdbcalculationview/images//ico12_closed_plus.gif");
+	}
+	
+.sapUiDlgCloseBtn{
+	margin-top: 12px !important;
+    display: block !important;
+    margin-left: 12px !important;
+	visibility:visible !important;		
+	background-image: url("/watt/resources/sap/watt/hanaplugins/editor/plugin/hdbcalculationview/images/dlg-close.png") !important;	
+	background-repeat:no-repeat
+	}
+.calcTableProperties .sapUiTableColHdr label{
+	line-height:32px !important;
+	font-size:14px !important;
+}
+.sapUiDlg  .sapUiTableRowSel{
+  color:black !important;
+}
+.masterDetailsMainDiv .sapUiTb {
+  height:30px;
+}
+.sapUiDlg[role="alertdialog"]{
+	height:initial !important;
+}
+[src="/resources/sap/ui/commons/themes/sap_flat/img/tree/CollapseAll.png"] {
+/* background image for collapse*/
+    content: url("/watt/resources/sap/watt/hanaplugins/editor/plugin/hdbcalculationview/images//ico12_closed_plus.gif");
+}
+ 
+[src="/resources/sap/ui/commons/themes/sap_flat/img/tree/ExpandAll.png"] {
+/* background image for expand*/
+    content: url("/watt/resources/sap/watt/hanaplugins/editor/plugin/hdbcalculationview/images//ico12_open_minus.gif");
+}
+ 
+ 

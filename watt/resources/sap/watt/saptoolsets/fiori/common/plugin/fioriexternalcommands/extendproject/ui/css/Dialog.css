@@ -1,0 +1,35 @@
+.errorText {
+	color: #e22525;
+}
+
+.SearchField {
+	margin-bottom: 15px;
+}
+
+.buttons {
+	margin-top: 15px;
+}
+
+.label {
+	margin-right: 15px;
+}
+.deploylabel{
+	margin-left: 50px;
+	padding-right: 20px;
+}
+.nametextfield{
+	margin-left: 70px;
+}
+.descriptiontextfield{
+	margin-left: 31px;
+}
+.packagetextfield{
+	margin-left: 49px;
+}
+.browsebutton{
+	margin-left: 20px;
+}
+.radiobuttons{
+	font-weight: bold;
+	margin-top: 15px;
+}

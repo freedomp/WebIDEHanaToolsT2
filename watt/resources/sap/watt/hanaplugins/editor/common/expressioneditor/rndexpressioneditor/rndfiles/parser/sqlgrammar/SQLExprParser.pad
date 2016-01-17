@@ -1,0 +1,1120 @@
+Release	700
+Patchlevel	19
+MaxSuspiciousMachtes	2
+Token	42	147	147
+0:	"#ANYKW#"
+1:	"#ANYLIT#"
+2:	"#EOF#"
+3:	"#NL#"
+4:	"#COMMENT1#"
+5:	"#COMMENT2#"
+6:	"."
+7:	","
+8:	":"
+9:	"<#<DUMMY_TOKEN>#>"
+10:	"("
+11:	")"
+12:	"/("
+13:	")/"
+14:	"<"
+15:	">"
+16:	"["
+17:	"]"
+18:	"{"
+19:	"}"
+20:	"#STR_CONST#"
+21:	"#INT_CONST#"
+22:	"#REAL_CONST#"
+23:	"#DATE_CONST#"
+24:	"#TIME_CONST#"
+25:	"#TIMESTAMP_CONST#"
+26:	"#ACTION#"
+27:	"#ACTIONI#"
+28:	"#"
+29:	"@"
+30:	"|"
+31:	"*"
+32:	"?"
+33:	"+"
+34:	"!"
+35:	"$"
+36:	">="
+37:	"<>"
+38:	"::"
+39:	"#BINARY_CONST#"
+40:	"#XXX#"
+41:	"#SYSCMD#"
+42:	"#ID#"
+43:	"#PIPE_PIPE#"
+44:	"-"
+45:	"/"
+46:	"="
+47:	"!="
+48:	"<="
+49:	"and"
+50:	"or"
+51:	"**"
+52:	"%"
+53:	"'$$"
+54:	"$$'"
+55:	"abs"
+56:	"acos"
+57:	"add_days"
+58:	"add_months"
+59:	"add_seconds"
+60:	"add_years"
+61:	"ascii"
+62:	"asin"
+63:	"atan"
+64:	"atan2"
+65:	"bintohex"
+66:	"bitand"
+67:	"ceil"
+68:	"coalesce"
+69:	"concat"
+70:	"cos"
+71:	"cosh"
+72:	"cot"
+73:	"days_between"
+74:	"exp"
+75:	"floor"
+76:	"greatest"
+77:	"hasanyprivileges"
+78:	"hassystemprivilege"
+79:	"hextobin"
+80:	"ifnull"
+81:	"isauthorized"
+82:	"last_day"
+83:	"least"
+84:	"length"
+85:	"ln"
+86:	"locate"
+87:	"log"
+88:	"lower"
+89:	"lpad"
+90:	"mod"
+91:	"next_day"
+92:	"nullif"
+93:	"power"
+94:	"replace"
+95:	"round"
+96:	"rpad"
+97:	"seconds_between"
+98:	"session_context"
+99:	"sign"
+100:	"sin"
+101:	"sinh"
+102:	"sqrt"
+103:	"substr"
+104:	"substr_after"
+105:	"substr_before"
+106:	"tan"
+107:	"tanh"
+108:	"to_alphanum"
+109:	"to_bigint"
+110:	"to_binary"
+111:	"to_blob"
+112:	"to_char"
+113:	"to_clob"
+114:	"to_date"
+115:	"to_dats"
+116:	"to_decimal"
+117:	"to_double"
+118:	"to_int"
+119:	"to_integer"
+120:	"to_nchar"
+121:	"to_nclob"
+122:	"to_nvarchar"
+123:	"to_real"
+124:	"to_seconddate"
+125:	"to_smalldecimal"
+126:	"to_smallint"
+127:	"to_time"
+128:	"to_timestamp"
+129:	"to_tinyint"
+130:	"to_varbinary"
+131:	"to_varchar"
+132:	"unicode"
+133:	"upper"
+134:	"weekday"
+135:	"char"
+136:	"nchar"
+137:	"instr"
+138:	"lcase"
+139:	"substring"
+140:	"ucase"
+141:	"curdate"
+142:	"curtime"
+143:	"database"
+144:	"now"
+145:	"user"
+146:	"not"
+
+rule	START
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+startrule= "true"
+fllwc=	1
+follow= 2
+	PSHF	1	Expression
+	CALL	Expression
+	SYSC	0	0
+	RETN
+
+rule	ExpressionList
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	1
+follow= 11
+	PSHF	14	Expression
+	CALL	Expression
+L0:
+	BRAN	0	0	2
+	7	L2
+	11	L1
+L2:
+	MTCH	0	0	0	7
+	PSHF	15	Expression
+	CALL	Expression
+	GOTO	L0
+L1:
+	RETN
+
+rule	Expression
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	3
+follow= 2 7 11
+	PSHF	2	ExprConcat
+	CALL	ExprConcat
+	RETN
+
+rule	ExprConcat
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	3
+follow= 2 7 11
+	PSHF	3	ExprSum
+	CALL	ExprSum
+L4:
+	BRAN	0	0	4
+	2	L5
+	7	L5
+	11	L5
+	43	L6
+L6:
+	MTCH	0	0	0	43
+	PSHF	21	ExprSum
+	CALL	ExprSum
+	GOTO	L4
+L5:
+	RETN
+
+rule	ExprSum
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	4
+follow= 2 7 11 43
+	PSHF	4	ExprFactor
+	CALL	ExprFactor
+L8:
+	BRAN	0	0	6
+	2	L9
+	7	L9
+	11	L9
+	33	L10
+	43	L9
+	44	L11
+L10:
+	MTCH	0	0	0	33
+	PSHF	19	ExprFactor
+	CALL	ExprFactor
+	GOTO	L8
+L11:
+	MTCH	0	0	0	44
+	PSHF	20	ExprFactor
+	CALL	ExprFactor
+	GOTO	L8
+L9:
+	RETN
+
+rule	ExprFactor
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	6
+follow= 2 7 11 33 43 44
+	BRAN	1	1	101
+	10	L13
+	21	L13
+	22	L13
+	23	L13
+	24	L13
+	33	L13
+	42	L13
+	44!	L13
+	53!	L13
+	55!	L13
+	56!	L13
+	57!	L13
+	58!	L13
+	59!	L13
+	60!	L13
+	61!	L13
+	62!	L13
+	63!	L13
+	64!	L13
+	65!	L13
+	66!	L13
+	67!	L13
+	68!	L13
+	69!	L13
+	70!	L13
+	71!	L13
+	72!	L13
+	73!	L13
+	74!	L13
+	75!	L13
+	76!	L13
+	77!	L13
+	78!	L13
+	79!	L13
+	80!	L13
+	81!	L13
+	82!	L13
+	83!	L13
+	84!	L13
+	85!	L13
+	86!	L13
+	87!	L13
+	88!	L13
+	89!	L13
+	90!	L13
+	91!	L13
+	92!	L13
+	93!	L13
+	94!	L13
+	95!	L13
+	96!	L13
+	97!	L13
+	98!	L13
+	99!	L13
+	100!	L13
+	101!	L13
+	102!	L13
+	103!	L13
+	104!	L13
+	105!	L13
+	106!	L13
+	107!	L13
+	108!	L13
+	109!	L13
+	110!	L13
+	111!	L13
+	112!	L13
+	113!	L13
+	114!	L13
+	115!	L13
+	116!	L13
+	117!	L13
+	118!	L13
+	119!	L13
+	120!	L13
+	121!	L13
+	122!	L13
+	123!	L13
+	124!	L13
+	125!	L13
+	126!	L13
+	127!	L13
+	128!	L13
+	129!	L13
+	130!	L13
+	131!	L13
+	132!	L13
+	133!	L13
+	134!	L13
+	135!	L13
+	136!	L13
+	137!	L13
+	138!	L13
+	139!	L13
+	140!	L13
+	141!	L13
+	142!	L13
+	143!	L13
+	144!	L13
+	145!	L13
+	146	L14
+L14:
+	PSHF	5	NOT
+	CALL	NOT
+L13:
+	PSHF	6	ExprTerm
+	CALL	ExprTerm
+L16:
+	BRAN	0	0	19
+	2	L17
+	7	L17
+	11	L17
+	14	L20
+	15	L20
+	31	L18
+	33	L17
+	36	L20
+	37	L20
+	43	L17
+	44	L17
+	45	L19
+	46	L20
+	47	L20
+	48	L20
+	49	L20
+	50	L20
+	51	L20
+	52	L20
+L18:
+	MTCH	0	0	0	31
+	PSHF	16	ExprTerm
+	CALL	ExprTerm
+	GOTO	L16
+L19:
+	MTCH	0	0	0	45
+	PSHF	17	ExprTerm
+	CALL	ExprTerm
+	GOTO	L16
+L20:
+	BRAN	0	0	11
+	14	L28
+	15	L26
+	36	L27
+	37	L25
+	46	L23
+	47	L24
+	48	L29
+	49	L30
+	50	L31
+	51	L32
+	52	L33
+L23:
+	MTCH	0	0	0	46
+L22:
+	PSHF	18	ExprTerm
+	CALL	ExprTerm
+	GOTO	L16
+L24:
+	MTCH	0	0	0	47
+	GOTO	L22
+L25:
+	MTCH	0	0	0	37
+	GOTO	L22
+L26:
+	MTCH	0	0	0	15
+	GOTO	L22
+L27:
+	MTCH	0	0	0	36
+	GOTO	L22
+L28:
+	MTCH	0	0	0	14
+	GOTO	L22
+L29:
+	MTCH	0	0	0	48
+	GOTO	L22
+L30:
+	MTCH	0	0	0	49
+	GOTO	L22
+L31:
+	MTCH	0	0	0	50
+	GOTO	L22
+L32:
+	MTCH	0	0	0	51
+	GOTO	L22
+L33:
+	MTCH	0	0	0	52
+	GOTO	L22
+L17:
+	RETN
+
+rule	ExprTerm
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	19
+follow= 2 7 11 14 15 31 33 36 37 43 44 45 46 47 48 49 50 51 52
+	BRAN	1	1	100
+	10	L37
+	21	L41
+	22	L42
+	23	L43
+	24	L44
+	33	L35
+	42	L39
+	44	L36
+	53	L40
+	55	L38
+	56	L38
+	57	L38
+	58	L38
+	59	L38
+	60	L38
+	61	L38
+	62	L38
+	63	L38
+	64	L38
+	65	L38
+	66	L38
+	67	L38
+	68	L38
+	69	L38
+	70	L38
+	71	L38
+	72	L38
+	73	L38
+	74	L38
+	75	L38
+	76	L38
+	77	L38
+	78	L38
+	79	L38
+	80	L38
+	81	L38
+	82	L38
+	83	L38
+	84	L38
+	85	L38
+	86	L38
+	87	L38
+	88	L38
+	89	L38
+	90	L38
+	91	L38
+	92	L38
+	93	L38
+	94	L38
+	95	L38
+	96	L38
+	97	L38
+	98	L38
+	99	L38
+	100	L38
+	101	L38
+	102	L38
+	103	L38
+	104	L38
+	105	L38
+	106	L38
+	107	L38
+	108	L38
+	109	L38
+	110	L38
+	111	L38
+	112	L38
+	113	L38
+	114	L38
+	115	L38
+	116	L38
+	117	L38
+	118	L38
+	119	L38
+	120	L38
+	121	L38
+	122	L38
+	123	L38
+	124	L38
+	125	L38
+	126	L38
+	127	L38
+	128	L38
+	129	L38
+	130	L38
+	131	L38
+	132	L38
+	133	L38
+	134	L38
+	135	L38
+	136	L38
+	137	L38
+	138	L38
+	139	L38
+	140	L38
+	141	L38
+	142	L38
+	143	L38
+	144	L38
+	145	L38
+L35:
+	MTCH	0	0	0	33
+	PSHF	7	ExprTerm
+	CALL	ExprTerm
+	RETN
+L36:
+	MTCH	0	0	0	44
+	PSHF	8	ExprTerm
+	CALL	ExprTerm
+	RETN
+L37:
+	MTCH	0	0	0	10
+	PSHF	9	Expression
+	CALL	Expression
+	MTCH	0	0	0	11
+	RETN
+L38:
+	PSHF	10	Func
+	CALL	Func
+	RETN
+L39:
+	MTCH	0	0	0	42
+	RETN
+L40:
+	MTCH	0	0	0	53
+	MTCH	0	0	0	42
+	MTCH	0	0	0	54
+	RETN
+L41:
+	MTCH	0	0	0	21
+	RETN
+L42:
+	MTCH	0	0	0	22
+	RETN
+L43:
+	MTCH	0	0	0	23
+	RETN
+L44:
+	MTCH	0	0	0	24
+	RETN
+
+rule	Func
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	19
+follow= 2 7 11 14 15 31 33 36 37 43 44 45 46 47 48 49 50 51 52
+	PSHF	11	FuncName
+	CALL	FuncName
+	MTCH	0	0	0	10
+	BRAN	1	1	102
+	10	L46
+	11	L45
+	21	L46
+	22	L46
+	23	L46
+	24	L46
+	33	L46
+	42	L46
+	44!	L46
+	53!	L46
+	55!	L46
+	56!	L46
+	57!	L46
+	58!	L46
+	59!	L46
+	60!	L46
+	61!	L46
+	62!	L46
+	63!	L46
+	64!	L46
+	65!	L46
+	66!	L46
+	67!	L46
+	68!	L46
+	69!	L46
+	70!	L46
+	71!	L46
+	72!	L46
+	73!	L46
+	74!	L46
+	75!	L46
+	76!	L46
+	77!	L46
+	78!	L46
+	79!	L46
+	80!	L46
+	81!	L46
+	82!	L46
+	83!	L46
+	84!	L46
+	85!	L46
+	86!	L46
+	87!	L46
+	88!	L46
+	89!	L46
+	90!	L46
+	91!	L46
+	92!	L46
+	93!	L46
+	94!	L46
+	95!	L46
+	96!	L46
+	97!	L46
+	98!	L46
+	99!	L46
+	100!	L46
+	101!	L46
+	102!	L46
+	103!	L46
+	104!	L46
+	105!	L46
+	106!	L46
+	107!	L46
+	108!	L46
+	109!	L46
+	110!	L46
+	111!	L46
+	112!	L46
+	113!	L46
+	114!	L46
+	115!	L46
+	116!	L46
+	117!	L46
+	118!	L46
+	119!	L46
+	120!	L46
+	121!	L46
+	122!	L46
+	123!	L46
+	124!	L46
+	125!	L46
+	126!	L46
+	127!	L46
+	128!	L46
+	129!	L46
+	130!	L46
+	131!	L46
+	132!	L46
+	133!	L46
+	134!	L46
+	135!	L46
+	136!	L46
+	137!	L46
+	138!	L46
+	139!	L46
+	140!	L46
+	141!	L46
+	142!	L46
+	143!	L46
+	144!	L46
+	145!	L46
+	146!	L46
+L46:
+	PSHF	12	Expression
+	CALL	Expression
+	BRAN	0	0	2
+	7	L49
+	11	L45
+L49:
+	MTCH	0	0	0	7
+	PSHF	13	ExpressionList
+	CALL	ExpressionList
+L45:
+	MTCH	0	0	0	11
+	RETN
+
+rule	FuncName
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	1
+follow= 10
+	BRAN	0	0	91
+	55	L52
+	56	L53
+	57	L54
+	58	L55
+	59	L56
+	60	L57
+	61	L58
+	62	L59
+	63	L60
+	64	L61
+	65	L62
+	66	L63
+	67	L64
+	68	L65
+	69	L66
+	70	L67
+	71	L68
+	72	L69
+	73	L70
+	74	L71
+	75	L72
+	76	L73
+	77	L74
+	78	L75
+	79	L76
+	80	L77
+	81	L78
+	82	L79
+	83	L80
+	84	L81
+	85	L82
+	86	L83
+	87	L84
+	88	L85
+	89	L86
+	90	L87
+	91	L88
+	92	L89
+	93	L90
+	94	L91
+	95	L92
+	96	L93
+	97	L94
+	98	L95
+	99	L96
+	100	L97
+	101	L98
+	102	L99
+	103	L100
+	104	L101
+	105	L102
+	106	L103
+	107	L104
+	108	L105
+	109	L106
+	110	L107
+	111	L108
+	112	L109
+	113	L110
+	114	L111
+	115	L112
+	116	L113
+	117	L114
+	118	L115
+	119	L116
+	120	L117
+	121	L118
+	122	L119
+	123	L120
+	124	L121
+	125	L122
+	126	L123
+	127	L124
+	128	L125
+	129	L126
+	130	L127
+	131	L128
+	132	L129
+	133	L130
+	134	L131
+	135	L132
+	136	L133
+	137	L134
+	138	L135
+	139	L136
+	140	L137
+	141	L138
+	142	L139
+	143	L140
+	144	L141
+	145	L142
+L52:
+	MTCH	0	0	0	55
+	RETN
+L53:
+	MTCH	0	0	0	56
+	RETN
+L54:
+	MTCH	0	0	0	57
+	RETN
+L55:
+	MTCH	0	0	0	58
+	RETN
+L56:
+	MTCH	0	0	0	59
+	RETN
+L57:
+	MTCH	0	0	0	60
+	RETN
+L58:
+	MTCH	0	0	0	61
+	RETN
+L59:
+	MTCH	0	0	0	62
+	RETN
+L60:
+	MTCH	0	0	0	63
+	RETN
+L61:
+	MTCH	0	0	0	64
+	RETN
+L62:
+	MTCH	0	0	0	65
+	RETN
+L63:
+	MTCH	0	0	0	66
+	RETN
+L64:
+	MTCH	0	0	0	67
+	RETN
+L65:
+	MTCH	0	0	0	68
+	RETN
+L66:
+	MTCH	0	0	0	69
+	RETN
+L67:
+	MTCH	0	0	0	70
+	RETN
+L68:
+	MTCH	0	0	0	71
+	RETN
+L69:
+	MTCH	0	0	0	72
+	RETN
+L70:
+	MTCH	0	0	0	73
+	RETN
+L71:
+	MTCH	0	0	0	74
+	RETN
+L72:
+	MTCH	0	0	0	75
+	RETN
+L73:
+	MTCH	0	0	0	76
+	RETN
+L74:
+	MTCH	0	0	0	77
+	RETN
+L75:
+	MTCH	0	0	0	78
+	RETN
+L76:
+	MTCH	0	0	0	79
+	RETN
+L77:
+	MTCH	0	0	0	80
+	RETN
+L78:
+	MTCH	0	0	0	81
+	RETN
+L79:
+	MTCH	0	0	0	82
+	RETN
+L80:
+	MTCH	0	0	0	83
+	RETN
+L81:
+	MTCH	0	0	0	84
+	RETN
+L82:
+	MTCH	0	0	0	85
+	RETN
+L83:
+	MTCH	0	0	0	86
+	RETN
+L84:
+	MTCH	0	0	0	87
+	RETN
+L85:
+	MTCH	0	0	0	88
+	RETN
+L86:
+	MTCH	0	0	0	89
+	RETN
+L87:
+	MTCH	0	0	0	90
+	RETN
+L88:
+	MTCH	0	0	0	91
+	RETN
+L89:
+	MTCH	0	0	0	92
+	RETN
+L90:
+	MTCH	0	0	0	93
+	RETN
+L91:
+	MTCH	0	0	0	94
+	RETN
+L92:
+	MTCH	0	0	0	95
+	RETN
+L93:
+	MTCH	0	0	0	96
+	RETN
+L94:
+	MTCH	0	0	0	97
+	RETN
+L95:
+	MTCH	0	0	0	98
+	RETN
+L96:
+	MTCH	0	0	0	99
+	RETN
+L97:
+	MTCH	0	0	0	100
+	RETN
+L98:
+	MTCH	0	0	0	101
+	RETN
+L99:
+	MTCH	0	0	0	102
+	RETN
+L100:
+	MTCH	0	0	0	103
+	RETN
+L101:
+	MTCH	0	0	0	104
+	RETN
+L102:
+	MTCH	0	0	0	105
+	RETN
+L103:
+	MTCH	0	0	0	106
+	RETN
+L104:
+	MTCH	0	0	0	107
+	RETN
+L105:
+	MTCH	0	0	0	108
+	RETN
+L106:
+	MTCH	0	0	0	109
+	RETN
+L107:
+	MTCH	0	0	0	110
+	RETN
+L108:
+	MTCH	0	0	0	111
+	RETN
+L109:
+	MTCH	0	0	0	112
+	RETN
+L110:
+	MTCH	0	0	0	113
+	RETN
+L111:
+	MTCH	0	0	0	114
+	RETN
+L112:
+	MTCH	0	0	0	115
+	RETN
+L113:
+	MTCH	0	0	0	116
+	RETN
+L114:
+	MTCH	0	0	0	117
+	RETN
+L115:
+	MTCH	0	0	0	118
+	RETN
+L116:
+	MTCH	0	0	0	119
+	RETN
+L117:
+	MTCH	0	0	0	120
+	RETN
+L118:
+	MTCH	0	0	0	121
+	RETN
+L119:
+	MTCH	0	0	0	122
+	RETN
+L120:
+	MTCH	0	0	0	123
+	RETN
+L121:
+	MTCH	0	0	0	124
+	RETN
+L122:
+	MTCH	0	0	0	125
+	RETN
+L123:
+	MTCH	0	0	0	126
+	RETN
+L124:
+	MTCH	0	0	0	127
+	RETN
+L125:
+	MTCH	0	0	0	128
+	RETN
+L126:
+	MTCH	0	0	0	129
+	RETN
+L127:
+	MTCH	0	0	0	130
+	RETN
+L128:
+	MTCH	0	0	0	131
+	RETN
+L129:
+	MTCH	0	0	0	132
+	RETN
+L130:
+	MTCH	0	0	0	133
+	RETN
+L131:
+	MTCH	0	0	0	134
+	RETN
+L132:
+	MTCH	0	0	0	135
+	RETN
+L133:
+	MTCH	0	0	0	136
+	RETN
+L134:
+	MTCH	0	0	0	137
+	RETN
+L135:
+	MTCH	0	0	0	138
+	RETN
+L136:
+	MTCH	0	0	0	139
+	RETN
+L137:
+	MTCH	0	0	0	140
+	RETN
+L138:
+	MTCH	0	0	0	141
+	RETN
+L139:
+	MTCH	0	0	0	142
+	RETN
+L140:
+	MTCH	0	0	0	143
+	RETN
+L141:
+	MTCH	0	0	0	144
+	RETN
+L142:
+	MTCH	0	0	0	145
+	RETN
+
+rule	NOT
+rflags=	0
+role=	0
+tc=	0
+flgc=	0
+phrase=	""
+fllwc=	100
+follow= 10 21 22 23 24 33 42 44 53 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145
+	MTCH	0	0	0	146
+	RETN
+	RETN
+	PSHF	0	START
+	CALL	START
+	STOP

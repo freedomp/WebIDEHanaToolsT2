@@ -1,0 +1,32 @@
+{
+	"name": "sap.watt.saptoolsets.fiori.project.fioriprojectmetadataprovider",
+	"description": "The fiori project metdata provider plugin",
+	"i18n": "sap.watt.saptoolsets.fiori.project.fioriprojectmetadataprovider/i18n/i18n",
+
+	"requires": {
+		"services": [
+			"projectmetadata",
+			"appmetadata"
+		]
+	},
+
+	"provides": {
+		"services": {
+			"fioriprojectmetadataprovider": {
+				"implements": "sap.watt.common.service.ide.ProjectMetadataProvider",
+				"module": "sap.watt.saptoolsets.fiori.project.fioriprojectmetadataprovider/service/FioriProjectMetadataProvider"
+			}
+		}
+	},
+
+	"configures": {
+		"services": {
+			"projectmetadata:providers": [{
+				"provider" : "sap.watt.saptoolsets.fiori.project.fioriprojectmetadataprovider/service/FioriProjectMetadataProvider",
+				"projectType" : "sap.watt.uitools.ide.fiori"
+			}]
+
+		}
+	}
+
+}

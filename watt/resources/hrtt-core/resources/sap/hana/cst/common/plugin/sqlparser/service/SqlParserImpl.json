@@ -1,0 +1,17 @@
+{
+    "name": "sap.hana.cst.common.sqlparser.interface.SqlParser",
+    "description": "The sql parser interface",
+    "methods": {
+        "parse": {},
+        "parseWithCallback": {},
+        "setTokenTooltip": {},
+        "format": {},
+        "formatWithCallback": {},
+        "addFilterStm": {},
+        "setSource": {}
+    },
+
+    "events": {
+        
+    }
+}

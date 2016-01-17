@@ -1,0 +1,29 @@
+{
+	"name": "sap.watt.hana.common.hdiservice",
+	"description": "The HDI service plugin",
+    "i18n" : "sap.watt.hana.common.hdiservice/i18n/i18n",
+	"requires": {
+		"services": [
+            "setting.project",
+            "projectsetting",
+            "chebackend.XS2ServicesDAO",
+            "repositorybrowser"
+		]
+	},
+
+    "configures": {
+        "services" : {
+        "projectsetting:plugins" : [
+			{
+				"id": "hdiservice",
+				"name" : "{i18n>hdi_service_config_title}",
+				"title" : "{i18n>hdi_service_config_title}",
+				"description" : "{i18n>hdi_service_config_description}",
+				"service": "sap.watt.hana.common.hdiservice/service/HDIService",
+				"projectTypes": ["sap.hdb"]
+			}]
+        }
+
+    }
+
+}

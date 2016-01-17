@@ -1,0 +1,177 @@
+/* NOTE: This file was generated as an optimized version of "library.source.less" for the Theme Designer. */
+
+/*!
+ * ${copyright}
+ */
+
+@import "../../../../../../Base/baseLib/baseTheme/base.less"; /* ORIGINAL IMPORT PATH: "../../../../../sap/ui/core/themes/base/base.less" */
+
+@import "../../../../../sap/ui/core/themes/base/global.less";
+
+/* START "Viewer.less" */
+.sapVizKitViewer {
+	touch-action: none;
+	-ms-touch-action: none;
+	background-color: @sapUiExtraLightBG;
+}
+
+/* END "Viewer.less" */
+
+/* START "Viewport.less" */
+@canvas-top-color: black;
+@canvas-bottom-color: white;
+
+.sapVizKitViewport {
+	width: 100%;
+	height: 100%;
+	padding:0px;
+	margin:0px;
+	background-image: linear-gradient(to bottom, @canvas-top-color, @canvas-bottom-color);
+
+	canvas {
+		display: block;
+		width: 100%;
+		height: 100%;
+		padding:0px;
+		margin:0px;
+	}
+}
+
+/* END "Viewport.less" */
+
+/* START "Overlay.less" */
+/*...........................................................................*/
+/* LESS for control sap.ui.vk/Overlay.control...................................*/
+/*...........................................................................*/
+
+
+/* main overlay container style..................................................*/
+.sapUiVkOverlay {
+  	border: none;
+  	width: 100%;
+  	height: 100%;
+  	-webkit-user-select: none;
+  	-moz-user-select: none;
+  	-ms-user-select: none;
+  	user-select: none;
+}
+/* END "Overlay.less" */
+
+/* START "NativeViewport.less" */
+@canvas-top-color: black;
+@canvas-bottom-color: white;
+
+.sapVizKitNativeViewport {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-color:white;
+    overflow: hidden;
+}
+
+/* END "NativeViewport.less" */
+
+/* START "SceneTree.less" */
+.sapRULTSceneTree {
+	width: 100%;
+	height: 100%;
+	-webkit-transform: translate3d(0,0,0);
+}
+
+.sapUiVkTitle {
+	width: 100%;
+	height: 100%;
+	padding: 0.5em 0 0 0.5em;
+}
+
+*:focus {
+	outline: 1px dotted @sapUiHighlight;
+}
+
+/* END "SceneTree.less" */
+
+/* START "StepNavigation.less" */
+.sapVizKitStepNavigation {
+
+}
+
+.sapVizKitStepNavigationStepItem {
+	border: none;
+	padding: 0.1875em;
+}
+
+.sapVizKitStepNavigationStepItem.selected{
+	border: 0.1875em solid;
+	padding: 0;
+	border-color: @sapUiHighlight;
+}
+
+
+.sapVizKitStepNavigationStepItem:hover:not(.selected){
+	border: 0.1875em solid;
+	padding: 0;
+	border-color: @sapUiDarkBorder;
+}
+
+ .sapVizKitStepNavigationPopoverStepInfo {
+	width:"20%";
+	height:"15%";
+}
+
+ .sapVizKitStepNavigationPopoverContent {
+	padding: 1rem;
+}
+
+.sapVizKitStepNavigationPlayOptionsSelect {
+	width: 15em;
+}
+
+.sapVizKitStepNavigationProcedureList {
+    width: 30%;
+}
+/* END "StepNavigation.less" */
+
+/* START "FlexibleControl.less" */
+.sapUiFlexControl {
+	float: left;
+	position: relative;
+	display: block;
+	overflow: hidden;
+}
+
+.sapUiFlexCellStacked {
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	overflow: auto;
+}
+
+.sapUiFlexCellVertical {
+	display: block;
+	width: 100%;
+	position: static;
+	overflow: auto;
+}
+/* END "FlexibleControl.less" */
+
+/* START "CheckEye.less" */
+.sapUiCheckEye input[type="checkbox"] {
+	display: none;
+}
+
+.sapUiCheckEye input[type="checkbox"] + label:before {
+	content: "\e1ea";
+	font-family: "SAP-icons";
+	font-size: 1.5em;
+	color: @sapUiMediumBG;
+}
+
+.sapUiCheckEye input[type="checkbox"]:checked + label:before {
+	content: "\e1e9";
+	font-family: "SAP-icons";
+	font-size: 1.5em;
+	color: @sapUiDarkBG;
+}
+
+/* END "CheckEye.less" */

@@ -1,0 +1,18 @@
+.displayinformation {
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	box-flex:1;
+	margin-right: 1rem;
+	overflow: visible;
+}
+.displayinformation label {
+	padding-right: 1rem;
+}
+
+.displayinformation img {
+	margin-top: 6px;	
+}
+.debugModeText{
+	padding-right: 1.5rem;
+	color: #e22525;
+}

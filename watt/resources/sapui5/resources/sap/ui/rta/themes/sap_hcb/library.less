@@ -1,0 +1,107 @@
+/* NOTE: This file was generated as an optimized version of "library.source.less" for the Theme Designer. */
+
+/*!
+ * ${copyright}
+ */
+@import "../base/library.less";
+@import "../../../../../sap/ui/core/themes/sap_hcb/global.less";
+/* START "shared.less" */
+/* This CSS shares it rules with all other CSS of this library */
+
+/* END "shared.less" */
+
+/* START "ToolBar.less" */
+/******************************************************************
+	Style of the RTA ToolBar HCB Theme
+*******************************************************************/
+
+
+/****************** TOP TOOLBAR ***************************/
+.sapUiRTAToolBarTop .sapMBtnInner {
+	background-color: @sapHCStandardFG;
+}
+ 
+.sapUiRTAToolBarTop .sapMBtnTransparent.sapMBtnHoverable:hover {
+	background-color: @sapHCHighlightBG;
+	
+	>.sapMBtnContent{
+		color: @sapHCStandardFG;
+	}
+}
+
+/* END "ToolBar.less" */
+
+/* START "Overlay.less" */
+/******************************************************************
+	Style of the RTA Overlays - HCB Theme
+*******************************************************************/
+
+@sapUiRtaHoverBG : lighten(@sapHCHighlightBG, 15%);
+@sapUiRtaActiveBG : lighten(@sapHCHighlightAltBG, 15%);
+
+.sapUiRtaOverlayHover {
+	background: fade(@sapUiRtaHoverBG, 20%);
+	outline: 2px solid @sapUiRtaHoverBG;
+	outline-offset: -2px;
+	-webkit-transition: background 0.1s cubic-bezier(1,.01,1,0);
+	-moz-transition: background 0.1s cubic-bezier(1,.01,1,0);
+	-o-transition: background 0.1s cubic-bezier(1,.01,1,0);
+	transition: background 0.1s cubic-bezier(1,.01,1,0);
+}
+
+.sapUiDtOverlaySelected {
+	background: fade(@sapUiRtaActiveBG, 20%);
+	&.sapUiRtaOverlayHover {
+		background: fade(@sapUiRtaActiveBG, 30%);
+	}
+	outline: 2px solid @sapUiRtaActiveBG;
+	outline-offset: -2px;
+	&:focus {
+		outline-width: 2px;
+	}
+}
+
+.sapUiDtOverlayDroppable {
+	outline : none;
+
+	&:after {
+		content: " ";
+		pointer-events: none;
+		position: absolute;
+		top: 1px;
+		bottom: 1px;
+		left: 1px;
+		right: 1px;
+		border: none;
+		outline: 3px dotted @sapUiRtaActiveBG;
+		outline-offset: 3px;
+	}
+
+	>.sapUiDtOverlayDraggable {
+		background: fade(@sapUiRtaActiveBG, 20%);
+		border: 1px solid black;
+		outline: 2px solid @sapUiRtaActiveBG;
+		outline-offset: -3px;
+	}
+
+	.sapUiRtaOverlayPlaceholder {
+		background: black;
+		outline: none;
+		border: none;
+	}
+}
+.sapUiDtDragGhost {
+	background: fade(@sapUiRtaActiveBG, 60%);
+		outline: 2px solid @sapUiRtaActiveBG;
+		outline-offset: -2px;
+}
+.sapUiRtaEditLabel,
+.sapUiRtaEditTitle {
+	outline-color: @sapHCStandardFG;
+}
+
+:focus{
+	outline: 2px solid @sapUiRtaActiveBG;
+}
+/* END "Overlay.less" */
+

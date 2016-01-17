@@ -1,0 +1,25 @@
+{
+	"name" : "sap.watt.common.plugin.fioriodata.service.FioriOData",
+	
+	"description" : "This service is responsible for handling actions related to OData in Fiori applications",
+	
+	"methods" : {
+	
+		"getServiceUrl" : {
+		    "params" : [{"name" : "oProjectDocument", "type": "object"}],
+		    "returns" : "object"
+		},
+		
+		"addService" : {
+		    "params" : [
+		        {"name" : "sProjecturl", "type": "string"},
+		        {"name" : "sServiceName", "type": "string"},
+		        {"name" : "sServiceUri", "type": "string"},
+		        {"name" : "sServiceType", "type": "string"},
+		        {"name" : "oServiceSettings", "type": "object"},
+		        {"name" : "bOverwrite", "type": "boolean", "desciption" : "In case the service name already exist, should to overwrite it"}
+		        ],
+		    "returns" : "boolean"
+		}
+	}
+}

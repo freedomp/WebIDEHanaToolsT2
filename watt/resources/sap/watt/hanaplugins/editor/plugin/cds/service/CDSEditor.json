@@ -1,0 +1,13 @@
+{
+    "name": "sap.watt.hanaplugins.editor.plugin.cds.interface.CDSEditor",
+    "description": "cds editor interface",
+    "extends": [
+        "sap.watt.common.service.editor.Editor",
+        "sap.watt.common.service.editor.UndoRedo"
+    ],
+	"methods": {
+		"getModel": {
+			"description": "Provides the model object"
+		}
+	}
+}

@@ -1,0 +1,428 @@
+.cdsEditorView .sapUiLayoutAbsPos {
+	height: 100%;
+	width: 100%;
+}
+
+.cdsEditorView .sapUiUx3TPContent .sapUiTreeNode:hover {
+	background-color: #E6F2F9 !important
+}
+
+.cdsEditorView .sapUiTableSelModeSingle .sapUiTableRowHdr.sapUiTableRowSel,
+	.sapUiTableSelModeSingle .sapUiTableCtrl tr.sapUiTableRowSel {
+	background-color: #E6F2F9
+}
+
+.cdsEditorView .sapUiTableCtrl tr.sapUiTableRowHvr {
+	background: #F0F0F0;
+}
+
+.cdsEditorView .sapUiTableRowSel {
+	background-color: #E6F2F9!ismportant;
+}
+
+.cdsEditorView .sapUiTableSelModeMulti .sapUiTableCtrl tr.sapUiTableRowSel>td {
+	background-color: #E6F2F9 !important;
+}
+
+.cdsEditorMainVLayout {
+	height: 100% !important;
+	width: 100% !important;
+	background-color: rgb(242, 242, 242);
+}
+
+.cdsEditorMainVLayout>.sapuiVltCell:nth-of-type(1) {
+	height: 30px;
+	background: #EFEFEF;
+}
+
+.cdsEditorMainVLayout>.sapuiVltCell:nth-of-type(2) {
+	height: -moz-calc(100% - 30px);
+	height: calc(100% - 30px);
+	height: -webkit-calc(100% - 30px);
+	height: -o-calc(100% - 30px);
+}
+
+.cdsEditor {
+	height: 100% !important;
+	width: 100% !important;
+	background-color: rgb(242, 242, 242);
+}
+
+.cdsEditor>.sapuiVltCell:nth-of-type(1) {
+	height: 30px;
+	background: #EFEFEF;
+}
+
+.cdsEditor>.sapuiVltCell:nth-of-type(2) {
+	height: -moz-calc(100% - 30px);
+	height: calc(100% - 30px);
+	height: -webkit-calc(100% - 30px);
+	height: -o-calc(100% - 30px);
+}
+
+.cdsEditor>.sapuiVltCell:nth-of-type(2)>div {
+	border: 0 !important;
+}
+
+.editorMain {
+	width: 100%;
+	height: 100%;
+}
+
+.editorMain>.sapuiVltCell:nth-of-type(1) {
+	height: 100%;
+}
+
+.cdsEditorBreadcrumb {
+	padding: 4px;
+}
+
+.cdsEditorBreadcrumb a {
+	text-decoration: none;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.cdsEditorBreadcrumb a:hover {
+	text-decoration: none;
+}
+
+.cdsEditorBreadcrumb img {
+	padding-left: 5px;
+	padding-right: 2px;
+}
+
+.cdsEditorBreadcrumb label {
+	color: #00679e;
+	font-weight: bold;
+	padding-left: 2px;
+}
+
+.cdsEditorBreadcrumb button {
+	color: #00679e !important;
+	font-weight: bold;
+	padding-left: 2px;
+}
+
+.cdsEditorBreadcrumb .sapUiLnkDsbl {
+	color: #3B3A3A;
+	cursor: default !important;
+}
+
+.cdsDiagram, .cdsDiagram td {
+	height: 100%;
+}
+
+.cdsDiagram>td>div {
+	border: 0 !important;
+}
+
+.svgRoot {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+.backButton {
+	margin: 4px;
+}
+
+.secondPaneNavTitle {
+	display: inline-block;
+	overflow: hidden;
+	height: 100%;
+	background-image:
+		url(/sap/ui5/1/resources/sap/ui/core/themes/sap_bluecrystal/img/bg_white_transparent.png),
+		linear-gradient(to bottom, rgba(255, 255, 255, .9) 0,
+		rgba(255, 255, 255, .8) 100%);
+}
+/* .secondPaneNavTitle>.sapuiVltCell:nth-of-type(1) {
+	height: 25px;
+} */
+.secondPaneNavTitle>.sapuiVltCell:nth-of-type(2) {
+	height: 35px;
+}
+
+.secondPaneNavTitle>.sapuiVltCell:nth-of-type(3) {
+	background: white;
+	height: -moz-calc(100% - 60px);
+	height: calc(100% - 60px);
+	height: -webkit-calc(100% - 60px);
+	height: -o-calc(100% - 60px);
+}
+
+.secondPaneNav {
+	display: inline-block;
+	overflow: auto;
+	height: 100%;
+	background-image:
+		url(/sap/ui5/1/resources/sap/ui/core/themes/sap_bluecrystal/img/bg_white_transparent.png),
+		linear-gradient(to bottom, rgba(255, 255, 255, .9) 0,
+		rgba(255, 255, 255, .8) 100%);
+}
+
+.secondPaneNav>.sapuiVltCell:nth-of-type(1) {
+	height: 35px;
+}
+
+.secondPaneNav>.sapuiVltCell:nth-of-type(2) {
+	background: white;
+	height: -moz-calc(100% - 35px);
+	height: calc(100% - 35px);
+	height: -webkit-calc(100% - 35px);
+	height: -o-calc(100% - 35px);
+}
+
+.customSapUiUx3NavBar {
+	height: 100%;
+}
+
+.customSapUiUx3NavBar .sapUiUx3NavBarList {
+	height: 100%;
+}
+
+.customSapUiUx3NavBar .sapUiUx3NavBarList>li {
+	height: 100%;
+}
+
+.customSapUiUx3NavBar .sapUiUx3NavBarItemSel>a {
+	padding: 3px 9px 10px;
+	border-bottom: 4px solid rgba(58, 66, 168, 0);
+	border-color: #000000 transparent #007cc0;
+}
+
+.tabStripLabel {
+	font-size: 20px;
+	line-height: 30px;
+	margin-left: 8px;
+	font-family: 'Segoe UI', 'Helvetica Neue', arial, sans-serif;
+}
+
+/*
+ * BEGIN styles for EditorLayout control
+ */
+.editorLayoutNoFirstPane .editorLayoutCollapsedLeft {
+	display: none;
+}
+
+.editorLayoutNoSecondPane .editorLayoutCollapsedLeft {
+	display: none;
+}
+
+.editorLayoutButton {
+	width: 36px;
+	display: inline-block;
+	overflow: hidden;
+	border-style: solid;
+	border-width: 2px 2px 2px 2px;
+	border-color: #EFEFEF;
+	padding: 1em 0 1em 0;
+	margin: 0;
+	color: #666666;
+	background-color: #EFEFEF;
+	font-size: 0.875rem;
+}
+
+.editorLayoutButton .sapUiIcon {
+	margin-top: 4px;
+	font-size: 0.875rem;
+}
+
+.editorLayoutButtonPressed {
+	border-style: inset;
+	background-color: #ccc;
+}
+
+.editorLayoutButton:focus {
+	outline-color: #ccc;
+	outline-style: dotted;
+	outline-width: 1px;
+	outline-offset: 0;
+}
+
+.editorLayoutButton:hover {
+	background-color: rgb(232, 232, 232);
+}
+
+.editorLayoutButtonInner {
+	border-style: none;
+	display: inline-block;
+	white-space: nowrap;
+	line-height: 32px; /* align baseline of button text with label */
+	-o-transform: translate(0, 100%) rotate(-90deg);
+	-o-transform-origin: 0 0;
+	-webkit-transform: translate(0, 100%) rotate(-90deg);
+	-webkit-transform-origin: 0 0;
+	-moz-transform: translate(0, 100%) rotate(-90deg);
+	-moz-transform-origin: 0 0;
+	-ms-transform: translate(0, 100%) rotate(-90deg);
+	-ms-transform-origin: 0 0;
+	transform: translate(0, 100%) rotate(-90deg);
+	transform-origin: 0 0;
+}
+
+.editorLayoutButtonInner:before {
+	content: "";
+	float: left;
+	margin-top: 100%;
+}
+
+.editorLayoutLabel {
+	width: 36px;
+	display: inline-block;
+	overflow: hidden;
+	padding: 1em 0 1em 0;
+	margin: 0;
+	color: #666666;
+	background-color: #EFEFEF;
+	font-size: 0.875rem;
+}
+
+.editorLayoutLabelInner {
+	border-style: none;
+	display: inline-block;
+	white-space: nowrap;
+	line-height: 36px;
+	-o-transform: translate(0, 100%) rotate(-90deg);
+	-o-transform-origin: 0 0;
+	-webkit-transform: translate(0, 100%) rotate(-90deg);
+	-webkit-transform-origin: 0 0;
+	-moz-transform: translate(0, 100%) rotate(-90deg);
+	-moz-transform-origin: 0 0;
+	-ms-transform: translate(0, 100%) rotate(-90deg);
+	-ms-transform-origin: 0 0;
+	transform: translate(0, 100%) rotate(-90deg);
+	transform-origin: 0 0;
+}
+
+.editorLayoutLabelInner:before {
+	content: "";
+	float: left;
+	margin-top: 100%;
+}
+
+.editorLayoutCollapsedLeft {
+	width: 36px;
+	background-color: #EFEFEF;
+}
+
+.editorLayoutCollapsedRight {
+	width: 36px;
+	background-color: #EFEFEF;
+}
+
+.editorLayoutExpandButton {
+	height: 28px;
+	width: 36px;
+	display: inline-block;
+	overflow: hidden;
+	border-style: solid;
+	border-width: 2px 2px 2px 2px;
+	border-color: #EFEFEF;
+	color: #666666;
+	background-color: #EFEFEF;
+	font-size: 0.875rem;
+}
+
+.editorLayoutExpandButton:hover {
+	background-color: rgb(232, 232, 232);
+}
+
+/* prevent shrink of first pane height in case the content height of the second pane exceeds the splitter size 
+   see, http://stackoverflow.com/a/17139363 */
+.editorLayoutContent>.sapUiSplitter {
+	position: relative;
+}
+
+.editorLayoutContent>.sapUiSplitter>.sapUiVSplitterSecondPane {
+	position: absolute;
+}
+/*
+ * END styles for EditorLayout control
+ */
+
+/*
+ * BEGIN styles for Master-Detatils View
+ */
+.masterToolbarStyle {
+	background-color: #EFEFEF !important;
+	border: 1px solid rgb(193, 193, 193);
+	/*    border-top:1px solid rgb(193,193,193);*/
+	border-bottom: 0;
+}
+
+.masterDetailsMainDiv {
+	height: 100% !important;
+}
+
+.masterDetailsMainDiv>.sapuiVltCell:nth-of-type(1) {
+	height: 29px;
+}
+
+.masterDetailsMainDiv>.sapuiVltCell:nth-of-type(2) {
+	height: -moz-calc(100% - 29px);
+	height: calc(100% - 29px);
+	height: -webkit-calc(100% - 29px);
+	height: -o-calc(100% - 29px);
+}
+
+.masterDetailsSplitter {
+	height: 100% !important;
+}
+
+.masterDetailsSplitter>.sapUiVSplitterSecondPane {
+	overflow: hidden !important;
+}
+
+.detailsMainDiv {
+	height: 100% !important;
+	border: 1px solid #D5D5D5;
+}
+
+.detailsMainDiv>.sapuiVltCell:nth-of-type(1) {
+	height: 32px;
+	border-bottom: 1px solid #D5D5D5;
+}
+
+.detailsMainDiv>.sapuiVltCell:nth-of-type(2) {
+	height: -moz-calc(100% - 32px);
+	height: calc(100% - 32px);
+	height: -webkit-calc(100% - 32px);
+	height: -o-calc(100% - 32px);
+	overflow: auto;
+}
+
+.detailsHeaderStyle {
+	background-color: rgb(245, 247, 245);
+	border-bottom: 1px solid rgb(167, 189, 214);
+	text-transform: uppercase;
+	height: 31px;
+}
+
+.cardinalityDetails {
+	position: absolute;
+	z-index: 10;
+	background-color: white;
+	/*min-height:150px;
+    min-width:150px;*/
+	padding: 3px;
+	border: 1px solid #C0C0C0;
+	box-shadow: 2px 2px 5px #888888;
+	font-size: 12px;
+}
+
+.FullPathDetails {
+	position: absolute;
+	z-index: 10;
+	background-color: white;
+	/*min-height:150px;
+    min-width:150px;*/
+	padding: 3px;
+	border: 1px solid #C0C0C0;
+	box-shadow: 2px 2px 5px #888888;
+	font-size: 12px;
+	font-weight: bold;
+}
+/*
+ * END styles for Master-Detatils View
+ */

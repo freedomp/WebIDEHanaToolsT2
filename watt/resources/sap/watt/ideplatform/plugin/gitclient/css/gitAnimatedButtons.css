@@ -1,0 +1,162 @@
+.gitPaneWaitButton {
+	position: relative;
+	display: inline-block;
+	height: 5.5rem;
+	width: 4rem;
+}
+
+.gitPaneWaitButtonAnimCont {
+	position: absolute;
+	display: none;
+	left: 0.5rem;
+	height: 4rem;
+	width: 4rem;
+}
+
+.gitPaneWaitButtonAnim.gitPaneWaitButtonWait > .gitPaneWaitButtonAnimCont {
+	display: block;
+	animation: rotate 1s infinite;
+	-moz-animation: rotate 1s infinite;
+	-webkit-animation: rotate 1s infinite;
+	animation-timing-function: linear;
+	-moz-animation-timing-function: linear;
+	-webkit-animation-timing-function: linear;
+		
+}
+		
+.gitPaneWaitButtonAnimCont1,
+.gitPaneWaitButtonAnimCont2 {
+	position: absolute;
+	height: 2rem;
+	width: 2rem;
+	overflow: hidden;
+	transform-origin: 100% 100%;
+	-moz-transform-origin: 100% 100%; 
+	-webkit-transform-origin: 100% 100%;
+}
+	
+.gitPaneWaitButtonAnimCont2 {
+	transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+}
+		
+.gitPaneWaitButtonAnimCont1 > div,
+.gitPaneWaitButtonAnimCont2 > div {
+	background: white;
+	border-radius: 2rem;
+	height: 4rem;
+	width: 4rem;
+	margin: 3px;
+	background-color: #005B8D;
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+	}	
+	100% {
+		transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+	}
+}
+		
+@-webkit-keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+	}          
+	100% {
+		transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+	}
+}
+		
+		
+@-moz-keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+	}	
+	100% {
+		transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+	}
+}
+		
+		
+.gitPaneWaitButtonCircle {
+	position: absolute;
+	left: 1rem;
+	top: 0.5rem;
+	height: 3rem;
+	width: 3rem;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	background-color: #FFFFFF;
+	border-radius: 3rem;
+	border: 1px solid #69767f;
+	text-align: center;
+	cursor: pointer;
+}
+	
+.gitPaneWaitButtonWait > .gitPaneWaitButtonCircle {
+	cursor: wait;
+}
+
+.gitPaneWaitButtonDisabled {
+	color: rgba(105, 118, 127, 0.5);
+}
+
+.gitPaneWaitButtonCircle > span {
+	font-size: 1rem;
+	line-height: 3rem;
+	color: #69767f;
+}
+
+.gitPaneWaitButtonCircle > img {
+	height: 1rem;
+	width: 1rem;
+}
+		
+.gitPaneWaitButtonCircle:focus {
+	border-color: #005B8D;
+	color: #005B8D;
+	outline: none;
+}
+
+.gitPaneWaitButtonWait a>span {
+	color: #005B8D;
+}
+	
+.gitPaneWaitButtonActive > .gitPaneWaitButtonCircle:active {
+	background-color: #005B8D;
+}
+		
+.gitPaneWaitButtonActive > .gitPaneWaitButtonCircle:active > span {
+	color: #FFFFFF;
+}
+		
+.gitPaneWaitButtonTxt {
+	position: absolute;
+	top: 48px;
+	height: 2rem;
+	width: 4rem;
+	line-height: 1rem;
+	padding: 0.5rem 0.5rem 0 0.5rem;
+	font-size: 0.75rem;
+	text-align: center;
+	vertical-align: bottom;
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+	/* white-space: nowrap; */
+}

@@ -1,0 +1,17 @@
+{
+	"preloadCapable" : true,
+	
+	"includes": [
+		"../../platform/hcp/config.json",
+		"../config.json",
+		 "{orion_server}prefs/user/watt/config.json"
+	],
+
+	"plugins": [
+		"plugin/validationsDistributor",
+		"plugin/plugindevelopment",
+		"plugin/orionbackend"
+	],
+	
+	"required": true
+}

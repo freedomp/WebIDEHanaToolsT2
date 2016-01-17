@@ -1,0 +1,10 @@
+#
+Description=DevX DI
+Type=HTTP
+TrustAll=true
+Authentication=NoAuthentication
+Name=che
+CloudConnectorVersion=2
+ProxyType=Internet
+URL=http\://mo-610a10504.mo.sap.corp\:53030
+WebIDEEnabled=true

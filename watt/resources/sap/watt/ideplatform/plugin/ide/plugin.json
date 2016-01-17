@@ -1,0 +1,39 @@
+{
+	"name" : "sap.watt.ideplatform.ide",
+	"description" : "Common configurations for all IDEs (e.g. fiori, hana)",
+	"i18n" : "sap.watt.ideplatform.ide/i18n/i18n",
+	
+	"requires" : {
+		"services" : [
+			"userpreference",
+			"availablePlugins",
+			"projectsetting",
+			"languages"
+		]
+	},
+
+	"configures" : {
+		"services" : {
+			"userpreference:plugins" : [
+    	        {
+    				"id": "availablePlugins",
+    	            "group" : "{i18n>plugins_group}",
+    				"name" : "{i18n>available_plugins_name}",
+    				"title" : "{i18n>available_plugins_title}",
+    				"description" : "{i18n>available_plugins_desc}",
+    				"service": "@availablePlugins"
+    	        }
+	            ],
+			"projectsetting:plugins" : [
+			    {
+			        "id": "translationSettings",
+			        "name" : "Languages",
+			        "title" : "{i18n>ttl_languages}",
+			        "description" : "{i18n>txt_description}", 
+			        "service": "@languages",
+			        "projectTypes": ["sap.watt.uitools.ide.web"]
+			    }
+			]
+		}
+	}
+}

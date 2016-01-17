@@ -1,0 +1,1 @@
+define("tinymce/imagetoolsplugin/Canvas",[],function(){function c(w,h){return r(document.createElement('canvas'),w,h);}function g(a){return a.getContext("2d");}function r(a,w,h){a.width=w;a.height=h;return a;}return{create:c,resize:r,get2dContext:g};});

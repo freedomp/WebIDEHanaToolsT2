@@ -1,0 +1,144 @@
+.intellisence_panel
+{
+	background-color:  #f0f4f9;
+	height:100%;	
+}
+
+.intellisence_item_divider
+{
+	display: block; 
+	height: 1px;
+    border-color: rgb(255,255,255);        
+    margin:0px 10px 0px 16px;
+}
+
+.intellisence_title
+{
+	padding:6px 6px 1px 16px;	
+	width:100%;	
+	font-family: "Segoe UI Light", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+	font-size: 19px;
+	font-weight: lighter;	
+}
+
+.intellisence_panel .sapUiPanelWithPadding > .sapUiPanelCont
+{
+	padding-left:0px;
+}
+.intellisence_topic 
+{
+	color:#666;
+	font-size: 1.2rem;	/* UX team */
+	font-family: "Segoe UI Light", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+	padding:1px 6px 1px 16px;	
+	font-weight:100;
+}
+
+.intellisence_topic_detail
+{
+}
+
+.intellisence_api_active
+{
+	background-color: rgba(0, 91, 141, 0.125);
+	color: #000000;		/* UX team */	
+	padding:1px 6px 6px 6px;
+	white-space:pre-wrap;
+	margin-left:10px;
+}
+.intellisence_api_hint
+{
+	/*background-color: rgb(255,255,255);*/
+	color: #000000;		/* UX team */
+	font-size: 0.8rem;	/* UX team */
+	padding:6px 6px 6px 16px;
+	white-space:pre-wrap;
+}
+
+.intellisence_apiheader{
+	font-size: 0.75rem;	/* UX team */
+	font-weight:800;	
+	padding:6px 6px 6px 0px;
+	word-wrap:break-word;
+}
+
+.intellisence_apibody{	
+	font-size: 0.75rem;	/* UX team */
+}
+
+.intellisence_apibody pre{	
+	word-break: break-word;
+}
+.intellisence_apilink{
+	color:#004990;		/* UX team */
+	font-size: 0.75rem;	/* UX team */		
+}
+
+.intellisence_api_deactive
+{
+	/*background-color: rgb(255,255,255);*/
+	color: #000000;		/* UX team */
+	font-size: 0.8rem;	/* UX team */
+	padding:6px 6px 6px 16px;
+}
+
+.intellisence_api_panel .sapUiPanelHdr,.intellisence_api_panel .sapUiPanelHdrItem{
+	display:none;
+	height:0px;
+}
+
+.intellisence_api_panel .sapUiPanelHeightSet, .intellisence_api_panel .sapUiPanelCont {
+	top: 0px;
+	border: 0px;
+	background-color:transparent;
+}
+
+.active_item .translation_container{
+	
+}
+
+.deactive_item .translation_container{
+	
+}
+.translation_container  {
+	background-color: white;	
+	font-family: Arial, sans-serif;	/* UX team */
+	padding:1px 6px 1px 16px;	
+	font-weight:100;
+	font-size: 1rem;	/* UX team */	
+}
+.translation_container .translation_header {
+	color:#666;
+	font-size:.75rem;
+}
+.translation_container .translation_item {
+	color: #000000;		/* UX team */		
+	font-weight:800;
+	font-size:.75rem;
+}
+
+.intellisence_translation_active{
+	background-color: rgba(0, 91, 141, 0.125);
+	color: #000000;		/* UX team */	
+	padding:1px 6px 6px 6px;
+	white-space:pre-wrap;
+	margin-left:10px;
+	line-height:2em;
+}
+
+.intellisence_translation_deactive
+{
+	/*background-color: rgb(255,255,255);*/
+	color: #000000;		/* UX team */
+	font-size: 0.8rem;	/* UX team */
+	padding:6px 6px 6px 16px;
+}
+
+.translation_topic 
+{
+	color:#666;
+	font-size: 1.2rem;	/* UX team */
+	font-family: "Segoe UI Light", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+	padding:16px 6px 16px 16px;	
+	font-weight:100;
+}
